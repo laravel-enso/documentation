@@ -16,7 +16,10 @@ module.exports = {
     ],
     themeConfig: {
         repo: 'laravel-enso/documentation',
+        docsDir: "docs",
         lastUpdated: true,
+        editLinks: true,
+        editLinkText: 'Edit this page on Github',
         nav: [
             { text: "Guide", link: "/guide/" },
             { text: "Packages", link: "/packages/" },
