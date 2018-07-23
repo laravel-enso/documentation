@@ -34,7 +34,7 @@ If you want to import FA icons globally (not recommended) the place to include t
 `resources/assets/js/app.js`
 
 For menus, icons should be imported in:
-`assest/js/pages/layout/sidebar/icons/app.js`
+`assets/js/core/structure/sidebar/icons/app.js`
 
 For languages, flag icons should be imported in:
 `resources/assets/sass/app.scss`
