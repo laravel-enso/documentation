@@ -39,7 +39,7 @@ For menus, icons should be imported in:
 For languages, flag icons should be imported in:
 `resources/assets/sass/app.scss`
 
-(you may use `flags.scss` as a reference)
+(use `flags.scss` as a reference)
 
 ## Email templates
 By default, Enso comes with a few templates for the email notifications used out of the box.
