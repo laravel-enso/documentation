@@ -17,7 +17,7 @@ Comments Manager for [Laravel Enso](https://github.com/laravel-enso/Enso).
 
 The package offers a quick and easy flow for adding comments to any model.
 
-- gives the possibility to add, update, delete comments
+- gives the possibility to add, update and delete comments
 - has the option of tagging other users in the comments using `@` and the user name
 - users are notified via push [Notifications](https://github.com/laravel-enso/Notifications) when they are tagged
 - uses its own policies to ensure users edit comments only when they are allowed to do so
