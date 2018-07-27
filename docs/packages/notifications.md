@@ -13,7 +13,7 @@ Notifications functionality dependency for [Laravel Enso](https://github.com/lar
 
 ## Features
 
-- uses [Pusher](https://pusher.com/) and [Laravel's notification infrastructure](https://laravel.com/docs/5.4/broadcasting) to bring minimal-setup notification functionality
+- uses [Pusher](https://pusher.com/) and [Laravel's notification infrastructure](https://laravel.com/docs/5.5/broadcasting) to bring minimal-setup notification functionality
 - users can also be notified via email
 - allows the lazy loading of notifications
 - read and unread notifications are visually differentiated and can be manually/automatically marked as read, as well as cleared
