@@ -74,9 +74,7 @@ meaning it will report an error if there are missing sheets but also if there ar
 #### Available **complex validations** include:
 - `unique_in_column`, which requires a column to contain distinct values
 - `exists_in_sheet`, which requires values from this column to exist in another (sheet's) column, and may used like 
-    ```
-        exists_in_sheet:sheet2,matching_column
-    ```
+`exists_in_sheet:sheet2,matching_column`
 
 Please note that the import does not continue if *structure* errors are encountered, such as missing sheets or columns.
 If there are no structure errors, the `stopsOnIssues` flag is false and *content* errors are found, 
