@@ -27,6 +27,7 @@ Excel Importer dependency for [Laravel Enso](https://github.com/laravel-enso/Ens
 - each import type can be configured to halt the import when encountering cell value validation errors, or  
 - if choosing to continue the import w/ errors, you can opt to process just valid rows
 - invalid rows are reported back to the user, in the GUI
+- comes with a utility ExcelSeeder class, that can be used to seed your tables using data from excel files
 
 ## Installation steps
 
@@ -116,6 +117,15 @@ The `addContentIssue($sheetName, $category, $rowNumber, $column, $value)` method
   - a string value for the issue.
 
 You may use these methods to add any required issues for the data that fails your custom validation logic.
+
+## Excel Seeder
+When seeding your database, you may use regular seeders and fill your tables with random data (as configured) but when you have specific data, you may want to set the proper data from the beginning.
+
+Where there's more than one way to achieve this, the Excel Seeder class permits you to seed your table by using data provided in an excel file.
+
+The `ExcelSeeder` file extends the `Illuminate\Database\Seeder` and only requires a `type` parameter - the name of the excel file.
+
+The file needs to be stored in the `storage/app/files` folder and must have an `xlsx` extension.
 
 ## Publishes
 
