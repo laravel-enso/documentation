@@ -15,9 +15,9 @@ Server-side data builder for [Chart.js](http://www.chartjs.org), with 2 [Bulma](
 
 ## Features
 
-- it supports Bar, Bubble, Line, Pie, Doughnut, Polar Area and Radar charts
+- it supports Bar, Bubble, Line, Pie, Doughnut, Polar Area and Radar chart types
 - it creates properly formatted data structures, specific for each supported type of chart from a given data-set
-- the colors used are configurable through the publishable config file
+- the used colors are configurable through the publishable config file
 - comes with a `Chart.vue` VueJS component meant to be included anywhere
 - comes with a `ChartCard.vue` VueJS component meant to be used as card containing the chart
 
