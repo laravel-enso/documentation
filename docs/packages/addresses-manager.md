@@ -13,7 +13,7 @@ Free-form addresses manager for [Laravel Enso](https://github.com/laravel-enso/E
 
 ## Features
 
-- can be used to attach addresses to any entity, via using a polymorphic relationship
+- can be used to attach addresses to any entity, via a polymorphic relationship
 - allows saving of multiple addresses for an addresable entity
 - features and easy flow for setting the default address 
 - comes with an additional table for Countries, with all the countries pre-populated
@@ -22,8 +22,8 @@ Free-form addresses manager for [Laravel Enso](https://github.com/laravel-enso/E
 set custom validations via the Laravel syntax, as well as other options
 - comes with its own VueJS component `addresses` 
 - includes an `Addressable` trait, for defining relationships and attributes
-- the VueJS component as well, as the whole package is designed to be extendable, 
-so you could create a custom versions for specific countries 
+- the VueJS component as well as the whole package is designed to be extendable, 
+so you could create custom versions for specific countries
 
 ## Usage
 1. the configuration should be published, and inside you need to define the addresable types
