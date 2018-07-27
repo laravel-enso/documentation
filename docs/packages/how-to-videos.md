@@ -17,7 +17,7 @@ present a process flow, etc. This is a complementary package to [Tutorial Manage
  
  
  * easily upload media clips from your computer, setting a title and a description
- * simple to use tag manager
+ * simple-to-use tag manager
  * optionally add a caption/cover picture for each video
  * optionally tag the clips and then filter them using the tags 
  * permissions dependent controls, where regular users can only view the videos. 
