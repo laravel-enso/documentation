@@ -9,7 +9,7 @@ Create, update and delete authoring tracking dependency for [Laravel Enso](https
 
 ## Details
 
-- keeps track of the user that performed various actions on a record/model
+- keeps track of the user that performed various actions on a record / model
 - requires the presence of the proper model attributes / table columns
 - once the structure is set up, by using the proper trait, the information is added automatically
 
