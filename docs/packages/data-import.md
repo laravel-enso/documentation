@@ -97,7 +97,7 @@ When having successfully processed a row, you should use the `incSuccess()` meth
 The successful imported lines will be presented to the user, in the import summary.
 
 ## Inside the custom validator class
-There might be cases where it's not enough to use the Laravel Request Validation methods 43453453111. For more complex scenarios you can
+There might be cases where it's not enough to use the Laravel Request Validation methods. For more complex scenarios you can
 create a custom validator class and declare it your template.
  
 The validator class must extend the `LaravelEnso\DataImport\app\Classes\Validators\Validator` abstract class and implement
