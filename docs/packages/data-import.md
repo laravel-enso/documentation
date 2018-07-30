@@ -27,7 +27,7 @@ Excel Importer dependency for [Laravel Enso](https://github.com/laravel-enso/Ens
 - each import type can be configured to halt the import when encountering cell value validation errors, or  
 - if choosing to continue the import w/ errors, you can opt to process just valid rows
 - invalid rows are reported back to the user, in the GUI
-- comes with a utility ExcelSeeder class, that can be used to seed your tables using data from excel files
+- comes with an utility ExcelSeeder class, that can be used to seed your tables using data from excel files
 
 ## Installation steps
 
@@ -119,13 +119,28 @@ The `addContentIssue($sheetName, $category, $rowNumber, $column, $value)` method
 You may use these methods to add any required issues for the data that fails your custom validation logic.
 
 ## Excel Seeder
-When seeding your database, you may use regular seeders and fill your tables with random data (as configured) but when you have specific data, you may want to set the proper data from the beginning.
+When seeding your database, you may use regular seeders and fill your tables with random data (as configured) but when you have specific data, you may want to set the actual data from the beginning.
+While there's more than one way to achieve this, the Excel Seeder helper allows you to seed your table by using data provided in an excel file, through an import 
+- basically it's a seeder adapter for a regular data import.
 
-Where there's more than one way to achieve this, the Excel Seeder class permits you to seed your table by using data provided in an excel file.
+There are multiple advantages to this:
+- the data is present in an excel file, and can be added and updated by almost any person
+- even after initially seeding the database, since the import is going to remain available, additional files can be later imported for updates  
 
-The `ExcelSeeder` file extends the `Illuminate\Database\Seeder` and only requires a `type` parameter - the name of the excel file.
+#### Steps
+1. create a data import, following your usual
+2. create your excel seeder class, that will be using the import you added at step 1
+    * save it on the `database/seeds/` path
+    * note that your class must extend the `ExcelSeeder` class
+    * inside, add the `$type` parameter and use for value the type of the import created at the first step
+3. add the actual excel file containing the data to be used when seeding
+    * the file should be placed on the `storage/app/files` path
+    * the name of the file needs to be the type of the import, and and must have an `xlsx` extension
+    * since you're going to be committing the file to the repository, don't forget to add it to the `.gitignore` exclusion list
+4. run the seed process with `php artisan db:seed` 
+    * the seeder will run the import process & the data will be available in the database 
+    * you'll also be able to see the result of the import in the data imports index page
 
-The file needs to be stored in the `storage/app/files` folder and must have an `xlsx` extension.
 
 ## Publishes
 
