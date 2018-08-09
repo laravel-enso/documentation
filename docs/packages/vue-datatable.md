@@ -377,7 +377,7 @@ becomes disabled by default and is made avaible on-demand.
             "label": "Name",
             "data": "table.column",
             "name": "columnAlias",
-            "meta": ["searchable", "sortable", "translation", "boolean", "slot", "rogue", "editable", "total", "date","icon", "clickable", "tooltip"],
+            "meta": ["searchable", "sortable", "translation", "boolean", "slot", "rogue", "editable", "total", "customTotal", "date","icon", "clickable", "tooltip"],
             "enum": "EnumClass",
             "dateFormat": "d-m-Y",
             "tooltip": "My Tooltip Column Detail",
@@ -479,11 +479,12 @@ the type for a model/table.
     - `translation`, optional, marks this column's values as translatable. 
     The `i18n` parameter translation function should be given to the VueJS table component in order for this to work
     - `boolean`, optional, marks this column as boolean, which means it will be rendered as such
-    - `slot`, optional, renders a scoped slot for the named after the specified column, exposing as props `column` (object), `row` (array) and `loading` (boolean)
+    - `slot`, optional, renders a scoped slot named after the specified column, exposing as props `column` (object), `row` (array) and `loading` (boolean)
     - `rogue`, optional, marks this column as a rogue column. This marks the column as hidden for display, 
     while still being available and used for searching
     - `editable`, optional, marks this column as editable (N/A)
     - `total`, optional, if flagged, calculates a total for this column 
+    - `customTotal`, optional, renders a scoped slot named `${columnName}_custom_total` exposing as props `total` (array) and `column` (object)
     - `render`, optional, flags this column for custom rendering, allowing for unlimited customization
      of the data in this column. 
      The column name and the whole row data are available as function parameters, and the render function should return HTML
