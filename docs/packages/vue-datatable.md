@@ -484,7 +484,7 @@ the type for a model/table.
     while still being available and used for searching
     - `editable`, optional, marks this column as editable (N/A)
     - `total`, optional, if flagged, calculates a total for this column 
-    - `customTotal`, optional, renders a scoped slot named `${columnName}_custom_total` exposing as props `total` (array) and `column` (object)
+    - `customTotal`, optional, renders a scoped slot named `${columnName}_custom_total` exposing as props `total` (object) and `column` (object)
     - `render`, optional, flags this column for custom rendering, allowing for unlimited customization
      of the data in this column. 
      The column name and the whole row data are available as function parameters, and the render function should return HTML
