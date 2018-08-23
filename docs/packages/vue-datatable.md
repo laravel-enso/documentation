@@ -39,7 +39,7 @@ Build fast any complex table based on a JSON template.
 - server-side Excel exporting of the table data, using your current sorting and filtering choices, with email delivery and optional push notifications
 - reloading of data on demand
 - smart management of huge datasets, with configurable limit
-- posibility to define actions that apply to the entire, filtered, dataset
+- possibility to define actions that apply to the entire, filtered, dataset
 - Enso Enum computation
 - Laravel accessors for the main query model
 - the configuration template for each table has been designed to be as light and straightforward as possible without losing 
