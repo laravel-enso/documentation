@@ -44,29 +44,18 @@ Model properties:
 - `resizeImages`, array, if given, should contain the W-H values for resizing | default is []
 - `$optimizeImages`, boolean, if true, image optimization is performed | default is false
 
+The `FileUploadException`:
+- is thrown when the any of the validations fail (file, extension, mime type)
+
+For examples of using the FileManager package, take a look at any of the 
+[AvatarManager](https://github.com/laravel-enso/AvatarManager), 
+[DataImport](https://github.com/laravel-enso/DataImport),
+[DocumentsManager](https://github.com/laravel-enso/DocumentsManager) packages
+
 ### Front-End Component
 
-```vue
-<file-uploader
-    @upload-successful="myFunction()"
-    :url="uploadLink"
-    multiple>
-</file-uploader>
-```
-
-## Options
-
-- `multiple` - boolean flag for the single/multiple selection of files; default is false | optional
-- `url` - the url to post the uploaded file(s) to | required
-- `file-size-limit` - the maximum file size limit; default is 8388608 | optional
-- `params` - parameters object that gets passed to the backend, may be used when processing the upload | (optional)
-- `file-key` - string key that is used for the file(s) when doing the AJAX request to the back-end | default is 'file' | (optional)
-
-## Events
-
-- `upload-start` - emitted before the beginning of the upload, contains no payload
-- `upload-successful` - emitted after a successful upload, contains as payload the data of the request response
-- `upload-error` - emitted in case of an upload error, contains no payload
+The VueJS components have been extracted to the [VueComponents](https://github.com/laravel-enso/VueComponents) package, 
+you may check the documentation [here](https://docs.laravel-enso.com/packages/vue-components.html#fileuploader).
 
 ## Publishes
 
