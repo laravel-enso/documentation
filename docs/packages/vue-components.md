@@ -200,20 +200,31 @@ and it will get passed to the datatables BE logic.
 
 
 ### FileUploader
-Takes the following properties:
 
-- `multiple` - boolean, flag that allows single/multiple selection | default false | (optional)
-- `url` - string, the url to post to the selected files | (required)
-- `fileSizeLimit` - number, the max file size for the upload | default `8388608` | (optional)
-- `params` - object, params that get sent along with the files | default `null` | (optional)
-- `fileKey` - string, request key for the file(s) sent when uploading, 
-allowing for a more meaningful interpretation of the request in the backend | default `file` | (optional)
+```vue
+<file-uploader
+    @upload-successful="myFunction()"
+    :url="uploadLink"
+    multiple>
+</file-uploader>
+```
 
-Also, fires the following self explanatory events:
-- `upload-start`
-- `upload-successful`
-- `upload-error`
+#### Options
 
+- `multiple` - boolean, flag for the single/multiple selection of files | default is false | (optional)
+- `url` - string, the url to post the uploaded file(s) to | (required)
+- `file-size-limit` - number, the maximum file size limit | default is 8388608 | (optional)
+- `params` - object, parameters object that gets passed to the backend, may be used when processing the upload | default `null`  | (optional)
+- `file-key` - string, request key for the file(s) sent when uploading, 
+               allowing for a more meaningful interpretation of the request in the backend | default `file` | (optional)
+
+#### Events
+
+- `upload-start` - emitted before the beginning of the upload, contains no payload
+- `upload-successful` - emitted after a successful upload, contains as payload the data of the request response
+- `upload-error` - emitted in case of an upload error, contains no payload
+
+For more Back-End information also check out the [FileManager](https://github.com/laravel-enso/FileManager) package and its [documentation](https://docs.laravel-enso.com/packages/file-manager.html#features)
 
 ### NProgress
 On init, the component adds itself to the Axios `request` & `response` interceptors, as well as to the `beforeEach` & `afterEach` interceptors of VueRouter so it starts and stops without manual intervention.
