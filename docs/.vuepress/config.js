@@ -15,7 +15,7 @@ module.exports = {
         ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
     ],
     themeConfig: {
-        repo: 'laravel-enso/documentation',
+        repo: 'laravel-enso/enso',
         docsDir: "docs",
         lastUpdated: true,
         editLinks: true,
