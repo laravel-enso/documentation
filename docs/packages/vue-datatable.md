@@ -13,7 +13,7 @@ Data Table package with server-side processing and VueJS components.
 Build fast any complex table based on a JSON template.
 
 
-[![Watch the demo](https://laravel-enso.github.io/vuedatatable/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/vuedatatable/videos/bulma_demo_01.webm)
+[![Watch the demo](https://laravel-enso.github.io/vuedatatable/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/vuedatatable/videos/bulma_demo_01.mp4)
 
 <sup>click on the photo to view a short demo in compatible browsers</sup>
 
