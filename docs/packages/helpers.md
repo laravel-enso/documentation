@@ -15,11 +15,13 @@ Helper classes dependency for [Laravel Enso](https://github.com/laravel-enso/Ens
 ## Includes
 
 ### Classes
-- An `Obj` class, with a constructor for building an object from an array, that provides the following helper functions: all(), __toString(), toJson(), toArray(), get($key), set($key, $value), has($key), keys(), values()
-- An abstract `Enum` class with a constructor for building an enumeration out of an array or a config file 
-- An `MorphableConfigMapper` class, with helper methods when working with morphable models from the configuration
+
+- An abstract `Enum` class which can be used to build an enumeration out of an array or a config file and comes with a set of helper functions 
+- An `Obj` class, with a constructor for building an object from an array, that provides a suite of helper functions, such as: `all()`, `__toString()`, `toJson()`, `toArray()`, `get($key)`, `set($key, $value)`, `has($key)`, `keys()`, `values()` and more
+- A `MorphableConfigMapper` class, with helper methods when working with morphable models from the configuration
 
 #### Obj
+
 The constructor optionally takes an associate array that sets up the object, 
 using the array keys as properties and the array values as the property values.
 
@@ -39,6 +41,7 @@ Methods:
 - `count`, returns the number of the object's properties
 
 #### Enum
+
 Provides enumeration like capabilities and may be used in 2 modes:
 a) when given a static 'data' parameter, which should be an associative array
 b) when declaring constants on the class
@@ -60,6 +63,7 @@ Methods:
  and Enum key values are used as names
    
 #### MorphableConfigMapper
+
 The class should be extended and the 2 properties should be provided:
 - `configPrefix`, string, the prefix for the configuration file (relative path), for example, 'enso.contacts'
 - `morphableKey`, string, the configuration array key that contains the list of morphable classes, for example, 'contractables'  
@@ -75,6 +79,7 @@ The new class then provides the following methods:
 ### Traits
 
 #### IsActive 
+
 Adds the following methods for models that have a boolean `is_active` property:
 - `whereActive()` scope
 - `whereDisabled()` scope
