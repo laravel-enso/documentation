@@ -18,6 +18,7 @@ Notifications functionality dependency for [Laravel Enso](https://github.com/lar
 - allows the lazy loading of notifications
 - read and unread notifications are visually differentiated and can be manually/automatically marked as read, as well as cleared
 - polymorphic relationships are used, in order to be able to attach notifications to any entity
+- supports and uses Desktop Notifications if allowed by the user
 
 ## Installation Steps
 
@@ -31,6 +32,16 @@ PUSHER_APP_SECRET=
 ```
 
 Once set, these credentials are set during the application init phase.
+
+## Desktop Notifications
+
+On the first web application page load, the app will ask the user whether he wants to allow or block Desktop Notifications. 
+
+If enabled, Desktop Notifications are used for any and all notifications that are received when the application is open 
+in a tab but the tab is not visible, the web browser is minimized, etc. 
+If any notifications are received while the web application tab is active, Desktop Notifications will not be created - regular toaster notifications will be shown instead.  
+
+When clicking on a desktop notification, the browser will switch to the web application's tab.
 
 ## Notes
 
