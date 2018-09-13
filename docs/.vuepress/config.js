@@ -42,6 +42,7 @@ module.exports = {
                 collapsable: false,
                 children: [
                     'action-logger',
+                    'activity-log',
                     'addresses-manager',
                     'avatar-manager',
                     'charts',
@@ -77,4 +78,4 @@ module.exports = {
             }]
         }
     }
-}
+};
