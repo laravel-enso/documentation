@@ -45,6 +45,7 @@ Build fast any complex table based on a JSON template.
 - the configuration template for each table has been designed to be as light and straightforward as possible without losing 
 out on features
 - thorough validation of the JSON template with developer friendly messages, in order to avoid misconfiguration issues
+- Eloquent query friendly with the possibility to easily display nested models attribute values
 - can be used independently of the Enso ecosystem
 
 
@@ -463,7 +464,7 @@ Each configuration object may have the following attributes:
 - `label`, required, string, the column name used in the table header. This will be translated if a translation function 
 is available. 
 - `data`, required, string, the table + column wherefrom data gets pulled, in the query. For example 'users.email'
-- `name`, required, string, the alias for that column's data, given in the select query
+- `name`, required, string, the alias for that column's data, given in the select query. Alternatively you may also use here nested properties - see the notes below for more info
 - `enum`, optional, string, the class name of the enumeration used to transform/map the values of that column/attribute. 
 For example, you may use this mechanism to show labels instead of integer values, for an attribute that holds 
 the type for a model/table.
@@ -496,6 +497,49 @@ the type for a model/table.
 Since this is achieved via the accounting.js library, you should take a look at its documentation 
 [here](http://openexchangerates.github.io/accounting.js/#documentation)  
  
+#### The name attribute and nested properties
+
+Since the 1.5.7 package version, it has become possible to use nested models properties for the `name` attribute. For example,
+ for the [users table template](https://github.com/laravel-enso/Enso/blob/master/app/Tables/Templates/users.json), 
+ you could update the entity section to:
+ 
+```json
+    {
+        "label": "Entity",
+        "name": "owner.name",
+        "data": "",
+        "meta": []    
+    }
+```
+    
+  and in the [table builder class](https://github.com/laravel-enso/Enso/blob/master/app/Tables/Builders/UserTable.php) update the select query to:
+  
+```php
+    return User::select(\DB::raw(
+            'users.id, users.id as "dtRowId",
+            owner_id,
+            avatars.id as avatarId,
+            users.first_name, users.last_name, users.phone, users.email, roles.name as role,
+            users.is_active'
+        ))
+        //->join('owners', 'users.owner_id', '=', 'owners.id')
+        ->join('roles', 'users.role_id', '=', 'roles.id')
+        ->leftJoin('avatars', 'users.id', '=', 'avatars.user_id')
+        ->with('owner');
+```
+    
+You may notice a few things here:
+- the `name` attribute value is the nested model name + property
+- a `data` value is no longer required, because
+- the `meta` attribute value's list can no longer contain "searchable", "sortable". If you do give these options, 
+the template validator will let you know that you should remove them
+- in order for the relationship to work, make sure the select includes any required foreign keys i.e. 
+if you'd leave out `owner_id`, the value of the returned owner attribute would be null
+- also, don't forget to load the relationship, using the query builder's 'with' method 
+- this feature makes sense for 1-1 model relationships, not so much for 1-n relationships
+- note that all the nested model's properties will be present in the returned data and depending you your situation, 
+this might be inefficient
+- if you require searching and sorting, build the required query with joins and specify the value for the `data` attribute
 
 ### The VueJS Component
 
