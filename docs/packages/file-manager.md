@@ -7,22 +7,48 @@
 
 File manager dependency for [Laravel Enso](https://github.com/laravel-enso/Enso).
 
+
+[![Watch the demo](https://laravel-enso.github.io/filemanager/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/filemanager/videos/bulma_filemanager_01.webm)
+
+
+<sup>click on the photo to view a short demo in compatible browsers</sup>
+
 ## Features
 
-- can upload, download, open inline or delete files
-- validates the file, the extension and the mime type
-- handles the optimization and resize for the supported image files  
+- provides a generic approach when working with files through using a `File` model
+- package comes with a `HasFile` trait that can be added to models who work with files
+- has utility classes for the upload, download, inline-opening and deletion of files
+- on upload, performs validation of the file and checks the extension and the mime type
+- handles the optimization and resize for the supported image file types  
 - for upload and deletion, the changes are committed only if the filesystem operation was successful
-- works with a VueJS component that handles the selection of files and POSTs them to the specified route
+- works with a `FileUploader` VueJS component that handles the selection of files and POSTs them to the specified route
+- uses a policy to restrict access/changes to files that don't belong to the respective user
+- provides a unified interface where you can view all the files you are working with, that you have access to, as well as search and filter them
+- the types of files that are visible in the interfaces are configurable
 
 ## Use
+
+Out of the box, Laravel Enso already uses the file manager as required. For example, 
+the [AvatarManager](https://github.com/laravel-enso/AvatarManager), [DataImport](https://github.com/laravel-enso/DataImport) and  
+[DocumentsManager](https://github.com/laravel-enso/DocumentsManager) all use and depend on the common File Manager functionality.
+
+To use any of the three packages above, you don't need to do any extra work under the hood. 
+
+Until now, you could not see all your files in one place or find out how much space they occupied, 
+as you could have had files uploaded through the documents manager, attached to various models in different places in the app,
+import files resulted out of your import operations and more.
+  
+You can now use the files menu to review, download search through and even delete them.
+
+When adding or extending the file operations functionality it is strongly recommended that you use the `File` model as well as the 
+accompanying traits and classes - see more bellow.  
 
 ### Back-End Components
 
 The `File` model:
 - holds some low-level properties pertaining to the file
 - uses a polymorphic relationship to link to any other model
-- an separate model instance is used for each file
+- a separate model instance is used for each file
 - should not be used directly but through its chaperone model
 
 The `Attachable` interface:
@@ -47,10 +73,14 @@ Model properties:
 The `FileUploadException`:
 - is thrown when the any of the validations fail (file, extension, mime type)
 
+The Configuration:
+- within the `visible` key, contains a list of models that should be visible in the Files menu. 
+The key will be used for the tab name while the fully qualified class name value is used to populated the list of files in the interface. 
+
 For examples of using the FileManager package, take a look at any of the 
 [AvatarManager](https://github.com/laravel-enso/AvatarManager), 
 [DataImport](https://github.com/laravel-enso/DataImport),
-[DocumentsManager](https://github.com/laravel-enso/DocumentsManager) packages
+[DocumentsManager](https://github.com/laravel-enso/DocumentsManager) packages.
 
 ### Front-End Component
 
@@ -59,13 +89,16 @@ you may check the documentation [here](https://docs.laravel-enso.com/packages/vu
 
 ## Publishes
 
-- `php artisan vendor:publish --tag=vue-components` - the VueJS uploader component
-- `php artisan vendor:publish --tag=enso-update` - a common alias for when wanting to update the VueJS component,
+- `php artisan vendor:publish --tag=filemanager-assets` - the JS asset files
+- `php artisan vendor:publish --tag=enso-assets` - a common alias for when wanting to update the JS assets,
 once a newer version is released
+- `php artisan vendor:publish --tag=enso-config` - a common alias for when wanting to update the configuration files,
+once a newer version is released
+- `php artisan vendor:publish --tag=filemanager-config` - publishes the file manager configuration file
 
 ## Notes
 
 The [Laravel Enso Core](https://github.com/laravel-enso/Core) package comes with this package included.
 
 Depends on:
- - [VueComponents](https://github.com/laravel-enso/VueComponents) for the accompanying VueJS component
+ - [VueComponents](https://github.com/laravel-enso/VueComponents) for the accompanying VueJS components
