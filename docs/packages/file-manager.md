@@ -8,7 +8,7 @@
 File manager dependency for [Laravel Enso](https://github.com/laravel-enso/Enso).
 
 
-[![Watch the demo](https://laravel-enso.github.io/filemanager/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/filemanager/videos/bulma_filemanager_01.webm)
+[![Watch the demo](https://laravel-enso.github.io/filemanager/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/filemanager/videos/bulma_filemanager.mp4)
 
 
 <sup>click on the photo to view a short demo in compatible browsers</sup>
