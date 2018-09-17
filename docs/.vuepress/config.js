@@ -51,6 +51,7 @@ module.exports = {
                     'contacts',
                     'core',
                     'data-import',
+                    'discussions',
                     'documents-manager',
                     'file-manager',
                     'form-builder',
