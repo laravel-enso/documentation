@@ -9,6 +9,11 @@
 
 Discussions for [Laravel Enso](https://github.com/laravel-enso/Enso).
 
+[![Watch the demo](https://laravel-enso.github.io/discussions/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/discussions/videos/bulma_discussions.mp4)
+
+
+<sup>click on the photo to view a short demo in compatible browsers</sup>
+
 ### Features
 
 - discussions are grouped around topics
