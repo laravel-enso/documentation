@@ -18,14 +18,14 @@ Discussions for [Laravel Enso](https://github.com/laravel-enso/Enso).
 
 - discussions are grouped around topics
 - users can tag other users in their posts
-- the tagged users receive notifications
+- the tagged users receive notifications (WIP)
 - users can show their appreciation for topics that they like with 'claps'
-- powerful what-you-see-is-what-you-get text editor
+- powerful what-you-see-is-what-you-get text editor, based on the excellent [Quill](https://quilljs.com/) library
 - within Enso, the Discussions module is integrated with the activity log
 - can be attached to any other model, via using a polymorphic relationship
 - a `Discussible` trait is available, in order to make it easy to add discussions to a model 
 - changes to the discussions and posts are enforced through policies, where changes can be made by the original poster or an administrator
-- uses its own suite of specialized bulma styled VueJS components for smooth integration with the rest of the application  
+- uses its own suite of specialized Bulma styled VueJS components for smooth integration with the rest of the application  
 
 ### Publishes
 
@@ -34,9 +34,8 @@ Discussions for [Laravel Enso](https://github.com/laravel-enso/Enso).
 - `php artisan vendor:publish --tag=enso-assets` - a common alias for when wanting to update the assets,
 once a newer version is released, can be used with the `--force` flag
 
-### Configuration & Usage
-
-Be sure to check out the full documentation for this package available at [docs.laravel-enso.com](https://docs.laravel-enso.com/packages/discussions.html)
+Depends on:
+ - [Quill](https://quilljs.com/) for the wysiwyg editor
 
 
 ### Contributions
