@@ -88,7 +88,7 @@ Format: `pivotParams: { 'table': {'attribute':value} }` | default `null` | (opti
     Note that the value may also be an array, in which case, unde the hood, a `where in` type of query will be used. 
 
 - `customParams` - object, can be anything. 
-Using customParams implies that you rewrite the 'options' method from the OptionBuilder Trait. | (optional)
+Using customParams implies that you provide a 'query' method inside the controller, so you can make use of the custom object  provided in the request. | (optional)
 - `placeholder` - custom placeholder when no option is selected | default 'Please choose' | (optional)
 - `labels` - object, the labels used inside the component | default `{ selected: 'selected', select: 'select', deselect: 'deselect', noOptions: 'No options available', noResult: 'No search results found' }` | (optional)
 - `debounce` - number, the number of miliseconds to use when debouncing the search on type | default `300` ms | (optional)
@@ -106,7 +106,7 @@ the regular `VueSelect` options are available
 
 - `$queryAttributes`, array with the list of attributes we're searching in, when getting the select options | default `['name']` | (optional)
 - `$model`, string, the fully qualified namespace of the class that we're querying on, in order to get the select options | default `null` | required
-- `query()`, a method the will return the query builder that we're using when querying for options | default `null` | (optional)
+- `query()`, a method which will return the query builder that we're using when querying for options | default `null` | (optional)
 
 Note: If a query method is provided, it's going to be used, if it's not given, a query will be constructed, using the given class and other values.
 
