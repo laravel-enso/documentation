@@ -325,6 +325,7 @@ The Form builder can be globally configured from within its own configuration fi
             'label' => 'Delete',
         ],
     ],
+    'dateFormat' => 'Y-m-d',
     'authorize' => true,
     'dividerTitlePlacement' => 'center',
 ```
@@ -341,6 +342,7 @@ which is always enabled
     
 - `buttons`, array, enables the customization of various options for the buttons used in the forms, such as labels, 
     colors, events and more
+- `dateFormat`, string, sets the default date format for `datepicker` fields. Note that for this fields and instance of `Carbon` is expected
 - `authorize`, boolean, flag that enables the integration with the laravel-enso authorization, 
     meaning that certain user actions are not available if the user doesn't have access on the corresponding routes      
 - `dividerTitlePlacement`, string, values may be 'left', 'center', 'right'. Affectes the placement of sections' divider text,
