@@ -20,6 +20,8 @@ meant to make the update easier.
 You can see the list of currently available commands by running `php artisan enso` 
 and remember to always consult the changelog.
 
+Note that, if not specified. Just running `compose update` & recompiling (`yarn dev`/`prod`) is all you need to do.
+
 ## Localisation
 If you want to add a new language, there are a few steps involved, so please check out 
 the [relevant section](https://github.com/laravel-enso/Localisation#contributing-a-new-language) of 
