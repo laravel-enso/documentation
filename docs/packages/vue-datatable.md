@@ -378,7 +378,7 @@ becomes disabled by default and is made avaible on-demand.
             "label": "Name",
             "data": "table.column",
             "name": "columnAlias",
-            "meta": ["searchable", "sortable", "translation", "boolean", "slot", "rogue", "editable", "total", "customTotal", "date","icon", "clickable", "tooltip"],
+            "meta": ["searchable", "sortable", "translation", "boolean", "slot", "rogue", "editable", "total", "customTotal", "date","icon", "clickable", "tooltip", "notExportable"],
             "enum": "EnumClass",
             "dateFormat": "d-m-Y",
             "tooltip": "My Tooltip Column Detail",
@@ -490,9 +490,10 @@ the type for a model/table.
      of the data in this column. 
      The column name and the whole row data are available as function parameters, and the render function should return HTML
     - `date`, optional, marks the data of the column as dates, 
-    - `icon`, optional, if given, it renders a Font Awesome 5 icon as contents, using the 'column.icon' as the icon's class    
+    - `icon`, optional, if given, it renders a Font Awesome 5 icon as contents, using the 'column.icon' as the icon's class   
     - `clickable`, optional, flags the column as clickable, which means it makes it - you guessed it - clickable. 
     When clicked, it emits the `clicked` event, with the column & row as event payload
+    - `notExportable`, optional, flags the column to be skipped on exports
 - `money`, optional, object, is the configuration object used for formatting numbers as money values. 
 Since this is achieved via the accounting.js library, you should take a look at its documentation 
 [here](http://openexchangerates.github.io/accounting.js/#documentation)  
