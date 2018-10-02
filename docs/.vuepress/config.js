@@ -67,6 +67,7 @@ module.exports = {
                     'permission-manager',
                     'rememberable',
                     'role-manager',
+                    'searchable',
                     'select',
                     'structure-manager',
                     'test-helper',
