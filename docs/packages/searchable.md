@@ -17,7 +17,7 @@ Task management dependency for [Laravel](https://laravel.com).
 - can search for any configured model
 - various actions are contextually available for each result, also depending on permissions
 - the icons used for the actions are customizable
-- the number is limited (by default at 10 results) to avoid too many DB hits
+- the number is limited (by default at 10 results per model) to avoid too many DB hits
 - any model may be added to the searchable list
 - per-model customizations are available, such as attributes to search and the label to use 
 
@@ -35,11 +35,11 @@ at `config/searchable.php`
 The following parameters are available:
 *  `defaultLabel` - the default label attribute to be used for all models, 
 unless overwritten on the model specific configuration (see below)
-* `routes` - customizes the icons used for the routes 
+* `routes` - customizes the icons used for the routes (remember to also have the icons available/imported)
     - `show`, default is `eye` 
     - `edit`, default is `pencil-alt`
     - `index`, default is `list-ul`
-* `limit` - the max limit of results. Keep in mind that more results may be available, so if looking for a specific result, 
+* `limit` - the max limit of results per model. Keep in mind that more results may be available, so if looking for a specific result, 
  be more specific when searching
 * `models` - the list of models and their configurations that are searchable by the package
 
@@ -53,16 +53,18 @@ User::class => [
     'attributes' => ['first_name', 'last_name', 'email'],
     'label' => 'fullName',
     'permissionGroup' => 'administration.users',
+    'scopes' => ['active'],
 ],
 ```
 
-* `group` - string, the name of the group this model belongs to, used to group the results. If not given, the class base name is used | (optional)
+* `group` - string, the name of the group this model belongs to, used to group the results. If not given, the class spaced base name is used, e.g. "User", "Permission Group" | (optional)
 * `attributes` - array, the list of model attributes that we want to look at when searching | required
 * `label` - string, the model attribute we want to use as representation of the model, optional. If given, this configuration option
-overrides the global default `defaultLabel` option. Note that a computed attribute can be given as well.
+overrides the global default `defaultLabel` option. Note that a computed attribute can be given as well | (optional)
 * `permissionGroup` - string, the name of the permission group to use when displaying action options for this model's results | required
 * `permissions` - array, the list of permissions to be used for this model's results action options. 
-If not given, actions are displayed  (based on permissions) for `index`, `show` and `edit`. | (optional)
+If not given, actions are displayed  (based on permissions) for `index`, `show` and `edit` | (optional)
+* `scopes` - array, the list of scopes to be used when querying the model | (optional) 
 
 ### Vue Components
 
