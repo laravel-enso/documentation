@@ -70,6 +70,7 @@ module.exports = {
                     'searchable',
                     'select',
                     'structure-manager',
+                    'teams',
                     'test-helper',
                     'track-who',
                     'tutorial-manager',
