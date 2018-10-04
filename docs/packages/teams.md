@@ -19,10 +19,6 @@ Team management dependency for [Laravel Enso](https://github.com/laravel-enso/En
 * search through teams as required
 * the Team model has its activity tracked (integration with [ActivityLog](https://github.com/laravel-enso/ActivityLog))
 
-### Configuration & Usage
-
-Be sure to check out the full documentation for this package available at [docs.laravel-enso.com](https://docs.laravel-enso.com/packages/teams.html)
-
 ### Publishes
 
 - `php artisan vendor:publish --tag=teams-assets` - the package JS assets
