@@ -25,6 +25,8 @@ or even other entities, such as people (e.g. clients)
 - a placeholder types enum in included in the package that is meant to be extended as/if required
 - all `Company` attributes are fillable
 - the `uid` Person attribute is meant as generic holder for a person's unique identifier which varies from situation to situation (e.g. SSN)
+- note that the `onDelete` [DocumentsManager](https://github.com/laravel-enso/DocumentsManager) configuration option will affect
+what happens to the linked documents when you attempt to delete a company. 
 
 ## Installation Steps
 
@@ -45,7 +47,11 @@ The [Laravel Enso](https://github.com/laravel-enso/Enso) package comes with this
 
 Depends on:
  - [ActivityLog](https://github.com/laravel-enso/activitylog) for logging operations on Documents
+ - [AddressesManager](https://github.com/laravel-enso/AddressesManager) for attached addresses
+ - [Contacts](https://github.com/laravel-enso/Contacts) for attached contacts
  - [Core](https://github.com/laravel-enso/Core) for middleware and user model
+ - [Discussions](https://github.com/laravel-enso/Discussions) for attached discussions
+ - [DocumentsManager](https://github.com/laravel-enso/DocumentsManager) for middleware and user model
  - [FormBuilder](https://github.com/laravel-enso/FormBuilder) for handling the form related operations
  - [Helpers](https://github.com/laravel-enso/Helpers) for the various helper classes
  - [Structure manager](https://github.com/laravel-enso/StructureManager) for the migrations
