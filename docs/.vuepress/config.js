@@ -64,6 +64,7 @@ module.exports = {
                     'log-manager',
                     'menu-manager',
                     'notifications',
+                    'people',
                     'permission-manager',
                     'rememberable',
                     'role-manager',
