@@ -12,7 +12,7 @@ Contacts dependency for [Laravel Enso](https://github.com/laravel-enso/Enso).
 
 ## Features
 
-- allows the management of contact persons, attached to other entities, such as owners
+- allows the management of contact persons, attached to other entities, such as companies
 - uses a polymorphic relationship for flexibility when attaching
 - contacts can be disabled while still keeping them, for reference
 - comes with a `Contacts.vue` VueJS component meant to be included anywhere, and an index page to list all contacts

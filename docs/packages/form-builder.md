@@ -203,8 +203,8 @@ outside of the scope of this documentation.
 You may even use the available fluent methods to override (if necessary) default values provided in the template. 
 
 ```php
-$form = (new Form(app_path('Forms/owner.json')))
-            ->title('Create a new Owner')
+$form = (new Form(app_path('Forms/Templates/userGroup.json')))
+            ->title('Create a new User Group')
             ->options('role_list', Role::pluck('name', 'id'))
             ->create(); 
             
@@ -212,12 +212,12 @@ return compact('form');
 ```
 
 ```php
-$owner = Owner::find($ownerId);
+$userGroup = UserGroup::find($userGroupId);
 
-$form = (new Form(app_path('Forms/owner.json')))
-            ->title('Owner Edit')
+$form = (new Form(app_path('Forms/Templates/userGroup.json')))
+            ->title('UserGroup Edit')
             ->options('role_list', Role::pluck('name', 'id'))
-            ->edit($owner); 
+            ->edit($userGroup); 
             
 return compact('form');
 ```
@@ -244,9 +244,9 @@ For the server-side variant
 
 The main `VueForm.vue` component takes the following parameters:
 - `data`, object, represents the configuration used to render the form and its elements | required
-- `params`, object, can be used to send additionnal parameters with the form request | default `null` | (optional)
+- `params`, object, can be used to send additional parameters with the form request | default `null` | (optional)
 - `i18n`, function, a translation/internationalization function, that can be used when if using the component outside 
-of the Enso ecosistem. By default, it attempts to use the Enso `__` translation function if available
+of the Enso ecosystem. By default, it attempts to use the Enso `__` translation function if available
 - `locale`, string, the locale to be used by the various sub-components  | default `en` | (optional)
 
 Note: when sending extra parameters, on the back-end they can be accessed in the request's `_params` attribute.  
