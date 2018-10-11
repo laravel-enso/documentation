@@ -48,6 +48,7 @@ module.exports = {
                     'charts',
                     'cnp-validator',
                     'comments-manager',
+                    'companies',
                     'contacts',
                     'core',
                     'data-import',
