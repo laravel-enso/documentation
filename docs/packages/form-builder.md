@@ -24,9 +24,9 @@ JSON-based Form builder for [Laravel Enso](https://github.com/laravel-enso/Enso)
 even on the same row 
 - uses it's own VueJS components, such as `vue-select` and `datepicker` for an improved experience
 - `VueFormSs.vue` a server-side form wrapper is available that can be used to fetch the form configuration 
-- for most forms, the json template is all that it's needed
+- for most forms, the builder & the json template is all that's needed
 - provides helpful error messages when the template is missing parameters or unexpected values are found
-- when needed, allows the customization of form components in order to cover all scenarios
+- when required, allows the customization of form components in order to cover all scenarios
 - comes with a `template.json` file that can be used as an example when starting out
 - integrates with the [Laravel Request Validation](https://laravel.com/docs/5.6/validation#available-validation-rules) for seamless usage and reusability
 - uses the Enso toast notifications for stylish feedback on the various actions
@@ -38,7 +38,7 @@ even on the same row
 
 - a template file is needed in order to generate the form data structure object
 - the `Form` object has to be used in the back-end (controller) to parse the template, 
-get additional parameters if needed, and build the structure
+get additional parameters if required, and build the structure
 - although in most common scenarios you can give all the required configuration in the template file, 
 the `Form` class has fluent helper functions for setting/overriding most attributes
 - a `VueForm` component needs to be included in the view/page/parent component, 
@@ -54,6 +54,7 @@ No extra installation steps are required, as this package is already included in
 
 When using the form builder functionality, you will be needing several items:
 - the JSON template that configures the form's layout, inputs, actions, etc.
+- a basic Form builder class (which can also contain complex logic for complex scenarios)
 - usually, an endpoint that reads the configuration and returns a properly formatted form configuration
 - the `vue-from` VueJS components inside your page/app that renders the form based on the configuration
 - one or more endpoints for your form's actions, such as storing, updating, deleting.
@@ -134,7 +135,7 @@ Below is an example of such a template:
                         "type": "input",
                         "content": "text",
                         "disabled": false,
-                        "placeholder": "Street is manadatory",
+                        "placeholder": "Street is manadatory"
                     }
                 }, 
                 {
@@ -162,8 +163,7 @@ Below is an example of such a template:
                         "custom": false,
                         "type": "input",
                         "content": "text",
-                        "disabled": false,
-                        "disabled": "Any comments go here",
+                        "disabled": false
                     }
                 },
                 {
@@ -199,41 +199,72 @@ When using the money input type, you should read the
 outside of the scope of this documentation. 
 :::
 
-2. Create and setup in your controller method the `Form` object, and return the resulting data. 
+2. Create a Form builder class. 
+
+```php
+class UserGroupForm
+{
+    private const TemplatePath = __DIR__.'/../Templates/userGroup.json';
+    private $form;
+
+    public function __construct()
+    {
+        $this->form = (new Form(self::TemplatePath));
+    }
+
+    public function create()
+    {
+        return $this->form->create();
+    }
+
+    public function edit(UserGroup $userGroup)
+    {
+        return $this->form
+            ->value('roleList', $userGroup->roleList())
+            ->edit($userGroup);
+    }
+}
+```
+
+This class will handle the logic for creating the form configuration out of your template.
+If any extra logic is required to fill or process the form, in addition to the template, this is the place for it.
+
+In the example above, you can see that for the 'roleList' form attribute we're setting the value by using a helper method 
+on the model.
+
 You may even use the available fluent methods to override (if necessary) default values provided in the template. 
 
+3. In your controller methods return the resulting data from the `Form` builder. 
+ 
 ```php
-$form = (new Form(app_path('Forms/Templates/userGroup.json')))
-            ->title('Create a new User Group')
-            ->options('role_list', Role::pluck('name', 'id'))
-            ->create(); 
-            
-return compact('form');
+public function create(UserGroupForm $form)
+{
+    return ['form' => $form->create()];
+}
 ```
 
 ```php
-$userGroup = UserGroup::find($userGroupId);
-
-$form = (new Form(app_path('Forms/Templates/userGroup.json')))
-            ->title('UserGroup Edit')
-            ->options('role_list', Role::pluck('name', 'id'))
-            ->edit($userGroup); 
-            
-return compact('form');
+public function edit(UserGroup $userGroup, UserGroupForm $form)
+{
+    return ['form' => $form->edit($userGroup)];
+}
 ```
+
+In the above examples, we're using injection to create an instance of our Form builder class (UserGroupForm), 
+equivalent to instantiating it using `new` inside the methods. 
 
 3. Add inside your page/component
 
 For the regular form
 ```vue
-<vue-form class="box"
+<vue-form class="box has-background-light"
     :data="form">
 </vue-form>
 ```
 
 For the server-side variant
 ```vue
-<vue-form-ss class="box animated fadeIn"
+<vue-form-ss class="box has-background-light raises-on-hover animated fadeIn"
     :route-params="[$route.name, $route.params.id, false]"
     :params="params"
     ref="form">
@@ -253,11 +284,12 @@ Note: when sending extra parameters, on the back-end they can be accessed in the
 
 Note: when creating a resource and no redirect is given in the POST response, the form does not perform a redirect.
 
-The `VueFormSs.vue` component takes the following parameter:
-- `params`, array, parameters that are used for Ziggy `route` helper function, in order to do an ajax get request 
+The `VueFormSs.vue` component takes the following parameters:
+- `params`, object, can be used to send additional parameters with the form request | default `null` | (optional) 
+- `routeParams`, array, parameters that are used for Ziggy `route` helper function, in order to do an ajax get request 
 and fetch the form configuration | required 
 - `locale`, string, the locale to be used by the various sub-components. Within Enso, it attempts to read and use
-the user's language preferences from within the Vuex store
+the user's language preferences from within the Vuex store | default `en` | (optional)
 
 ## Advanced usage
 
@@ -273,6 +305,7 @@ Commonly used to override the form value.
 - `value(string $field, $value)`, sets the starting value for form element
 Commonly used to override the form value.
 - `hide(string $field)`, marks the field as hidden
+- `show(string $field)`, marks the field as visible, opposite effect of `hide()`
 - `disable(string $field)`, marks the field as disabled
 - `readonly(string $field)`, marks the field as readonly
 - `meta(string $field, string $param, $value)`, sets a specific value, for a meta param, for the given field
@@ -299,6 +332,13 @@ The Form builder can be globally configured from within its own configuration fi
             'event' => 'create',
             'action' => 'router',
             'label' => 'Create',
+        ],
+        'show' => [
+            'icon' => 'eye',
+            'class' => 'is-success',
+            'event' => 'show',
+            'action' => 'router',
+            'label' => 'Show',
         ],
         'store' => [
             'icon' => 'check',
@@ -424,14 +464,14 @@ linking the form component/data to other components in the page, etc).
 #### actions
 - Is: optional 
 - Type: array of strings, 
-- Values: `"create"`, `"store"`, `"update"`, `"destroy"` 
+- Values: `"create"`, `"show"`, `"store"`, `"update"`, `"destroy"` 
 
 The actions are used to determine the available buttons in the form. 
 Note that if the `authorize` flag is set to true, the builder also checks if the user has acces to/for a certain action,
  and if he does not, the respective button won't be shown.  
 If the actions are not given, defaults are used, depeding on the `method` parameter, as follows: 
  - if doing a POST, the actions array is `['store']`
- - if doing anything else, i.e. a PUT, the actions array is `["create", "update", "destroy"]`     
+ - if doing anything else, i.e. a PUT, the actions array is `["create", "show", "update", "destroy"]`     
 
 ### Section
 The section is the organizing block for form inputs.
@@ -517,7 +557,7 @@ The label for the element.
 The name of the Model's attribute, that is to be mapped to this input 
 (for instance, the name is also used to fill the models's value when setting up an edit type of form).
  
-The name will be the request's key for the value of the input given be the user, when an action is commited 
+The name will be the request's key for the value of the input given be the user, when an action is committed 
 (for instance the user clicks the Save button). 
 
 #### value
@@ -527,7 +567,7 @@ The name will be the request's key for the value of the input given be the user,
 The starting value for a form element. The value can be 
 - hard coded in the template, 
 - it will be filled from the Model when creating an edit form (or a create form with the optional model parameter)
-- it can also be set programatically by calling the Form object's `value()` method.
+- it can also be set programmatically by calling the Form object's `value()` method.
 
 #### meta
 - Is: required
@@ -551,7 +591,7 @@ Is a set of parameters used to configure the supported form elements.
 #### type
 - Is: required
 - Type: string
-- Value: one of the following `"input"`, `"select"`, `"datepicker"`, `"timepicker"`, `"textarea"`
+- Value: one of the following `"input"`, `"select"`, `"datepicker"`, `"timepicker"`, `"textarea"`, `"password"`
 
 #### content
 - Is: optional
@@ -602,10 +642,12 @@ This allows you to build and insert custom elements in the form, for complex sce
 
 #### options
 - Is: optional
-- Type: array of objects
+- Type: array of objects | string
 - Applies to: `"select"`
 
-Is an array of options for that select element.
+If it is an array, it will be considered to be an array of options for that select element.
+If it is a simple string, it will be considered to be an Enum class name, and the builder will attempt to get the select
+values from the Enum.
 
 #### trackBy
 - Is: optional
@@ -695,7 +737,7 @@ Specifies the number of rows for the textarea.
 - Type: string
 - Applies to: a `"money"`-type `"input"`
 
-Is the currenct symbol to be used for a money input, for example `"$"`.
+Is the current symbol to be used for a money input, for example `"$"`.
 
 #### precision
 - Is: optional
@@ -881,7 +923,7 @@ A server side single select, that fetches the list of options using the named ro
     "meta": {
         "type": "select",
         "multiple": false,
-        "source": "core.addresses.countriesSelectOptions",
+        "source": "core.addresses.countriesSelectOptions"
     }
 }
 ```
@@ -914,7 +956,7 @@ Note: For more examples, you may look into the [Enso](https://github.com/laravel
 
 - `php artisan vendor:publish --tag=form-assets` - the VueJS components,
 - `php artisan vendor:publish --tag=form-config` - the configuration file,
-- `php artisan vendor:publish --tag=forms` - the example JSON template file,
+- `php artisan vendor:publish --tag=forms` - the example JSON template file & form builder,
 - `php artisan vendor:publish --tag=enso-assets` - a common alias for when wanting to update the VueJS components,
 once a newer version is released, usually used with the `--force` flag
 
@@ -924,5 +966,6 @@ The [Laravel Enso](https://github.com/laravel-enso/Enso) package comes with this
 
 Depends on:
 - [Helpers](https://github.com/laravel-enso/VueComponents) for utility objects
+- [Select](https://github.com/laravel-enso/Select) for the select functionality
 - [flatpickr](https://github.com/flatpickr/flatpickr) for date/time selection
 - [accounting.js](http://openexchangerates.github.io/accounting.js/) for currency formatting
