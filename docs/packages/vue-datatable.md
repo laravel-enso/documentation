@@ -408,10 +408,12 @@ Options:
 global configuration are used. If given, the template values have higher precedence over the global configuration
 - `method`, optional, string, either "GET" or "POST". If missing, the default value in the 
 global configuration is used.
+- `selectable`, optional, boolean. If enabled, row selection is enabled, 
+which then stores the selected items (the `dtRowId` attributes) in the `selected` attribute.
 - `appends` - optional, array, list of appended attributes that need to be added to the query results. 
 Note that the appended attributes are available from the main query model.
-Also note, that in order the if the appended attributes use any of the model's relationships, 
-the raw table query should also select the id as id (this is a Laravel requirement).
+Also note, that in order to load the appended attributes through the model's relationships, 
+the raw table query should also include the foreign key id (this is a Laravel requirement).
 - `buttons`, optional, array, list of buttons that need to be rendered. See below for more in-depth information
 - `columns`, required, array, list of column configurations. See below for more in-depth information
 - `debounce`, optional, number, the time in milliseconds that is used for the debounce when reloading data for the table,
@@ -486,9 +488,6 @@ the type for a model/table.
     - `editable`, optional, marks this column as editable (N/A)
     - `total`, optional, if flagged, calculates a total for this column 
     - `customTotal`, optional, renders a scoped slot named `${columnName}_custom_total` exposing as props `total` (object) and `column` (object)
-    - `render`, optional, flags this column for custom rendering, allowing for unlimited customization
-     of the data in this column. 
-     The column name and the whole row data are available as function parameters, and the render function should return HTML
     - `date`, optional, marks the data of the column as dates, 
     - `icon`, optional, if given, it renders a Font Awesome 5 icon as contents, using the 'column.icon' as the icon's class   
     - `clickable`, optional, flags the column as clickable, which means it makes it - you guessed it - clickable. 
@@ -501,37 +500,35 @@ Since this is achieved via the accounting.js library, you should take a look at 
 #### The name attribute and nested properties
 
 Since the 1.5.7 package version, it has become possible to use nested models properties for the `name` attribute. For example,
- for the [users table template](https://github.com/laravel-enso/Enso/blob/master/app/Tables/Templates/users.json), 
+ for the [users table template](https://github.com/laravel-enso/Core/blob/master/src/app/Tables/Templates/users.json), 
  you could update the entity section to:
  
 ```json
     {
-        "label": "Entity",
-        "name": "owner.name",
+        "label": "Group",
+        "name": "group.name",
         "data": "",
-        "meta": []    
+        "meta": []
     }
 ```
     
-  and in the [table builder class](https://github.com/laravel-enso/Enso/blob/master/app/Tables/Builders/UserTable.php) update the select query to:
+  and in the [table builder class](https://github.com/laravel-enso/Core/blob/master/src/app/Tables/Builders/UserTable.php) update the select query to:
   
 ```php
     return User::select(\DB::raw(
-            'users.id, users.id as "dtRowId",
-            owner_id,
-            avatars.id as avatarId,
-            users.first_name, users.last_name, users.phone, users.email, roles.name as role,
-            users.is_active'
-        ))
-        //->join('owners', 'users.owner_id', '=', 'owners.id')
-        ->join('roles', 'users.role_id', '=', 'roles.id')
-        ->leftJoin('avatars', 'users.id', '=', 'avatars.user_id')
-        ->with('owner');
+        'users.id, users.id as "dtRowId", avatars.id as avatarId, group_id,
+        people.name, people.appellative, people.phone, users.email, roles.name as role,
+        users.is_active, users.created_at'
+    ))->join('people', 'users.person_id', '=', 'people.id')
+    //->join('user_groups', 'users.group_id', '=', 'user_groups.id')
+    ->with('group')
+    ->join('roles', 'users.role_id', '=', 'roles.id')
+    ->leftJoin('avatars', 'users.id', '=', 'avatars.user_id');
 ```
     
 You may notice a few things here:
 - the `name` attribute value is the nested model name + property
-- a `data` value is no longer required, because
+- a `data` value is no longer required
 - the `meta` attribute value's list can no longer contain "searchable", "sortable". If you do give these options, 
 the template validator will let you know that you should remove them
 - in order for the relationship to work, make sure the select includes any required foreign keys i.e. 
@@ -594,7 +591,7 @@ Examples:
 ```
 
 ### The Events
-For integration with other in-page components, the datatable component can emit serveral events, 
+For integration with other in-page components, the datatable component can emit several events, 
 depending on the configuration:
 - `draw`, with no payload, after each retrieval of the table data, such as when first loading the initial chunk, 
     when loading the next 'page' of data, when reloading after a filter has changed, etc.
@@ -603,9 +600,12 @@ depending on the configuration:
 - `update-visibility`, with no payload, when changing the columns visibility 
 - `reload`, with no payload, when reloading the table   
 - `reset`, with no payload, when resetting the table preferences
-- `request-full-info`, with no payload, when clicking on the button that load all information for a table working with a huge data set
+- `request-full-info`, with no payload, when clicking on the button that loads all information for a table working with a huge data set
 - `clicked`, with the column and the whole row as payload, when clicking on a clickable table cell, 
     as configured in the template (also see the Columns section above)
+- `update-selected`, with the payload containing all the selected items, when selecting/deselecting an item
+- `select-page`, with the payload containing true if it was a selection, false otherwise, 
+when selecting/deselecting an entire page
 - custom events, with no payload, for `ajax` type of buttons, 
     as configured in the template (also see the Buttons section above). 
 - custom events, with the whole row the button is positioned on as payload, 
@@ -618,7 +618,7 @@ In your TableBuilder implementation, the query must look like this:
 ```php
 public function query()
 {
-    return Owner::select(\DB::raw('id as "dtRowId", id, name, description, is_active, created_at'));
+    return UserGroup::select(\DB::raw('id as "dtRowId", id, name, description, is_active, created_at'));
 }
 ```
 
@@ -628,11 +628,12 @@ If you need custom logic based on the request you have a `request()` getter avai
 
 ### Further Examples
 
-You may see the vue data table in action, with the code for the Owners page, right here:
-- [data controller](https://github.com/laravel-enso/Enso/blob/master/app/Http/Controllers/Administration/Owner/OwnerTableController.php)
-- [table template](https://github.com/laravel-enso/Enso/blob/master/app/Tables/Templates/owners.json)
-- [front-end vue page](https://github.com/laravel-enso/Enso/blob/master/resources/assets/js/pages/administration/owners/Index.vue)
-- [live result](https://www.laravel-enso.com/administration/owners/) (if you're not already logged in, use `admin@laravel-enso.com` and `password`)
+You may see the vue data table in action, with the code for the UserGroups page, right here:
+- [table builder](https://github.com/laravel-enso/Core/blob/master/src/app/Tables/Builders/UserGroupTable.php)
+- [table template](https://github.com/laravel-enso/Core/blob/master/src/app/Tables/Templates/userGroups.json)
+- [data controller](https://github.com/laravel-enso/Core/blob/master/src/app/Http/Controllers/Administration/UserGroup/UserGroupTableController.php)
+- [front-end vue page](https://github.com/laravel-enso/Enso/blob/master/resources/js/pages/administration/userGroups/Index.vue)
+- [live result](https://www.laravel-enso.com/administration/userGroups/) (if you're not already logged in, use `admin@laravel-enso.com` and `password`)
 
 Feel free to look around at the various packages in the [laravel-enso](https://github.com/laravel-enso) repository, to find more examples.
 
@@ -679,7 +680,7 @@ Note that, if needed, you may define several buttons in a similar fashion.
 2. Add a new `Action` implementation class, where you actually process the results.
         
 ```php
-class OwnerMyAction extends Action
+class UserGroupMyAction extends Action
 {
 
     public function process()
@@ -701,12 +702,12 @@ asynchronously.
       
 3. Add a new controller for the action
 ```php
-class OwnerMyActionController extends Controller
+class UserGroupMyActionController extends Controller
 {
     use Datatable, Action;
 
-    protected $tableClass = OwnerTable::class;
-    protected $actionClass = OwnerMyAction::class;
+    protected $tableClass = UserGroupTable::class;
+    protected $actionClass = UserGroupMyAction::class;
     protected $chunk = 2;
 }
 ```
@@ -737,22 +738,22 @@ public function action(Request $request)
 
 If for any reason you want to handle more than one action through the same controller, 
 you may declare multiple actionClasses, create multiple action methods that achieve the same process as the above, 
-and, in conjuction with the proper routes, it can be done.  
+and, in conjunction with the proper routes, it can be done.  
 
 4. Add the new route
 ```php
-Route::patch('myAction', 'OwnerMyActionController@action')
+Route::patch('myAction', 'UserGroupMyActionController@action')
                             ->name('myAction');
 ```
 
 Remember to place the route nested correctly, considering the possible uri and route name prefixes, 
 as well as the controller namespace.
 
-In this example, the url called for the Owners table will be 'administration/owners/myAction' and 
-the name of the route will be 'administration.owners.myAction'.
+In this example, the url called for the UserGroups table will be 'administration/userGroups/myAction' and 
+the name of the route will be 'administration.userGroups.myAction'.
     
 5. Create the new permission
-    Navigate in the app to `system/permissions` and add the new `administration.owners.myAction` permission.
+    Navigate in the app to `system/permissions` and add the new `administration.userGroups.myAction` permission.
 
 6. That's it.
 
@@ -792,5 +793,6 @@ Therefore, the package depends just on:
  - [accounting.js](http://openexchangerates.github.io/accounting.js/) for formatting numbers as money values
 
 Internally, the package depends on (this applies when used outside of Enso):
+ - [DataExport](https://github.com/laravel-enso/DataExport) for exporting results
  - [Helpers](https://github.com/laravel-enso/Helpers) for utility classes
  - [VueComponents](https://github.com/laravel-enso/VueComponents) various sub-resources used for the front-end
