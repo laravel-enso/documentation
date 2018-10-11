@@ -41,14 +41,14 @@ When working with VueJS, the v-html directive is XSS vulnerable, so it should be
     - `impersonate` - starts and stops the [impersonation](https://github.com/laravel-enso/Impersonate) of a user, when needed
     - `set-language` - sets the user's chosen language ([localisation](https://github.com/laravel-enso/Localisation))
 
-## Owners, [Roles](https://github.com/laravel-enso/RoleManager) & Users
+## UserGroups, [Roles](https://github.com/laravel-enso/RoleManager) & Users
 - users represent the operators using the application
 - roles are collections of permissions
-- owners are user groups, and can represent departments, types, and even companies
-- an owner can have many users
-- an owner can have many roles
-- an user has **just one owner** and **just one role**
-- the role of a user may only be one of the roles available for its owner
+- user groups (previously owners) can represent departments, types, and even companies
+- an user group can have many users
+- an user group can have many roles
+- an user has **just one user group** and **just one role**
+- the role of a user may only be one of the roles available for its user group
 - users have an active or inactive status, where inactive users cannot login or make requests in the application (but can set/reset their password)
 
 ## Preferences

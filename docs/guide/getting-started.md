@@ -59,7 +59,7 @@ with features like:
     - customizable
     
 - [Vue select](https://github.com/laravel-enso/Select) - server side builder with parameter conditioning, including pivot parameters
-- Advanced owners / [roles](https://github.com/laravel-enso/RoleManager) / [permissions](https://github.com/laravel-enso/PermissionManager) structure
+- Advanced user groups / [roles](https://github.com/laravel-enso/RoleManager) / [permissions](https://github.com/laravel-enso/PermissionManager) structure
 - [Log management](https://github.com/laravel-enso/LogManager) -  view, download, clear
 - User [action logger](https://github.com/laravel-enso/ActionLogger), so you can keep track of who's done what
 - User [impersonation](https://github.com/laravel-enso/Impersonate) for easy support and debugging

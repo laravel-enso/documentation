@@ -77,8 +77,8 @@ The method takes 2 parameters:
 - `$flag`, which is optional and if given, should be a Font Awesome icon class, to be used for the custom event
 
 ```php
-$owner = Owner::find(1);
-$owner->logEvent('triggered my custom action','beer');
+$company = Company::find(1);
+$company->logEvent('triggered my custom action','beer');
 ```
 
 Please note:
