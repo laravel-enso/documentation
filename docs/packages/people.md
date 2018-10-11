@@ -36,8 +36,6 @@ Now the people structure can be reused as needed.
 - the model comes with a  `hasUser` helper to check if this person is linked to an user
 - once the person has activity in the system (through any other model relationship), it cannot be deleted
 - the proper way to delete a person is to first delete any other models it is linked to 
-- once documents are attached to an entity, you should not be able to delete the entity without deciding what
-you want to do with the associated documents. This is configurable in the options, see below
 - since an application user will always be a person, and for Laravel authentication purposes, 
 the user is supposed to have an email address the 'synchronization' between the user and the person is required. 
 Therefore, if the user email is updated, the person email is also updated. 
