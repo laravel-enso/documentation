@@ -20,12 +20,17 @@ Documents Manager for [Laravel Enso](https://github.com/laravel-enso/Enso).
 - uses the [ImageTransformer](https://github.com/laravel-enso/ImageTransformer) package for optimizing 
 the uploaded image files
 - security policies are used to enforce proper user authorization
+- comes with a `Documentable` trait that can be quickly added to the model you want to give this functionality to
+- offers various configuration options, including the option to delete all attached documents 
+to a Documentable entity, when it gets deleted 
 
 ## Under the Hood
 
 - creates a `Document` model that has a `documentable` morphTo relationship
 - polymorphic relationships are used, which makes it possible to attach documents to any other entity
 - within the entity to which we want to attach documents, we must use the `Documentable` trait
+- once documents are attached to an entity, you should not be able to delete the entity without deciding what
+you want to do with the associated documents. This is configurable in the options, see below
 
 ## Installation Steps
 
@@ -44,18 +49,16 @@ import Documents from '../../../components/enso/documents/Documents.vue';
 ```vue
 <documents 
     id="modelId"
-    type="model_alias">
+    type="model_class">
 </documents>
 ```
 
 Note: you may substitute the documents component with the documents-card component as the two share the main properties
     and the documents-card is a card wrapper for the bare documents component.
 
-3. Add the desired model class mapping inside the `config/enso/documents.php` documentables section.
+3. Add `use Documentable` in the Model that need documents and import the trait. Then you'll have access to the `$model->documents` relationship
 
-4. Add `use Documentable` in the Model that need documents and import the trait. Then you'll have access to the `$model->documents` relationship
-
-5. Because users upload documents you can add `use Documents` to the User model. This trait will set the relationship between users and the documents that they create
+4. Because users upload documents you can add `use Documents` to the User model. This trait will set the relationship between users and the documents that they create
 
 **IMPORTANT NOTE:** 
 
@@ -68,21 +71,30 @@ Failure to do so may result in silent errors if alloted memory is insufficient.
 ## Options
 
 ### DocumentsCard.vue
-- `id` - number, the id of the commentable model | required
-- `type` - string, the commentable model alias you set at the installation step #3 | required
+- `id` - number, the id of the documentable model | required
+- `type` - string, the documentable model class | required
 - `open` - boolean flag, makes the component start collapsed or open | default is `false` | (optional)
-- `title` - string, title for the component | default `'Comments'` | (optional)
+- `title` - string, title for the component | default `''` | (optional)
 
 ### Documents.vue
-- `id` - number, the id of the commentable model | required
-- `type` - string, the commentable model alias you set at the installation step #3 | required
+- `id` - number, the id of the documentable model | required
+- `type` - string, the documentable model class | required
 - `query` - string, text used for filtering the documents| default `null` | (optional)
+- `controls` - boolean, used for showing the controls buttons | default `false` | (optional)
 
 ## Configuration
+
 The `config/enso/documents.php` configuration file, lets you customize the following:
-- `documentables`, the Model - type mapping list
+- `linkExpiration`, - the time limit for document share link, in seconds. 
+Default is `60 * 60 * 24`  (1 day)
 - `deletableTimeLimit` - the time limit for deleting an uploaded document, in seconds. 
 Default is `60 * 60`  (1 hour)
+- `imageWidth` - the image width, in pixels, used when resizing bigger picture files. Default is `2048`
+- `imageHeight` - the image height, in pixels, used when resizing bigger picture files. Default is `2048`
+- `onDelete` - the behavior for the situation when a Documentable model with linked documents is deleted. 
+Can use `cascade` or `restrict`. Default is `restrict` 
+- `loggableMorph` - the configuration for the `$loggableMorph` property, used for activity logging.
+Default is `'documentable' => [ UserGroup::class => 'name', ],`
 
 ## Publishes
 
@@ -98,7 +110,9 @@ once a newer version is released, usually used with the `--force` flag
 The [Laravel Enso](https://github.com/laravel-enso/Enso) package comes with this package included.
 
 Depends on:
+ - [ActivityLog](https://github.com/laravel-enso/activitylog) for logging operations on Documents
  - [Core](https://github.com/laravel-enso/Core) for middleware and user model
+ - [Helpers](https://github.com/laravel-enso/Helpers) for the various helper classes
  - [ImageTransformer](https://github.com/laravel-enso/ImageTransformer) for optimizing image files
  - [FileManager](https://github.com/laravel-enso/FileManager) for working with the uploaded files
  - [Structure manager](https://github.com/laravel-enso/StructureManager) for the migrations
