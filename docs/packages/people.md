@@ -8,6 +8,11 @@
 
 Person management dependency for [Laravel Enso](https://github.com/laravel-enso/Enso).
 
+[![Screenshot](https://laravel-enso.github.io/people/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/people/screenshots/bulma_001.png)
+[![Screenshot](https://laravel-enso.github.io/people/screenshots/bulma_002_thumb.png)](https://laravel-enso.github.io/people/screenshots/bulma_002.png)
+<sup>click on the photo to view a short demo in compatible browsers</sup>
+
+
 ## Features
 
 - separates the people centric operations from the core application user model
