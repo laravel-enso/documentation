@@ -594,7 +594,7 @@ Is a set of parameters used to configure the supported form elements.
 - Value: one of the following `"input"`, `"select"`, `"datepicker"`, `"timepicker"`, `"textarea"`, `"password"`
 
 #### content
-- Is: optional
+- Is: required if `type` is `"input"`
 - Type: string
 - Applies to: `"input"`
 
