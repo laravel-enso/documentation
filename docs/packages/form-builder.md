@@ -645,7 +645,9 @@ This allows you to build and insert custom elements in the form, for complex sce
 - Type: array of objects | string
 - Applies to: `"select"`
 
-If it is an array, it will be considered to be an array of options for that select element.
+If it is an array, it will be considered to be an array of options for that select element,
+each object should contain an `id` and `name` label by default, for the `value` and `label` field respectively.
+You can modify these keys using the `trackBy` and `label` options below.
 If it is a simple string, it will be considered to be an Enum class name, and the builder will attempt to get the select
 values from the Enum.
 
