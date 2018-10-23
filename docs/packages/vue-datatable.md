@@ -398,10 +398,10 @@ becomes disabled by default and is made avaible on-demand.
 
 Options:
 - `routePrefix`, required, string, the common route segment, used for both read and write (N/A)
-- `readSuffix`, required, string, the route endpoint, that gets concatenated to the `routePrefix`
+- `readSuffix`, optional, string, the route endpoint, that gets concatenated to the `routePrefix`. If not given (default), the global Vue Datatable configuration value is used. 
 - `name`, optional, string, the title used for the table.
 - `icon`, optional, string or array of strings, expects Font Awesome icon classes 
-(make sure the used class is avaible in the page, via a local or global import)
+(make sure the used class is available in the page, via a local or global import)
 - `crtNo`, optional, boolean, flag for showing the current line number
 - `auth`, optional, boolean, flag for removing auth when using in enso context
 - `lengthMenu`, optional, array, list of options for the table pagination. If missing, the default values in the 
