@@ -112,7 +112,7 @@ Please read the official Font Awesome
 
 5. Create the JSON table configuration template. 
 
-Example: [exampleTable.json](https://github.com/laravel-enso/Enso/blob/master/app/Http/Controllers/Examples/Tables/Templates/exampleTable.json)
+Example: [exampleTable.json](https://github.com/laravel-enso/Examples/blob/master/src/app/Tables/Templates/exampleTable.json)
 
 6. Create the table controller which defines the query and gives the path to the JSON template
 
@@ -125,7 +125,7 @@ class UserTableController extends Controller
 }
 ```
 
-Example: [TableController.php](https://github.com/laravel-enso/Enso/blob/master/app/Http/Controllers/Examples/TableController.php)
+Example: [TableController.php](https://github.com/laravel-enso/Examples/blob/master/src/app/Http/Controllers/TableController.php)
 
 7. Create the table builder class, which must extend the abstract `Table` class, set the `$templatePath` variable 
 and implement the `query` method
@@ -146,7 +146,7 @@ class UserTable extends Table
 }
 ```
 
-Example: [ExampleTable](https://github.com/laravel-enso/Enso/blob/master/app/Http/Controllers/Examples/Tables/Builders/ExampleTable.php) 
+Example: [ExampleTable](https://github.com/laravel-enso/Examples/blob/master/src/app/Tables/Builders/ExampleTable.php) 
 
 7. Declare the route in your route file, to present your controller's methods
 
@@ -156,7 +156,7 @@ Route::get('data', 'TableController@data')->name('data');
 Route::get('exportExcel', 'TableController@exportExcel')->name('exportExcel');
 ```
 
-Example: [web.php](https://github.com/laravel-enso/Enso/blob/master/routes/web.php)
+Example: [web.php](https://github.com/laravel-enso/Examples/blob/master/src/routes/web.php)
    
 8. Place the vuedatatable `VueJS` component in your page/component:
 ```vue
@@ -166,7 +166,7 @@ Example: [web.php](https://github.com/laravel-enso/Enso/blob/master/routes/web.p
 </vue-table>
 ``` 
 
-Example: [index.blade.php](https://github.com/laravel-enso/Enso/blob/master/resources/views/examples/table/index.blade.php)
+Example: [index.blade.php](https://github.com/laravel-enso/Examples/blob/master/src/resources/views/table/index.blade.php)
  
 ## Usage
 
