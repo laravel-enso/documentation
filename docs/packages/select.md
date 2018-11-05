@@ -74,6 +74,7 @@ Either a `source` or an `options` parameter is required.
 - `v-model` - variable holding the selected option(s). Can be a single value or an Array if the select is used as a multi-select. 
 If not null/empty, the vue select will pre-populate the selected value(s) | default `[]` or `null` |  (optional)
 - `disabled` - boolean, flag that sets the element as disabled | default `false` | (optional)
+- `disable-clear` - boolean, flag that disables the clear button and also prevents deselecting the last input value for single select | default `false` | (optional)
 - `multiple` - boolean, flag that makes the element work as a multiselect, if omitted, the select acts as single select | default `false` | (optional)
 - `i18n`, optional, function, that is used for translating labels, headers, and table data 
 The default value (function) for this parameter simply returns its argument as the translated value
