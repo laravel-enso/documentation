@@ -378,7 +378,7 @@ becomes disabled by default and is made avaible on-demand.
             "label": "Name",
             "data": "table.column",
             "name": "columnAlias",
-            "meta": ["searchable", "sortable", "translation", "boolean", "slot", "rogue", "editable", "total", "customTotal", "date","icon", "clickable", "tooltip", "notExportable"],
+            "meta": ["searchable", "sortable", "translation", "boolean", "slot", "rogue", "editable", "total", "customTotal", "date","icon", "clickable", "tooltip", "notExportable", "nullsLast"],
             "enum": "EnumClass",
             "dateFormat": "d-m-Y",
             "tooltip": "My Tooltip Column Detail",
@@ -479,6 +479,7 @@ the type for a model/table.
     using the table search functionality 
     - `sortable`, optional, marks this column as sortable. If not sortable, the controls to sort are 
     not available for sorting
+    - `nullsLast`, optional, makes the sorting on this column sort all null values last
     - `translation`, optional, marks this column's values as translatable. 
     The `i18n` parameter translation function should be given to the VueJS table component in order for this to work
     - `boolean`, optional, marks this column as boolean, which means it will be rendered as such
