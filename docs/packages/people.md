@@ -58,8 +58,25 @@ This package is already included in [Laravel Enso](https://github.com/laravel-en
 ## Configuration
 
 The `config/enso/people.php` configuration file, lets you customize the following:
-- `validations`, - is a validations rules array that can be used on top of the validations included with the package, 
-for instance for the `uid`. Default is `[]`
+- `formTemplate`, - string, is the project relative path to the person form template, 
+useful for overriding the package template, when customizing the people table 
+- `tableTemplate`, - string, is the project relative path to the person table template, 
+useful for overriding the package template, when customizing the people table 
+
+### Request Validation
+
+To facilitate extending the package functionality an interface is used for the person request validation. If no changes 
+are required, the included `ValidatePersonRequest` implementation is used.
+
+If you've added/removed fields from the people table, you may create another local implementation for the 
+ `ValidatesPersonRequest` interface which you then need to bind by specifying this in the service provider's `register`
+ method:
+ 
+ ```php
+ $this->app->bind(
+     ValidatesCompanyRequest::class, MyValidateCompanyRequest::class
+ );
+ ```
 
 ## Publishes
 
