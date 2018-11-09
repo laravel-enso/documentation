@@ -38,6 +38,32 @@ what happens to the linked documents when you attempt to delete a company.
 
 This package is already included in [Laravel Enso](https://github.com/laravel-enso/Enso), so no further steps are necessary.
 
+## Configuration
+
+The `config/enso/companies.php` configuration file, lets you customize the following:
+- `formTemplate`, - string, is the project relative path to the companies form template, 
+useful for overriding the package template, when customizing the companies table 
+- `tableTemplate`, - string, is the project relative path to the companies table template, 
+useful for overriding the package template, when customizing the companies table 
+- `contactFormTemplate`, - string, is the project relative path to the contact person table template, 
+useful for overriding the package template, when customizing the contacts
+
+### Request Validation
+
+To facilitate extending the package functionality interfaces are used for the company and contact person form request validation. If no changes 
+are required, the included `ValidateCompanyRequest` / `ValidateContactRequest` implementations are used.
+
+If you've added/removed fields from the companies table, you may create another local implementation for the 
+ `ValidatesCompanyRequest` interface which you then need to bind by specifying this in the service provider's `register`
+ method (the same steps apply to the contact person request): 
+ 
+ ```php
+ $this->app->bind(
+     ValidatesCompanyRequest::class, MyValidateCompanyRequest::class
+ );
+ ``` 
+
+
 ## Publishes
 
 - `php artisan vendor:publish --tag=companies-assets` - the VueJS components

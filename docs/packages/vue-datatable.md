@@ -53,9 +53,6 @@ out on features
 ### In the future
 - PDF export alongside the XLSX report 
 
-### Considering
-- editable table cells, with input, date-picker, select, checkbox support
-
 ## Installation
 
 ### Enso
@@ -274,9 +271,7 @@ return [
         ],
     ],
     'style' => [
-        'default' => [
-            'striped', 'hover', 'bordered', 'center',
-        ],
+        'default' => ['hover', 'center'],
         'mapping' => [
             'left' => 'has-text-left',
             'center' => 'has-text-centered',
@@ -286,6 +281,7 @@ return [
             'bordered' => 'is-bordered',
             'hover' => 'is-hoverable',
         ],
+        'highlight' => 'has-background-info',
     ],
     'export' => [
         'path' => 'exports',
@@ -324,7 +320,7 @@ is an array of button configurations, with 2 types:
 is an array of style configurations, with 2 sections:
 - `default`, array of classes, default is `['striped', 'hover', 'bordered', 'center']`, that are applied by default for all tables. Note that you should set only one alignment specific class in the default.
 - `mapping`, array of configurations for the styles. While designed for/with Bulma, you may specify here custom classes in order to personalize your tables
-
+- `highlight`, string, default is `has-background-info`, class which is applied for highlighted rows
 #### export
 is an array of configuration options for exporting the contents of a file. Note: The export process takes into account your current sorting and filtering. Available options:
 - `path`, string, folder where the temporary export file is saved, default `exports`. This folder is expected to reside in `storage/app`
@@ -591,6 +587,14 @@ Examples:
 }
 ```
 
+#### Methods
+Although for the most part, these are niche cases, you may use the methods available on the `vue-table` component to  
+perform additional actions.
+
+One such example is the highlight functionality, with the next methods:
+* `highlight(dtRowId)` - takes the id of a row and highlights it, using the class given in the global datatable configuration
+* `clearHighlighted()` - clears all the highlighted items
+
 ### The Events
 For integration with other in-page components, the datatable component can emit several events, 
 depending on the configuration:
@@ -626,18 +630,6 @@ public function query()
 Keep in mind that at this stage, we're returning a `QueryBuilder` not a collection of results.
 
 If you need custom logic based on the request you have a `request()` getter available in the TableBuilder.
-
-### Further Examples
-
-You may see the vue data table in action, with the code for the UserGroups page, right here:
-- [table builder](https://github.com/laravel-enso/Core/blob/master/src/app/Tables/Builders/UserGroupTable.php)
-- [table template](https://github.com/laravel-enso/Core/blob/master/src/app/Tables/Templates/userGroups.json)
-- [data controller](https://github.com/laravel-enso/Core/blob/master/src/app/Http/Controllers/Administration/UserGroup/UserGroupTableController.php)
-- [front-end vue page](https://github.com/laravel-enso/Enso/blob/master/resources/js/pages/administration/userGroups/Index.vue)
-- [live result](https://www.laravel-enso.com/administration/userGroups/) (if you're not already logged in, use `admin@laravel-enso.com` and `password`)
-
-Feel free to look around at the various packages in the [laravel-enso](https://github.com/laravel-enso) repository, to find more examples.
-
 
 ### Actions
 
@@ -768,7 +760,22 @@ changed suffix (the route and permissions need to be altered).
 #### Defining reusable action buttons
 
 Similarly to the default action button, you may define other 'global' action buttons in the datable configuration, 
-that can then be used as needed in any table templates in your project.  
+that can then be used as needed in any table templates in your project.
+
+
+### Further Examples
+
+You may see the vue data table in action, with the code for the UserGroups page, right here:
+- [table builder](https://github.com/laravel-enso/Core/blob/master/src/app/Tables/Builders/UserGroupTable.php)
+- [table template](https://github.com/laravel-enso/Core/blob/master/src/app/Tables/Templates/userGroups.json)
+- [data controller](https://github.com/laravel-enso/Core/blob/master/src/app/Http/Controllers/Administration/UserGroup/UserGroupTableController.php)
+- [front-end vue page](https://github.com/laravel-enso/Enso/blob/master/resources/js/pages/administration/userGroups/Index.vue)
+- [live result](https://www.laravel-enso.com/administration/userGroups/) (if you're not already logged in, use `admin@laravel-enso.com` and `password`)
+
+Feel free to look around at the various packages in the [laravel-enso](https://github.com/laravel-enso) repository, to find more examples.
+
+
+  
 
 ## Publishes
 

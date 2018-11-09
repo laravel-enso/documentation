@@ -280,7 +280,9 @@ The main `VueForm.vue` component takes the following parameters:
 of the Enso ecosystem. By default, it attempts to use the Enso `__` translation function if available
 - `locale`, string, the locale to be used by the various sub-components  | default `en` | (optional)
 
-Note: when sending extra parameters, on the back-end they can be accessed in the request's `_params` attribute.  
+Note: when sending extra parameters, on the back-end they can be accessed in the request, as given. 
+Also, this `params` attribute is different to the attributes you can append in the from, in the back-end, attributes
+which end up in a `params` structure inside the form data.   
 
 Note: when creating a resource and no redirect is given in the POST response, the form does not perform a redirect.
 
@@ -310,7 +312,8 @@ Commonly used to override the form value.
 - `readonly(string $field)`, marks the field as readonly
 - `meta(string $field, string $param, $value)`, sets a specific value, for a meta param, for the given field
 - `append($prop, $value)`, adds a property and its value in the template root-level `params` object, 
-in order to make it available in the front-end  
+in order to make it available in the front-end. Note that this `params` object is different than the `params` object
+you can pass as a property to the `vue-form` / `vue-form-ss` VueJS components.   
 - `authorize(bool $authorize)`, set the authorize flag for the form.
 If this value is not given in the form, the global default value is taken from the config file 
 
@@ -458,8 +461,16 @@ If not given, the option is read from the global form configuration, found at `c
 - Is: optional 
 - Type: object
  
-Can be used to pass extra parameters to the VueJS component, useful when customizing the form in-page (with slots, 
-linking the form component/data to other components in the page, etc). 
+Can be used to pass extra parameters to the VueJS component / front-end, useful when customizing the form in-page (with slots, 
+linking the form component/data to other components in the page, etc).
+
+Notes:
+- you may also set extra parameters and their values programatically, 
+using the `append('attribute', $value)` function on your (`LaravelEnso\FormBuilder\app\Classes\Form`) form object instance 
+- also, this `params` object is different to the optional `params` property of the 
+`vue-form` / `vue-form-ss` VueJS component. Keep in mind that *this* `params` object will be accessible in the
+`vue-form`'s data object, while the *other* `params` is a property on the `vue-form`
+
 
 #### actions
 - Is: optional 
@@ -467,7 +478,7 @@ linking the form component/data to other components in the page, etc).
 - Values: `"create"`, `"show"`, `"store"`, `"update"`, `"destroy"` 
 
 The actions are used to determine the available buttons in the form. 
-Note that if the `authorize` flag is set to true, the builder also checks if the user has acces to/for a certain action,
+Note that if the `authorize` flag is set to true, the builder also checks if the user has access to/for a certain action,
  and if he does not, the respective button won't be shown.  
 If the actions are not given, defaults are used, depeding on the `method` parameter, as follows: 
  - if doing a POST, the actions array is `['store']`
