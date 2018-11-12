@@ -34,7 +34,10 @@ Tutorial management dependency for [Laravel Enso](https://github.com/laravel-ens
 - tutorial entries are displayed using [Intro.js](http://introjs.com)
 
 ## Publishes
+- `php artisan vendor:publish --tag=tutorials-factory` - the factory for the `Tutorial` model
 - `php artisan vendor:publish --tag=tutorials-assets` - the VueJS pages and components
+- `php artisan vendor:publish --tag=enso-factories` - a common alias for when wanting to update the factories,
+once a newer version is released, usually used with the `--force` flag
 - `php artisan vendor:publish --tag=enso-assets` - a common alias for when wanting to update the VueJS assets,
 once a newer version is released, can be used with the `--force` flag
 

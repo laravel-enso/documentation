@@ -34,13 +34,13 @@ at `config/searchable.php`
 
 The following parameters are available:
 *  `defaultLabel` - the default label attribute to be used for all models, 
-unless overwritten on the model specific configuration (see below)
+unless overwritten on the model specific configuration (see below) | default is `name`
 * `routes` - customizes the icons used for the routes (remember to also have the icons available/imported)
     - `show`, default is `eye` 
     - `edit`, default is `pencil-alt`
     - `index`, default is `list-ul`
 * `limit` - the max limit of results per model. Keep in mind that more results may be available, so if looking for a specific result, 
- be more specific when searching
+ be more specific when searching | default is `10`
 * `models` - the list of models and their configurations that are searchable by the package
 
 #### Model Configuration

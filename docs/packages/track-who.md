@@ -12,6 +12,7 @@ Create, update and delete authoring tracking dependency for [Laravel Enso](https
 - keeps track of the user that performed various actions on a record / model
 - requires the presence of the proper model attributes / table columns
 - once the structure is set up, by using the proper trait, the information is added automatically
+- the trait works only when the user is authenticated, in order to avoid issues during tests or when using the cli/tinker
 
 ## Use
 
@@ -22,6 +23,21 @@ use CreatedBy, UpdatedBy, DeletedBy;
 ```
 
 2. Make sure that the model's table has the `created_by` | `updated_by` | `deleted_by` field(s)
+
+## Configuration
+
+The `config/enso/trackWho.php` configuration file, lets you customize the following:
+- `resourcePersonAttributes`:
+    - `name`, - string, the attribute used for name | default 'name'
+    - `appellative`, - string, the attribute used for the person's appellative | default 'appellative' 
+    
+    These options are useful for customizing the person resource, when the people table has been updated for due to 
+    specific project requirements.
+
+## Publishes
+- `php artisan vendor:publish --tag=trackWho-config` - configuration file
+- `php artisan vendor:publish --tag=enso-config` - a common alias for when wanting to update the configuration,
+once a newer version is released, usually used with the `--force` flag
 
 ## Notes
 

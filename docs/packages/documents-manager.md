@@ -66,7 +66,7 @@ Since this package is using image processing libraries and these underlying libr
 especially if the processed files are large (for example, for an 8MB image file, more than 128MB of memory might be used ),
 make sure to configure php accordingly and/or do `ini_set(‘memory_limit’, ‘256M’);`   
 
-Failure to do so may result in silent errors if alloted memory is insufficient.
+Failure to do so may result in silent errors if allotted memory is insufficient.
 
 ## Options
 
@@ -85,16 +85,27 @@ Failure to do so may result in silent errors if alloted memory is insufficient.
 ## Configuration
 
 The `config/enso/documents.php` configuration file, lets you customize the following:
-- `linkExpiration`, - the time limit for document share link, in seconds. 
-Default is `60 * 60 * 24`  (1 day)
 - `deletableTimeLimit` - the time limit for deleting an uploaded document, in seconds. 
 Default is `60 * 60`  (1 hour)
+- `linkExpiration`, - the time limit for document share link, in seconds. 
+Default is `60 * 60 * 24`  (1 day)
 - `imageWidth` - the image width, in pixels, used when resizing bigger picture files. Default is `2048`
 - `imageHeight` - the image height, in pixels, used when resizing bigger picture files. Default is `2048`
-- `onDelete` - the behavior for the situation when a Documentable model with linked documents is deleted. 
-Can use `cascade` or `restrict`. Default is `restrict` 
-- `loggableMorph` - the configuration for the `$loggableMorph` property, used for activity logging.
-Default is `'documentable' => [ UserGroup::class => 'name', ],`
+- `onDelete`, string, option that manages the case when the commentable entity is deleted and it has attached addresses.
+Valid options are `cascade`, `restrict` | default is `cascade`
+
+    With the cascade option, when a commentable model is deleted, the comments attached to it are also deleted. 
+    With the restrict option,  when attempting to delete a commentable model with attached comments, an exception is thrown.
+    
+- `loggableMorph`, the list of entities using the commentable functionality, each mapped to its respective loggable attribute
+For example: 
+    ```php
+    'commentable' => [
+        Company::class => 'name',
+    ],
+    ```
+
+   This configuration is used for activity logging.
 
 ## Publishes
 

@@ -21,18 +21,20 @@ Contacts dependency for [Laravel Enso](https://github.com/laravel-enso/Enso).
 
 ## Installation steps
 
-The component is already included in the Enso install and should not require any additional installation steps.
+The component is no longer included in the Enso install and is incompatible with the latest [Companies](https://github.com/laravel-enso/Companies) package, 
+which comes with its own contacts structure.
+
+If you require this package, uninstall the Companies package first and install this package instead.
 
 ## Use
 
-1. Define the `'model_alias' => 'App\Model'` mapping in the `config/enso/contacts.php` file
-2. Add the `Contactable` trait in the Model to which you need to add contacts 
+1. Add the `Contactable` trait in the Model to which you need to add contacts 
     You can then use the `$model->contacts` relationship    
-3. Use the VueJS component in your pages/components
+2. Use the VueJS component in your pages/components
 
 ```vue
 <contacts
-    type="model_alias"
+    type="modelClass"
     id="entityId"
     :open="true"
     title="My Custom Title" >
@@ -45,6 +47,22 @@ The `Contacts.vue` component can be used anywhere, can be integrated into any ot
 - `type` - string, the entity type, set in the configuration file | required
 - `open` - boolean, flag which, if true, makes the component start in the open state | default `false` | (optional)
 - `title` - string, title for the component | default 'Contacts' | (optional)
+    
+## Configuration
+Inside the `config/enso/contacts.php` file, you'll find several customization options:
+- `onDelete`, string, option that manages the case when the commentable entity is deleted and it has attached discussions.
+Valid options are `cascade`, `restrict` | default is `cascade`
+
+    With the cascade option, when a discussable model is deleted, the discussions attached to it are also deleted. 
+    With the restrict option,  when attempting to delete a discussable model with attached discussions, an exception is thrown.
+- `loggableMorph`, the list of entities using the addressable functionality, each mapped to its respective loggable attribute
+For example: 
+```php
+'addressable' => [
+    Company::class => 'name',
+],
+```
+
     
 ## Publishes
 

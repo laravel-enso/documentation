@@ -25,6 +25,7 @@ File manager dependency for [Laravel Enso](https://github.com/laravel-enso/Enso)
 - uses a policy to restrict access/changes to files that don't belong to the respective user
 - provides a unified interface where you can view all the files you are working with, that you have access to, as well as search and filter them
 - the types of files that are visible in the interfaces are configurable
+- offers a configurable storage size limit
 
 ## Use
 
@@ -52,7 +53,7 @@ The `File` model:
 - should not be used directly but through its chaperone model
 
 The `Attachable` interface:
-- defines a series of methods that need to be implemented by the chaperone model (such as [Document](https://github.com/laravel-enso/DocumentsManager/blob/master/src/app/Models/Document.php))
+- defines a series of methods that need to be implemented by the chaperone model (example: [Document](https://github.com/laravel-enso/DocumentsManager/blob/master/src/app/Models/Document.php))
 - the methods have a default implementation found in the `HasFile` trait 
 - of course, if required, even if using the trait, the methods may be overridden for specific scenarios
 
@@ -86,6 +87,14 @@ For examples of using the FileManager package, take a look at any of the
 
 The VueJS components have been extracted to the [VueComponents](https://github.com/laravel-enso/VueComponents) package, 
 you may check the documentation [here](https://docs.laravel-enso.com/packages/vue-components.html#fileuploader).
+
+## Configuration
+
+The `config/enso/files.php` configuration file, lets you customize the following:
+- `visible`, key value array, a list of class-names for models that have files and should be present in the file manager list.   
+- `storageLimit`, number, the storage size limit for the files functionality | default is `500000`
+
+Note: the 'visible' models need to implement the `VisibleFile` interface, by providing an implementation for the `isDeletable` method 
 
 ## Publishes
 

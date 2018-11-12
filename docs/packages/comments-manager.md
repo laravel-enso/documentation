@@ -35,46 +35,64 @@ The component is already included in the Enso install and should not require any
 
 ## Use
 
-1. Define the `'modelAlias' => 'App\Model'` mapping in the `config/enso/comments.php` file, 
-    under the `commentables` section
-2. Add the `Commentable` trait in the Model to which you need to add comments. 
+1. Add the `Commentable` trait in the Model to which you need to add comments. 
     You can then use the `$model->comments` relationship
-3. Since users post comments, and users can tag other users, the `User` model has the `Comments` trait, 
-    which give you access to the user's comments, as well as the comments he's tagged in 
-4. If you need to customize the `CommentTagNotification` you need to publish it first with
+2. Since users post comments, and users can tag other users, the `User` model has the `Comments` trait, 
+    which gives you access to the user's comments, as well as the comments he's tagged in 
+3. If you need to customize the `CommentTagNotification` you need to publish it first with
     `php artisan vendor:publish --tag=comments-notification`
-5. Include the component in your pages/components
+4. Include the component in your pages/components
 
-```vue
-<comments :id="modelId"
-    type="modelAlias"
-    :paginate="5">
-</comments>
-```
-Note: you may substitute the comments component with the comments-card component as the two share the main properties
-and the comments-card is a card wrapper for the bare comments component.
+    ```vue
+    <comments :id="modelId"
+        type="modelClass"
+        :paginate="5">
+    </comments>
+    ```
+    Note: you may substitute the comments component with the comments-card component as the two share the main properties
+    and the comments-card is a card wrapper for the bare comments component.
 
 ## Options
 
 ### CommentsCard.vue
-- `id` - number, the id of the commentable model | required
-- `type` - string, the commentable model alias you set at the installation step #3 | required
-- `paginate` - number, the pagination page size | default is `5` | (optional)
 - `open` - boolean, flag, makes the component start collapsed or open | default is `false` | (optional)
-- `title` - string, title for the component | default is `'Comments'` | (optional)
+- `id` - number, the id of the commentable model | required
+- `type` - string, the commentable model class | required
+- `title` - string, title for the component | default is `''` | (optional)
 - `icon` - string, font awesome icon class | default is `'faComments'` | (optional)
 
 ### Comments.vue
 - `id` - number, the id of the commentable model | required
 - `type` - string, the commentable model alias you set at the installation step #3 | required
-- `paginate` - number, the pagination page size | default is `5` | (optional)
 - `query` - string, text for filtering out comments | default is `null` | (optional)
-
+- `controls` - boolean, flag for showing the controls for the component, such as the buttons for creating a new comment, 
+reloading the list of comments, etc. | default`false` | (optional)
 
 ## Configuration
-In the configuration file you may also set the time limit after which comments are no longer editable:
-- `editableTimeLimit`, in seconds, defaults to `24 * 60 * 60` seconds (1 day)
+In the `config/enso/comments.php` configuration file you may also set the following options:
 
+- `editableTimeLimit`, number, the amount of seconds after which a comment is no longer editable | default is `24 * 60 * 60` seconds (1 day)
+- `onDelete`, string, option that manages the case when the commentable entity is deleted and it has attached addresses.
+Valid options are `cascade`, `restrict` | default is `cascade`
+
+    With the cascade option, when a commentable model is deleted, the comments attached to it are also deleted. 
+    With the restrict option,  when attempting to delete a commentable model with attached comments, an exception is thrown.
+    
+- `loggableMorph`, the list of entities using the commentable functionality, each mapped to its respective loggable attribute
+For example: 
+    ```php
+    'commentable' => [
+        Company::class => 'name',
+    ],
+    ```
+
+   This configuration is used for activity logging.
+
+## Extending the comments
+In your project you may have the need to alter and or extend the comment notification.
+To achieve this, you'd need to:
+- create a new CommentTagNotification, ensuring it implements the `NotifiesTaggedUsers` marker interface. 
+- bind your local implementation to the interface in your local `AppServiceProvider`
 
 ## Publishes
 - `php artisan vendor:publish --tag=comments-config` - configuration file
@@ -87,7 +105,9 @@ once a newer version is released, usually used with the `--force` flag
 - `php artisan vendor:publish --tag=comments-mail` - the templates used for notifications
 - `php artisan vendor:publish --tag=enso-mail` - a common alias for when wanting to update the templates 
 used for notifications
-
+- `php artisan vendor:publish --tag=comments-factory` - the factory used for comments
+- `php artisan vendor:publish --tag=enso-factory` - a common alias for when wanting to update the factories 
+once a newer version is released, usually used with the `--force` flag
 
 ## Notes
 

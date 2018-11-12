@@ -773,9 +773,7 @@ You may see the vue data table in action, with the code for the UserGroups page,
 - [live result](https://www.laravel-enso.com/administration/userGroups/) (if you're not already logged in, use `admin@laravel-enso.com` and `password`)
 
 Feel free to look around at the various packages in the [laravel-enso](https://github.com/laravel-enso) repository, to find more examples.
-
-
-  
+ 
 
 ## Publishes
 

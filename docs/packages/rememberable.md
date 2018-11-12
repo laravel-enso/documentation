@@ -41,6 +41,8 @@ $remoteModel->getCachedModel()
     ->chainOtherRelationsOrMethods;
 ```
 
+Note: The `RememberableException` is thrown if attempting to use the `CacheReader` without adding the `Rememberable` trait 
+
 ### Notes
 
 The `Rememberable` trait takes care of adding to cache the tracked models on creation, refreshing the cache whenever models are updated and clearing the cache on models deletion.

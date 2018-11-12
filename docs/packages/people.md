@@ -63,29 +63,31 @@ useful for overriding the package template, when customizing the people table
 - `tableTemplate`, - string, is the project relative path to the person table template, 
 useful for overriding the package template, when customizing the people table 
 
-### Request Validation
+## Extending the people
 
-To facilitate extending the package functionality an interface is used for the person request validation. If no changes 
-are required, the included `ValidatePersonRequest` implementation is used.
+In your project you may have the need to alter and or extend the people structure by adding/removing table columns.
+To achieve this, you'd need to:
+- add migration(s) to your local project, making the necessary changes. Note that if using sqlite for testing, 
+some of the migration commands may not be available
+- create a new template for the person form, and declare it in the config (`formTemplate`)
+- create a new template for the person table, and declare it in the config (`tableTemplate`)
+- create a new company request validation, ensuring it implements the `ValidatesPersonRequest` marker interface 
+- bind your local implementations to the interfaces in your local `AppServiceProvider` 
 
-If you've added/removed fields from the people table, you may create another local implementation for the 
- `ValidatesPersonRequest` interface which you then need to bind by specifying this in the service provider's `register`
- method:
- 
- ```php
- $this->app->bind(
-     ValidatesCompanyRequest::class, MyValidateCompanyRequest::class
- );
- ```
+    ```php
+    $this->app->bind(
+        ValidatesPersonRequest::class, MyValidatePersonRequest::class
+    );
+    ``` 
 
 ## Publishes
 
-- `php artisan vendor:publish --tag=people-assets` - the VueJS components
 - `php artisan vendor:publish --tag=people-config` - configuration file
+- `php artisan vendor:publish --tag=people-assets` - the VueJS components
 - `php artisan vendor:publish --tag=people-factory` - the factory for the `Person` model
-- `php artisan vendor:publish --tag=enso-assets` - a common alias for when wanting to update the VueJS components,
-once a newer version is released, usually used with the `--force` flag
 - `php artisan vendor:publish --tag=enso-config` - a common alias for when wanting to update the config,
+once a newer version is released, usually used with the `--force` flag
+- `php artisan vendor:publish --tag=enso-assets` - a common alias for when wanting to update the VueJS components,
 once a newer version is released, usually used with the `--force` flag
 - `php artisan vendor:publish --tag=enso-factories` - a common alias for when wanting to update the factories,
 once a newer version is released, usually used with the `--force` flag

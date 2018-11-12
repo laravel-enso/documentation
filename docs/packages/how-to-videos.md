@@ -15,7 +15,6 @@ How-to video manager for [Laravel Enso](https://github.com/laravel-enso/Enso).
 Allows you to add videos to your application, to show users how to perform a specific action, demonstrate a feature, 
 present a process flow, etc. This is a complementary package to [Tutorial Manager](https://github.com/laravel-enso/TutorialManager).
  
- 
  * easily upload media clips from your computer, setting a title and a description
  * simple-to-use tag manager
  * optionally add a caption/cover picture for each video
@@ -45,4 +44,4 @@ once a newer version is released, usually used with the `--force` flag
 ## Notes
 
 Even though the media files are filtered on upload using their mime-types, depending on the encoding and versions, 
-some files might not work, as this is a limitation of the `video.js` library. Experiment and find what works for you.
+some files / file types might not work in all browsers / devices , as this is a limitation of the `video.js` library. Experiment and find what works for you.

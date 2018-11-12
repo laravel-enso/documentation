@@ -11,7 +11,6 @@ Discussions for [Laravel Enso](https://github.com/laravel-enso/Enso).
 
 [![Watch the demo](https://laravel-enso.github.io/discussions/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/discussions/videos/bulma_discussions.mp4)
 
-
 <sup>click on the photo to view a short demo in compatible browsers</sup>
 
 ### Features
@@ -21,12 +20,32 @@ Discussions for [Laravel Enso](https://github.com/laravel-enso/Enso).
 - the tagged users receive notifications (WIP)
 - users can show their appreciation for topics that they like with 'claps'
 - powerful what-you-see-is-what-you-get text editor, based on the excellent [Quill](https://quilljs.com/) library
-- within Enso, the Discussions module is integrated with the activity log
-- can be attached to any other model, via using a polymorphic relationship
+- within Enso, the Discussions module is integrated with the Activity Log
+- can be attached to any other model, via a polymorphic relationship
 - a `Discussible` trait is available, in order to make it easy to add discussions to a model 
 - changes to the discussions and posts are enforced through policies, where changes can be made by the original poster or an administrator
 - uses its own suite of specialized Bulma styled VueJS components for smooth integration with the rest of the application  
 
+## Configuration
+
+The `config/enso/discussions.php` configuration file, lets you customize the following:
+
+- `onDelete`, string, option that manages the case when the commentable entity is deleted and it has attached discussions.
+Valid options are `cascade`, `restrict` | default is `cascade`
+
+    With the cascade option, when a discussable model is deleted, the discussions attached to it are also deleted. 
+    With the restrict option,  when attempting to delete a discussable model with attached discussions, an exception is thrown.
+    
+- `loggableMorph`, the list of entities using the discussable functionality, each mapped to its respective loggable attribute
+For example: 
+    ```php
+    'discussable' => [
+        Company::class => 'name',
+    ],
+    ```
+
+   This configuration is used for activity logging.
+   
 ### Publishes
 
 - `php artisan vendor:publish --tag=discussions-config` - configuration files

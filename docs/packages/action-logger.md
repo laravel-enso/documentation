@@ -10,8 +10,8 @@ User actions logger dependency for [Laravel](https://laravel.com).
 
 - creates the `action-logger` middleware, the `action_logs` table and the `ActionLog` model
 - will log all access routes covered by the `action-logger` middleware
-- comes with the `HasActionLogs` trait that defines the relationship to the `ActionLog` model, and should be included in your user model
-- each entry will record `user_id`, `url`, `route` name, http `action` verb and timestamps
+- comes with the `ActionLogs` trait that defines the relationship to the `ActionLog` model, and should be included in your user model
+- each entry will record `user_id`, `url`, `route` name, http `method` verb and timestamps
 
 ## Installation Steps
 
@@ -19,7 +19,7 @@ User actions logger dependency for [Laravel](https://laravel.com).
 
 2. Include the `action-logger` middleware on the routes that you want covered
 
-3. Add the `HasActionLogs` trait on your user model, so you may retrieve the user's  actions
+3. Add the `ActionLogs` trait on your user model, so you may retrieve the user's  actions
 
 ## Notes
 

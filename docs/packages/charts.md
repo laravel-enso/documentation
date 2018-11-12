@@ -20,6 +20,8 @@ Server-side data builder for [Chart.js](http://www.chartjs.org), with 2 [Bulma](
 - the used colors are configurable through the publishable config file
 - comes with a `Chart.vue` VueJS component meant to be included anywhere
 - comes with a `ChartCard.vue` VueJS component meant to be used as card containing the chart
+- can translate labels, legends and data series
+- can download the graphical representation of the graph, as a `PNG` file
 
 ## Installation
 
@@ -63,15 +65,23 @@ Or for the server-side wrapper
 <chart-card :source="api/charts/line"/>
 ```
 
+## Configuration
+The package's configuration file offers a few options for customization:
+- `fillBackgroundOpacity` - number, the chart background's opacity, default is `0.25`
+- `colors` - array, the list of colors used when drawing the various chart types
+
 ## Options
 The `Chart.vue` component can be used anywhere by integrating it into any other component or page, and takes the following parameters:
-- `type` - `bar`, `polarArea`, `pie`, `doughnut`, `radar`, `bubble` | (required)
+- `type` - 'line', 'bar', 'radar', 'polarArea', 'pie', 'doughnut', 'bubble' | (required)
 - `data` - object containing the properly formatted data for the given chart type | (required)
 - `options` - ChartJs options object | (optional)
 
 The `ChartCard.vue` component is a chart in a Bulma card, and is meant to be used to retrieve its own data, and take the following parameters:
 - `source` - the route path that will fetch the data | (required)
 - `params` - parameters object that gets passed to the backend, may be used for customization of the data-set | (optional)
+- `i18n` - function, parameter for translating labels, legends and data | (optional)
+By default, if used within Enso, it will attempt to use the `__()` translation function. 
+If the translation function is not available, it will just return the text to be translated as is.
 
 
 ## Methods
@@ -82,6 +92,7 @@ The following methods are available on the components
     - `update()`
 * ChartCard.vue
     - `get()`, to reload the data from server
+    - `download()`, to download the chart representation as a `PNG` file
 
 Call these methods with `vm.$refs.chart.method()`
 

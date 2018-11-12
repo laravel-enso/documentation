@@ -22,7 +22,7 @@ JSON-based Form builder for [Laravel Enso](https://github.com/laravel-enso/Enso)
 - uses a JSON template file for generating the form
 - flexible form layout, that supports grouping inputs into logical sections and columns of different widths, 
 even on the same row 
-- uses it's own VueJS components, such as `vue-select` and `datepicker` for an improved experience
+- uses it's own VueJS components, such as `vue-select`, `datepicker` and even a `wysiwyg` editor for an improved experience
 - `VueFormSs.vue` a server-side form wrapper is available that can be used to fetch the form configuration 
 - for most forms, the builder & the json template is all that's needed
 - provides helpful error messages when the template is missing parameters or unexpected values are found
@@ -338,21 +338,21 @@ The Form builder can be globally configured from within its own configuration fi
         ],
         'show' => [
             'icon' => 'eye',
-            'class' => 'is-success',
+            'class' => 'is-info',
             'event' => 'show',
             'action' => 'router',
             'label' => 'Show',
         ],
         'store' => [
             'icon' => 'check',
-            'class' => 'is-success',
+            'class' => 'is-info',
             'event' => 'store',
             'action' => 'router',
             'label' => 'Save',
         ],
         'update' => [
             'icon' => 'check',
-            'class' => 'is-success',
+            'class' => 'is-info',
             'event' => 'update',
             'action' => 'router',
             'label' => 'Update',
@@ -497,7 +497,7 @@ The section is the organizing block for form inputs.
         "meta": {
             "type": "select",
             "multiple": false,
-            "source": "core.addresses.countriesSelectOptions",
+            "source": "core.addresses.countryOptions",
             "options": []
         }
     }, {
@@ -602,7 +602,7 @@ Is a set of parameters used to configure the supported form elements.
 #### type
 - Is: required
 - Type: string
-- Value: one of the following `"input"`, `"select"`, `"datepicker"`, `"timepicker"`, `"textarea"`, `"password"`
+- Value: one of the following `"input"`, `"select"`, `"datepicker"`, `"timepicker"`, `"textarea"`, `"password"`, `"wysiwyg"`
 
 #### content
 - Is: required if `type` is `"input"`
@@ -692,7 +692,7 @@ Flag that determines the select element to accept multiple values (works as a mu
 - Type: string
 - Applies to: `"select"`
 
-Flag that determines the select element to work in serverside mode, meaning that it will use the source URI in order to
+Flag that determines the select element to work in server-side mode, meaning that it will use the source URI in order to
 fetch the list of options. When using the `source` parameter, the `options` parameter is not required. 
 
 #### step
@@ -864,6 +864,19 @@ A textarea with a placeholder and a 5 rows height. Note that the textarea is res
 }
 ```
 
+### wysiwyg
+A basic what-you-see-is-what-you-get editor input.
+```json
+{
+    "label": "Notes",
+    "name": "obs",
+    "value": null,
+    "meta": {
+        "type": "wysiwyg"        
+    }
+}
+```
+
 ### DatePicker
 The most basic datepicker, with a placeholder.
 ```json
@@ -936,7 +949,7 @@ A server side single select, that fetches the list of options using the named ro
     "meta": {
         "type": "select",
         "multiple": false,
-        "source": "core.addresses.countriesSelectOptions"
+        "source": "core.addresses.countryOptions"
     }
 }
 ```

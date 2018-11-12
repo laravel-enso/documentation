@@ -13,7 +13,6 @@ Permission Manager dependency for [Laravel Enso](https://github.com/laravel-enso
 
 - permissions are managed based on the user role
 - allows creating, updating and deleting of permissions for each route
-- permits the one step creation of permissions for a resource type of route
 - has the `access-route` policy which can be used to check if the a user is authorized on a given route
 - comes with the `VerifyRouteAccess` middleware that checks against unauthorized access
 
@@ -21,7 +20,7 @@ Permission Manager dependency for [Laravel Enso](https://github.com/laravel-enso
 
 - inside `web.php` there is a route for each action within the application, and each route has the `name` attribute defined
 - for each route where we need to have authorization checks, we must define a permission, permission which needs to have the same name as the route
-- routes and groups are nested, the resulting name looking something like `group1.group2...route`
+- routes are nested, the resulting name looking something like `group1.group2...route`
 - for each request we check the existence of the link between the user's role and the permission for the request's route
 - permissions' attributes:
      - name: see above
@@ -30,16 +29,15 @@ Permission Manager dependency for [Laravel Enso](https://github.com/laravel-enso
      - is_default - flag which lets us know if a permission needs to be automatically allotted to any new role we create
 - for routes where we don't need to have authorization checks, permissions are not mandatory, **BUT**
 - if we want to log and display the users' actions, permissions become necessary, as they're used when displaying statistics
-- permissions are grouped together in groups, which have mainly a descriptive purpose
-- when naming them, the same name convention is used as in the case of permissions  e.g. `group1.group2`
-- permission groups are not linked directly to any other entity - with the obvious exception of permissions - nor are they used directly
+- permissions are automatically grouped together, based on their segments, in the UI, for presentation and functional purposes, so 
+administrators can easily configure roles
 
 ## Notes
 
 The [Laravel Enso Core](https://github.com/laravel-enso/Core) package comes with this package included.
 
 Depends on:
- - [Datatable](https://github.com/laravel-enso/Datatable) for displaying the list of permissions
+ - [VueDatatable](https://github.com/laravel-enso/VueDatatable) for displaying the list of permissions
  - [FormBuilder](https://github.com/laravel-enso/FormBuilder) for creating the forms when managing permissions
  - [Helpers](https://github.com/laravel-enso/Helpers) for utility classes and traits
  - [RoleManager](https://github.com/laravel-enso/RoleManager) for the integration with roles 
