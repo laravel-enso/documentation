@@ -32,24 +32,29 @@ sudo apt-get install pngquant gifsicle jpegoptim php7.1-gd
 
 ## Publishes
 
+- `php artisan vendor:publish --tag=core-storage` - the storage folder structure
+- `php artisan vendor:publish --tag=core-assets` - the assets folders, scss & js
 - `php artisan vendor:publish --tag=core-config` - the configuration files
 - `php artisan vendor:publish --tag=core-preferences` - the json preferences file
-- `php artisan vendor:publish --tag=core-lang` - the default lang files
-- `php artisan vendor:publish --tag=enso-lang` - the assets lang files
-- `php artisan vendor:publish --tag=core-storage` - the storage folders
-- `php artisan vendor:publish --tag=core-assets` - the assets folders, scss & js
-once a newer version is released
+- `php artisan vendor:publish --tag=core-factories` - the factories for the User and the UserGroup
+- `php artisan vendor:publish --tag=core-seeders` - the seeders for the User and the UserGroup
 - `php artisan vendor:publish --tag=enso-config` - a common alias for when wanting to update the config,
+once a newer version is released
+- `php artisan vendor:publish --tag=enso-preferences` - a common alias for when wanting to update the preferences,
+once a newer version is released
+- `php artisan vendor:publish --tag=enso-factories` - a common alias for when wanting to update the factories,
+once a newer version is released
+- `php artisan vendor:publish --tag=enso-seeders` - a common alias for when wanting to update the seeders,
 once a newer version is released
 - `php artisan vendor:publish --tag=enso-assets` - a common alias for when wanting to update the scss & js assets,
 once a newer version is released (ran automatically with --force after every composer install)
-- `php artisan vendor:publish --tag=core-mail` - the templates used for notifications
 - `php artisan vendor:publish --tag=enso-mail` - a common alias for when wanting to update the templates 
-used for notifications
+used for email
 
 ## Commands
 - `php artisan enso:clear-preferences` - clears the preferences stored in the DB, 
 useful when the preferences structure changes  
+- `php artisan enso:update-global` - adds new global preferences keys for users
 
 ## Notes
 

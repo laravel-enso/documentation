@@ -43,6 +43,12 @@ If any notifications are received while the web application tab is active, Deskt
 
 When clicking on a desktop notification, the browser will switch to the web application's tab.
 
+## Publishes
+
+- `php artisan vendor:publish --tag=notifications-assets` - notification js assets, pages
+- `php artisan vendor:publish --tag=enso-assets` - a common alias for when wanting to update the assets,
+once a newer version is released, usually used with the `--force` flag
+
 ## Notes
 
 The [Laravel Enso](https://github.com/laravel-enso/Enso) package comes with this package included.

@@ -10,7 +10,6 @@ Role Manager dependency for [Laravel Enso](https://github.com/laravel-enso/Enso)
 [![Watch the demo](https://laravel-enso.github.io/rolemanager/screenshots/bulma_021_thumb.png)](https://laravel-enso.github.io/rolemanager/videos/bulma_demo_01.webm)
 <sup>click on the photo to view a short demo in compatible browsers</sup>
 
-
 ## Details
 
 - manages roles for the users of the application
@@ -19,17 +18,21 @@ Role Manager dependency for [Laravel Enso](https://github.com/laravel-enso/Enso)
 
 ## Publishes
 
-- `php artisan vendor:publish --tag=vue-components` - the VueJS components and pages
-- `php artisan vendor:publish --tag=roles-assets` - the pages
-- `php artisan vendor:publish --tag=enso-assets` - a common alias for when wanting to update the VueJS assets, once a newer version is released, can be used with the `--force` flag
+- `php artisan vendor:publish --tag=roles-assets` - the VueJS components and pages
+- `php artisan vendor:publish --tag=roles-factory` - the factory for the `Role` model
 - `php artisan vendor:publish --tag=roles-seeder` - a seeder that will allow you to manage roles locally and then sync them with the live instance of the app
+- `php artisan vendor:publish --tag=enso-assets` - a common alias for when wanting to update the VueJS assets, once a newer version is released, can be used with the `--force` flag
+- `php artisan vendor:publish --tag=enso-factories` - a common alias for when wanting to update the factories,
+once a newer version is released, usually used with the `--force` flag
+- `php artisan vendor:publish --tag=enso-seeders` - a common alias for when wanting to update the seeders,
+once a newer version is released, usually used with the `--force` flag
 
 ## Notes
 
 The [Laravel Enso Core](https://github.com/laravel-enso/Core) package comes with this package included.
 
 Depends on:
- - [Datatable](https://github.com/laravel-enso/Datatable) for displaying the list of roles
+ - [VueDatatable](https://github.com/laravel-enso/VueDatatable) for displaying the list of roles
  - [FormBuilder](https://github.com/laravel-enso/FormBuilder) for creating the forms when managing languages
  - [Helpers](https://github.com/laravel-enso/Helpers) for utility classes and traits
  - [MenuManager](https://github.com/laravel-enso/MenuManager) for managing permissions with the menus 

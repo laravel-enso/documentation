@@ -115,28 +115,38 @@ Takes the following properties:
 
 ### Tabs
 Takes the following properties:
-- `alignment`, left/center/right, the alignment of the tabs | default `left` | (optional)
-- `size`, small/normal,medium/large, the size of the element, as styled by bulma's is-* classes| default `normal` | (optional)
+- `alignment`, `left`/`center`/`right`, the alignment of the tabs | default `left` | (optional)
 - `boxed`, boolean, flag that toggles the rendering of the tabs in a box | default `false` | (optional)
-- `toggle`, boolean, flag that toggles the `is-toggle` bulma class, for mutually exclusive tabs | default `false` | (optional)
-- `toggleRounded`, boolean, flag that toggles the `is-toggle-rounded` bulma class, where the first and last tabs are rounded | default `false` | (optional)
-- `fullwidth`, boolean, flag that toggles the `is-fullwidth` bulma class, where the tabs take up the entire available width | default `false` | (optional)
+- `custom`, boolean, marks a tab as custom, with specific styling | default `false` | (optional)
+- `fullwidth`, boolean, flag that toggles the `is-fullwidth` Bulma class, where the tabs take up the entire available width | default `false` | (optional)
+- `size`, `small`/`normal`/`medium`/`large`, the size of the element, as styled by Bulma's is-* classes| default `normal` | (optional)
+- `toggle`, boolean, flag that toggles the `is-toggle` Bulma class, for mutually exclusive tabs | default `false` | (optional)
+- `toggleRounded`, boolean, flag that toggles the `is-toggle-rounded` Bulma class, where the first and last tabs are rounded | default `false` | (optional)
 
 ### Tab
 Takes the following properties:
 - `id`, string/object, a value used to identify the tab - gets passed to parent (Tabs) component | required 
 - `default`, boolean, tab index value, sets the active tab | default `false` | (optional)
-- `disabled`, boolean, flag that disables a tab | defautl `false` | (optional)
+- `disabled`, boolean, flag that disables a tab | default `false` | (optional)
+- `keepAlive`, boolean, flag that marks a tab to be kept alive | default `false` | (optional)
+
+#### Keep Alive
+Depending on the content of a tab, there might be cases when you don't want that tab created/destroyed each time you
+switch to it / away from it, but instead you want it contents created once. At the same time, you might have cases when
+it does not make sense to have all the tabs created when the page or parent component is loaded.
+
+For these cases, now you can mark a tab to be kept alive (default is `false`) so it's created once and then always 
+available when you switch to it. 
 
 ### Typeahead
 Takes the following properties:
 - `disabled`, boolean, the title string | default `null` | (optional)
 - `length`, number, the number of retrieved options | default `10` | (optional)
-- `source`, string, the endpoing that gives back results | (required)
+- `source`, string, the endpoint that gives back results | (required)
 - `params`, object, properties object that gets sent with the request | default `null` | (optional)
 - `label`, string, label | (required) 
 - `placeholder`, string | default `What are you searching for today?` | (optional)
-- `notResults`, string, a placeholder when not having results | default `No results found matching the criteria...` | (optional)
+- `noResults`, string, a placeholder when not having results | default `No results found matching the criteria...` | (optional)
 - `searching`, string, a placeholder while searching | default `Searching...` | (optional)
 - `validator`, boolean, flag that enables the value validation using the regular expression | default `false` | (optional)
 - `regExp`, RegExp, validation regular expression | default `/.*/` | (optional)
@@ -172,17 +182,17 @@ options: [
 ],
 filters: {
     orders: {                
-        paid_taxes: '',                
+        paid_taxes: ''             
     }
-},
+}
 ```
 
 When using the icons flag, options may be something like:
 ```js
 options: [
     { value: true, label: 'check', class: 'has-text-success' },
-    { value: false, label: 'times', class: 'has-text-danger' },
-],
+    { value: false, label: 'times', class: 'has-text-danger' }
+]
 ```
 
 Next, when defining your DataTable, make sure you give it your filters:

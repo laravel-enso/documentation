@@ -78,7 +78,7 @@ The new class then provides the following methods:
 
 ### Traits
 
-#### IsActive 
+#### ActiveState 
 
 Adds the following methods for models that have a boolean `is_active` property:
 - `whereActive()` scope

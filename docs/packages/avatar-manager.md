@@ -19,6 +19,7 @@ User Avatar manager dependency for [Laravel Enso](https://github.com/laravel-ens
 - uses the [File Manager](https://github.com/laravel-enso/FileManager) package for uploading the avatar files
 - uses the [Image Transformer](https://github.com/laravel-enso/ImageTransformer) package for cropping and optimizing the avatar files
 - uses the [Laravolt Avatar](https://github.com/laravolt/avatar) for generating avatars from user names
+- uses a policy to ensure that normal users can only modify their own avatars, while administrators can modify any avatar 
 
 ## Notes on usage
 
@@ -26,7 +27,10 @@ Since this package is using image processing libraries and these underlying libr
 especially if the processed files are large (for example, for an 8MB image file, more than 128MB of memory might be used ),
 make sure to configure php accordingly and/or do `ini_set(‘memory_limit’, ‘256M’);`   
 
-Failure to do so may result in silent errors if alloted memory is insufficient.
+Failure to do so may result in silent errors if allotted memory is insufficient.
+
+## Commands
+- `php artisan enso:avatars:generate` - generates avatars for users which do not already have an avatar
 
 ## Publishes
 

@@ -13,7 +13,7 @@ Image transformer dependency for [Laravel Enso](https://github.com/laravel-enso/
 - handles image cropping, using the [Intervention Image](https://github.com/intervention/image) library
 
 ## Under the Hood
-- handles missing libraries gracefully, logging the fact but does not throw an error
+- for the non essential libraries, handles missing libraries gracefully, logging the fact but does not throw an error
 
 ## Installation
 
@@ -31,7 +31,7 @@ The underlying image processing libraries may use a lot of memory,
 especially if the processed files are large (for example, for an 8MB file, more than 128MB of memory might be used ),
 so make sure to configure php accordingly and/or do `ini_set(‘memory_limit’, ‘256M’);`   
 
-Failure to do so may result in silent errors if alloted memory is insufficient.
+Failure to do so may result in silent errors if allotted memory is insufficient.
 
 ## Use
 The `ImageTransformer` class has 2 public methods:
@@ -39,6 +39,11 @@ The `ImageTransformer` class has 2 public methods:
 - `resize`, takes the target width and height and resizes the file, possibly changing the aspect ration
 - `width`, resizes the file to the given width, maintaining aspect ratio
 - `height`, resizes the file to the given height, maintaining aspect ratio
+
+Note, an `ImageTransformerException` is thrown if:
+- the `gd` or `imagick` extensions are missing
+- a file type not supported for an uploaded file
+- an uploaded file fails the basic validation
 
 ## Notes
 

@@ -48,26 +48,31 @@ useful for overriding the package template, when customizing the companies table
 - `contactFormTemplate`, - string, is the project relative path to the contact person table template, 
 useful for overriding the package template, when customizing the contacts
 
-### Request Validation
+## Extending the companies
 
-To facilitate extending the package functionality interfaces are used for the company and contact person form request validation. If no changes 
-are required, the included `ValidateCompanyRequest` / `ValidateContactRequest` implementations are used.
+In your project you may have the need to alter and or extend the companies structure by adding/removing table columns.
+To achieve this, you'd need to:
+- add migration(s) to your local project, making the necessary changes. Note that if using sqlite for testing, 
+some of the migration commands may not be available
+- create a new template for the companies form, and declare it in the config (`formTemplate`)
+- create a new template for the contact form, and declare it in the config (`contactFormTemplate`)
+- create a new template for the companies table, and declare it in the config (`tableTemplate`)
+- create a new company request validation, ensuring it implements the `ValidatesCompanyRequest` marker interface.
+- create a new contact request validation, ensuring it implements the `ValidatesContactRequest` marker interface. 
+- bind your local implementations to the interfaces in your local `AppServiceProvider` 
 
-If you've added/removed fields from the companies table, you may create another local implementation for the 
- `ValidatesCompanyRequest` interface which you then need to bind by specifying this in the service provider's `register`
- method (the same steps apply to the contact person request): 
- 
- ```php
- $this->app->bind(
-     ValidatesCompanyRequest::class, MyValidateCompanyRequest::class
- );
- ``` 
-
+    ```php
+    $this->app->bind(
+        ValidatesCompanyRequest::class, MyValidateCompanyRequest::class
+    );
+    ``` 
 
 ## Publishes
-
+- `php artisan vendor:publish --tag=companies-config` - configuration file
 - `php artisan vendor:publish --tag=companies-assets` - the VueJS components
 - `php artisan vendor:publish --tag=companies-factory` - the factory for the `Company` model
+- `php artisan vendor:publish --tag=enso-config` - a common alias for when wanting to update the configurations,
+once a newer version is released, usually used with the `--force` flag
 - `php artisan vendor:publish --tag=enso-assets` - a common alias for when wanting to update the VueJS components,
 once a newer version is released, usually used with the `--force` flag
 - `php artisan vendor:publish --tag=enso-factories` - a common alias for when wanting to update the factories,

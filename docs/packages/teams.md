@@ -18,6 +18,7 @@ Team management dependency for [Laravel Enso](https://github.com/laravel-enso/En
 * the current team structure is basic, and can be further used as needed
 * search through teams as required
 * the Team model has its activity tracked (integration with [ActivityLog](https://github.com/laravel-enso/ActivityLog))
+* provides a `Teams` trait that defines the `teams` relationship
 
 ### Publishes
 

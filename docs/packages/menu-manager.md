@@ -43,6 +43,9 @@ import the required icons. The proper place to include the new icons is:
 - `php artisan vendor:publish --tag=menus-assets` - the VueJS pages and components
 - `php artisan vendor:publish --tag=enso-assets` - a common alias for when wanting to update the VueJS assets,
 once a newer version is released, can be used with the `--force` flag
+- `php artisan vendor:publish --tag=menus-factory` - the factory for the `Menu` model
+- `php artisan vendor:publish --tag=enso-factories` - a common alias for when wanting to update the factories,
+once a newer version is released, usually used with the `--force` flag
 
 ## Notes
 
@@ -50,7 +53,7 @@ The [Laravel Enso Core](https://github.com/laravel-enso/Core) package comes with
 
 Depends on:
  - [Core](https://github.com/laravel-enso/Core) for middleware
- - [Datatable](https://github.com/laravel-enso/Datatable) for displaying the list of menus 
+ - [VueDatatable](https://github.com/laravel-enso/VueDatatable) for displaying the list of menus 
  - [FormBuilder](https://github.com/laravel-enso/FormBuilder) for creating the forms when managing languages 
  - [Helpers](https://github.com/laravel-enso/Helpers) for timestamp formatting 
  - [RoleManager](https://github.com/laravel-enso/RoleManager) for the integration with the roles system 

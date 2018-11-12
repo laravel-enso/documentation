@@ -105,8 +105,17 @@ for instance, choosing `model` will generate just the model class, but choosing 
 #### [5] Generate
 Choosing this option will generate the files based on your configuration and selections.
 
+#### [6] Validation
+Choosing this option will toggle the validation that is being normally performed 
+before the generation of the structure & files 
+
 ## Commands
 - `php artisan enso::make:structure` - runs the structure creation CLI 
+
+## Publishes
+- `php artisan vendor:publish --tag=structuremanager-config` - configuration file
+- `php artisan vendor:publish --tag=enso-config` - a common alias for when wanting to update the configuration,
+once a newer version is released, usually used with the `--force` flag
 
 ## Notes
 

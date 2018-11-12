@@ -46,10 +46,12 @@ The component is already included in the Enso install and should not require any
 
 
 ## Configuration
-The configuration can be found/published in `config/enso/imports.php` 
-and contains what's needed to hook the JSON templates to the import package:
-- `label`, the label visible to the user in the interface
-- `template`, the relative path to the JSON import templates
+The configuration can be found/published in `config/enso/imports.php` and contains:
+ - `validations`, string, flag that sets whether import template validations are also executed in production, 
+ valid values are `always`/`local`/`yourEnv` | default `local` 
+- `configs` - configuration array, with what's needed to hook the JSON templates to the import package:
+    - `label`, the label visible to the user in the interface
+    - `template`, the relative path to the JSON import templates
 
 #### JSON Template structure:
 - `importerClass`, the fully qualified importer class name | required. Here you write the import logic.

@@ -20,7 +20,7 @@ Bulma styled single and multi-select VueJS component with a server-side option l
 - for the back-end, the package comes with a trait for easy retrieval and formatting of the data 
 as expected by the VueJS component
 - can filter the option list dynamically even based on the model’s one-to-many / many-to-many relationships
-- can search in multiple attributes of a model
+- can search in multiple attributes of a model, and the attribute(s) may be nested
 - can specify the attribute used as label for the select options
 - can be used to create a new 'tag' if no suitable result is found (soon)
 - can use the arrow keys to navigate the list of results and Enter to select/deselect 
@@ -67,32 +67,33 @@ The VueJS component is already included in the Enso install and should not requi
 In order to work, the component needs a data source. The data source can be a path for server-side, OR a formatted object. 
 Either a `source` or an `options` parameter is required.
 
+- `multiple` - boolean, flag that makes the element work as a multiselect, if omitted, the select acts as single select | default `false` | (optional)
 - `source` - string, path to use when getting the select options **only for server-side**. | default `null`
 - `options` - array of objects, list of options, **only where you don't need server-side** | default `[]`
 - `trackBy` - string, the name of the option object attribute when selecting it (html `<option>` value equivalent) | default `id` |  (optional)
 - `label` - string, the name of the option object attribute used as label (html `<option>` text equivalent) | default `name` |  (optional)
-- `v-model` - variable holding the selected option(s). Can be a single value or an Array if the select is used as a multi-select. 
+- `value` - variable holding the selected option(s). Can be a single value or an Array if the select is used as a multi-select. 
 If not null/empty, the vue select will pre-populate the selected value(s) | default `[]` or `null` |  (optional)
+- `limit` - number, parameter that limits the number of options loaded from the backend | default `100` | (optional)
 - `disabled` - boolean, flag that sets the element as disabled | default `false` | (optional)
-- `disable-clear` - boolean, flag that disables the clear button and also prevents deselecting the last input value for single select | default `false` | (optional)
-- `multiple` - boolean, flag that makes the element work as a multiselect, if omitted, the select acts as single select | default `false` | (optional)
-- `i18n`, optional, function, that is used for translating labels, headers, and table data 
-The default value (function) for this parameter simply returns its argument as the translated value
+- `readonly` - boolean, flag that marks the element as readonly | default `false` | (optional)
 - `taggable` - boolean, flag the allows the creation of new tags (soon) | default `false` | (optional)
-- `hasError` - boolean, flag sets an error styling for the select, like when validation fails | default `false` | (optional)
-- `optionsLimit` - number, parameter that limits the number of options loaded from the backend | default `100` | (optional)
+- `disable-clear` - boolean, flag that disables the clear button and also prevents deselecting the last input value for single select | default `false` | (optional)
+- `hasError` - boolean, flag sets an error styling for the select, such as when validation fails | default `false` | (optional)
 - `params` - object, attributes from the same table/model used for filtering results in server-side mode. 
 Format: `params: { 'fieldName': fieldValue }` | default `null` | (optional)
 - `pivotParams` - object, attributes from linked tables/models used for filtering results in server-side mode. 
 Format: `pivotParams: { 'table': {'attribute':value} }` | default `null` | (optional)
 
-    Note that the value may also be an array, in which case, unde the hood, a `where in` type of query will be used. 
+    Note that the value may also be an array, in which case, under the hood, a `where in` type of query will be used. 
 
 - `customParams` - object, can be anything. 
 Using customParams implies that you provide a 'query' method inside the controller, so you can make use of the custom object  provided in the request. | (optional)
-- `placeholder` - custom placeholder when no option is selected | default 'Please choose' | (optional)
-- `labels` - object, the labels used inside the component | default `{ selected: 'selected', select: 'select', deselect: 'deselect', noOptions: 'No options available', noResult: 'No search results found' }` | (optional)
-- `debounce` - number, the number of miliseconds to use when debouncing the search on type | default `300` ms | (optional)
+- `placeholder` - custom placeholder when no option is selected | default `'Choose'` | (optional)
+- `labels` - object, the labels used inside the component | default `{ selected: 'selected', select: 'select', deselect: 'deselect', noOptions: 'No options available', noResult: 'No search results found', addTag: 'Add option', }` | (optional)
+- `i18n`, optional, function, that is used for translating labels, headers, and table data
+The default value (function) for this parameter simply returns its argument as the translated value
+- `debounce` - number, the number of milliseconds to use when debouncing the search on type | default `300` ms | (optional)
 
 
 ### VueSelectFilter component options 
@@ -110,6 +111,8 @@ the regular `VueSelect` options are available
 - `query()`, a method which will return the query builder that we're using when querying for options | default `null` | (optional)
 
 Note: If a query method is provided, it's going to be used, if it's not given, a query will be constructed, using the given class and other values.
+Note: The query attribute(s) given may have a nested structure, for instance `user.name` where `user` is a relationship on the model. 
+In such a case the builder will follow through the relationships to query the given attribute.
 
 ## Publishes
 
@@ -124,12 +127,5 @@ Therefore, the package depends just on:
  - [v-click-outside](https://github.com/ndelvalle/v-click-outside) for closing the dropdown when clicking outside clicks 
  - [lodash](https://github.com/lodash/lodash) for debouncing using a selective import
  - [Font Awesome 5](https://fontawesome.com/) for the icons, using selective imports
-
-
-When using within [Laravel Enso](https://github.com/laravel-enso/enso), 
-you can have the server-side route permissions generated automatically, 
-when creating permissions for a resource controller, from the System/permissions menu.
-
-You can also quickly generate permissions using the [StructureManager](https://github.com/laravel-enso/StructureManager)'s StructureMigration class.
 
 The [Laravel Enso Core](https://github.com/laravel-enso/Core) package comes with this package included.

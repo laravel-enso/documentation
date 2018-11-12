@@ -29,6 +29,7 @@ Localisation management dependency for [Laravel Enso](https://github.com/laravel
    - `name` - the language code, e.g. 'en'
    - `display_name` - the label for the language, visible in the UI, e.g. 'English'
    - `flag` - the icon class used for showing the flag
+   - `is_active` - flag for marking a language as active/inactive
 
 - when translating, the new Laravel mechanism is used, respectively the `__()` function 
 - the main language is considered to be english
@@ -55,7 +56,7 @@ or at a page refresh
 
 ## Usage Notes
 
-Please note that because we want to keep the compiled size down, throughout the enso ecosistem, 
+Please note that because we want to keep the compiled size down, throughout the enso ecosystem, 
 icons are imported selectively.
 
 What this means for the localisation package, is that when adding a new language, you should also make sure you 
@@ -68,6 +69,15 @@ import the required flag icon SVG and declare the corresponding class. The prope
 - `php artisan vendor:publish --tag=localisation-assets` - the VueJS components and pages
 - `php artisan vendor:publish --tag=enso-assets` - a common alias for when wanting to update the VueJS assets,
 once a newer version is released, can be used with the `--force` flag
+- `php artisan vendor:publish --tag=localisation-factory` - the factory used for localisation
+- `php artisan vendor:publish --tag=enso-factories` - a common alias for when wanting to update the factories 
+once a newer version is released, usually used with the `--force` flag
+- `php artisan vendor:publish --tag=localisations-seeder` - the seeder used for localisation
+- `php artisan vendor:publish --tag=enso-seeders` - a common alias for when wanting to update the seeders 
+once a newer version is released, usually used with the `--force` flag
+- `php artisan vendor:publish --tag=localisations-config` - the configuration
+- `php artisan vendor:publish --tag=localisation-lang-files` - the localisation language files
+
 
 ## Contributing
 First off, thanks for taking the time to contribute a new language and translations.
@@ -118,7 +128,7 @@ since we've been working on the published resources and some of these might get 
 1. copy the updated `flags.scss` from `resources/assets/sass/` to `vendor/laravel-enso/core/src/resources/assets/sass/`
 2. copy the updated `i18n.js` from `src/resources/assets/js/modules/enso/plugins/date-fns/` to `vendor/laravel-enso/core/src/resources/assets/js/modules/enso/plugins/date-fns`
 
-##### The Formbuilder package
+##### The FormBuilder package
 1. copy the updated `flatpickrLocale.js` from `resources/assets/js/components/enso/vueforms/` to `vendor/laravel-enso/formbuilder/src/resources/assets/js/components/enso/vueforms` 
 
 #### Finally
@@ -149,6 +159,6 @@ The [Laravel Enso Core](https://github.com/laravel-enso/Core) package comes with
 Depends on:
  - [Core](https://github.com/laravel-enso/Core) for middleware, user and preferences models 
  - [Structure manager](https://github.com/laravel-enso/StructureManager) for the migrations
- - [Datatable](https://github.com/laravel-enso/Datatable) for displaying the list of languages
+ - [VueDatatable](https://github.com/laravel-enso/VueDatatable) for displaying the list of languages
  - [FormBuilder](https://github.com/laravel-enso/FormBuilder) for creating the forms when managing languages
  - [Helpers](https://github.com/laravel-enso/Helpers) for utility classes and traits
