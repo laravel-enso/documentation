@@ -42,18 +42,17 @@ This package is already included in [Laravel Enso](https://github.com/laravel-en
 
 The `config/enso/companies.php` configuration file, lets you customize the following:
 - `formTemplate`, - string, is the project relative path to the companies form template, 
-useful for overriding the package template, when customizing the companies table 
+useful for overriding the original
 - `tableTemplate`, - string, is the project relative path to the companies table template, 
-useful for overriding the package template, when customizing the companies table 
-- `contactFormTemplate`, - string, is the project relative path to the contact person table template, 
-useful for overriding the package template, when customizing the contacts
+useful for overriding the original
+- `contactFormTemplate`, - string, is the project relative path to the contact person form template, 
+useful for overriding the origin
 
 ## Extending the companies
 
-In your project you may have the need to alter and or extend the companies structure by adding/removing table columns.
+In your project you may have the need to alter and or extend the companies structure by changing table columns.
 To achieve this, you'd need to:
-- add migration(s) to your local project, making the necessary changes. Note that if using sqlite for testing, 
-some of the migration commands may not be available
+- add migration(s) to your local project, making the necessary changes
 - create a new template for the companies form, and declare it in the config (`formTemplate`)
 - create a new template for the contact form, and declare it in the config (`contactFormTemplate`)
 - create a new template for the companies table, and declare it in the config (`tableTemplate`)
