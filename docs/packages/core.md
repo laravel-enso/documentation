@@ -8,13 +8,83 @@
 
 Main requirement & dependency aggregator for [Laravel Enso](https://github.com/laravel-enso/Enso).
 
+## Features
+- core users, roles, permissions structure
+- project wide, middleware based, automatic logging of all user actions
+- configurable, selective, model event based logging of CRUD (& custom) actions
+- integrated avatar functionality with custom & automatic avatar generation
+- chart generation support
+- extensible, reusable file management core functionality
+- powerful, template based, customizable form builder with out of the box support for most use cases
+- model event based history tracking
+- middleware based user impersonation support for testing & troubleshooting
+- localisation & i18n support
+- Laravel log management functionality & interface
+- application menus management
+- user email & push notifications
+- extensible, core people functionality
+- integrated permissions management
+- easy to use caching support
+- user roles functionality with friendly interface for role configuration
+- customizable, project wide search support
+- template based CLI interface for the painless creation of the most needed file structures
+- trait based, event driven user tracking for any model state change
+- easy to use tutorial functionality for quick human user training
+- model event driven, out of the box versioning support
+- aspect consistent ecosystem of front-end VueJS reusable components
+- highly powerful, full search, customizable, template based, huge data-set capable, 
+front-end back-end integrated data table functionality with a great many other features   
+ 
+## Optional Features
+- customizable, extensible, generic addresses manager plugin
+- polymorphic, notification integrated comments functionality
+- customizable, extensible, companies structure
+- template based, validation capable, xlsx data import functionality
+- intuitive discussions module
+- polymorphic, document upload and management functionality
+- easy to use, searchable, taggable videos support
+- core teams structure  
+
 ## Included packages
 
-[Action Logger](https://github.com/laravel-enso/ActionLogger), [Avatar Manager](https://github.com/laravel-enso/AvatarManager) <sup>1</sup>, [Charts](https://github.com/laravel-enso/Charts), [Datatable](https://github.com/laravel-enso/DataTable), [DbSyncMigrations](https://github.com/laravel-enso/DbSyncMigrations), [File Manager](https://github.com/laravel-enso/FileManager), [Form Builder](https://github.com/laravel-enso/FormBuilder), [Helpers](https://github.com/laravel-enso/Helpers), [History Tracker](https://github.com/laravel-enso/HistoryTracker), [Image Transformer](https://github.com/laravel-enso/ImageTransformer) <sup>1</sup>, [Impersonate](https://github.com/laravel-enso/Impersonate), [Localisation](https://github.com/laravel-enso/Localisation), [Log manager](https://github.com/laravel-enso/LogManager), [Menu manager](https://github.com/laravel-enso/MenuManager), [Permission manager](https://github.com/laravel-enso/PermissionManager), [Rememberable](https://github.com/laravel-enso/Rememberable), [Role manager](https://github.com/laravel-enso/RoleManager), [Select](https://github.com/laravel-enso/Select), [Structure manager](https://github.com/laravel-enso/StructureManager), [Trackwho](https://github.com/laravel-enso/TrackWho), [Tutorial Manager](https://github.com/laravel-enso/TutorialManager), [Vue Components](https://github.com/laravel-enso/VueComponents)
+[Action Logger](https://github.com/laravel-enso/ActionLogger), 
+[Activity Log](https://github.com/laravel-enso/ActivityLog), 
+[Avatar Manager](https://github.com/laravel-enso/AvatarManager) <sup>1</sup>, 
+[Charts](https://github.com/laravel-enso/Charts), 
+[Data Export](https://github.com/laravel-enso/DataExport), 
+[File Manager](https://github.com/laravel-enso/FileManager), 
+[Form Builder](https://github.com/laravel-enso/FormBuilder), 
+[Helpers](https://github.com/laravel-enso/Helpers), 
+[History Tracker](https://github.com/laravel-enso/HistoryTracker),
+[Image Transformer](https://github.com/laravel-enso/ImageTransformer), 
+[Impersonate](https://github.com/laravel-enso/Impersonate), 
+[Localisation](https://github.com/laravel-enso/Localisation), 
+[Log Manager](https://github.com/laravel-enso/LogManager), 
+[Menu Manager](https://github.com/laravel-enso/MenuManager),
+[Notifications](https://github.com/laravel-enso/Notifications), 
+[People](https://github.com/laravel-enso/People), 
+[Permission Manager](https://github.com/laravel-enso/PermissionManager), 
+[Rememberable](https://github.com/laravel-enso/Rememberable), 
+[Role Manager](https://github.com/laravel-enso/RoleManager), 
+[Searchable](https://github.com/laravel-enso/Searchable), 
+[Select](https://github.com/laravel-enso/Select), 
+[Structure Manager](https://github.com/laravel-enso/StructureManager), 
+[TrackWho](https://github.com/laravel-enso/TrackWho), 
+[Tutorial Manager](https://github.com/laravel-enso/TutorialManager), 
+[Versioning](https://github.com/laravel-enso/Versioning), 
+[Vue Components](https://github.com/laravel-enso/VueComponents), 
+[VueDataTable](https://github.com/laravel-enso/VueDataTable), 
 
 ## Optional packages
 
-[Notifications](https://github.com/laravel-enso/Notifications), [Documents Manager](https://github.com/laravel-enso/DocumentsManager) <sup>1</sup>, [Comments Manager](https://github.com/laravel-enso/CommentsManager), [Data Import](https://github.com/laravel-enso/DataImport)
+[Addresses Manager](https://github.com/laravel-enso/AddressesManager), 
+[Comments Manager](https://github.com/laravel-enso/CommentsManager), 
+[Companies](https://github.com/laravel-enso/Companies), 
+[Data Import](https://github.com/laravel-enso/DataImport), 
+[Discussions](https://github.com/laravel-enso/Discussions), 
+[Documents Manager](https://github.com/laravel-enso/DocumentsManager) <sup>1</sup>, 
+[HowTo Videos](https://github.com/laravel-enso/HowToVideos)
+[Teams](https://github.com/laravel-enso/Teams)
 
 
 ## Notes
