@@ -59,9 +59,9 @@ This package is already included in [Laravel Enso](https://github.com/laravel-en
 
 The `config/enso/people.php` configuration file, lets you customize the following:
 - `formTemplate`, - string, is the project relative path to the person form template, 
-useful for overriding the package template, when customizing the people table 
+useful for overriding the original 
 - `tableTemplate`, - string, is the project relative path to the person table template, 
-useful for overriding the package template, when customizing the people table 
+useful for overriding the original 
 
 ## Extending the people
 
