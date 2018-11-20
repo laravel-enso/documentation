@@ -695,6 +695,13 @@ Flag that determines the select element to accept multiple values (works as a mu
 Flag that determines the select element to work in server-side mode, meaning that it will use the source URI in order to
 fetch the list of options. When using the `source` parameter, the `options` parameter is not required. 
 
+#### translated
+- Is: optional
+- Type: boolean
+- Applies to: `"select"`
+
+Flag that determines if the select options should be translated
+
 #### step
 - Is: optional
 - Type: numeric
