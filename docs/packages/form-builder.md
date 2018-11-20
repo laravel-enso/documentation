@@ -700,7 +700,7 @@ fetch the list of options. When using the `source` parameter, the `options` para
 - Type: boolean
 - Applies to: `"select"`
 
-Flag that determines if the select options are translatable OR should be translated
+Flag that determines if the select options should be translated
 
 #### step
 - Is: optional
