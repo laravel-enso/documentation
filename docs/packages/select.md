@@ -93,6 +93,7 @@ Using customParams implies that you provide a 'query' method inside the controll
 - `labels` - object, the labels used inside the component | default `{ selected: 'selected', select: 'select', deselect: 'deselect', noOptions: 'No options available', noResult: 'No search results found', addTag: 'Add option', }` | (optional)
 - `i18n`, optional, function, that is used for translating labels, headers, and table data
 The default value (function) for this parameter simply returns its argument as the translated value
+- `translated`, optional, boolean, indicates that the available options should be translated too
 - `debounce` - number, the number of milliseconds to use when debouncing the search on type | default `300` ms | (optional)
 
 
