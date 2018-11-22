@@ -341,7 +341,6 @@ becomes disabled by default and is made avaible on-demand.
 ```json
 {
     "routePrefix": "route.prefix",
-    "readSuffix": "read.suffix",
     "name": "Table Name",
     "icon": "list-alt",
     "crtNo": true,
@@ -394,7 +393,6 @@ becomes disabled by default and is made avaible on-demand.
 
 Options:
 - `routePrefix`, required, string, the common route segment, used for both read and write (N/A)
-- `readSuffix`, optional, string, the route endpoint, that gets concatenated to the `routePrefix`. If not given (default), the global Vue Datatable configuration value is used. 
 - `name`, optional, string, the title used for the table.
 - `icon`, optional, string or array of strings, expects Font Awesome icon classes 
 (make sure the used class is available in the page, via a local or global import)
