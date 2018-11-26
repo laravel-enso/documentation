@@ -33,7 +33,7 @@ Main requirement & dependency aggregator for [Laravel Enso](https://github.com/l
 - model event driven, out of the box versioning support
 - aspect consistent ecosystem of front-end VueJS reusable components
 - highly powerful, full search, customizable, template based, huge data-set capable, 
-front-end back-end integrated data table functionality with a great many other features   
+front-end back-end integrated data table functionality with a great many other features
  
 ## Optional Features
 - customizable, extensible, generic addresses manager plugin
