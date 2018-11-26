@@ -341,7 +341,6 @@ becomes disabled by default and is made avaible on-demand.
 ```json
 {
     "routePrefix": "route.prefix",
-    "readSuffix": "read.suffix",
     "name": "Table Name",
     "icon": "list-alt",
     "crtNo": true,
@@ -374,7 +373,7 @@ becomes disabled by default and is made avaible on-demand.
             "label": "Name",
             "data": "table.column",
             "name": "columnAlias",
-            "meta": ["searchable", "sortable", "translation", "boolean", "slot", "rogue", "editable", "total", "customTotal", "date","icon", "clickable", "tooltip", "notExportable", "nullLast"],
+            "meta": ["searchable", "sortable", "sort:ASC", "sort:DESC", "translation", "boolean", "slot", "rogue", "editable", "total", "customTotal", "date","icon", "clickable", "tooltip", "notExportable", "nullLast"],
             "enum": "EnumClass",
             "dateFormat": "d-m-Y",
             "tooltip": "My Tooltip Column Detail",
@@ -394,7 +393,6 @@ becomes disabled by default and is made avaible on-demand.
 
 Options:
 - `routePrefix`, required, string, the common route segment, used for both read and write (N/A)
-- `readSuffix`, optional, string, the route endpoint, that gets concatenated to the `routePrefix`. If not given (default), the global Vue Datatable configuration value is used. 
 - `name`, optional, string, the title used for the table.
 - `icon`, optional, string or array of strings, expects Font Awesome icon classes 
 (make sure the used class is available in the page, via a local or global import)
@@ -475,8 +473,9 @@ the type for a model/table.
     using the table search functionality 
     - `sortable`, optional, marks this column as sortable. If not sortable, the controls to sort are 
     not available for sorting
+    - `sort:ASC` / `sort:DESC`, optional, specifies the default sort for this column. Note that once loaded the user will have the option to override it
     - `nullLast`, optional, makes the sorting on this column sort all null values last
-    - `translation`, optional, marks this column's values as translatable. 
+    - `translation`, optional, marks this column's values as translatable.
     The `i18n` parameter translation function should be given to the VueJS table component in order for this to work
     - `boolean`, optional, marks this column as boolean, which means it will be rendered as such
     - `slot`, optional, renders a scoped slot named after the specified column, exposing as props `column` (object), `row` (array) and `loading` (boolean)
