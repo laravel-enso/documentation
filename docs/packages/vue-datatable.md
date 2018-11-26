@@ -23,7 +23,7 @@ Build fast any complex table based on a JSON template.
 
 - efficient server side data loading
 - multi-column searching
-- multi-column sorting
+- multi-column sorting with the option to set per column default sorting
 - configurable pagination
 - user customizable column visibility
 - configurable action buttons
@@ -473,7 +473,8 @@ the type for a model/table.
     using the table search functionality 
     - `sortable`, optional, marks this column as sortable. If not sortable, the controls to sort are 
     not available for sorting
-    - `sort:ASC` / `sort:DESC`, optional, specifies the default sort for this column. Note that once loaded the user will have the option to override it
+    - `sort:ASC` / `sort:DESC`, optional, specifies the default sort for this column. 
+    Note that after the initial load, the user will have the option to override the sorting as needed
     - `nullLast`, optional, makes the sorting on this column sort all null values last
     - `translation`, optional, marks this column's values as translatable.
     The `i18n` parameter translation function should be given to the VueJS table component in order for this to work
