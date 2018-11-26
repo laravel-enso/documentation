@@ -25,7 +25,23 @@ When you run `compose update` and the front-end asseets are published/upgraded r
 If packages that depend on new permissions are added in the update process, you should run `php artisan:migrate` to add those permissions to the database.
 
 ## Localisation
-If you want to add a new language, there are a few steps involved, so please check out 
+
+Localisation is supported, with several languages already available out of the box and 
+with the option to add others.
+
+Once a language has been made available, an application user can choose the language
+he wants to use in the preferences side bar.  Until that choice is made, 
+users will be using the default application locale.
+
+Since on the authentication pages (login, password reset) the user is not currently logged in
+and the system would not normally have access to his preferences, the application 
+will attempt to use the user's preferences from the browser's local storage if they were ever set,
+falling back to the application language otherwise.  
+
+Once the user is logged in, both the back-end and the front-end will have access to the translated
+values that have been added in the application.
+
+If you want to add/contribute a new language, there are a few steps involved, so please check out 
 the [relevant section](https://github.com/laravel-enso/Localisation#contributing-a-new-language) of 
 the [localisation](https://github.com/laravel-enso/Localisation) package.
 

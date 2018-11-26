@@ -53,6 +53,9 @@ the user's language preference
 the language he has currently set as active in his preferences
 - the list of languages and the translations are loaded on app init, so the changes will be available at the next login
 or at a page refresh
+- the authentication and password reset pages would not normally have available the user's preferences 
+(which include the chosen language). To get around this, the app checks the browser's local storage for the preferences,
+if they have been previously set, falling back to the default application language otherwise. 
 
 ## Usage Notes
 
