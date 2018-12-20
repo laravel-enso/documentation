@@ -20,7 +20,10 @@ Permission Manager dependency for [Laravel Enso](https://github.com/laravel-enso
 
 - inside `web.php` there is a route for each action within the application, and each route has the `name` attribute defined
 - for each route where we need to have authorization checks, we must define a permission, permission which needs to have the same name as the route
-- routes are nested, the resulting name looking something like `group1.group2...route`
+- routes: 
+    - are nested, the resulting name looking something like `group1.group2...route`
+    - when creating new routes, be sure to follow the Enso convention and use camelCase (`myGroup.myRoute`) instead of snake_case(`my_group.my_route`) or mix-n-matching. 
+    This will make for a more consistent feel and also ensure the Enso logic will work as designed.
 - for each request we check the existence of the link between the user's role and the permission for the request's route
 - permissions' attributes:
      - name: see above
