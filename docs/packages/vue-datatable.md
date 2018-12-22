@@ -446,7 +446,8 @@ outside of the table
 - `action`: optional, string, available options are `router` / `href` / `export` / `ajax`. 
 Depending on the chosen options, other parameters could be required
 - `fullRoute`: optional, string, if given, is used independently from the `routePrefix` param
-- `label`: optional, string, should be given only for global buttons
+- `label`: optional, string, for both global buttons and row buttons
+- `tooltip`: optional, string, should be provided only for row buttons
 - `confirmation`: optional, boolean, flag for showing a confirmation modal before processing the action, such as deletion
 - `message`: optional, string, used in conjunction with `confirmation`, when you want to customize the modal's message
 - `method`: optional, string, should be given if you have `action` set as `ajax`, 
