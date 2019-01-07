@@ -42,9 +42,9 @@ get additional parameters if required, and build the structure
 - although in most common scenarios you can give all the required configuration in the template file, 
 the `Form` class has fluent helper functions for setting/overriding most attributes
 - a `VueForm` component needs to be included in the view/page/parent component, 
-taking the form-builder's resulting object as parameter
-- a `VueFormSs` (ss stands for server-side) component should be included in the view/page/parent component, 
-taking the route params needed to make the ajax request and fetch the form configuration
+taking as parameter the URI path used to obtain the form-builder's resulting object 
+- an `EnsoForm` component should be included in the view/page/parent component, 
+taking the URI path needed to make the ajax request and fetch the form configuration. Acts like a wrapper for the `VueForm` within the Enso ecosystem
 
 ## Installation Steps
 
@@ -56,7 +56,7 @@ When using the form builder functionality, you will be needing several items:
 - the JSON template that configures the form's layout, inputs, actions, etc.
 - a basic Form builder class (which can also contain complex logic for complex scenarios)
 - usually, an endpoint that reads the configuration and returns a properly formatted form configuration
-- the `vue-from` VueJS components inside your page/app that renders the form based on the configuration
+- the `vue-form` / `enso-form` VueJS components inside your page/app that renders the form based on the configuration
 - one or more endpoints for your form's actions, such as storing, updating, deleting.
 
 1. Create a template file for the new form, using `template.json` as an example, and place it inside `app/Forms` (recommended).
@@ -255,29 +255,30 @@ equivalent to instantiating it using `new` inside the methods.
 
 3. Add inside your page/component
 
-For the regular form
+For the basic form
 ```vue
 <vue-form class="box has-background-light"
-    :data="form">
+    :path="path">
 </vue-form>
 ```
 
-For the server-side variant
+For the Enso variant
 ```vue
-<vue-form-ss class="box has-background-light raises-on-hover animated fadeIn"
-    :route-params="[$route.name, $route.params.id, false]"
+<enso-form class="box has-background-light raises-on-hover animated fadeIn"    
     :params="params"
     ref="form">
-</vue-form-ss>
+</enso-form>
 ```
 
 ## VueJS Components
 
-The main `VueForm.vue` component takes the following parameters:
-- `data`, object, represents the configuration used to render the form and its elements | required
+### VueForm.vue
+
+The main component takes the following parameters:
+- `path`, object, represents the URI path required to retrieve the configuration used to render the form and its elements | required
 - `params`, object, can be used to send additional parameters with the form request | default `null` | (optional)
 - `i18n`, function, a translation/internationalization function, that can be used when if using the component outside 
-of the Enso ecosystem. By default, it attempts to use the Enso `__` translation function if available
+of the Enso ecosystem. If missing, it does not perform any translation | (optional)
 - `locale`, string, the locale to be used by the various sub-components  | default `en` | (optional)
 
 Note: when sending extra parameters, on the back-end they can be accessed in the request, as given. 
@@ -286,12 +287,22 @@ which end up in a `params` structure inside the form data.
 
 Note: when creating a resource and no redirect is given in the POST response, the form does not perform a redirect.
 
-The `VueFormSs.vue` component takes the following parameters:
+### EnsoForm.vue 
+
+The component takes the following parameters:
 - `params`, object, can be used to send additional parameters with the form request | default `null` | (optional) 
-- `routeParams`, array, parameters that are used for Ziggy `route` helper function, in order to do an ajax get request 
-and fetch the form configuration | required 
+- `path`, string, the URI path needed in order to do an ajax get request 
+and fetch the form configuration | by default it uses the current route params to determine the path | (optional)
 - `locale`, string, the locale to be used by the various sub-components. Within Enso, it attempts to read and use
 the user's language preferences from within the Vuex store | default `en` | (optional)
+
+The following helper functions are available on the component, with values once the form data has been loaded:
+- `field('field')` - returns the value of a form field
+- `param('param')` - returns the value of a form param
+- `routeParam('param')` - returns the value of a route parameter
+
+The following computed property is also available:
+- `customFields` - the form's custom fields
 
 ## Advanced usage
 
@@ -313,7 +324,8 @@ Commonly used to override the form value.
 - `meta(string $field, string $param, $value)`, sets a specific value, for a meta param, for the given field
 - `append($prop, $value)`, adds a property and its value in the template root-level `params` object, 
 in order to make it available in the front-end. Note that this `params` object is different than the `params` object
-you can pass as a property to the `vue-form` / `vue-form-ss` VueJS components.   
+you can pass as a property to the `vue-form` / `enso-form` VueJS components
+- `routeParams($params)`, set the given parameters as the route parameters
 - `authorize(bool $authorize)`, set the authorize flag for the form.
 If this value is not given in the form, the global default value is taken from the config file 
 
@@ -338,21 +350,28 @@ The Form builder can be globally configured from within its own configuration fi
         ],
         'show' => [
             'icon' => 'eye',
-            'class' => 'is-info',
+            'class' => 'is-success',
             'event' => 'show',
             'action' => 'router',
             'label' => 'Show',
         ],
+        'back' => [
+            'icon' => 'arrow-left',
+            'class' => 'is-primary',
+            'event' => 'back',
+            'action' => 'router',
+            'label' => 'Back',
+        ],
         'store' => [
             'icon' => 'check',
-            'class' => 'is-info',
+            'class' => 'is-success',
             'event' => 'store',
             'action' => 'router',
             'label' => 'Save',
         ],
         'update' => [
             'icon' => 'check',
-            'class' => 'is-info',
+            'class' => 'is-success',
             'event' => 'update',
             'action' => 'router',
             'label' => 'Update',
@@ -387,15 +406,15 @@ which is always enabled
     colors, events and more
 - `dateFormat`, string, sets the default date format for `datepicker` fields. Note that for this fields and instance of `Carbon` is expected
 - `authorize`, boolean, flag that enables the integration with the laravel-enso authorization, 
-    meaning that certain user actions are not available if the user doesn't have access on the corresponding routes      
-- `dividerTitlePlacement`, string, values may be 'left', 'center', 'right'. Affectes the placement of sections' divider text,
+    meaning that certain user actions are not available if the user does not have access on the corresponding routes      
+- `dividerTitlePlacement`, string, values may be 'left', 'center', 'right'. Affects the placement of sections' divider text,
     if used and given within the template
 
 ## Form Configuration
 
 ### Root level parameters
 
-```json
+```
 "title": "Form Title",
 "icon": "icon",    
 "routePrefix": "administration.users",
@@ -468,7 +487,7 @@ Notes:
 - you may also set extra parameters and their values programatically, 
 using the `append('attribute', $value)` function on your (`LaravelEnso\FormBuilder\app\Classes\Form`) form object instance 
 - also, this `params` object is different to the optional `params` property of the 
-`vue-form` / `vue-form-ss` VueJS component. Keep in mind that *this* `params` object will be accessible in the
+`vue-form` / `enso-form` VueJS component. Keep in mind that *this* `params` object will be accessible in the
 `vue-form`'s data object, while the *other* `params` is a property on the `vue-form`
 
 
@@ -480,14 +499,14 @@ using the `append('attribute', $value)` function on your (`LaravelEnso\FormBuild
 The actions are used to determine the available buttons in the form. 
 Note that if the `authorize` flag is set to true, the builder also checks if the user has access to/for a certain action,
  and if he does not, the respective button won't be shown.  
-If the actions are not given, defaults are used, depeding on the `method` parameter, as follows: 
+If the actions are not given, defaults are used, depending on the `method` parameter, as follows: 
  - if doing a POST, the actions array is `['store']`
  - if doing anything else, i.e. a PUT, the actions array is `["create", "show", "update", "destroy"]`     
 
 ### Section
 The section is the organizing block for form inputs.
 
-```json
+```
 "sections": [{
     "columns": 3,
     "fields": [{
@@ -1001,4 +1020,5 @@ Depends on:
 - [Helpers](https://github.com/laravel-enso/VueComponents) for utility objects
 - [Select](https://github.com/laravel-enso/Select) for the select functionality
 - [flatpickr](https://github.com/flatpickr/flatpickr) for date/time selection
+- [VueComponents](https://github.com/laravel-enso/VueComponents) various sub-resources used for the front-end
 - [accounting.js](http://openexchangerates.github.io/accounting.js/) for currency formatting
