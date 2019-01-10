@@ -66,7 +66,13 @@ Outside of Laravel Enso, the following dependencies are required:
 - [Bulma](https://bulma.io/) for styling
 - [Axios](https://github.com/axios/axios) for AJAX requests
 - [Lodash](https://lodash.com/) for debounce
-- [Font Awesome 5](https://fontawesome.com/) for the icons
+- [Font Awesome 5](https://fontawesome.com/) for the icons (Add all below to make it work)
+   * "@fortawesome/fontawesome-free": "^5.2.0",
+   * "@fortawesome/fontawesome-svg-core": "^1.2.2",
+   * "@fortawesome/free-brands-svg-icons": "^5.2.0",
+   * "@fortawesome/free-regular-svg-icons": "^5.2.0",
+   * "@fortawesome/free-solid-svg-icons": "^5.2.0",
+   * "@fortawesome/vue-fontawesome": "^0.1.1",
 - [Akryum v-tooltip](https://github.com/Akryum/v-tooltip) for displaying tooltips
 - [Css element queries - resize detector](https://github.com/marcj/css-element-queries) for responsiveness
 - [accounting.js](http://openexchangerates.github.io/accounting.js/) for formatting numbers as money values
