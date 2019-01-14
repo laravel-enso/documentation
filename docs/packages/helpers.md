@@ -43,8 +43,33 @@ Methods:
 #### Enum
 
 Provides enumeration like capabilities and may be used in 2 modes:
-a) when given a static 'data' parameter, which should be an associative array
-b) when declaring constants on the class
+a) by declaring a static `attributes` function, which should return an associative array
+b) by declaring constants on the class, these will be flipped (_value_ becomes the stored key)
+
+As an example, _titles_ can be declared either using method a:
+```php
+class Titles extends Enum
+{
+    public static function attributes()
+    {
+        return [
+            1 => 'Miss',
+            2 => 'Ms.',
+            3 => 'Mr.',
+        ];
+    }
+}
+```
+or method b:
+```php
+class Titles extends Enum
+{
+    const Miss = 1;
+    const Ms = 2;
+    const Mr = 3;
+}
+```
+As you can see, method a gives you more freedom towards the value, but can not be used as a constant.
 
 Methods:
  - `get(key)`, returns the value of that Enum key
