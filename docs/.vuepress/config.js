@@ -51,6 +51,7 @@ module.exports = {
                     'companies',
                     'contacts',
                     'core',
+                    'data-export',
                     'data-import',
                     'discussions',
                     'documents-manager',
