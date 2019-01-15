@@ -9,8 +9,8 @@ sidebarDepth: 2
 [![Total Downloads](https://poser.pugx.org/laravel-enso/vuedatatable/downloads)](https://packagist.org/packages/laravel-enso/vuedatatable)
 [![Latest Stable Version](https://poser.pugx.org/laravel-enso/vuedatatable/version)](https://packagist.org/packages/laravel-enso/vuedatatable)
 
-Data Table package with server-side processing and VueJS components. 
-Build fast any complex table based on a JSON template.
+Data Table package with server-side processing, unlimited exporting and VueJS components. 
+Quickly build any complex table based on a JSON template.
 
 
 [![Watch the demo](https://laravel-enso.github.io/vuedatatable/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/vuedatatable/videos/bulma_demo_01.mp4)
@@ -36,7 +36,8 @@ Build fast any complex table based on a JSON template.
 - configurable, on-the-fly view modes: compact, striped, bordered, hover
 - configurable column alignment from the template left / center / right
 - preferences/state save for each table in the browser's localStorage
-- server-side Excel exporting of the table data, using your current sorting and filtering choices, with email delivery and optional push notifications
+- server-side Excel exporting of the table data, using your current sorting and filtering choices, with email notification and optional push notifications.
+    The export supports a practically unlimited dataset and features real time progress reporting in the interface
 - reloading of data on demand
 - smart management of huge datasets, with configurable limit
 - possibility to define actions that apply to the entire, filtered, dataset
@@ -161,10 +162,10 @@ Route::get('exportExcel', 'TableController@exportExcel')->name('exportExcel');
 
 Example: [web.php](https://github.com/laravel-enso/Examples/blob/master/src/routes/web.php)
    
-8. Place the vuedatatable `VueJS` component in your page/component:
+8. Place the vue table `VueJS` component in your page/component:
 ```vue
 <vue-table class="box"
-    path="administration.users.initTable"
+    path="http://myapp.test/api/administration/users/initTable"
     id="users">
 </vue-table>
 ``` 
@@ -186,8 +187,8 @@ For the data editor functionality (N/A), separate requests will be used.
 
 Note: In order to make the above requests, named routes are required.
 
-### Configurable huge resultset management
-When you have huge resultsets, the table component will take longer to respond to the user input. In order to improve 
+### Configurable huge result set management
+When you have huge result sets, the table component will take longer to respond to the user input. In order to improve 
 the user experience, when we have more results than the limit set in the configuration (in the `fullInfoRecordLimit` key),
 the back-end builder no longer computes the number filtered and any totals for that table.
 
@@ -211,7 +212,6 @@ return [
     'lengthMenu' => [
         10, 15, 20, 25, 30,
     ],
-    "method": "GET",
     'buttons' => [
         'global' => [
             'create' => [
@@ -239,6 +239,8 @@ return [
                 'action' => 'ajax',
                 'method' => 'PATCH',
                 'label' => 'Action',
+                'message' => 'Custom Action. Are you sure?',
+                'confirmation' => true,
             ],
         ],
         'row' => [
@@ -291,12 +293,19 @@ return [
     ],
     'export' => [
         'path' => 'exports',
-        'limit' => 20000,
-        'maxExecutionTime' => 100,
+        'timeout' => 500,
         'notifications' => ['broadcast', 'database'],
+        'chunk' => 250,
+    ],
+    'queues' => [
+        'exports' => 'heavy',
+        'notifications' => 'notifications',
     ],
     'dateFormat' => 'd-m-Y',
     'fullInfoRecordLimit' => 100000,
+    'debounce' => 100,
+    'method' => 'GET',
+    'dataRouteSuffix' => 'tableData',
 ];
 ```
 
@@ -311,49 +320,75 @@ is an array of options for the header names of the implicit columns. Note that t
 #### lengthMenu
 is an array of numbers, default `[10, 15, 20, 25, 30]` representing the pagination options for the table. For each table's JSON template, the `lengthMenu` parameter is also available, and, if given, it will have higher priority over the global configuration. This allows for some tables to have a different pagination than the default.
 
-#### method
-is a either "GET" or "POST". If you're working with larger tables sometimes the URI can get too long and you may run in a 414 Exception. This option allows to configure the request method for fetching data in a local table, and if is given it will have higher priority over the global configuration.
-
 #### buttons
 is an array of button configurations, with 2 types:
 - `global`, these buttons are the buttons that are rendered above the search input, global for the whole table, which do not depend on the data of a particular row. Defaults:
     - `create`, button for creating a new resource
     - `excel`, button for exporting the contents of the table. Note: The export process takes into account your current sorting and filtering.
+    - `action`, button for applying an action to all the (filtered) table rows
 - `row`, these are the buttons rendered in the `action` column, and defaults include: 
         `show`, `edit`, `destroy`, `download`
 
 #### style
 is an array of style configurations, with 2 sections:
-- `default`, array of classes, default is `['striped', 'hover', 'bordered', 'center']`, that are applied by default for all tables. Note that you should set only one alignment specific class in the default.
+- `default`, array of classes, default is `['hover', 'center']`, that are applied by default for all tables. Note that you should set just one alignment specific class in the default.
 - `mapping`, array of configurations for the styles. While designed for/with Bulma, you may specify here custom classes in order to personalize your tables
 - `highlight`, string, default is `has-background-info`, class which is applied for highlighted rows
+
 #### export
-is an array of configuration options for exporting the contents of a file. Note: The export process takes into account your current sorting and filtering. Available options:
+is an array of configuration options for exporting the contents of a file. Note: The export process takes into account your current sorting and filtering. 
+Also keep in mind that the export uses Jobs and Queues hence the need for a couple of the following options.
+Available options:
 - `path`, string, folder where the temporary export file is saved, default `exports`. This folder is expected to reside in `storage/app`
-- `limit`, number, the maximum limit of results that are exported, default 20000. You may want to tweak this depending on the time the export takes, the size of the file, etc. 
-- `maxExecutionTime`, number, max number of seconds for the php script to run, before it times out. You may need to adjust this depending on how big your reports are. 
+- `timeout`, number, the value for Laravel jobs timeout. You may want to tweak this depending on the time the export takes due to the server hardware or other factors 
+- `chunk`, number, the size of the chunk. You may need to adjust this depending on queues and server configuration for best performance 
 - `notifications`, array of notification options, default `['broadcast', 'database']`. Note that 
-    email notifications are always used for sending the actual export file, so you should take into account email attachment size and mail server timeout / other limitations when choosing values for the export.  
+    email notifications are always used for sending the download link for the export file  
+
+#### queues
+Here you may configure the queues used for the export process:
+Available options:
+- `exports`, string, the name of the queue used for the actual export. Keep in mind this queue need to exist for your project configuration
+- `notifications`, string, the name of the queue used for the real-time progress UI notifications
 
 #### dateFormat
 is a string, with the date format for date columns, which will be used when displaying date values
 
+#### debounce
+is a number, the interval value used for the server-side requests (in milliseconds)
+
+#### method
+is a either "GET" or "POST". If you're working with larger tables sometimes the URI can get too long 
+and you may run in a 414 Exception. This option allows to configure the request method for fetching data 
+in a local table. If specified in the table template, the local value will have higher priority over the 
+global configuration.
+
+
 #### fullInfoRecordLimit
-is a numeric limit, representing the top resultset limit when the computation of the filtered & totals functionality 
-becomes disabled by default and is made avaible on-demand.
+is a numeric limit, representing the top result set limit when the computation of the filtered & totals functionality 
+becomes disabled by default and is made available on-demand.
+
+#### dataRouteSuffix
+string, is the data route suffix used for all tables. Similar to `fullInfoRecordLimit`, you may override the 
+global configuration by specifying this same parameter in the 'local' table template.
+
 
 ### Template
 
 ```json
 {
     "routePrefix": "route.prefix",
+    "dataRouteSuffix": "read.suffix",
     "name": "Table Name",
     "icon": "list-alt",
     "crtNo": true,
     "auth": false,
+    "debounce": 100,
     "lengthMenu": [10, 15, 20, 25, 30],
     "method": "POST",
     "appends": ["customAttribute"],
+    "selectable": false,
+    "comparisonOperator": "LIKE",
     "buttons": [
         "show", "create", "edit", "destroy", "download", "exportExcel",
         {
@@ -379,7 +414,7 @@ becomes disabled by default and is made avaible on-demand.
             "label": "Name",
             "data": "table.column",
             "name": "columnAlias",
-            "meta": ["searchable", "sortable", "sort:ASC", "sort:DESC", "translation", "boolean", "slot", "rogue", "editable", "total", "customTotal", "date","icon", "clickable", "tooltip", "notExportable", "nullLast"],
+            "meta": ["searchable", "sortable", "sort:ASC", "sort:DESC", "translatable", "boolean", "slot", "rogue", "editable", "total", "customTotal", "date", "icon", "clickable", "notExportable", "nullLast"],
             "enum": "EnumClass",
             "dateFormat": "d-m-Y",
             "tooltip": "My Tooltip Column Detail",
@@ -398,26 +433,28 @@ becomes disabled by default and is made avaible on-demand.
 ```
 
 Options:
-- `routePrefix`, required, string, the common route segment, used for both read and write (N/A)
-- `name`, optional, string, the title used for the table.
-- `icon`, optional, string or array of strings, expects Font Awesome icon classes 
-(make sure the used class is available in the page, via a local or global import)
+- `routePrefix`, required, string, the common route segment, used for reading the data
+- `dataRouteSuffix`, optional, string, the ending route segment, used for reading the data | default is `tableData`
+- `name`, optional, string, the title used for the table. If not given, no title is used
+- `icon`, optional, string or array of strings, expects Font Awesome icon classes
+(make sure the used class is available in the page, via a local or global import). If not given, no icon is used
 - `crtNo`, optional, boolean, flag for showing the current line number
 - `auth`, optional, boolean, flag for removing auth when using in enso context
+- `debounce`, optional, number, the time in milliseconds that is used for the debounce when reloading data for the table,
+ for example when typing in the search box or changing filters, default `100`
 - `lengthMenu`, optional, array, list of options for the table pagination. If missing, the default values in the 
 global configuration are used. If given, the template values have higher precedence over the global configuration
 - `method`, optional, string, either "GET" or "POST". If missing, the default value in the 
 global configuration is used.
-- `selectable`, optional, boolean. If enabled, row selection is enabled, 
-which then stores the selected items (the `dtRowId` attributes) in the `selected` attribute.
 - `appends` - optional, array, list of appended attributes that need to be added to the query results. 
 Note that the appended attributes are available from the main query model.
 Also note, that in order to load the appended attributes through the model's relationships, 
 the raw table query should also include the foreign key id (this is a Laravel requirement).
+- `selectable`, optional, boolean. If enabled, row selection is enabled, 
+which then stores the selected items (the `dtRowId` attributes) in the `selected` attribute.
+- `comparisonOperator`, optional, string, the operator used for the table columns searching
 - `buttons`, optional, array, list of buttons that need to be rendered. See below for more in-depth information
 - `columns`, required, array, list of column configurations. See below for more in-depth information
-- `debounce`, optional, number, the time in milliseconds that is used for the debounce when reloading data for the table,
- for example when typing in the search box or changing filters, default `100`
 
 #### Buttons
 
@@ -440,17 +477,18 @@ By action:
 - `export`, buttons that trigger an export
 - `ajax`, buttons that trigger an ajax request.
 
-The configuration options for buttons are, as follows:
+The most common configuration options for buttons are, as follows:
 - `type`: required, string, available options are `row` / `global`
 - `icon`: required, string, expects Font Awesome icon classes (ensure classes are available in the page)
 - `class`: required, string, expects CSS styling classes
-- `routeSuffix`: optional, string, if given, gets appended to the `routePrefix` param
+- `routeSuffix`: optional, string, if given, gets appended to the `routePrefix` template param
 - `event`: optional, string, the name of an event that is emitted on click, which allows for custom in-page handling, 
 outside of the table
 - `postEvent`: optional, string, the name of the event that is emitted after the completion of the ajax request 
 (only applies to ajax type of buttons) 
 - `action`: optional, string, available options are `router` / `href` / `export` / `ajax`. 
-Depending on the chosen options, other parameters could be required
+
+Depending on the chosen options, other parameters could be required:
 - `fullRoute`: optional, string, if given, is used independently from the `routePrefix` param
 - `label`: optional, string, for both global buttons and row buttons
 - `tooltip`: optional, string, should be provided only for row buttons
@@ -473,8 +511,9 @@ For example, you may use this mechanism to show labels instead of integer values
 the type for a model/table.
 - `dateFormat`, string, with the date format for date columns, overrides the default from config
 - `tooltip`, optional, the text used for this column header's tooltip  
-- `class`, optional, will be applied on the tables `<td>`
-- `align`, optional, a value in ["left", "center", "right"], will be applied to the column including header and footer. It has higher priority than the global template `align` attribute
+- `class`, optional, will be applied on the table's `<td>`
+- `align`, optional, a value in ["left", "center", "right"], will be applied to the column including header and footer. 
+It has higher priority than the global template `align` attribute
 - `meta`, optional, array of string tags/options, allowing further transformations:
     - `searchable`, optional, marks this column as searchable. If not searchable, a column is not used when 
     using the table search functionality 
@@ -483,13 +522,13 @@ the type for a model/table.
     - `sort:ASC` / `sort:DESC`, optional, specifies the default sort for this column. 
     Note that after the initial load, the user will have the option to override the sorting as needed
     - `nullLast`, optional, makes the sorting on this column sort all null values last
-    - `translation`, optional, marks this column's values as translatable.
-    The `i18n` parameter translation function should be given to the VueJS table component in order for this to work
+    - `translation`, optional, marks this column's values as translatable
+    The `i18n` parameter translation function should be given to the VueJS table component in order for this to work -
+    inside of Enso, this is done automatically
     - `boolean`, optional, marks this column as boolean, which means it will be rendered as such
     - `slot`, optional, renders a scoped slot named after the specified column, exposing as props `column` (object), `row` (array) and `loading` (boolean)
     - `rogue`, optional, marks this column as a rogue column. This marks the column as hidden for display, 
     while still being available and used for searching
-    - `editable`, optional, marks this column as editable (N/A)
     - `total`, optional, if flagged, calculates a total for this column 
     - `customTotal`, optional, renders a scoped slot named `${columnName}_custom_total` exposing as props `total` (object) and `column` (object)
     - `date`, optional, marks the data of the column as dates, 
@@ -536,16 +575,28 @@ You may notice a few things here:
 - the `meta` attribute value's list can no longer contain "searchable", "sortable". If you do give these options, 
 the template validator will let you know that you should remove them
 - in order for the relationship to work, make sure the select includes any required foreign keys i.e. 
-if you'd leave out `owner_id`, the value of the returned owner attribute would be null
-- also, don't forget to load the relationship, using the query builder's 'with' method 
+if you'd leave out `owner_id`, the value of the returned owner attribute would be `null`
+- also, don't forget to load the relationship, using the query builder's `with` method 
 - this feature makes sense for 1-1 model relationships, not so much for 1-n relationships
 - note that all the nested model's properties will be present in the returned data and depending you your situation, 
 this might be inefficient
 - if you require searching and sorting, build the required query with joins and specify the value for the `data` attribute
 
+### Notes on exporting
+The new exporting feature used in this package allows for the export of practically unlimited number or rows 
+(or, to be more accurate, the number of rows is limited by the `xlsx` format).
+
+In order to achieve this, Laravel queues and jobs are used, so it is mandatory to:
+- have the Laravel queueing functionality properly setup and working
+- make sure the queues specified in the `enso.datatable.exports` config also exist in your Laravel `queue` config
+- ensure you're using values fitting your project and hardware for:
+    * `enso.datatable.exports.timeout` - this is the job timeout, so you should have an interval longer than your longest job
+    * `queues.connections.yourConnection.retry_after` - this is the interval used by Laravel to mark a job as failed, 
+    if it's not completed by then. This interval should also be longer than your longest running job.
+    
 ### The VueJS Component
 
-The VueTable component takes the following parameters:
+The `VueTable` component takes the following parameters:
 - `id`, required, string, identification for this table, is used to store the preferences in the browser's local storage
 - `path`, required, string, the URI for the table initialization request
 - `filters`, optional, object, reactive options that, if available, are sent along with the getTableData request and 
@@ -556,7 +607,7 @@ are be used to filter results
 - `intervals`, optional, object, reactive parameters, that, if available are used for interval filtering of the results
 - `i18n`, optional, function, that is used for translating labels, headers, and table data 
 The default value (function) for this parameter simply returns its argument as the translated value if used outside of 
-Enso while within Enso it will use it's translation function. 
+Enso while within Enso it will use its translation function. 
 
 Examples:
 
@@ -620,7 +671,7 @@ depending on the configuration:
 when selecting/deselecting an entire page
 - custom events, with no payload, for `ajax` type of buttons, 
     as configured in the template (also see the Buttons section above). 
-- custom events, with the whole row the button is positioned on as payload, 
+- custom events, with the entire row the button is positioned on as payload, 
     for buttons that have a meta event property (the even name is the property value)
 
 ### The query
@@ -641,10 +692,13 @@ If you need custom logic based on the request you have a `request()` getter avai
 ### Actions
 
 While you may have action buttons on each table row, sometimes you may wish to have custom actions, for the entire 
-resultset of the table.
+result set of the table.
 
 It is important to note that the action will be applied for **ALL** the **FILTERED** results, 
 even the ones that might not be visible on the current page of the table (if there is more than one page).
+
+Also, keep in mind that if the `selectable` option is active in table template, the selection is decoupled from 
+the actions, so, same as before, the action is applied to all the filtered table results.
 
 #### In-depth example
 
@@ -691,12 +745,8 @@ class UserGroupMyAction extends Action
 ```
     
 This needs to extend the abstract `LaravelEnso\VueDatatable\app\Classes\Action` class, 
-and implement the `process` method. 
-The process method will be called for each available chunk of data, and the respective chunk is retrieved via
-the public `data` method.
+and implement the `process` method.  The process method will be called for each available row of data.
 
-The `data` method will return an array of the IDs in a chunk.
-    
 Depending on your requirements, you may do the processing here or even generate jobs that will do the processing 
 asynchronously.  
       
@@ -708,7 +758,6 @@ class UserGroupMyActionController extends Controller
 
     protected $tableClass = UserGroupTable::class;
     protected $actionClass = UserGroupMyAction::class;
-    protected $chunk = 2;
 }
 ```
 
@@ -717,9 +766,6 @@ You require:
 * the `Datatable` and `Action` trait
 * the `$tableClass` variable, for the query
 * the `$actionClass` variable, for your particular action implementation (from step 2)
-* the `$chunk` variable is *optional*, and represents the number of results in a chunk of data, 
-the maximum available at any time, within the `process` method of your action implementation. 
-Be default, a chunk of `1000` is used if the variable is missing.
 
 Note that you may also reuse your TableController if you prefer and have only one 'action' for a given table.
 
@@ -728,17 +774,17 @@ The `Action` trait defines an `action` method that is a bit of a wrapper, and lo
 ```php
 public function action(Request $request)
     {
-        (new $this->actionClass())
-            ->request($request->all())
-            ->class($this->tableClass)
-            ->chunk($this->chunk ?? 1000)
-            ->run();
+        public function action(Request $request)
+            {
+                (new $this->actionClass(
+                    $this->tableClass, $request->all()
+                ))->run();
+            }
     }
 ```
 
 If for any reason you want to handle more than one action through the same controller, 
-you may declare multiple actionClasses, create multiple action methods that achieve the same process as the above, 
-and, in conjunction with the proper routes, it can be done.  
+you may declare multiple actionClasses and create multiple action methods in conjunction with the proper routes.  
 
 4. Add the new route
 ```php
@@ -785,7 +831,7 @@ Feel free to look around at the various packages in the [laravel-enso](https://g
 ## Publishes
 
 - `php artisan vendor:publish --tag=vuedatatable-config` - the component configuration
-- `php artisan vendor:publish --tag=tables` - the example table json config and builder 
+- `php artisan vendor:publish --tag=vuedatatable-classes` - the example table json config and builder 
 - `php artisan vendor:publish --tag=vuedatatable-assets` - all the VueJS components and assets
 - `php artisan vendor:publish --tag=enso-assets` - a common alias for when wanting to update the VueJS components,
 once a newer version is released, usually used with the `--force` flag
