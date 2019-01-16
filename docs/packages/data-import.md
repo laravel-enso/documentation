@@ -8,7 +8,9 @@
 
 Incredibly powerful, efficient, unlimited number of rows, queues based Excel importer dependency for [Laravel Enso](https://github.com/laravel-enso/Enso).
 
-[![Watch the demo](https://laravel-enso.github.io/dataimport/screenshots/bulma_006_thumb.png)](https://laravel-enso.github.io/dataimport/videos/bulma_demo_01.webm)
+[![Watch the demo](https://laravel-enso.github.io/dataimport/screenshots/bulma_006_thumb.png)](https://laravel-enso.github.io/dataimport/videos/bulma_demo_01.mp4)
+
+
 <sup>click on the photo to view a short demo in compatible browsers</sup>
 
 [![Screenshot](https://laravel-enso.github.io/dataimport/screenshots/bulma_007_thumb.png)](https://laravel-enso.github.io/dataimport/screenshots/bulma_007.png)
