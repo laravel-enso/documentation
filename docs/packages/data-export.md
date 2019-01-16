@@ -8,6 +8,8 @@
 
 Data Export structure dependency for [Laravel Enso](https://github.com/laravel-enso/Enso).
 
+[![Watch the demo](https://laravel-enso.github.io/dataexport/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/dataexport/screenshots/bulma_001.png)
+
 ## Features
 - creates the structures and statuses necessary during the processes of exporting data
 
