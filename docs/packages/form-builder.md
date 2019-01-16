@@ -20,15 +20,16 @@ JSON-based Form builder for [Laravel Enso](https://github.com/laravel-enso/Enso)
 
 - allows for quick creation of forms
 - uses a JSON template file for generating the form
-- flexible form layout, that supports grouping inputs into logical sections and columns of different widths, 
-even on the same row 
-- uses it's own VueJS components, such as `vue-select`, `datepicker` and even a `wysiwyg` editor for an improved experience
-- `VueFormSs.vue` a server-side form wrapper is available that can be used to fetch the form configuration 
-- for most forms, the builder & the json template is all that's needed
+- flexible form layout, that supports directly from the template
+    * grouping inputs into logical sections and columns of different widths, even on the same row
+    * grouping sections into tabs 
+- uses its own VueJS components, such as `vue-select` and `datepicker` for an improved experience
+-`EnsoForm.vue` a server-side form wrapper is available that can be used to fetch the form configuration 
+- for most forms, the json template is all that it's needed
 - provides helpful error messages when the template is missing parameters or unexpected values are found
-- when required, allows the customization of form components in order to cover all scenarios
+- when needed, allows the customization of form components in order to cover all scenarios
 - comes with a `template.json` file that can be used as an example when starting out
-- integrates with the [Laravel Request Validation](https://laravel.com/docs/5.6/validation#available-validation-rules) for seamless usage and reusability
+- integrates with the [Laravel Request Validation](https://laravel.com/docs/5.7/validation#available-validation-rules) for seamless usage and reusability
 - uses the Enso toast notifications for stylish feedback on the various actions
 - customizable placeholder for all elements
 - handles number, money and currency formatting, using the [accounting.js](http://openexchangerates.github.io/accounting.js/) library
@@ -69,7 +70,9 @@ Below is an example of such a template:
     "routePrefix": "core.addresses",
     "sections": [
         {
+            "tab": "First Tab",
             "columns": 3,
+            "tabs": true,
             "fields": [
                 {
                 "label": "County",
@@ -111,6 +114,7 @@ Below is an example of such a template:
             ]
         }, 
         {
+            "tab": "Second Tab",
             "columns": "custom",
             "fields": [
                 {
@@ -153,6 +157,7 @@ Below is an example of such a template:
             ]
         },
         {
+            "tab": "Second Tab",
             "columns": 2,
             "fields": [
                 {
@@ -227,10 +232,11 @@ class UserGroupForm
 ```
 
 This class will handle the logic for creating the form configuration out of your template.
-If any extra logic is required to fill or process the form, in addition to the template, this is the place for it.
+If any extra logic is required to fill or process the form, in addition to the template, 
+this is the place for it.
 
-In the example above, you can see that for the 'roleList' form attribute we're setting the value by using a helper method 
-on the model.
+In the example above, you can see that for the 'roleList' form attribute we're setting the value 
+by using a helper method on the model.
 
 You may even use the available fluent methods to override (if necessary) default values provided in the template. 
 
@@ -275,17 +281,33 @@ For the Enso variant
 ### VueForm.vue
 
 The main component takes the following parameters:
-- `path`, object, represents the URI path required to retrieve the configuration used to render the form and its elements | required
+- `path`, object, represents the URI path required to retrieve the configuration used to render the form 
+and its elements | required
 - `params`, object, can be used to send additional parameters with the form request | default `null` | (optional)
-- `i18n`, function, a translation/internationalization function, that can be used when if using the component outside 
+- `i18n`, function, a translation/internationalization function, 
+that can be used when if using the component outside 
 of the Enso ecosystem. If missing, it does not perform any translation | (optional)
 - `locale`, string, the locale to be used by the various sub-components  | default `en` | (optional)
 
 Note: when sending extra parameters, on the back-end they can be accessed in the request, as given. 
-Also, this `params` attribute is different to the attributes you can append in the from, in the back-end, attributes
-which end up in a `params` structure inside the form data.   
+Also, this `params` attribute is different to the attributes you can append in the from, 
+in the back-end, attributes which end up in a `params` structure inside the form data.   
 
-Note: when creating a resource and no redirect is given in the POST response, the form does not perform a redirect.
+Note: when creating a resource and no redirect is given in the POST response, 
+the form does not perform a redirect.
+
+The following helper functions are available on the component, with values once the form data has been loaded:
+- `formData()` - returns the data of the form as well as the params that are sent to the server on PATCH/POST
+- `field('field')` - returns the value of a form field
+- `param('param')` - returns the value of a form param
+- `routeParam('param')` - returns the value of a route parameter
+- `fetch()` - form's fetch method for retrieving the template (performs the ajax to load data from the back end)
+
+The following computed properties are also available:
+- `customFields` - the form's custom fields
+- `data` - the form's whole data object
+- `errors` - the form's errors object
+
 
 ### EnsoForm.vue 
 
@@ -297,12 +319,16 @@ and fetch the form configuration | by default it uses the current route params t
 the user's language preferences from within the Vuex store | default `en` | (optional)
 
 The following helper functions are available on the component, with values once the form data has been loaded:
+- `formData()` - returns the data of the form as well as the params that are sent to the server on PATCH/POST
 - `field('field')` - returns the value of a form field
 - `param('param')` - returns the value of a form param
 - `routeParam('param')` - returns the value of a route parameter
+- `fetch()` - form's fetch method for retrieving the template (performs the ajax to load data from the back end)
 
-The following computed property is also available:
+The following computed properties are also available:
 - `customFields` - the form's custom fields
+- `data` - the form's whole data object
+- `errors` - the form's errors object
 
 ## Advanced usage
 
@@ -313,7 +339,7 @@ Valid actions are `create`, `store`, `update` and `delete`
 - `title(string $title)`, the title for the form,
 - `icon(string $icon)`, the icon shown alongside the title
 - `route(string $action, string $route)`, permits setting a specific route for a given action
-- `options(string $name, $value)`, sets the available option list for a given select attribute
+- `options(string $name, $value)`, sets the available meta options for a given form attribute
 Commonly used to override the form value.
 - `value(string $field, $value)`, sets the starting value for form element
 Commonly used to override the form value.
@@ -336,7 +362,8 @@ are filled for the form values (another way of setting some default values)
 
 ## Global Configuration
 
-The Form builder can be globally configured from within its own configuration file, found at `config/enso/forms.php`:
+The Form builder can be globally configured from within its own configuration file, 
+found at `config/enso/forms.php`:
 
 ```php
     'validations' => 'local',
@@ -399,16 +426,17 @@ while 'production' will always perform the validation checks.
 
 ::: tip
 The flag only affects the validation of the **template** not the validation of form input values, 
-which is always enabled
+which is always enabled.
 :::
     
-- `buttons`, array, enables the customization of various options for the buttons used in the forms, such as labels, 
-    colors, events and more
-- `dateFormat`, string, sets the default date format for `datepicker` fields. Note that for this fields and instance of `Carbon` is expected
+- `buttons`, array, enables the customization of various options for the buttons used in the forms, 
+such as labels, colors, events and more
+- `dateFormat`, string, sets the default date format for `datepicker` fields. 
+Note that for this fields and instance of `Carbon` is expected
 - `authorize`, boolean, flag that enables the integration with the laravel-enso authorization, 
-    meaning that certain user actions are not available if the user does not have access on the corresponding routes      
+meaning that certain user actions are not available if the user does not have access on the corresponding routes      
 - `dividerTitlePlacement`, string, values may be 'left', 'center', 'right'. Affects the placement of sections' divider text,
-    if used and given within the template
+if used and given within the template
 
 ## Form Configuration
 
@@ -419,10 +447,11 @@ which is always enabled
 "icon": "icon",    
 "routePrefix": "administration.users",
 "authorize": true,
-"dividerTitlePlacement"
+"dividerTitlePlacement": "center"
 "params": null,
 "actions": ["create", "store", "update", "destroy" ],
 "method": null,
+"tabs": true,
 "sections": []
 ```
 
@@ -466,7 +495,8 @@ then the prefix is `"administration.users"` and the action is `"create"`.
 - Type: boolean 
 
 Flag that sets whether authorization checks should be made. 
-If not given in the form, the option is read from the global form configuration, found at `config/enso/forms.php`
+If not given in the form, the option is read from the global form configuration, 
+found at `config/enso/forms.php`. If given, it overrides the global value.
 
 #### dividerTitlePlacement
 - Is: optional 
@@ -480,11 +510,12 @@ If not given, the option is read from the global form configuration, found at `c
 - Is: optional 
 - Type: object
  
-Can be used to pass extra parameters to the VueJS component / front-end, useful when customizing the form in-page (with slots, 
+Can be used to pass extra parameters to the VueJS component / front-end, 
+useful when customizing the form in-page (with slots, 
 linking the form component/data to other components in the page, etc).
 
 Notes:
-- you may also set extra parameters and their values programatically, 
+- you may also set extra parameters and their values programmatically, 
 using the `append('attribute', $value)` function on your (`LaravelEnso\FormBuilder\app\Classes\Form`) form object instance 
 - also, this `params` object is different to the optional `params` property of the 
 `vue-form` / `enso-form` VueJS component. Keep in mind that *this* `params` object will be accessible in the
@@ -501,13 +532,21 @@ Note that if the `authorize` flag is set to true, the builder also checks if the
  and if he does not, the respective button won't be shown.  
 If the actions are not given, defaults are used, depending on the `method` parameter, as follows: 
  - if doing a POST, the actions array is `['store']`
- - if doing anything else, i.e. a PUT, the actions array is `["create", "show", "update", "destroy"]`     
+ - if doing anything else, i.e. a PUT, the actions array is `["create", "show", "update", "destroy"]`
+ 
+ #### tabs     
+- Is: optional 
+- Type: boolean, 
+
+The flag activates the tab feature of the form. This then requires that each section has a tab property 
+which specifies the name of the tab the section belongs to.
 
 ### Section
 The section is the organizing block for form inputs.
 
 ```
 "sections": [{
+    "tab": "First Tab",
     "columns": 3,
     "fields": [{
         "label": "Country",
@@ -540,21 +579,32 @@ The section is the organizing block for form inputs.
 }]
 ``` 
 
+#### tab
+- Is: optional
+- Type: string
+
+Specifies the name of the tab this section belongs to. Each section may have its own tab or multiple sections
+can share a tab.
+
+When setting this option, the `tabs` flag on the main template structure must be present and set to true. 
+
 #### columns
 - Is: required
 - Type: number/string
 - Values: one of the following `1`, `2`, `3`, `4`, `6`, `12`, `"custom"`
 
-The attribute specifies how many columns will be used for the form elements in this section. If giving a number, then 
-the size of each element is calculated automatically. 
+The attribute specifies how many columns will be used for the form elements in this section. 
+If giving a number, then the size of each element is calculated automatically. 
 
-If using `"custom"`, you need to specify for each filed the column size, by providing the `column` parameter (see below).
+If using `"custom"`, you need to specify for each filed the column size, 
+by providing the `column` parameter (see below).
 
 #### fields
 - Is: required
 - Type: array of objects
 
-The fields parameter will hold the actual form elements. For the configuration of each specific form element, see below.
+The fields parameter will hold the actual form elements. 
+For the configuration of each specific form element, see below.
 
 #### divider
 - Is: optional
@@ -569,7 +619,8 @@ Flag that specifies that a divider should be used here.
 Title for the divider. Should be used in conjunction with the `divider` parameters, 
 as without setting the `divider` to `true`, the title will not be shown. 
 
-Note that the position of the divider title will depend on the value of the `dividerTitlePlacement` parameter (see above).
+Note that the position of the divider title will depend on the value of the 
+`dividerTitlePlacement` parameter (see above).
 
 ### Field
 Is the individual element of the from, generally representing an input of some sort.
@@ -618,12 +669,14 @@ Note that if `columns` parameter is not set to "custom", the `column` parameter 
 ### Meta
 Is a set of parameters used to configure the supported form elements.
 
-#### type
+#### Generic
+
+##### type
 - Is: required
 - Type: string
 - Value: one of the following `"input"`, `"select"`, `"datepicker"`, `"timepicker"`, `"textarea"`, `"password"`, `"wysiwyg"`
 
-#### content
+##### content
 - Is: required if `type` is `"input"`
 - Type: string
 - Applies to: `"input"`
@@ -631,46 +684,49 @@ Is a set of parameters used to configure the supported form elements.
 Represents the type for an <input> HTML element, and therefore can take the expected types such as `"text"`, `"number"`, `"date"`, `"checkbox"`, etc.
 Can also take `"money"` (for monetary values inputs).  
 
-#### disabled
+##### disabled
 - Is: optional
 - Type: boolean
 
 Flag that marks the disabled state for a form element. 
 
-#### readonly
+##### readonly
 - Is: optional
 - Type: boolean
 
 Flag that marks the readonly state for a form element. 
 
-#### placeholder
+##### placeholder
 - Is: optional
 - Type: string
 
 The placeholder text used on that form element.
 
-#### tooltip
+##### tooltip
 - Is: optional
 - Type: string
 
 Tooltip used for that form element.
 
-#### hidden
+##### hidden
 - Is: optional
 - Type: boolean
 
 Flag that marks the element as hidden, which means it will be rendered but will not be visible. 
 
-#### custom
+##### custom
 - Is: optional
 - Type: boolean
 
-Flag that marks this element as as CUSTOM. What this means is that the VueJS component does not attempt to insert an 
+Flag that marks this element as as CUSTOM. 
+What this means is that the VueJS component does not attempt to insert an 
 component for that element, but instead renders a named slot (the name being the element's `name`).
 
 This allows you to build and insert custom elements in the form, for complex scenarios. 
 
-#### options
+#### Select only
+
+##### options
 - Is: optional
 - Type: array of objects | string
 - Applies to: `"select"`
@@ -678,128 +734,141 @@ This allows you to build and insert custom elements in the form, for complex sce
 If it is an array, it will be considered to be an array of options for that select element,
 each object should contain an `id` and `name` label by default, for the `value` and `label` field respectively.
 You can modify these keys using the `trackBy` and `label` options below.
-If it is a simple string, it will be considered to be an Enum class name, and the builder will attempt to get the select
+If it is a simple string, it will be considered to be an Enum class name, 
+and the builder will attempt to get the select
 values from the Enum.
 
-#### trackBy
+##### trackBy
 - Is: optional
 - Type: string
 - Applies to: `"select"`
 - Default: `id`
 
-Is the attribute that is to be used as identifier for each of the select options i.e. the name of the attribute that is 
+Is the attribute that is to be used as identifier for each of the select options 
+i.e. the name of the attribute that is 
 to be used when setting the value for the 'value' attribute of an HTML `<option>` element. 
 
-#### label
+##### label
 - Is: optional
 - Type: string
 - Applies to: `"select"`
 - Default: `name`
 
-Is the attribute that is to be used as label for each of the select options i.e. the name of the attribute that is 
+Is the attribute that is to be used as label for each of the select options 
+i.e. the name of the attribute that is 
 to be used when setting the value for the an HTML `<option>` element. 
 
-#### multiple
+##### multiple
 - Is: optional
 - Type: boolean
 - Applies to: `"select"`
 
-Flag that determines the select element to accept multiple values (works as a multiselect).
+Flag that determines the select element to accept multiple values (works as a multi-select).
 
-#### source
+##### source
 - Is: optional
 - Type: string
 - Applies to: `"select"`
 
-Flag that determines the select element to work in server-side mode, meaning that it will use the source URI in order to
+Flag that determines the select element to work in server-side mode, 
+meaning that it will use the source URI in order to
 fetch the list of options. When using the `source` parameter, the `options` parameter is not required. 
 
-#### translated
+##### translated
 - Is: optional
 - Type: boolean
 - Applies to: `"select"`
 
 Flag that determines if the select options should be translated
 
-#### step
+#### Input only
+
+##### step
 - Is: optional
 - Type: numeric
 - Applies to: `"input"`
 
 Parameter corresponds to the step parameter for an HTML <input> field.
 
-#### min
+##### min
 - Is: optional
 - Type: numeric
 - Applies to: `"input"`
 
 Parameter corresponds to the min parameter for an HTML `<input>` field, where the browser does a client side validation.
 
-#### max
+##### max
 - Is: optional
 - Type: numeric
 - Applies to: `"input"`
 
 Parameter corresponds to the max parameter for an HTML `<input>` field, where the browser does a client side validation.
 
-#### format
+#### Datepicker & Timepicker
+
+##### format
 - Is: optional
 - Type: string
 - Applies to: `"datepicker"`, `"timepicker"`
 
 Represents the format of the date/time used for the component.
 
-Since the [flatpickr](https://github.com/flatpickr/flatpickr) library is used, it requires its format. For more details, 
-check the [documentation](https://flatpickr.js.org/formatting/).
+Since the [flatpickr](https://github.com/flatpickr/flatpickr) library is used, it requires its format. 
+For more details, check the [documentation](https://flatpickr.js.org/formatting/).
 
-#### time
+##### time
 - Is: optional
 - Type: boolean
 - Applies to: `"datepicker"`
 
-Flag that enables the time picking functionality for the datepicker, in addition to the default date functionality
+Flag that enables the time picking functionality for the datepicker, 
+in addition to the default date functionality
 
-#### rows
+#### Textarea only
+
+##### rows
 - Is: optional
 - Type: numeric
 - Applies to: `"textarea"`
 
-#### resize
+##### resize
 - Is: optional
 - Type: boolean
 - Applies to: `"textarea"`
 
 Specifies the number of rows for the textarea.
 
-#### symbol
+#### Money Input
+
+##### symbol
 - Is: optional
 - Type: string
 - Applies to: a `"money"`-type `"input"`
 
 Is the current symbol to be used for a money input, for example `"$"`.
 
-#### precision
+##### precision
 - Is: optional
 - Type: string
 - Applies to: a `"money"`-type `"input"`
 
 Is the precision (decimal places) for the amount.
 
-#### thousand
+##### thousand
 - Is: optional
 - Type: string
 - Applies to: a "money"-type `"input"`
 
 Is the thousands separator for the amount.
 
-#### decimal
+##### decimal
 - Is: optional
 - Type: string
 - Applies to: a `"money"`-type `"input"`
 
 Is the decimal separator for the amount.
 
-#### positive
+##### positive
 - Is: optional
 - Type: string
 - Applies to: a `"money"`-type `"input"`
@@ -807,7 +876,7 @@ Is the decimal separator for the amount.
 The format for positive amounts, e.g. `"%s %v"`
 See the [accounting.js](http://openexchangerates.github.io/accounting.js/) library for more.
 
-#### negative
+##### negative
 - Is: optional
 - Type: string
 - Applies to: a `"money"`-type `"input"`
@@ -815,7 +884,7 @@ See the [accounting.js](http://openexchangerates.github.io/accounting.js/) libra
 The format for negative amounts, e.g. `"%s (%v)"`
 See the [accounting.js](http://openexchangerates.github.io/accounting.js/) library for more.
 
-#### zero
+##### zero
 - Is: optional
 - Type: string
 - Applies to: a `"money"`-type `"input"`
@@ -825,8 +894,8 @@ See the [accounting.js](http://openexchangerates.github.io/accounting.js/) libra
 
 
 ## Examples
-Following you will find several non-exhaustive examples, with most if not all of the types, and various parameter 
-combinations. 
+Following you will find several non-exhaustive examples, 
+with most if not all of the types, and various parameter combinations. 
 
 ### Text input
 A disabled generic text input
@@ -995,8 +1064,8 @@ A multi select, with no default value, no options and no server-side fetching op
 }
 ```
 
-In this case, you would set the options list from within your controller/service/etc by calling the options method
-on the form builder object:
+In this case, you would set the options list from within your controller/service/etc 
+by calling the options method on the form builder object:
 
 ```php
 $form->options('type_id', MyTypes::all())
