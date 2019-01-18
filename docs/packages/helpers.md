@@ -17,7 +17,7 @@ Helper classes dependency for [Laravel Enso](https://github.com/laravel-enso/Ens
 ### Classes
 
 - An abstract `Enum` class which can be used to build an enumeration out of an array or a config file and comes with a set of helper functions 
-- An `Obj` class, with a constructor for building an object from an array, a Laravel model that can even have loaded relationships and more. 
+- An `Obj` class, with a constructor for building an object from an array, an object, a Laravel model that can even have loaded relationships and more. 
 It provides a suite of helper functions, such as: 
      * `all()`, 
      * `__toString()`,
@@ -33,9 +33,9 @@ It provides a suite of helper functions, such as:
     * array
     * JSON string
 
-#### Obj
+#### Obj - ` LaravelEnso\Helpers\app\Classes\Obj`
 
-The constructor optionally takes an associate array or another object that is used to set up the object. 
+The constructor optionally takes an associate array or an object (even a Laravel model).  This parameter is used to set up the object. 
 For arrays, it uses the array keys as properties and the array values as the property values.
 
 Methods:
@@ -54,9 +54,10 @@ Methods:
 - `isNotEmpty`, returns true if the object has any property
 - `count`, returns the number of the object's properties
 
-#### Enum
+#### Enum - `LaravelEnso\Helpers\app\Classes\Enum`
 
-Provides enumeration like capabilities and may be used in 3 modes:
+Is an abstract class that provides enumeration like capabilities, that is meant to be extended 
+and may then be used in 3 modes:
 a) when given a static 'data' parameter, which should be an associative array
 b) when declaring constants on the class
 c) when overriding the static `attributes()` method, which should also return an associative array
