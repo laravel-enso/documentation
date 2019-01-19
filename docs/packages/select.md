@@ -109,7 +109,7 @@ the regular `VueSelect` options are available
 
 - `$queryAttributes`, array with the list of attributes we're searching in, when getting the select options | default `['name']` | (optional)
 - `$model`, string, the fully qualified namespace of the class that we're querying on, in order to get the select options | default `null` | required
-- `query()`, a method which will return the query builder that we're using when querying for options | default `null` | (optional)
+- `query(Request $request)`, a method which will return the query builder that we're using when querying for options | default `null` | (optional)
 
 Note: If a query method is provided, it's going to be used, if it's not given, a query will be constructed, using the given class and other values.
 Note: The query attribute(s) given may have a nested structure, for instance `user.name` where `user` is a relationship on the model. 
