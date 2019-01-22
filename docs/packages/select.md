@@ -96,7 +96,8 @@ Using customParams implies that you provide a 'query' method inside the controll
 - `i18n`, optional, function, that is used for translating labels, headers, and table data
 The default value (function) for this parameter simply returns its argument as the translated value
 - `translated`, optional, boolean, indicates that the available options should be translated too
-- `debounce` - number, the number of milliseconds to use when debouncing the search on type | default `300` ms | (optional)
+- `debounce` - optional, number, the number of milliseconds to use when debouncing the search on type | default `300` ms | (optional)
+- `errorHandler` - optional, function, will be used in server side mode when fetching options in axios's `catch`
 
 
 ### VueSelectFilter component options 
@@ -116,6 +117,7 @@ the regular `VueSelect` options are available
 ::: tip Tip
 If a query method is provided, it's going to be used, if it's not given, a query will be constructed, using the given class and other values.
 :::
+
 ::: tip Tip
 The query attribute(s) given may have a nested structure, for instance `user.name` where `user` is a relationship on the model. 
 In such a case the builder will follow through the relationships to query the given attribute.
