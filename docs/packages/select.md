@@ -85,7 +85,9 @@ Format: `params: { 'fieldName': fieldValue }` | default `null` | (optional)
 - `pivotParams` - object, attributes from linked tables/models used for filtering results in server-side mode. 
 Format: `pivotParams: { 'table': {'attribute':value} }` | default `null` | (optional)
 
-    Note that the value may also be an array, in which case, under the hood, a `where in` type of query will be used. 
+::: tip Tip
+The value may also be an array, in which case, under the hood, a `where in` type of query will be used. 
+:::
 
 - `customParams` - object, can be anything. 
 Using customParams implies that you provide a 'query' method inside the controller, so you can make use of the custom object  provided in the request. | (optional)
@@ -111,9 +113,13 @@ the regular `VueSelect` options are available
 - `$model`, string, the fully qualified namespace of the class that we're querying on, in order to get the select options | default `null` | required
 - `query(Request $request)`, a method which will return the query builder that we're using when querying for options | default `null` | (optional)
 
-Note: If a query method is provided, it's going to be used, if it's not given, a query will be constructed, using the given class and other values.
-Note: The query attribute(s) given may have a nested structure, for instance `user.name` where `user` is a relationship on the model. 
+::: tip Tip
+If a query method is provided, it's going to be used, if it's not given, a query will be constructed, using the given class and other values.
+:::
+::: tip Tip
+The query attribute(s) given may have a nested structure, for instance `user.name` where `user` is a relationship on the model. 
 In such a case the builder will follow through the relationships to query the given attribute.
+:::
 
 ## Publishes
 
