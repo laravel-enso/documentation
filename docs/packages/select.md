@@ -74,7 +74,7 @@ Either a `source` or an `options` parameter is required.
 - `label` - string, the name of the option object attribute used as label (html `<option>` text equivalent) | default `name` |  (optional)
 - `value` - variable holding the selected option(s). Can be a single value or an Array if the select is used as a multi-select. 
 If not null/empty, the vue select will pre-populate the selected value(s) | default `[]` or `null` |  (optional)
-- `limit` - number, parameter that limits the number of options loaded from the backend | default `100` | (optional)
+- `limit` - optional, number, parameter that limits the number of options loaded from the backend | default `100` | (optional)
 - `disabled` - boolean, flag that sets the element as disabled | default `false` | (optional)
 - `readonly` - boolean, flag that marks the element as readonly | default `false` | (optional)
 - `taggable` - boolean, flag the allows the creation of new tags (soon) | default `false` | (optional)
