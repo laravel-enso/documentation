@@ -20,7 +20,7 @@ Person management dependency for [Laravel Enso](https://github.com/laravel-enso/
 - allows the management of people and their details
 - integrates with and extends the application user
 - is built upon the premise that all the application users are people, but some people may not be application users
-- can be reused and integrated with other modules which might handle categories of people (e.g. contacts)
+- can be reused and integrated with other modules which might handle categories of people (e.g. company people)
 - a `PersonFactory` is included by default in the package
 - a policy is used to ensure that a person email update cannot be performed if the person is linked to an user
 - custom validations may be added through the package configuration
