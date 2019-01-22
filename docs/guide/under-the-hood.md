@@ -50,6 +50,10 @@ When working with VueJS, the v-html directive is XSS vulnerable, so it should be
 - an user has **just one user group** and **just one role**
 - the role of a user may only be one of the roles available for its user group
 - users have an active or inactive status, where inactive users cannot login or make requests in the application (but can set/reset their password)
+- the `Role` model contains the `AdminId` and `SupervisorId` constants that determine who 
+the administrator and supervisor roles are
+- the `UserGroup` model contains the `AdminGroupId` constant that is used to determine which is the Administrator
+user group
 
 ## Preferences
 The mechanism allows saving and loading of the user's preferences for several aspects of the application.

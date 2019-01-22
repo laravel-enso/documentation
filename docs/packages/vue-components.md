@@ -123,6 +123,8 @@ Takes the following properties:
 - `toggle`, boolean, flag that toggles the `is-toggle` Bulma class, for mutually exclusive tabs | default `false` | (optional)
 - `toggleRounded`, boolean, flag that toggles the `is-toggle-rounded` Bulma class, where the first and last tabs are rounded | default `false` | (optional)
 
+The component emits a `selected` event when a tab is selected.
+
 ### Tab
 Takes the following properties:
 - `id`, string/object, a value used to identify the tab - gets passed to parent (Tabs) component | required 

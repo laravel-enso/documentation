@@ -17,7 +17,7 @@ Company management dependency for [Laravel Enso](https://github.com/laravel-enso
 ## Features
 
 - provides a common functionality for managing companies within the Enso ecosystem
-- integrates with the [People](https://github.com/laravel-enso/People) package
+- integrates with the [People](https://github.com/laravel-enso/People) package so you can associate people to companies
 - can be reused and integrated with other modules which might deal with companies (e.g. suppliers ) 
 or even other entities, such as people (e.g. clients)
 - a `CompanyFactory` is included by default in the package
@@ -25,7 +25,8 @@ or even other entities, such as people (e.g. clients)
 
 ## Under the Hood
 
-- the model comes with a `mandatary` relationship to a person. Of course, the mandatary is optional
+- the model comes with a `mandatary` relationship to a person. Of course, the mandatary is optional.
+You can only set as mandatary one of the people associated to the company.
 - once the company has activity in the system (through any other model relationship), it cannot be deleted
 - the proper way to delete a company is to first delete any other models it is linked to 
 - a placeholder types enum in included in the package that is meant to be extended as/if required
