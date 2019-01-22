@@ -1,16 +1,23 @@
 # Getting Started
 
+## Requirements
+
+* See the [Laravel server requirements](https://laravel.com/docs/5.7/installation#server-requirements).
+* Laravel Enso uses the `json` data type.
+    * If using MySQL, [a minimum version of 5.7.8 is required](https://dev.mysql.com/doc/refman/5.7/en/json.html).
+    * If using MariaDB, [a minimum version of 10.2.7 is required](https://mariadb.com/kb/en/library/json-data-type).
+
 ## Installation Steps
 
 1. Download the project with `git clone https://github.com/laravel-enso/Enso.git`
 
 2. Run in the project folder `composer install`
 
-3. Configure the `.env` file. Run `php artisan key:generate`
+3. Create a database for your site (see the [Laravel database documentation](https://laravel.com/docs/5.7/database)), copy or rename the `.env.example` file to `.env`, edit the database configuration information, and run `php artisan key:generate`
 
 4. Run `php artisan migrate --seed`
 
-5. Login into the project with user: `admin@laravel-enso.com`, password: `password`
+5. Launch the site (see the Local Development Server section of the [Laravel installation documentation](https://laravel.com/docs/5.7/#installation)) and log into the project with user: `admin@laravel-enso.com`, password: `password`
 
 ##### Optional steps if you want to play further
 
@@ -21,6 +28,12 @@
 8. Compile `yarn dev` / `yarn hot`
 
 Enjoy!
+
+### Known issues
+
+* When you run `php artisan migrate --seed`, you may hit an error in the form `SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 767 bytes`. If so:
+    * See [this post](https://laravel-news.com/laravel-5-4-key-too-long-error) for details on how to address the error.
+    * After addressing the error, drop all tables from your site database (or delete and recreate the database), then run `php artisan migrate --seed` again.
 
 ## Features
 A solid starting project, based on [Laravel](https://laravel.com) 5.6, [VueJS](https://vuejs.org) 2, 
