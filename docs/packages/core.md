@@ -105,6 +105,18 @@ On Linux, you may install them with:
 sudo apt-get install pngquant gifsicle jpegoptim php7.1-gd
 ```
 
+## Under the hood
+- the `Role` model contains the `AdminId` and `SupervisorId` constants that determine who 
+the administrator and supervisor roles are. Note that `Role` model is part of the 
+[RoleManager](https://github.com/laravel-enso/RoleManager) package but is mentioned here for quick reference  
+- the `UserGroup` model contains the `AdminGroupId` constant that is used to determine which is the Administrator
+user group
+- the `User` model provides several helper methods for administrative related checks:
+    * `isAdmin()` - a user is admin if it has the Admin role
+    * `isSupervisor()` - a user is supervisor if it has the Supervisor role
+    * `belongsToAdminGroup()` - if the user belongs to the Administrator user group
+    * `isPerson(Person $person)` - checks if this user belongs to the $person argument
+
 ## Publishes
 
 - `php artisan vendor:publish --tag=core-storage` - the storage folder structure

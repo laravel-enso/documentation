@@ -43,13 +43,21 @@ Now the people structure can be reused as needed.
 - once the person has activity in the system (through any other model relationship), it cannot be deleted
 - the proper way to delete a person is to first delete any other models it is linked to 
 - since an application user will always be a person, and for Laravel authentication purposes, 
-the user is supposed to have an email address the 'synchronization' between the user and the person is required. 
+the user is supposed to have an email address and so the 'synchronization' between the user and the person is required. 
 Therefore, if the user email is updated, the person email is also updated. 
 The same thing happens if a user is created from a person, but a different email is set.
 - note that if users are created through a separate/external mechanism you will need to ensure that a corresponding 
 person is created/available during the process
 - all `Person` attributes are fillable
-- the `uid` Person attribute is meant as generic holder for a person's unique identifier which varies from situation to situation (e.g. SSN)
+- the `uid` Person attribute is meant as generic holder for a person's unique identifier 
+which varies from situation to situation (e.g. SSN)
+- the `Person` model has the following helpers:
+    * `hasUser` - returns true if this person is associated to a user
+    * `gender` - determines the gender based on the set person title. If no title is set, null is returned
+    * `isMandatary` - returns true if this user is set a company's mandatary
+- the `PersonPolicy` ensures that:
+    * administrators can make any changes
+    * a user can only set a     
 
 ## Installation Steps
 
