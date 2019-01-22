@@ -84,7 +84,6 @@ The [Laravel Enso](https://github.com/laravel-enso/Enso) package comes with this
 Depends on:
  - [ActivityLog](https://github.com/laravel-enso/activitylog) for logging operations on Documents
  - [AddressesManager](https://github.com/laravel-enso/AddressesManager) for attached addresses
- - [Contacts](https://github.com/laravel-enso/Contacts) for attached contacts
  - [Core](https://github.com/laravel-enso/Core) for middleware and user model
  - [Discussions](https://github.com/laravel-enso/Discussions) for attached discussions
  - [DocumentsManager](https://github.com/laravel-enso/DocumentsManager) for middleware and user model

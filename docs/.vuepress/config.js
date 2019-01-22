@@ -49,7 +49,6 @@ module.exports = {
                     'cnp-validator',
                     'comments-manager',
                     'companies',
-                    'contacts',
                     'core',
                     'data-export',
                     'data-import',
