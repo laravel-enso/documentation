@@ -91,7 +91,7 @@ The following methods are available on the components
     - `init()`
     - `update()`
 * ChartCard.vue
-    - `get()`, to reload the data from server
+    - `fetch()`, to reload the data from server
     - `download()`, to download the chart representation as a `PNG` file
 
 Call these methods with `vm.$refs.chart.method()`
