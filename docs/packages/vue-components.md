@@ -156,12 +156,14 @@ Takes the following properties:
 
 ### VueFilter
 Takes the following properties:
-- `title` - string, the title to display above the options | default `null` | (optional)
-- `offLabel` - string, the label for the 'off' button | default `Off` | (optional)
+- `compact` - boolean, flag for displaying the component in the compact mode | default `false` | (optional)
+- `hideOff` - boolean, flag for hiding the 'off' option | default `false` | (optional)
 - `icons` - boolean, flag for showing icons instead of labels - should be used together with `options.label` which should now represent a font awesome icon class | default `false` | (optional)
+- `offLabel` - string, the label for the 'off' button | default `Off` | (optional)
 - `options` - array, the options the user can choose from when filtering, see below for examples | default `[]` | (required)
-- `theme` - string, the theme to use for styling the box | default `primary` | (optional)
-- `hideOff` - boolean, flag for showing an off switch | default `false` | (optional)
+- `readonly` - boolean, flag for showing the filter in read-only mode | default `false` | (optional)
+- `title` - string, the title to display above the options | default `null` | (optional)
+- `value` - the value for the component | default `null` | (optional)
 
 Notice that the component is bound to a model, much like an input element. If the model variable has a valid value, 
 the filter will start up with that option selected.  
@@ -208,7 +210,7 @@ Next, when defining your DataTable, make sure you give it your filters:
 ```
 
 Note that you may use more than one such filter, just bind it inside the same encompassing `filters` object 
-and it will get passed to the datatables BE logic.
+and it will get passed to the datatables back end logic.
 
 
 ### FileUploader
