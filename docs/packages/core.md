@@ -35,11 +35,11 @@ and the option for the customization of any input
 - model event driven, out of the box versioning support
 - aspect consistent ecosystem of front-end VueJS reusable components
 - highly powerful, full search, customizable, template based, huge data-set capable, 
-front-end back-end integrated data table functionality with support for the export of the entire resultset 
+front-end back-end integrated data table functionality with support for the export of the entire result-set 
 and a great many other features
 - customizable, extensible, companies structure
-- template based, validation capable, asynchronous capable xlsx data import functionality featuring support for big files 
-(the number of rows is limited only by the xlsx format)
+- template based, validation capable, asynchronous capable xlsx data import functionality
+ featuring support for big files (the number of rows is limited only by the xlsx format)
  
 ## Optional Features
 - customizable, extensible, generic addresses manager plugin
@@ -94,7 +94,8 @@ and a great many other features
 
 ## Notes
 
-<sup>1</sup> In order to more efficiently handle images (optimize, resize, crop), these libraries require a few extra PHP plugins and libraries:
+<sup>1</sup> In order to more efficiently handle images (optimize, resize, crop), 
+these libraries require a few extra PHP plugins and libraries:
 - pngquant
 - gifsicle
 - jpegoptim
@@ -116,6 +117,43 @@ user group
     * `isSupervisor()` - a user is supervisor if it has the Supervisor role
     * `belongsToAdminGroup()` - if the user belongs to the Administrator user group
     * `isPerson(Person $person)` - checks if this user belongs to the $person argument
+
+### Login attempts 
+The `config.enso.auth.maxLoginAttempts` configuration option lets you customize how many login attempts 
+the user may perform before he is given a time-out. 
+
+Once the user reaches the set number of login attempts, he must wait 60 seconds before he may try to 
+login again.
+
+### Password configuration
+Since the 2.15.2 release, Enso supports additional, password related, configuration options.
+The default values are available on the `config.enso.auth.password` configuration 'path' 
+(the `config/enso/auth.php` file) and local values can be set in your `.env` file. 
+
+These options are enforced via request validation each time the user sets or resets his password. 
+
+ - `lifetime` - the password lifetime in DAYS, default `0`. 
+ If using the default value (0), this limitation is disabled and the password never expires.
+ 
+ ::: tip
+ If a password lifetime is set, beginning with the third day before the password expires, 
+ the user will be notified on login that he should update his password.
+ :::
+ 
+ ::: tip
+ If the password is not updated in due time and it expires, the user will be denied access and upon the
+  login attempt will be asked to update his password via the reset mechanism. 
+ ::: 
+ 
+ - `minLength` - the minimum password length, default `6`
+ - `minUpperCase` - the minimum number of uppercase characters that the password must contain
+ - `minNumeric` - the minimum number of numeric characters that must be included in the password
+ - `minSpecial` - the minimum number of special characters required for the password. 
+ All non alphanumeric characters, including spaces, are considered special characters.
+
+
+Please note that regardless of the above configuration, the user can not 'update' his password by 
+re-using his current password.
 
 ## Publishes
 

@@ -25,6 +25,10 @@ Laravel is using HttpOnly cookies and an additional CSRF token. This provides pr
 When working with VueJS, the v-html directive is XSS vulnerable, so it should be used only with sanitized/safe data 
 :::
   
+## Authentication
+Various configuration options are available for the user's password such as lifetime, 
+minimum number of characters and more. Please check out the specifics by taking a look at the 
+[core](https://docs.laravel-enso.com/packages/core.html) documentation page.
 
 ## Authorization
  - application wide, checking user status: active/inactive. The check is made for every request, via a middleware. The inactive status prevents the user from logging in and making requests. If an user becomes inactive while he's still logged in, at his next request he'll be logged out and redirected to the login page with a notification
