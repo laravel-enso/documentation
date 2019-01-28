@@ -46,8 +46,6 @@ The `config/enso/companies.php` configuration file, lets you customize the follo
 useful for overriding the original
 - `tableTemplate`, - string, is the project relative path to the companies table template, 
 useful for overriding the original
-- `contactFormTemplate`, - string, is the project relative path to the contact person form template, 
-useful for overriding the origin
 
 ## Extending the companies
 
@@ -55,10 +53,8 @@ In your project you may have the need to alter and or extend the companies struc
 To achieve this, you'd need to:
 - add migration(s) to your local project, making the necessary changes
 - create a new template for the companies form, and declare it in the config (`formTemplate`)
-- create a new template for the contact form, and declare it in the config (`contactFormTemplate`)
 - create a new template for the companies table, and declare it in the config (`tableTemplate`)
 - create a new company request validation, ensuring it implements the `ValidatesCompanyRequest` marker interface.
-- create a new contact request validation, ensuring it implements the `ValidatesContactRequest` marker interface. 
 - bind your local implementations to the interfaces in your local `AppServiceProvider` 
 
     ```php
@@ -91,5 +87,4 @@ Depends on:
  - [FormBuilder](https://github.com/laravel-enso/FormBuilder) for handling the form related operations
  - [Helpers](https://github.com/laravel-enso/Helpers) for the various helper classes
  - [Structure manager](https://github.com/laravel-enso/StructureManager) for the migrations
- - [TrackWho](https://github.com/laravel-enso/TrackWho) for keeping track of the users making the changes to each contact
  - [VueDatatable](https://github.com/laravel-enso/VueDatatable) for the index page datatable
