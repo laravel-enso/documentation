@@ -47,6 +47,7 @@ Quickly build any complex table based on a JSON template.
 - Laravel accessors for the main query model
 - the configuration template for each table has been designed to be as light and straightforward as possible without losing 
 out on features
+- caching support for speeding up the retrieval of data
 - thorough validation of the JSON template with developer friendly messages, in order to avoid misconfiguration issues
 - Eloquent query friendly with the possibility to easily display nested models attribute values
 - can be used independently of the Enso ecosystem
@@ -188,16 +189,6 @@ This means that the configuration is not re-read as long as the component is not
 For the data editor functionality (N/A), separate requests will be used.
 
 Note: In order to make the above requests, named routes are required.
-
-### Configurable huge result set management
-When you have huge result sets, the table component will take longer to respond to the user input. In order to improve 
-the user experience, when we have more results than the limit set in the configuration (in the `fullInfoRecordLimit` key),
-the back-end builder no longer computes the number filtered and any totals for that table.
-
-However, a blue information icon becomes available in the list of table buttons, that allows the user to
-request this computed information.
-
-Since this is an extreme case with tables this big and is a seldom situation, the configuration for the limit is global.
 
 ### Configuration
 The package comes with with a publishable configuration file which you may update in order to fit your 
@@ -374,7 +365,6 @@ becomes disabled by default and is made available on-demand.
 string, is the data route suffix used for all tables. Similar to `fullInfoRecordLimit`, you may override the 
 global configuration by specifying this same parameter in the 'local' table template.
 
-
 ### Template
 
 ```json
@@ -384,6 +374,7 @@ global configuration by specifying this same parameter in the 'local' table temp
     "name": "Table Name",
     "icon": "list-alt",
     "crtNo": true,
+    "cache": true,
     "auth": false,
     "debounce": 100,
     "lengthMenu": [10, 15, 20, 25, 30],
@@ -441,6 +432,8 @@ Options:
 - `icon`, optional, string or array of strings, expects Font Awesome icon classes
 (make sure the used class is available in the page, via a local or global import). If not given, no icon is used
 - `crtNo`, optional, boolean, flag for showing the current line number
+- `cache`, optional, boolean, flag for activating the cache for the table totals 
+(more information in the Caching Support section)
 - `auth`, optional, boolean, flag for removing auth when using in enso context
 - `debounce`, optional, number, the time in milliseconds that is used for the debounce when reloading data for the table,
  for example when typing in the search box or changing filters, default `100`
@@ -596,6 +589,7 @@ In order to achieve this, Laravel queues and jobs are used, so it is mandatory t
     * `queues.connections.yourConnection.retry_after` - this is the interval used by Laravel to mark a job as failed, 
     if it's not completed by then. This interval should also be longer than your longest running job.
     
+
 ### The VueJS Component
 
 The `VueTable` component takes the following parameters:
@@ -817,6 +811,41 @@ changed suffix (the route and permissions need to be altered).
 Similarly to the default action button, you may define other 'global' action buttons in the datable configuration, 
 that can then be used as needed in any table templates in your project.
 
+### Configurable huge result set management
+When you have huge result sets, the table component will take longer to respond to the user input. In order to improve 
+the user experience, when we have more results than the limit set in the configuration (in the `fullInfoRecordLimit` key),
+the back-end builder no longer computes the number of filtered records and totals for that table.
+
+However, a blue information icon becomes available in the list of table buttons, that allows the user to
+request this computed information.
+
+Since this is an extreme case with tables this big and is a seldom situation, the configuration for the limit is global.
+
+### Caching support
+
+We've had cases in production where we need to work with over 2 million results and every performance bit we can get
+is welcome.
+
+When the table displays data, if we want to show pagination, we need to execute the main query twice: 
+once to retrieve the current chunk of data, and then once more to count the results.
+
+By caching the number of results we can skip counting the results and save time for each request. The more records you 
+work with, the bigger the gain the difference.
+
+In order to activate this feature, in the table template, add the `cache` option and set it to true.
+```json
+...
+"method": "POST",
+"crtNo": true,
+"cache": true,
+...
+```
+
+On the next request, if the totals information is not in the cache, it will be computed and also cached for 1 hour.
+
+If additionally, you want to invalidate the cache when a model is inserted or deleted, in the (main) table's model,
+add the  `TableCache` trait and set `protected $cachedTable` property value to the id of your `vue-table` component. 
+Once this is done, the trait will invalidate the cache for you.
 
 ### Further Examples
 
