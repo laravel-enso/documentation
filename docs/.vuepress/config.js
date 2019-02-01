@@ -64,6 +64,7 @@ module.exports = {
                     'localisation',
                     'log-manager',
                     'menu-manager',
+                    'multitenancy',
                     'notifications',
                     'people',
                     'permission-manager',
