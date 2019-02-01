@@ -6,7 +6,7 @@
 [![Total Downloads](https://poser.pugx.org/laravel-enso/multitenancy/downloads)](https://packagist.org/packages/laravel-enso/multitenancy)
 [![Latest Stable Version](https://poser.pugx.org/laravel-enso/multitenancy/version)](https://packagist.org/packages/laravel-enso/multitenancy)
 
-Multitenancy dependency for [Laravel](https://laravel.com).
+Multitenancy dependency for [Laravel Enso](https://laravel-enso.com).
 
 ## Features
 - contains a series of console commands to help with various operations
