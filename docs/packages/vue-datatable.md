@@ -432,7 +432,7 @@ Options:
 - `icon`, optional, string or array of strings, expects Font Awesome icon classes
 (make sure the used class is available in the page, via a local or global import). If not given, no icon is used
 - `crtNo`, optional, boolean, flag for showing the current line number
-- `cache`, optional, boolean, flag for activating the cache for the table totals 
+- `cache`, optional, boolean, flag for activating the cache for the table total count 
 (more information in the Caching Support section)
 - `auth`, optional, boolean, flag for removing auth when using in enso context
 - `debounce`, optional, number, the time in milliseconds that is used for the debounce when reloading data for the table,
@@ -841,11 +841,9 @@ In order to activate this feature, in the table template, add the `cache` option
 ...
 ```
 
-On the next request, if the totals information is not in the cache, it will be computed and also cached for 1 hour.
+On the next request, if the total count information is not in the cache, it will be computed and also cached for 1 hour.
 
-If additionally, you want to invalidate the cache when a model is inserted or deleted, in the (main) table's model,
-add the  `TableCache` trait and set `protected $cachedTable` property value to the id of your `vue-table` component. 
-Once this is done, the trait will invalidate the cache for you.
+You should always use this only in combination with the `TableCache` trait on the table's main model. The trait will handle the cache invalidation when a model is created or deleted. To do so add the trait and set `protected $cachedTable` property value to the id of your `vue-table` component. 
 
 ### Further Examples
 
