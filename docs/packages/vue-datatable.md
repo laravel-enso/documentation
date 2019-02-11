@@ -375,6 +375,7 @@ global configuration by specifying this same parameter in the 'local' table temp
     "icon": "list-alt",
     "crtNo": true,
     "cache": true,
+    "flatten": false,
     "auth": false,
     "debounce": 100,
     "lengthMenu": [10, 15, 20, 25, 30],
@@ -434,6 +435,7 @@ Options:
 - `crtNo`, optional, boolean, flag for showing the current line number
 - `cache`, optional, boolean, flag for activating the cache for the table total count 
 (more information in the Caching Support section)
+- `flatten`, optional, boolean, flag for flattening the response, allowing columns like "user.person.name" in the template
 - `auth`, optional, boolean, flag for removing auth when using in enso context
 - `debounce`, optional, number, the time in milliseconds that is used for the debounce when reloading data for the table,
  for example when typing in the search box or changing filters, default `100`
