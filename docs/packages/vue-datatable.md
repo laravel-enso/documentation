@@ -696,7 +696,7 @@ even the ones that might not be visible on the current page of the table (if the
 Also, keep in mind that if the `selectable` option is active in table template, the selection is decoupled from 
 the actions, so, same as before, the action is applied to all the filtered table results.
 
-#### In-depth example
+#### In-depth example - global custom action
 
 In order to achieve this functionality, we've included an example below, 
 where we add a new button for the owners table:
@@ -782,7 +782,7 @@ public function action(Request $request)
 If for any reason you want to handle more than one action through the same controller, 
 you may declare multiple actionClasses and create multiple action methods in conjunction with the proper routes.  
 
-4. Add the new route
+1.Add the new route
 ```php
 Route::patch('myAction', 'UserGroupMyActionController@action')
                             ->name('myAction');
@@ -794,10 +794,10 @@ as well as the controller namespace.
 In this example, the url called for the UserGroups table will be 'administration/userGroups/myAction' and 
 the name of the route will be 'administration.userGroups.myAction'.
     
-5. Create the new permission
+2. Create the new permission
     Navigate in the app to `system/permissions` and add the new `administration.userGroups.myAction` permission.
 
-6. That's it.
+3. That's it.
 
 #### The default action button
 
@@ -810,6 +810,82 @@ changed suffix (the route and permissions need to be altered).
 
 Similarly to the default action button, you may define other 'global' action buttons in the datable configuration, 
 that can then be used as needed in any table templates in your project.
+
+#### In-depth example - per row custom action
+
+A common scenario is when you want to define a per row custom action, on top of the default ones.
+
+Most of the time, you'll want to perform the custom action for the model that's represented on the row 
+so you'll need to be able to identify the model. For that, you can use the `dtRowId` attribute. 
+
+If you're displaying data gathered from multiple tables, make sure that the identifiers you require are present
+in the select and in the template. If you don't want to display them to the user, you may use rogue columns.
+
+In this example, we'll assume `dtRowId` is sufficient.
+
+1. Build the query in the table builder
+
+    ```php
+    public function query()
+    {
+        return MyModel::select(\DB::raw('
+            my_models.id as "dtRowId",
+            my_models.name
+        '));
+    }
+    ```
+
+2. Declare the custom action button in the template:
+
+```json
+"buttons": [
+    "excel",
+    "create",
+    "edit",
+    "destroy",
+    "show",
+    {
+        "type": "row",
+        "icon": "exclamation-triangle",
+        "class": "is-row-button",
+        "event": "details",
+        "confirmation": false
+    }
+],
+```
+
+We've named the event `details`.
+
+::: tip
+Remember that the icon you set for the custom action button must be available (imported) in the page (component)
+where you're displaying the datatable.
+:::
+
+3. In the page, catch the event on the datatable Vue component:
+
+```vuejs
+<vue-table class="box has-background-light is-paddingless raises-on-hover is-rounded"
+    :path="path"
+    id="myModelTableId"
+    @details="handleDetails"/>
+```
+
+4. Process the event as desired:
+
+```vuejs
+    ...
+    methods: {
+        handleDetails(event) {
+            const id = event.dtRowId;
+            //your custom logic
+        },
+    },
+    ...
+};
+```
+
+The event payload is the entire table row, so you have access to the id (dtRowId) and any other attributes
+you've added.
 
 ### Configurable huge result set management
 When you have huge result sets, the table component will take longer to respond to the user input. In order to improve 
