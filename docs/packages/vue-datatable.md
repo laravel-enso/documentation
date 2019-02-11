@@ -407,7 +407,7 @@ global configuration by specifying this same parameter in the 'local' table temp
             "label": "Name",
             "data": "table.column",
             "name": "columnAlias",
-            "meta": ["searchable", "sortable", "sort:ASC", "sort:DESC", "translatable", "boolean", "slot", "rogue", "editable", "total", "customTotal", "date", "icon", "clickable", "notExportable", "nullLast"],
+            "meta": ["searchable", "sortable", "sort:ASC", "sort:DESC", "translatable", "boolean", "slot", "rogue", "total", "customTotal", "date", "icon", "clickable", "notExportable", "nullLast"],
             "enum": "EnumClass",
             "dateFormat": "d-m-Y",
             "tooltip": "My Tooltip Column Detail",
