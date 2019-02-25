@@ -23,6 +23,8 @@ module.exports = {
         nav: [
             { text: "Guide", link: "/guide/" },
             { text: "Packages", link: "/packages/" },
+            { text: "Front End (v3)", link: "/frontEnd/" },
+            { text: "Back End (v3)", link: "/backEnd/" },
         ],
         sidebar: {
             '/guide/': [{
@@ -81,7 +83,23 @@ module.exports = {
                     'vue-components',
                     'vue-datatable'
                 ]
-            }]
+            }],
+            '/frontEnd/': [{
+                title: 'Front End',
+                collapsable: false,
+                children: [
+                    '',
+                    'wip',
+                ]
+            }],
+            '/backEnd/': [{
+                title: 'Back End',
+                collapsable: false,
+                children: [
+                    '',
+                    'wip',
+                ]
+            }],
         }
     }
 };
