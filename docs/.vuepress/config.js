@@ -88,7 +88,7 @@ module.exports = {
                 title: 'Front End',
                 collapsable: true,
                 children: [
-                    'wip',
+                    'card',
                 ]
             }],
             '/backEnd/': [{
