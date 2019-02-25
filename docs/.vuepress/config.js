@@ -86,17 +86,15 @@ module.exports = {
             }],
             '/frontEnd/': [{
                 title: 'Front End',
-                collapsable: false,
+                collapsable: true,
                 children: [
-                    '',
                     'wip',
                 ]
             }],
             '/backEnd/': [{
                 title: 'Back End',
-                collapsable: false,
+                collapsable: true,
                 children: [
-                    '',
                     'wip',
                 ]
             }],
