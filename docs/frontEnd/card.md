@@ -1,3 +1,7 @@
+---
+sidebarDepth: 3
+---
+
 # Card
 
 ![NPM License](https://img.shields.io/npm/l/@enso-ui/card.svg)
@@ -8,9 +12,10 @@
 
 Bulma styled Card component
 
-### Usage
+## Usage
+All components can be used outside of the Enso ecosystem.
 
-#### Card.vue
+### Card.vue
 This is the main component. It can optionally have:
 - an image
 - a header, with:
@@ -26,11 +31,6 @@ As noted above, you may skip one or more of these components, as required
 Example:
 ```vuejs
 <card>
-    <div class="card-image">
-        <figure class="image is-4by3">
-          <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-        </figure>
-    </div>
     <card-header>
         <template v-slot:title>
             <span class="icon is-small has-margin-right-small">
@@ -53,6 +53,11 @@ Example:
             <card-collapse/>
         </template>
     </card-header>
+    <card-image>
+            <figure class="image is-4by3">
+              <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+            </figure>
+        </card-image>
     <card-content class="is-paddingless">
         Actual content goes here
     </card-content>
@@ -71,8 +76,10 @@ Properties:
 Slots:
 - `default`, all content goes here
 
-#### CardHeader.vue
+### CardHeader.vue
 The component is a container for the header contents.
+
+Note that using the `CardCollapse` component within the card header will make the card component collapsible.
 
 Slots:
 - `title`, for showing a title
@@ -81,7 +88,7 @@ Slots:
 Events:
 - `click`, when the title is clicked
 
-#### CardBadge.vue
+### CardBadge.vue
 The component shows a badge within a Card's controls area.
 
 Properties:
@@ -89,34 +96,37 @@ Properties:
 - `type`, `string`, optional, default `null`. 
 This is the color of the tag, see [here](https://bulma.io/documentation/elements/tag/) for more info.
 
-#### CardCollapse.vue
+### CardCollapse.vue
 The component shows a dropdown indicator control and can be used to collapse the card.
 
-#### CardControl.vue
+### CardControl.vue
 The component is a container for any custom controls.
 
 Slots:
 - `default`, all content goes here
 
-#### CardRefresh.vue
+### CardRefresh.vue
 The component is refresh control for the card. 
 
 Events:
 - `refresh`, when clicked; the event needs to be handled by the developer.
 
-#### CardRemove.vue
+### CardRemove.vue
 The component is remove/close control for the card. 
 
 Events:
 - `remove`, when clicked; the event needs to be handled by the developer.
 
-#### CardContent.vue
+### CardContent.vue
 The component is the container for the card's content.
+
+Please note that this component comes by default with the bulma class `is-paddingless` since otherwise,
+when collapsed, it would look off due to the padding.
 
 Slots:
 - `default`, all content goes here
 
-#### CardFooter.vue
+### CardFooter.vue
 The component is the container for the card's footer.
 
 Slots:
@@ -124,23 +134,23 @@ Slots:
 
 Normally, a card footer should contain at least a card footer item.
 
-#### CardFooterItem.vue
+### CardFooterItem.vue
 The component is the container for one footer item.
 
 Slots:
 - `default`, all content goes here
 
-#### CardImage.vue
+### CardImage.vue
 The component is the container for an image.
 
 Slots:
 - `default`, all content goes here
 
-### Documentation
+## Documentation
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
-### Questions & Issues
+## Questions & Issues
 
 For questions and support please use the issues functionality
 for this package's github repository.
@@ -150,7 +160,7 @@ and when opening a new issue, fill the required information in the issue templat
 
 Issues not conforming to the guidelines may be closed immediately.
 
-### Depends on
+## Depends on
 
 - `@enso-ui/dropdown-indicator`
 - `@enso-ui/loader`
@@ -159,8 +169,9 @@ Issues not conforming to the guidelines may be closed immediately.
 - `bulma`
 - `vue`
 
-### Exports
+## Exports
 
+`@enso-ui/card/bulma`:
 - `Card`,
 - `CardHeader`,
 - `CardContent`,
@@ -173,12 +184,12 @@ Issues not conforming to the guidelines may be closed immediately.
 - `CardRefresh`,
 - `CardRemove`,
 
-### Contributions
+## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
 Thank you to all the people who already contributed to Enso!
 
-### License
+## License
 
-[MIT](http://opensource.org/licenses/MIT)
+[ISC](https://opensource.org/licenses/ISC)

@@ -89,6 +89,19 @@ module.exports = {
                 collapsable: true,
                 children: [
                     'card',
+                    'confirmation',
+                    'datepicker',
+                    'dropdown',
+                    'dropdown-indicator',
+                    'filters',
+                    'loader',
+                    'modal',
+                    'progress-bar',
+                    'switch',
+                    'tabs',
+                    'toastr',
+                    'transitions',
+                    'typeahead',
                 ]
             }],
             '/backEnd/': [{
