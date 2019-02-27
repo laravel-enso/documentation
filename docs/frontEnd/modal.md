@@ -81,7 +81,7 @@ Methods:
 - `setUp`, performs the setup of the modal, which includes the creation of the portal
 - `createPortal`, creates the portal 
 - `display`, shows the modal and sets the necessary listeners 
-- `close`, emits a 'close' event
+- `close`, emits a `close` event
 
 ## Documentation
 
@@ -108,6 +108,7 @@ Issues not conforming to the guidelines may be closed immediately.
 `@enso-ui/modal/bulma`:
 - `Modal`
 - `ModalCard`
+
 `@enso-ui/modal/renderless`:
 - `Modal`
 

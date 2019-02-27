@@ -13,7 +13,7 @@ sidebarDepth: 3
 A collection of Vue transitions
 
 ## Usage
-Unless where specified otherwise, the components can be used outside of the Enso ecosystem.
+The components can be used outside of the Enso ecosystem.
 
 ### bulma/Fade.vue
 A reusable fade transition.

@@ -77,19 +77,19 @@ Methods:
 - `tabIndex(tab)`, returns the index of a tab
 
 ### tabs/Tab.vue
-An static type of tab to be used within the Tabs component.
+A type of tab to be used within the Tabs component.
 
 Props:
-- `id`, `string|Object`, required, if true, the id of the tab
+- `id`, `string|Object`, required, the id of the tab
 - `default`, `boolean`, optional, default `false`, if true, the tab is activated after creation
 - `keepAlive`, `boolean`, optional, default `false`, if true, the type of the tab is `Alive` otherwise `Static` is used
 
 Methods:
-- `register()`, emits a 'register' event, the event payload is `this`
-- `activate()`, emits a 'activate' event, the event payload is `this`
+- `register()`, emits a `register` event, the event payload is `this`
+- `activate()`, emits a `activate` event, the event payload is `this`
 - `enable()`, marks this tab as enabled
 - `disable()`, marks this tab as disabled
-- `remove()`, emits a 'remove' event, the event payload is `this`
+- `remove()`, emits a `remove` event, the event payload is `this`
 
 ### tabs/Alive.vue
 An alive type of tab used within the Tab component.
@@ -102,14 +102,18 @@ For example if the content of the tab is a complex, resources intensive componen
 the component is not destroyed & recreated when the user switches back & forth to this tab.  
 
 ### tabs/Static.vue
-An static type of tab used within the Tab component.
+A static type of tab used within the Tab component.
 
 Props:
 - `active`, `boolean`, optional, default `false`, if true, the tab is visible
 
 In case of the Static tab (as opposed to the Alive tab), the tab is hidden when not visible, and also destroyed. 
 For example if the content of the tab is a complex, resources intensive component, 
-the component is destroyed & recreated when the user switches back & forth to this tab which might take longer.  
+the component is destroyed & recreated when the user switches back & forth to this tab which might take longer to display, 
+generate multiple requests, consume extra resources.
+
+One advantage of using a Static tab is that, the data within the tab will be as recent as the last time the tab was 
+activated by the user, since that is when it got recreated.
 
 ## Documentation
 

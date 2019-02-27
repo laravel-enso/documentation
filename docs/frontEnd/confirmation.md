@@ -36,8 +36,8 @@ Example:
 
 Slots:
 - `default`, main content goes here
-- `confirm`, a custom control for the confirm action can go here
-- `cancel`, a custom control for the cancel action can go here
+- `confirm`, an optional custom control for the confirm action can go here
+- `cancel`, an optional custom control for the cancel action can go here
 
 If a confirm/cancel control is provided, the control should call the confirm/cancel method 
 made available on the slot.
@@ -61,8 +61,8 @@ Slots:
 
 Methods:
 - `hide()`, closes the dialog
-- `cancel()`, closes the dialog & emits a 'cancel' event
-- `confirm()`, closes the dialog & emits a 'confirm' event
+- `cancel()`, closes the dialog & emits a `cancel` event
+- `confirm()`, closes the dialog & emits a `confirm` event
 
 ## Documentation
 

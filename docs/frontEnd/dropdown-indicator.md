@@ -31,7 +31,7 @@ If set to false, the control is rotated up so as to suggest the dropdown is open
 
 
 Methods:
-- `toggle()`, toggles the state of the indicator & emits a 'toggle' event
+- `toggle()`, toggles the state of the indicator & emits a `toggle` event
 
 ## Documentation
 

@@ -22,9 +22,9 @@ module.exports = {
         editLinkText: 'Edit this page on Github',
         nav: [
             { text: "Guide", link: "/guide/" },
-            { text: "Packages", link: "/packages/" },
-            { text: "Front End (v3)", link: "/frontEnd/" },
-            { text: "Back End (v3)", link: "/backEnd/" },
+            { text: "V2", link: "/packages/" },
+            { text: "Front End", link: "/frontEnd/" },
+            { text: "Back End", link: "/backEnd/" },
         ],
         sidebar: {
             '/guide/': [{
@@ -40,7 +40,7 @@ module.exports = {
                 ]
             }],
             '/packages/': [{
-                title: 'Packages',
+                title: 'V2 Packages',
                 collapsable: false,
                 children: [
                     'action-logger',
@@ -88,6 +88,7 @@ module.exports = {
                 title: 'Front End',
                 collapsable: true,
                 children: [
+                    'bulma',
                     'card',
                     'confirmation',
                     'datepicker',
@@ -102,6 +103,7 @@ module.exports = {
                     'toastr',
                     'transitions',
                     'typeahead',
+                    'ui',
                 ]
             }],
             '/backEnd/': [{

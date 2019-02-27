@@ -70,7 +70,7 @@ Example:
 ```
 
 Properties:
-- `loading`, `boolean`, optional, default `false`, if true a loader is shown
+- `loading`, `boolean`, optional, default `false`, if true, a loader is shown
 - `collapsed`, `boolean`, optional, default `false`, if true, the card is shown collapsed
 
 Slots:
@@ -106,13 +106,13 @@ Slots:
 - `default`, all content goes here
 
 ### CardRefresh.vue
-The component is refresh control for the card. 
+The component is a refresh control for the card. 
 
 Events:
 - `refresh`, when clicked; the event needs to be handled by the developer.
 
 ### CardRemove.vue
-The component is remove/close control for the card. 
+The component is a remove/close control for the card. 
 
 Events:
 - `remove`, when clicked; the event needs to be handled by the developer.

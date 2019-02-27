@@ -20,7 +20,7 @@ The bulma styled loading indication component.
 
 Example:
 ```vuejs
-<loader/>
+<loader v-if="loading"/>
 ```
 
 Properties:

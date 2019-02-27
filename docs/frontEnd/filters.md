@@ -18,11 +18,6 @@ Unless where specified otherwise, the components can be used outside of the Enso
 ### bulma/BooleanFilter.vue
 The bulma styled boolean filtering component, built on top of the VueFilter component.
 
-Example:
-```vuejs
-
-```
-
 ### bulma/DateFilter.vue
 The bulma styled date filtering component, built on top of the renderless version of the component.
 
