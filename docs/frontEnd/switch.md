@@ -21,8 +21,7 @@ The bulma styled switch component.
 Example:
 ```vue
 <vue-switch class="has-margin-left-medium has-margin-right-medium"
-    v-model="filterCore"
-    size="is-large"/>
+    v-model="filterCore"/>
 ```
 
 Properties:

@@ -13,7 +13,12 @@ sidebarDepth: 3
 Bulma styled Card component
 
 ## Usage
+
 All components can be used outside of the Enso ecosystem.
+
+### Demo
+
+For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
 ### Installation
 
@@ -172,10 +177,6 @@ The component is the container for an image.
 
 Slots:
 - `default`, all content goes here
-
-## Documentation
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
 ## Questions & Issues
 
