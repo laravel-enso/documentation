@@ -13,13 +13,33 @@ sidebarDepth: 3
 Renderless Vue Filter Components with a Bulma implementation
 
 ## Usage
+
 Unless where specified otherwise, the components can be used outside of the Enso ecosystem.
 
 ### bulma/BooleanFilter.vue
+
 The bulma styled boolean filtering component, built on top of the VueFilter component.
 
+'Inherited' Properties:
+- `compact`, `boolean`, optional, default `false`, shows the component using a more compact state
+- `hideOff`, `boolean`, optional, default `false`, if true hides the 'off' option 
+- `i18n`, `Function`, optional, default `v => v`, the function that performs translations
+- `icons`, `Boolean`, optional, default `false`, if true, also shows icons for each option 
+- `offLabel`, `string`, optional, default ``, the label used for the 'off' option
+- `options`, `array`, optional, default `[]`, the list of options
+- `readonly`, `boolean`, optional, default `false`, if true hides marks the filter as read-only
+- `title`, `string`, optional, default `null`, the title for the filter
+- `value`, `null`, optional, default `null`, the value of the filter
+
 ### bulma/DateFilter.vue
+
 The bulma styled date filtering component, built on top of the renderless version of the component.
+
+Example:
+```vue
+<date-filter class="box raises-on-hover has-margin-top-large"
+    @update="filters.interval = $event"/>
+```
 
 Properties:
 - `compact`, `boolean`, optional, default `false`, shows the component using a more compact state
@@ -27,8 +47,19 @@ Properties:
 - `i18n`, `Function`, optional, default `v => v`, the function that performs translations
 - `locale`, `string`, optional, default `en`, the locale used for the picker
 
+'Inherited' properties:
+- `default`, 'string', optional, default `today`, 
+valid options are: 'today', 'yesterday', 'last week', 'last month', 'all'
+
 ### bulma/DateIntervalFilter.vue
+
 The bulma styled date interval filtering component, built on top of the renderless version of the component.
+
+Example:
+```vue
+<date-interval-filter class="box raises-on-hover has-margin-top-large"
+    @update="filters.interval = $event"/>
+```
 
 Properties:
 - `compact`, `boolean`, optional, default `false`, shows the component using a more compact state
@@ -40,32 +71,69 @@ Properties:
 - `title`, `string`, optional, default `null`, the title for the filter
 
 ### bulma/EnsoDateFilter.vue
-This bulma styled date filtering component, built on top of the renderless version of the component is 
+
+This bulma styled date filtering component, built on top of the generic version of the component is 
 designed to be used within the **Enso ecosystem**, requiring less configuration from the dev.
+
+Example:
+```vue
+<enso-date-filter class="box raises-on-hover has-margin-top-large"
+    @update="filters.interval = $event"/>
+```
 
 Properties:
 - `format`, `string`, optional, default `d-m-Y`, the format of the date
+
+'Inherited' properties:
+- `compact`, `boolean`, optional, default `false`, shows the component using a more compact state
+- `i18n`, `Function`, optional, default `v => v`, the function that performs translations
+- `locale`, `string`, optional, default `en`, the locale used for the picker
 
 ### bulma/EnsoDateIntervalFilter.vue
-This bulma styled date interval filtering component, built on top of the renderless version of the component is 
+
+This bulma styled date interval filtering component, built on top of the enso date filter version of the component is 
 designed to be used within the **Enso ecosystem**, requiring less configuration from the dev.
+
+Example:
+```vue
+<enso-date-interval-filter class="box raises-on-hover has-margin-top-large"
+    @update="filters.interval = $event"/>
+```
 
 Properties:
 - `format`, `string`, optional, default `d-m-Y`, the format of the date
 
-### bulma/EnsoIntervalFilter.vue
-This bulma styled date interval filtering component, built on top of the renderless version of the component is 
-designed to be used within the **Enso ecosystem**, requiring less configuration from the dev.
+'Inherited' properties:
+- `compact`, `boolean`, optional, default `false`, shows the component using a more compact state
+- `i18n`, `Function`, optional, default `v => v`, the function that performs translations
+- `locale`, `string`, optional, default `en`, the locale used for the picker
 
 ### bulma/EnsoIntervalFilter.vue
-This bulma styled date interval filtering component, built on top of the renderless version of the component is 
+
+This bulma styled date interval filtering component, built on top of the generic version of the component is 
 designed to be used within the **Enso ecosystem**, requiring less configuration from the dev.
+
+Example:
+```vue
+<enso-interval-filter class="box raises-on-hover has-margin-top-large"
+    @update="filters.interval = $event"/>
+```
+
+'Inherited' Properties:
+- `compact`, `boolean`, optional, default `false`, shows the component using a more compact state
+- `i18n`, `Function`, optional, default `v => v`, the function that performs translations
+- `maxLabel`, `string`, optional, default `Max`, the label for the interval end
+- `minLabel`, `string`, optional, default `Min`, the label used for interval start
+- `title`, `string`, optional, default `null`, the title for the filter
+- `type`, `string`, optional, default `number`, the of the inputs used within the filter
 
 ### bulma/EnsoVueFilter.vue
+
 This bulma styled filtering component, built on top of the renderless version of the component is 
 designed to be used within the **Enso ecosystem**, requiring less configuration from the dev.
 
 ### bulma/IntervalFilter.vue
+
 The bulma styled interval filtering component, built on top of the renderless version of the component.
 
 Properties:
@@ -77,6 +145,7 @@ Properties:
 - `type`, `string`, optional, default `number`, the of the inputs used within the filter
 
 ### bulma/VueFilter.vue
+
 The bulma styled filtering component, built on top of the renderless version of the component.
 
 Properties:
@@ -91,15 +160,18 @@ Properties:
 - `value`, `null`, optional, default `null`, the value of the filter
 
 ### renderless/DateFilter.vue
+
 The renderless version of the DateFilter component, which can be used in custom implementations.
 
 Properties:
 - `default`, `string`, optional, default `today`, the default of the filter
 
 ### renderless/DateIntervalFilter.vue
+
 The renderless version of the DateIntervalFilter component, which can be used in custom implementations.
 
 ### renderless/IntervalFilter.vue
+
 The renderless version of the DateIntervalFilter component, which can be used in custom implementations.
 
 ## Documentation
