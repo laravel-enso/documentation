@@ -20,7 +20,7 @@ This is the main bulma styled component and it is built upon the renderless
 component `renderless/Datepicker.vue`
 
 Example:
-```vuejs
+```vue
 <datepicker v-model="interval.min"
     :format="format"
     :is-warning="equals"

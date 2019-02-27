@@ -865,7 +865,7 @@ where you're displaying the datatable.
 
 3. In the page, catch the event on the datatable Vue component:
 
-```vuejs
+```vue
 <vue-table class="box has-background-light is-paddingless raises-on-hover is-rounded"
     :path="path"
     id="myModelTableId"
@@ -874,7 +874,7 @@ where you're displaying the datatable.
 
 4. Process the event as desired:
 
-```vuejs
+```vue
     ...
     methods: {
         handleDetails(event) {

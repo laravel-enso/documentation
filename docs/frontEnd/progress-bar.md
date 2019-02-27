@@ -19,7 +19,7 @@ The component can be used outside of the Enso ecosystem.
 The bulma styled progress bar component. 
 
 Example:
-```vuejs
+```vue
 <progress-bar :progress="progress"
     :transition="0.3"
     color="#f44336"

@@ -19,7 +19,7 @@ The components can be used outside of the Enso ecosystem.
 A bulma styled typeahead component built on top of its renderless counterpart.
 
 Example:
-```vuejs
+```vue
 <typeahead is-rounded    
     @update="reset"
     ref="typeahead">

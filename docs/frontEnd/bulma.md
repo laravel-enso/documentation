@@ -15,6 +15,9 @@ Aggregator for enso-ui bulma components
 ## Usage
 This package provides a common source for all the bulma components available in the various NPM packages.
 
+npm install
+
+
 ## Depends on
 
 - `@enso-ui/card`

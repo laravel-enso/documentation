@@ -19,7 +19,7 @@ The component can be used outside of the Enso ecosystem.
 The bulma styled tabs component built on top of its renderless version.
 
 Example:
-```vuejs
+```vue
 <tabs>
     <template v-slot:label="{ tab }">
         <span>
