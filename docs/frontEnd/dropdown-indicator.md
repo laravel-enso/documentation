@@ -15,6 +15,26 @@ A simple dropdown indicator
 ## Usage
 All components can be used outside of the Enso ecosystem.
 
+### Demo
+
+For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+
+### Installation
+
+Install the package:
+```
+npm i @enso-ui/dropdown-indicator
+```
+Import the desired component(s):
+```js
+import DropdownIndicator from '@enso-ui/dropdown-indicator';
+```
+
+## Exports
+
+`@enso-ui/dropdown-indicator`:
+- `DropdownIndicator`,
+
 ### bulma/Dropdown.vue
 This is the bulma styled component.
 
@@ -53,11 +73,6 @@ Issues not conforming to the guidelines may be closed immediately.
 - `@fortawesome/free-solid-svg-icons`
 - `@fortawesome/vue-fontawesome`
 - `vue`
-
-## Exports
-
-`@enso-ui/dropdown-indicator`:
-- `DropdownIndicator`,
 
 ## Contributions
 

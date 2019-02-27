@@ -13,9 +13,32 @@ sidebarDepth: 3
 Vue Dropdown component
 
 ## Usage
+
 All components can be used outside of the Enso ecosystem.
 
+### Demo
+
+For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+
+### Installation
+
+Install the package:
+```
+npm i @enso-ui/dropdown
+```
+Import the desired component(s):
+```js
+import Dropdown from '@enso-ui/dropdown/bulma';
+```
+
+## Exports
+
+`@enso-ui/dropdown/bulma`:
+- `Dropdown`,
+
+
 ### bulma/Dropdown.vue
+
 This is the bulma styled component.
 
 Example:
@@ -72,11 +95,6 @@ Issues not conforming to the guidelines may be closed immediately.
 - `@enso-ui/transitions`
 - `v-click-outside`
 - `vue`
-
-## Exports
-
-`@enso-ui/dropdown/bulma`:
-- `Dropdown`,
 
 ## Contributions
 

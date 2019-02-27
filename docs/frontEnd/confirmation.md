@@ -15,6 +15,26 @@ Minimalist confirmation dialog
 ## Usage
 All components can be used outside of the Enso ecosystem.
 
+### Installation
+
+Install the package:
+```
+npm i @enso-ui/confirmation
+```
+Import the desired component(s):
+```js
+import { Confirmation } from '@enso-ui/confirmation/bulma';
+import { BaseConfirmation } from '@enso-ui/confirmation';
+```
+
+### Exports
+
+`@enso-ui/cofirmation/bulma`:
+- `Confirmation`,
+
+`@enso-ui/cofirmation`:
+- `BaseConfirmation`,
+
 ### Confirmation.vue
 This is the main bulma styled component. It has a default slot where
 a clickable element should be placed.
@@ -22,7 +42,6 @@ a clickable element should be placed.
 It can optionally have:
 - a confirm action button/link
 - a cancel action button/link
-
 
 Example:
 ```vue
@@ -86,11 +105,6 @@ Issues not conforming to the guidelines may be closed immediately.
 - `@fortawesome/vue-fontawesome`
 - `vue`
 - `v-tooltip`
-
-## Exports
-
-`@enso-ui/cofirmation/bulma`:
-- `Confirmation`,
 
 ## Contributions
 

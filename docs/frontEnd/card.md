@@ -47,7 +47,8 @@ import { Card, CardHeader, ... } from '@enso-ui/card/bulma';
 - `CardRemove`,
 
 
-### Card.vue
+### bulma/Card.vue
+
 This is the main component. It can optionally have:
 - an image
 - a header, with:
@@ -108,7 +109,8 @@ Properties:
 Slots:
 - `default`, all content goes here
 
-### CardHeader.vue
+### bulma/CardHeader.vue
+
 The component is a container for the header contents.
 
 Note that using the `CardCollapse` component within the card header will make the card component collapsible.
@@ -120,7 +122,8 @@ Slots:
 Events:
 - `click`, when the title is clicked
 
-### CardBadge.vue
+### bulma/CardBadge.vue
+
 The component shows a badge within a Card's controls area.
 
 Properties:
@@ -128,28 +131,33 @@ Properties:
 - `type`, `string`, optional, default `null`. 
 This is the color of the tag, see [here](https://bulma.io/documentation/elements/tag/) for more info.
 
-### CardCollapse.vue
+### bulma/CardCollapse.vue
+
 The component shows a dropdown indicator control and can be used to collapse the card.
 
-### CardControl.vue
+### bulma/CardControl.vue
+
 The component is a container for any custom controls.
 
 Slots:
 - `default`, all content goes here
 
-### CardRefresh.vue
+### bulma/CardRefresh.vue
+
 The component is a refresh control for the card. 
 
 Events:
 - `refresh`, when clicked; the event needs to be handled by the developer.
 
-### CardRemove.vue
+### bulma/CardRemove.vue
+
 The component is a remove/close control for the card. 
 
 Events:
 - `remove`, when clicked; the event needs to be handled by the developer.
 
-### CardContent.vue
+### bulma/CardContent.vue
+
 The component is the container for the card's content.
 
 Please note that this component comes by default with the bulma class `is-paddingless` since otherwise,
@@ -158,7 +166,8 @@ when collapsed, it would look off due to the padding.
 Slots:
 - `default`, all content goes here
 
-### CardFooter.vue
+### bulma/CardFooter.vue
+
 The component is the container for the card's footer.
 
 Slots:
@@ -166,13 +175,15 @@ Slots:
 
 Normally, a card footer should contain at least a card footer item.
 
-### CardFooterItem.vue
+### bulma/CardFooterItem.vue
+
 The component is the container for one footer item.
 
 Slots:
 - `default`, all content goes here
 
-### CardImage.vue
+### bulma/CardImage.vue
+
 The component is the container for an image.
 
 Slots:
