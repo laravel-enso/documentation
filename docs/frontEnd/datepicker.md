@@ -88,6 +88,7 @@ Issues not conforming to the guidelines may be closed immediately.
 
 `@enso-ui/datepicker/bulma`:
 - `Datepicker`,
+
 `@enso-ui/datepicker/renderless`:
 - `Datepicker`,
 

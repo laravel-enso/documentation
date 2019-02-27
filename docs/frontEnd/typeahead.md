@@ -78,8 +78,11 @@ Issues not conforming to the guidelines may be closed immediately.
 
 ## Depends on
 
-- `animate.css`
+- `@fortawesome/fontawesome-svg-core`
+- `@fortawesome/free-solid-svg-icons`
+- `@fortawesome/vue-fontawesome`
 - `vue`
+- `lodash`
 
 ## Exports
 

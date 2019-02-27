@@ -29,6 +29,9 @@ Properties:
 - `disabled`, `boolean`, optional, default `false`, if true, the control is disabled
 - `value`, `boolean|number`, required, the value of the component
 
+Events:
+- `input`, emitted when the value is changed, with the value/state as payload
+
 ## Documentation
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)

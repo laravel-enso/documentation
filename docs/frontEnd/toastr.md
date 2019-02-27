@@ -13,15 +13,15 @@ sidebarDepth: 3
 Multi layout renderless Toaster Notification
 
 ## Usage
-Unless where specified otherwise, the components can be used outside of the Enso ecosystem.
+The components can be used outside of the Enso ecosystem.
 
 ### bulma/Toastr.vue
 The bulma styled toaster notification component built on top of its renderless version.
 
 Properties:
 - `body`, `string`, optional, default `left`, the alignment of the tabs, valid options are: 'left', 'centered', 'right'
-- `duration`, `number`, optional, default `3500`, the duration of the bounce animation used when showing the notification
-- `html`, `boolean`, optional, default `false`, if true, the contens of the notificaton is treated as html 
+- `duration`, `number`, optional, default `3500`, the duration of the bounce animation, in ms, used when showing the notification
+- `html`, `boolean`, optional, default `false`, if true, the contents of the notification is treated as html 
 - `position`, `string`, optional, default `top-center`, the position, 
 valid options are: 'top-left', 'top-right', 'top-center', 'bottom-left', 'bottom-right', 'bottom-center'
 - `title`, `string`, optional, default `null`, if given, that title is set 
@@ -32,18 +32,18 @@ valid options are: 'message', 'primary', 'info', 'success', 'warning', 'danger'
 The renderless toaster notification component which can be built upon to create custom implementations.
 
 Properties:
-- `duration`, `number`, required, , the duration of the bounce animation used when showing the notification
+- `duration`, `number`, required, the duration of the bounce animation, in ms, used when showing the notification
 - `position`, `string`, required, the position, 
 valid options are: 'top-left', 'top-right', 'top-center', 'bottom-left', 'bottom-right', 'bottom-center'
 
 Methods:
-- `setUp`, performs the setup of the toaster, which includes the creation of the portal
-- `createPortal`, creates the portal 
-- `startHovering`, stops the timer, resets the progress 
-- `stopHovering`, restarts the timer 
-- `show`, shows the toaster and starts the timer
-- `close`, clears timers and hides the toaster
-- `startTimer`, starts the timer using the given duration
+- `setUp()`, performs the setup of the toaster, which includes the creation of the portal
+- `createPortal()`, creates the portal 
+- `startHovering()`, stops the timer, resets the progress 
+- `stopHovering()`, restarts the timer 
+- `show()`, shows the toaster and starts the timer
+- `close()`, clears timers and hides the toaster
+- `startTimer()`, starts the timer using the given duration
 
 ### transitions/Bounce.vue
 A reusable bounce transition.
