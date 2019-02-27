@@ -19,7 +19,7 @@ The component can be used outside of the Enso ecosystem.
 The bulma styled switch component. 
 
 Example:
-```vuejs
+```vue
 <vue-switch class="has-margin-left-medium has-margin-right-medium"
     v-model="filterCore"
     size="is-large"/>

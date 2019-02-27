@@ -19,7 +19,7 @@ The component can be used outside of the Enso ecosystem.
 The bulma styled loading indication component.
 
 Example:
-```vuejs
+```vue
 <loader v-if="loading"/>
 ```
 

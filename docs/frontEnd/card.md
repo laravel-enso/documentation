@@ -15,6 +15,33 @@ Bulma styled Card component
 ## Usage
 All components can be used outside of the Enso ecosystem.
 
+### Installation
+
+Install the package:
+```
+npm i @enso-ui/card
+```
+Import the desired component(s):
+```js
+import { Card, CardHeader, ... } from '@enso-ui/card/bulma';
+```
+
+### Exports
+
+`@enso-ui/card/bulma`:
+- `Card`,
+- `CardHeader`,
+- `CardContent`,
+- `CardImage`,
+- `CardFooter`,
+- `CardFooterItem`,
+- `CardControl`,
+- `CardBadge`,
+- `CardCollapse`,
+- `CardRefresh`,
+- `CardRemove`,
+
+
 ### Card.vue
 This is the main component. It can optionally have:
 - an image
@@ -29,7 +56,7 @@ As noted above, you may skip one or more of these components, as required
 (for example, you may not need controls, a footer, etc).
 
 Example:
-```vuejs
+```vue
 <card>
     <card-header>
         <template v-slot:title>
@@ -168,21 +195,6 @@ Issues not conforming to the guidelines may be closed immediately.
 - `@fortawesome/free-solid-svg-icons`
 - `bulma`
 - `vue`
-
-## Exports
-
-`@enso-ui/card/bulma`:
-- `Card`,
-- `CardHeader`,
-- `CardContent`,
-- `CardImage`,
-- `CardFooter`,
-- `CardFooterItem`,
-- `CardControl`,
-- `CardBadge`,
-- `CardCollapse`,
-- `CardRefresh`,
-- `CardRemove`,
 
 ## Contributions
 

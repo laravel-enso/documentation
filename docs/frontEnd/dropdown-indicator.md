@@ -19,7 +19,7 @@ All components can be used outside of the Enso ecosystem.
 This is the bulma styled component.
 
 Example:
-```vuejs
+```vue
 <dropdown-indicator class="is-small"
     :collapsed="!menu.expanded"
     v-if="menu.has_children"/>

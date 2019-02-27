@@ -25,7 +25,7 @@ It can optionally have:
 
 
 Example:
-```vuejs
+```vue
 <confirmation placement="bottom"
     @confirm="delete(item)">
     <span class="icon is-small has-text-danger">

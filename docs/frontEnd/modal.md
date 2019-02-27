@@ -19,7 +19,7 @@ The component can be used outside of the Enso ecosystem.
 The bulma styled modal component built on top of its renderless version. 
 
 Example:
-```vuejs
+```vue
 <modal :show="!!deletedPerson"
     @close="deletedPerson = null">
     <div class="box">
