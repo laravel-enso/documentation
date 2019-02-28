@@ -15,6 +15,22 @@ Simple loader
 ## Usage
 The component can be used outside of the Enso ecosystem.
 
+### Installation
+
+Install the package:
+```
+npm i @enso-ui/loader
+```
+Import the desired component(s):
+```js
+import Loader from '@enso-ui/loader/bulma';
+```
+
+### Exports
+
+`@enso-ui/loader/bulma`:
+- `Loader`
+
 ### bulma/Loader.vue
 The bulma styled loading indication component.
 
@@ -48,11 +64,6 @@ Issues not conforming to the guidelines may be closed immediately.
 - `@enso-ui/transitions`
 - `bulma`
 - `vue`
-
-## Exports
-
-`@enso-ui/bulma`:
-- `Loader`
 
 ## Contributions
 

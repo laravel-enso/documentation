@@ -15,8 +15,78 @@ Aggregator for enso-ui bulma components
 ## Usage
 This package provides a common source for all the bulma components available in the various NPM packages.
 
-npm install
+### Installation
 
+Install the package:
+```
+npm i @enso-ui/bulma
+```
+Import the desired component(s):
+```js
+import {
+    Tab, EnsoTabs as Tabs, EnsoDateFilter as DateFilter, Uploader, Chart,
+} from '@enso-ui/bulma';
+```
+
+### Exports
+
+`@enso-ui/bulma`:
+- `Card`, 
+- `CardHeader`, 
+- `CardContent`, 
+- `CardImage`, 
+- `CardFooter`, 
+- `CardFooterItem`, 
+- `CardControl`,
+- `CardBadge`, 
+- `CardCollapse`, 
+- `CardRefresh`, 
+- `CardRemove`, 
+- `Chart`, 
+- `ChartCard`, 
+- `EnsoChartCard`,
+- `Confirmation`, 
+- `Datepicker`, 
+- `EnsoDatepicker`, 
+- `Dropdown`, 
+- `DropdownIndicator`, 
+- `Loader`, 
+- `Modal`,
+- `ModalCard`, 
+- `ProgressBar`, 
+- `Tab`, 
+- `Tabs`, 
+- `EnsoTabs`, 
+- `Toastr`, 
+- `ToastrPlugin`, 
+- `Fade`, 
+- `SlideLeft`,
+- `SlideRight`, 
+- `SlideUp,` 
+- `SlideDown`, 
+- `FadeLeft`, 
+- `FadeRight`, 
+- `FadeUp`, 
+- `FadeDown`, 
+- `Zoom`, 
+- `Typeahead`,
+- `EnsoTypeahead`, 
+- `VueSwitch`, 
+- `VueSelect`, 
+- `EnsoSelect`, 
+- `IntervalFilter`, 
+- `DateFilter`,
+- `DateIntervalFilter`, 
+- `EnsoIntervalFilter`, 
+- `EnsoDateFilter`, 
+- `EnsoDateIntervalFilter`,
+- `BooleanFilter`, 
+- `VueFilter`, 
+- `EnsoVueFilter`, 
+- `SelectFilter`, 
+- `EnsoSelectFilter`, 
+- `EnsoUploader`,
+- `Uploader`,
 
 ## Depends on
 
@@ -33,56 +103,6 @@ npm install
 - `@enso-ui/transitions`
 - `@enso-ui/typeahead`
 - `bulma`
-
-## Exports
-
-`@enso-ui/bulma`:
-- `Confirmation`, 
-- `BaseConfirmation`, 
-- `Datepicker`, 
-- `Card`, 
-- `CardHeader`, 
-- `CardContent`, 
-- `CardImage`,
-- `CardFooter`, 
-- `CardFooterItem`, 
-- `CardControl`, 
-- `CardBadge`, 
-- `CardCollapse`, 
-- `CardRefresh`,
-- `CardRemove`, 
-- `Dropdown`, 
-- `DropdownIndicator`, 
-- `Loader`, 
-- `Modal`, 
-- `ModalCard`, 
-- `ProgressBar`,
-- `Tab`, 
-- `Tabs`, 
-- `EnsoTabs`, 
-- `Toastr`, 
-- `ToastrPlugin`, 
-- `Fade`, 
-- `SlideLeft`, 
-- `SlideRight`, 
-- `SlideUp`,
-- `SlideDown`, 
-- `FadeLeft`, 
-- `FadeRight`, 
-- `FadeUp`, 
-- `FadeDown`, 
-- `Zoom`, 
-- `Typeahead`, 
-- `VueSwitch`,
-- `IntervalFilter`, 
-- `DateFilter`, 
-- `DateIntervalFilter`, 
-- `EnsoIntervalFilter`, 
-- `EnsoDateFilter`,
-- `EnsoDateIntervalFilter`, 
-- `BooleanFilter`, 
-- `VueFilter`, 
-- `EnsoVueFilter`,
 
 ## Contributions
 
