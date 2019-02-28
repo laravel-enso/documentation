@@ -16,6 +16,36 @@ Renderless Vue Filter Components with a Bulma implementation
 
 Unless where specified otherwise, the components can be used outside of the Enso ecosystem.
 
+### Installation
+
+Install the package:
+```
+npm i @enso-ui/filters
+```
+Import the desired component(s):
+```js
+import { IntervalFilter, DateFilter, ... } from '@enso-ui/filters/bulma';
+import { IntervalFilter, DateFilter, ... } from '@enso-ui/filters/renderless';
+```
+
+### Exports
+
+`@enso-ui/filters/bulma`:
+- `IntervalFilter`,
+- `DateFilter`,
+- `DateIntervalFilter`,
+- `VueFilter`,
+- `BooleanFilter`,
+- `EnsoIntervalFilter`,
+- `EnsoDateFilter`,
+- `EnsoDateIntervalFilter`,
+- `EnsoVueFilter`,
+
+`@enso-ui/filters/renderless`:
+- `IntervalFilter`,
+- `DateFilter`,
+- `DateIntervalFilter`,
+
 ### bulma/BooleanFilter.vue
 
 The bulma styled boolean filtering component, built on top of the VueFilter component.
@@ -148,6 +178,21 @@ Properties:
 
 The bulma styled filtering component, built on top of the renderless version of the component.
 
+Example:
+```vue
+<vue-filter :options="[{
+            value: true,
+            label: 'check',
+            class: 'has-text-success',
+        }, {
+            value: false,
+            label: 'times',
+            class: 'has-text-danger',
+        }]" v-model="myVariable"/>
+```
+
+Here, the option list is given in-line but in practice, you would hold the list in a variable.
+
 Properties:
 - `compact`, `boolean`, optional, default `false`, shows the component using a more compact state
 - `hideOff`, `boolean`, optional, default `false`, if true hides the 'off' option 
@@ -164,15 +209,23 @@ Properties:
 The renderless version of the DateFilter component, which can be used in custom implementations.
 
 Properties:
-- `default`, `string`, optional, default `today`, the default of the filter
+- `default`, `string`, optional, default `today`, the default of the filter.
+Valid options are: 'today', 'yesterday', 'last week', 'last month', 'all'
 
 ### renderless/DateIntervalFilter.vue
 
 The renderless version of the DateIntervalFilter component, which can be used in custom implementations.
 
+Methods:
+- `update`, emits and 'update' event having as payload the sanitized interval values
+
 ### renderless/IntervalFilter.vue
 
 The renderless version of the DateIntervalFilter component, which can be used in custom implementations.
+
+
+Methods:
+- `update`, emits and 'update' event having as payload the interval values
 
 ## Documentation
 
@@ -200,24 +253,6 @@ Issues not conforming to the guidelines may be closed immediately.
 - `v-tooltip`
 - `vue`
 - `vuex`
-
-## Exports
-
-`@enso-ui/filters/bulma`:
-- `IntervalFilter`,
-- `DateFilter`,
-- `DateIntervalFilter`,
-- `VueFilter`,
-- `BooleanFilter`,
-- `EnsoIntervalFilter`,
-- `EnsoDateFilter`,
-- `EnsoDateIntervalFilter`,
-- `EnsoVueFilter`,
-
-`@enso-ui/filters/renderless`:
-- `IntervalFilter`,
-- `DateFilter`,
-- `DateIntervalFilter`,
 
 ## Contributions
 

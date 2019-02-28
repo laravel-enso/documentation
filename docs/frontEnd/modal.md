@@ -15,6 +15,27 @@ A simple Modal
 ## Usage
 The component can be used outside of the Enso ecosystem.
 
+### Installation
+
+Install the package:
+```
+npm i @enso-ui/modal
+```
+Import the desired component(s):
+```js
+import { Modal } from '@enso-ui/modal/bulma';
+import { Modal } from '@enso-ui/modal/renderless';
+```
+
+## Exports
+
+`@enso-ui/modal/bulma`:
+- `Modal`
+- `ModalCard`
+
+`@enso-ui/modal/renderless`:
+- `Modal`
+
 ### bulma/Modal.vue
 The bulma styled modal component built on top of its renderless version. 
 
@@ -102,15 +123,6 @@ Issues not conforming to the guidelines may be closed immediately.
 - `@enso-ui/transitions`
 - `bulma`
 - `vue`
-
-## Exports
-
-`@enso-ui/modal/bulma`:
-- `Modal`
-- `ModalCard`
-
-`@enso-ui/modal/renderless`:
-- `Modal`
 
 ## Contributions
 

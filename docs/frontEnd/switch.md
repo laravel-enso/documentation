@@ -15,6 +15,22 @@ Vue Switch
 ## Usage
 The component can be used outside of the Enso ecosystem.
 
+### Installation
+
+Install the package:
+```
+npm i @enso-ui/switch
+```
+Import the desired component(s):
+```js
+import Switch from '@enso-ui/switch/bulma';
+```
+
+### Exports
+
+`@enso-ui/switch/bulma`:
+- `VueSwitch`
+
 ### bulma/VueSwitch.vue
 The bulma styled switch component. 
 
@@ -49,11 +65,6 @@ Issues not conforming to the guidelines may be closed immediately.
 
 - `bulma`
 - `vue`
-
-## Exports
-
-`@enso-ui/progress-bar/bulma`:
-- `VueSwitch`
 
 ## Contributions
 
