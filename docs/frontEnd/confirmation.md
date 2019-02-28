@@ -15,6 +15,10 @@ Minimalist confirmation dialog
 ## Usage
 All components can be used outside of the Enso ecosystem.
 
+### Demo
+
+For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+
 ### Installation
 
 Install the package:
@@ -24,7 +28,7 @@ npm i @enso-ui/confirmation
 Import the desired component(s):
 ```js
 import { Confirmation } from '@enso-ui/confirmation/bulma';
-import { BaseConfirmation } from '@enso-ui/confirmation';
+import { Confirmation } from '@enso-ui/confirmation/components';
 ```
 
 ### Exports
@@ -32,8 +36,8 @@ import { BaseConfirmation } from '@enso-ui/confirmation';
 `@enso-ui/cofirmation/bulma`:
 - `Confirmation`,
 
-`@enso-ui/cofirmation`:
-- `BaseConfirmation`,
+`@enso-ui/cofirmation/components`:
+- `Confirmation`,
 
 ### Confirmation.vue
 This is the main bulma styled component. It has a default slot where
@@ -82,10 +86,6 @@ Methods:
 - `hide()`, closes the dialog
 - `cancel()`, closes the dialog & emits a `cancel` event
 - `confirm()`, closes the dialog & emits a `confirm` event
-
-## Documentation
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
 ## Questions & Issues
 

@@ -15,12 +15,37 @@ Vue Typeahead
 ## Usage
 The components can be used outside of the Enso ecosystem.
 
+### Demo
+
+For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+
+### Installation
+
+Install the package:
+```
+npm i @enso-ui/typeahead
+```
+Import the desired component(s):
+```js
+import { Typeahead, EnsoTypeahead } from '@enso-ui/typeahead/bulma';
+```
+
+### Exports
+
+`@enso-ui/typeahead/bulma`:
+- `Typeahead`,
+- `EnsoTypeahead`,
+
+`@enso-ui/typeahead/renderless`:
+- `Typeahead`,
+
+
 ### bulma/Typeahead.vue
 A bulma styled typeahead component built on top of its renderless counterpart.
 
 Example:
 ```vue
-<typeahead is-rounded    
+<typeahead is-rounded source="get/my/resource"   
     @update="reset"
     ref="typeahead">
     <template v-slot:controls="{ items }">
@@ -45,6 +70,17 @@ Properties:
 - `searching`, `string`, optional, default `Searching...`, text show while searching is in progress
 - `value`, `string`, optional, default ``, the value of the typeahead
 
+'Inherited' properties:
+- `debounce`, `number`, optional, default `250`, 
+- `errorHandler`, `boolean`, optional, by default the error is thrown, function used to handle errors
+- `label`, `string`, optional, default `label`, the attribute from the typeahead results that is used as label 
+- `paginate`, `number`, optional, default `100`, the pagination size 
+- `params`, `Object`, optional, default `null`, extra parameters that can be sent with the request
+- `query`, `string`, optional, default ``, the string used for the backend query/search
+- `regExp`, `RegExp`, optional, default `/(.*?)/`, expression used to validate the input contents
+- `source`, `string`, required, the URL used for the query/search to the back end
+
+
 ### renderless/Typeahead.vue
 The renderless typeahead component that can be built upon to create custom components.
 
@@ -61,10 +97,6 @@ Properties:
 Methods:
 - `fetch()`, retrieves results from the back end
 - `update(query = '')`, emits an `input` event with the given query attribute as payload
-
-## Documentation
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
 ## Questions & Issues
 
@@ -83,20 +115,6 @@ Issues not conforming to the guidelines may be closed immediately.
 - `@fortawesome/vue-fontawesome`
 - `vue`
 - `lodash`
-
-## Exports
-
-`@enso-ui/transitions`:
-- `Fade`,
-- `SlideLeft`,
-- `SlideRight`,
-- `SlideUp`,
-- `SlideDown`,
-- `FadeLeft`,
-- `FadeRight`,
-- `FadeUp`,
-- `FadeDown`,
-- `Zoom`,
 
 ## Contributions
 

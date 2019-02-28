@@ -15,6 +15,10 @@ A simple Modal
 ## Usage
 The component can be used outside of the Enso ecosystem.
 
+### Demo
+
+For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+
 ### Installation
 
 Install the package:
@@ -103,10 +107,6 @@ Methods:
 - `createPortal`, creates the portal 
 - `display`, shows the modal and sets the necessary listeners 
 - `close`, emits a `close` event
-
-## Documentation
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
 ## Questions & Issues
 

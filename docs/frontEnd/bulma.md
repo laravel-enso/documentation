@@ -15,6 +15,10 @@ Aggregator for enso-ui bulma components
 ## Usage
 This package provides a common source for all the bulma components available in the various NPM packages.
 
+### Demo
+
+For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+
 ### Installation
 
 Install the package:

@@ -15,8 +15,40 @@ Multi layout renderless Toaster Notification
 ## Usage
 The components can be used outside of the Enso ecosystem.
 
+### Demo
+
+For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+
+### Installation
+
+Install the package:
+```
+npm i @enso-ui/toastr
+```
+Import the desired component(s):
+```js
+import Toastr from '@enso-ui/toastr/bulma';
+import Toastr from '@enso-ui/toastr/renderless';
+```
+
+## Exports
+
+`@enso-ui/toastr/bulma`:
+- `Toastr`
+
+`@enso-ui/tabs/renderless`:
+- `Toastr`
+
+`@enso-ui/transitions/renderless`:
+- `Bounce`
+
 ### bulma/Toastr.vue
 The bulma styled toaster notification component built on top of its renderless version.
+
+Example:
+```vue
+<toastr title="my title" body="Message text"/>
+```
 
 Properties:
 - `body`, `string`, optional, default `left`, the alignment of the tabs, valid options are: 'left', 'centered', 'right'
@@ -57,10 +89,6 @@ Depending on the given position, the transition's enter & leave classes are auto
 Slots:
 - `default`, slot for the actual contents
 
-## Documentation
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
-
 ## Questions & Issues
 
 For questions and support please use the issues functionality
@@ -82,16 +110,6 @@ Issues not conforming to the guidelines may be closed immediately.
 - `bulma`
 - `vue`
 
-## Exports
-
-`@enso-ui/toastr/bulma`:
-- `Toastr`
-
-`@enso-ui/tabs/renderless`:
-- `Toastr`
-
-`@enso-ui/transitions/renderless`:
-- `Bounce`
 
 ## Contributions
 
