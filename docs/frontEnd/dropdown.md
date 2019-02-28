@@ -74,10 +74,6 @@ Methods:
 - `hide()`, hides the dropdown item list
 - `attemptHide()`, calls hide above, unless in manual mode. 
 
-## Documentation
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
-
 ## Questions & Issues
 
 For questions and support please use the issues functionality

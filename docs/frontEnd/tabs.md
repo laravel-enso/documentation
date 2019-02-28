@@ -15,19 +15,55 @@ Simply Tabs
 ## Usage
 The component can be used outside of the Enso ecosystem.
 
+### Demo
+
+For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+
+### Installation
+
+Install the package:
+```
+npm i @enso-ui/tabs
+```
+Import the desired component(s):
+```js
+import { Tabs, Tab } from '@enso-ui/tabs/bulma';
+```
+
+### Exports
+
+`@enso-ui/tabs/bulma`:
+- `Tab`
+- `Alive`
+- `Static`
+- `Tabs`
+- `EnsoTabs`
+
+`@enso-ui/tabs/renderless`:
+- `Tabs`
+
 ### bulma/Tabs.vue
 The bulma styled tabs component built on top of its renderless version.
 
-Example:
+Example 1:
+```vue
+<tabs>
+    <tab id="Foo Tab">
+        Foo Contents
+    </tab>
+    <tab id="Bar Tab">
+        Bar Contents
+    </tab>
+</tabs>
+```
+
+Example 2:
 ```vue
 <tabs>
     <template v-slot:label="{ tab }">
         <span>
             {{ tab }}
-        </span>
-        <span class="tag is-dark file-counter has-margin-left-medium">
-            {{ content(tab).length }}
-        </span>
+        </span>        
     </template>
     <div class="columns is-reverse-mobile">
         <div class="column is-two-thirds">
@@ -56,6 +92,7 @@ Slots:
 - `default`, slot for the actual tabs/contents
 
 ### bulma/EnsoTabs.vue
+
 This bulma styled tabs component built on top of its renderless version is 
 designed to be used within the **Enso ecosystem**, requiring less configuration from the dev. 
 
@@ -67,6 +104,7 @@ Slots:
 - `default`, slot for the actual tabs/contents
 
 ### renderless/EnsoTabs.vue
+
 The renderless version tabs component. It can be built upon to implement custom component designs.
 
 Methods:
@@ -77,6 +115,7 @@ Methods:
 - `tabIndex(tab)`, returns the index of a tab
 
 ### tabs/Tab.vue
+
 A type of tab to be used within the Tabs component.
 
 Props:
@@ -92,6 +131,7 @@ Methods:
 - `remove()`, emits a `remove` event, the event payload is `this`
 
 ### tabs/Alive.vue
+
 An alive type of tab used within the Tab component.
 
 Props:
@@ -102,6 +142,7 @@ For example if the content of the tab is a complex, resources intensive componen
 the component is not destroyed & recreated when the user switches back & forth to this tab.  
 
 ### tabs/Static.vue
+
 A static type of tab used within the Tab component.
 
 Props:
@@ -114,10 +155,6 @@ generate multiple requests, consume extra resources.
 
 One advantage of using a Static tab is that, the data within the tab will be as recent as the last time the tab was 
 activated by the user, since that is when it got recreated.
-
-## Documentation
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
 ## Questions & Issues
 
@@ -134,18 +171,6 @@ Issues not conforming to the guidelines may be closed immediately.
 - `animate.css`
 - `bulma`
 - `vue`
-
-## Exports
-
-`@enso-ui/tabs/bulma`:
-- `Tab`
-- `Alive`
-- `Static`
-- `Tabs`
-- `EnsoTabs`
-
-`@enso-ui/tabs/renderless`:
-- `Tabs`
 
 ## Contributions
 

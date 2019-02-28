@@ -15,6 +15,10 @@ Simple loader
 ## Usage
 The component can be used outside of the Enso ecosystem.
 
+### Demo
+
+For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+
 ### Installation
 
 Install the package:
@@ -43,11 +47,6 @@ Properties:
 - `color`, `string`, optional, default `#f44336`, the color of the loader indicator
 - `size`, `string`, optional, default `medium`, the size of the indicator. Valid options are: 'small', 'medium', 'large'
 - `transparent`, `boolean`, optional, default `false`, if true makes the component overlay transparent
-
-
-## Documentation
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
 ## Questions & Issues
 

@@ -15,6 +15,10 @@ Unopinionated Progress Bar
 ## Usage
 The component can be used outside of the Enso ecosystem.
 
+### Demo
+
+For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+
 ### ProgressBar.vue
 The bulma styled progress bar component. 
 
@@ -34,10 +38,6 @@ Properties:
 - `opacity`, `number`, optional, default `1`, the opacity of the bar (must be between 0 and 1)
 - `progress`, `number`, required, the progress percentage (must be between 0 and 100)
 - `position`, `string`, optional, the position (must be either `absolute` or `absolute`)
-
-## Documentation
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
 ## Questions & Issues
 

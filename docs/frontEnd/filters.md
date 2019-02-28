@@ -16,6 +16,10 @@ Renderless Vue Filter Components with a Bulma implementation
 
 Unless where specified otherwise, the components can be used outside of the Enso ecosystem.
 
+### Demo
+
+For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+
 ### Installation
 
 Install the package:

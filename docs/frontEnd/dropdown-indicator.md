@@ -53,10 +53,6 @@ If set to false, the control is rotated up so as to suggest the dropdown is open
 Methods:
 - `toggle()`, toggles the state of the indicator & emits a `toggle` event
 
-## Documentation
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
-
 ## Questions & Issues
 
 For questions and support please use the issues functionality

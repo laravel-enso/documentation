@@ -15,6 +15,10 @@ Vue Switch
 ## Usage
 The component can be used outside of the Enso ecosystem.
 
+### Demo
+
+For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+
 ### Installation
 
 Install the package:
@@ -46,10 +50,6 @@ Properties:
 
 Events:
 - `input`, emitted when the value is changed, with the value/state as payload
-
-## Documentation
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
 ## Questions & Issues
 

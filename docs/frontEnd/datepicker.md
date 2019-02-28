@@ -99,10 +99,6 @@ Methods:
 - `destroy()`, destroys the Flatpickr instance used under the hood
 - `reset()`, destroys the Flatpickr instance and recreates it
 
-## Documentation
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
-
 ## Questions & Issues
 
 For questions and support please use the issues functionality
