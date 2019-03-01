@@ -60,6 +60,11 @@ This is the main component. It can optionally have:
 As noted above, you may skip one or more of these components, as required 
 (for example, you may not need controls, a footer, etc).
 
+Note that cards may be nested and when nesting them,
+collapsible controls are correctly supported.
+
+Also, you may use transitions for the cards.
+
 Example:
 ```vue
 <card>
@@ -104,6 +109,9 @@ Example:
 Properties:
 - `loading` - `boolean`, optional, default `false`, if true, a loader is shown
 - `collapsed` - `boolean`, optional, default `false`, if true, the card is shown collapsed
+- `transition` - `boolean`, optional, default `false`, if true, the destruction of the card is handled
+differently, so that transitions work correctly even when closing a card.
+
 
 Slots:
 - `default`, all content goes here

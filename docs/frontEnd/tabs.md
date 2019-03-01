@@ -13,7 +13,8 @@ sidebarDepth: 3
 Simply Tabs
 
 ## Usage
-The component can be used outside of the Enso ecosystem.
+
+Unless where specified otherwise, the components can be used outside of the Enso ecosystem.
 
 ### Demo
 
