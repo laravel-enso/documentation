@@ -98,6 +98,7 @@ module.exports = {
                     'loader',
                     'modal',
                     'progress-bar',
+                    `select`,
                     'switch',
                     'tabs',
                     'themes',
