@@ -100,6 +100,7 @@ module.exports = {
                     'progress-bar',
                     'switch',
                     'tabs',
+                    'themes',
                     'toastr',
                     'transitions',
                     'typeahead',

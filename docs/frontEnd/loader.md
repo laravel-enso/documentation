@@ -44,9 +44,9 @@ Example:
 ```
 
 Properties:
-- `color`, `string`, optional, default `#f44336`, the color of the loader indicator
-- `size`, `string`, optional, default `medium`, the size of the indicator. Valid options are: 'small', 'medium', 'large'
-- `transparent`, `boolean`, optional, default `false`, if true makes the component overlay transparent
+- `color` - `string`, optional, default `#f44336`, the color of the loader indicator
+- `size` - `string`, optional, default `medium`, the size of the indicator. Valid options are: 'small', 'medium', 'large'
+- `transparent` - `boolean`, optional, default `false`, if true makes the component overlay transparent
 
 ## Questions & Issues
 

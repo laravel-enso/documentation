@@ -54,15 +54,15 @@ import { IntervalFilter, DateFilter, ... } from '@enso-ui/filters/renderless';
 
 The bulma styled boolean filtering component, built on top of the VueFilter component.
 
-'Inherited' Properties:
-- `compact`, `boolean`, optional, default `false`, shows the component using a more compact state
-- `hideOff`, `boolean`, optional, default `false`, if true hides the 'off' option 
+'Passed-through' Properties:
+- `compact` - `boolean`, optional, default `false`, shows the component using a more compact state
+- `hideOff` - `boolean`, optional, default `false`, if true hides the 'off' option 
 - `i18n`, `Function`, optional, default `v => v`, the function that performs translations
-- `icons`, `Boolean`, optional, default `false`, if true, also shows icons for each option 
-- `offLabel`, `string`, optional, default ``, the label used for the 'off' option
+- `icons` - `boolean`, optional, default `false`, if true, also shows icons for each option 
+- `offLabel` - `string`, optional, default ``, the label used for the 'off' option
 - `options`, `array`, optional, default `[]`, the list of options
-- `readonly`, `boolean`, optional, default `false`, if true hides marks the filter as read-only
-- `title`, `string`, optional, default `null`, the title for the filter
+- `readonly` - `boolean`, optional, default `false`, if true hides marks the filter as read-only
+- `title` - `string`, optional, default `null`, the title for the filter
 - `value`, `null`, optional, default `null`, the value of the filter
 
 ### bulma/DateFilter.vue
@@ -76,12 +76,12 @@ Example:
 ```
 
 Properties:
-- `compact`, `boolean`, optional, default `false`, shows the component using a more compact state
-- `format`, `string`, optional, default `d-m-Y`, the format of the date
+- `compact` - `boolean`, optional, default `false`, shows the component using a more compact state
+- `format` - `string`, optional, default `d-m-Y`, the format of the date
 - `i18n`, `Function`, optional, default `v => v`, the function that performs translations
-- `locale`, `string`, optional, default `en`, the locale used for the picker
+- `locale` - `string`, optional, default `en`, the locale used for the picker
 
-'Inherited' properties:
+'Passed-through' properties:
 - `default`, 'string', optional, default `today`, 
 valid options are: 'today', 'yesterday', 'last week', 'last month', 'all'
 
@@ -96,13 +96,13 @@ Example:
 ```
 
 Properties:
-- `compact`, `boolean`, optional, default `false`, shows the component using a more compact state
-- `format`, `string`, optional, default `d-m-Y`, the format of the date
+- `compact` - `boolean`, optional, default `false`, shows the component using a more compact state
+- `format` - `string`, optional, default `d-m-Y`, the format of the date
 - `i18n`, `Function`, optional, default `v => v`, the function that performs translations
-- `locale`, `string`, optional, default `en`, the locale used for the picker
-- `maxLabel`, `string`, optional, default `To`, the label for the interval end
-- `minLabel`, `string`, optional, default `From`, the label used for interval start
-- `title`, `string`, optional, default `null`, the title for the filter
+- `locale` - `string`, optional, default `en`, the locale used for the picker
+- `maxLabel` - `string`, optional, default `To`, the label for the interval end
+- `minLabel` - `string`, optional, default `From`, the label used for interval start
+- `title` - `string`, optional, default `null`, the title for the filter
 
 ### bulma/EnsoDateFilter.vue
 
@@ -116,12 +116,12 @@ Example:
 ```
 
 Properties:
-- `format`, `string`, optional, default `d-m-Y`, the format of the date
+- `format` - `string`, optional, default `d-m-Y`, the format of the date
 
-'Inherited' properties:
-- `compact`, `boolean`, optional, default `false`, shows the component using a more compact state
+'Passed-through' properties:
+- `compact` - `boolean`, optional, default `false`, shows the component using a more compact state
 - `i18n`, `Function`, optional, default `v => v`, the function that performs translations
-- `locale`, `string`, optional, default `en`, the locale used for the picker
+- `locale` - `string`, optional, default `en`, the locale used for the picker
 
 ### bulma/EnsoDateIntervalFilter.vue
 
@@ -135,12 +135,12 @@ Example:
 ```
 
 Properties:
-- `format`, `string`, optional, default `d-m-Y`, the format of the date
+- `format` - `string`, optional, default `d-m-Y`, the format of the date
 
-'Inherited' properties:
-- `compact`, `boolean`, optional, default `false`, shows the component using a more compact state
+'Passed-through' properties:
+- `compact` - `boolean`, optional, default `false`, shows the component using a more compact state
 - `i18n`, `Function`, optional, default `v => v`, the function that performs translations
-- `locale`, `string`, optional, default `en`, the locale used for the picker
+- `locale` - `string`, optional, default `en`, the locale used for the picker
 
 ### bulma/EnsoIntervalFilter.vue
 
@@ -153,13 +153,13 @@ Example:
     @update="filters.interval = $event"/>
 ```
 
-'Inherited' Properties:
-- `compact`, `boolean`, optional, default `false`, shows the component using a more compact state
+'Passed-through' Properties:
+- `compact` - `boolean`, optional, default `false`, shows the component using a more compact state
 - `i18n`, `Function`, optional, default `v => v`, the function that performs translations
-- `maxLabel`, `string`, optional, default `Max`, the label for the interval end
-- `minLabel`, `string`, optional, default `Min`, the label used for interval start
-- `title`, `string`, optional, default `null`, the title for the filter
-- `type`, `string`, optional, default `number`, the of the inputs used within the filter
+- `maxLabel` - `string`, optional, default `Max`, the label for the interval end
+- `minLabel` - `string`, optional, default `Min`, the label used for interval start
+- `title` - `string`, optional, default `null`, the title for the filter
+- `type` - `string`, optional, default `number`, the of the inputs used within the filter
 
 ### bulma/EnsoVueFilter.vue
 
@@ -171,12 +171,12 @@ designed to be used within the **Enso ecosystem**, requiring less configuration 
 The bulma styled interval filtering component, built on top of the renderless version of the component.
 
 Properties:
-- `compact`, `boolean`, optional, default `false`, shows the component using a more compact state
+- `compact` - `boolean`, optional, default `false`, shows the component using a more compact state
 - `i18n`, `Function`, optional, default `v => v`, the function that performs translations
-- `maxLabel`, `string`, optional, default `Max`, the label for the interval end
-- `minLabel`, `string`, optional, default `Min`, the label used for interval start
-- `title`, `string`, optional, default `null`, the title for the filter
-- `type`, `string`, optional, default `number`, the of the inputs used within the filter
+- `maxLabel` - `string`, optional, default `Max`, the label for the interval end
+- `minLabel` - `string`, optional, default `Min`, the label used for interval start
+- `title` - `string`, optional, default `null`, the title for the filter
+- `type` - `string`, optional, default `number`, the of the inputs used within the filter
 
 ### bulma/VueFilter.vue
 
@@ -198,14 +198,14 @@ Example:
 Here, the option list is given in-line but in practice, you would hold the list in a variable.
 
 Properties:
-- `compact`, `boolean`, optional, default `false`, shows the component using a more compact state
-- `hideOff`, `boolean`, optional, default `false`, if true hides the 'off' option 
+- `compact` - `boolean`, optional, default `false`, shows the component using a more compact state
+- `hideOff` - `boolean`, optional, default `false`, if true hides the 'off' option 
 - `i18n`, `Function`, optional, default `v => v`, the function that performs translations
-- `icons`, `Boolean`, optional, default `false`, if true, also shows icons for each option 
-- `offLabel`, `string`, optional, default ``, the label used for the 'off' option
+- `icons` - `boolean`, optional, default `false`, if true, also shows icons for each option 
+- `offLabel` - `string`, optional, default ``, the label used for the 'off' option
 - `options`, `array`, optional, default `[]`, the list of options
-- `readonly`, `boolean`, optional, default `false`, if true hides marks the filter as read-only
-- `title`, `string`, optional, default `null`, the title for the filter
+- `readonly` - `boolean`, optional, default `false`, if true hides marks the filter as read-only
+- `title` - `string`, optional, default `null`, the title for the filter
 - `value`, `null`, optional, default `null`, the value of the filter
 
 ### renderless/DateFilter.vue
@@ -213,7 +213,7 @@ Properties:
 The renderless version of the DateFilter component, which can be used in custom implementations.
 
 Properties:
-- `default`, `string`, optional, default `today`, the default of the filter.
+- `default` - `string`, optional, default `today`, the default of the filter.
 Valid options are: 'today', 'yesterday', 'last week', 'last month', 'all'
 
 ### renderless/DateIntervalFilter.vue

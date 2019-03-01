@@ -62,37 +62,37 @@ Slots:
 - `option`, slot for the typeahead results rendering
 
 Properties:
-- `disabled`, `boolean`, optional, default `false`, if true the component is disabled
-- `isRounded`, `boolean`, optional, default `false`, if true, the input is rounded
-- `label`, `string`, optional, default `label`, the attribute from the typeahead results that is used as label 
-- `noResults`, `string`, optional, default `Nothing found...`, the text shown when there are no results
-- `placeholder`, `string`, optional, default `What are you searching for today?`
-- `searching`, `string`, optional, default `Searching...`, text show while searching is in progress
-- `value`, `string`, optional, default ``, the value of the typeahead
+- `disabled` - `boolean`, optional, default `false`, if true the component is disabled
+- `isRounded` - `boolean`, optional, default `false`, if true, the input is rounded
+- `label` - `string`, optional, default `label`, the attribute from the typeahead results that is used as label 
+- `noResults` - `string`, optional, default `Nothing found...`, the text shown when there are no results
+- `placeholder` - `string`, optional, default `What are you searching for today?`
+- `searching` - `string`, optional, default `Searching...`, text show while searching is in progress
+- `value` - `string`, optional, default ``, the value of the typeahead
 
-'Inherited' properties:
-- `debounce`, `number`, optional, default `250`, 
-- `errorHandler`, `boolean`, optional, by default the error is thrown, function used to handle errors
-- `label`, `string`, optional, default `label`, the attribute from the typeahead results that is used as label 
-- `paginate`, `number`, optional, default `100`, the pagination size 
-- `params`, `Object`, optional, default `null`, extra parameters that can be sent with the request
-- `query`, `string`, optional, default ``, the string used for the backend query/search
+'Passed-through' properties:
+- `debounce` - `number`, optional, default `250`, 
+- `errorHandler` - `boolean`, optional, by default the error is thrown, function used to handle errors
+- `label` - `string`, optional, default `label`, the attribute from the typeahead results that is used as label 
+- `paginate` - `number`, optional, default `100`, the pagination size 
+- `params` - `Object`, optional, default `null`, extra parameters that can be sent with the request
+- `query` - `string`, optional, default ``, the string used for the backend query/search
 - `regExp`, `RegExp`, optional, default `/(.*?)/`, expression used to validate the input contents
-- `source`, `string`, required, the URL used for the query/search to the back end
+- `source` - `string`, required, the URL used for the query/search to the back end
 
 
 ### renderless/Typeahead.vue
 The renderless typeahead component that can be built upon to create custom components.
 
 Properties:
-- `debounce`, `number`, optional, default `250`, 
-- `errorHandler`, `boolean`, optional, by default the error is thrown, function used to handle errors
-- `label`, `string`, optional, default `label`, the attribute from the typeahead results that is used as label 
-- `paginate`, `number`, optional, default `100`, the pagination size 
-- `params`, `Object`, optional, default `null`, extra parameters that can be sent with the request
-- `query`, `string`, optional, default ``, the string used for the backend query/search
+- `debounce` - `number`, optional, default `250`, 
+- `errorHandler` - `boolean`, optional, by default the error is thrown, function used to handle errors
+- `label` - `string`, optional, default `label`, the attribute from the typeahead results that is used as label 
+- `paginate` - `number`, optional, default `100`, the pagination size 
+- `params` - `Object`, optional, default `null`, extra parameters that can be sent with the request
+- `query` - `string`, optional, default ``, the string used for the backend query/search
 - `regExp`, `RegExp`, optional, default `/(.*?)/`, expression used to validate the input contents
-- `source`, `string`, required, the URL used for the query/search to the back end
+- `source` - `string`, required, the URL used for the query/search to the back end
 
 Methods:
 - `fetch()`, retrieves results from the back end

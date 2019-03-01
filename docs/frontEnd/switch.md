@@ -45,7 +45,7 @@ Example:
 ```
 
 Properties:
-- `disabled`, `boolean`, optional, default `false`, if true, the control is disabled
+- `disabled` - `boolean`, optional, default `false`, if true, the control is disabled
 - `value`, `boolean|number`, required, the value of the component
 
 Events:

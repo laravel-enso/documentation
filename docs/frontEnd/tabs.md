@@ -80,12 +80,12 @@ Example 2:
 ```
 
 Properties:
-- `alignment`, `string`, optional, default `left`, the alignment of the tabs, valid options are: 'left', 'centered', 'right'
-- `boxed`, `boolean`, optional, default `false`, if true, applies the 'is-boxed' class for the tab list
-- `fullwidth`, `boolean`, optional, default `false`, if true, applies the 'is-fullwidth' class
-- `size`, `string`, optional, default `normal`, the size of the tabs, valid options are: 'normal', 'small', 'medium', 'large'
-- `toggle`, `boolean`, optional, default `false`, if true, applies the 'is-toggle' class
-- `toggleRounded`, `boolean`, optional, default `false`, if true, applies the 'is-toggle-rounded' class
+- `alignment` - `string`, optional, default `left`, the alignment of the tabs, valid options are: 'left', 'centered', 'right'
+- `boxed` - `boolean`, optional, default `false`, if true, applies the 'is-boxed' class for the tab list
+- `fullwidth` - `boolean`, optional, default `false`, if true, applies the 'is-fullwidth' class
+- `size` - `string`, optional, default `normal`, the size of the tabs, valid options are: 'normal', 'small', 'medium', 'large'
+- `toggle` - `boolean`, optional, default `false`, if true, applies the 'is-toggle' class
+- `toggleRounded` - `boolean`, optional, default `false`, if true, applies the 'is-toggle-rounded' class
 
 Slots:
 - `label`, slot for the tab labels
@@ -97,7 +97,7 @@ This bulma styled tabs component built on top of its renderless version is
 designed to be used within the **Enso ecosystem**, requiring less configuration from the dev. 
 
 Properties:
-- `size`, `string`, optional, default `normal`, the size of the tabs, valid options are: 'normal', 'small', 'medium', 'large'
+- `size` - `string`, optional, default `normal`, the size of the tabs, valid options are: 'normal', 'small', 'medium', 'large'
 
 Slots:
 - `label`, slot for the tab labels
@@ -119,9 +119,9 @@ Methods:
 A type of tab to be used within the Tabs component.
 
 Props:
-- `id`, `string|Object`, required, the id of the tab
-- `default`, `boolean`, optional, default `false`, if true, the tab is activated after creation
-- `keepAlive`, `boolean`, optional, default `false`, if true, the type of the tab is `Alive` otherwise `Static` is used
+- `id` - `string|Object`, required, the id of the tab
+- `default` - `boolean`, optional, default `false`, if true, the tab is activated after creation
+- `keepAlive` - `boolean`, optional, default `false`, if true, the type of the tab is `Alive` otherwise `Static` is used
 
 Methods:
 - `register()`, emits a `register` event, the event payload is `this`
@@ -135,7 +135,7 @@ Methods:
 An alive type of tab used within the Tab component.
 
 Props:
-- `active`, `boolean`, optional, default `false`, if true, the tab is visible.
+- `active` - `boolean`, optional, default `false`, if true, the tab is visible.
 
 In case of the Alive tab (as opposed to the Static tab), the tab is hidden when not visible, but not destroyed. 
 For example if the content of the tab is a complex, resources intensive component, 
@@ -146,7 +146,7 @@ the component is not destroyed & recreated when the user switches back & forth t
 A static type of tab used within the Tab component.
 
 Props:
-- `active`, `boolean`, optional, default `false`, if true, the tab is visible
+- `active` - `boolean`, optional, default `false`, if true, the tab is visible
 
 In case of the Static tab (as opposed to the Alive tab), the tab is hidden when not visible, and also destroyed. 
 For example if the content of the tab is a complex, resources intensive component, 

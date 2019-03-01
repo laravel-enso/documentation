@@ -75,8 +75,8 @@ Example:
 ```
 
 Properties:
-- `show`, `boolean`, optional, default `true`, if true, the modal is visible
-- `portal`, `string`, optional, default `modals`, the query selector for the portal of the modal. 
+- `show` - `boolean`, optional, default `true`, if true, the modal is visible
+- `portal` - `string`, optional, default `modals`, the query selector for the portal of the modal. 
 
 The portal is considered the DOM container where the modal should be inserted/rendered.
 
@@ -87,8 +87,8 @@ Slots:
 This modal component renders its contents within a card and is built upon the renderless modal component.
 
 Properties:
-- `show`, `boolean`, optional, default `true`, if true, the modal is visible
-- `portal`, `string`, optional, default `modals`, the query selector for the portal of the modal. 
+- `show` - `boolean`, optional, default `true`, if true, the modal is visible
+- `portal` - `string`, optional, default `modals`, the query selector for the portal of the modal. 
 
 Slots:
 - `header`, the card header contents go here
@@ -99,8 +99,8 @@ Slots:
 This modal component renders its contents within a card and is built upon the renderless modal component.
 
 Properties:
-- `show`, `boolean`, optional, default `true`, if true, the modal is visible
-- `portal`, `string`, optional, default `modals`, the query selector for the portal of the modal. 
+- `show` - `boolean`, optional, default `true`, if true, the modal is visible
+- `portal` - `string`, optional, default `modals`, the query selector for the portal of the modal. 
 
 Methods:
 - `setUp`, performs the setup of the modal, which includes the creation of the portal

@@ -62,9 +62,9 @@ Example:
 ```
 
 Properties:
-- `height`, `number`, optional, default `16`, the em max height of the dropdown list
-- `manual`, `boolean`, optional, default `false`. If set to true, hiding the component should be done manually
-- `width`, `number`, optional, default `4.5`, the em minimum width of the dropdown list 
+- `height` - `number`, optional, default `16`, the em max height of the dropdown list
+- `manual` - `boolean`, optional, default `false`. If set to true, hiding the component should be done manually
+- `width` - `number`, optional, default `4.5`, the em minimum width of the dropdown list 
 
 Slots:
 - `label`, for placing a label for the button that opens the dropdown
