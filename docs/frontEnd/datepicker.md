@@ -54,24 +54,24 @@ Example:
 ```
 
 Properties:
-- `placeholder`, `string`, optional, default 'Select Date',
-- `disabled`, `boolean`, optional, default `false`. If set to true, the component is disabled 
-- `isDanger`, `boolean`, optional, default `false`. If set to true, the component is styled so as to suggest a warning state 
-- `isWarning`, `boolean`, optional, default `false`. If set to true, the component is styled so as to suggest a danger/error state
+- `placeholder` - `string`, optional, default 'Select Date',
+- `disabled` - `boolean`, optional, default `false`. If set to true, the component is disabled 
+- `isDanger` - `boolean`, optional, default `false`. If set to true, the component is styled so as to suggest a warning state 
+- `isWarning` - `boolean`, optional, default `false`. If set to true, the component is styled so as to suggest a danger/error state
 
-'Inherited' properties:
-- `format`, `string`, optional, default 'd-m-Y', the date format
-- `locale`, `string`, optional, default `en`. If set to true, the component is disabled 
-- `max`, `string`, optional, default `null`. If given, 
+'Passed-through' properties:
+- `format` - `string`, optional, default 'd-m-Y', the date format
+- `locale` - `string`, optional, default `en`. If set to true, the component is disabled 
+- `max` - `string`, optional, default `null`. If given, 
 that will be the max date that can be chosen 
-- `min`, `string`, optional, default `null`. If given, 
+- `min` - `string`, optional, default `null`. If given, 
 that will be the minimum date that can be chosen  
-- `time`, `boolean`, optional, default `false`. If set to true, 
+- `time` - `boolean`, optional, default `false`. If set to true, 
 the component allows choosing the time
-- `timeOnly`, `boolean`, optional, default `false`. If set to true, 
+- `timeOnly` - `boolean`, optional, default `false`. If set to true, 
 the component allows choosing ONLY the time (no date)
 - `value`, `null|string|Date|Array`, required. This is the value the datepicker starts with
-- `weekNumbers`, `boolean`, optional, default `false`. If set to true, 
+- `weekNumbers` - `boolean`, optional, default `false`. If set to true, 
 the component also shows week numbers
 
 ### renderless/Datepicker.vue
@@ -79,18 +79,18 @@ The component is a renderless date picker component that is meant to be built up
 a specific implementation, for example with a different styling.
 
 Properties:
-- `format`, `string`, optional, default 'd-m-Y', the date format
-- `locale`, `string`, optional, default `en`. If set to true, the component is disabled 
-- `max`, `string`, optional, default `null`. If given, 
+- `format` - `string`, optional, default 'd-m-Y', the date format
+- `locale` - `string`, optional, default `en`. If set to true, the component is disabled 
+- `max` - `string`, optional, default `null`. If given, 
 that will be the max date that can be chosen 
-- `min`, `string`, optional, default `null`. If given, 
+- `min` - `string`, optional, default `null`. If given, 
 that will be the minimum date that can be chosen  
-- `time`, `boolean`, optional, default `false`. If set to true, 
+- `time` - `boolean`, optional, default `false`. If set to true, 
 the component allows choosing the time
-- `timeOnly`, `boolean`, optional, default `false`. If set to true, 
+- `timeOnly` - `boolean`, optional, default `false`. If set to true, 
 the component allows choosing ONLY the time (no date)
 - `value`, `null|string|Date|Array`, required. This is the value the datepicker starts with
-- `weekNumbers`, `boolean`, optional, default `false`. If set to true, 
+- `weekNumbers` - `boolean`, optional, default `false`. If set to true, 
 the component also shows week numbers
 
 Methods:
