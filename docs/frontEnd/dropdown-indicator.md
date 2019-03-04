@@ -46,7 +46,7 @@ Example:
 ```
 
 Properties:
-- `collapsed` - `boolean`, optional, default `true`. 
+- `open` - `boolean`, optional, default `false`. 
 If set to false, the control is rotated up so as to suggest the dropdown is open 
 
 

@@ -101,15 +101,14 @@ Issues not conforming to the guidelines may be closed immediately.
 
 ## Depends on
 
+- `@enso-ui/progress-bar`
 - `@fortawesome/fontawesome-free`
 - `@fortawesome/fontawesome-svg-core`
 - `@fortawesome/free-solid-svg-icons`
 - `@fortawesome/vue-fontawesome`
-- `@enso-ui/progress-bar`
 - `animate.css`
 - `bulma`
 - `vue`
-
 
 ## Contributions
 

@@ -19,6 +19,22 @@ The component can be used outside of the Enso ecosystem.
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
+### Installation
+
+Install the package:
+```
+npm i @enso-ui/progress-bar
+```
+Import the desired component(s):
+```js
+import ProgressBar from '@enso-ui/progress-bar';
+```
+
+### Exports
+
+`@enso-ui/progress-bar`:
+- `ProgressBar`
+
 ### ProgressBar.vue
 The bulma styled progress bar component. 
 
@@ -52,11 +68,6 @@ Issues not conforming to the guidelines may be closed immediately.
 ## Depends on
 
 - `vue`
-
-## Exports
-
-`@enso-ui/progress-bar`:
-- `ProgressBar`
 
 ## Contributions
 

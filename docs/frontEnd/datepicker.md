@@ -34,9 +34,27 @@ import { Datepicker } from '@enso-ui/datepicker/bulma';
 
 `@enso-ui/datepicker/bulma`:
 - `Datepicker`,
+- `EnsoDatepicker`,
 
 `@enso-ui/datepicker/renderless`:
 - `Datepicker`,
+
+### bulma/EnsoDatepicker.vue
+This bulma styled component built on top of its base version is 
+designed to be used within the **Enso ecosystem**, requiring less configuration from the dev. 
+
+Example:
+```vue
+<datepicker v-model="interval.min"/>
+```
+
+Properties:
+- `format` - `string`, optional, default `null`, the date format 
+
+'Passed-through' properties:
+- `placeholder` - `string`, optional, default 'Select Date', 
+- `isDanger` - `boolean`, optional, default `false`. If set to true, the component is styled so as to suggest a warning state 
+- `isWarning` - `boolean`, optional, default `false`. If set to true, the component is styled so as to suggest a danger/error state
 
 ### bulma/Datepicker.vue
 This is the main bulma styled component and it is built upon the renderless
@@ -54,18 +72,19 @@ Example:
 ```
 
 Properties:
-- `placeholder` - `string`, optional, default 'Select Date',
-- `disabled` - `boolean`, optional, default `false`. If set to true, the component is disabled 
+- `placeholder` - `string`, optional, default 'Select Date', 
 - `isDanger` - `boolean`, optional, default `false`. If set to true, the component is styled so as to suggest a warning state 
 - `isWarning` - `boolean`, optional, default `false`. If set to true, the component is styled so as to suggest a danger/error state
 
 'Passed-through' properties:
+- `disabled` - `boolean`, optional, default `false`. If set to true, the component is disabled
 - `format` - `string`, optional, default 'd-m-Y', the date format
 - `locale` - `string`, optional, default `en`. If set to true, the component is disabled 
 - `max` - `string`, optional, default `null`. If given, 
 that will be the max date that can be chosen 
 - `min` - `string`, optional, default `null`. If given, 
-that will be the minimum date that can be chosen  
+that will be the minimum date that can be chosen
+- `readonly` - `boolean`, optional, default `false`. If set to true, the component is readonly
 - `time` - `boolean`, optional, default `false`. If set to true, 
 the component allows choosing the time
 - `timeOnly` - `boolean`, optional, default `false`. If set to true, 
@@ -79,12 +98,14 @@ The component is a renderless date picker component that is meant to be built up
 a specific implementation, for example with a different styling.
 
 Properties:
+- `disabled` - `boolean`, optional, default `false`. If set to true, the component is disabled
 - `format` - `string`, optional, default 'd-m-Y', the date format
 - `locale` - `string`, optional, default `en`. If set to true, the component is disabled 
 - `max` - `string`, optional, default `null`. If given, 
 that will be the max date that can be chosen 
 - `min` - `string`, optional, default `null`. If given, 
-that will be the minimum date that can be chosen  
+that will be the minimum date that can be chosen
+- `readonly` - `boolean`, optional, default `false`. If set to true, the component is readonly
 - `time` - `boolean`, optional, default `false`. If set to true, 
 the component allows choosing the time
 - `timeOnly` - `boolean`, optional, default `false`. If set to true, 
@@ -111,12 +132,14 @@ Issues not conforming to the guidelines may be closed immediately.
 
 ## Depends on
 
-- `bulma`
+- `@fortawesome/fontawesome-free`
 - `@fortawesome/fontawesome-svg-core`
 - `@fortawesome/free-solid-svg-icons`
 - `@fortawesome/vue-fontawesome`
+- `bulma`
+- `flatpickr`
 - `vue`
-- `v-tooltip`
+- `vuex`
 
 ## Contributions
 

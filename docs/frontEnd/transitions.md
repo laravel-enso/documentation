@@ -34,14 +34,14 @@ import { Fade, FadeDown, ... } from '@enso-ui/transitions';
 
 `@enso-ui/transitions`:
 - `Fade`,
-- `SlideLeft`,
-- `SlideRight`,
-- `SlideUp`,
-- `SlideDown`,
 - `FadeLeft`,
 - `FadeRight`,
 - `FadeUp`,
 - `FadeDown`,
+- `SlideLeft`,
+- `SlideRight`,
+- `SlideUp`,
+- `SlideDown`,
 - `Zoom`,
 
 

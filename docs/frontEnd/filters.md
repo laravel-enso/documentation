@@ -35,15 +35,17 @@ import { IntervalFilter, DateFilter, ... } from '@enso-ui/filters/renderless';
 ### Exports
 
 `@enso-ui/filters/bulma`:
-- `IntervalFilter`,
-- `DateFilter`,
-- `DateIntervalFilter`,
-- `VueFilter`,
-- `BooleanFilter`,
-- `EnsoIntervalFilter`,
+- `IntervalFilter`, 
+- `EnsoIntervalFilter`, 
+- `DateFilter`, 
 - `EnsoDateFilter`,
-- `EnsoDateIntervalFilter`,
-- `EnsoVueFilter`,
+- `DateIntervalFilter`, 
+- `EnsoDateIntervalFilter`, 
+- `BooleanFilter`,
+- `VueFilter`, 
+- `EnsoFilter`, 
+- `SelectFilter`, 
+- `EnsoSelectFilter`,
 
 `@enso-ui/filters/renderless`:
 - `IntervalFilter`,
@@ -77,11 +79,12 @@ Example:
 
 Properties:
 - `compact` - `boolean`, optional, default `false`, shows the component using a more compact state
-- `format` - `string`, optional, default `d-m-Y`, the format of the date
 - `i18n`, `Function`, optional, default `v => v`, the function that performs translations
-- `locale` - `string`, optional, default `en`, the locale used for the picker
+
 
 'Passed-through' properties:
+- `locale` - `string`, optional, default `en`, the locale used for the picker
+- `format` - `string`, optional, default `d-m-Y`, the format of the date
 - `default`, 'string', optional, default `today`, 
 valid options are: 'today', 'yesterday', 'last week', 'last month', 'all'
 
@@ -97,12 +100,14 @@ Example:
 
 Properties:
 - `compact` - `boolean`, optional, default `false`, shows the component using a more compact state
-- `format` - `string`, optional, default `d-m-Y`, the format of the date
 - `i18n`, `Function`, optional, default `v => v`, the function that performs translations
 - `locale` - `string`, optional, default `en`, the locale used for the picker
 - `maxLabel` - `string`, optional, default `To`, the label for the interval end
 - `minLabel` - `string`, optional, default `From`, the label used for interval start
 - `title` - `string`, optional, default `null`, the title for the filter
+
+'Passed-through' properties:
+- `format` - `string`, optional, default `d-m-Y`, the format of the date
 
 ### bulma/EnsoDateFilter.vue
 
@@ -159,12 +164,27 @@ Example:
 - `maxLabel` - `string`, optional, default `Max`, the label for the interval end
 - `minLabel` - `string`, optional, default `Min`, the label used for interval start
 - `title` - `string`, optional, default `null`, the title for the filter
-- `type` - `string`, optional, default `number`, the of the inputs used within the filter
 
-### bulma/EnsoVueFilter.vue
+### bulma/EnsoFilter.vue
 
 This bulma styled filtering component, built on top of the renderless version of the component is 
 designed to be used within the **Enso ecosystem**, requiring less configuration from the dev.
+
+Example:
+```vue
+<enso-filter :options="[{value:1, label: 'a'},{value:2 , label: 'b'}]" v-model="myModel"/>
+```
+
+'Passed-through' Properties:
+- `compact` - `boolean`, optional, default `false`, shows the component using a more compact state
+- `hideOff` - `boolean`, optional, default `false`, if true hides the 'off' option 
+- `i18n`, `Function`, optional, default `v => v`, the function that performs translations
+- `icons` - `boolean`, optional, default `false`, if true, also shows icons for each option 
+- `offLabel` - `string`, optional, default ``, the label used for the 'off' option
+- `options`, `array`, optional, default `[]`, the list of options
+- `readonly` - `boolean`, optional, default `false`, if true hides marks the filter as read-only
+- `title` - `string`, optional, default `null`, the title for the filter
+- `value`, `null`, optional, default `null`, the value of the filter
 
 ### bulma/IntervalFilter.vue
 
@@ -176,7 +196,29 @@ Properties:
 - `maxLabel` - `string`, optional, default `Max`, the label for the interval end
 - `minLabel` - `string`, optional, default `Min`, the label used for interval start
 - `title` - `string`, optional, default `null`, the title for the filter
-- `type` - `string`, optional, default `number`, the of the inputs used within the filter
+
+'Passed-through' Properties:
+- `interval` - `Object`, optional, default `{min: null, max: null}`, the min/max values object
+
+### bulma/SelectFilter.vue
+
+The bulma styled interval filtering component, built on top of the renderless version of the component.
+
+Example:
+```vue
+<select-filter title="my title" 
+    :source="route('administration.userGroups.options')"
+    v-model="filters.user_group_id"/>
+```
+
+Properties:
+- `compact` - `boolean`, optional, default `false`, shows the component using a more compact state
+- `i18n`, `Function`, optional, default `v => v`, the function that performs translations
+- `title` - `string`, optional, default `null`, the title for the filter
+
+'Passed-through' Properties:
+- `interval` - `Object`, optional, default `{min: null, max: null}`, the min/max values object
+- `value` - optional, default `null`, the value of the select filter
 
 ### bulma/VueFilter.vue
 
@@ -227,6 +269,9 @@ Methods:
 
 The renderless version of the DateIntervalFilter component, which can be used in custom implementations.
 
+'Passed-through' Properties:
+- `interval` - `Object`, optional, default `{min: null, max: null}`, the min/max values object
+- `type` - optional, default `number`, the type of the interval inputs used
 
 Methods:
 - `update`, emits and 'update' event having as payload the interval values

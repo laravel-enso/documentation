@@ -13,7 +13,7 @@ sidebarDepth: 3
 Vue Typeahead
 
 ## Usage
-The components can be used outside of the Enso ecosystem.
+Unless where specified otherwise, the components can be used outside of the Enso ecosystem.
 
 ### Demo
 
@@ -40,6 +40,18 @@ import { Typeahead, EnsoTypeahead } from '@enso-ui/typeahead/bulma';
 - `Typeahead`,
 
 
+
+### bulma/EnsoTypeahead.vue
+This bulma styled component built on top of its base version is 
+designed to be used within the **Enso ecosystem**, requiring less configuration from the dev. 
+
+'Passed-through' properties:
+- `disabled` - `boolean`, optional, default `false`, if true the component is disabled
+- `isRounded` - `boolean`, optional, default `false`, if true, the input is rounded
+- `noResults` - `string`, optional, default `Nothing found...`, the text shown when there are no results
+- `placeholder` - `string`, optional, default `What are you searching for today?`
+- `searching` - `string`, optional, default `Searching...`, text show while searching is in progress
+
 ### bulma/Typeahead.vue
 A bulma styled typeahead component built on top of its renderless counterpart.
 
@@ -64,11 +76,9 @@ Slots:
 Properties:
 - `disabled` - `boolean`, optional, default `false`, if true the component is disabled
 - `isRounded` - `boolean`, optional, default `false`, if true, the input is rounded
-- `label` - `string`, optional, default `label`, the attribute from the typeahead results that is used as label 
 - `noResults` - `string`, optional, default `Nothing found...`, the text shown when there are no results
 - `placeholder` - `string`, optional, default `What are you searching for today?`
 - `searching` - `string`, optional, default `Searching...`, text show while searching is in progress
-- `value` - `string`, optional, default ``, the value of the typeahead
 
 'Passed-through' properties:
 - `debounce` - `number`, optional, default `250`, 
@@ -79,7 +89,7 @@ Properties:
 - `query` - `string`, optional, default ``, the string used for the backend query/search
 - `regExp`, `RegExp`, optional, default `/(.*?)/`, expression used to validate the input contents
 - `source` - `string`, required, the URL used for the query/search to the back end
-
+- `value` - `string`, optional, default ``, the value of the typeahead
 
 ### renderless/Typeahead.vue
 The renderless typeahead component that can be built upon to create custom components.
@@ -93,10 +103,12 @@ Properties:
 - `query` - `string`, optional, default ``, the string used for the backend query/search
 - `regExp`, `RegExp`, optional, default `/(.*?)/`, expression used to validate the input contents
 - `source` - `string`, required, the URL used for the query/search to the back end
+- `value` - `string|Object`, optional, default `null`, the value of the typeahead
 
 Methods:
 - `fetch()`, retrieves results from the back end
 - `update(query = '')`, emits an `input` event with the given query attribute as payload
+- `clear()`, clears the input an the results
 
 ## Questions & Issues
 

@@ -72,24 +72,13 @@ designed to be used within the **Enso ecosystem**, requiring less configuration 
 
 Example:
 ```vue
-<uploader url="post/on/my/route">
-</uploader>
+<enso-uploader url="post/on/my/route">
+</enso-uploader>
 ```
 
-Slots:
-- `control`, slot for the upload button/controls
-
-Properties:
+'Passed-through' properties:
 - `isLarge` - `boolean`, optional, default `false`, if true, applies the 'is-small' class
 - `isSmall` - `boolean`, optional, default `false`, if true, applies the 'is-large' class
-
-'Passed-through' properties:
-- `fileKey` - `string`, optional, default `file`, the key used for the uploaded file/files
-- `fileSizeLimit` - `number`, optional, default `20000000`, an upper file size limit
-- `i18n` - `string`, optional, default `v => v`, the translation function
-- `multiple` - `boolean`, optional, default `false`, if true allows multi-upload 
-- `params` - `Object`, optional, default `null`, extra parameters that can be sent with the request
-- `url` - `string`, required, the URL used for the query/search to the back end
 
 ### renderless/Uploader.vue
 The renderless typeahead component that can be built upon to create custom components.
@@ -121,8 +110,8 @@ Issues not conforming to the guidelines may be closed immediately.
 - `@fortawesome/fontawesome-svg-core`
 - `@fortawesome/free-solid-svg-icons`
 - `@fortawesome/vue-fontawesome`
+- `bulma`
 - `vue`
-- `lodash`
 
 ## Contributions
 

@@ -39,7 +39,7 @@ import { Confirmation } from '@enso-ui/confirmation/components';
 `@enso-ui/cofirmation/components`:
 - `Confirmation`,
 
-### Confirmation.vue
+### bulma/Confirmation.vue
 This is the main bulma styled component. It has a default slot where
 a clickable element should be placed.
  
@@ -59,16 +59,8 @@ Example:
 
 Slots:
 - `default`, main content goes here
-- `confirm`, an optional custom control for the confirm action can go here
-- `cancel`, an optional custom control for the cancel action can go here
 
-If a confirm/cancel control is provided, the control should call the confirm/cancel method 
-made available on the slot.
-
-Both these methods emit a `confirm` respectively `cancel` event, that should be 
-handled on the parent, as required.
-
-### BaseConfirmation.vue
+### components/Confirmation.vue
 The component is a base component for the confirmation component above
 without any styling.
 
@@ -81,6 +73,12 @@ Slots:
 - `default`, main content goes here
 - `confirm`, a custom control for the confirm action can go here
 - `cancel`, a custom control for the cancel action can go here
+
+If a confirm/cancel control is provided, the control should call the confirm/cancel method 
+made available on the slot.
+
+Both these methods emit a `confirm` respectively `cancel` event, that should be 
+handled on the parent, as required.
 
 Methods:
 - `hide()`, closes the dialog
@@ -103,8 +101,9 @@ Issues not conforming to the guidelines may be closed immediately.
 - `@fortawesome/fontawesome-svg-core`
 - `@fortawesome/free-solid-svg-icons`
 - `@fortawesome/vue-fontawesome`
-- `vue`
+- `bulma`
 - `v-tooltip`
+- `vue`
 
 ## Contributions
 

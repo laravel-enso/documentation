@@ -2,7 +2,7 @@
 sidebarDepth: 3
 ---
 
-# Card
+# Themes
 
 ![NPM License](https://img.shields.io/npm/l/@enso-ui/themes.svg)
 ![npm download](https://img.shields.io/npm/dm/@enso-ui/themes.svg)
@@ -44,21 +44,6 @@ If you need to customize the aspect of one or more of the components, the custom
 `bulma/components` sub-folder. 
 
 Since our themes are built on top of Bulma, its variables are customized in the `dark` and `light` sub-folders. 
-
-### Exports
-
-`@enso-ui/card/bulma`:
-- `Card`,
-- `CardHeader`,
-- `CardContent`,
-- `CardImage`,
-- `CardFooter`,
-- `CardFooterItem`,
-- `CardControl`,
-- `CardBadge`,
-- `CardCollapse`,
-- `CardRefresh`,
-- `CardRemove`,
 
 ## Depends on
 

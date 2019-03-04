@@ -46,6 +46,7 @@ Example:
 
 Properties:
 - `disabled` - `boolean`, optional, default `false`, if true, the control is disabled
+- `readonly` - `boolean`, optional, default `false`, if true, the control is readonly
 - `value`, `boolean|number`, required, the value of the component
 
 Events:
