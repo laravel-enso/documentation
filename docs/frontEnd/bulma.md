@@ -62,17 +62,7 @@ import {
 - `Tabs`, 
 - `EnsoTabs`, 
 - `Toastr`, 
-- `ToastrPlugin`, 
-- `Fade`, 
-- `SlideLeft`,
-- `SlideRight`, 
-- `SlideUp,` 
-- `SlideDown`, 
-- `FadeLeft`, 
-- `FadeRight`, 
-- `FadeUp`, 
-- `FadeDown`, 
-- `Zoom`, 
+- `ToastrPlugin`,  
 - `Typeahead`,
 - `EnsoTypeahead`, 
 - `VueSwitch`, 
@@ -95,6 +85,7 @@ import {
 ## Depends on
 
 - `@enso-ui/card`
+- `@enso-ui/charts`
 - `@enso-ui/confirmation`
 - `@enso-ui/datepicker`
 - `@enso-ui/dropdown`
@@ -103,9 +94,12 @@ import {
 - `@enso-ui/loader`
 - `@enso-ui/modal`
 - `@enso-ui/progress-bar`
+- `@enso-ui/select`
+- `@enso-ui/switch`
+- `@enso-ui/tabs`
 - `@enso-ui/toastr`
-- `@enso-ui/transitions`
 - `@enso-ui/typeahead`
+- `@enso-ui/uploader`
 - `bulma`
 
 ## Contributions

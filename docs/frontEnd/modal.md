@@ -100,7 +100,7 @@ This modal component renders its contents within a card and is built upon the re
 
 Properties:
 - `show` - `boolean`, optional, default `true`, if true, the modal is visible
-- `portal` - `string`, optional, default `modals`, the query selector for the portal of the modal. 
+- `portal` - `string`, required, default `modals`, the query selector for the portal of the modal. 
 
 Methods:
 - `setUp`, performs the setup of the modal, which includes the creation of the portal
@@ -120,6 +120,7 @@ Issues not conforming to the guidelines may be closed immediately.
 
 ## Depends on
 
+- `@enso-ui/directives`
 - `@enso-ui/transitions`
 - `bulma`
 - `vue`
