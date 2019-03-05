@@ -13,6 +13,7 @@ sidebarDepth: 3
 A simple Modal
 
 ## Usage
+
 The component can be used outside of the Enso ecosystem.
 
 ### Demo
