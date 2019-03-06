@@ -35,7 +35,14 @@ import {
 ### Exports
 
 `@enso-ui/accessories/bulma`:
-- `Accessories`, 
+- `Accessories`,
+- `AddressesCard`,
+- `Addresses`,
+- `CommentsCard`,
+- `Comments`,
+- `Discussions`,
+- `DocumentsCard`,
+- `Documents`,
 
 ### bulma/Accessories.vue
 
@@ -77,7 +84,18 @@ Properties:
 - `type` - `string`, required, default `null`, the type of the addressable model
 - `query` - `string`, optional, default '', addresses filtering search query string
 
-### bulma/addresses/Comments.vue
+### bulma/addresses/AddressesCard.vue
+
+A bulma styled address manager component placed inside a card with additional options, such as a counter badge.
+
+Properties:
+- `icon` - `string|array|object`, optional, default 'faMapSigns', the icon for the card
+- `id` - `number`, required, the id of the addressable model
+- `type` - `string`, required, default `null`, the type of the addressable model
+- `collapsed` - `boolean`, optional, default `false`, if true, the card is collapsed
+- `title` - `string`, optional, default 'null', the title for the card
+
+### bulma/comments/Comments.vue
 
 A bulma styled general purpose comment manager component.
 
@@ -92,9 +110,21 @@ Example:
 ```
 
 Properties:
-- `id` - `number`, required, the id of the addressable model
-- `type` - `string`, required, default `null`, the type of the addressable model
-- `query` - `string`, optional, default '', addresses filtering search query string
+- `id` - `number`, required, the id of the commentable model
+- `type` - `string`, required, default `null`, the type of the commentable model
+- `query` - `string`, optional, default '', comments filtering search query string
+
+### bulma/comments/CommentsCard.vue
+
+A bulma styled general purpose comment manager component 
+placed inside a card with additional options, such as a counter badge.
+
+Properties:
+- `id` - `number`, required, the id of the commentable model
+- `type` - `string`, required, default `null`, the type of the commentable model
+- `icon` - `string|array|object`, optional, default `faComments`, the icon for the card
+- `collapsed` - `boolean`, optional, default `false`, if true, the card is collapsed
+- `title` - `string`, optional, default '', the title for the card
 
 ### bulma/addresses/Discussions.vue
 
@@ -129,11 +159,23 @@ Example:
 ```
 
 Properties:
-- `id` - `number`, required, the id of the addressable model
-- `type` - `string`, required, default `null`, the type of the addressable model
+- `id` - `number`, required, the id of the documentable model
+- `type` - `string`, required, default `null`, the type of the documentable model
 - `query` - `string`, optional, default '', documents filtering search query string
 - `compact` - `boolean`, optional, default `false`, if true, a compact display mode is used
 
+
+### bulma/addresses/DocumentsCard.vue
+
+A bulma styled general purpose document manager component
+placed inside a card with additional options, such as a counter badge.
+
+Properties:
+- `id` - `number`, required, the id of the addressable model
+- `type` - `string`, required, default `null`, the type of the addressable model
+- `icon` - `string|array|object`, optional, default `faCopy`, the icon for the card
+- `collapsed` - `boolean`, optional, default `false`, if true, the card is collapsed
+- `title` - `string`, optional, default '', the title for the card
 
 ## Depends on
 
