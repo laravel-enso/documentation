@@ -192,13 +192,14 @@ The bulma styled interval filtering component, built on top of the renderless ve
 
 Properties:
 - `compact` - `boolean`, optional, default `false`, shows the component using a more compact state
-- `i18n`, `Function`, optional, default `v => v`, the function that performs translations
+- `i18n`, `function`, optional, default `v => v`, the function that performs translations
 - `maxLabel` - `string`, optional, default `Max`, the label for the interval end
 - `minLabel` - `string`, optional, default `Min`, the label used for interval start
 - `title` - `string`, optional, default `null`, the title for the filter
 
 'Passed-through' Properties:
-- `interval` - `Object`, optional, default `{min: null, max: null}`, the min/max values object
+- `interval` - `object`, optional, default `{min: null, max: null}`, the min/max values object
+- `type` - `string`, optional, default `string`, the type of the two filter inputs
 
 ### bulma/SelectFilter.vue
 
@@ -217,7 +218,6 @@ Properties:
 - `title` - `string`, optional, default `null`, the title for the filter
 
 'Passed-through' Properties:
-- `interval` - `Object`, optional, default `{min: null, max: null}`, the min/max values object
 - `value` - optional, default `null`, the value of the select filter
 
 ### bulma/VueFilter.vue

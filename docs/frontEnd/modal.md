@@ -77,7 +77,7 @@ Example:
 
 Properties:
 - `show` - `boolean`, optional, default `true`, if true, the modal is visible
-- `portal` - `string`, optional, default `modals`, the query selector for the portal of the modal. 
+- `portal` - `string`, optional, default `modals`, the css class query selector for the portal of the modal. 
 
 The portal is considered the DOM container where the modal should be inserted/rendered.
 

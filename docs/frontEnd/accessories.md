@@ -173,7 +173,6 @@ placed inside a card with additional options, such as a counter badge.
 Properties:
 - `id` - `number`, required, the id of the addressable model
 - `type` - `string`, required, default `null`, the type of the addressable model
-- `icon` - `string|array|object`, optional, default `faCopy`, the icon for the card
 - `collapsed` - `boolean`, optional, default `false`, if true, the card is collapsed
 - `title` - `string`, optional, default '', the title for the card
 
