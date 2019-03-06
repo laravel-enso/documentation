@@ -117,7 +117,6 @@ Takes the following properties:
 Takes the following properties:
 - `alignment`, `left`/`center`/`right`, the alignment of the tabs | default `left` | (optional)
 - `boxed`, boolean, flag that toggles the rendering of the tabs in a box | default `false` | (optional)
-- `custom`, boolean, marks a tab as custom, with specific styling | default `false` | (optional)
 - `fullwidth`, boolean, flag that toggles the `is-fullwidth` Bulma class, where the tabs take up the entire available width | default `false` | (optional)
 - `size`, `small`/`normal`/`medium`/`large`, the size of the element, as styled by Bulma's is-* classes| default `normal` | (optional)
 - `toggle`, boolean, flag that toggles the `is-toggle` Bulma class, for mutually exclusive tabs | default `false` | (optional)
@@ -239,14 +238,6 @@ and it will get passed to the datatables back end logic.
 - `upload-error` - emitted in case of an upload error, contains no payload
 
 For more Back-End information also check out the [FileManager](https://github.com/laravel-enso/FileManager) package and its [documentation](https://docs.laravel-enso.com/packages/file-manager.html#features)
-
-### NProgress
-On init, the component adds itself to the Axios `request` & `response` interceptors, as well as to the `beforeEach` & `afterEach` interceptors of VueRouter so it starts and stops without manual intervention.
-
-The `NProgress.vue` listens to the following, self-descriptive, events:
-- `nprogress-add-request`
-- `nprogress-add-response`
-- `nprogress-done`
 
 
 ## Publishes

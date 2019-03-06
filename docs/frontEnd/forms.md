@@ -73,6 +73,10 @@ Properties:
 - `path` - `string`, optional, default `...`, the URI for the form data/template.
 If no path is given, the component attempts to use the current route to determine the correct URI.
 
+'Passed-through' properties: 
+- the EnsoForm component can also take the VueForm component's properties
+which you may find below.
+
 ### bulma/VueForm.vue
 
 The bulma styled form component built on top of the renderless version of the component.

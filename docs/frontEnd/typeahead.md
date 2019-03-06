@@ -39,8 +39,6 @@ import { Typeahead, EnsoTypeahead } from '@enso-ui/typeahead/bulma';
 `@enso-ui/typeahead/renderless`:
 - `Typeahead`,
 
-
-
 ### bulma/EnsoTypeahead.vue
 This bulma styled component built on top of its base version is 
 designed to be used within the **Enso ecosystem**, requiring less configuration from the dev. 
