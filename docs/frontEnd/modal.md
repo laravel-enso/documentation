@@ -24,7 +24,7 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 
 Install the package:
 ```
-npm i @enso-ui/modal
+yarn add @enso-ui/modal
 ```
 Import the desired component(s):
 ```js

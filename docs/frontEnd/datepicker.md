@@ -23,7 +23,7 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 
 Install the package:
 ```
-npm i @enso-ui/datepicker
+yarn add @enso-ui/datepicker
 ```
 Import the desired component(s):
 ```js
