@@ -20,6 +20,13 @@ module.exports = {
         lastUpdated: true,
         editLinks: true,
         editLinkText: 'Edit this page on Github',
+        serviceWorker: {
+            updatePopup: true,
+            updatePopup: { 
+               message: "New content is available.", 
+               buttonText: "Refresh" 
+            }
+        },
         nav: [
             { text: "Guide", link: "/guide/" },
             { text: "V2", link: "/packages/" },
