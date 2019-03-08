@@ -101,6 +101,7 @@ module.exports = {
                     'filters',
                     'forms',
                     'loader',
+                    'mixins',
                     'modal',
                     'money',
                     'progress-bar',
