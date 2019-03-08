@@ -7,3 +7,4 @@ Starting with v3.x, after a thorough rewrite & refactor, we will migrate to to a
 where most of the front-end components will be available from NPM.
 
 To get all the details about a package select the corresponding option from the sidebar.
+
