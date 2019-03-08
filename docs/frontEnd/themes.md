@@ -24,7 +24,7 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 
 Install the package:
 ```
-npm i @enso-ui/themes
+yarn add @enso-ui/themes
 ```
 
 The package has the two default Enso themes, one light and one dark. 

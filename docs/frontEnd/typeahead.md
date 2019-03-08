@@ -23,7 +23,7 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 
 Install the package:
 ```
-npm i @enso-ui/typeahead
+yarn add @enso-ui/typeahead
 ```
 Import the desired component(s):
 ```js

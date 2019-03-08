@@ -23,7 +23,7 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 
 Install the package:
 ```
-npm i @enso-ui/switch
+yarn add @enso-ui/switch
 ```
 Import the desired component(s):
 ```js

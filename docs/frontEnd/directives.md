@@ -24,7 +24,7 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 
 Install the package:
 ```
-npm i @enso-ui/directives
+yarn add @enso-ui/directives
 ```
 Import the desired directives(s):
 ```js

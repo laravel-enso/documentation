@@ -24,7 +24,7 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 
 Install the package:
 ```
-npm i @enso-ui/divider
+yarn add @enso-ui/divider
 ```
 Import the desired divider(s):
 ```js
