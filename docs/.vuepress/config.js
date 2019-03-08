@@ -22,9 +22,9 @@ module.exports = {
         editLinkText: 'Edit this page on Github',
         serviceWorker: {
             updatePopup: true,
-            updatePopup: { 
-               message: "New content is available.", 
-               buttonText: "Refresh" 
+            updatePopup: {
+               message: "New content is available.",
+               buttonText: "Refresh"
             }
         },
         nav: [
@@ -114,6 +114,7 @@ module.exports = {
                     'progress-bar',
                     `select`,
                     'switch',
+                    'tables',
                     'tabs',
                     'themes',
                     'toastr',
