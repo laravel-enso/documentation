@@ -519,7 +519,7 @@ It has higher priority than the global template `align` attribute
     - `sort:ASC` / `sort:DESC`, optional, specifies the default sort for this column. 
     Note that after the initial load, the user will have the option to override the sorting as needed
     - `nullLast`, optional, makes the sorting on this column sort all null values last
-    - `translation`, optional, marks this column's values as translatable
+    - `translatable`, optional, marks this column's values as translatable
     The `i18n` parameter translation function should be given to the VueJS table component in order for this to work -
     inside of Enso, this is done automatically
     - `boolean`, optional, marks this column as boolean, which means it will be rendered as such
