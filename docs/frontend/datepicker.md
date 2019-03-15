@@ -28,11 +28,11 @@ yarn add @enso-ui/datepicker
 Import the desired component(s):
 
 ```js
-import { Datepicker, EnsoDatepicker } from '@enso-ui/datepicker/bulma';
-```
+import { Datepicker } from '@enso-ui/datepicker/bulma';
 
-```js
-import { Datepicker } from '@enso-ui/datepicker/renderless';
+<datepicker v-model="birthday"
+    week-numbers
+    format="m-d-Y"/>
 ```
 
 ### renderless/Datepicker.vue
@@ -54,6 +54,10 @@ that will be the max date that can be chosen
 - `timeOnly` - `boolean`, optional. If set to true, the component allows choosing ONLY the time (no date)
 - `weekNumbers` - `boolean`, optional. If set to true, 
 the component also shows week numbers
+
+::: tip Tip
+The renderless component can be used to build a custom layout
+:::
 
 ### Datepicker
 This is the main bulma styled component and it is built upon the renderless
