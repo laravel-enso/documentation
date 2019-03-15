@@ -145,6 +145,7 @@ module.exports = {
                     'helpers',
                     'how-to-videos',
                     'impersonate',
+                    'vue-datatable',
                 ]
             }],
         }
