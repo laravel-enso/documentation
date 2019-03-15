@@ -22,11 +22,6 @@ Install the package:
 ```
 yarn add @enso-ui/confirmation
 ```
-Import the desired component(s):
-```js
-import { Confirmation } from '@enso-ui/confirmation/bulma';
-import { Confirmation } from '@enso-ui/confirmation/components';
-```
 
 ## Usage
 
