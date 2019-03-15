@@ -1,5 +1,5 @@
 ---
-sidebarDepth: 3
+sidebarDepth: 4
 ---
 
 # Accessories
@@ -13,7 +13,7 @@ sidebarDepth: 3
 Accessories
 
 ## Usage
-This package contains a suite of reusable components within the Enso ecosystem.
+This package contains a suite of reusable components that can be used exclusively within the Enso ecosystem.
 
 ### Demo
 
@@ -50,131 +50,163 @@ The bulma styled container for the various components that acts in a similar fas
 
 Example:
 ```vue
+import { Accessories, Addresses, Comments } from '@enso-ui/accessories/bulma';
+import { Tab } from `@enso-ui/tabs/bulma`;
+
 <accessories>
     <template slot-scope="{ count }">
         <tab keep-alive
-             id="Addresses">
+            id="Addresses">
             <addresses :id="myCompanyId"
-                       type="LaravelEnso\Companies\app\Models\Company"
-                       @update="$set(count, 'Addresses', $refs.addresses.count)"
-                       ref="addresses"/>
+                type="LaravelEnso\Companies\app\Models\Company"
+                @update="$set(count, 'Addresses', $refs.addresses.count)"
+                ref="addresses"/>
+            <comments :id="myCompanyId"
+                type="LaravelEnso\Companies\app\Models\Company"
+                @update="$set(count, 'Comments', $refs.comments.count)"
+                ref="comments"/>
         </tab>
     </template>
 </accessories>
 ```
 
-The accessories component shows a counter badge on each tab, it's up to each tab contents to manage this count.
+The exposed `count` object is used to display a counter badge on each tab and it's up to each tab content to manage this count.
 
-### bulma/addresses/Addresses.vue
+The accessory components can be attached to any model so that you could have, for instance, addresses for companies and addresses for people. They all work with a corresponding backend package that is built around a Model that has polymorphic relations to the attached models. 
 
-A bulma styled general purpose address manager component.
+:: warning Note
+Being built around a polymorphic relation all the accessory components have two required props:
+- `id` - `number`, required, the id of the morphable model
+- `type` - `string`, required, default `null`, the type of the morpable model
+::
 
-The idea behind this manager is that it can be 'attached' to other models so that you could have, for instance,
-addresses for companies and addresses for orders. Because of that, it expects to receive the type of model 
-we're managing addresses for and the id of the specific model instance. 
+:: tip Tip
+The components can be used within the `Accesories` or independently.
+:::
 
-Example:
+### Addresses
+
+Bulma styled address manager components
+
+Should be used with their [backend sibling](https://github.com/laravel-enso/AddressesManager)
+
+#### bulma/addresses/Addresses.vue
+
+##### Use:
+
 ```vue
 <addresses :id="myCompanyId"
    type="LaravelEnso\Companies\app\Models\Company"/>
 ```
 
-Properties:
-- `id` - `number`, required, the id of the addressable model
-- `type` - `string`, required, default `null`, the type of the addressable model
+##### Extra Properties:
+
 - `query` - `string`, optional, default '', addresses filtering search query string
 
-### bulma/addresses/AddressesCard.vue
+#### bulma/addresses/AddressesCard.vue
 
-A bulma styled address manager component placed inside a card with additional options, such as a counter badge.
+`Addresses` in a `Card` with some additional options
+##### Use:
 
-Properties:
-- `icon` - `string|array|object`, optional, default 'faMapSigns', the icon for the card
-- `id` - `number`, required, the id of the addressable model
-- `type` - `string`, required, default `null`, the type of the addressable model
-- `collapsed` - `boolean`, optional, default `false`, if true, the card is collapsed
-- `title` - `string`, optional, default 'null', the title for the card
+```vue
+<addresses-card collapsed
+   title="Company Addresses"
+   :id="myCompanyId"
+   type="LaravelEnso\Companies\app\Models\Company"/>
+```
 
-### bulma/comments/Comments.vue
+##### Extra Properties:
 
-A bulma styled general purpose comment manager component.
+- `icon` - `string|array|object`, optional - default 'faMapSigns', the icon for the card title
+- `collapsed` - `boolean`, optional, default `false` - determines the collpased stated of the card on initial render
+- `title` - `string`, optional - title for the card
 
-The idea behind this manager is that it can be 'attached' to other models so that you could have, for instance,
-comments for companies and comments for orders. Because of that, it expects to receive the type of model 
-we're managing comments for and the id of the specific model instance. 
+### Comments
 
-Example:
+Bulma styled comments manager components.
+
+Should be used with their [backend sibling](https://github.com/laravel-enso/CommentsManager)
+
+#### bulma/comments/Comments.vue
+
+##### Use:
+
 ```vue
 <comments :id="myCompanyId"
    type="LaravelEnso\Companies\app\Models\Company"/>
 ```
 
-Properties:
-- `id` - `number`, required, the id of the commentable model
-- `type` - `string`, required, default `null`, the type of the commentable model
-- `query` - `string`, optional, default '', comments filtering search query string
+##### Extra Properties:
 
-### bulma/comments/CommentsCard.vue
+- `query` - `string`, optional - used for filtering the comments
 
-A bulma styled general purpose comment manager component 
-placed inside a card with additional options, such as a counter badge.
+#### bulma/comments/CommentsCard.vue
 
-Properties:
-- `id` - `number`, required, the id of the commentable model
-- `type` - `string`, required, default `null`, the type of the commentable model
+`Comments` in a `Card` with some additional options
+
+##### Use:
+
+```vue
+<comments-card collapsed
+   title="Posted Comments"
+   :id="myCompanyId"
+   type="LaravelEnso\Companies\app\Models\Company"/>
+```
+
+##### Extra Properties:
 - `icon` - `string|array|object`, optional, default `faComments`, the icon for the card
 - `collapsed` - `boolean`, optional, default `false`, if true, the card is collapsed
 - `title` - `string`, optional, default '', the title for the card
 
-### bulma/addresses/Discussions.vue
+### Discussions
 
-A bulma styled general purpose discussion manager component.
+Bulma discussion manager components.
 
-The idea behind this manager is that it can be 'attached' to other models so that you could have, for instance,
-discussions for companies and discussions for projects. Because of that, it expects to receive the type of model 
-we're managing discussions for and the id of the specific model instance. 
+Should be used with their [backend sibling](https://github.com/laravel-enso/Discussions)
 
-Example:
+#### bulma/addresses/Discussions.vue
+
+##### Use:
+
 ```vue
 <discussions :id="myCompanyId"
    type="LaravelEnso\Companies\app\Models\Company"/>
 ```
 
-Properties:
-- `id` - `number`, required, the id of the discussable model
-- `type` - `string`, required, default `null`, the type of the discussable model
+### Documents
 
-### bulma/addresses/Documents.vue
+Bulma styled document manager components.
 
-A bulma styled general purpose document manager component.
+Should be used with their [backend sibling](https://github.com/laravel-enso/DocumentssManager)
 
-The idea behind this manager is that it can be 'attached' to other models so that you could have, for instance,
-documents for companies and documents for orders. Because of that, it expects to receive the type of model 
-we're managing documents for and the id of the specific model instance. 
+#### bulma/addresses/Documents.vue
 
-Example:
+##### Use:
+
 ```vue
 <documents :id="myCompanyId"
    type="LaravelEnso\Companies\app\Models\Company"/>
 ```
 
-Properties:
-- `id` - `number`, required, the id of the documentable model
-- `type` - `string`, required, default `null`, the type of the documentable model
-- `query` - `string`, optional, default '', documents filtering search query string
-- `compact` - `boolean`, optional, default `false`, if true, a compact display mode is used
+##### Extra Properties:
 
+- `query` - `string`, optional - used for filtering documents
+- `compact` - `boolean`, optional, default `false` - if true a compact display mode is used
 
-### bulma/addresses/DocumentsCard.vue
+#### bulma/addresses/DocumentsCard.vue
 
-A bulma styled general purpose document manager component
-placed inside a card with additional options, such as a counter badge.
+##### Use:
 
-Properties:
-- `id` - `number`, required, the id of the addressable model
-- `type` - `string`, required, default `null`, the type of the addressable model
-- `collapsed` - `boolean`, optional, default `false`, if true, the card is collapsed
-- `title` - `string`, optional, default '', the title for the card
+```vue
+<documents-card collapsed
+   title="Uploaded Documents"
+   :id="myCompanyId"
+   type="LaravelEnso\Companies\app\Models\Company"/>
+```
+
+##### Extra Properties:
+- `collapsed` - `boolean`, optional, default `false` - controls the card initial render state
+- `title` - `string`, optional - the title for the card
 
 ## Depends on
 
