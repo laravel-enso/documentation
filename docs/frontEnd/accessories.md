@@ -74,13 +74,13 @@ The exposed `count` object is used to display a counter badge on each tab and it
 
 The accessory components can be attached to any model so that you could have, for instance, addresses for companies and addresses for people. They all work with a corresponding backend package that is built around a Model that has polymorphic relations to the attached models. 
 
-:: warning Note
+::: warning Note
 Being built around a polymorphic relation all the accessory components have two required props:
 - `id` - `number`, required, the id of the morphable model
 - `type` - `string`, required, default `null`, the type of the morpable model
-::
+:::
 
-:: tip Tip
+::: tip Tip
 The components can be used within the `Accesories` or independently.
 :::
 
