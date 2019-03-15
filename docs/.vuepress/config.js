@@ -152,6 +152,7 @@ module.exports = {
                     'multitenancy',
                     'notifications',
                     'people',
+                    'permission-manager',
                 ]
             }],
         }
