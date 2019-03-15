@@ -135,6 +135,7 @@ module.exports = {
                     'charts',
                     'comments-manager',
                     'companies',
+                    'core',
                 ]
             }],
         }
