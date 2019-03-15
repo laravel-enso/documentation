@@ -14,7 +14,7 @@ User actions logger dependency for [Laravel](https://laravel.com).
 - comes with the `ActionLogs` trait that defines the relationship to the `ActionLog` model, and should be included in your user model
 - each entry will record `user_id`, `url`, `route` name, http `method` verb and timestamps
 
-### Demo
+## Demo
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
