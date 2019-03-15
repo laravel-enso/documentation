@@ -129,8 +129,7 @@ $company->logEvent('triggered my custom action','beer');
 
 Please note:
 - the given icon should be available (imported)
-- if no icon is given, the flag icon is used by default
-    
+- if no icon is given, the flag icon is used by default    
 
 ## Contributions
 

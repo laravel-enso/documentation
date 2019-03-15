@@ -14,6 +14,8 @@ Accessories
 
 This package contains a suite of reusable components that can be used exclusively within the Enso ecosystem.
 
+For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+
 ## Installation
 
 Install the package:
@@ -26,10 +28,6 @@ import {
     Accessories, Addresses, Comments, Discussions, Documents,
 } from '@enso-ui/accessories/bulma';
 ```
-
-## Demo
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
 ## Usage
 
@@ -92,6 +90,17 @@ Should be used with their [backend sibling](https://github.com/laravel-enso/Addr
 
 - `query` - `string`, optional, default '', addresses filtering search query string
 
+##### Customization
+
+If you need to customize the address card, you may also pass a different template using the 'address' slot, 
+provided for this purpose.
+
+Also, when declaring custom fields in the address form template, respective slots will be be generated in the 
+`AddressForm` component, so you may also add further form customizations.
+
+As an example of such customization, you may take a look at the 
+[RoAddresses](https://github.com/laravel-enso/RoAddresses) package and the `RoAddress.vue` component.
+
 #### AddressesCard.vue
 
 `Addresses` in a `Card` with some additional options
@@ -108,7 +117,7 @@ Should be used with their [backend sibling](https://github.com/laravel-enso/Addr
 ##### Extra Properties:
 
 - `icon` - `string|array|object`, optional - default 'faMapSigns', the icon for the card title
-- `collapsed` - `boolean`, optional, default `false` - determines the collpased stated of the card on initial render
+- `collapsed` - `boolean`, optional, default `false` - determines the collapsed stated of the card on initial render
 - `title` - `string`, optional - title for the card
 
 ### Comments
