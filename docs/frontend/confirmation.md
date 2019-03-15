@@ -12,14 +12,11 @@ sidebarDepth: 3
 
 Minimalist confirmation dialog
 
-## Usage
-All components can be used outside of the Enso ecosystem.
-
-### Demo
+Can be used outside of the Enso ecosystem.
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
-### Installation
+## Installation
 
 Install the package:
 ```
@@ -31,17 +28,10 @@ import { Confirmation } from '@enso-ui/confirmation/bulma';
 import { Confirmation } from '@enso-ui/confirmation/components';
 ```
 
-### Exports
-
-`@enso-ui/cofirmation/bulma`:
-- `Confirmation`,
-
-`@enso-ui/cofirmation/components`:
-- `Confirmation`,
+## Usage
 
 ### bulma/Confirmation.vue
-This is the main bulma styled component. It has a default slot where
-a clickable element should be placed.
+This is the main bulma styled component. It has a default slot where a clickable element should be placed.
  
 It can optionally have:
 - a confirm action button/link
@@ -50,7 +40,7 @@ It can optionally have:
 Example:
 ```vue
 <confirmation placement="bottom"
-    @confirm="delete(item)">
+    @confirm="doSomething">
     <span class="icon is-small has-text-danger">
         <fa icon="trash-alt"/>
     </span>
@@ -61,27 +51,24 @@ Slots:
 - `default`, main content goes here
 
 ### components/Confirmation.vue
-The component is a base component for the confirmation component above
-without any styling.
+The component is a base component for the confirmation component above without any styling.
 
-It can be built upon to create another implementation of the confirmation, 
-with your CSS style of choice.
+It can be used for creating a custom confirmation with your CSS style of choice.
 
 It uses the `v-popover` component from `v-tooltip`.
 
-Slots:
+#### Slots:
 - `default`, main content goes here
-- `confirm`, a custom control for the confirm action can go here
-- `cancel`, a custom control for the cancel action can go here
+- `confirm`, a custom control for the confirm action can go here, scoped, exposes the `confirm` method
+- `cancel`, a custom control for the cancel action can go here, scoped, exposes the `cancel` method
 
 If a confirm/cancel control is provided, the control should call the confirm/cancel method 
-made available on the slot.
+made exposed on the slot.
 
 Both these methods emit a `confirm` respectively `cancel` event, that should be 
 handled on the parent, as required.
 
 Methods:
-- `hide()`, closes the dialog
 - `cancel()`, closes the dialog & emits a `cancel` event
 - `confirm()`, closes the dialog & emits a `confirm` event
 
