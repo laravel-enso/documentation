@@ -24,6 +24,10 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 
 ## Installation
 
+Comes pre-installed in Enso. 
+
+To install outside of Enso:
+
 1. install the package `composer require laravel-enso/formbuilder` 
 
 2. if needed, publish and customize the config
