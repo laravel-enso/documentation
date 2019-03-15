@@ -12,92 +12,89 @@ sidebarDepth: 3
 
 Vue Charts Package
 
-## Usage
+Can be used outside of the Enso ecosystem.
 
-The charts can be used outside of the Enso ecosystem.
+Should be used with its backend [sibling](https://github.com/laravel-enso/Charts)
 
-### Demo
+## Demo
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
-### Installation
+## Installation
 
 Install the package:
 ```
 yarn add @enso-ui/charts
 ```
+
+## Usage
 Import the desired component(s):
 ```js
-import { EnsoChartCard as ChartCard } from '@enso-ui/bulma';
+import { EnsoChartCard as ChartCard } from '@enso-ui/charts/bulma';
 ```
 
-### Exports
+```js
+import { Chart, colors } from '@enso-ui/charts';
+```
 
-`@enso-ui/charts/bulma`:
-- `ChartCard`,
-- `EnsoChartCard`,
-`@enso-ui/charts`:
-- `Chart`,
-- `colors`,
-
-### bulma/ChartCard.vue
+### ChartCard.vue
 
 Bulma Chart Card implementation on top of the Card component.
 
-Example:
+#### Example:
 ```vue
 <chart-card class="is-rounded raises-on-hover has-margin-bottom-large"
     source="/api/dashboard/pie"/>
 ```
 
-Properties:
-- `errorHandler` - `function`, optional, by default throws the error, a function for handling errors
-- `i18n` - `function`, optional, default `v => v`, a translation function
-- `params` - `Object`, optional, default `null`, extra parameters that get sent to the backend when fetching data
-- `source` - `string`, required, the URI used for fetching the chart data
+#### Props:
+- `errorHandler` - `function`, optional - provides a custom error handler for axios
+- `i18n` - `function`, optional - provides localisation
+- `params` - `Object`, optional - parameter bag that is sent to the backend when fetching data
+- `source` - `string`, required - the URI used for fetching the chart data
  
-Methods:
-- `fetch()`, fetches data from the backend
-- `download()`, downloads the chart as PNG
+#### Methods:
+- `fetch()` - fetches data from the backend
+- `resize()` - resizes the charts
 
-### bulma/EnsoChartCard.vue
+### EnsoChartCard
 
-This bulma styled tabs component built on top of its base version is 
-designed to be used within the **Enso ecosystem**, requiring less configuration from the dev. 
+The above component designed to be used within the Enso ecosystem, requiring less configuration from the dev. 
 
-Example:
+#### Example:
 ```vue
 <chart-card class="is-rounded raises-on-hover has-margin-bottom-large"
     source="/api/dashboard/pie"/>
 ```
 
-'Passed-through' properties:
-- `errorHandler` - `function`, optional, by default throws the error, a function for handling errors
-- `i18n` - `function`, optional, default `v => v`, a translation function
+#### Props:
 - `params` - `Object`, optional, default `null`, extra parameters that get sent to the backend when fetching data
 - `source` - `string`, required, the URI used for fetching the chart data
 
-### Chart.vue
+#### Methods:
+- `fetch()` - fetches data from the backend
+- `resize()` - resizes the charts
+
+### Chart
 
 CSS framework agnostic Chart implementation.
 
-Example:
+#### Example:
 ```vue
 <chart class="has-padding-medium"
     :data="data"
-    :options="config.options"
-    :type="config.type"/>
+    :options="options"
+    :type="type"/>
 ```
 
-Properties:
-- `data` - `Object`, required, the data for the chart
-- `formatter` - `function`, optional, default `null`, chart.js formatter function
-- `options` - `Object`, optional, default `() => ({})`, options object for chart.js
-- `type` - `string`, required, the type of chart. 
-Valid types are 'line', 'bar', 'radar', 'polarArea', 'pie', 'doughnut', 'bubble'.
+#### Props:
+- `data` - `Object`, required - the data for the chart
+- `formatter` - `function`, optional - datalabels values formatter function
+- `options` - `Object`, optional - options object for chart.js
+- `type` - `string`, required - specifies the type of chart.  Valid types are 'line', 'bar', 'radar', 'polarArea', 'pie', 'doughnut', 'bubble'.
  
-Methods:
-- `update()`, updates the chart
+#### Methods:
+- `resize()` - resizes the charts
 
 ## Questions & Issues
 
