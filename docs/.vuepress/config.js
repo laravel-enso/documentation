@@ -143,6 +143,7 @@ module.exports = {
                     'file-manager',
                     'form-builder',
                     'helpers',
+                    'how-to-videos',
                 ]
             }],
         }
