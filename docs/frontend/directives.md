@@ -24,7 +24,7 @@ yarn add @enso-ui/directives
 ```
 
 ## Usage
-Import the desired directives(s):
+
 ```js
 import { clickOutside, focus } from '@enso-ui/directives';
 
