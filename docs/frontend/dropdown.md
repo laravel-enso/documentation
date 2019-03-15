@@ -12,11 +12,7 @@ sidebarDepth: 3
 
 Vue Dropdown component
 
-## Usage
-
 All components can be used outside of the Enso ecosystem.
-
-### Demo
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
@@ -26,21 +22,42 @@ Install the package:
 ```
 yarn add @enso-ui/dropdown
 ```
-Import the desired component(s):
+
+## Usage
+
+Import the componet
 ```js
 import Dropdown from '@enso-ui/dropdown/bulma';
 ```
 
-## Exports
+Or the renderless version:
+```js
+import Dropdown from '@enso-ui/dropdown/renderless';
+```
 
-`@enso-ui/dropdown/bulma`:
-- `Dropdown`,
+### CoreDropdown
 
-`@enso-ui/dropdown/renderless`:
-- `Dropdown`,
+This is the the renderless dropdown component that can be built upon when creating a custom implementation.
 
+#### Props:
+- `disabled` - `boolean`, optional, default `false`, if true, the component is disabled
+- `manual` - `boolean`, optional, default `false`, if set to true, hiding the component should be done manually
 
-### bulma/Dropdown.vue
+#### Slots:
+- exposes a default scoped slot
+ 
+#### Methods:
+- `open()`, opens the dropdown item list
+- `close()`, closes the dropdown item list
+- `attemptClose()`, calls close above, unless in manual mode, in which case it does nothing
+- `initPopper()`, instantiates the Popper instance, used to display the item list 
+- `destroyPopper()`, destroys the Popper instance, used to display the item list 
+
+#### Events:
+- `open`, when opening the dropdown
+- `close`, when closing the dropdown
+
+### Dropdown
 
 This is the bulma styled component built upon its renderless version.
 
@@ -68,34 +85,24 @@ Example:
 
 A fade transition is used for the opening & closing of the dropdown.
 
-Slots:
+#### Slots:
 - `trigger`, for placing a control that should open the dropdown
 - `label`, for placing a label on the (default) button that opens the dropdown. 
 If using the `trigger` slot above and implementing a custom control, you should not need to use the `label` slot 
 - `controls`, for adding controls to the dropdown
 - `options`, the list of items in/from the dropdown goes here
 
+#### Props:
 
-### renderless/Dropdown.vue
+All the props from the renderless component can be provided
 
-This is the the renderless dropdown component that can be built upon when creating a custom implementation.
+::: tip Tip
+You can create a custom dropdown with your own layout/template/transition
+:::
 
-Properties:
-- `disabled` - `boolean`, optional, default `false`, if true, the component is disabled
-- `height` - `string`, optional, default `16em`, the em max height of the dropdown list
-- `manual` - `boolean`, optional, default `false`, if set to true, hiding the component should be done manually
-- `width` - `string`, optional, default `4.5em`, the em minimum width of the dropdown list
- 
-Methods:
-- `open()`, opens the dropdown item list
-- `close()`, closes the dropdown item list
-- `attemptClose()`, calls close above, unless in manual mode, in which case it does nothing
-- `initPopper()`, instantiates the Popper instance, used to display the item list 
-- `destroyPopper()`, destroys the Popper instance, used to display the item list 
-
-Events:
-- `open`, when opening the dropdown
-- `close`, when closing the dropdown
+::: warning Note
+You will want to customize the dropdown width / height by applying your own css
+:::
 
 ## Questions & Issues
 
@@ -106,15 +113,6 @@ Please make sure to search for existing issues before creating a new issue,
 and when opening a new issue, fill the required information in the issue template.
 
 Issues not conforming to the guidelines may be closed immediately.
-
-## Depends on
-
-- `bulma`
-- `@enso-ui/directives`
-- `@enso-ui/dropdown-indicator`
-- `@enso-ui/transitions`
-- `popper.js`
-- `vue`
 
 ## Contributions
 
