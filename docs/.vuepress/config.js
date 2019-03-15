@@ -148,6 +148,7 @@ module.exports = {
                     'vue-datatable',
                     'localisation',
                     'log-manager',
+                    'menu-manager',
                 ]
             }],
         }
