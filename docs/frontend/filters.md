@@ -59,7 +59,7 @@ Here, the option list is given in-line but in practice, you would reference a va
 - `readonly` - `boolean`, optional - if true hides marks the filter as read-only
 - `title` - `string`, optional - the title for the filter
 
-### bulma/EnsoFilter.vue
+### EnsoFilter.vue
 
 Designed to be used within the Enso ecosystem, requiring less configuration from the dev.
 
@@ -146,7 +146,7 @@ All the props from the renderless component can be provided here
 You can build a custom implementation where you're using some other `datepiker` lib or your custom tempalte
 :::
 
-### bulma/EnsoDateFilter.vue
+### EnsoDateFilter.vue
 
 Designed to be used within the Enso ecosystem, requiring less configuration from the dev.
 
