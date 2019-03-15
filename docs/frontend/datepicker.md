@@ -10,115 +10,80 @@ sidebarDepth: 3
 ![GitHub issues](https://img.shields.io/github/issues/enso-ui/datepicker.svg) 
 ![npm version](https://img.shields.io/npm/v/@enso-ui/datepicker.svg) 
 
-Vue Datepicker component based on Flatpickr
+Vue Datepicker renderless component based on Flatpickr with a bulma template.
 
-## Usage
-All components can be used outside of the Enso ecosystem.
-
-### Demo
+Can be used outside of the Enso ecosystem.
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
-### Installation
+## Installation
 
 Install the package:
 ```
 yarn add @enso-ui/datepicker
 ```
+
+## Usage
+
 Import the desired component(s):
+
 ```js
-import { Datepicker } from '@enso-ui/datepicker/bulma';
+import { Datepicker, EnsoDatepicker } from '@enso-ui/datepicker/bulma';
 ```
 
-## Exports
-
-`@enso-ui/datepicker/bulma`:
-- `Datepicker`,
-- `EnsoDatepicker`,
-
-`@enso-ui/datepicker/renderless`:
-- `Datepicker`,
-
-### bulma/EnsoDatepicker.vue
-This bulma styled component built on top of its base version is 
-designed to be used within the **Enso ecosystem**, requiring less configuration from the dev. 
-
-Example:
-```vue
-<datepicker v-model="interval.min"/>
+```js
+import { Datepicker } from '@enso-ui/datepicker/renderless';
 ```
 
-Properties:
-- `format` - `string`, optional, default `null`, the date format 
+### renderless/Datepicker.vue
+The component is a renderless date picker component that is meant to be built upon when creating
+a specific implementation, for example with a different styling.
 
-'Passed-through' properties:
-- `placeholder` - `string`, optional, default 'Select Date', 
-- `isDanger` - `boolean`, optional, default `false`. If set to true, the component is styled so as to suggest a warning state 
-- `isWarning` - `boolean`, optional, default `false`. If set to true, the component is styled so as to suggest a danger/error state
+#### Props
+- `placeholder` - `string`, optional
+- `isDanger` - `boolean`, optional
+- `isWarning` - `boolean`, optionalstate
+- `disabled` - `boolean`
+- `format` - `string`, optional, default 'd-m-Y'
+- `locale` - `string`, optional, default `en`
+- `max` - `string`, optional - sets a high limit for the selected date
+that will be the max date that can be chosen 
+- `min` - `string`, optional - sets a low limit for the selected date
+- `readonly` - `boolean`, optional
+- `time` - `boolean`, optional. If set to true, the component allows choosing the time
+- `timeOnly` - `boolean`, optional. If set to true, the component allows choosing ONLY the time (no date)
+- `weekNumbers` - `boolean`, optional. If set to true, 
+the component also shows week numbers
 
-### bulma/Datepicker.vue
+### Datepicker
 This is the main bulma styled component and it is built upon the renderless
 component `renderless/Datepicker.vue`
 
-Example:
+#### Example:
 ```vue
 <datepicker v-model="interval.min"
     :format="format"
     :is-warning="equals"
     :locale="locale"
     :placeholder="i18n('My placeholder')"
-    :max="interval.max"
-    @input="update"/>
+    :max="interval.max"/>
 ```
 
-Properties:
-- `placeholder` - `string`, optional, default 'Select Date', 
-- `isDanger` - `boolean`, optional, default `false`. If set to true, the component is styled so as to suggest a warning state 
-- `isWarning` - `boolean`, optional, default `false`. If set to true, the component is styled so as to suggest a danger/error state
+#### Props:
 
-'Passed-through' properties:
-- `disabled` - `boolean`, optional, default `false`. If set to true, the component is disabled
-- `format` - `string`, optional, default 'd-m-Y', the date format
-- `locale` - `string`, optional, default `en`. If set to true, the component is disabled 
-- `max` - `string`, optional, default `null`. If given, 
-that will be the max date that can be chosen 
-- `min` - `string`, optional, default `null`. If given, 
-that will be the minimum date that can be chosen
-- `readonly` - `boolean`, optional, default `false`. If set to true, the component is readonly
-- `time` - `boolean`, optional, default `false`. If set to true, 
-the component allows choosing the time
-- `timeOnly` - `boolean`, optional, default `false`. If set to true, 
-the component allows choosing ONLY the time (no date)
-- `value`, `null|string|Date|Array`, required. This is the value the datepicker starts with
-- `weekNumbers` - `boolean`, optional, default `false`. If set to true, 
-the component also shows week numbers
+All the props from the renderless component can be used here
 
-### renderless/Datepicker.vue
-The component is a renderless date picker component that is meant to be built upon when creating
-a specific implementation, for example with a different styling.
+### EnsoDatepicker
+Designed to be used within the Enso ecosystem, requiring less configuration from the dev. 
 
-Properties:
-- `disabled` - `boolean`, optional, default `false`. If set to true, the component is disabled
-- `format` - `string`, optional, default 'd-m-Y', the date format
-- `locale` - `string`, optional, default `en`. If set to true, the component is disabled 
-- `max` - `string`, optional, default `null`. If given, 
-that will be the max date that can be chosen 
-- `min` - `string`, optional, default `null`. If given, 
-that will be the minimum date that can be chosen
-- `readonly` - `boolean`, optional, default `false`. If set to true, the component is readonly
-- `time` - `boolean`, optional, default `false`. If set to true, 
-the component allows choosing the time
-- `timeOnly` - `boolean`, optional, default `false`. If set to true, 
-the component allows choosing ONLY the time (no date)
-- `value`, `null|string|Date|Array`, required. This is the value the datepicker starts with
-- `weekNumbers` - `boolean`, optional, default `false`. If set to true, 
-the component also shows week numbers
+#### Example:
+```vue
+<datepicker v-model="interval.min"/>
+```
 
-Methods:
-- `init()`, initializes the component
-- `clear()`, clears the selected date
-- `destroy()`, destroys the Flatpickr instance used under the hood
-- `reset()`, destroys the Flatpickr instance and recreates it
+#### Props:
+
+All the props from the renderless component can be used here
 
 ## Questions & Issues
 
