@@ -12,32 +12,25 @@ sidebarDepth: 3
 
 Vue Directives Package
 
-## Usage
-
 The directives can be used outside of the Enso ecosystem.
-
-### Demo
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
-### Installation
+## Installation
 
 Install the package:
 ```
 yarn add @enso-ui/directives
 ```
+
+## Usage
 Import the desired directives(s):
 ```js
-import { clickOutside } from '@enso-ui/directives';
+import { clickOutside, focus } from '@enso-ui/directives';
+
+<my-comp v-focus
+    v-click-outside="hide"/>
 ```
-
-### Exports
-
-`@enso-ui/directives/renderless`:
-- `clickOutside`,
-- `focus`,
-- `hljs`,
-- `selectOnFocus`,
 
 ### clickOutside.js
 
@@ -45,14 +38,16 @@ Directive detects clicking outside the component.
 
 Example:
 ```vue
-<div v-click-outside="hide()" class="navbar-item io">
+<div v-click-outside="handler" class="navbar-item io">
     ...
 </div>
 ```
 
+where `handler` must be a `Function`
+
 ### focus.js
 
-Places focus by default in/on the set input.
+Focuses the element on initial render
 
 Example:
 ```vue
@@ -98,10 +93,9 @@ and when opening a new issue, fill the required information in the issue templat
 
 Issues not conforming to the guidelines may be closed immediately.
 
-## Depends on
+## External Dependecies
 
-- `highlight.js`
-- `vue`
+Uses highlight.js for code formatting
 
 ## Contributions
 
