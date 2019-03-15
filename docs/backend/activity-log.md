@@ -25,7 +25,15 @@ you may set additional configuration attributes on the model to further fine tun
 - the logger will not attempt to persist data when there is no authenticated user - this avoids issues when 
 using seeder / playing in tinker, etc.
 
+## Demo
+
+For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+
 ## Usage
+
+This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+
+The front end assets that utilize this api are present in the [ui](https://github.com/enso-ui/ui) package.
 
 In order to enable the logging for a particular model, you need to add the `LogsActivity` trait to that model. 
 By doing this, creation and deletion events are recorded (update events are not). 
@@ -38,7 +46,7 @@ By default, for each entry:
 
 ## Customization
 
-##### Changing the model representation
+### Changing the model representation
  
 Since not all models have a `name` attribute, 
 or it makes sense to use some other attribute to better represent a certain model type, 
@@ -56,7 +64,7 @@ protected $loggableLabel = 'person.name';
 where `person` is an existing relationship on this model. In such cases, the logging mechanism will actually follow
 through the relationship(s) until it is able to load the given label attribute.
 
-##### Logging update events
+### Logging update events
 
 To enable the tracking of update events, you must declare a `$loggable` attribute on the model. 
 The value of the attribute should be an array of model attributes that you want tracked.
@@ -67,7 +75,7 @@ protected $loggable = ['name', 'description', 'is_active', 'gender' => Genders::
 
 Note: when updating a model, if none of the tracked attributes are updated, no entry is recorded even if the tracked model is otherwise updated.
 
-##### Customizing label attributes
+### Customizing label attributes
 
 Normally it is enough to give a simple list of tracked attributes, in which case the attribute names themselves will be used to describe them. 
 To customize the label for any of the tracked attribute you should use an associative
@@ -77,7 +85,7 @@ To customize the label for any of the tracked attribute you should use an associ
 protected $loggable = ['name', 'description', 'is_active' => 'active state'];
 ```
 
-##### Enum label attributes
+### Enum label attributes
 
 You may also give an enum as the value of a `key => value` pair when using this key-value declaration style. In such cases,
 the enum will be used to process the stored values and present more human readable values.
@@ -86,7 +94,7 @@ the enum will be used to process the stored values and present more human readab
 protected $loggable = ['name', 'description', 'is_active', 'gender' => Genders::class];
 ```
 
-##### Relationship label attributes
+### Relationship label attributes
 
 You may also give an array as the value of a `key => value` pair when using this key-value declaration style. In such cases,
 the array is expected to further contain a `key => value` pair with a class name as key and a model attribute as the value.
@@ -98,7 +106,7 @@ protected $loggable = ['name', 'group_id' => [UserGroup::class => 'name']];
 The class and the model attribute values are used to follow through a relationship on the loggable model, and retrieve the 
 given attribute's value on the related model.
 
-##### Generating custom events
+### Generating custom events
 
 Because you may want to generate custom events, the trait provides a public `logEvent` method for this purpose, 
 that may be called on the model.

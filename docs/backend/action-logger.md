@@ -14,15 +14,15 @@ User actions logger dependency for [Laravel](https://laravel.com).
 - comes with the `ActionLogs` trait that defines the relationship to the `ActionLog` model, and should be included in your user model
 - each entry will record `user_id`, `url`, `route` name, http `method` verb and timestamps
 
-## Usage
-
-This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
-
 ### Demo
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
-### Steps
+## Usage
+
+This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+
+The front end assets that utilize this api are present in the [ui](https://github.com/enso-ui/ui) package.
 
 1. Include the `action-logger` middleware on the routes that you want covered
 
