@@ -12,30 +12,18 @@ sidebarDepth: 3
 
 Enso Mixins Package
 
-## Usage
-
-The mixins can be used inside of the Enso ecosystem.
-
-### Demo
+The mixins are used exclusively inside of the Enso ecosystem.
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
-Check the full documentation at  [docs.laravel-enso.com](https://docs.laravel-enso.com).
+## Installation
 
-### Installation
+Installed by `@enso-ui/ui`
 
-Install the package:
-```
-yarn add @enso-ui/mixins
-```
-Import the desired component(s):
-```js
-import { canAccess } from '@enso-ui/mixins';
-```
+## Usage
 
-#### Within Enso
+The mixins are available for injection:
 
-Within Enso, the mixins are available for injection:
 ```vue
 export default {
     name: 'EnsoSelect',
@@ -45,16 +33,7 @@ export default {
     components: { VueSelect },
 ``` 
 
-You may then use them as required.
-
-
-### Exports
-
-`@enso-ui/mixins`:
-- `canAccess`, 
-- `errorHandler`, 
-- `i18n`, 
-
+You may then use them as needed.
 
 ## Contributions
 
