@@ -14,8 +14,6 @@ Aggregator for enso-ui bulma components
 
 This package provides a common source for all the bulma components available in the various NPM packages.
 
-
-
 ## Installation
 
 Install the package:
@@ -31,10 +29,6 @@ import {
     Tab, EnsoTabs as Tabs, EnsoDateFilter as DateFilter, Uploader, Chart,
 } from '@enso-ui/bulma';
 ```
-
-## Demo
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
 ## Exports
 
