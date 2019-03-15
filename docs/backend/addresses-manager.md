@@ -44,7 +44,7 @@ Comes pre-installed in Enso.
 3. insert the `Addreses` vue component where required in your pages/components, see the 
 front end implementation [docs](https://docs.laravel-enso.com/frontend/accessories.html#addresses) for the available options
 
-## Configuration
+### Configuration
 
 Inside the `config/enso/addresses.php` file, you'll find several customization options:
 - `onDelete`, string, option that manages the case when the commentable entity is deleted and it has attached discussions.
@@ -66,7 +66,7 @@ For example:
     - `separator`, the separator used when composing labels, default `-`
     - `attributes`, the list of attributes used for the label, default: `'localityName', 'street', 'number'`
 
-## Extending the addresses
+### Extending the addresses
 
 In your project you may have the need to alter and or extend the addresses structure by adding/removing table columns.
 To achieve this, you'd need to:
