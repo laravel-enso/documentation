@@ -1,5 +1,5 @@
 ---
-sidebarDepth: 4
+sidebarDepth: 3
 ---
 
 # Accessories
@@ -44,7 +44,7 @@ import {
 - `DocumentsCard`,
 - `Documents`,
 
-### bulma/Accessories.vue
+### Accessories.vue
 
 The bulma styled container for the various components that acts in a similar fashion to the Tabs.
 
@@ -90,7 +90,7 @@ Bulma styled address manager components
 
 Should be used with their [backend sibling](https://github.com/laravel-enso/AddressesManager)
 
-#### bulma/addresses/Addresses.vue
+#### Addresses.vue
 
 ##### Use:
 
@@ -103,9 +103,10 @@ Should be used with their [backend sibling](https://github.com/laravel-enso/Addr
 
 - `query` - `string`, optional, default '', addresses filtering search query string
 
-#### bulma/addresses/AddressesCard.vue
+#### AddressesCard.vue
 
 `Addresses` in a `Card` with some additional options
+
 ##### Use:
 
 ```vue
@@ -127,7 +128,7 @@ Bulma styled comments manager components.
 
 Should be used with their [backend sibling](https://github.com/laravel-enso/CommentsManager)
 
-#### bulma/comments/Comments.vue
+#### Comments.vue
 
 ##### Use:
 
@@ -140,7 +141,7 @@ Should be used with their [backend sibling](https://github.com/laravel-enso/Comm
 
 - `query` - `string`, optional - used for filtering the comments
 
-#### bulma/comments/CommentsCard.vue
+#### CommentsCard.vue
 
 `Comments` in a `Card` with some additional options
 
@@ -164,7 +165,7 @@ Bulma discussion manager components.
 
 Should be used with their [backend sibling](https://github.com/laravel-enso/Discussions)
 
-#### bulma/addresses/Discussions.vue
+#### Discussions.vue
 
 ##### Use:
 
@@ -179,7 +180,7 @@ Bulma styled document manager components.
 
 Should be used with their [backend sibling](https://github.com/laravel-enso/DocumentssManager)
 
-#### bulma/addresses/Documents.vue
+#### Documents.vue
 
 ##### Use:
 
@@ -193,7 +194,7 @@ Should be used with their [backend sibling](https://github.com/laravel-enso/Docu
 - `query` - `string`, optional - used for filtering documents
 - `compact` - `boolean`, optional, default `false` - if true a compact display mode is used
 
-#### bulma/addresses/DocumentsCard.vue
+#### DocumentsCard.vue
 
 ##### Use:
 
