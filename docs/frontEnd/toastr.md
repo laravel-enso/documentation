@@ -22,17 +22,21 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 ### Installation
 
 Install the package:
+
 ```
 yarn add @enso-ui/toastr
 ```
+
 Import the component(s):
-```js
+
+```vue
 import Toastr from '@enso-ui/toastr/bulma';
 import Toastr from '@enso-ui/toastr/renderless';
 ```
 
 Install the plugin:
-```js
+
+```vue
 Vue.use(ToastrPlugin, {
     layout: Toastr,
     options: {
@@ -46,18 +50,18 @@ Note that the provided duration and position are the defaults, but they can be o
 
 Use Examples:
 
-```js
+```vue
 this.$toastr.success('You operation was successful')
 ```
 
-```js
+```vue
 this.$toastr.title('Warning')
     .position('bottom-left')
     .duration(5000)
     .warning('Something is wrong...')
 ```
 
-```js
+```vue
 this.$toastr.title('HTML').html('<span class="tag is-success'>v2.0.0</span>`)
 ```
 
