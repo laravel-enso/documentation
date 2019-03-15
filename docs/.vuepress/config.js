@@ -139,6 +139,7 @@ module.exports = {
                     'data-export',
                     'data-import',
                     'discussions',
+                    'documents-manager',
                 ]
             }],
         }
