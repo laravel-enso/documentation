@@ -91,7 +91,7 @@ module.exports = {
                     'vue-datatable'
                 ]
             }],
-            '/frontEnd/': [{
+            '/frontend/': [{
                 title: 'Front End',
                 collapsable: false,
                 children: [
@@ -129,6 +129,7 @@ module.exports = {
                 collapsable: false,
                 children: [
                     'action-logger',
+                    'activity-log',
                 ]
             }],
         }
