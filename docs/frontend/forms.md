@@ -16,6 +16,8 @@ Can be used outside of the Enso ecosystem.
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
+Should be used with its backend [sibling](https://github.com/laravel-enso/FormBuilder)
+
 ## Installation
 
 Install the package:
