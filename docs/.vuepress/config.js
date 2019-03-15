@@ -150,6 +150,7 @@ module.exports = {
                     'log-manager',
                     'menu-manager',
                     'multitenancy',
+                    'notifications',
                 ]
             }],
         }
