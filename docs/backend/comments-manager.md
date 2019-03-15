@@ -51,7 +51,7 @@ The package offers a quick and easy flow for adding comments to any model.
 5. insert the `Comments` vue component where required in your pages/components, see the 
    front end implementation [docs](https://docs.laravel-enso.com/frontend/accessories.html#comments) for the available options
 
-## Configuration
+### Configuration
 In the `config/enso/comments.php` configuration file you may set the following options:
 
 - `editableTimeLimit`, number, the amount of seconds after which a comment is no longer editable | default is `24 * 60 * 60` seconds (1 day)
@@ -71,7 +71,7 @@ For example:
 
    This configuration option is used for activity logging.
 
-## Extending the comments
+### Extending the comments
 
 In your project you may have the need to alter and or extend the comment notification.
 To achieve this, you'd need to:

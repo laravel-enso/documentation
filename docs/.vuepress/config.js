@@ -134,6 +134,7 @@ module.exports = {
                     'addresses-manager',
                     'charts',
                     'comments-manager',
+                    'companies',
                 ]
             }],
         }
