@@ -144,6 +144,7 @@ module.exports = {
                     'form-builder',
                     'helpers',
                     'how-to-videos',
+                    'impersonate',
                 ]
             }],
         }
