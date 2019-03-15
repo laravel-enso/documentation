@@ -11,6 +11,8 @@ sidebarDepth: 3
 
 Server-side data builder for charts.
 
+This package can work independently of the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+
 The front end implementation that utilizes this api is present in the [enso-ui/charts](https://github.com/enso-ui/charts) package.
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
