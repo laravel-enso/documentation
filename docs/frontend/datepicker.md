@@ -97,16 +97,9 @@ and when opening a new issue, fill the required information in the issue templat
 
 Issues not conforming to the guidelines may be closed immediately.
 
-## Depends on
+## External Dependencies
 
-- `@fortawesome/fontawesome-free`
-- `@fortawesome/fontawesome-svg-core`
-- `@fortawesome/free-solid-svg-icons`
-- `@fortawesome/vue-fontawesome`
-- `bulma`
-- `flatpickr`
-- `vue`
-- `vuex`
+Build around Flatpickr
 
 ## Contributions
 
