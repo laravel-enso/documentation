@@ -48,11 +48,6 @@ and when opening a new issue, fill the required information in the issue templat
 
 Issues not conforming to the guidelines may be closed immediately.
 
-## Depends on
-
-- `highlight.js`
-- `vue`
-
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
