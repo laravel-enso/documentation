@@ -2,14 +2,15 @@
 sidebarDepth: 3
 ---
 
-# Action Logger
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/dc3819bf2c654b3d8dcaaed8898b214f)](https://www.codacy.com/app/laravel-enso/ActionLogger?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/ActionLogger&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://styleci.io/repos/85554059/shield?branch=master)](https://styleci.io/repos/85554059)
-[![License](https://poser.pugx.org/laravel-enso/actionlogger/license)](https://packagist.org/packages/laravel-enso/actionlogger)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/actionlogger/downloads)](https://packagist.org/packages/laravel-enso/actionlogger)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/actionlogger/version)](https://packagist.org/packages/laravel-enso/actionlogger)
+# Avatar Manager
 
-User actions logger dependency for [Laravel](https://laravel.com).
+[![StyleCI](https://styleci.io/repos/94704466/shield?branch=master)](https://styleci.io/repos/94704466)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d84efcf2530348d29f2ca573d06f7314)](https://www.codacy.com/app/laravel-enso/AvatarManager?utm_source=github.com&utm_medium=referral&utm_content=laravel-enso/AvatarManager&utm_campaign=badger)
+[![License](https://poser.pugx.org/laravel-enso/avatarmanager/license)](https://packagist.org/packages/laravel-enso/avatarmanager)
+[![Total Downloads](https://poser.pugx.org/laravel-enso/avatarmanager/downloads)](https://packagist.org/packages/laravel-enso/avatarmanager)
+[![Latest Stable Version](https://poser.pugx.org/laravel-enso/avatarmanager/version)](https://packagist.org/packages/laravel-enso/avatarmanager)
+
+User Avatar manager dependency for [Laravel Enso](https://github.com/laravel-enso/Enso).
 
 This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
 
@@ -17,30 +18,42 @@ The front end assets that utilize this api are present in the [ui](https://githu
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
+[![Watch the demo](https://laravel-enso.github.io/avatarmanager/screenshots/bulma_cap001_thumb.png)](https://laravel-enso.github.io/avatarmanager/videos/bulma_avatar_change.webm)
+<sup>click on the photo to view a short demo in compatible browsers</sup>
+
 ## Installation
 
 Comes pre-installed in Enso.
 
 ## Features
 
-- creates the `action-logger` middleware, the `action_logs` table and the `ActionLog` model
-- will log all access routes covered by the `action-logger` middleware
-- comes with the `ActionLogs` trait that defines the relationship to the `ActionLog` model, and should be included in your user model
-- each entry will record `user_id`, `url`, `route` name, http `method` verb and timestamps
+- comes with a table migration, in order to be able to store avatar related data
+- includes model, routes & controllers
+- creates a folder used to store the avatar files and a default avatar for users that do not have an avatar set
+- uses the [File Manager](https://github.com/laravel-enso/FileManager) package for uploading the avatar files
+- uses the [Image Transformer](https://github.com/laravel-enso/ImageTransformer) package for cropping and optimizing the avatar files
+- uses the [Laravolt Avatar](https://github.com/laravolt/avatar) for generating avatars from user names
+- uses a policy to ensure that normal users can only modify their own avatars, while administrators can modify any avatar 
 
-## Usage
+## Notes on usage
 
-1. Include the `action-logger` middleware on the routes that you want covered
+Since this package is using image processing libraries and these underlying libraries may use a lot of memory, 
+especially if the processed files are large (for example, for an 8MB image file, more than 128MB of memory might be used ),
+make sure to configure php accordingly and/or do `ini_set(‘memory_limit’, ‘256M’);`   
 
-2. Add the `ActionLogs` trait on your user model, so you may retrieve the user's  actions
+Failure to do so may result in silent errors if allotted memory is insufficient.
 
-::: warning
+## Commands
 
-Since the logged info contains the user_id, this means you cannot use 
-the middleware on routes where the user information is unavailable 
-(e.g. the user is not authenticated).
+- `php artisan enso:avatars:generate` - generates avatars for users which do not already have an avatar
 
-:::
+## Publishes
+
+- `php artisan vendor:publish --tag=avatars-storage` - storage folder and default avatar
+
+## External dependencies
+
+ - [Laravolt Avatar](https://github.com/laravolt/avatar) 
 
 ## Contributions
 
