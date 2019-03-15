@@ -22,11 +22,6 @@ Install the package:
 ```
 yarn add @enso-ui/confirmation
 ```
-Import the desired component(s):
-```js
-import { Confirmation } from '@enso-ui/confirmation/bulma';
-import { Confirmation } from '@enso-ui/confirmation/components';
-```
 
 ## Usage
 
@@ -84,13 +79,7 @@ Issues not conforming to the guidelines may be closed immediately.
 
 ## Depends on
 
-- `bulma`
-- `@fortawesome/fontawesome-svg-core`
-- `@fortawesome/free-solid-svg-icons`
-- `@fortawesome/vue-fontawesome`
-- `bulma`
-- `v-tooltip`
-- `vue`
+Built with `popover` from [v-tooltip](https://github.com/Akryum/v-tooltip)
 
 ## Contributions
 
