@@ -12,44 +12,31 @@ sidebarDepth: 3
 
 Enso UI Themes
 
-## Usage
-
-All components can be used outside of the Enso ecosystem.
-
-### Demo
+This package is meant to be used only in the Enso ecosystem.
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
-### Installation
+## Installation
 
 Install the package:
 ```
 yarn add @enso-ui/themes
 ```
 
-The package has the two default Enso themes, one light and one dark. 
-The themes are then imported in Enso's `webpack.mix.js`.
+The package has the two default Enso themes, one light and one dark. The themes must be imported in Enso's `webpack.mix.js`.
 
-### Removing themes
+## Removing themes
 
-If you remove one of your themes, note that the theme selector will no longer be visible in the right 
-settings side bar.
+If you remove one of your themes, note that the theme selector will no longer be visible in the right settings side bar.
 
-### Customizing the themes
+## Customizing the themes
 
-You mai copy the theme you want to customize locally, change it as per your requirements,
-and then simply import your local theme in the `webpack.mix.js` file.
+You mai copy the theme you want to customize locally, change it as per your requirements, and then simply import your local theme in the `webpack.mix.js` file.
 
 If you need to customize the aspect of one or more of the components, the customized styles should go into the 
 `bulma/components` sub-folder. 
 
 Since our themes are built on top of Bulma, its variables are customized in the `dark` and `light` sub-folders. 
-
-## Depends on
-
-- `bulma`
-- `bulma-extensions`
-- `flatpickr`
 
 ## Contributions
 
