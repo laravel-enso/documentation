@@ -137,6 +137,7 @@ module.exports = {
                     'companies',
                     'core',
                     'data-export',
+                    'data-import',
                 ]
             }],
         }
