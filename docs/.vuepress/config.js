@@ -138,6 +138,7 @@ module.exports = {
                     'core',
                     'data-export',
                     'data-import',
+                    'discussions',
                 ]
             }],
         }
