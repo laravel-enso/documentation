@@ -12,14 +12,9 @@ sidebarDepth: 3
 
 Accessories
 
-## Usage
 This package contains a suite of reusable components that can be used exclusively within the Enso ecosystem.
 
-### Demo
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
-
-### Installation
+## Installation
 
 Install the package:
 ```
@@ -32,11 +27,17 @@ import {
 } from '@enso-ui/accessories/bulma';
 ```
 
+## Demo
+
+For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+
+## Usage
+
 ### Accessories.vue
 
 The bulma styled container for the various components that acts in a similar fashion to the Tabs.
 
-Example:
+#### Example:
 ```vue
 import { Accessories, Addresses, Comments } from '@enso-ui/accessories/bulma';
 import { Tab } from `@enso-ui/tabs/bulma`;

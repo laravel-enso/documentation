@@ -1,3 +1,7 @@
+---
+sidebarDepth: 3
+---
+
 # Activity Log
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/dc3819bf2c654b3d8dcaaed8898b214f)](https://www.codacy.com/app/laravel-enso/ActionLogger?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/ActionLogger&amp;utm_campaign=Badge_Grade)
@@ -8,10 +12,21 @@
 
 Activity logger dependency for [Laravel Enso](https://laravel-enso.com).
 
+This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+
+The front end assets that utilize this api are present in the [ui](https://github.com/enso-ui/ui) package.
+
 [![Watch the demo](https://laravel-enso.github.io/activitylog/screenshots/bulma_051_thumb.png)](https://laravel-enso.github.io/activitylog/videos/bulma_activity_log.mp4)
 
 <sup>click on the photo to view a short demo in compatible browsers</sup>
 
+## Installation
+
+Comes pre-installed in Enso.
+
+## Demo
+
+For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
 ## Features
 
@@ -25,15 +40,7 @@ you may set additional configuration attributes on the model to further fine tun
 - the logger will not attempt to persist data when there is no authenticated user - this avoids issues when 
 using seeder / playing in tinker, etc.
 
-## Demo
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
-
 ## Usage
-
-This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
-
-The front end assets that utilize this api are present in the [ui](https://github.com/enso-ui/ui) package.
 
 In order to enable the logging for a particular model, you need to add the `LogsActivity` trait to that model. 
 By doing this, creation and deletion events are recorded (update events are not). 
@@ -124,10 +131,6 @@ Please note:
 - the given icon should be available (imported)
 - if no icon is given, the flag icon is used by default
     
-
-## Notes
-
-The [Laravel Enso Core](https://github.com/laravel-enso/Core) package comes with this package included.
 
 ## Contributions
 
