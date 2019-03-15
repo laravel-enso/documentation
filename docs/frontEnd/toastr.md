@@ -29,14 +29,14 @@ yarn add @enso-ui/toastr
 
 Import the component(s):
 
-```vue
+```js
 import Toastr from '@enso-ui/toastr/bulma';
 import Toastr from '@enso-ui/toastr/renderless';
 ```
 
 Install the plugin:
 
-```vue
+```js
 Vue.use(ToastrPlugin, {
     layout: Toastr,
     options: {
@@ -50,18 +50,18 @@ Note that the provided duration and position are the defaults, but they can be o
 
 Use Examples:
 
-```vue
+```js
 this.$toastr.success('You operation was successful')
 ```
 
-```vue
+```js
 this.$toastr.title('Warning')
     .position('bottom-left')
     .duration(5000)
     .warning('Something is wrong...')
 ```
 
-```vue
+```js
 this.$toastr.title('HTML').html('<span class="tag is-success'>v2.0.0</span>`)
 ```
 
