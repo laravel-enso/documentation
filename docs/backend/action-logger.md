@@ -15,13 +15,11 @@ This package works exclusively within the [Enso](https://github.com/laravel-enso
 
 The front end assets that utilize this api are present in the [ui](https://github.com/enso-ui/ui) package.
 
+For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+
 ## Installation
 
 Comes pre-installed in Enso.
-
-## Demo
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
 ## Features
 
