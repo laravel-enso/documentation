@@ -32,18 +32,6 @@ import {
 } from '@enso-ui/accessories/bulma';
 ```
 
-### Exports
-
-`@enso-ui/accessories/bulma`:
-- `Accessories`,
-- `AddressesCard`,
-- `Addresses`,
-- `CommentsCard`,
-- `Comments`,
-- `Discussions`,
-- `DocumentsCard`,
-- `Documents`,
-
 ### Accessories.vue
 
 The bulma styled container for the various components that acts in a similar fashion to the Tabs.
@@ -92,7 +80,7 @@ Should be used with their [backend sibling](https://github.com/laravel-enso/Addr
 
 #### Addresses.vue
 
-##### Use:
+##### Example:
 
 ```vue
 <addresses :id="myCompanyId"
@@ -107,7 +95,7 @@ Should be used with their [backend sibling](https://github.com/laravel-enso/Addr
 
 `Addresses` in a `Card` with some additional options
 
-##### Use:
+##### Example:
 
 ```vue
 <addresses-card collapsed
@@ -130,7 +118,7 @@ Should be used with their [backend sibling](https://github.com/laravel-enso/Comm
 
 #### Comments.vue
 
-##### Use:
+##### Example:
 
 ```vue
 <comments :id="myCompanyId"
@@ -145,7 +133,7 @@ Should be used with their [backend sibling](https://github.com/laravel-enso/Comm
 
 `Comments` in a `Card` with some additional options
 
-##### Use:
+##### Example:
 
 ```vue
 <comments-card collapsed
@@ -167,7 +155,7 @@ Should be used with their [backend sibling](https://github.com/laravel-enso/Disc
 
 #### Discussions.vue
 
-##### Use:
+##### Example:
 
 ```vue
 <discussions :id="myCompanyId"
@@ -182,7 +170,7 @@ Should be used with their [backend sibling](https://github.com/laravel-enso/Docu
 
 #### Documents.vue
 
-##### Use:
+##### Example:
 
 ```vue
 <documents :id="myCompanyId"
@@ -196,7 +184,7 @@ Should be used with their [backend sibling](https://github.com/laravel-enso/Docu
 
 #### DocumentsCard.vue
 
-##### Use:
+##### Example:
 
 ```vue
 <documents-card collapsed
@@ -211,23 +199,23 @@ Should be used with their [backend sibling](https://github.com/laravel-enso/Docu
 
 ## Depends on
 
-- `@enso-ui/card`,
-- `@enso-ui/confirmation`,
-- `@enso-ui/directives`,
-- `@enso-ui/modal`,
-- `@enso-ui/tabs`,
-- `@enso-ui/uploader`,
-- `@fortawesome/fontawesome-svg-core`,
-- `@fortawesome/free-solid-svg-icons`,
-- `@fortawesome/vue-fontawesome`,
-- `bulma`,
-- `lodash`,
-- `quill`,
-- `textarea-caret`,
-- `v-tooltip`,
-- `vue`,
-- `vue-quill-editor`,
-- `vuex`,
+- `@enso-ui/card`
+- `@enso-ui/confirmation`
+- `@enso-ui/directives`
+- `@enso-ui/modal`
+- `@enso-ui/tabs`
+- `@enso-ui/uploader`
+- `@fortawesome/fontawesome-svg-core`
+- `@fortawesome/free-solid-svg-icons`
+- `@fortawesome/vue-fontawesome`
+- `bulma`
+- `lodash`
+- `quill`
+- `textarea-caret`
+- `v-tooltip`
+- `vue`
+- `vue-quill-editor`
+- `vuex`
 
 ## Contributions
 
