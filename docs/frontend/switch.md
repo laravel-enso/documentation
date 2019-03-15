@@ -12,42 +12,37 @@ sidebarDepth: 3
 
 Vue Switch
 
-## Usage
-The component can be used outside of the Enso ecosystem.
-
-### Demo
+Can be used outside of the Enso ecosystem.
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
-### Installation
+## Installation
 
 Install the package:
 ```
 yarn add @enso-ui/switch
 ```
-Import the desired component(s):
+
+## Usage
+
+Import the component:
 ```js
 import Switch from '@enso-ui/switch/bulma';
 ```
 
-### Exports
+### VueSwitch
 
-`@enso-ui/switch/bulma`:
-- `VueSwitch`
-
-### bulma/VueSwitch.vue
 The bulma styled switch component. 
 
-Example:
+#### Example:
 ```vue
 <vue-switch class="has-margin-left-medium has-margin-right-medium"
-    v-model="filterCore"/>
+    v-model="myModel"/>
 ```
 
-Properties:
-- `disabled` - `boolean`, optional, default `false`, if true, the control is disabled
-- `readonly` - `boolean`, optional, default `false`, if true, the control is readonly
-- `value`, `boolean|number`, required, the value of the component
+#### Props:
+- `disabled` - `boolean`, optional - if true, the control is disabled
+- `readonly` - `boolean`, optional - if true, the control is readonly
 
 Events:
 - `input`, emitted when the value is changed, with the value/state as payload
@@ -61,11 +56,6 @@ Please make sure to search for existing issues before creating a new issue,
 and when opening a new issue, fill the required information in the issue template.
 
 Issues not conforming to the guidelines may be closed immediately.
-
-## Depends on
-
-- `bulma`
-- `vue`
 
 ## Contributions
 
