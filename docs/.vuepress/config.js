@@ -151,6 +151,7 @@ module.exports = {
                     'menu-manager',
                     'multitenancy',
                     'notifications',
+                    'people',
                 ]
             }],
         }
