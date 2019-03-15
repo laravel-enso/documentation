@@ -30,8 +30,8 @@ module.exports = {
         nav: [
             { text: "Guide", link: "/guide/" },
             { text: "V2", link: "/packages/" },
-            { text: "Front End", link: "/frontEnd/" },
-            { text: "Back End", link: "/backEnd/" },
+            { text: "Front End", link: "/frontend/" },
+            { text: "Back End", link: "/backend/" },
         ],
         sidebar: {
             '/guide/': [{
