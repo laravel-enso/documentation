@@ -10,13 +10,9 @@ sidebarDepth: 3
 ![GitHub issues](https://img.shields.io/github/issues/enso-ui/modal.svg) 
 ![npm version](https://img.shields.io/npm/v/@enso-ui/modal.svg) 
 
-A simple Modal
-
-## Usage
+Simple Modal Component
 
 The component can be used outside of the Enso ecosystem.
-
-### Demo
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
@@ -26,47 +22,53 @@ Install the package:
 ```
 yarn add @enso-ui/modal
 ```
+
+## Usage
+
 Import the desired component(s):
 ```js
-import { Modal } from '@enso-ui/modal/bulma';
-import { Modal } from '@enso-ui/modal/renderless';
+import { Modal, ModalCard } from '@enso-ui/modal/bulma';
+import { CoreModal } from '@enso-ui/modal/renderless';
 ```
 
-## Exports
+### CoreModal.vue
+This modal component renders its contents within a card and is built upon the renderless modal component.
 
-`@enso-ui/modal/bulma`:
-- `Modal`
-- `ModalCard`
+#### Props:
+- `show` - `boolean`, optional, default `true`, if true, the modal is visible
+- `portal` - `string`, optional, default `modals`, the query selector for the portal of the modal. 
 
-`@enso-ui/modal/renderless`:
-- `Modal`
+#### Slots:
 
-### bulma/Modal.vue
+Has a default scopedSlot that exposes the `close` method.
+
+### Modal
+
 The bulma styled modal component built on top of its renderless version. 
 
 Example:
 ```vue
-<modal :show="!!deletedPerson"
-    @close="deletedPerson = null">
+<modal :show="visible"
+    @close="doNothing">
     <div class="box">
         <h5 class="subtitle is-5">
-            {{ __("Do you want to delete the associated person?") }}
+            {{ i18n("Are you sure?") }}
         </h5>
         <hr>
         <div class="level">
             <div class="level-left">
                 <div class="level-item">
                     <button class="button is-outlined"
-                        @click="deletedPerson = null">
-                        {{ __('Cancel') }}
+                        @click="cancel">
+                        {{ i18n('Cancel') }}
                     </button>
                 </div>
             </div>
             <div class="level-right">
                 <div class="level-item">
                     <button class="button is-danger has-margin-left-small"
-                        @click="destroyPerson">
-                        {{ __('Yes') }}
+                        @click="doSomething">
+                        {{ i18n('Yes') }}
                     </button>
                 </div>
             </div>
@@ -75,39 +77,23 @@ Example:
 </modal>
 ```
 
-Properties:
-- `show` - `boolean`, optional, default `true`, if true, the modal is visible
-- `portal` - `string`, optional, default `modals`, the css class query selector for the portal of the modal. 
-
-The portal is considered the DOM container where the modal should be inserted/rendered.
+#### Props:
+All the props from `CoreModal` can be provided here
 
 Slots:
 - `default`, all content goes here
 
-### bulma/ModalCard.vue
+### ModalCard
+
 This modal component renders its contents within a card and is built upon the renderless modal component.
 
-Properties:
-- `show` - `boolean`, optional, default `true`, if true, the modal is visible
-- `portal` - `string`, optional, default `modals`, the query selector for the portal of the modal. 
+#### Props:
+All the props from `CoreModal` can be provided here
 
 Slots:
 - `header`, the card header contents go here
 - `body`, the card body contents go here
 - `footer`, the card header contents go here
-
-### renderless/Modal.vue
-This modal component renders its contents within a card and is built upon the renderless modal component.
-
-Properties:
-- `show` - `boolean`, optional, default `true`, if true, the modal is visible
-- `portal` - `string`, required, default `modals`, the query selector for the portal of the modal. 
-
-Methods:
-- `setUp`, performs the setup of the modal, which includes the creation of the portal
-- `createPortal`, creates the portal 
-- `display`, shows the modal and sets the necessary listeners 
-- `close`, emits a `close` event
 
 ## Questions & Issues
 
@@ -118,13 +104,6 @@ Please make sure to search for existing issues before creating a new issue,
 and when opening a new issue, fill the required information in the issue template.
 
 Issues not conforming to the guidelines may be closed immediately.
-
-## Depends on
-
-- `@enso-ui/directives`
-- `@enso-ui/transitions`
-- `bulma`
-- `vue`
 
 ## Contributions
 
