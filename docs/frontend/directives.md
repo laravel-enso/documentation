@@ -25,11 +25,9 @@ yarn add @enso-ui/directives
 
 ## Usage
 
+Import the desired directive(s):
 ```js
 import { clickOutside, focus } from '@enso-ui/directives';
-
-<my-comp v-focus
-    v-click-outside="hide"/>
 ```
 
 ### clickOutside.js
