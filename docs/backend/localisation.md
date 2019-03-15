@@ -22,6 +22,10 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 [![Watch the demo](https://laravel-enso.github.io/localisation/screenshots/bulma_011_thumb.png)](https://laravel-enso.github.io/localisation/videos/bulma_demo_01.webm)
 <sup>click on the photo to view a short demo in compatible browsers</sup>
 
+## Installation
+
+Comes pre-installed in Enso.
+
 ## Features
 
 - allows an easier management of languages, keys and translations in the context of a multi language application
