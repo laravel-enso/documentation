@@ -16,8 +16,6 @@ Can be used outside of the Enso ecosystem.
 
 Should be used with its backend [sibling](https://github.com/laravel-enso/Charts)
 
-## Demo
-
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
 ## Installation
