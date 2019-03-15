@@ -124,7 +124,7 @@ module.exports = {
                     'uploader',
                 ]
             }],
-            '/backEnd/': [{
+            '/backend/': [{
                 title: 'Back End',
                 collapsable: true,
                 children: [
