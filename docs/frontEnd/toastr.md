@@ -80,11 +80,6 @@ You can create your own layouts & transitions by using the renderless component
 
 The bulma styled toaster notification component built on top of its renderless version.
 
-Example:
-```vue
-<toastr title="my title" body="Message text"/>
-```
-
 Properties:
 - `body` - `string`, optional, default `left`, the alignment of the tabs, valid options are: 'left', 'centered', 'right'
 - `duration` - `number`, optional, default `3500`, the duration of the bounce animation, in ms, used when showing the notification
