@@ -15,7 +15,7 @@ Quickly build any complex table based on a JSON template.
 
 This package can work independently of the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
 
-The front end assets that utilize this api are present in the [tables](https://github.com/enso-ui/tables).
+The front end assets that utilize this api are present in the [tables](https://github.com/enso-ui/tables) package.
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
@@ -127,7 +127,7 @@ class UserTable extends Table
 
 Example: [ExampleTable](https://github.com/laravel-enso/Examples/blob/master/src/app/Tables/Builders/ExampleTable.php) 
 
-4. Declare the route in your route file, to present your controller's methods
+4. Declare the route(s) in your routes file, to make available your controller's methods
 
 ```php
 Route::get('init', 'TableController@init')->name('init');
@@ -137,7 +137,9 @@ Route::get('exportExcel', 'TableController@exportExcel')->name('exportExcel');
 
 Example: [web.php](https://github.com/laravel-enso/Examples/blob/master/src/routes/web.php)
    
-5. Import and place place the `VueTable` VueJS component in your page/component and pass it the necessary properties.
+5. Import and place place the `VueTable` VueJS component in your page/component and pass it the necessary properties. 
+Within the Enso ecosystem, you may use instead the `EnsoTable` component which requires fewer parameters as it uses 
+Enso specific defaults. 
 
 Example: [index.blade.php](https://github.com/laravel-enso/Examples/blob/master/src/resources/views/table/index.blade.php)
 
