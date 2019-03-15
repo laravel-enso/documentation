@@ -12,10 +12,7 @@ sidebarDepth: 3
 
 Simple loader
 
-## Usage
-The component can be used outside of the Enso ecosystem.
-
-### Demo
+Can be used outside of the Enso ecosystem.
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
@@ -25,17 +22,15 @@ Install the package:
 ```
 yarn add @enso-ui/loader
 ```
+
+## Usage
+
 Import the desired component(s):
 ```js
 import Loader from '@enso-ui/loader/bulma';
 ```
 
-### Exports
-
-`@enso-ui/loader/bulma`:
-- `Loader`
-
-### bulma/Loader.vue
+### Loader.vue
 The bulma styled loading indication component.
 
 Example:
@@ -44,9 +39,9 @@ Example:
 ```
 
 Properties:
-- `color` - `string`, optional, default `#f44336`, the color of the loader indicator
-- `size` - `string`, optional, default `medium`, the size of the indicator. Valid options are: 'small', 'medium', 'large'
-- `transparent` - `boolean`, optional, default `false`, if true makes the component overlay transparent
+- `color` - `string`, optional, default `#f44336` - the color of the loader indicator
+- `size` - `string`, optional, default `medium` - the size of the indicator. Valid options are: 'small', 'medium', 'large'
+- `transparent` - `boolean`, optional - if true makes the component overlay transparent
 
 ## Questions & Issues
 
@@ -57,12 +52,6 @@ Please make sure to search for existing issues before creating a new issue,
 and when opening a new issue, fill the required information in the issue template.
 
 Issues not conforming to the guidelines may be closed immediately.
-
-## Depends on
-
-- `@enso-ui/transitions`
-- `bulma`
-- `vue`
 
 ## Contributions
 
