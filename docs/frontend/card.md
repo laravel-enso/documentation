@@ -14,7 +14,7 @@ Bulma styled Card component
 
 ## Usage
 
-All components can be used outside of the Enso ecosystem.
+Can be used outside of the Enso ecosystem.
 
 ### Demo
 
@@ -23,50 +23,46 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 ### Installation
 
 Install the package:
+
 ```
 yarn add @enso-ui/card
 ```
+
 Import the desired component(s):
+
 ```js
 import { Card, CardHeader, ... } from '@enso-ui/card/bulma';
 ```
 
-### Exports
+### Card
 
-`@enso-ui/card/bulma`:
-- `Card`,
-- `CardHeader`,
-- `CardContent`,
-- `CardImage`,
-- `CardFooter`,
-- `CardFooterItem`,
-- `CardControl`,
-- `CardBadge`,
-- `CardCollapse`,
-- `CardRefresh`,
-- `CardRemove`,
-
-### bulma/Card.vue
-
-This is the main component. It can optionally have:
-- an image
-- a header, with:
-    - a title
-    - a set of controls
+This is the main component. It can optionally have, via slots:
+- header, with:
+    - title
+    - controls
+- image
 - content
-- a footer, with:
+- footer, with:
     - items
 
 As noted above, you may skip one or more of these components, as required 
 (for example, you may not need controls, a footer, etc).
 
-Note that cards may be nested and when nesting them,
-collapsible controls are correctly supported.
+::: tip Tip
+Cards may be nested and when nesting them, the collapsible feature works as expected
+:::
 
-Also, you may use transitions for the cards.
+::: tip Tip
+You may use transitions for the cards.
+:::
 
-Example:
+#### Example:
 ```vue
+import {
+    Card, CardHeader, CardControl, CardCollapse, CardContent,
+    CardFooter, CardFooterItem,
+} from '@enso-ui/card/bulma';
+
 <card>
     <card-header>
         <template v-slot:title>
@@ -90,11 +86,6 @@ Example:
             <card-collapse/>
         </template>
     </card-header>
-    <card-image>
-            <figure class="image is-4by3">
-              <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-            </figure>
-        </card-image>
     <card-content class="is-paddingless">
         Actual content goes here
     </card-content>
@@ -106,45 +97,30 @@ Example:
 </card>
 ```
 
-Properties:
-- `loading` - `boolean`, optional, default `false`, if true, a loader is shown
-- `collapsed` - `boolean`, optional, default `false`, if true, the card is shown collapsed
-- `transition` - `boolean`, optional, default `false`, if true, the destruction of the card is handled
-differently, so that transitions work correctly even when closing a card.
+#### Props:
+- `loading` - `boolean`, optional - controls an overlay loader
+- `collapsed` - `boolean`, optional - controls the initial render state
+- `transition` - `boolean`, optional - if true, the destruction of the card is handled in such a way that that custom transitions work correctly even when removing the card.
 
 
-Slots:
+#### Slots:
 - `default`, all content goes here
 
-### bulma/CardHeader.vue
+### CardHeader
 
 The component is a container for the header contents.
 
-Note that using the `CardCollapse` component within the card header will make the card component collapsible.
+Note that when using the `CardCollapse` component within the card, the clicking header will work as collapse control too.
 
-Example:
-```vue
-<card>
-    <card-header>
-        <div slot="title">
-            My Title
-        </div>
-    </card-header>
-</card>
-```
-
-Slots:
+#### Slots:
 - `title`, for showing a title
 - `controls`, for any Card controls
 
-Events:
-- `click`, when the title is clicked
-
-### bulma/CardBadge.vue
+### CardBadge
 
 The component shows a badge within a Card's controls area.
 
-Example:
+#### Example:
 ```vue
 <card>
     <card-header>
@@ -155,17 +131,15 @@ Example:
 </card>
 ```
 
+#### Props:
+- `label` - `string|number`, required,
+- `type` - `string`, optional - controls the color of the tag, see [here](https://bulma.io/documentation/elements/tag/) for more info.
 
-Properties:
-- `label` - `string`, required,
-- `type` - `string`, optional, default `null`. 
-This is the color of the tag, see [here](https://bulma.io/documentation/elements/tag/) for more info.
+### CardCollapse
 
-### bulma/CardCollapse.vue
+The component shows a dropdown indicator control and can be used to collapse or expand the card. To make the card collapsible you just have to use this component in the `controls` slot of `CardHeader`.
 
-The component shows a dropdown indicator control and can be used to collapse the card.
-
-Example:
+#### Example:
 ```vue
 <card>
     <card-header>
@@ -176,17 +150,18 @@ Example:
 </card>
 ```
 
-### bulma/CardControl.vue
+### CardControl
 
-The component is a container for any custom controls.
+The component is use to create custom controls.
 
-Example:
+#### Example:
 ```vue
 <card>
     <card-header>
         <div slot="controls">
             <card-control v-tooltip="'my tooltip'">
-                <span class="icon">
+                <span class="icon"
+                    @click="doSomething">
                     <fa icon="info-circle"/>
                 </span>
             </card-control>
@@ -195,32 +170,32 @@ Example:
 </card>
 ```
 
-Slots:
+#### Slots:
 - `default`, all content goes here
 
 ### bulma/CardRefresh.vue
 
 The component is a refresh control for the card. 
 
-Example:
+#### Example:
 ```vue
 <card>
     <card-header>
         <div slot="controls">
-            <card-refresh @refresh="alert"/>
+            <card-refresh @refresh="refresh"/>
         </div>
     </card-header>
 </card>
 ```
 
-Events:
+#### Events:
 - `refresh`, when clicked; the event needs to be handled by the developer.
 
-### bulma/CardRemove.vue
+### CardRemove
 
 The component is a remove/close control for the card. 
 
-Example:
+#### Example:
 ```vue
 <card>
     <card-header>
@@ -231,10 +206,7 @@ Example:
 </card>
 ```
 
-Events:
-- `remove`, when clicked; the event needs to be handled by the developer.
-
-### bulma/CardContent.vue
+### CardContent
 
 The component is the container for the card's content.
 
@@ -250,10 +222,10 @@ Example:
 </card>
 ```
 
-Slots:
+#### Slots:
 - `default`, all content goes here
 
-### bulma/CardFooter.vue
+### CardFooter
 
 The component is the container for the card's footer.
 
@@ -271,22 +243,19 @@ The component is the container for the card's footer.
 </card>
 ```
 
-Slots:
+#### Slots:
 - `default`, all content goes here
 
-Normally, a card footer should contain at least a card footer item 
-if you want to go with the classic bulma design, 
-unless you want to go with a custom footer design.
+::: warning Notice
+A card footer should contain at least a card footer item if you want to go with the classic bulma design.
+:::
 
-### bulma/CardFooterItem.vue
+### CardFooterItem
 
 The component is the container for one footer item.
 
 ```vue
 <card>
-    <card-header>
-        Header content
-    </card-header>
     <card-content>
         Main content
     </card-content>
@@ -301,14 +270,14 @@ The component is the container for one footer item.
 </card>
 ```
 
-Slots:
+#### Slots:
 - `default`, all content goes here
 
-### bulma/CardImage.vue
+### CardImage
 
 The component is the container for an image.
 
-Example:
+#### Example:
 ```vue
 <card>
     <card-image>
@@ -320,7 +289,7 @@ Example:
 ```
 
 
-Slots:
+#### Slots:
 - `default`, all content goes here
 
 ## Questions & Issues
