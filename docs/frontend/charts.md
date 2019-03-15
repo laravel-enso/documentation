@@ -104,16 +104,13 @@ and when opening a new issue, fill the required information in the issue templat
 
 Issues not conforming to the guidelines may be closed immediately.
 
-## Depends on
+## External Dependencies
 
-- `@fortawesome/fontawesome-svg-core`
-- `@fortawesome/free-solid-svg-icons`
-- `@fortawesome/vue-fontawesome`
-- `bulma`
-- `chart.js`
-- `chartjs-plugin-datalabels`
-- `file-saver`
-- `vue`
+Built with [chart.js](https://www.chartjs.org/docs/latest/).
+
+Uses [chartjs-plugin-datalabels](https://chartjs-plugin-datalabels.netlify.com/)
+
+For PNG download uses [file-saver](https://github.com/eligrey/FileSaver.js#readme)
 
 ## Contributions
 
