@@ -33,7 +33,11 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 
 2. publish the config with `php artisan vendor:publish --tag=charts-config` and customize as needed
 
-3. In your controller, add a method that will return the data for each chart:
+3. install the api implementation for the front end: `npm i @enso-ui/charts`
+
+## Usage
+
+1. In your controller, add a method that will return the data for each chart:
 
 ```php
 public function line()
@@ -49,9 +53,9 @@ public function line()
 }
 ```
 
-4. create a route for each chart dataset, add permissions if needed, etc.
+2. create a route for each chart dataset, add permissions if needed, etc.
 
-5. install the front end components and add them to your pages. 
+3. add the front end components to your pages. 
 For more information about the front end, see [enso-ui/charts](https://github.com/enso-ui/charts). 
 
 ## Configuration

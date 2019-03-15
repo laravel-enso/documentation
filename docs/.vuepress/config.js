@@ -141,6 +141,7 @@ module.exports = {
                     'discussions',
                     'documents-manager',
                     'file-manager',
+                    'form-builder',
                 ]
             }],
         }
