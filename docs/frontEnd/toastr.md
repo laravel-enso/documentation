@@ -13,7 +13,7 @@ sidebarDepth: 3
 Multi layout renderless Toaster Notification
 
 ## Usage
-The components can be used outside of the Enso ecosystem.
+Can be used outside of the Enso ecosystem.
 
 ### Demo
 
@@ -25,11 +25,45 @@ Install the package:
 ```
 yarn add @enso-ui/toastr
 ```
-Import the desired component(s):
+Import the component(s):
 ```js
 import Toastr from '@enso-ui/toastr/bulma';
 import Toastr from '@enso-ui/toastr/renderless';
 ```
+
+Install the plugin:
+```js
+Vue.use(ToastrPlugin, {
+    layout: Toastr,
+    options: {
+        duration: 3500,
+        position: 'right',
+    },
+});
+```
+
+Note that the provided duration and position are the defaults, but they can be overriden on each use.
+
+Use Examples:
+
+```js
+this.$toastr.success('You operation was successful')
+```
+
+```js
+this.$toastr.title('Warning')
+    .position('bottom-left')
+    .duration(5000)
+    .warning('Something is wrong...')
+```
+
+```js
+this.$toastr.title('HTML').html('<span class="tag is-success'>v2.0.0</span>`)
+```
+
+::: tip Tip
+You can create your own layouts & transitions by using the renderless component
+:::
 
 ## Exports
 
@@ -43,6 +77,7 @@ import Toastr from '@enso-ui/toastr/renderless';
 - `Bounce`
 
 ### bulma/Toastr.vue
+
 The bulma styled toaster notification component built on top of its renderless version.
 
 Example:
@@ -61,6 +96,7 @@ valid options are: 'top-left', 'top-right', 'top-center', 'bottom-left', 'bottom
 valid options are: 'message', 'primary', 'info', 'success', 'warning', 'danger'
 
 ### renderless/Toastr.vue
+
 The renderless toaster notification component which can be built upon to create custom implementations.
 
 Properties:
@@ -69,15 +105,21 @@ Properties:
 valid options are: 'top-left', 'top-right', 'top-center', 'bottom-left', 'bottom-right', 'bottom-center'
 
 Methods:
-- `setUp()`, performs the setup of the toaster, which includes the creation of the portal
-- `createPortal()`, creates the portal 
-- `startHovering()`, stops the timer, resets the progress 
-- `stopHovering()`, restarts the timer 
-- `show()`, shows the toaster and starts the timer
-- `close()`, clears timers and hides the toaster
-- `startTimer()`, starts the timer using the given duration
+- `title(string)` - sets on optional title
+- `duration(number)` - sets the duration in ms
+- `position(string)` - sets the position, available options 'top-left', 'top-right', 'top-center', 'bottom-left', 'bottom-right', 'bottom-center' 
+- `html(html)` - displays html content
+
+The methods below are used to display a themed message:
+- `error(message)`
+- `info(message)`
+- `message(message)`
+- `primary(message)`
+- `success(message)`
+- `warning(message)`
 
 ### transitions/Bounce.vue
+
 A reusable bounce transition.
 
 Properties:
