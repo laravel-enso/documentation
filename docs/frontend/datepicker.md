@@ -25,8 +25,6 @@ yarn add @enso-ui/datepicker
 
 ## Usage
 
-Import the desired component(s):
-
 ```js
 import { Datepicker } from '@enso-ui/datepicker/bulma';
 
