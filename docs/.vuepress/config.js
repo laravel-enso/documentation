@@ -147,6 +147,7 @@ module.exports = {
                     'impersonate',
                     'vue-datatable',
                     'localisation',
+                    'log-manager',
                 ]
             }],
         }

@@ -1,3 +1,7 @@
+---
+sidebarDepth: 3
+---
+
 # Log Manager
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/28c7bcb0b5d2451783990e0a151f0a44)](https://www.codacy.com/app/laravel-enso/LogManager?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/LogManager&amp;utm_campaign=Badge_Grade)
@@ -8,9 +12,19 @@
 
 Log management dependency for [Laravel Enso](https://github.com/laravel-enso/Enso)
 
+This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+
+The front end assets that utilize this api are present in the [ui](https://github.com/enso-ui/ui) package.
+
+For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+
 [![Screenshot](https://laravel-enso.github.io/logmanager/screenshots/bulma_004_thumb.png)](https://laravel-enso.github.io/logmanager/screenshots/bulma_004.png)
 
 [![Screenshot](https://laravel-enso.github.io/logmanager/screenshots/bulma_005_thumb.png)](https://laravel-enso.github.io/logmanager/screenshots/bulma_005.png)
+
+## Installation
+
+Comes pre-installed in Enso.
 
 ## Features
 
@@ -20,19 +34,10 @@ Log management dependency for [Laravel Enso](https://github.com/laravel-enso/Ens
 - can display in-page the contents of the log file, up to certain file size limit, to avoid locking up the browser
 - if the files get too large, only the download option is offered
 
-## Publishes
+## Contributions
 
-- `php artisan vendor:publish --tag=log-assets` - the VueJS components and pages
-- `php artisan vendor:publish --tag=enso-assets` - a common alias for when wanting to update the assets,
-once a newer version is released, can be used with the `--force` flag
+are welcome. Pull requests are great, but issues are good too.
 
+## License
 
-## Notes
-
-The [Laravel Enso Core](https://github.com/laravel-enso/Core) package comes with this package included.
-
-If at first, when installing [Enso](https://github.com/laravel-enso/Enso) , there are no logs inside the logs folder, nothing will be displayed 
-on the log management page. 
-
-Depends on: 
- - [Structure manager](https://github.com/laravel-enso/StructureManager) for the migrations
+This package is released under the MIT license.
