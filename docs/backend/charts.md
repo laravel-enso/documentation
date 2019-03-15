@@ -31,7 +31,7 @@ To install outside of Enso:
 
 2. publish the config with `php artisan vendor:publish --tag=charts-config` and customize as needed
 
-3. install the api implementation for the front end: `npm i @enso-ui/charts`
+3. install the api implementation for the front end: `yarn add @enso-ui/charts`
 
 ## Features
 

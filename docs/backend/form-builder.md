@@ -32,7 +32,7 @@ To install outside of Enso:
 
 2. if needed, publish and customize the config
 
-3. install the api implementation for the front end: `npm i @enso-ui/forms`
+3. install the api implementation for the front end: `yarm add @enso-ui/forms`
 
 ## Features
 
