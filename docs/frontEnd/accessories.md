@@ -77,7 +77,7 @@ The accessory components can be attached to any model so that you could have, fo
 ::: warning Note
 Being built around a polymorphic relation all the accessory components have two required props:
 - `id` - `number`, required, the id of the morphable model
-- `type` - `string`, required, default `null`, the type of the morpable model
+- `type` - `string`, required, default `null`, the type of the morphable model
 :::
 
 ::: tip Tip
