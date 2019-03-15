@@ -39,7 +39,7 @@ Comes pre-installed in Enso.
 
 ## Usage
 
-1. the configuration should be published, and inside you need to define the addresable types
+1. you may publish the configuration and customize the options as needed
 2. use the package's `Addresable` trait for the models you want to make addressable
 3. insert the `Addreses` vue component where required in your pages/components, see the 
 front end implementation [docs](https://docs.laravel-enso.com/frontend/accessories.html#addresses) for the available options
