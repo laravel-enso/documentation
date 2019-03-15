@@ -12,45 +12,38 @@ sidebarDepth: 3
 
 A simple dropdown indicator
 
-## Usage
-All components can be used outside of the Enso ecosystem.
-
-### Demo
+Can be used outside of the Enso ecosystem.
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
-### Installation
+## Installation
 
 Install the package:
 ```
 yarn add @enso-ui/dropdown-indicator
 ```
+
+## Usage
 Import the desired component(s):
 ```js
 import DropdownIndicator from '@enso-ui/dropdown-indicator';
 ```
 
-## Exports
-
-`@enso-ui/dropdown-indicator`:
-- `DropdownIndicator`,
-
-### bulma/Dropdown.vue
+### Dropdown
 This is the bulma styled component.
 
-Example:
+### Example:
 ```vue
 <dropdown-indicator class="is-small"
     :collapsed="!menu.expanded"
     v-if="menu.has_children"/>
 ```
 
-Properties:
-- `open` - `boolean`, optional, default `false`. 
-If set to false, the control is rotated up so as to suggest the dropdown is open 
+### Props:
+- `open` - `boolean`, optional - if set to false, the control is rotated up so as to suggest the dropdown is open 
 
 
-Methods:
+### Methods:
 - `toggle()`, toggles the state of the indicator & emits a `toggle` event
 
 ## Questions & Issues
@@ -62,13 +55,6 @@ Please make sure to search for existing issues before creating a new issue,
 and when opening a new issue, fill the required information in the issue template.
 
 Issues not conforming to the guidelines may be closed immediately.
-
-## Depends on
-
-- `@fortawesome/fontawesome-svg-core`
-- `@fortawesome/free-solid-svg-icons`
-- `@fortawesome/vue-fontawesome`
-- `vue`
 
 ## Contributions
 

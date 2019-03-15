@@ -10,46 +10,33 @@ sidebarDepth: 3
 ![GitHub issues](https://img.shields.io/github/issues/enso-ui/divider.svg)
 ![npm version](https://img.shields.io/npm/v/@enso-ui/divider.svg)
 
-Vue Divider Package
-
-## Usage
+Vue Divider
 
 The component can be used outside of the Enso ecosystem.
 
-### Demo
-
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
-### Installation
+## Installation
 
 Install the package:
 ```
 yarn add @enso-ui/divider
 ```
-Import the desired divider(s):
-```js
-import Divider from '@enso-ui/divider';
-```
 
-### Exports
-
-`@enso-ui/divider`:
-- `Divider`,
+## Usage
 
 ### Divider.vue
 
 Simple divider component.
 
-Example:
+#### Example:
 ```vue
 <divider title="Divider text" placement="center"/>
 ```
 
-Properties:
-- `placement` - `string`, optional, default `center`, the positioning of the title.
-Valid options are: 'left', 'center', 'right'
-- `title` - `string`, optional, default '', the title/text used for the divider
-
+#### Props:
+- `placement` - `string`, optional, default `center` - the positioning of the title. Valid options are: 'left', 'center', 'right'
+- `title` - `string`, optional - the title/text used for the divider
 
 ## Questions & Issues
 
@@ -60,11 +47,6 @@ Please make sure to search for existing issues before creating a new issue,
 and when opening a new issue, fill the required information in the issue template.
 
 Issues not conforming to the guidelines may be closed immediately.
-
-## Depends on
-
-- `highlight.js`
-- `vue`
 
 ## Contributions
 
