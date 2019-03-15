@@ -132,6 +132,7 @@ module.exports = {
                     'activity-log',
                     'avatar-manager',
                     'address-manager',
+                    'charts',
                 ]
             }],
         }
