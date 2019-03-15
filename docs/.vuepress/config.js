@@ -136,6 +136,7 @@ module.exports = {
                     'comments-manager',
                     'companies',
                     'core',
+                    'data-export',
                 ]
             }],
         }
