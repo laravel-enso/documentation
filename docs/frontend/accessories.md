@@ -209,23 +209,7 @@ Should be used with their [backend sibling](https://github.com/laravel-enso/Docu
 
 ## Depends on
 
-- `@enso-ui/card`
-- `@enso-ui/confirmation`
-- `@enso-ui/directives`
-- `@enso-ui/modal`
-- `@enso-ui/tabs`
-- `@enso-ui/uploader`
-- `@fortawesome/fontawesome-svg-core`
-- `@fortawesome/free-solid-svg-icons`
-- `@fortawesome/vue-fontawesome`
-- `bulma`
-- `lodash`
-- `quill`
-- `textarea-caret`
-- `v-tooltip`
-- `vue`
-- `vue-quill-editor`
-- `vuex`
+Discussions are currently built with [vue-quill-editor](https://github.com/surmon-china/vue-quill-editor) & [quill](https://quilljs.com/) but in the near future we will migrate it on our own [wysiywg](https://github.com/enso-ui/wysiwyg)
 
 ## Contributions
 
