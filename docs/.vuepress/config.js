@@ -142,6 +142,7 @@ module.exports = {
                     'documents-manager',
                     'file-manager',
                     'form-builder',
+                    'helpers',
                 ]
             }],
         }
