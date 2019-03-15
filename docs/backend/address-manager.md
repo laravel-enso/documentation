@@ -16,6 +16,8 @@ This package works exclusively within the [Enso](https://github.com/laravel-enso
 
 There is a front end implementation for this this api in the [accessories](https://github.com/enso-ui/accessories) package.
 
+For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+
 [![Screenshot](https://laravel-enso.github.io/addressesmanager/screenshots/bulma_041_thumb.png)](https://laravel-enso.github.io/addressesmanager/screenshots/bulma_041.png)
 
 [![Screenshot](https://laravel-enso.github.io/addressesmanager/screenshots/bulma_042_thumb.png)](https://laravel-enso.github.io/addressesmanager/screenshots/bulma_042.png)
@@ -23,10 +25,6 @@ There is a front end implementation for this this api in the [accessories](https
 ## Installation
 
 Comes pre-installed in Enso.
-
-## Demo
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
 ## Features
 
@@ -47,6 +45,7 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 front end implementation [docs](https://docs.laravel-enso.com/frontend/accessories.html#addresses) for the available options
 
 ## Configuration
+
 Inside the `config/enso/addresses.php` file, you'll find several customization options:
 - `onDelete`, string, option that manages the case when the commentable entity is deleted and it has attached discussions.
 Valid options are `cascade`, `restrict` | default is `cascade`
@@ -68,6 +67,7 @@ For example:
     - `attributes`, the list of attributes used for the label, default: `'localityName', 'street', 'number'`
 
 ## Extending the addresses
+
 In your project you may have the need to alter and or extend the addresses structure by adding/removing table columns.
 To achieve this, you'd need to:
 - add migration(s) to your local project, making the necessary changes. Note that if using sqlite for testing, 
@@ -78,9 +78,18 @@ Also, you may mark any form fields as custom and then customize them in your pag
  in your local `AppServiceProvider`
 
 ## Publishes
+
 - `php artisan vendor:publish --tag=addresses-seeder` - the seeder used for countries
 - `php artisan vendor:publish --tag=enso-seeders` - a common alias for when wanting to update the seeders
 once a newer version is released, usually used with `--force` 
 - `php artisan vendor:publish --tag=addresses-config` - configuration file
 - `php artisan vendor:publish --tag=enso-config` - a common alias for when wanting to update the config,
 once a newer version is released, usually used with `--force`
+
+## Contributions
+
+are welcome. Pull requests are great, but issues are good too.
+
+## License
+
+This package is released under the MIT license.

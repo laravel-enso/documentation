@@ -130,6 +130,8 @@ module.exports = {
                 children: [
                     'action-logger',
                     'activity-log',
+                    'avatar-manager',
+                    'address-manager',
                 ]
             }],
         }
