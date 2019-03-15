@@ -128,7 +128,7 @@ module.exports = {
                 title: 'Back End',
                 collapsable: true,
                 children: [
-                    'wip',
+                    'action-logger',
                 ]
             }],
         }
