@@ -93,7 +93,7 @@ module.exports = {
             }],
             '/frontEnd/': [{
                 title: 'Front End',
-                collapsable: true,
+                collapsable: false,
                 children: [
                     'accessories',
                     'bulma',
@@ -126,7 +126,7 @@ module.exports = {
             }],
             '/backend/': [{
                 title: 'Back End',
-                collapsable: true,
+                collapsable: false,
                 children: [
                     'action-logger',
                 ]
