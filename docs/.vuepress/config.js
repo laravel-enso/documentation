@@ -146,6 +146,7 @@ module.exports = {
                     'how-to-videos',
                     'impersonate',
                     'vue-datatable',
+                    'localisation',
                 ]
             }],
         }
