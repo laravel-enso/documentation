@@ -21,6 +21,18 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 
 <sup>click on the photo to view a short demo in compatible browsers</sup>
 
+## Installation
+
+Comes pre-installed in Enso. 
+
+To install outside of Enso:
+
+1. `composer require laravel-enso/charts`
+
+2. publish the config with `php artisan vendor:publish --tag=charts-config` and customize as needed
+
+3. install the api implementation for the front end: `npm i @enso-ui/charts`
+
 ## Features
 
 - it supports Bar, Bubble, Line, Pie, Doughnut, Polar Area and Radar chart types
@@ -28,14 +40,6 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 - the used colors are configurable through the publishable config file
 - can translate labels, legends and data series
 - can download the graphical representation of the graph, as a `PNG` file
-
-## Installation
-
-1. `composer require laravel-enso/charts`
-
-2. publish the config with `php artisan vendor:publish --tag=charts-config` and customize as needed
-
-3. install the api implementation for the front end: `npm i @enso-ui/charts`
 
 ## Usage
 
