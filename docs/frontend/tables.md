@@ -12,39 +12,102 @@ sidebarDepth: 3
 
 DataTable Vue Components with a Bulma implementation over a renderless core
 
-## Usage
-
-Unless where specified otherwise, the components can be used outside of the Enso ecosystem.
-
-### Demo
+Can be used outside of the Enso ecosystem.
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
-### Installation
+Should be used with its backend [sibling](https://github.com/laravel-enso/VueDatatable)
+
+## Installation
 
 Install the package:
 ```
-yarn add @enso-ui/tables
+yarn add @enso-ui/tables @enso-ui/toastr
 ```
-Import the desired component(s):
+
+## Usage
+
+Import the following in a main js file:
 ```js
-import { VueTable, EnsoTable } from '@enso-ui/tables/bulma';
-import { VueTable } from '@enso-ui/tables/renderless';
+import axios from 'axios';
+import Toastr from '@enso-ui/toastr/bulma';
+import ToastrPlugin from '@enso-ui/toastr';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
+Vue.component('fa', FontAwesomeIcon);
+
+Vue.use(ToastrPlugin, {
+    layout: Toastr,
+    options: {
+        duration: 3500,
+        position: 'right',
+    },
+});
+
+window.axios = axios;
 ```
 
-### Exports
+Then in any given page import:
+```js
+import { VueTable } from '@enso-ui/tables/bulma';
+```
 
-`@enso-ui/tables/bulma`:
-- `EnsoTable`, 
-- `VueTable`, 
+### CoreTable
 
-`@enso-ui/tables/renderless`:
-- `VueTable`,
+This is the renderless version of the component that can be built upon to create 
+your own custom version.
 
-### bulma/EnsoTable.vue
+#### Props:
+ `errorHandler` - `function` - function used to handle axios errors
+- `filters` - `object` - a filters object that is sent to the back-end to filter the results
+- `id` - `string`, required, an id for the table
+- `intervals` - `object`, optional - an interval filters object that is sent to the back-end to filter the results
+- `i18n`, `function`, optional - the function that handles localisation
+- `params` - `object`, optional - a params object that may be used on the back-end to perform additional, custom, operations
+- `path` - `string`, required - the URI path used to fetch the table template.
 
-This bulma styled component built on top of its base version is 
-designed to be used within the **Enso ecosystem**, requiring less configuration from the dev. 
+#### Events:
+- `ready` - when the component is initialized after fetching its template, BEFORE fetching the actual table data
+- `fetching` - just before making the request to fetch the table data
+- `fetched` - when the table data has been fetched
+- `clicked` - when clicking on a `clickable` column
+
+Various other user events may be emitted depending on the configured template.
+
+### VueTable
+
+This is the main bulma styled component and it is built upon the renderless component `renderless/VueTable.vue`
+
+#### Example:
+```vue
+<vue-table :path="route('system.menus.initTable')"        
+    :error-handler="myErrorHandler"
+    :i18n="myI18n"        
+    ref="table"/>        
+```
+
+#### Props:
+
+All the props from `CoreTable` can be provided here
+
+#### Slots:
+- if any columns have the `slot` attribute in their meta, in the template, then a scoped slot is rendered for each of these
+columns. The name of the slot is the column's name. The slot exposes the `row` & `column` objects
+
+```vue
+<vue-table :path="route('system.menus.initTable')"        
+    :error-handler="myErrorHandler"
+    :i18n="myI18n"        
+    ref="table"> 
+    <template v-slot:my_column="{ row, column }">
+        <span>{{ row[column.name] }}
+    </template>
+</vue-table>
+```
+
+### EnsoTable
+
+Designed to be used within the Enso ecosystem, requiring less configuration from the dev. 
 
 Example:
 ```vue
@@ -53,79 +116,17 @@ Example:
     id="menus"/>
 ```
 
-Properties:
-- `path` - `string`, optional, the URI path used to fetch the table template.
-By default, if no path is given, a default path is deduced from the $route path, 
-following Enso standards and defaults for various path segments. 
+#### Props:
 
-'Passed-through' properties:
-- the EnsoTable component can also take the (renderless) VueTable component's properties
-which you may find below.
+All the props from `VueTable` can be provided here
 
-Slots:
-- if any columns are marked as custom columns in the tale template, then a slot is rendered for each of these
-columns. The name of the slot is the column's name.
+#### Slots:
 
-### bulma/VueTable.vue
+The custom slots from `VueTable` are available here
 
-This is the main bulma styled component and it is built upon the renderless
-component `renderless/VueTable.vue`
+### Table Init Sample Response
 
-Example:
-```vue
-<vue-table :path="route('system.menus.initTable')"        
-    :error-handler="myErrorHandler"
-    :i18n="myI18n"        
-    ref="table">        
-</vue-table>
-```
-
-'Passed-through' properties:
-- the EnsoTable component can also take the (renderless) VueTable component's properties
-which you may find below.
-
-Slots:
-- if any columns are marked as custom columns in the tale template, then a slot is rendered for each of these
-columns. The name of the slot is the column's name.
-
-### renderless/VueTable.vue
-
-This is the renderless version of the component that can be built upon to create 
-your own custom version.
-
-Example:
-```vue
-<vue-table :path="route('system.menus.initTable')"        
-    :error-handler="myErrorHandler"
-    :i18n="myI18n"        
-    ref="table">        
-</vue-table>
-```
-
-Properties:
- `errorHandler` - `function`, optional, by default the error is thrown, function used to handle errors
-- `filters` - `object`, optional, a filters object that is sent to the back-end to filter the results.
-The [laravel-enso/VueDatatable](https://github.com/laravel-enso/VueDatatable) backend API handles them automatically
-- `id` - `string`, required, an id for the table
-- `intervals` - `object`, optional, default `null`, an interval filters object that is sent to the back-end to filter the results.
-The [laravel-enso/VueDatatable](https://github.com/laravel-enso/VueDatatable) backend API handles them automatically
-- `i18n`, `function`, optional, default `v => v`, the function that performs translations
-- `params` - `object`, optional, default `null`, a params object that may be used on the back-end to 
-perform additional, custom, operations
-- `path` - `string`, required, the URI path used to fetch the table template.
-
-Events:
-- `ready`, when the component is initialized after fetching its template, BEFORE fetching the actual table data
-- `fetching`, just before making the request to fetch the table data
-- `fetched`, once the table data has been fetched
-
-Various other user events may be emitted depending on the configured template.
-
-#### Table Init Sample Response
-
-Below is the response from the back-end when the table is initialized. 
-The sample is taken from the [https://www.laravel-enso.com/system/menus/](https://www.laravel-enso.com/system/menus/)
-index page.
+Below is the response from the back-end when the table is initialized.  The sample is taken from the [https://www.laravel-enso.com/system/menus/](https://www.laravel-enso.com/system/menus/) index page.
 
 ```json
 {  
@@ -390,7 +391,7 @@ index page.
 }
 ```
 
-#### Table Data Sample Response
+### Table Data Sample Response
 
 Below is the response given by the backend when searching for something via the search input.
 
@@ -427,23 +428,6 @@ Please make sure to search for existing issues before creating a new issue,
 and when opening a new issue, fill the required information in the issue template.
 
 Issues not conforming to the guidelines may be closed immediately.
-
-## Depends on
-
-- `@enso-ui/directives`,
-- `@enso-ui/dropdown`,
-- `@enso-ui/loader`,
-- `@enso-ui/modal`,
-- `@fortawesome/fontawesome-free`,
-- `@fortawesome/fontawesome-svg-core`,
-- `@fortawesome/free-solid-svg-icons`,
-- `@fortawesome/vue-fontawesome`,
-- `accounting-js`,
-- `css-element-queries`,
-- `lodash`,
-- `v-tooltip`,
-- `vue`,
-- `vuex`,
 
 ## Contributions
 
