@@ -16,6 +16,14 @@ User actions logger dependency for [Laravel](https://laravel.com).
 
 ## Usage
 
+This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+
+### Demo
+
+For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+
+### Steps
+
 1. Include the `action-logger` middleware on the routes that you want covered
 
 2. Add the `ActionLogs` trait on your user model, so you may retrieve the user's  actions
