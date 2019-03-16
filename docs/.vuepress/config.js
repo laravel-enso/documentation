@@ -111,6 +111,7 @@ module.exports = {
                     'rememberable',
                     'role-manager',
                     'searchable',
+                    'select',
                 ]
             }],
             '/packages/': [{
