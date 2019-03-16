@@ -108,6 +108,7 @@ module.exports = {
                     'notifications',
                     'people',
                     'permission-manager',
+                    'rememberable',
                 ]
             }],
             '/packages/': [{
