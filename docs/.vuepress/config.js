@@ -110,6 +110,7 @@ module.exports = {
                     'permission-manager',
                     'rememberable',
                     'role-manager',
+                    'searchable',
                 ]
             }],
             '/packages/': [{
