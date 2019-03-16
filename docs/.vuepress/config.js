@@ -116,6 +116,7 @@ module.exports = {
                     'teams',
                     'track-who',
                     'tutorial-manager',
+                    'versioning',
                 ]
             }],
             '/packages/': [{
