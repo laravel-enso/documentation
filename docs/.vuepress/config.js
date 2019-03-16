@@ -112,6 +112,7 @@ module.exports = {
                     'role-manager',
                     'searchable',
                     'select',
+                    'structure-manager',
                 ]
             }],
             '/packages/': [{
