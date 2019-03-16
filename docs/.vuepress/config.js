@@ -114,6 +114,7 @@ module.exports = {
                     'select',
                     'structure-manager',
                     'teams',
+                    'track-who',
                 ]
             }],
             '/packages/': [{
