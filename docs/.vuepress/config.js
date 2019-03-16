@@ -109,6 +109,7 @@ module.exports = {
                     'people',
                     'permission-manager',
                     'rememberable',
+                    'role-manager',
                 ]
             }],
             '/packages/': [{
