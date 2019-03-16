@@ -39,11 +39,11 @@ This is the bulma styled component.
     v-if="menu.has_children"/>
 ```
 
-### Props:
+### Props
 - `open` - `boolean`, optional - if set to false, the control is rotated up so as to suggest the dropdown is open 
 
 
-### Methods:
+### Methods
 - `toggle()`, toggles the state of the indicator & emits a `toggle` event
 
 ## Questions & Issues

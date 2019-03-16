@@ -39,7 +39,7 @@ The bulma styled money input component.
     decimal=","/>
 ```
 
-#### Props:
+#### Props
 - `label` - `boolean`, optional, - if true, the value is shown as a label instead of an input 
 - `readonly` - `boolean`, optional - if true, the component is readonly
 - `disabled` - `boolean`, optional - if true, the component is disabled
@@ -55,7 +55,7 @@ The bulma styled money input component.
 #### Events:
 - `input`, on the money input blur
 
-#### Methods:
+#### Methods
 - `format`, formats the value based on the given options and emits an 'input' event
 
 ## Questions & Issues

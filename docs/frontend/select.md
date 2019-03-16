@@ -79,7 +79,7 @@ This is the main component built around the renderless component.
     track-by="id"/>
 ```
 
-#### Props:
+#### Props
 
 All the props from `CoreSelect` can be provided here
 
@@ -103,7 +103,7 @@ Designed to be used within the **Enso ecosystem**, requiring less configuration 
     label="name"/>
 ```
 
-#### Props:
+#### Props
 
 All the props from `VueSelect` can be provided here
 

@@ -95,13 +95,13 @@ import {
 </card>
 ```
 
-#### Props:
+#### Props
 - `loading` - `boolean`, optional - controls an overlay loader
 - `collapsed` - `boolean`, optional - controls the initial render state
 - `transition` - `boolean`, optional - if true, the destruction of the card is handled in such a way that that custom transitions work correctly even when removing the card.
 
 
-#### Slots:
+#### Slots
 - `default`, all content goes here
 
 ### CardHeader
@@ -110,7 +110,7 @@ The component is a container for the header contents.
 
 Note that when using the `CardCollapse` component within the card, the clicking header will work as collapse control too.
 
-#### Slots:
+#### Slots
 - `title`, for showing a title
 - `controls`, for any Card controls
 
@@ -129,7 +129,7 @@ The component shows a badge within a Card's controls area.
 </card>
 ```
 
-#### Props:
+#### Props
 - `label` - `string|number`, required,
 - `type` - `string`, optional - controls the color of the tag, see [here](https://bulma.io/documentation/elements/tag/) for more info.
 
@@ -168,7 +168,7 @@ The component is use to create custom controls.
 </card>
 ```
 
-#### Slots:
+#### Slots
 - `default`, all content goes here
 
 ### bulma/CardRefresh.vue
@@ -220,7 +220,7 @@ Example:
 </card>
 ```
 
-#### Slots:
+#### Slots
 - `default`, all content goes here
 
 ### CardFooter
@@ -241,7 +241,7 @@ The component is the container for the card's footer.
 </card>
 ```
 
-#### Slots:
+#### Slots
 - `default`, all content goes here
 
 ::: warning Notice
@@ -268,7 +268,7 @@ The component is the container for one footer item.
 </card>
 ```
 
-#### Slots:
+#### Slots
 - `default`, all content goes here
 
 ### CardImage
@@ -287,7 +287,7 @@ The component is the container for an image.
 ```
 
 
-#### Slots:
+#### Slots
 - `default`, all content goes here
 
 ## Questions & Issues

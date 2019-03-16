@@ -52,7 +52,7 @@ It can be used for creating a custom confirmation with your CSS style of choice.
 
 It uses the `v-popover` component from `v-tooltip`.
 
-#### Slots:
+#### Slots
 - `default`, main content goes here
 - `confirm`, a custom control for the confirm action can go here, scoped, exposes the `confirm` method
 - `cancel`, a custom control for the cancel action can go here, scoped, exposes the `cancel` method
