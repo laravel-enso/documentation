@@ -49,7 +49,7 @@ Bulma styled filtering component
 
 Here, the option list is given in-line but in practice, you would reference a variable.
 
-#### Props:
+#### Props
 - `compact` - `boolean`, optional - shows the component using a more compact state
 - `hideOff` - `boolean`, optional  - if true hides the 'off' option 
 - `i18n`, `Function`, optional - the function that performs localisation
@@ -73,7 +73,7 @@ Designed to be used within the Enso ecosystem, requiring less configuration from
     v-model="myModel"/>
 ```
 
-#### Props:
+#### Props
 All the props from `VueFilter` can be provided here
 
 ### BooleanFilter
@@ -89,7 +89,7 @@ The bulma styled boolean filtering component, built on top of the above `VueFilt
     :title="i18n('Mass')"/>
 ```
 
-#### Props:
+#### Props
 
 - `compact` - `boolean`, optional - shows the component using a more compact state
 - `hideOff` - `boolean`, optional - if true hides the 'off' option 
@@ -104,14 +104,14 @@ The bulma styled boolean filtering component, built on top of the above `VueFilt
 
 A renderless component, which can be used in custom implementations.
 
-#### Props:
+#### Props
 - `interval` - `Object`, optional - should be of format `{min: null, max: null}`
 - `i18n`, `Function`, optional - the function that performs localisation
 - `locale` - `string`, optional, default `en` - the locale used for the picker
 - `format` - `string`, optional, default `d-m-Y` - the format of the date
 - `default`, 'string', optional, default `today` - valid options are: 'today', 'yesterday', 'last week', 'last month', 'all'
 
-#### Slots:
+#### Slots
 
 Has a default scoped slot that exposes the following data:
 
@@ -136,7 +136,7 @@ The bulma styled date filtering component, built on top of the above renderless 
     :interval="interval"/>
 ```
 
-#### Props:
+#### Props
 
 All the props from the renderless component can be provided here
 
@@ -157,7 +157,7 @@ Designed to be used within the Enso ecosystem, requiring less configuration from
     :interval="interval"/>
 ```
 
-#### Props:
+#### Props
 
 All the props from `DateFilter` can be provided here
 
@@ -171,7 +171,7 @@ A renderless component, which can be used in custom implementations.
     :interval="interval"/>
 ```
 
-#### Props:
+#### Props
 - `interval` - `Object`, optional - should be of format `{min: null, max: null}`
 - `i18n`, `Function`, optional - the function that performs localisation
 - `locale` - `string`, optional, default `en` - the locale used for the picker
@@ -191,7 +191,7 @@ The bulma styled date interval filtering component, built on top of the renderle
     :interval="interval"/>
 ```
 
-#### Props:
+#### Props
 
 All the props from the renderless component can be provided here
 
@@ -207,7 +207,7 @@ Designed to be used within the Enso ecosystem, requiring less configuration from
     :interval="interval"/>
 ```
 
-#### Props:
+#### Props
 
 All the props from `DateIntervalFilter` can be provided here
 
@@ -215,7 +215,7 @@ All the props from `DateIntervalFilter` can be provided here
 
 The renderless version of the DateIntervalFilter component, which can be used in custom implementations.
 
-#### Props:
+#### Props
 - `interval` - `Object`, optional - should be of format `{min: null, max: null}`
 - `i18n`, `Function`, optional - the function that performs localisation
 - `maxLabel` - `string`, optional, default `To` - the label for the interval end
@@ -233,7 +233,7 @@ The bulma styled interval filtering component, built on top of the renderless ve
     :interval="interval"/>
 ```
 
-#### Props:
+#### Props
 
 All the props from the renderless component can be provided here
 
@@ -249,7 +249,7 @@ Designed to be used within the Enso ecosystem, requiring less configuration from
     :interval="interval"/>
 ```
 
-#### Props:
+#### Props
 
 All the props from `IntervalFilter` can be provided here
 
@@ -265,7 +265,7 @@ The bulma styled select filtering component, built using of `VueSelect`.
     v-model="userGroupId"/>
 ```
 
-#### Props:
+#### Props
 - `compact` - `boolean`, optional - shows the component using a more compact state
 - `multiple` - `boolean`, optionsl - used for multiple selects
 - `i18n`, `Function`, optional -  the function that performs localisation
@@ -285,7 +285,7 @@ Designed to be used within the Enso ecosystem, requiring less configuration from
     v-model="userGroupId"/>
 ```
 
-#### Props:
+#### Props
 
 All the props from `IntervalFilter` can be provided here
 

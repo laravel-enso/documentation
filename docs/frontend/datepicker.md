@@ -71,7 +71,7 @@ component `renderless/Datepicker.vue`
     :max="interval.max"/>
 ```
 
-#### Props:
+#### Props
 
 All the props from the renderless component can be used here
 
@@ -83,7 +83,7 @@ Designed to be used within the Enso ecosystem, requiring less configuration from
 <datepicker v-model="interval.min"/>
 ```
 
-#### Props:
+#### Props
 
 All the props from the renderless component can be used here
 

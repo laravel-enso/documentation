@@ -34,7 +34,7 @@ Simple divider component.
 <divider title="Divider text" placement="center"/>
 ```
 
-#### Props:
+#### Props
 - `placement` - `string`, optional, default `center` - the positioning of the title. Valid options are: 'left', 'center', 'right'
 - `title` - `string`, optional - the title/text used for the divider
 

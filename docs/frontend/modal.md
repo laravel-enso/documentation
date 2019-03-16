@@ -34,11 +34,11 @@ import { CoreModal } from '@enso-ui/modal/renderless';
 ### CoreModal.vue
 This modal component renders its contents within a card and is built upon the renderless modal component.
 
-#### Props:
+#### Props
 - `show` - `boolean`, optional, default `true`, if true, the modal is visible
 - `portal` - `string`, optional, default `modals`, the query selector for the portal of the modal. 
 
-#### Slots:
+#### Slots
 
 Has a default scopedSlot that exposes the `close` method.
 
@@ -77,7 +77,7 @@ Example:
 </modal>
 ```
 
-#### Props:
+#### Props
 All the props from `CoreModal` can be provided here
 
 Slots:
@@ -87,7 +87,7 @@ Slots:
 
 This modal component renders its contents within a card and is built upon the renderless modal component.
 
-#### Props:
+#### Props
 All the props from `CoreModal` can be provided here
 
 Slots:

@@ -46,7 +46,7 @@ Vue.use(ToastrPlugin, {
 
 Note that the provided duration and position are the defaults, but they can be overriden on each use.
 
-## Examples:
+## Examples
 
 ```js
 this.$toastr.success('You operation was successful')
@@ -71,11 +71,11 @@ You can create your own layouts & transitions by using the renderless component
 
 The renderless toaster notification component which can be built upon to create custom implementations.
 
-#### Props:
+#### Props
 - `duration` - `number`, required - the duration of the bounce animation, in ms, used when showing the notification
 - `position` - `string`, required - the position, valid options are: 'top-left', 'top-right', 'top-center', 'bottom-left', 'bottom-right', 'bottom-center'
 
-#### Methods:
+#### Methods
 - `title(string)` - sets on optional title
 - `duration(number)` - sets the duration in ms
 - `position(string)` - sets the position, available options 'top-left', 'top-right', 'top-center', 'bottom-left', 'bottom-right', 'bottom-center' 
@@ -93,7 +93,7 @@ The methods below are used to display a themed message:
 
 The bulma styled toaster notification component built on top of its renderless version.
 
-#### Props:
+#### Props
 
 All the props from `CoreToastr` can be provided here
 
@@ -101,13 +101,13 @@ All the props from `CoreToastr` can be provided here
 
 A reusable bounce transition.
 
-#### Props:
+#### Props
 - `position` - `string`, required, the position of the animated contents 
 valid options are: 'top-left', 'top-right', 'top-center', 'bottom-left', 'bottom-right', 'bottom-center',
 
 Depending on the given position, the transition's enter & leave classes are automatically determined.
 
-#### Slots:
+#### Slots
 - `default`, slot for the actual contents
 
 ## Questions & Issues

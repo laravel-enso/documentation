@@ -40,7 +40,7 @@ The bulma styled switch component.
     v-model="myModel"/>
 ```
 
-#### Props:
+#### Props
 - `disabled` - `boolean`, optional - if true, the control is disabled
 - `readonly` - `boolean`, optional - if true, the control is readonly
 

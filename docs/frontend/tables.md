@@ -57,7 +57,7 @@ import { VueTable } from '@enso-ui/tables/bulma';
 This is the renderless version of the component that can be built upon to create 
 your own custom version.
 
-#### Props:
+#### Props
  `errorHandler` - `function` - function used to handle axios errors
 - `filters` - `object` - a filters object that is sent to the back-end to filter the results
 - `id` - `string`, required, an id for the table
@@ -86,11 +86,11 @@ This is the main bulma styled component and it is built upon the renderless comp
     ref="table"/>        
 ```
 
-#### Props:
+#### Props
 
 All the props from `CoreTable` can be provided here
 
-#### Slots:
+#### Slots
 - if any columns have the `slot` attribute in their meta, in the template, then a scoped slot is rendered for each of these
 columns. The name of the slot is the column's name. The slot exposes the `row` & `column` objects
 
@@ -116,11 +116,11 @@ Example:
     id="menus"/>
 ```
 
-#### Props:
+#### Props
 
 All the props from `VueTable` can be provided here
 
-#### Slots:
+#### Slots
 
 The custom slots from `VueTable` are available here
 

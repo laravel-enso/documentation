@@ -39,14 +39,14 @@ import Dropdown from '@enso-ui/dropdown/renderless';
 
 This is the the renderless dropdown component that can be built upon when creating a custom implementation.
 
-#### Props:
+#### Props
 - `disabled` - `boolean`, optional, default `false`, if true, the component is disabled
 - `manual` - `boolean`, optional, default `false`, if set to true, hiding the component should be done manually
 
-#### Slots:
+#### Slots
 - exposes a default scoped slot
  
-#### Methods:
+#### Methods
 - `open()`, opens the dropdown item list
 - `close()`, closes the dropdown item list
 - `attemptClose()`, calls close above, unless in manual mode, in which case it does nothing
@@ -85,14 +85,14 @@ Example:
 
 A fade transition is used for the opening & closing of the dropdown.
 
-#### Slots:
+#### Slots
 - `trigger`, for placing a control that should open the dropdown
 - `label`, for placing a label on the (default) button that opens the dropdown. 
 If using the `trigger` slot above and implementing a custom control, you should not need to use the `label` slot 
 - `controls`, for adding controls to the dropdown
 - `options`, the list of items in/from the dropdown goes here
 
-#### Props:
+#### Props
 
 All the props from the renderless component can be provided
 

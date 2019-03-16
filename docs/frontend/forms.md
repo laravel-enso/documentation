@@ -37,7 +37,7 @@ import CoreForm from '@enso-ui/forms/renderless';
 
 Renderless component.
 
-#### Props: 
+#### Props 
 - `path` - `string`, required - the URI for the form data/template.
 - `errorHandler` - `function`, optional - an error handling function for the axios requests
 - `params` - `object`, optional - parameters that get sent to the backend when fetching the form data
@@ -54,13 +54,13 @@ The bulma styled form component built on top of the renderless version of the co
     path="/api/system/menus/2/edit"/>
 ```
 
-#### Methods:
+#### Methods
 - `fetch()`, fetches the form data & template from the back-end
 - `field(field)`, returns the field with the given name
 - `param(field)`, returns the parameter with the given name
 - `routeParam(field)`, returns the route parameter with the given name
 
-#### Slots:
+#### Slots
 - if any fields are marked as custom fields in the form template, then a scoped slot is rendered for each of these
 fields. The name of the slot is the field's name. The slot exposes the `props` object that has to be binded to the custom field, besides your custom logic
 

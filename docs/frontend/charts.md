@@ -45,13 +45,13 @@ Bulma Chart Card implementation on top of the Card component.
     source="/api/dashboard/pie"/>
 ```
 
-#### Props:
+#### Props
 - `errorHandler` - `function`, optional - provides a custom error handler for axios
 - `i18n` - `function`, optional - provides localisation
 - `params` - `Object`, optional - parameter bag that is sent to the backend when fetching data
 - `source` - `string`, required - the URI used for fetching the chart data
  
-#### Methods:
+#### Methods
 - `fetch()` - fetches data from the backend
 - `resize()` - resizes the charts
 
@@ -65,11 +65,11 @@ The above component designed to be used within the Enso ecosystem, requiring les
     source="/api/dashboard/pie"/>
 ```
 
-#### Props:
+#### Props
 - `params` - `Object`, optional, default `null`, extra parameters that get sent to the backend when fetching data
 - `source` - `string`, required, the URI used for fetching the chart data
 
-#### Methods:
+#### Methods
 - `fetch()` - fetches data from the backend
 - `resize()` - resizes the charts
 
@@ -85,13 +85,13 @@ CSS framework agnostic Chart implementation.
     :type="type"/>
 ```
 
-#### Props:
+#### Props
 - `data` - `Object`, required - the data for the chart
 - `formatter` - `function`, optional - datalabels values formatter function
 - `options` - `Object`, optional - options object for chart.js
 - `type` - `string`, required - specifies the type of chart.  Valid types are 'line', 'bar', 'radar', 'polarArea', 'pie', 'doughnut', 'bubble'.
  
-#### Methods:
+#### Methods
 - `resize()` - resizes the charts
 
 ## Questions & Issues
