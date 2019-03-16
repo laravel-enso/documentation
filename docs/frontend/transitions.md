@@ -45,16 +45,16 @@ All the transitions share the same structure and provide a slot default for the 
 
 ## Available Transitions
 
-### Fade
-### FadeDown
-### FadeLeft
-### FadeRight
-### FadeUp
-### SlideDown
-### SlideLeft
-### SlideRight
-### SlideUp
-### Zoom
+#### Fade
+#### FadeDown
+#### FadeLeft
+#### FadeRight
+#### FadeUp
+#### SlideDown
+#### SlideLeft
+#### SlideRight
+#### SlideUp
+#### Zoom
 
 ## Questions & Issues
 
