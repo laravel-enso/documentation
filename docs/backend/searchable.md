@@ -10,9 +10,7 @@ sidebarDepth: 3
 [![Total Downloads](https://poser.pugx.org/laravel-enso/searchable/downloads)](https://packagist.org/packages/laravel-enso/searchable)
 [![Latest Stable Version](https://poser.pugx.org/laravel-enso/searchable/version)](https://packagist.org/packages/laravel-enso/searchable)
 
-Task management dependency for [Laravel](https://laravel.com).
-
-User actions logger dependency for [Laravel](https://laravel.com).
+Project wide searching dependency for [Laravel Enso](https://github.com/laravel-enso/Enso).
 
 This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
 
