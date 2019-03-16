@@ -115,6 +115,7 @@ module.exports = {
                     'structure-manager',
                     'teams',
                     'track-who',
+                    'tutorial-manager',
                 ]
             }],
             '/packages/': [{
