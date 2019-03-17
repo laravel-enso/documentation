@@ -107,6 +107,7 @@ import {
 #### Events
 - `collapse`
 - `expand`
+- `remove`
 
 ### CardHeader
 
