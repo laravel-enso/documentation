@@ -72,6 +72,7 @@ out on features
 - can be used independently of the Enso ecosystem
 
 ### In the future
+
 - PDF export alongside the XLSX report 
 
 ## Usage
