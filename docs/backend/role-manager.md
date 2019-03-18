@@ -3,6 +3,7 @@ sidebarDepth: 3
 ---
 
 # Role Manager
+
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/bd4373f8222b4bcb81c08148404909c9)](https://www.codacy.com/app/laravel-enso/RoleManager?utm_source=github.com&utm_medium=referral&utm_content=laravel-enso/RoleManager&utm_campaign=badger)
 [![StyleCI](https://styleci.io/repos/94814370/shield?branch=master)](https://styleci.io/repos/94814370)
 [![License](https://poser.pugx.org/laravel-enso/rolemanager/license)](https://packagist.org/packages/laravel-enso/rolemanager)
@@ -18,6 +19,7 @@ The front end assets that utilize this api are present in the [ui](https://githu
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
 [![Watch the demo](https://laravel-enso.github.io/rolemanager/screenshots/bulma_021_thumb.png)](https://laravel-enso.github.io/rolemanager/videos/bulma_demo_01.webm)
+
 <sup>click on the photo to view a short demo in compatible browsers</sup>
 
 ## Installation

@@ -40,7 +40,6 @@ care must be taken when due to the search functionality, results could be listed
 
 It is recommended to look into and use global query scopes for these scenarios.    
 
-
 ## Usage
 
 ### Configuration

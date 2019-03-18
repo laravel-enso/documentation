@@ -3,13 +3,14 @@ sidebarDepth: 3
 ---
 
 # Track Who
+
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/c2848e5734e44faab61fb3391a91a11e)](https://www.codacy.com/app/laravel-enso/TrackWho?utm_source=github.com&utm_medium=referral&utm_content=laravel-enso/TrackWho&utm_campaign=badger)
 [![StyleCI](https://styleci.io/repos/85499255/shield?branch=master)](https://styleci.io/repos/85499255)
 [![License](https://poser.pugx.org/laravel-enso/trackwho/license)](https://packagist.org/packages/laravel-enso/trackwho)
 [![Total Downloads](https://poser.pugx.org/laravel-enso/trackwho/downloads)](https://packagist.org/packages/laravel-enso/trackwho)
 [![Latest Stable Version](https://poser.pugx.org/laravel-enso/trackwho/version)](https://packagist.org/packages/laravel-enso/trackwho)
 
-Create, update and delete authoring tracking dependency for [Laravel Enso](https://github.com/laravel-enso/Enso).
+Create, update and delete authoring tracking dependency for Laravel.
 
 This package can work independently of the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
 
@@ -20,7 +21,6 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 Comes pre-installed in Enso. 
 
 To install outside of Enso: `composer require laravel-enso/trackwho`
-
 
 ## Features
 
