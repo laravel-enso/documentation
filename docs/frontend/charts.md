@@ -46,6 +46,7 @@ Bulma Chart Card implementation on top of the Card component.
 ```
 
 #### Props
+- `collapsed` - `boolean`, optional - controls the card's initial render state
 - `errorHandler` - `function`, optional - provides a custom error handler for axios
 - `i18n` - `function`, optional - provides localisation
 - `params` - `Object`, optional - parameter bag that is sent to the backend when fetching data
