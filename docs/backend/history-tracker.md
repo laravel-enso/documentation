@@ -3,6 +3,7 @@ sidebarDepth: 3
 ---
 
 # HistoryTracker
+
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/71c1e5e3e2c940fa8f3fb0ebda9db1fb)](https://www.codacy.com/app/laravel-enso/HistoryTracker?utm_source=github.com&utm_medium=referral&utm_content=laravel-enso/HistoryTracker&utm_campaign=badger)
 [![StyleCI](https://styleci.io/repos/85500161/shield?branch=master)](https://styleci.io/repos/85500161)
 [![License](https://poser.pugx.org/laravel-enso/historytracker/license)](https://packagist.org/packages/laravel-enso/historytracker)
@@ -17,7 +18,9 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 
 ## Installation
 
-`composer require laravel-enso/historytracker`
+Comes pre-installed in Enso.
+
+To install outside of Enso: `composer require laravel-enso/historytracker`
 
 ## Features
 
