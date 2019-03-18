@@ -37,7 +37,6 @@ or even other entities, such as people (e.g. clients)
 - a `CompanyFactory` is included by default in the package
 - the companies server-side select functionality is also included by default
 
-
 ## Usage
 
 ### Under the Hood
