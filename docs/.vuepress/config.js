@@ -100,6 +100,7 @@ module.exports = {
                     'helpers',
                     'how-to-videos',
                     'impersonate',
+                    'io',
                     'vue-datatable',
                     'localisation',
                     'log-manager',
@@ -117,7 +118,6 @@ module.exports = {
                     'track-who',
                     'tutorial-manager',
                     'versioning',
-                    'io',
                 ]
             }],
             '/packages/': [{
