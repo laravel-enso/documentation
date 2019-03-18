@@ -18,7 +18,9 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 
 ## Installation
 
-`composer require laravel-enso/helpers` 
+Comes pre-installed in Enso.
+
+To install outside of Enso: `composer require laravel-enso/helpers` 
 
 ## Usage
 
