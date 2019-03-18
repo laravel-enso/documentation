@@ -30,7 +30,7 @@ Comes pre-installed in Enso.
 - allows a user to impersonate another user, by using a middleware
 - permits testing and debugging from the perspective of another user, without needing his credentials
 - comes with its own controller and routes that permit starting and stopping the impersonation process
-- depends on [Permission Manager](https://github.com/laravel-enso/PermissionManager) in order to be able to verify permissions
+- uses the [Permission Manager](https://github.com/laravel-enso/PermissionManager) package in order to be able to verify permissions
 - the access for the impersonation process is determined by the (admin) user's access to the impersonation routes.
 
 ## Contributions
