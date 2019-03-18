@@ -61,7 +61,7 @@ import {
     CardFooter, CardFooterItem,
 } from '@enso-ui/card/bulma';
 
-<card>
+<card collapsible>
     <card-header>
         <template v-slot:title>
             <span class="icon is-small has-margin-right-small">
@@ -97,18 +97,23 @@ import {
 
 #### Props
 - `loading` - `boolean`, optional - controls an overlay loader
+- `collapsible` - `boolean`, optional - needs to be true if you want the card to be collapsible
 - `collapsed` - `boolean`, optional - controls the initial render state
 - `transition` - `boolean`, optional - if true, the destruction of the card is handled in such a way that that custom transitions work correctly even when removing the card.
 
-
 #### Slots
 - `default`, all content goes here
+
+#### Events
+- `collapse`
+- `expand`
+- `remove`
 
 ### CardHeader
 
 The component is a container for the header contents.
 
-Note that when using the `CardCollapse` component within the card, the clicking header will work as collapse control too.
+Note that when using `collapsible` clicking the header will work as collapse control too.
 
 #### Slots
 - `title`, for showing a title
@@ -208,9 +213,6 @@ The component is a remove/close control for the card.
 
 The component is the container for the card's content.
 
-Please note that this component comes by default with the bulma class `is-paddingless` since otherwise,
-when collapsed, it would look off due to the padding.
-
 Example:
 ```vue
 <card>
@@ -285,7 +287,6 @@ The component is the container for an image.
     </card-image>
 </card>
 ```
-
 
 #### Slots
 - `default`, all content goes here
