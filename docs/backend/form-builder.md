@@ -41,7 +41,6 @@ To install outside of Enso:
 - flexible form layout, that supports directly from the template
     * grouping inputs into logical sections and columns of different widths, even on the same row
     * grouping sections into tabs 
-- uses its own VueJS components, such as `vue-select` and `datepicker` for an improved experience 
 - for most forms, the json template is all that it's needed
 - provides helpful error messages when the template is missing parameters or unexpected values are found
 - when needed, allows the customization of form components in order to cover all scenarios
