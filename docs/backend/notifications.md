@@ -3,6 +3,7 @@ sidebarDepth: 3
 ---
 
 # Notifications
+
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/950c5954bb654bb588061a3f793f4697)](https://www.codacy.com/app/laravel-enso/Notifications?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/Notifications&amp;utm_campaign=Badge_Grade)
 [![StyleCI](https://styleci.io/repos/85684795/shield?branch=master)](https://styleci.io/repos/85684795)
 [![License](https://poser.pugx.org/laravel-enso/notifications/license)](https://packagist.org/packages/laravel-enso/notifications)
