@@ -29,7 +29,7 @@ yarn add @enso-ui/select
 
 Import the desired component(s):
 ```js
-import { VueSelect, EnsoSelect } from '@enso-ui/select/bulma';
+import { VueSelect, Tag, EnsoSelect } from '@enso-ui/select/bulma';
 import CoreSelect from '@enso-ui/select/renderless';
 ```
 
@@ -66,6 +66,17 @@ Properties:
 - `select`, when an item is selected
 - `deselect`, when an item is deselected
 - `add-tag`, when a tag is added
+
+### Tag
+
+Helper component as used by VueSelect, for optional use within CoreSelect.
+
+Properties:
+ - `label` - `string`, required - label displayed within the tag
+ - `disabled` - `boolean`, required - if true, hides the delete _button_
+
+#### Events:
+- `deselect`, when the tag is _deleted_
 
 ### VueSelect
 
