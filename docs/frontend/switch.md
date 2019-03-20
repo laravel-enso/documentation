@@ -27,7 +27,7 @@ yarn add @enso-ui/switch
 
 Import the component:
 ```js
-import Switch from '@enso-ui/switch/bulma';
+import VueSwitch from '@enso-ui/switch/bulma';
 ```
 
 ### VueSwitch

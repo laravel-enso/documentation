@@ -176,7 +176,7 @@ The component is use to create custom controls.
 #### Slots
 - `default`, all content goes here
 
-### bulma/CardRefresh.vue
+### CardRefresh
 
 The component is a refresh control for the card. 
 
