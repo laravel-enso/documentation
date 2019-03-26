@@ -77,6 +77,7 @@ module.exports = {
                     'typeahead',
                     'ui',
                     'uploader',
+                    'wysiwyg',
                 ]
             }],
             '/backend/': [{
