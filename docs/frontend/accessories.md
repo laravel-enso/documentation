@@ -29,6 +29,9 @@ import {
 } from '@enso-ui/accessories/bulma';
 ```
 
+Note that this package has a couple of other dependencies. 
+Read [here](https://docs.laravel-enso.com/frontend/) for more info.
+
 ## Usage
 
 ### Accessories.vue
