@@ -23,6 +23,10 @@ Install the package:
 ```
 yarn add @enso-ui/toastr
 ```
+
+Note that this package has a couple of external dependencies. 
+Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more info.
+
 ## Usage
 
 Import the component(s):

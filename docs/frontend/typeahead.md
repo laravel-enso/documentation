@@ -30,6 +30,9 @@ Import the desired component(s):
 import { Typeahead, EnsoTypeahead } from '@enso-ui/typeahead/bulma';
 ```
 
+Note that this package has a couple of external dependencies. 
+Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more info.
+
 ### Exports
 
 `@enso-ui/typeahead/bulma`:

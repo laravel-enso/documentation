@@ -29,6 +29,10 @@ import { IntervalFilter, DateFilter, ... } from '@enso-ui/filters/bulma';
 import { CoreIntervalFilter, CoreDateFilter, ... } from '@enso-ui/filters/renderless';
 ```
 
+Note that this package has a couple of external dependencies. 
+Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more info.
+
+
 ### VueFilter
 
 Bulma styled filtering component
