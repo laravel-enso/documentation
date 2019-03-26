@@ -66,7 +66,7 @@ fields. The name of the slot is the field's name. The slot exposes the `props` o
 
 ```vue
 <template v-slot:group_id="props">
-    <select-field v-bind="props"
+    <form-field v-bind="props"
         @input="pivotParams.userGroups.id = $event"/>
 </template>
 ```
@@ -96,7 +96,9 @@ All the props from the renderless component can be provided here
 
 #### Components for custom fields
 
-The package provides a component for each type of field that you want to customize:
+Starting with v1.1.0 you should always use `FormField` when dealing with slots.
+
+If you want further customization the package provides a component for each type of field:
 
 ##### DateField
 ##### InputField
@@ -106,8 +108,11 @@ The package provides a component for each type of field that you want to customi
 ##### TextareaField.vue
 ##### TimeField.vue
 
+Don't forget to add your own label when when using the dedicated component.
+
 #### Example:
 ```vue
+<label class="label">My Field</label>
 <date-field v-bind="props"
     v-bind="props"
     @input="doSomethingExtra"/>
