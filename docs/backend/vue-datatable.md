@@ -249,6 +249,7 @@ return [
     'dateFormat' => 'd-m-Y',
     'fullInfoRecordLimit' => 100000,
     'debounce' => 350,
+    'responsive' => true,
     'method' => 'GET',
     'dataRouteSuffix' => 'tableData',
     'comparisonOperator' => 'LIKE',
@@ -301,6 +302,9 @@ is a string, with the date format for date columns, which will be used when disp
 
 #### debounce
 is a number, the interval value used for the server-side requests (in milliseconds)
+
+#### responsive
+is a boolean that determines if the table is responsive (automatically hides columns when its width it wider than available)
 
 #### method
 is a either "GET" or "POST". If you're working with larger tables sometimes the URI can get too long 
