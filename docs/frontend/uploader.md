@@ -30,6 +30,9 @@ Import the desired component(s):
 import { Uploader, EnsoUploader } from '@enso-ui/uploader/bulma';
 ```
 
+Note that this package has a couple of external dependencies. 
+Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more info.
+
 ### Exports
 
 `@enso-ui/typeahead/bulma`:

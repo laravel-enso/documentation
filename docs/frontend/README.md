@@ -21,7 +21,11 @@ import axios from 'axios';
 
 window.axios = axios;
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+```
 
+```js
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+Vue.component('fa', FontAwesomeIcon);
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPlus, faSync, faSearch } from '@fortawesome/free-solid-svg-icons';
