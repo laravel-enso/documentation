@@ -67,6 +67,7 @@ module.exports = {
                     'modal',
                     'money',
                     'progress-bar',
+                    'progress-circle',
                     `select`,
                     'switch',
                     'tables',
