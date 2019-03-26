@@ -2,7 +2,7 @@
 sidebarDepth: 3
 ---
 
-# Form
+# Forms
 
 ![NPM License](https://img.shields.io/npm/l/@enso-ui/forms.svg)
 ![npm download](https://img.shields.io/npm/dm/@enso-ui/forms.svg)
