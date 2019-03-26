@@ -101,7 +101,6 @@ module.exports = {
                     'how-to-videos',
                     'impersonate',
                     'io',
-                    'vue-datatable',
                     'localisation',
                     'log-manager',
                     'menu-manager',
@@ -118,6 +117,7 @@ module.exports = {
                     'track-who',
                     'tutorial-manager',
                     'versioning',
+                    'vue-datatable',
                 ]
             }],
             '/packages/': [{
