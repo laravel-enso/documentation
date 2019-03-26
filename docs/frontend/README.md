@@ -20,17 +20,12 @@ that these resources are available.
 import axios from 'axios';
 
 window.axios = axios;
-axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'; //only when using Laravel
 ```
 
 ```js
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 Vue.component('fa', FontAwesomeIcon);
-
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faPlus, faSync, faSearch } from '@fortawesome/free-solid-svg-icons';
-
-library.add(faPlus, faSync, faSearch);
 ```
 
 
