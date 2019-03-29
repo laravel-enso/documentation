@@ -19,11 +19,13 @@
 
 5. Launch the site (see the Local Development Server section of the [Laravel installation documentation](https://laravel.com/docs/5.7/#installation)) and log into the project with user: `admin@laravel-enso.com`, password: `password`
 
-6. Setup the configuration files as needed in `config/enso/*.php`
+6. Install node dependencies`yarn`
 
-7. Install node dependencies`yarn`
+7. Compile `yarn dev` / `yarn hot`
 
-8. Compile `yarn dev` / `yarn hot`
+### Optional
+
+8. Setup the configuration files as needed in `config/enso/*.php`
 
 Enjoy!
 
