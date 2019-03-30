@@ -2,7 +2,12 @@ module.exports = {
     title: 'Laravel Enso',
     description: 'Full featured Single Page Application boilerplate',
     ga: 'UA-102265111-1',
-    plugins: ['@vuepress/pwa'],
+    plugins: {
+        '@vuepress/pwa': {
+            serviceWorker: true,
+            updatePopup: true,
+        },
+    },
     head: [
         ['link', { rel: 'icon', href: `/enso.svg` }],
         ['link', { rel: 'manifest', href: '/manifest.json' }],
@@ -20,13 +25,6 @@ module.exports = {
         lastUpdated: true,
         editLinks: true,
         editLinkText: 'Edit this page on Github',
-        serviceWorker: {
-            updatePopup: true,
-            updatePopup: {
-               message: "New content is available.",
-               buttonText: "Refresh"
-            }
-        },
         nav: [
             { text: "Guide", link: "/guide/" },
             { text: "Front End", link: "/frontend/" },
