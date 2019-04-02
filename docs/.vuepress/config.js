@@ -1,12 +1,17 @@
 module.exports = {
     title: 'Laravel Enso',
     description: 'Full featured Single Page Application boilerplate',
-    ga: 'UA-102265111-1',
     plugins: {
         '@vuepress/pwa': {
             serviceWorker: true,
-            updatePopup: true,
+            updatePopup: {
+                message: "New content is available.",
+                buttonText: "Refresh"
+            },
         },
+        '@vuepress/google-analytics': {
+            'ga': 'UA-102265111-1'
+        }
     },
     head: [
         ['link', { rel: 'icon', href: `/enso.svg` }],
