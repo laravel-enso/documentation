@@ -68,6 +68,7 @@ Properties:
 - `input`, when the selection is updated
 - `select`, when an item is selected
 - `deselect`, when an item is deselected
+- `clear`, when the item list is cleared
 - `add-tag`, when a tag is added
 
 ### Tag
