@@ -332,7 +332,6 @@ Valid values are `LIKE`, `ILIKE`.
     "routePrefix": "route.prefix",
     "dataRouteSuffix": "read.suffix",
     "name": "Table Name",
-    "icon": "list-alt",
     "crtNo": true,
     "cache": true,
     "flatten": false,
@@ -389,8 +388,7 @@ Valid values are `LIKE`, `ILIKE`.
 Options:
 - `routePrefix`, required, string, the common route segment, used for reading the data
 - `dataRouteSuffix`, optional, string, the ending route segment, used for reading the data | default is `tableData`
-- `name`, optional, string, the title used for the table. If not given, no title is used
-- `icon`, optional, string or array of strings, expects Font Awesome icon classes
+- `name`, optional, string, the title used for the table export. If not given, no title is used
 (make sure the used class is available in the page, via a local or global import). If not given, no icon is used
 - `crtNo`, optional, boolean, flag for showing the current line number
 - `cache`, optional, boolean, flag for activating the cache for the table total count 
