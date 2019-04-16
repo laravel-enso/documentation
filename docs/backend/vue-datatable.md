@@ -389,7 +389,6 @@ Options:
 - `routePrefix`, required, string, the common route segment, used for reading the data
 - `dataRouteSuffix`, optional, string, the ending route segment, used for reading the data | default is `tableData`
 - `name`, optional, string, the title used for the table export. If not given, no title is used
-(make sure the used class is available in the page, via a local or global import). If not given, no icon is used
 - `crtNo`, optional, boolean, flag for showing the current line number
 - `cache`, optional, boolean, flag for activating the cache for the table total count 
 (more information in the Caching Support section)
