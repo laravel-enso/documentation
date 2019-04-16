@@ -24,40 +24,44 @@ To install outside of Enso: `composer require laravel-enso/rememberable`
 
 ## Features
 
-- comes with 2 traits that provide helper methods for quick and easy caching usage (setting and retrieving)
-- the cache lifetime may be set per model, else, if not set, the per-project setting is used, finally falling back to a default of 60 minutes if neither option is available
-- uses the Laravel `cache()` helper method so is transparent to the cache mechanism/implementation
+- comes with a trait that provides helper methods for quick and easy caching usage (setting and retrieving)
+- the cache lifetime may be set per-model or per-project
+- uses the Laravel `cache()` helper method so it is transparent to the cache mechanism/implementation
 
 ## Usage
 
 1. Use the `Rememberable` trait in the CachedModel that you want to track
 
-2. The default caching duration is 60 minutes. If you need to change it add a `protected property $cacheLifetime = 123;` in your CachedModel
+2. You **MUST** set the caching duration by either:
+    - adding a `protected $cacheLifetime = 123;` property in your CachedModel
+    - setting the `enso.config.cacheLifetime` configuration value as desired
 
-3. In the RemoteModel where you have a `belongsTo` relationship to the CachedModel use the ` CacheReader` trait.
+3. In the RemoteModel where you have a `belongsTo` relationship to the CachedModel, 
+you will need to define a method in the RemoteModel as below:
 
-4. Define a method in the RemoteModel as below:
+    ```php
+    public function getCachedModel()
+    {
+        return CachedModel::cacheGet($this->cached_model_id)
+    }
+    ```
 
-```php
-public function getCachedModel()
-{
-    return $this->getModelFromCache(
-        CachedModel::class,
-        $this->cached_model_id
-    );
-}
-```
+   You can even call nested relations like this:
 
-5. You can even call nested relations like this:
+    ```php
+    $remoteModel->getCachedModel()
+        ->getAnotherCachedModel()
+        ->chainOtherRelationsOrMethods;
+    ``` 
 
-```php
-$remoteModel->getCachedModel()
-    ->getAnotherCachedModel()
-    ->chainOtherRelationsOrMethods;
-```
+::: tip
 
-Note: The `RememberableException` is thrown if attempting to use the `CacheReader` without adding the `Rememberable` trait 
+You may use the global `enso.config.cacheLifetime` configuration together with local/per-model 
+cache lifetime values. 
 
+If given, the trait favors the per-model cache lifetime value over the global configuration value,
+thus you can override the global setting as required.  
+::: 
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
