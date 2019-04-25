@@ -104,6 +104,7 @@ module.exports = {
                     'file-manager',
                     'form-builder',
                     'helpers',
+                    'history-tracker',
                     'how-to-videos',
                     'impersonate',
                     'io',
