@@ -26,33 +26,28 @@ To install outside of Enso: `composer require laravel-enso/rememberable`
 
 - comes with a trait that provides helper methods for quick and easy caching usage (setting and retrieving)
 - the cache lifetime may be set per-model or per-project
-- uses the Laravel `cache()` helper method so it is transparent to the cache mechanism/implementation
 
 ## Usage
 
 1. Use the `Rememberable` trait in the CachedModel that you want to track
 
-2. You **MUST** set the caching duration by either:
+2. You **MUST** set the caching duration (in minutes) by either:
     - adding a `protected $cacheLifetime = 123;` property in your CachedModel
     - setting the `enso.config.cacheLifetime` configuration value as desired
 
-3. In the RemoteModel where you have a `belongsTo` relationship to the CachedModel, 
-you will need to define a method in the RemoteModel as below:
+3. Whenever you need to retrieve a cached model instead of getting it directly from the database:
 
     ```php
-    public function getCachedModel()
-    {
-        return CachedModel::cacheGet($this->cached_model_id)
-    }
+    CachedModel::find($id)
     ```
 
-   You can even call nested relations like this:
+you should get it from cache
 
     ```php
-    $remoteModel->getCachedModel()
-        ->getAnotherCachedModel()
-        ->chainOtherRelationsOrMethods;
-    ``` 
+    CachedModel::cacheGet($id)
+    ```
+
+voila!
 
 ::: tip
 
@@ -62,6 +57,7 @@ cache lifetime values.
 If given, the trait favors the per-model cache lifetime value over the global configuration value,
 thus you can override the global setting as required.  
 ::: 
+
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
