@@ -41,13 +41,11 @@ To install outside of Enso: `composer require laravel-enso/rememberable`
     CachedModel::find($id)
     ```
 
-you should get it from cache
+    you should get it from cache:
 
     ```php
     CachedModel::cacheGet($id)
     ```
-
-voila!
 
 ::: tip
 
