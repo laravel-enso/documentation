@@ -29,6 +29,25 @@
 
 Enjoy!
 
+## Docker
+   Laravel Enso comes with a simple docker environment to help with development. By default it has two containers,
+   the enso container and the enso-mysql container. There is also a optional phpmyadmin container that can be used by removing the commentented
+   lines in docker-compose.yml.
+
+   #### Containers
+
+   - The enso container run's the apache webserver and has yarn & composer installed.
+   - The enso-mysql container handle's the database the default user is `root` with a blank password and the default database is `enso`
+   - The enso-phpmyadmin container is optional and attaches a phpMyAdmin instance the the enso-mysql database.
+
+   #### Steps to use
+
+   - Rename .env.example to .env and fill out the appropriate variables.
+   - Run `docker-compose up` to start the containers. To daemonize the process
+     run `docker-compose up --build -d`.
+   - Enter into the enso container to begin the enso installation with `docker exec -it enso bash`
+   - Install laravel enso following the [guide](https://docs.laravel-enso.com/guide/getting-started.html).
+
 ### Known issues
 
 * When you run `php artisan migrate --seed`, you may hit an error in the form `SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 767 bytes`. If so:
@@ -36,12 +55,12 @@ Enjoy!
     * After addressing the error, drop all tables from your site database (or delete and recreate the database), then run `php artisan migrate --seed` again.
 
 ## Features
-A solid starting project, based on [Laravel](https://laravel.com) 5.6, [VueJS](https://vuejs.org) 2, 
-[Bulma](https://bulma.io), integrated themes from [Bulmaswatch](https://jenil.github.io/bulmaswatch), 
-all the VueJS goodies such as [VueEx](https://vuex.vuejs.org/en) and [VueRouter](https://router.vuejs.org/en), 
-with features like: 
+A solid starting project, based on [Laravel](https://laravel.com) 5.6, [VueJS](https://vuejs.org) 2,
+[Bulma](https://bulma.io), integrated themes from [Bulmaswatch](https://jenil.github.io/bulmaswatch),
+all the VueJS goodies such as [VueEx](https://vuex.vuejs.org/en) and [VueRouter](https://router.vuejs.org/en),
+with features like:
 
-- [Structure generator](https://github.com/laravel-enso/structuremanager) - powerful CLI that allows easy creation of new complex structures, generating all the needed files: 
+- [Structure generator](https://github.com/laravel-enso/structuremanager) - powerful CLI that allows easy creation of new complex structures, generating all the needed files:
     - system files for:
         - structure migration that adds menus and permissions and permission groups
         - front-end routes
@@ -70,13 +89,13 @@ with features like:
     - server side
     - validation
     - customizable
-    
+
 - [Vue select](https://github.com/laravel-enso/Select) - server side builder with parameter conditioning, including pivot parameters
 - Advanced user groups / [roles](https://github.com/laravel-enso/RoleManager) / [permissions](https://github.com/laravel-enso/PermissionManager) structure
 - [Log management](https://github.com/laravel-enso/LogManager) -  view, download, clear
 - User [action logger](https://github.com/laravel-enso/ActionLogger), so you can keep track of who's done what
 - User [impersonation](https://github.com/laravel-enso/Impersonate) for easy support and debugging
-- Application interface [tutorials](https://github.com/laravel-enso/TutorialManager) based on the awesome [Intro.js](http://introjs.com) 
+- Application interface [tutorials](https://github.com/laravel-enso/TutorialManager) based on the awesome [Intro.js](http://introjs.com)
 - [Localisation support](https://github.com/laravel-enso/Localisation)
 - [Charts component](https://github.com/laravel-enso/Charts) with server side data builder, based on [Chart.js](http://www.chartjs.org)
 - [Comments component](https://github.com/laravel-enso/CommentsManager) with support for tagging users
