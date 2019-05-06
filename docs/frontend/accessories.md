@@ -51,6 +51,8 @@ import { Tab } from `@enso-ui/tabs/bulma`;
                 type="LaravelEnso\Companies\app\Models\Company"
                 @update="$set(count, 'Addresses', $refs.addresses.count)"
                 ref="addresses"/>
+        </tab>
+        <tab keep-alive id="Comments">
             <comments :id="myCompanyId"
                 type="LaravelEnso\Companies\app\Models\Company"
                 @update="$set(count, 'Comments', $refs.comments.count)"
