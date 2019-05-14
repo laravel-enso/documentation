@@ -110,6 +110,7 @@ module.exports = {
                     'io',
                     'localisation',
                     'log-manager',
+                    'migrator,
                     'menu-manager',
                     'multitenancy',
                     'notifications',
