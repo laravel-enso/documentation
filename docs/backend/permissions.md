@@ -2,15 +2,15 @@
 sidebarDepth: 3
 ---
 
-# Permission Manager
+# Permissions
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4ec2d18588a64875aa432c9a827a1849)](https://www.codacy.com/app/laravel-enso/PermissionManager?utm_source=github.com&utm_medium=referral&utm_content=laravel-enso/PermissionManager&utm_campaign=badger)
-[![StyleCI](https://styleci.io/repos/94779938/shield?branch=master)](https://styleci.io/repos/94779938)
-[![License](https://poser.pugx.org/laravel-enso/permissionmanager/license)](https://packagist.org/packages/laravel-enso/permissionmanager)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/permissionmanager/downloads)](https://packagist.org/packages/laravel-enso/permissionmanager)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/permissionmanager/version)](https://packagist.org/packages/laravel-enso/permissionmanager)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4ec2d18588a64875aa432c9a827a1849)](https://www.codacy.com/app/laravel-enso/Permissions?utm_source=github.com&utm_medium=referral&utm_content=laravel-enso/Permissions&utm_campaign=badger)
+[![StyleCI](https://github.styleci.io/repos/94779938/shield?branch=master)](https://github.styleci.io/repos/94779938)
+[![License](https://poser.pugx.org/laravel-enso/permissions/license)](https://packagist.org/packages/laravel-enso/permissions)
+[![Total Downloads](https://poser.pugx.org/laravel-enso/permissions/downloads)](https://packagist.org/packages/laravel-enso/permissions)
+[![Latest Stable Version](https://poser.pugx.org/laravel-enso/permissions/version)](https://packagist.org/packages/laravel-enso/permissions)
 
-Permission Manager dependency for [Laravel Enso](https://github.com/laravel-enso/Enso)
+Permissions dependency for [Laravel Enso](https://github.com/laravel-enso/Enso)
 
 This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
 
