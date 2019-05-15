@@ -109,7 +109,7 @@ module.exports = {
                     'io',
                     'localisation',
                     'log-manager',
-                    'migrator,
+                    'migrator',
                     'menu-manager',
                     'multitenancy',
                     'notifications',
