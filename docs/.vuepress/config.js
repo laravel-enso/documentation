@@ -2,13 +2,6 @@ module.exports = {
     title: 'Laravel Enso',
     description: 'Full featured Single Page Application boilerplate',
     plugins: {
-        '@vuepress/pwa': {
-            serviceWorker: true,
-            updatePopup: {
-                message: "New content is available.",
-                buttonText: "Refresh"
-            },
-        },
         '@vuepress/google-analytics': {
             'ga': 'UA-102265111-1'
         }
@@ -30,6 +23,12 @@ module.exports = {
         lastUpdated: true,
         editLinks: true,
         editLinkText: 'Edit this page on Github',
+        serviceWorker: {
+          updatePopup: {
+            message: "New content is available.",
+            buttonText: "Refresh"
+          }
+        },
         nav: [
             { text: "Guide", link: "/guide/" },
             { text: "Front End", link: "/frontend/" },
