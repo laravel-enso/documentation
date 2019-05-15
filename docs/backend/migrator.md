@@ -29,13 +29,13 @@ Comes pre-installed in Enso.
     
 ## Usage
 
-:::tip
-You can use laravel-enso/cli to generate your structure migrations
-:::
-
 You can use it to create:
 * menus
 * permissions
+
+:::tip
+You can use laravel-enso/cli to generate your structure migrations
+:::
 
 ## Contributions
 
