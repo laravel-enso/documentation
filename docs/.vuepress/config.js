@@ -115,7 +115,7 @@ module.exports = {
                     'multitenancy',
                     'notifications',
                     'people',
-                    'permission-manager',
+                    'permissions',
                     'rememberable',
                     'role-manager',
                     'searchable',
