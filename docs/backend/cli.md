@@ -16,7 +16,7 @@ This package works exclusively within the [Enso](https://github.com/laravel-enso
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
-[![Watch the demo](https://laravel-enso.github.io/structuremanager/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/structuremanager/videos/bulma_demo01.mp4)
+[![Watch the demo](https://laravel-enso.github.io/cli/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/cli/videos/bulma_demo01.mp4)
 
 <sup>click on the photo to view a short demo in compatible browsers</sup>
 
@@ -26,11 +26,10 @@ Comes pre-installed in Enso.
 
 ## Features
 
-- comes with its own easy to use CLI for the creation of Enso resources
-- can be used to more easily insert (default) data, during the install of a package, or later when new routes and permissions are required and can create menus, assign default permissions, etc.
-- extends Illuminate's `Migration` class and acts like a migration
-- can also rollback its own changes
+- comes with an easy to use CLI for the creation of Enso resources
+- can be used to easily insert (default) data, during the install of a package, or later when new routes and permissions are required and can create menus, assign default permissions, etc.
 - when adding menus and permissions, automatic access for the administrator role is added
+- for adding menus and permissions the package relies on laravel-enso/migrator
     
 ## Usage
 
@@ -56,6 +55,7 @@ You can use it to create:
     * controllers
 
 ### CLI Usage
+
 You may run the CLI with the following command:
 ```bash
 php artisan enso:make:structure
