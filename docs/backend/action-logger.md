@@ -3,11 +3,11 @@ sidebarDepth: 3
 ---
 
 # Action Logger
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/dc3819bf2c654b3d8dcaaed8898b214f)](https://www.codacy.com/app/laravel-enso/ActionLogger?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/ActionLogger&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://styleci.io/repos/85554059/shield?branch=master)](https://styleci.io/repos/85554059)
-[![License](https://poser.pugx.org/laravel-enso/actionlogger/license)](https://packagist.org/packages/laravel-enso/actionlogger)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/actionlogger/downloads)](https://packagist.org/packages/laravel-enso/actionlogger)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/actionlogger/version)](https://packagist.org/packages/laravel-enso/actionlogger)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/dc3819bf2c654b3d8dcaaed8898b214f)](https://www.codacy.com/app/laravel-enso/action-logger?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/action-logger&amp;utm_campaign=Badge_Grade)
+[![StyleCI](https://github.styleci.io/repos/85554059/shield?branch=master)](https://github.styleci.io/repos/85554059)
+[![License](https://poser.pugx.org/laravel-enso/action-logger/license)](https://packagist.org/packages/laravel-enso/action-logger)
+[![Total Downloads](https://poser.pugx.org/laravel-enso/action-logger/downloads)](https://packagist.org/packages/laravel-enso/action-logger)
+[![Latest Stable Version](https://poser.pugx.org/laravel-enso/action-logger/version)](https://packagist.org/packages/laravel-enso/action-logger)
 
 User actions logger dependency for [Laravel](https://laravel.com).
 
