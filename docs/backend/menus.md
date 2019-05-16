@@ -2,13 +2,14 @@
 sidebarDepth: 3
 ---
 
-# Menu Manager
+# Menus
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3f2ff01a8dc04044a13c6f4fbb9e21bd)](https://www.codacy.com/app/laravel-enso/MenuManager?utm_source=github.com&utm_medium=referral&utm_content=laravel-enso/MenuManager&utm_campaign=badger)
-[![StyleCI](https://styleci.io/repos/94800927/shield?branch=master)](https://styleci.io/repos/94800927)
-[![License](https://poser.pugx.org/laravel-enso/menumanager/license)](https://packagist.org/packages/laravel-enso/menumanager)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/menumanager/downloads)](https://packagist.org/packages/laravel-enso/menumanager)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/menumanager/version)](https://packagist.org/packages/laravel-enso/menumanager)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3f2ff01a8dc04044a13c6f4fbb9e21bd)](https://www.codacy.com/app/laravel-enso/menus?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/menus&amp;utm_campaign=Badge_Grade)
+[![StyleCI](https://github.styleci.io/repos/94800927/shield?branch=master)](https://github.styleci.io/repos/94800927)
+[![License](https://poser.pugx.org/laravel-enso/menus/license)](https://packagist.org/packages/laravel-enso/menus)
+[![Total Downloads](https://poser.pugx.org/laravel-enso/menus/downloads)](https://packagist.org/packages/laravel-enso/menus)
+[![Latest Stable Version](https://poser.pugx.org/laravel-enso/menus/version)](https://packagist.org/packages/laravel-enso/menus)
+
 
 Menu Manager dependency for [Laravel Enso](https://github.com/laravel-enso/Enso)
 
@@ -18,7 +19,7 @@ The front end assets that utilize this api are present in the [ui](https://githu
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
-[![Watch the demo](https://laravel-enso.github.io/menumanager/screenshots/bulma_012_thumb.png)](https://laravel-enso.github.io/menumanager/videos/bulma_menu_management.webm)
+[![Watch the demo](https://laravel-enso.github.io/menus/screenshots/bulma_012_thumb.png)](https://laravel-enso.github.io/menus/videos/bulma_menu_management.webm)
 
 <sup>click on the photo to view a short demo in compatible browsers</sup>
 
