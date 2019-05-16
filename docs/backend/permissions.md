@@ -4,7 +4,7 @@ sidebarDepth: 3
 
 # Permissions
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4ec2d18588a64875aa432c9a827a1849)](https://www.codacy.com/app/laravel-enso/Permissions?utm_source=github.com&utm_medium=referral&utm_content=laravel-enso/Permissions&utm_campaign=badger)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f321064c5cc74a3b914aab81854266b4)](https://www.codacy.com/app/laravel-enso/permissions?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/permissions&amp;utm_campaign=Badge_Grade)
 [![StyleCI](https://github.styleci.io/repos/94779938/shield?branch=master)](https://github.styleci.io/repos/94779938)
 [![License](https://poser.pugx.org/laravel-enso/permissions/license)](https://packagist.org/packages/laravel-enso/permissions)
 [![Total Downloads](https://poser.pugx.org/laravel-enso/permissions/downloads)](https://packagist.org/packages/laravel-enso/permissions)
