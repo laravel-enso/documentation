@@ -90,7 +90,7 @@ module.exports = {
                 children: [
                     'action-logger',
                     'activity-log',
-                    'avatar-manager',
+                    'avatars',
                     'addresses-manager',
                     'charts',
                     'cli',
@@ -101,7 +101,7 @@ module.exports = {
                     'data-import',
                     'discussions',
                     'documents-manager',
-                    'file-manager',
+                    'files',
                     'form-builder',
                     'helpers',
                     'history-tracker',
@@ -122,7 +122,7 @@ module.exports = {
                     'select',
                     'teams',
                     'track-who',
-                    'tutorial-manager',
+                    'tutorials',
                     'versioning',
                     'vue-datatable',
                 ]
