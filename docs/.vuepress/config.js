@@ -120,11 +120,11 @@ module.exports = {
                     'roles',
                     'searchable',
                     'select',
+                    'tables',
                     'teams',
                     'track-who',
                     'tutorials',
-                    'versioning',
-                    'tables',
+                    'versioning'
                 ]
             }],
             '/packages/': [{
