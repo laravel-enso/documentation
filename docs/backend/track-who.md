@@ -4,11 +4,11 @@ sidebarDepth: 3
 
 # Track Who
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c2848e5734e44faab61fb3391a91a11e)](https://www.codacy.com/app/laravel-enso/TrackWho?utm_source=github.com&utm_medium=referral&utm_content=laravel-enso/TrackWho&utm_campaign=badger)
-[![StyleCI](https://styleci.io/repos/85499255/shield?branch=master)](https://styleci.io/repos/85499255)
-[![License](https://poser.pugx.org/laravel-enso/trackwho/license)](https://packagist.org/packages/laravel-enso/trackwho)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/trackwho/downloads)](https://packagist.org/packages/laravel-enso/trackwho)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/trackwho/version)](https://packagist.org/packages/laravel-enso/trackwho)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c2848e5734e44faab61fb3391a91a11e)](https://www.codacy.com/app/laravel-enso/track-who?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/track-who&amp;utm_campaign=Badge_Grade)
+[![StyleCI](https://github.styleci.io/repos/85499255/shield?branch=master)](https://github.styleci.io/repos/85499255)
+[![License](https://poser.pugx.org/laravel-enso/track-who/license)](https://packagist.org/packages/laravel-enso/track-who)
+[![Total Downloads](https://poser.pugx.org/laravel-enso/track-who/downloads)](https://packagist.org/packages/laravel-enso/track-who)
+[![Latest Stable Version](https://poser.pugx.org/laravel-enso/track-who/version)](https://packagist.org/packages/laravel-enso/track-who)
 
 Create, update and delete authoring tracking dependency for Laravel.
 
