@@ -4,7 +4,7 @@ sidebarDepth: 3
 
 # Charts
 
-[[![Codacy Badge](https://api.codacy.com/project/badge/Grade/aa6c0917f8c6425f87eb94c01d84b2f8)](https://www.codacy.com/app/laravel-enso/charts?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/charts&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/aa6c0917f8c6425f87eb94c01d84b2f8)](https://www.codacy.com/app/laravel-enso/charts?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/charts&amp;utm_campaign=Badge_Grade)
 [![StyleCI](https://github.styleci.io/repos/85484767/shield?branch=master)](https://github.styleci.io/repos/85484767)
 [![License](https://poser.pugx.org/laravel-enso/charts/license)](https://packagist.org/packages/laravel-enso/charts)
 [![Total Downloads](https://poser.pugx.org/laravel-enso/charts/downloads)](https://packagist.org/packages/laravel-enso/charts)

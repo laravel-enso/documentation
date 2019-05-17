@@ -4,8 +4,8 @@ sidebarDepth: 3
 
 # Rememberable
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2eba208ec82d485786715915ec75f8bf)](https://www.codacy.com/app/laravel-enso/Rememberable?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/Rememberable&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://styleci.io/repos/90758167/shield?branch=master)](https://styleci.io/repos/90758167)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2eba208ec82d485786715915ec75f8bf)](https://www.codacy.com/app/laravel-enso/rememberable?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/rememberable&amp;utm_campaign=Badge_Grade)
+[![StyleCI](https://github.styleci.io/repos/90758167/shield?branch=master)](https://github.styleci.io/repos/90758167)
 [![License](https://poser.pugx.org/laravel-enso/rememberable/license)](https://packagist.org/packages/laravel-enso/rememberable)
 [![Total Downloads](https://poser.pugx.org/laravel-enso/rememberable/downloads)](https://packagist.org/packages/laravel-enso/rememberable)
 [![Latest Stable Version](https://poser.pugx.org/laravel-enso/rememberable/version)](https://packagist.org/packages/laravel-enso/rememberable)

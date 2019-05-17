@@ -4,7 +4,7 @@ sidebarDepth: 3
 
 # Versioning
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ff415bb65927479a80d173622d3c11ed)](https://www.codacy.com/app/laravel-enso/Versioning?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/Versioning&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ff415bb65927479a80d173622d3c11ed)](https://www.codacy.com/app/laravel-enso/versioning?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/versioning&amp;utm_campaign=Badge_Grade)
 [![StyleCI](https://github.styleci.io/repos/134861936/shield?branch=master)](https://github.styleci.io/repos/134861936)
 [![License](https://poser.pugx.org/laravel-enso/versioning/license)](https://packagist.org/packages/laravel-enso/versioning)
 [![Total Downloads](https://poser.pugx.org/laravel-enso/versioning/downloads)](https://packagist.org/packages/laravel-enso/versioning)

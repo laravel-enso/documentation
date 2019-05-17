@@ -4,7 +4,7 @@ sidebarDepth: 3
 
 # Teams
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/182a696508584243a45ece7572959a32)](https://www.codacy.com/app/laravel-enso/Teams?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/Teams&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/182a696508584243a45ece7572959a32)](https://www.codacy.com/app/laravel-enso/teams?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/teams&amp;utm_campaign=Badge_Grade)
 [![StyleCI](https://github.styleci.io/repos/151522931/shield?branch=master)](https://github.styleci.io/repos/151522931)
 [![License](https://poser.pugx.org/laravel-enso/teams/license)](https://packagist.org/packages/laravel-enso/teams)
 [![Total Downloads](https://poser.pugx.org/laravel-enso/teams/downloads)](https://packagist.org/packages/laravel-enso/teams)
