@@ -36,16 +36,25 @@ The bulma styled switch component.
 
 #### Example:
 ```vue
-<vue-switch class="has-margin-left-medium has-margin-right-medium"
-    v-model="myModel"/>
+<vue-switch class="has-margin-medium is-info"
+    v-model="myModel">
+    Enable
+</vue-switch>
 ```
 
 #### Props
 - `disabled` - `boolean`, optional - if true, the control is disabled
 - `readonly` - `boolean`, optional - if true, the control is readonly
 
+##### Via classes
+- you can adjust the size by adding `is-large`, `is-medium`, `is-small`
+- you cand style with with `is-info`, `is-warning`, `is-danger`, `is-success`, `is-primary`
+
 Events:
 - `input`, emitted when the value is changed, with the value/state as payload
+
+Slots:
+- `default`, can be used for having a control label
 
 ## Questions & Issues
 
