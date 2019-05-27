@@ -109,7 +109,7 @@ module.exports = {
                     'impersonate',
                     'io',
                     'localisation',
-                    'log',
+                    'logs',
                     'migrator',
                     'menus',
                     'multitenancy',
