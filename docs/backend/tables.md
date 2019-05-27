@@ -334,6 +334,7 @@ Valid values are `LIKE`, `ILIKE`.
     "name": "Table Name",
     "crtNo": true,
     "cache": true,
+    "preview": true,
     "flatten": false,
     "auth": false,
     "debounce": 100,
@@ -392,6 +393,8 @@ Options:
 - `crtNo`, optional, boolean, flag for showing the current line number
 - `cache`, optional, boolean, flag for activating the cache for the table total count 
 (more information in the Caching Support section)
+- `preview`, optional, boolean, flag for activating the row preview option / column
+(more information in the Preview Support section) 
 - `flatten`, optional, boolean, flag for flattening the response, allowing columns like "user.person.name" in the template
 - `auth`, optional, boolean, flag for removing auth when using in enso context
 - `debounce`, optional, number, the time in milliseconds that is used for the debounce when reloading data for the table,
@@ -803,6 +806,32 @@ it will be computed and also cached for 1 hour.
 You should always use this only in combination with the `TableCache` trait on the table's main model. 
 The trait will handle the cache invalidation when a model is created or deleted. 
 To do so add the trait and set `protected $cachedTable` property value to the id of your `vue-table` component. 
+
+### (Row) Preview support
+
+There might be cases where you need to optionally display extra information 
+related to a row, render a preview representation or something similar.
+
+For such cases, you may activate the table row's preview functionality by adding the 
+`"preview": true` option in the table's template.
+
+This will activate the preview table column, where you can add your own content, via the 
+`preview` slot:
+```vue
+<enso-table class="box is-paddingless raises-on-hover"
+    id="myId">
+    <template v-slot:preview="{ row }">
+        {{ row }}
+    </template>
+</enso-table>
+``` 
+
+In the snipped above we're just printing the row but you can obviously add your own 
+logic or components.
+
+Note that the preview row is also used when the table contents (columns) does not fit
+the browser. When the preview row is already active and you're also adding your own content
+via the slot, the custom content is added after the other columns. 
 
 ### Further Examples
 
