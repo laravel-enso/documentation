@@ -18,7 +18,7 @@ for a more in-depth understanding of the available functionality.
 
 ### Named routes
 
-Enso uses exclusively named routes and it is important to set names for the routes you may add since 
+Enso exclusively uses named routes and it is important to set names for the routes you may add since 
 the named routes are tied in with the permission system.
 
 ### Invocable controllers
@@ -40,13 +40,13 @@ some CRUD pages.
 Because of the modularity of Enso, when creating such pages, there are several packages 
 involved, each with their own templates, controllers and routes.
 
-Also, because Enso is meant to be a SPA, you also have front-end routes in addition to the 
+Also, because Enso is meant to be a SPA, you need front-end routes in addition to the 
 pages themselves.
 
 In order to simplify and streamline the process of adding CRUD pages, 
 we've created the CLI package and command.
 
-You can use the cli command to create:
+You can use the CLI command to create:
 - a model
 - a permission group
 - the common Enso permissions
@@ -62,30 +62,30 @@ You can use the cli command to create:
     - front-end routes
     
 Note that these are meant to provide you with a starting point, 
-as you'll still need to customize and tweak various files. 
+as you'll still need to customize and tweak some of the resulted files. 
 
 ::: tip Customizing
-Note that if you already added some of the files, 
+Note that if you already created some of the files, 
 such as a model and a migration, you can configure and choose what you want
-the cli to create for you. 
+the cli to create for you, skipping what you don't need.
 :::
 
 ::: tip Starting clean
 If you're just starting to use the cli, 
 it is recommended to do so on a clean project state, after you've configured/initialized git,
-as once the files are generated, you'll be able to use `git status` to see a list of 
-changes. 
+and you've committed your other changes, as once the files are generated, 
+you'll be able to use `git status` to see a list of changes. 
 :::
 
 ### Using the CLI
 
 To get started, open a terminal window in the root of your project and type:
-```text
+```shell
 php artisan enso:cli
 ```
 
 You'll be greeted with a list of options:
-```text
+```shell
 Create a new Laravel Enso Structure
 
 Current configuration status:
@@ -143,7 +143,7 @@ its name.
 If you enter a non namespaced name, by convention, the model will be placed
 in your `projectRoot/App` folder.
 
-```text
+```shell
 Model configuration:
 name => 
 
@@ -168,11 +168,11 @@ You may also input a namespaced name, in which case, the model will be placed
 in the proper folder.
 
 ::: tip Namespace
-If you are inputting a namespaced model, please use the full namespace, including App,
+If you are inputting a namespaced model, please type the full namespace, including `App`,
 and use double backslashes. 
 :::
 
-```text
+```shell
 Model configuration:
 name => Car
 
@@ -188,9 +188,9 @@ name => Car
 
 For the permission group, you'll want to use a name style similar to naming routes.
 
-Also, by convention use the plural name for resources.  
+Also, by convention use the *plural* name for resources.  
 
-```text
+```shell
 Permission Group configuration:
 name => 
 
@@ -216,10 +216,10 @@ structure migration
 Simply choose the desired permissions for the list:
 * `index` is used for the index page, where you'll see a list of resources in a data table
 * `create` is used to display the creation form for your resource
-* `store` is used to persist a new resource and is used by the form's save action
+* `store` is used to persist a new resource and is utilized by the form's save action
 * `edit` is used to display the edit form for an existing resource
-* `update` is used to update an existing resource and is used via the form's update action
-* `destroy` is used to delete a resource and is used by default by the form's and tables's delete actions
+* `update` is used to update an existing resource and is utilized by the form's update action
+* `destroy` is used to delete a resource and is utilized by default by the form's and tables's delete actions
 * `show` is used for the show page
 * `initTable` is used for the initialization of the index page's table
 * `tableData` is used for fetching the data for the index page's table  
@@ -227,7 +227,7 @@ Simply choose the desired permissions for the list:
 * `options` is used for fetching a list of options for the resources, utilized by a 
 server-side Select component
 
-```text
+```shell
 Permissions configuration:
 index => ✗
 create => ✗
@@ -298,7 +298,7 @@ The menu will need a few items:
     If given, the parent menu must exist and
     the name must match. 
      
-    If you don't give a parent menu, the new menu will be added as a root menu.
+    If you don't give a parent menu, the new menu will be added at the root level.
 - the route shall be the route that gets used when the user clicks on the menu.
 
     ::: tip Permissions
@@ -310,7 +310,7 @@ The menu will need a few items:
     Parent menus should not have a route and clicking on such a menu will expand it.    
 
 
-```text
+```shell
 Menu configuration:
 name => 
 icon => 
@@ -361,7 +361,7 @@ generated for you.
 Note that the options are interdepenent, so, for instance, even if you choose the 
 `routes` option, the generated routes will match the permissions you chose at the 3rd step.
 
-```text
+```shell
 Files configuration:
 model => ✗
 migration => ✗
@@ -418,10 +418,10 @@ options
 Once your options are configured, you may generate the corresponding files.
 
 While files are generated for you in their proper locations, 
-the routes are printed in the terminal and you should copy them and place them in your 
+the routes are printed in the terminal and you should copy them into your 
 `routes/api.php` files.
 
-```text
+```shell
  Choose element to configure:
   [0] Model
   [1] Permission Group
@@ -437,17 +437,17 @@ Copy and paste the following code into your api.php routes file:
 Route::namespace('Vehicles\Motorized\Cars')
     ->prefix('vehicles/motorized/cars')->as('vehicles.motorized.cars.')
     ->group(function () {
-                Route::get('', 'Index')->name('index');
-                Route::get('create', 'Create')->name('create');
-                Route::post('', 'Store')->name('store');
-                Route::get('${model}/edit', 'Edit')->name('edit');
-                Route::patch('${model}', 'Update')->name('update');
-                Route::delete('${model}', 'Destroy')->name('destroy');
-                Route::get('initTable', 'Table@init')->name('initTable');
-                Route::get('tableData', 'Table@data')->name('tableData');
-                Route::get('exportExcel', 'Table@excel')->name('exportExcel');
-                Route::get('options', 'Options')->name('options');
-                Route::get('${model}', 'Show')->name('show');
+        Route::get('', 'Index')->name('index');
+        Route::get('create', 'Create')->name('create');
+        Route::post('', 'Store')->name('store');
+        Route::get('${model}/edit', 'Edit')->name('edit');
+        Route::patch('${model}', 'Update')->name('update');
+        Route::delete('${model}', 'Destroy')->name('destroy');
+        Route::get('initTable', 'Table@init')->name('initTable');
+        Route::get('tableData', 'Table@data')->name('tableData');
+        Route::get('exportExcel', 'Table@excel')->name('exportExcel');
+        Route::get('options', 'Options')->name('options');
+        Route::get('${model}', 'Show')->name('show');
 });
 
 The new structure is created, you can start playing
@@ -456,7 +456,7 @@ The new structure is created, you can start playing
 If you've setup git for the project, you may use `git status` to see a list of 
 new files and folders:
 
-```text
+```shell
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
 
@@ -477,20 +477,71 @@ no changes added to commit (use "git add" and/or "git commit -a")
 #### Next steps
 
 Since most likely, the options you chose also involve the creation of migrations, 
-you should customize your model migration and then run:
-```text
+if necessary, customize your model migration and then run:
+```shell
 php artisan migrate
 ```
-build your front end assets, and refresh the page. You should be able to see the new menu
+
+Then build your front end assets, and refresh the page. You should be able to see the new menu
 and navigate to the index page.
 
-Next, you may need to:
+Next, depending on your choices, you may need to:
 - configure the model (fillable, relationships, etc)
 - configure the table builder, by customizing the query
-- configure the table template, by adding your columns
+- configure the table template, by adding the required columns
 - configure the form template, by adding the sections and fields
 - configure the request validation
 
 ## Overwriting Enso functionality
+
+### Using dependency injection
+
+One of the cleanest ways of customizing core logic is by extending classes and overwriting the required
+attributes and methods.
+
+In order to offer this possibility, we strive to use dependency injection for our class instances
+whenever possible. 
+
+This means that when a customization is needed, you can extend the class you want to customize and then
+bind your local implementation to the core class, in your application service provider, therefore having the
+container use the local implementation instead.
+
+### Changing Enso back end logic
+
+If the modifications you require are more extensive and cannot be resolved via using dependency injection,
+the other option is to overwrite the required routes, and point to your local implementation/controllers.   
+
+### Changing Enso front end pages
+
+When you need to customize any of the front end pages supplied with Enso, you generally have two options:
+* use [patch-package](https://www.npmjs.com/package/patch-package) to make a patch to the package that contains the page(s) to be modified
+* create your local version of the page(s) and overwrite the front end routes so that they point to your page(s) 
+
+::: tip Breaking the build
+Once you start messing with the core Enso functionality it is possible that the changes you're making could
+break parts of the various Enso core functionality. 
+
+In order to check, you may run the Enso tests locally, by typing into the terminal:
+```shell
+phpunit
+``` 
+
+If the tests fail, you may use the results to identify the issue. When opening issues on github, 
+if the tests are failing please let us know as that might speed up the troubleshooting.
+:::
+
 ## Creating new themes
 
+If you want to use a different theme instead of, or thoroughly customize the themes supplied with Enso, 
+you should use as example the default themes, available on the `node_modules/@enso-ui/themes` path.
+
+You may then create local copies of the themes and load them in place of the Enso versions, by editing
+`webpack.mix.js` .
+
+The relevant lines are:
+```js
+.sass('node_modules/@enso-ui/themes/bulma/light.scss', 'public/themes/light/bulma.min.css')
+.sass('node_modules/@enso-ui/themes/bulma/dark.scss', 'public/themes/dark/bulma.min.css')
+.sass('node_modules/@enso-ui/themes/bulma/light-rtl.scss', 'public/themes-rtl/light/bulma.min.css')
+.sass('node_modules/@enso-ui/themes/bulma/dark-rtl.scss', 'public/themes-rtl/dark/bulma.min.css')
+```
