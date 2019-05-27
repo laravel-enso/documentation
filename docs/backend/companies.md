@@ -69,10 +69,24 @@ To achieve this, you'd need to:
 - bind your local implementation to the package's `ValidateCompanyRequest` in your local `AppServiceProvider` 
 
     ```php
-    $this->app->bind(
-        ValidateCompanyRequest::class, MyValidateCompanyRequest::class
-    );
-    ``` 
+        use LaravelEnso\Companies\app\Http\Requests\ValidateCompanyStore;
+        use App\Http\Requests\ValidateCompanyStoreRequest as LocalCompanyStore;
+        use LaravelEnso\Companies\app\Http\Requests\ValidateCompanyUpdate;
+        use App\Http\Requests\ValidateCompanyUpdateRequest as LocalCompanyUpdate;
+        
+        public function boot()
+        {
+            $this->app->bind(ValidateCompanyStore::class, function () {
+                return new LocalCompanyStore();
+            });
+            $this->app->bind(ValidateCompanyUpdate::class, function () {
+                return new LocalCompanyUpdate();
+            });
+            $this->app->bind(EnsoCompany::class, function () {
+              return new Company();
+            });
+        }
+        ```  
 
 ## Publishes
 - `php artisan vendor:publish --tag=companies-config` - configuration file
