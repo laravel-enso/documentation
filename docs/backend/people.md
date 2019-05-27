@@ -83,7 +83,7 @@ useful for overriding the original
 - `tableTemplate`, - string, is the project relative path to the person table template, 
 useful for overriding the original 
 
-### Extending the people
+### Extending the people functionality
 
 In your project you may have the need to alter and or extend the people structure by adding/removing table columns.
 To achieve this, you'd need to:
@@ -91,13 +91,34 @@ To achieve this, you'd need to:
 some of the migration commands may not be available
 - create a new template for the person form, and declare it in the config (`formTemplate`)
 - create a new template for the person table, and declare it in the config (`tableTemplate`)
-- create a new person request validation 
-- bind your local implementations to the package's `ValidatePersonRequest` in your local `AppServiceProvider` 
+- create a new person request validation, as required, which should extends the Enso person validation
+    ```php
+    use LaravelEnso\Companies\app\Http\Requests\ValidatePersonStore as EnsoPersonStore;
+    
+    class ValidatePersonStore extends EnsoPersonStore
+    ...
+    ```
+- create a new `Person`, as required, which should extend the Enso Person model, and set the `$fillable` property
+- bind your local implementations to the package's request validations and model in your local `AppServiceProvider` 
 
     ```php
-    $this->app->bind(
-        ValidatesPersonRequest::class, MyValidatePersonRequest::class
-    );
+    use LaravelEnso\People\app\Http\Requests\ValidatePersonStore;
+    use App\Http\Requests\ValidatePersonStoreRequest as LocalPersonStore;
+    use LaravelEnso\People\app\Http\Requests\ValidatePersonUpdate;
+    use App\Http\Requests\ValidatePersonUpdateRequest as LocalPersonUpdate;
+    
+    public function boot()
+    {
+        $this->app->bind(ValidatePersonStore::class, function () {
+            return new LocalPersonStore();
+        });
+        $this->app->bind(ValidatePersonUpdate::class, function () {
+            return new LocalPersonUpdate();
+        });
+        $this->app->bind(EnsoPerson::class, function () {
+          return new Person();
+        });
+    }
     ``` 
 
 ## Publishes
