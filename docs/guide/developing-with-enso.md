@@ -363,7 +363,7 @@ has_children => ✗
  > Cars
 
  icon:
- > list
+ > car
 
  parentMenu:
  > Motorized
@@ -527,6 +527,274 @@ Next, depending on your choices, you may need to:
 - configure the table template, by adding the required columns
 - configure the form template, by adding the sections and fields
 - configure the request validation
+
+Below you'll find examples of such files, for the scenario where we're creating the entire structure, 
+with all the files. 
+
+##### The model migration
+
+```php
+class CreateCarsTable extends Migration
+{
+    public function up()
+    {
+        Schema::create('cars', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name')->unique();
+            $table->string('description')->nullable();
+            $table->unsignedTinyInteger('make');
+            $table->timestamps();
+        });
+    }
+
+    public function down()
+    {
+        Schema::dropIfExists('cars');
+    }
+}
+```
+
+After customizing the migration you may run `php artisan migrate`.
+
+##### The menu icon
+
+Import the required icon in the `resources/js/app.js` file:
+
+```js
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {
+    faCar,
+} from '@fortawesome/free-solid-svg-icons';
+
+library.add(
+    faCar,
+);
+```
+
+If you haven't done so already, build the front-end and/or start the HMR process.
+```shell
+yarn run hot
+```
+
+After refreshing the page you should be able to see the new menu and navigate to the index page,
+where you'll see an empty table, as there are no models added to the database yet. 
+
+##### The model class
+
+```php
+class Car extends Model
+{
+    protected $fillable = [
+        'name', 'description', 'make'
+    ];
+}
+```
+
+##### The request validation
+
+By default, the CLI will generate one request validation and use it for both the store and the update actions.
+
+```php
+class ValidateCarRequest extends FormRequest
+{
+    public function authorize()
+    {
+        return true;
+    }
+
+    public function rules()
+    {
+        return [
+            'name'        => 'required|max:255',
+            'description' => 'nullable|max:255',
+            'make'        => 'required|integer',
+        ];
+    }
+}
+```
+
+This would be a basic request validation; note that we're not checking for the name to be unique.
+
+In cases where you have different validations for the two actions, it makes sense to use 2 validations:
+
+```php
+class ValidateCarStore extends FormRequest
+{
+
+    public function authorize()
+    {
+        return true;
+    }
+
+    public function rules()
+    {
+        return [
+            'name'        => ['required', 'max:255', $this->unique()],
+            'description' => 'nullable|max:255',
+            'make'        => 'required|integer',
+        ];
+    }
+
+    protected function unique()
+    {
+        return Rule::unique('cars', 'name');
+    }
+}
+```
+
+```php
+class ValidateCarUpdate extends ValidateCarStore
+{
+
+    protected function unique()
+    {
+        return parent::unique()
+            ->ignore($this->route('car')->id);
+    }
+}
+```
+
+Of course, if using different validations, don't forget to update the 
+`App\Http\Controllers\Vehicles\Motorized\Cars\Store` 
+and `App\Http\Controllers\Vehicles\Motorized\Cars\Update` controllers to use the new request validations.
+
+##### Using an Enum for make (optional)
+
+In the `cars` migration we defined the `make` column as a tiny integer so we could demonstrate
+using an Enso Enum for storing car makes.
+
+```php
+namespace App\Enums;
+
+class CarMakes
+{
+    const AUDI = 1;
+    const BMW = 2;
+}
+
+``` 
+
+You may read more about enums in their [documentation](https://docs.laravel-enso.com/backend/helpers.html#classes).
+
+##### The table builder
+
+```php
+class CarTable extends Table
+{
+    protected $templatePath = __DIR__.'/../../../Templates/Vehicles/Motorized/cars.json';
+
+    public function query()
+    {
+        return Car::selectRaw('
+            cars.id as "dtRowId",
+            cars.name,
+            cars.description,
+            cars.make
+        ');
+    }
+}
+```
+
+##### The table template
+
+```json
+{
+    "name": "Car",
+    "routePrefix": "vehicles.motorized.cars",
+    "crtNo": true,
+    "buttons": [
+        "excel",
+        "create",
+        "show",
+        "edit",
+        "destroy"
+    ],
+    "columns": [
+        {
+            "label": "Name",
+            "name": "name",
+            "data": "cars.name",
+            "meta": [
+                "searchable",
+                "sortable"
+            ]
+        },
+        {
+            "label": "Description",
+            "name": "description",
+            "data": "cars.description",
+            "meta": [
+                "searchable",
+                "sortable"
+            ]
+        },
+        {
+            "label": "Make",
+            "name": "make",
+            "data": "cars.make",
+            "enum": "App\\Enums\\CarMakes",
+            "meta": [
+                "sortable"
+            ]
+        }
+    ]
+}
+```
+
+##### The form template
+
+```json
+{
+    "routePrefix": "vehicles.motorized.cars",
+    "sections": [
+        {
+            "columns": 2,
+            "fields": [
+                {
+                    "label": "Name",
+                    "name": "name",
+                    "value": null,
+                    "meta": {
+                        "custom": false,
+                        "type": "input",
+                        "content": "text",
+                        "disabled": false
+                    }
+                },
+                {
+                    "label": "Make",
+                    "name": "make",
+                    "value": null,
+                    "meta": {
+                        "options": "App\\Enums\\CarMakes",
+                        "type": "select",
+                        "disabled": false
+                    }
+                }
+            ]
+        },
+        {
+            "columns": 1,
+            "fields": [
+                {
+                    "label": "Description",
+                    "name": "description",
+                    "value": null,
+                    "meta": {
+                        "custom": false,
+                        "type": "textarea",
+                        "content": "text",
+                        "disabled": false,
+                        "rows": 2
+                    }
+                }
+            ]
+        }
+    ]
+}
+```
+
+You can now use the `Create` button in the index page's table to add a new car, then update it, delete it, etc.  
 
 ## Overwriting Enso functionality
 
