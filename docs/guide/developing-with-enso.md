@@ -18,7 +18,7 @@ for a more in-depth understanding of the available functionality.
 
 ### Named routes
 
-Enso exclusively uses named routes and it is important to set names for the routes you may add since 
+Enso exclusively uses named routes so it is important to set names for the routes you may add since 
 the named routes are tied in with the permission system.
 
 ### Routes and permissions
@@ -28,7 +28,7 @@ and use a API for fetching and persisting data.
 
 Therefore, we use two types of routes:
 - front end routes, found on the `resources/js/routes` path
-- back end routes, present in the `routes/api.php` files
+- back end routes, present in the `routes/api.php` file
 
 We strive to have the 2 sets of routes aligned as much as possible as it makes things clearer,
 but there will be differences. 
@@ -36,9 +36,9 @@ but there will be differences.
 For example, the `*.index` routes are present only on the front end.
 
 What is **important** is that all routes, front end or back end, have corresponding permissions as these 
-are used and checked on both layers. 
+are used also for authorization in both layers. 
 
-::: tip Back End checks
+::: tip Back end permission authorization
 On the back end, we have a Gate defined method that can be used to check 
 for authorization on a given route.
 ```php
@@ -46,7 +46,7 @@ $user->can('access-route', 'administration.users.store')
 ``` 
 :::
 
-::: tip Front End checks
+::: tip Front end permission authorization
 On the front end, a helper is available that can be used to for authorization on a given route. 
 Don't forget to inject it first. 
 ```vue
@@ -55,7 +55,6 @@ inject: ['canAccess']
 v-if="canAccess('administration.users.store')">
 ``` 
 :::
-
 
 ### Invocable controllers
 
@@ -68,32 +67,27 @@ the generated files WILL follow this convention.
 In time, we've transitioned to this style as it matches our beliefs and is also a style recommended by Taylor Otwell.
 You may read more [here](https://laraveldaily.com/taylor-otwell-thin-controllers-fat-models-approach/) 
 
-## Building CRUD files aka Build a CRUD structure in under 7 minutes
+## Building CRUD structures
 
-No matter how complex the application ends up, you'll still need
-some CRUD pages.
+No matter how complex the application ends up, you'll still need CRUD pages.
 
 Because of the modularity of Enso, when creating such pages, there are several packages 
 involved, each with their own templates, controllers and routes.
-
-Also, because Enso is meant to be a SPA, you need front-end routes in addition to the 
-pages themselves.
 
 In order to simplify and streamline the process of adding CRUD pages, 
 we've created the **CLI package and command**.
 
 You can use the CLI command to create:
-- a model
-- a permission group
+- models
 - the common Enso permissions
-- a menu
+- menus
 - the required files, such as:
     - database migrations
     - controllers
     - back-end routes
     - request validations
     - form templates and builders
-    - table templates 
+    - table templates and builders
     - front-end pages
     - front-end routes
     
@@ -102,12 +96,11 @@ as you'll still need to customize and tweak some of the resulted files.
 
 ::: tip Customizing
 If you already created some of the files, 
-such as a model and a migration, you can configure and choose what you want
-the cli to create for you, skipping what you don't need.
+such as a model and a migration, you can configure the CLI to skip building them.
 :::
 
 ::: tip Starting clean
-If you're just starting to use the cli, 
+If you're just starting to use the CLI, 
 it is recommended to do so on a clean project state, after you've configured/initialized git,
 and you've committed your other changes, as once the files are generated, 
 you'll be able to use `git status` to see a list of changes. 
@@ -219,12 +212,22 @@ name => Car
  > App\\Vehicles\\Motorized\\Car
 ```
 
-
 #### Configuring the permission group
 
-For the permission group, you'll want to use a name style similar to naming routes.
+Permission groups result out of the names of permissions, so for instance, 
+both `vehicles.motorized.cars.create` and `vehicles.motorized.cars.update` belong to the 
+`vehicles.motorized.cars` permission group.
 
-Also, by convention use the *plural* name for resources.  
+At this step, the permission group is requested because it will be used when building 
+the structure migration, the routes and more, based on your choices.
+
+When your project requirements are simple, you may use a flat structure for the group otherwise go
+with a nested one.
+
+Also, if you're unsure when choosing the routes/permissions/group naming, it's a good idea to 
+follow the classes' namespace structure.  
+
+By convention use the *plural* name for resources.  
 
 ```shell
 Permission Group configuration:
@@ -249,19 +252,45 @@ structure migration
 
 #### Configuring the permissions
 
-Simply choose the desired permissions for the list:
-* `index` is used for the index page, where you'll see a list of resources in a data table
-* `create` is used to display the creation form for your resource
-* `store` is used to persist a new resource and is utilized by the form's save action
-* `edit` is used to display the edit form for an existing resource
-* `update` is used to update an existing resource and is utilized by the form's update action
-* `destroy` is used to delete a resource and is utilized by default by the form's and tables's delete actions
-* `show` is used for the show page
-* `initTable` is used for the initialization of the index page's table
-* `tableData` is used for fetching the data for the index page's table  
-* `exportExcel` is used for exporting the information for the the index page's table
+Simply choose the desired permissions from the list:
+* `index` is used for the index page, where you'll see the list of resources in a data table. Will generate:
+    - permission
+    - front end page & route
+* `create` is used to display the creation form for your resource. Will generate:
+    - permission
+    - front end page & route
+    - back end route & controller
+* `store` is used to persist a new resource and is utilized by the form's save action. Will generate:
+    - permission
+    - back end route & controller
+* `edit` is used to display the edit form for an existing resource. Will generate:
+    - permission
+    - front end page & route
+    - back end route & controller
+* `update` is used to update an existing resource and is utilized by the form's update action. Will generate:
+    - permission
+    - back end route & controller
+* `destroy` is used to delete a resource and is utilized by default by the form's and tables's delete actions. 
+Will generate:
+    - permission
+    - back end route & controller
+* `show` is used for the show page. Will generate:
+    - permission
+    - front end page & route
+    - back end route & controller
+* `initTable` is used for the initialization of the index page's table. Will generate:
+    - permission
+    - back end route & controller
+* `tableData` is used for fetching the data for the index page's table.  Will generate:
+    - permission
+    - back end route & controller
+* `exportExcel` is used for exporting the information for the the index page's table. Will generate:
+    - permission
+    - back end route & controller
 * `options` is used for fetching a list of options for the resources, utilized by a 
-server-side Select component
+server-side Select component. Will generate:
+    - permission
+    - back end route & controller
 
 ```shell
 Permissions configuration:
@@ -325,16 +354,25 @@ structure migration
 
 ```
 
+::: tip Front end helper
+On the front end, a `route` helper is available that can be used to build the proper URL out of 
+the route name. You may search the Enso pages for examples. 
+:::
+
 #### Configuring the menu
 
 The menu will need a few attributes:
-- the name is a string and can be anything
+- the name is a string and needs to be unique at its level 
 - the icon must be a font awesome icon and needs to be imported in your project
 - the parent menu is the name of the parent menu. 
-    If given, the parent menu must exist and
-    the name must match. 
-     
+    If given, the parent menu must already be present in the database.     
     If you don't provide a parent menu, the new menu will be added at the root level.
+    
+    ::: tip Dot notation
+    When specifying the parent menu you can give input the desired menu with its entire, 
+    dot separated hierarchy, for example `Vehicles.Motorized`
+    :::
+    
 - the route shall be the named route that is utilized when the user clicks on the menu, 
 in the front-end. This is usually a route that ends with `.index`.
 
@@ -344,7 +382,11 @@ in the front-end. This is usually a route that ends with `.index`.
 - the order index is used to sort menus of the same level and should be an integer
 - the has_children flag is used to mark a menu as a parent. 
 
-    Parent menus can not have a route and clicking on such a menu will expand it and reveal its children.    
+    ::: warning
+    Parent menus cannot have a route, all other menus must have a route.
+    :::
+
+    By clicking on a parent menu, it will expand and reveal its children.    
 
 
 ```shell
@@ -372,7 +414,7 @@ has_children => ✗
  > vehicles.motorized.cars.index
 
  order_index:
- > 1
+ > 100
 
  has_children (yes/no) [no]:
  > n
@@ -395,7 +437,24 @@ Once everything else is configured, you may choose what files you want to have
 generated for you.
 
 Note that the options are interdepenent, so, for instance, if you choose the 
-`routes` option, the generated routes will match the permissions you chose at the 3rd step.
+`routes` option, the generated routes will match the permissions you selected at the 3rd step.
+
+Simply choose the desired files from the list:
+* model, generates:
+   - model class
+* migration, generates:
+    - model table migration
+* routes, generates:
+    - front end routes
+* views, generates:
+    - front end pages
+* form, generates:
+    - controllers, form builder and template 
+* table, generates:
+    - controllers, table builder and template
+* options, generates:
+    - controller
+
 
 ```shell
 Files configuration:
@@ -454,7 +513,7 @@ options
 Once your options are configured, you may generate the corresponding files.
 
 While files are generated for you in their proper locations, 
-the routes are printed in the terminal and you should copy them into your 
+the back end routes are printed in the terminal and you should copy them into your 
 `routes/api.php` files.
 
 ```shell
@@ -512,26 +571,13 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 #### Next steps
 
+Below you'll find examples of customizing the generated files, 
+considering the most complete scenario where we're creating the entire structure, with all the files. 
+
+##### The table migration
+
 Since most likely, the options you chose also involve the creation of migrations, 
-customize your model migration and then run:
-```shell
-php artisan migrate
-```
-
-Then build your front end assets, and refresh the page. You should be able to see the new menu
-and navigate to the index page.
-
-Next, depending on your choices, you may need to:
-- configure the model (fillable, relationships, etc)
-- configure the table builder, by customizing the query
-- configure the table template, by adding the required columns
-- configure the form template, by adding the sections and fields
-- configure the request validation
-
-Below you'll find examples of such files, for the scenario where we're creating the entire structure, 
-with all the files. 
-
-##### The model migration
+customize your model migration.
 
 ```php
 class CreateCarsTable extends Migration
@@ -541,7 +587,7 @@ class CreateCarsTable extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->unique();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->unsignedTinyInteger('make');
             $table->timestamps();
         });
@@ -554,7 +600,11 @@ class CreateCarsTable extends Migration
 }
 ```
 
-After customizing the migration you may run `php artisan migrate`.
+After customizing the migration you may run
+
+```shell
+php artisan migrate
+```
 
 ##### The menu icon
 
@@ -577,7 +627,7 @@ yarn run hot
 ```
 
 After refreshing the page you should be able to see the new menu and navigate to the index page,
-where you'll see an empty table, as there are no models added to the database yet. 
+where you'll notice an empty table, as there are no models added to the database yet. 
 
 ##### The model class
 
@@ -668,7 +718,9 @@ using an Enso Enum for storing car makes.
 ```php
 namespace App\Enums;
 
-class CarMakes
+use LaravelEnso\Helpers\app\Classes\Enum;
+
+class CarMakes extends Enum
 {
     const AUDI = 1;
     const BMW = 2;
