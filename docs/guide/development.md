@@ -1,4 +1,4 @@
-# Developing with Enso
+# Development
 
 This is a work in progress section, please feel free to both contribute and 
 make suggestions about new topics.
