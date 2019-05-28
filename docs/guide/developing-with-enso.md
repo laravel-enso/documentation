@@ -259,7 +259,7 @@ Simply choose the desired permissions from the list:
     - front end route, used to display the creation form for your resource. 
     - back end route, used to fetch the form data
 * `store` will generate:
-    - back end route,  used by the form to persist a new resource
+    - back end route, used by the form to persist a new resource
 * `edit` will generate:
     - front end route, used to display the edit form for an existing resource.
     - back end route, used to fetch the form data
@@ -431,8 +431,10 @@ Simply choose the desired files from the list:
    - model class
 * migration, generates:
     - model table migration
+    - structure migration
 * routes, generates:
     - front end routes
+    - back end routes
 * views, generates:
     - front end pages
 * form, generates:
@@ -599,13 +601,9 @@ Import the required icon in the `resources/js/app.js` file:
 
 ```js
 import { library } from '@fortawesome/fontawesome-svg-core';
-import {
-    faCar,
-} from '@fortawesome/free-solid-svg-icons';
+import { faCar } from '@fortawesome/free-solid-svg-icons';
 
-library.add(
-    faCar,
-);
+library.add(faCar);
 ```
 
 If you haven't done so already, build the front-end and/or start the HMR process.
