@@ -33,7 +33,7 @@ Therefore, we use two types of routes:
 We strive to have the 2 sets of routes aligned as much as possible as it makes things clearer,
 but there will be differences. 
 
-For example, the `*.index` routes are present only on the front end.
+For example, the most of the `*.index` routes are present only on the front end.
 
 What is **important** is that all routes, front end or back end, have corresponding permissions as these 
 are used also for authorization in both layers. 
