@@ -21,6 +21,42 @@ for a more in-depth understanding of the available functionality.
 Enso exclusively uses named routes and it is important to set names for the routes you may add since 
 the named routes are tied in with the permission system.
 
+### Routes and permissions
+
+Enso is a SPA, and generally, SPAs handle routing for their web pages 
+and use a API for fetching and persisting data.
+
+Therefore, we use two types of routes:
+- front end routes, found on the `resources/js/routes` path
+- back end routes, present in the `routes/api.php` files
+
+We strive to have the 2 sets of routes aligned as much as possible as it makes things clearer,
+but there will be differences. 
+
+For example, the `*.index` routes are present only on the front end.
+
+What is **important** is that all routes, front end or back end, have corresponding permissions as these 
+are used and checked on both layers. 
+
+::: tip Back End checks
+On the back end, we have a Gate defined method that can be used to check 
+for authorization on a given route.
+```php
+$user->can('access-route', 'administration.users.store')
+``` 
+:::
+
+::: tip Front End checks
+On the front end, a helper is available that can be used to for authorization on a given route. 
+Don't forget to inject it first. 
+```vue
+inject: ['canAccess']
+...
+v-if="canAccess('administration.users.store')">
+``` 
+:::
+
+
 ### Invocable controllers
 
 We're currently using invocable controllers for all our actions. While this is not a must and this choice
@@ -32,9 +68,9 @@ the generated files WILL follow this convention.
 In time, we've transitioned to this style as it matches our beliefs and is also a style recommended by Taylor Otwell.
 You may read more [here](https://laraveldaily.com/taylor-otwell-thin-controllers-fat-models-approach/) 
 
-## Building CRUD files
+## Building CRUD files aka Build a CRUD structure in under 7 minutes
 
-No matter how complex the application ends up, you'll still have the need to have
+No matter how complex the application ends up, you'll still need
 some CRUD pages.
 
 Because of the modularity of Enso, when creating such pages, there are several packages 
@@ -65,7 +101,7 @@ Note that these are meant to provide you with a starting point,
 as you'll still need to customize and tweak some of the resulted files. 
 
 ::: tip Customizing
-Note that if you already created some of the files, 
+If you already created some of the files, 
 such as a model and a migration, you can configure and choose what you want
 the cli to create for you, skipping what you don't need.
 :::
@@ -291,15 +327,16 @@ structure migration
 
 #### Configuring the menu
 
-The menu will need a few items:
+The menu will need a few attributes:
 - the name is a string and can be anything
-- the icon must be a font awesome icon and will need to imported in your project
+- the icon must be a font awesome icon and needs to be imported in your project
 - the parent menu is the name of the parent menu. 
     If given, the parent menu must exist and
     the name must match. 
      
-    If you don't give a parent menu, the new menu will be added at the root level.
-- the route shall be the route that gets used when the user clicks on the menu.
+    If you don't provide a parent menu, the new menu will be added at the root level.
+- the route shall be the named route that is utilized when the user clicks on the menu, 
+in the front-end. This is usually a route that ends with `.index`.
 
     ::: tip Permissions
     If a user does not have access to the given route, that menu will not be visible.
@@ -307,7 +344,7 @@ The menu will need a few items:
 - the order index is used to sort menus of the same level and should be an integer
 - the has_children flag is used to mark a menu as a parent. 
 
-    Parent menus should not have a route and clicking on such a menu will expand it.    
+    Parent menus can not have a route and clicking on such a menu will expand it and reveal its children.    
 
 
 ```shell
@@ -352,13 +389,12 @@ structure migration
 
 ```
 
-
 #### Configuring the files
 
 Once everything else is configured, you may choose what files you want to have
 generated for you.
 
-Note that the options are interdepenent, so, for instance, even if you choose the 
+Note that the options are interdepenent, so, for instance, if you choose the 
 `routes` option, the generated routes will match the permissions you chose at the 3rd step.
 
 ```shell
@@ -477,7 +513,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 #### Next steps
 
 Since most likely, the options you chose also involve the creation of migrations, 
-if necessary, customize your model migration and then run:
+customize your model migration and then run:
 ```shell
 php artisan migrate
 ```
