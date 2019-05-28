@@ -254,43 +254,32 @@ structure migration
 
 Simply choose the desired permissions from the list:
 * `index` is used for the index page, where you'll see the list of resources in a data table. Will generate:
-    - permission
-    - front end page & route
+    - front end route
 * `create` is used to display the creation form for your resource. Will generate:
-    - permission
-    - front end page & route
-    - back end route & controller
+    - front end route
+    - back end route
 * `store` is used to persist a new resource and is utilized by the form's save action. Will generate:
-    - permission
-    - back end route & controller
+    - back end route
 * `edit` is used to display the edit form for an existing resource. Will generate:
-    - permission
-    - front end page & route
-    - back end route & controller
+    - front end route
+    - back end route
 * `update` is used to update an existing resource and is utilized by the form's update action. Will generate:
-    - permission
-    - back end route & controller
+    - back end route
 * `destroy` is used to delete a resource and is utilized by default by the form's and tables's delete actions. 
 Will generate:
-    - permission
-    - back end route & controller
+    - back end route
 * `show` is used for the show page. Will generate:
-    - permission
-    - front end page & route
-    - back end route & controller
+    - front end route
+    - back end route
 * `initTable` is used for the initialization of the index page's table. Will generate:
-    - permission
-    - back end route & controller
+    - back end route
 * `tableData` is used for fetching the data for the index page's table.  Will generate:
-    - permission
-    - back end route & controller
+    - back end route
 * `exportExcel` is used for exporting the information for the the index page's table. Will generate:
-    - permission
-    - back end route & controller
+    - back end route
 * `options` is used for fetching a list of options for the resources, utilized by a 
 server-side Select component. Will generate:
-    - permission
-    - back end route & controller
+    - back end route
 
 ```shell
 Permissions configuration:
@@ -369,7 +358,7 @@ The menu will need a few attributes:
     If you don't provide a parent menu, the new menu will be added at the root level.
     
     ::: tip Dot notation
-    When specifying the parent menu you can give input the desired menu with its entire, 
+    When specifying the parent menu you can input the desired menu with its entire, 
     dot separated hierarchy, for example `Vehicles.Motorized`
     :::
     
@@ -383,10 +372,10 @@ in the front-end. This is usually a route that ends with `.index`.
 - the has_children flag is used to mark a menu as a parent. 
 
     ::: warning
-    Parent menus cannot have a route, all other menus must have a route.
+    Parent menus cannot have a route while all other menus must have a route.
     :::
 
-    By clicking on a parent menu, it will expand and reveal its children.    
+    By clicking on a parent menu, you will expand and reveal its children.    
 
 
 ```shell
