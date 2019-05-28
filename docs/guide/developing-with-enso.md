@@ -77,7 +77,7 @@ involved, each with their own templates, controllers and routes.
 In order to simplify and streamline the process of adding CRUD pages, 
 we've created the **CLI package and command**.
 
-You can use the CLI command to create:
+You can use the cli command to create:
 - models
 - the common Enso permissions
 - menus
@@ -253,33 +253,31 @@ structure migration
 #### Configuring the permissions
 
 Simply choose the desired permissions from the list:
-* `index` is used for the index page, where you'll see the list of resources in a data table. Will generate:
-    - front end route
-* `create` is used to display the creation form for your resource. Will generate:
-    - front end route
-    - back end route
-* `store` is used to persist a new resource and is utilized by the form's save action. Will generate:
-    - back end route
-* `edit` is used to display the edit form for an existing resource. Will generate:
-    - front end route
-    - back end route
-* `update` is used to update an existing resource and is utilized by the form's update action. Will generate:
-    - back end route
-* `destroy` is used to delete a resource and is utilized by default by the form's and tables's delete actions. 
-Will generate:
-    - back end route
-* `show` is used for the show page. Will generate:
-    - front end route
-    - back end route
-* `initTable` is used for the initialization of the index page's table. Will generate:
-    - back end route
-* `tableData` is used for fetching the data for the index page's table.  Will generate:
-    - back end route
-* `exportExcel` is used for exporting the information for the the index page's table. Will generate:
-    - back end route
-* `options` is used for fetching a list of options for the resources, utilized by a 
-server-side Select component. Will generate:
-    - back end route
+* `index` will generate:
+    - front end route, used for navigating to the index page, where you'll see the list of resources in a data table
+* `create`, will generate:
+    - front end route, used to display the creation form for your resource. 
+    - back end route, used to fetch the form data
+* `store` will generate:
+    - back end route,  used by the form to persist a new resource
+* `edit` will generate:
+    - front end route, used to display the edit form for an existing resource.
+    - back end route, used to fetch the form data
+* `update` will generate:
+    - back end route, used by the form to update an existing resource 
+* `destroy` will generate:  
+    - back end route, used by the form's and tables's delete actions to delete a resource
+* `show` will generate:
+    - front end route, used to display the show page
+    - back end route, used to fetch a model
+* `initTable` will generate:
+    - back end route, used for the initialization of the index page's table
+* `tableData` will generate:
+    - back end route, used for fetching the data for the index page's table
+* `exportExcel` will generate:
+    - back end route, used for exporting the information for the the index page's table 
+* `options` will generate:
+    - back end route, utilized by a server-side Select component for fetching a list of options for the resource 
 
 ```shell
 Permissions configuration:
