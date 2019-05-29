@@ -531,9 +531,9 @@ Route::namespace('Vehicles\Motorized\Cars')
         Route::get('{car}/edit', 'Edit')->name('edit');
         Route::patch('{car}', 'Update')->name('update');
         Route::delete('{car}', 'Destroy')->name('destroy');
-        Route::get('initTable', 'Table@init')->name('initTable');
-        Route::get('tableData', 'Table@data')->name('tableData');
-        Route::get('exportExcel', 'Table@excel')->name('exportExcel');
+        Route::get('initTable', 'InitTable')->name('initTable');
+        Route::get('tableData', 'TableData')->name('tableData');
+        Route::get('exportExcel', 'ExportExcel')->name('exportExcel');
         Route::get('options', 'Options')->name('options');
         Route::get('{car}', 'Show')->name('show');
 });
