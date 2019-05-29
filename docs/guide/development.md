@@ -10,7 +10,7 @@ make suggestions about new topics.
 Topics:
 * Enso conventions
 * Building CRUD files
-* Overwriting Enso functionality
+* Overwriting functionality
 * Creating new themes
 
 ::: tip Recommended
@@ -846,9 +846,9 @@ present them as human friendly values.
 
 You can now use the `Create` button in the index page's table to add a new car, then update it, delete it, etc.  
 
-## Overwriting Enso functionality
+## Overwriting functionality
 
-### Using dependency injection
+### Dependency injection
 
 One of the cleanest ways of customizing core logic is by extending classes, overwriting the required
 attributes and methods and then using dependency injection to obtain the desired implementation.
@@ -877,12 +877,12 @@ class AppServiceProvider extends ServiceProvider
     public function register() {...}
 ```
 
-### Changing Enso back end logic
+### Changing back end logic
 
 If the modifications you require are more extensive and cannot be resolved via using dependency injection,
 the other option is to overwrite the required routes, and point to your local implementation/controllers.   
 
-### Changing Enso front end pages
+### Changing front end pages
 
 When you need to customize any of the front end pages supplied with Enso, you generally have two options:
 * use [patch-package](https://www.npmjs.com/package/patch-package) to make a patch to the package that contains the page(s) to be modified
@@ -901,7 +901,7 @@ If the tests fail, you may use the results to identify the issue. When opening i
 if the tests are failing, please let us know as that might speed up the troubleshooting.
 :::
 
-## Creating new themes
+## New themes
 
 If you want to use a different theme instead of, or thoroughly customize the themes supplied with Enso, 
 you should use as example the default themes, available on the `node_modules/@enso-ui/themes` path.
