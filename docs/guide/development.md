@@ -901,7 +901,7 @@ If the tests fail, you may use the results to identify the issue. When opening i
 if the tests are failing, please let us know as that might speed up the troubleshooting.
 :::
 
-## New themes
+## Themes
 
 If you want to use a different theme instead of, or thoroughly customize the themes supplied with Enso, 
 you should use as example the default themes, available on the `node_modules/@enso-ui/themes` path.
