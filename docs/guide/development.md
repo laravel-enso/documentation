@@ -1,3 +1,7 @@
+---
+sidebarDepth: 3
+---
+
 # Development
 
 This is a work in progress section, please feel free to both contribute and 
