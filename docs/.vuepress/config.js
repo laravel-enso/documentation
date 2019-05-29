@@ -43,6 +43,7 @@ module.exports = {
                     '',
                     'getting-started',
                     'usage',
+                    'development',
                     'under-the-hood',
                     'thanks',
                     'license'
