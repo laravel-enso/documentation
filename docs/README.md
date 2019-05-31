@@ -17,7 +17,7 @@ footer: MIT Licensed | Copyright © 2018-present Laravel Enso
 
 ``` bash
 # clone in a new project folder
-git clone https://github.com/laravel-enso/Enso.git ./
+git clone https://github.com/laravel-enso/enso.git ./
 
 # install composer dependencies
 composer install

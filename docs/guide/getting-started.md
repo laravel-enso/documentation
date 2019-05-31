@@ -9,15 +9,18 @@
 
 ## Installation Steps
 
-1. Download the project with `git clone https://github.com/laravel-enso/Enso.git`
+1. Download the project with `git clone https://github.com/laravel-enso/enso.git`
 
 2. Run in the project folder `composer install`
 
-3. Create a database for your site (see the [Laravel database documentation](https://laravel.com/docs/5.7/database)), copy or rename the `.env.example` file to `.env`, edit the database configuration information, and run `php artisan key:generate`
+3. Create a database for your site (see the [Laravel database documentation](https://laravel.com/docs/5.7/database)), 
+copy or rename the `.env.example` file to `.env`, 
+edit the database configuration information, and run `php artisan key:generate`
 
 4. Run `php artisan migrate --seed`
 
-5. Launch the site (see the Local Development Server section of the [Laravel installation documentation](https://laravel.com/docs/5.7/#installation)) and log into the project with user: `admin@laravel-enso.com`, password: `password`
+5. Launch the site (see the Local Development Server section of the [Laravel installation documentation](https://laravel.com/docs/5.7/#installation)) 
+and log into the project with user: `admin@laravel-enso.com`, password: `password`
 
 6. Install node dependencies`yarn`
 
@@ -30,23 +33,24 @@
 Enjoy!
 
 ## Docker
-   Laravel Enso comes with a simple docker environment to help with development. By default it has two containers,
-   the enso container and the enso-mysql container. There is also a optional phpmyadmin container that can be used by removing the commentented
-   lines in docker-compose.yml.
+Laravel Enso comes with a simple docker environment to help with development. 
+By default it has two containers, the enso container and the enso-mysql container. 
+There is also a optional phpmyadmin container that can be used by removing the commented
+lines in docker-compose.yml.
 
-   #### Containers
+#### Containers
 
-   - The enso container run's the apache webserver and has yarn & composer installed.
-   - The enso-mysql container handle's the database the default user is `root` with a blank password and the default database is `enso`
-   - The enso-phpmyadmin container is optional and attaches a phpMyAdmin instance the the enso-mysql database.
+- The enso container run's the apache webserver and has yarn & composer installed.
+- The enso-mysql container handle's the database the default user is `root` with a blank password and the default database is `enso`
+- The enso-phpmyadmin container is optional and attaches a phpMyAdmin instance the the enso-mysql database.
 
-   #### Steps to use
+#### Steps to use
 
-   - Rename .env.example to .env and fill out the appropriate variables.
-   - Run `docker-compose up` to start the containers. To daemonize the process
-     run `docker-compose up --build -d`.
-   - Enter into the enso container to begin the enso installation with `docker exec -it enso bash`
-   - Install laravel enso following the [guide](https://docs.laravel-enso.com/guide/getting-started.html).
+- Rename .env.example to .env and fill out the appropriate variables.
+- Run `docker-compose up` to start the containers. 
+To daemonize the process run `docker-compose up --build -d`.
+- Enter into the enso container to begin the enso installation with `docker exec -it enso bash`
+- Install laravel enso following the [guide](https://docs.laravel-enso.com/guide/getting-started.html).
 
 ### Known issues
 
@@ -55,7 +59,7 @@ Enjoy!
     * After addressing the error, drop all tables from your site database (or delete and recreate the database), then run `php artisan migrate --seed` again.
 
 ## Features
-A solid starting project, based on [Laravel](https://laravel.com) 5.6, [VueJS](https://vuejs.org) 2,
+A solid starting project, based on [Laravel](https://laravel.com) 5.8, [VueJS](https://vuejs.org) 2,
 [Bulma](https://bulma.io), integrated themes from [Bulmaswatch](https://jenil.github.io/bulmaswatch),
 all the VueJS goodies such as [VueEx](https://vuex.vuejs.org/en) and [VueRouter](https://router.vuejs.org/en),
 with features like:
