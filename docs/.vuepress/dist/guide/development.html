@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Development | Laravel Enso</title>
+    <meta name="description" content="Full featured Single Page Application boilerplate">
+    <link rel="icon" href="/enso.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#3eaf7c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+  <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#3eaf7c">
+  <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/0.styles.609db554.css" as="style"><link rel="preload" href="/assets/js/app.8d89e16c.js" as="script"><link rel="preload" href="/assets/js/2.0d2b62f6.js" as="script"><link rel="preload" href="/assets/js/77.b8ca7e3e.js" as="script"><link rel="prefetch" href="/assets/js/10.7dd3b285.js"><link rel="prefetch" href="/assets/js/100.c85226da.js"><link rel="prefetch" href="/assets/js/101.57cf51e7.js"><link rel="prefetch" href="/assets/js/102.dc20fdab.js"><link rel="prefetch" href="/assets/js/103.057f2f65.js"><link rel="prefetch" href="/assets/js/104.0dcd9377.js"><link rel="prefetch" href="/assets/js/105.23ed730f.js"><link rel="prefetch" href="/assets/js/106.a053de36.js"><link rel="prefetch" href="/assets/js/107.25c1dc34.js"><link rel="prefetch" href="/assets/js/108.f6d46220.js"><link rel="prefetch" href="/assets/js/109.56431665.js"><link rel="prefetch" href="/assets/js/11.13bf55fc.js"><link rel="prefetch" href="/assets/js/110.77cf3a53.js"><link rel="prefetch" href="/assets/js/111.e261ffbc.js"><link rel="prefetch" href="/assets/js/112.1e533086.js"><link rel="prefetch" href="/assets/js/113.98b52632.js"><link rel="prefetch" href="/assets/js/114.b24b1613.js"><link rel="prefetch" href="/assets/js/115.5d0b70c5.js"><link rel="prefetch" href="/assets/js/116.ffdf5a91.js"><link rel="prefetch" href="/assets/js/117.66790972.js"><link rel="prefetch" href="/assets/js/118.3f2c3093.js"><link rel="prefetch" href="/assets/js/119.08fdb883.js"><link rel="prefetch" href="/assets/js/12.6557f856.js"><link rel="prefetch" href="/assets/js/120.22df8542.js"><link rel="prefetch" href="/assets/js/121.3be976e6.js"><link rel="prefetch" href="/assets/js/122.9d6619ed.js"><link rel="prefetch" href="/assets/js/123.0f274c7d.js"><link rel="prefetch" href="/assets/js/13.49671eb7.js"><link rel="prefetch" href="/assets/js/14.5db434cb.js"><link rel="prefetch" href="/assets/js/15.17a0185a.js"><link rel="prefetch" href="/assets/js/16.d1cce4fd.js"><link rel="prefetch" href="/assets/js/17.ab8ffc6a.js"><link rel="prefetch" href="/assets/js/18.d0c96c2f.js"><link rel="prefetch" href="/assets/js/19.6c44d17a.js"><link rel="prefetch" href="/assets/js/20.1869bcbc.js"><link rel="prefetch" href="/assets/js/21.00ab10c4.js"><link rel="prefetch" href="/assets/js/22.992e82d4.js"><link rel="prefetch" href="/assets/js/23.ab17c65c.js"><link rel="prefetch" href="/assets/js/24.e3c5a877.js"><link rel="prefetch" href="/assets/js/25.5405fb3a.js"><link rel="prefetch" href="/assets/js/26.4f9242ec.js"><link rel="prefetch" href="/assets/js/27.b71632a2.js"><link rel="prefetch" href="/assets/js/28.101007c9.js"><link rel="prefetch" href="/assets/js/29.0446696b.js"><link rel="prefetch" href="/assets/js/3.8f9e15cc.js"><link rel="prefetch" href="/assets/js/30.e283f68e.js"><link rel="prefetch" href="/assets/js/31.2659d366.js"><link rel="prefetch" href="/assets/js/32.0c974cb2.js"><link rel="prefetch" href="/assets/js/33.903c4189.js"><link rel="prefetch" href="/assets/js/34.1faffb28.js"><link rel="prefetch" href="/assets/js/35.e47e00e1.js"><link rel="prefetch" href="/assets/js/36.6db5d0c0.js"><link rel="prefetch" href="/assets/js/37.2826f5ea.js"><link rel="prefetch" href="/assets/js/38.88a5b63f.js"><link rel="prefetch" href="/assets/js/39.5d11cdf7.js"><link rel="prefetch" href="/assets/js/4.8e5dbcef.js"><link rel="prefetch" href="/assets/js/40.dc0dadce.js"><link rel="prefetch" href="/assets/js/41.2a361b22.js"><link rel="prefetch" href="/assets/js/42.da117e83.js"><link rel="prefetch" href="/assets/js/43.699df823.js"><link rel="prefetch" href="/assets/js/44.5834a638.js"><link rel="prefetch" href="/assets/js/45.cfcc5b47.js"><link rel="prefetch" href="/assets/js/46.e1709cd2.js"><link rel="prefetch" href="/assets/js/47.671271d5.js"><link rel="prefetch" href="/assets/js/48.3dacf61d.js"><link rel="prefetch" href="/assets/js/49.0210f3cd.js"><link rel="prefetch" href="/assets/js/5.b3b97820.js"><link rel="prefetch" href="/assets/js/50.13678e77.js"><link rel="prefetch" href="/assets/js/51.59af7e6c.js"><link rel="prefetch" href="/assets/js/52.442f9623.js"><link rel="prefetch" href="/assets/js/53.c18b8211.js"><link rel="prefetch" href="/assets/js/54.50bc93b2.js"><link rel="prefetch" href="/assets/js/55.9d50d7f2.js"><link rel="prefetch" href="/assets/js/56.b6a33719.js"><link rel="prefetch" href="/assets/js/57.c0402b3f.js"><link rel="prefetch" href="/assets/js/58.5850d454.js"><link rel="prefetch" href="/assets/js/59.199c84d2.js"><link rel="prefetch" href="/assets/js/6.0b7c7b30.js"><link rel="prefetch" href="/assets/js/60.bc013c9b.js"><link rel="prefetch" href="/assets/js/61.e6094918.js"><link rel="prefetch" href="/assets/js/62.ce6f081b.js"><link rel="prefetch" href="/assets/js/63.35e9e0ef.js"><link rel="prefetch" href="/assets/js/64.5f35f5fe.js"><link rel="prefetch" href="/assets/js/65.48e1867e.js"><link rel="prefetch" href="/assets/js/66.647e4b81.js"><link rel="prefetch" href="/assets/js/67.2c73f975.js"><link rel="prefetch" href="/assets/js/68.9822f5f7.js"><link rel="prefetch" href="/assets/js/69.f22ccbef.js"><link rel="prefetch" href="/assets/js/7.f1aa9c96.js"><link rel="prefetch" href="/assets/js/70.3460351c.js"><link rel="prefetch" href="/assets/js/71.1802bafa.js"><link rel="prefetch" href="/assets/js/72.030c4575.js"><link rel="prefetch" href="/assets/js/73.60e15760.js"><link rel="prefetch" href="/assets/js/74.403aa8ae.js"><link rel="prefetch" href="/assets/js/75.9f99be9f.js"><link rel="prefetch" href="/assets/js/76.1090e038.js"><link rel="prefetch" href="/assets/js/78.baa14a72.js"><link rel="prefetch" href="/assets/js/79.d6935ee1.js"><link rel="prefetch" href="/assets/js/8.a1966c4f.js"><link rel="prefetch" href="/assets/js/80.332f6e4f.js"><link rel="prefetch" href="/assets/js/81.281128f3.js"><link rel="prefetch" href="/assets/js/82.6043b5c6.js"><link rel="prefetch" href="/assets/js/83.6941cab6.js"><link rel="prefetch" href="/assets/js/84.fddbe04b.js"><link rel="prefetch" href="/assets/js/85.472d4f72.js"><link rel="prefetch" href="/assets/js/86.a9370411.js"><link rel="prefetch" href="/assets/js/87.c062f327.js"><link rel="prefetch" href="/assets/js/88.30e7d8fc.js"><link rel="prefetch" href="/assets/js/89.abe7e9ec.js"><link rel="prefetch" href="/assets/js/9.ce18f2ba.js"><link rel="prefetch" href="/assets/js/90.3f3c9a65.js"><link rel="prefetch" href="/assets/js/91.e4f36277.js"><link rel="prefetch" href="/assets/js/92.17f7a819.js"><link rel="prefetch" href="/assets/js/93.e653f48d.js"><link rel="prefetch" href="/assets/js/94.04a7e87d.js"><link rel="prefetch" href="/assets/js/95.df1b9f0b.js"><link rel="prefetch" href="/assets/js/96.30f1c340.js"><link rel="prefetch" href="/assets/js/97.7e9f9dd7.js"><link rel="prefetch" href="/assets/js/98.029451c2.js"><link rel="prefetch" href="/assets/js/99.e0e341e3.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.609db554.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Laravel Enso</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/guide/" class="nav-link router-link-active">Guide</a></div><div class="nav-item"><a href="/frontend/" class="nav-link">Front End</a></div><div class="nav-item"><a href="/backend/" class="nav-link">Back End</a></div><div class="nav-item"><a href="/packages/" class="nav-link">V2</a></div> <a href="https://github.com/laravel-enso/documentation" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/guide/" class="nav-link router-link-active">Guide</a></div><div class="nav-item"><a href="/frontend/" class="nav-link">Front End</a></div><div class="nav-item"><a href="/backend/" class="nav-link">Back End</a></div><div class="nav-item"><a href="/packages/" class="nav-link">V2</a></div> <a href="https://github.com/laravel-enso/documentation" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Guide</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/guide/" class="sidebar-link">Introduction</a></li><li><a href="/guide/getting-started.html" class="sidebar-link">Getting Started</a></li><li><a href="/guide/usage.html" class="sidebar-link">Usage</a></li><li><a href="/guide/development.html" class="active sidebar-link">Development</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/development.html#enso-conventions" class="sidebar-link">Enso conventions</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/development.html#named-routes" class="sidebar-link">Named routes</a></li><li class="sidebar-sub-header"><a href="/guide/development.html#routes-and-permissions" class="sidebar-link">Routes and permissions</a></li><li class="sidebar-sub-header"><a href="/guide/development.html#invocable-controllers" class="sidebar-link">Invocable controllers</a></li><li class="sidebar-sub-header"><a href="/guide/development.html#fat-models-slim-controllers" class="sidebar-link">Fat models, slim controllers</a></li></ul></li><li class="sidebar-sub-header"><a href="/guide/development.html#building-crud-structures" class="sidebar-link">Building CRUD structures</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/development.html#using-the-cli" class="sidebar-link">Using the CLI</a></li></ul></li><li class="sidebar-sub-header"><a href="/guide/development.html#overwriting-functionality" class="sidebar-link">Overwriting functionality</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/guide/development.html#dependency-injection" class="sidebar-link">Dependency injection</a></li><li class="sidebar-sub-header"><a href="/guide/development.html#changing-back-end-logic" class="sidebar-link">Changing back end logic</a></li><li class="sidebar-sub-header"><a href="/guide/development.html#changing-front-end-pages" class="sidebar-link">Changing front end pages</a></li></ul></li><li class="sidebar-sub-header"><a href="/guide/development.html#themes" class="sidebar-link">Themes</a></li></ul></li><li><a href="/guide/under-the-hood.html" class="sidebar-link">Under the Hood</a></li><li><a href="/guide/thanks.html" class="sidebar-link">Thanks</a></li><li><a href="/guide/license.html" class="sidebar-link">License</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="content default"><h1 id="development"><a href="#development" aria-hidden="true" class="header-anchor">#</a> Development</h1> <p>This is a work in progress section, please feel free to both contribute and
+make suggestions about new topics.</p> <p>Topics:</p> <ul><li>Enso conventions</li> <li>Building CRUD files</li> <li>Overwriting functionality</li> <li>Creating new themes</li></ul> <div class="tip custom-block"><p class="custom-block-title">Recommended</p> <p>No matter the topic, please also go through the related packages' documentation
+for a more in-depth understanding of the available functionality.</p></div> <h2 id="enso-conventions"><a href="#enso-conventions" aria-hidden="true" class="header-anchor">#</a> Enso conventions</h2> <h3 id="named-routes"><a href="#named-routes" aria-hidden="true" class="header-anchor">#</a> Named routes</h3> <p>Enso exclusively uses named routes so it is important to set names for the routes you may add since
+the named routes are tied in with the permission system.</p> <h3 id="routes-and-permissions"><a href="#routes-and-permissions" aria-hidden="true" class="header-anchor">#</a> Routes and permissions</h3> <p>Enso is a SPA, and generally, SPAs handle routing for their web pages
+and use a API for fetching and persisting data.</p> <p>Therefore, we use two types of routes:</p> <ul><li>front end routes, found on the <code>resources/js/routes</code> path</li> <li>back end routes, present in the <code>routes/api.php</code> file</li></ul> <p>We strive to have the 2 sets of routes aligned as much as possible as it makes things clearer,
+but there will be differences.</p> <p>For example, the most of the <code>*.index</code> routes are present only on the front end.</p> <p>What is <strong>important</strong> is that all routes, front end or back end, have corresponding permissions as these
+are used also for authorization in both layers.</p> <div class="tip custom-block"><p class="custom-block-title">Back end permission authorization</p> <p>On the back end, we have a Gate defined method that can be used to check
+for authorization on a given route.</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token variable">$user</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">can</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'access-route'</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">'administration.users.store'</span><span class="token punctuation">)</span>
+</code></pre></div></div> <div class="tip custom-block"><p class="custom-block-title">Front end permission authorization</p> <p>On the front end, a helper is available that can be used for authorization on a given route.
+Don't forget to inject it first.</p> <div class="language-vue extra-class"><pre class="language-vue"><code>inject: ['canAccess']
+...
+v-if=&quot;canAccess('administration.users.store')&quot;&gt;
+</code></pre></div></div> <h3 id="invocable-controllers"><a href="#invocable-controllers" aria-hidden="true" class="header-anchor">#</a> Invocable controllers</h3> <p>We're currently using <a href="https://laravel.com/docs/5.8/controllers#single-action-controllers" target="_blank" rel="noopener noreferrer">invocable controllers<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> for all our actions. While this is not a must and this choice
+is not tied to other core functionality, keep in mind that if using the CLI for resource files generation,
+the generated files WILL follow this convention.</p> <h3 id="fat-models-slim-controllers"><a href="#fat-models-slim-controllers" aria-hidden="true" class="header-anchor">#</a> Fat models, slim controllers</h3> <p>In time, we've transitioned to this style as it matches our beliefs and is also a style recommended by Taylor Otwell.
+You may read more <a href="https://laraveldaily.com/taylor-otwell-thin-controllers-fat-models-approach/" target="_blank" rel="noopener noreferrer">here<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></p> <h2 id="building-crud-structures"><a href="#building-crud-structures" aria-hidden="true" class="header-anchor">#</a> Building CRUD structures</h2> <p>No matter how complex the application ends up, you'll still need CRUD pages.</p> <p>Because of the modularity of Enso, when creating such pages, there are several packages
+involved, each with their own templates, controllers and routes.</p> <p>In order to simplify and streamline the process of adding CRUD pages,
+we've created the <strong>CLI package and command</strong>.</p> <p>You can use the cli command to create:</p> <ul><li>models</li> <li>the common Enso permissions</li> <li>menus</li> <li>the required files, such as:
+<ul><li>database migrations</li> <li>controllers</li> <li>back-end routes</li> <li>request validators</li> <li>form templates and builders</li> <li>table templates and builders</li> <li>front-end pages</li> <li>front-end routes</li></ul></li></ul> <p>Note that these are meant to provide you with a starting point,
+as you'll still need to customize and tweak some of the resulted files.</p> <div class="tip custom-block"><p class="custom-block-title">Customizing</p> <p>If you already created some of the files,
+such as a model and a migration, you can configure the CLI to skip building them.</p></div> <div class="tip custom-block"><p class="custom-block-title">Starting clean</p> <p>If you're just starting to use the CLI,
+it is recommended to do so on a clean project state, after you've configured/initialized git,
+and you've committed your other changes, as once the files are generated,
+you'll be able to use <code>git status</code> to see a list of changes.</p></div> <h3 id="using-the-cli"><a href="#using-the-cli" aria-hidden="true" class="header-anchor">#</a> Using the CLI</h3> <p>To get started, open a terminal window in the root of your project and type:</p> <div class="language-shell extra-class"><pre class="language-shell"><code>php artisan enso:cli
+</code></pre></div><p>You'll be greeted with a list of options:</p> <div class="language-shell extra-class"><pre class="language-shell"><code>Create a new Laravel Enso Structure
+
+Current configuration status:
+Model ✗
+Permission Group ✗
+Permissions ✗
+Menu ✗
+Files ✗
+
+ Choose element to configure:
+  <span class="token punctuation">[</span>0<span class="token punctuation">]</span> Model
+  <span class="token punctuation">[</span>1<span class="token punctuation">]</span> Permission Group
+  <span class="token punctuation">[</span>2<span class="token punctuation">]</span> Permissions
+  <span class="token punctuation">[</span>3<span class="token punctuation">]</span> Menu
+  <span class="token punctuation">[</span>4<span class="token punctuation">]</span> Files
+  <span class="token punctuation">[</span>5<span class="token punctuation">]</span> Generate
+  <span class="token punctuation">[</span>6<span class="token punctuation">]</span> Validation
+ <span class="token operator">&gt;</span> 
+</code></pre></div><p>You can tell that the options are yet to be configured.
+It's best to follow the order in which they are given.</p> <div class="tip custom-block"><p class="custom-block-title">Jumping ahead</p> <p>If you jump ahead or miss some of the required options,
+you'll receive a warning.</p></div> <p>For each option, you'll be first asked to confirm that you want to
+configure it.</p> <div class="tip custom-block"><p class="custom-block-title">Feedback</p> <p>Once you've configured an option you'll be given feedback regarding the
+configuration status of the main options as well as what will be generated
+as a result of your choices.</p></div> <div class="tip custom-block"><p class="custom-block-title">Making changes</p> <p>Once you've configured an option, before generating the files,
+you can go back and re-configure any of the options.</p></div> <div class="tip custom-block"><p class="custom-block-title">Autocomplete</p> <p>When making changes to an already configured option, you can
+type the first character and have the cli autocomplete the previously set value
+so you can advance faster through the options.</p></div> <h4 id="configuring-the-model"><a href="#configuring-the-model" aria-hidden="true" class="header-anchor">#</a> Configuring the model</h4> <p>After confirming you want to configure the model, you'll want to input
+its name.</p> <p>If you enter a non namespaced name, by convention, the model will be placed
+in your <code>projectRoot/App</code> folder.</p> <div class="language-shell extra-class"><pre class="language-shell"><code>Model configuration:
+name <span class="token operator">=</span><span class="token operator">&gt;</span> 
+
+ Configure Model <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span> <span class="token punctuation">[</span>no<span class="token punctuation">]</span>:
+ <span class="token operator">&gt;</span> y
+
+ name:
+ <span class="token operator">&gt;</span> Car
+
+Current configuration status:
+Model ✓
+Permission Group ✗
+Permissions ✗
+Menu ✗
+Files ✗
+
+Will generate:
+structure migration
+</code></pre></div><p>You may also input a namespaced name, in which case, the model will be placed
+in the proper folder.</p> <div class="tip custom-block"><p class="custom-block-title">Namespace</p> <p>If you are inputting a namespaced model, please type the full namespace, including <code>App</code>,
+and use double backslashes.</p></div> <div class="language-shell extra-class"><pre class="language-shell"><code>Model configuration:
+name <span class="token operator">=</span><span class="token operator">&gt;</span> Car
+
+ Configure Model <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span> <span class="token punctuation">[</span>no<span class="token punctuation">]</span>:
+ <span class="token operator">&gt;</span> y
+
+ name:
+ <span class="token operator">&gt;</span> App\\Vehicles\\Motorized\\Car
+</code></pre></div><h4 id="configuring-the-permission-group"><a href="#configuring-the-permission-group" aria-hidden="true" class="header-anchor">#</a> Configuring the permission group</h4> <p>Permission groups result out of the names of permissions, so for instance,
+both <code>vehicles.motorized.cars.create</code> and <code>vehicles.motorized.cars.update</code> belong to the
+<code>vehicles.motorized.cars</code> permission group.</p> <p>At this step, the permission group is requested because it will be used when building
+the structure migration, the routes and more, based on your choices.</p> <p>When your project requirements are simple, you may use a flat structure for the group otherwise go
+with a nested one.</p> <p>Also, if you're unsure when choosing the routes/permissions/group naming, it's a good idea to
+follow the classes' namespace structure.</p> <p>By convention use the <em>plural</em> name for resources.</p> <div class="language-shell extra-class"><pre class="language-shell"><code>Permission Group configuration:
+name <span class="token operator">=</span><span class="token operator">&gt;</span> 
+
+ Configure Permission Group <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span> <span class="token punctuation">[</span>no<span class="token punctuation">]</span>:
+ <span class="token operator">&gt;</span> y
+
+ name:
+ <span class="token operator">&gt;</span> vehicles.motorized.cars
+
+Current configuration status:
+Model ✓
+Permission Group ✓
+Permissions ✗
+Menu ✗
+Files ✗
+
+Will generate:
+structure migration
+</code></pre></div><h4 id="configuring-the-permissions"><a href="#configuring-the-permissions" aria-hidden="true" class="header-anchor">#</a> Configuring the permissions</h4> <p>Simply choose the desired permissions from the list:</p> <ul><li><code>index</code> will generate:
+<ul><li>front end route, used for navigating to the index page, where you'll see the list of resources in a data table</li></ul></li> <li><code>create</code>, will generate:
+<ul><li>front end route, used to display the creation form for your resource.</li> <li>back end route, used to fetch the form data</li></ul></li> <li><code>store</code> will generate:
+<ul><li>back end route, used by the form to persist a new resource</li></ul></li> <li><code>edit</code> will generate:
+<ul><li>front end route, used to display the edit form for an existing resource.</li> <li>back end route, used to fetch the form data</li></ul></li> <li><code>update</code> will generate:
+<ul><li>back end route, used by the form to update an existing resource</li></ul></li> <li><code>destroy</code> will generate:
+<ul><li>back end route, used by the form's and tables's delete actions to delete a resource</li></ul></li> <li><code>show</code> will generate:
+<ul><li>front end route, used to display the show page</li> <li>back end route, used to fetch a model</li></ul></li> <li><code>initTable</code> will generate:
+<ul><li>back end route, used for the initialization of the index page's table</li></ul></li> <li><code>tableData</code> will generate:
+<ul><li>back end route, used for fetching the data for the index page's table</li></ul></li> <li><code>exportExcel</code> will generate:
+<ul><li>back end route, used for exporting the information for the the index page's table</li></ul></li> <li><code>options</code> will generate:
+<ul><li>back end route, utilized by a server-side Select component for fetching a list of options for the resource</li></ul></li></ul> <div class="language-shell extra-class"><pre class="language-shell"><code>Permissions configuration:
+index <span class="token operator">=</span><span class="token operator">&gt;</span> ✗
+create <span class="token operator">=</span><span class="token operator">&gt;</span> ✗
+store <span class="token operator">=</span><span class="token operator">&gt;</span> ✗
+show <span class="token operator">=</span><span class="token operator">&gt;</span> ✗
+edit <span class="token operator">=</span><span class="token operator">&gt;</span> ✗
+update <span class="token operator">=</span><span class="token operator">&gt;</span> ✗
+destroy <span class="token operator">=</span><span class="token operator">&gt;</span> ✗
+initTable <span class="token operator">=</span><span class="token operator">&gt;</span> ✗
+tableData <span class="token operator">=</span><span class="token operator">&gt;</span> ✗
+exportExcel <span class="token operator">=</span><span class="token operator">&gt;</span> ✗
+options <span class="token operator">=</span><span class="token operator">&gt;</span> ✗
+
+ Configure Permissions <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span> <span class="token punctuation">[</span>no<span class="token punctuation">]</span>:
+ <span class="token operator">&gt;</span> y
+
+ index <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span> <span class="token punctuation">[</span>no<span class="token punctuation">]</span>:
+ <span class="token operator">&gt;</span> y
+
+ create <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span> <span class="token punctuation">[</span>no<span class="token punctuation">]</span>:
+ <span class="token operator">&gt;</span> y
+
+ store <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span> <span class="token punctuation">[</span>no<span class="token punctuation">]</span>:
+ <span class="token operator">&gt;</span> y
+
+ show <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span> <span class="token punctuation">[</span>no<span class="token punctuation">]</span>:
+ <span class="token operator">&gt;</span> y
+
+ edit <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span> <span class="token punctuation">[</span>no<span class="token punctuation">]</span>:
+ <span class="token operator">&gt;</span> y
+
+ update <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span> <span class="token punctuation">[</span>no<span class="token punctuation">]</span>:
+ <span class="token operator">&gt;</span> y
+
+ destroy <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span> <span class="token punctuation">[</span>no<span class="token punctuation">]</span>:
+ <span class="token operator">&gt;</span> y
+
+ initTable <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span> <span class="token punctuation">[</span>no<span class="token punctuation">]</span>:
+ <span class="token operator">&gt;</span> y
+
+ tableData <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span> <span class="token punctuation">[</span>no<span class="token punctuation">]</span>:
+ <span class="token operator">&gt;</span> y
+
+ exportExcel <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span> <span class="token punctuation">[</span>no<span class="token punctuation">]</span>:
+ <span class="token operator">&gt;</span> y
+
+ options <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span> <span class="token punctuation">[</span>no<span class="token punctuation">]</span>:
+ <span class="token operator">&gt;</span> y
+
+Current configuration status:
+Model ✓
+Permission Group ✓
+Permissions ✓
+Menu ✗
+Files ✗
+
+Will generate:
+structure migration
+
+</code></pre></div><div class="tip custom-block"><p class="custom-block-title">Front end helper</p> <p>On the front end, a <code>route</code> helper is available that can be used to build the proper URL out of
+the route name. You may search the Enso pages for examples.</p></div> <h4 id="configuring-the-menu"><a href="#configuring-the-menu" aria-hidden="true" class="header-anchor">#</a> Configuring the menu</h4> <p>The menu will need a few attributes:</p> <ul><li><p>the name is a string and needs to be unique at its level</p></li> <li><p>the icon must be a font awesome icon and needs to be imported in your project</p></li> <li><p>the parent menu is the name of the parent menu.
+If given, the parent menu must already be present in the database.<br>
+If you don't provide a parent menu, the new menu will be added at the root level.</p> <div class="tip custom-block"><p class="custom-block-title">Dot notation</p> <p>When specifying the parent menu you can input the desired menu with its entire,
+dot separated hierarchy, for example <code>Vehicles.Motorized</code></p></div></li> <li><p>the route shall be the named route that is utilized when the user clicks on the menu,
+in the front-end. This is usually a route that ends with <code>.index</code>.</p> <div class="tip custom-block"><p class="custom-block-title">Permissions</p> <p>If a user does not have access to the given route, that menu will not be visible.</p></div></li> <li><p>the order index is used to sort menus of the same level and should be an integer</p></li> <li><p>the has_children flag is used to mark a menu as a parent.</p> <div class="warning custom-block"><p>Parent menus cannot have a route while all other menus must have a route.</p></div> <p>By clicking on a parent menu, you will expand and reveal its children.</p></li></ul> <div class="language-shell extra-class"><pre class="language-shell"><code>Menu configuration:
+name <span class="token operator">=</span><span class="token operator">&gt;</span> 
+icon <span class="token operator">=</span><span class="token operator">&gt;</span> 
+parentMenu <span class="token operator">=</span><span class="token operator">&gt;</span> 
+route <span class="token operator">=</span><span class="token operator">&gt;</span> 
+order_index <span class="token operator">=</span><span class="token operator">&gt;</span> 999
+has_children <span class="token operator">=</span><span class="token operator">&gt;</span> ✗
+
+ Configure Menu <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span> <span class="token punctuation">[</span>no<span class="token punctuation">]</span>:
+ <span class="token operator">&gt;</span> y
+
+ name:
+ <span class="token operator">&gt;</span> Cars
+
+ icon:
+ <span class="token operator">&gt;</span> car
+
+ parentMenu:
+ <span class="token operator">&gt;</span> Motorized
+
+ route:
+ <span class="token operator">&gt;</span> vehicles.motorized.cars.index
+
+ order_index:
+ <span class="token operator">&gt;</span> 100
+
+ has_children <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span> <span class="token punctuation">[</span>no<span class="token punctuation">]</span>:
+ <span class="token operator">&gt;</span> n
+
+Current configuration status:
+Model ✓
+Permission Group ✓
+Permissions ✓
+Menu ✓
+Files ✗
+
+Will generate:
+structure migration
+
+</code></pre></div><h4 id="configuring-the-files"><a href="#configuring-the-files" aria-hidden="true" class="header-anchor">#</a> Configuring the files</h4> <p>Once everything else is configured, you may choose what files you want to have
+generated for you.</p> <p>Note that the options are interdepenent, so, for instance, if you choose the
+<code>routes</code> option, the generated routes will match the permissions you selected at the 3rd step.</p> <p>Simply choose the desired files from the list:</p> <ul><li>model, generates:
+<ul><li>model class</li></ul></li> <li>migration, generates:
+<ul><li>model table migration</li> <li>structure migration</li></ul></li> <li>routes, generates:
+<ul><li>front end routes</li> <li>back end routes</li></ul></li> <li>views, generates:
+<ul><li>front end pages</li></ul></li> <li>form, generates:
+<ul><li>controllers, request validator, form builder and template</li></ul></li> <li>table, generates:
+<ul><li>controllers, table builder and template</li></ul></li> <li>options, generates:
+<ul><li>controller</li></ul></li></ul> <div class="language-shell extra-class"><pre class="language-shell"><code>Files configuration:
+model <span class="token operator">=</span><span class="token operator">&gt;</span> ✗
+migration <span class="token operator">=</span><span class="token operator">&gt;</span> ✗
+routes <span class="token operator">=</span><span class="token operator">&gt;</span> ✗
+views <span class="token operator">=</span><span class="token operator">&gt;</span> ✗
+form <span class="token operator">=</span><span class="token operator">&gt;</span> ✗
+table <span class="token operator">=</span><span class="token operator">&gt;</span> ✗
+options <span class="token operator">=</span><span class="token operator">&gt;</span> ✗
+
+ Configure Files <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span> <span class="token punctuation">[</span>no<span class="token punctuation">]</span>:
+ <span class="token operator">&gt;</span> y
+
+ model <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span> <span class="token punctuation">[</span>no<span class="token punctuation">]</span>:
+ <span class="token operator">&gt;</span> y
+
+ migration <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span> <span class="token punctuation">[</span>no<span class="token punctuation">]</span>:
+ <span class="token operator">&gt;</span> y
+
+ routes <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span> <span class="token punctuation">[</span>no<span class="token punctuation">]</span>:
+ <span class="token operator">&gt;</span> y
+
+ views <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span> <span class="token punctuation">[</span>no<span class="token punctuation">]</span>:
+ <span class="token operator">&gt;</span> y
+
+ form <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span> <span class="token punctuation">[</span>no<span class="token punctuation">]</span>:
+ <span class="token operator">&gt;</span> y
+
+ table <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span> <span class="token punctuation">[</span>no<span class="token punctuation">]</span>:
+ <span class="token operator">&gt;</span> y
+
+ options <span class="token punctuation">(</span>yes/no<span class="token punctuation">)</span> <span class="token punctuation">[</span>no<span class="token punctuation">]</span>:
+ <span class="token operator">&gt;</span> y
+
+Current configuration status:
+Model ✓
+Permission Group ✓
+Permissions ✓
+Menu ✓
+Files ✓
+
+Will generate:
+structure migration
+model
+migration
+routes
+views
+form
+table
+options
+</code></pre></div><h4 id="generating-the-files"><a href="#generating-the-files" aria-hidden="true" class="header-anchor">#</a> Generating the files</h4> <p>Once your options are configured, you may generate the corresponding files.</p> <p>While files are generated for you in their proper locations,
+the back end routes are printed in the terminal and you should copy them into your
+<code>routes/api.php</code> files.</p> <div class="language-shell extra-class"><pre class="language-shell"><code> Choose element to configure:
+  <span class="token punctuation">[</span>0<span class="token punctuation">]</span> Model
+  <span class="token punctuation">[</span>1<span class="token punctuation">]</span> Permission Group
+  <span class="token punctuation">[</span>2<span class="token punctuation">]</span> Permissions
+  <span class="token punctuation">[</span>3<span class="token punctuation">]</span> Menu
+  <span class="token punctuation">[</span>4<span class="token punctuation">]</span> Files
+  <span class="token punctuation">[</span>5<span class="token punctuation">]</span> Generate
+  <span class="token punctuation">[</span>6<span class="token punctuation">]</span> Validation
+ <span class="token operator">&gt;</span> 5
+
+Copy and <span class="token function">paste</span> the following code into your api.php routes file:
+
+Route::namespace<span class="token punctuation">(</span><span class="token string">'Vehicles\Motorized\Cars'</span><span class="token punctuation">)</span>
+    -<span class="token operator">&gt;</span>prefix<span class="token punctuation">(</span><span class="token string">'vehicles/motorized/cars'</span><span class="token punctuation">)</span>-<span class="token operator">&gt;</span>as<span class="token punctuation">(</span><span class="token string">'vehicles.motorized.cars.'</span><span class="token punctuation">)</span>
+    -<span class="token operator">&gt;</span>group<span class="token punctuation">(</span>function <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Route::get<span class="token punctuation">(</span><span class="token string">''</span>, <span class="token string">'Index'</span><span class="token punctuation">)</span>-<span class="token operator">&gt;</span>name<span class="token punctuation">(</span><span class="token string">'index'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Route::get<span class="token punctuation">(</span><span class="token string">'create'</span>, <span class="token string">'Create'</span><span class="token punctuation">)</span>-<span class="token operator">&gt;</span>name<span class="token punctuation">(</span><span class="token string">'create'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Route::post<span class="token punctuation">(</span><span class="token string">''</span>, <span class="token string">'Store'</span><span class="token punctuation">)</span>-<span class="token operator">&gt;</span>name<span class="token punctuation">(</span><span class="token string">'store'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Route::get<span class="token punctuation">(</span><span class="token string">'{car}/edit'</span>, <span class="token string">'Edit'</span><span class="token punctuation">)</span>-<span class="token operator">&gt;</span>name<span class="token punctuation">(</span><span class="token string">'edit'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Route::patch<span class="token punctuation">(</span><span class="token string">'{car}'</span>, <span class="token string">'Update'</span><span class="token punctuation">)</span>-<span class="token operator">&gt;</span>name<span class="token punctuation">(</span><span class="token string">'update'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Route::delete<span class="token punctuation">(</span><span class="token string">'{car}'</span>, <span class="token string">'Destroy'</span><span class="token punctuation">)</span>-<span class="token operator">&gt;</span>name<span class="token punctuation">(</span><span class="token string">'destroy'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Route::get<span class="token punctuation">(</span><span class="token string">'initTable'</span>, <span class="token string">'InitTable'</span><span class="token punctuation">)</span>-<span class="token operator">&gt;</span>name<span class="token punctuation">(</span><span class="token string">'initTable'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Route::get<span class="token punctuation">(</span><span class="token string">'tableData'</span>, <span class="token string">'TableData'</span><span class="token punctuation">)</span>-<span class="token operator">&gt;</span>name<span class="token punctuation">(</span><span class="token string">'tableData'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Route::get<span class="token punctuation">(</span><span class="token string">'exportExcel'</span>, <span class="token string">'ExportExcel'</span><span class="token punctuation">)</span>-<span class="token operator">&gt;</span>name<span class="token punctuation">(</span><span class="token string">'exportExcel'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Route::get<span class="token punctuation">(</span><span class="token string">'options'</span>, <span class="token string">'Options'</span><span class="token punctuation">)</span>-<span class="token operator">&gt;</span>name<span class="token punctuation">(</span><span class="token string">'options'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Route::get<span class="token punctuation">(</span><span class="token string">'{car}'</span>, <span class="token string">'Show'</span><span class="token punctuation">)</span>-<span class="token operator">&gt;</span>name<span class="token punctuation">(</span><span class="token string">'show'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+The new structure is created, you can start playing
+</code></pre></div><p>If you've setup git for the project, you may use <code>git status</code> to see a list of
+new files and folders:</p> <div class="language-shell extra-class"><pre class="language-shell"><code>Untracked files:
+  <span class="token punctuation">(</span>use <span class="token string">&quot;git add &lt;file&gt;...&quot;</span> to include <span class="token keyword">in</span> what will be committed<span class="token punctuation">)</span>
+
+        app/Forms/
+        app/Http/Controllers/Vehicles/
+        app/Http/Requests/
+        app/Tables/
+        app/Vehicles/
+        database/migrations/2019_05_27_134825_create_cars_table.php
+        database/migrations/2019_05_27_134825_create_structure_for_cars.php
+        resources/js/pages/vehicles/
+        resources/js/routes/vehicles.js
+        resources/js/routes/vehicles/
+
+no changes added to commit <span class="token punctuation">(</span>use <span class="token string">&quot;git add&quot;</span> and/or <span class="token string">&quot;git commit -a&quot;</span><span class="token punctuation">)</span>
+</code></pre></div><h4 id="next-steps"><a href="#next-steps" aria-hidden="true" class="header-anchor">#</a> Next steps</h4> <p>Below you'll find examples of customizing the generated files,
+considering the most complete scenario where we're creating the entire structure, with all the files.</p> <h5 id="the-table-migration"><a href="#the-table-migration" aria-hidden="true" class="header-anchor">#</a> The table migration</h5> <p>Since most likely, the options you chose also involve the creation of migrations,
+customize your model migration.</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">class</span> <span class="token class-name">CreateCarsTable</span> <span class="token keyword">extends</span> <span class="token class-name">Migration</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">up</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Schema<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'cars'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>Blueprint <span class="token variable">$table</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">bigIncrements</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'id'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">string</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'name'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">unique</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'description'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">nullable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">unsignedTinyInteger</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'make'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token variable">$table</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">timestamps</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">down</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Schema<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">dropIfExists</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'cars'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>After customizing the migration you may run</p> <div class="language-shell extra-class"><pre class="language-shell"><code>php artisan migrate
+</code></pre></div><h5 id="the-menu-icon"><a href="#the-menu-icon" aria-hidden="true" class="header-anchor">#</a> The menu icon</h5> <p><a href="https://fontawesome.com/how-to-use/on-the-web/using-with/vuejs" target="_blank" rel="noopener noreferrer">Import<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> the required icon in the <code>resources/js/app.js</code> file:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">import</span> <span class="token punctuation">{</span> library <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@fortawesome/fontawesome-svg-core'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> faCar <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'@fortawesome/free-solid-svg-icons'</span><span class="token punctuation">;</span>
+
+library<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>faCar<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>If you haven't done so already, build the front-end and/or start the HMR process.</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token function">yarn</span> run hot
+</code></pre></div><p>After refreshing the page you should be able to see the new menu and navigate to the index page,
+where you'll notice an empty table, as there are no models added to the database yet.</p> <h5 id="the-model-class"><a href="#the-model-class" aria-hidden="true" class="header-anchor">#</a> The model class</h5> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">class</span> <span class="token class-name">Car</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">protected</span> <span class="token variable">$fillable</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">'name'</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">'description'</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">'make'</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h5 id="the-request-validation"><a href="#the-request-validation" aria-hidden="true" class="header-anchor">#</a> The request validation</h5> <p>By default, the CLI will generate one request validators and use it for both the store and the update actions.</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">class</span> <span class="token class-name">ValidateCarRequest</span> <span class="token keyword">extends</span> <span class="token class-name">FormRequest</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">authorize</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean constant">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">rules</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span>
+            <span class="token single-quoted-string string">'name'</span>        <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">'required|max:255'</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'description'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">'nullable|max:255'</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'make'</span>        <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">'required|integer'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>This is a basic request validators; note that we're not checking for the name to be unique.</p> <p>In cases where you need different validation rules for the two actions,
+it makes sense to use 2 validation classes:</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">class</span> <span class="token class-name">ValidateCarStore</span> <span class="token keyword">extends</span> <span class="token class-name">FormRequest</span>
+<span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">authorize</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean constant">true</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">rules</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span>
+            <span class="token single-quoted-string string">'name'</span>        <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span><span class="token single-quoted-string string">'required'</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">'max:255'</span><span class="token punctuation">,</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">unique</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'description'</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">'nullable|max:255'</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">'make'</span>        <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">'required|integer'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">unique</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> Rule<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">unique</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'cars'</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">'name'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">class</span> <span class="token class-name">ValidateCarUpdate</span> <span class="token keyword">extends</span> <span class="token class-name">ValidateCarStore</span>
+<span class="token punctuation">{</span>
+
+    <span class="token keyword">protected</span> <span class="token keyword">function</span> <span class="token function">unique</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">parent</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">unique</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">ignore</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">route</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'car'</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">id</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>If using different validators than the one generated by the CLI,
+don't forget to update the controllers so that they use the new validation classes:</p> <ul><li><code>App\Http\Controllers\Vehicles\Motorized\Cars\Store</code></li> <li><code>App\Http\Controllers\Vehicles\Motorized\Cars\Update</code> .</li></ul> <h5 id="using-an-enum-for-make-optional"><a href="#using-an-enum-for-make-optional" aria-hidden="true" class="header-anchor">#</a> Using an Enum for make (optional)</h5> <p>In the <code>cars</code> migration we defined the <code>make</code> column as a tiny integer so we could demonstrate
+using an Enso Enum for storing car makes.</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Enums</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">LaravelEnso<span class="token punctuation">\</span>Helpers<span class="token punctuation">\</span>app<span class="token punctuation">\</span>Classes<span class="token punctuation">\</span>Enum</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">CarMakes</span> <span class="token keyword">extends</span> <span class="token class-name">Enum</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token constant">AUDI</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> <span class="token constant">BMW</span> <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre></div><p>You may read more about enums in their <a href="https://docs.laravel-enso.com/backend/helpers.html#classes" target="_blank" rel="noopener noreferrer">documentation<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>
+but in short they are a construct which integrates with tables, forms, selects that allows for a
+better representation of type values (and more).</p> <h5 id="the-table-builder"><a href="#the-table-builder" aria-hidden="true" class="header-anchor">#</a> The table builder</h5> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">class</span> <span class="token class-name">CarTable</span> <span class="token keyword">extends</span> <span class="token class-name">Table</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">protected</span> <span class="token variable">$templatePath</span> <span class="token operator">=</span> <span class="token constant">__DIR__</span><span class="token punctuation">.</span><span class="token single-quoted-string string">'/../../../Templates/Vehicles/Motorized/cars.json'</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">query</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> Car<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">selectRaw</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'
+            cars.id as &quot;dtRowId&quot;,
+            cars.name,
+            cars.description,
+            cars.make
+        '</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>Note that the <code>dtRowId</code> identifier is required for all tables.</p> <h5 id="the-table-template"><a href="#the-table-template" aria-hidden="true" class="header-anchor">#</a> The table template</h5> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+    <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Car&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;routePrefix&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vehicles.motorized.cars&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;crtNo&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;buttons&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token string">&quot;excel&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;create&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;show&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;edit&quot;</span><span class="token punctuation">,</span>
+        <span class="token string">&quot;destroy&quot;</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;columns&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">&quot;label&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Name&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;name&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token string">&quot;cars.name&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;meta&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token string">&quot;searchable&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;sortable&quot;</span>
+            <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">&quot;label&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Description&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;description&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token string">&quot;cars.description&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;meta&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token string">&quot;searchable&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;sortable&quot;</span>
+            <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">&quot;label&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Make&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;make&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;data&quot;</span><span class="token operator">:</span> <span class="token string">&quot;cars.make&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;enum&quot;</span><span class="token operator">:</span> <span class="token string">&quot;App\\Enums\\CarMakes&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;meta&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token string">&quot;sortable&quot;</span>
+            <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>Note that while integer values are store in the DB for the car make, we're using the Enum to
+present them as human friendly values.</p> <h5 id="the-form-template"><a href="#the-form-template" aria-hidden="true" class="header-anchor">#</a> The form template</h5> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+    <span class="token property">&quot;routePrefix&quot;</span><span class="token operator">:</span> <span class="token string">&quot;vehicles.motorized.cars&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;sections&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">&quot;columns&quot;</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;fields&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">{</span>
+                    <span class="token property">&quot;label&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Name&quot;</span><span class="token punctuation">,</span>
+                    <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;name&quot;</span><span class="token punctuation">,</span>
+                    <span class="token property">&quot;value&quot;</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+                    <span class="token property">&quot;meta&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                        <span class="token property">&quot;custom&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                        <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;input&quot;</span><span class="token punctuation">,</span>
+                        <span class="token property">&quot;content&quot;</span><span class="token operator">:</span> <span class="token string">&quot;text&quot;</span><span class="token punctuation">,</span>
+                        <span class="token property">&quot;disabled&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token punctuation">{</span>
+                    <span class="token property">&quot;label&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Make&quot;</span><span class="token punctuation">,</span>
+                    <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;make&quot;</span><span class="token punctuation">,</span>
+                    <span class="token property">&quot;value&quot;</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+                    <span class="token property">&quot;meta&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                        <span class="token property">&quot;options&quot;</span><span class="token operator">:</span> <span class="token string">&quot;App\\Enums\\CarMakes&quot;</span><span class="token punctuation">,</span>
+                        <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;select&quot;</span><span class="token punctuation">,</span>
+                        <span class="token property">&quot;disabled&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">&quot;columns&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;fields&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">{</span>
+                    <span class="token property">&quot;label&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Description&quot;</span><span class="token punctuation">,</span>
+                    <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;description&quot;</span><span class="token punctuation">,</span>
+                    <span class="token property">&quot;value&quot;</span><span class="token operator">:</span> <span class="token null keyword">null</span><span class="token punctuation">,</span>
+                    <span class="token property">&quot;meta&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                        <span class="token property">&quot;custom&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                        <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;textarea&quot;</span><span class="token punctuation">,</span>
+                        <span class="token property">&quot;content&quot;</span><span class="token operator">:</span> <span class="token string">&quot;text&quot;</span><span class="token punctuation">,</span>
+                        <span class="token property">&quot;disabled&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                        <span class="token property">&quot;rows&quot;</span><span class="token operator">:</span> <span class="token number">2</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>You can now use the <code>Create</code> button in the index page's table to add a new car, then update it, delete it, etc.</p> <h2 id="overwriting-functionality"><a href="#overwriting-functionality" aria-hidden="true" class="header-anchor">#</a> Overwriting functionality</h2> <h3 id="dependency-injection"><a href="#dependency-injection" aria-hidden="true" class="header-anchor">#</a> Dependency injection</h3> <p>One of the cleanest ways of customizing core logic is by extending classes, overwriting the required
+attributes and methods and then using dependency injection to obtain the desired implementation.</p> <p>This means that when a customization is needed, you can extend the class you want to customize and then
+bind your local implementation to the core class, in your application service provider, therefore having the
+container use the local implementation instead.</p> <div class="language-php extra-class"><pre class="language-php"><code><span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Http<span class="token punctuation">\</span>Requests<span class="token punctuation">\</span>People<span class="token punctuation">\</span>ValidatePersonStore</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Http<span class="token punctuation">\</span>Requests<span class="token punctuation">\</span>People<span class="token punctuation">\</span>ValidatePersonUpdate</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">LaravelEnso<span class="token punctuation">\</span>People<span class="token punctuation">\</span>app<span class="token punctuation">\</span>Http<span class="token punctuation">\</span>Requests<span class="token punctuation">\</span>ValidatePersonStore</span> <span class="token keyword">as</span> EnsoPersonStoreValidator<span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">LaravelEnso<span class="token punctuation">\</span>People<span class="token punctuation">\</span>app<span class="token punctuation">\</span>Http<span class="token punctuation">\</span>Requests<span class="token punctuation">\</span>ValidatePersonUpdate</span> <span class="token keyword">as</span> EnsoPersonUpdateValidator<span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Support<span class="token punctuation">\</span>ServiceProvider</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">AppServiceProvider</span> <span class="token keyword">extends</span> <span class="token class-name">ServiceProvider</span>
+<span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token variable">$bindings</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+        EnsoPersonStoreValidator<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token keyword">class</span>   <span class="token operator">=</span><span class="token operator">&gt;</span> ValidatePersonStore<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token keyword">class</span><span class="token punctuation">,</span>
+        EnsoPersonUpdateValidator<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token keyword">class</span>  <span class="token operator">=</span><span class="token operator">&gt;</span> ValidatePersonUpdate<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token keyword">class</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">boot</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>
+    
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">register</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>
+</code></pre></div><h3 id="changing-back-end-logic"><a href="#changing-back-end-logic" aria-hidden="true" class="header-anchor">#</a> Changing back end logic</h3> <p>If the modifications you require are more extensive and cannot be resolved via using dependency injection,
+the other option is to overwrite the required routes, and point to your local implementation/controllers.</p> <h3 id="changing-front-end-pages"><a href="#changing-front-end-pages" aria-hidden="true" class="header-anchor">#</a> Changing front end pages</h3> <p>When you need to customize any of the front end pages supplied with Enso, you generally have two options:</p> <ul><li>use <a href="https://www.npmjs.com/package/patch-package" target="_blank" rel="noopener noreferrer">patch-package<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> to make a patch to the package that contains the page(s) to be modified</li> <li>create your local version of the page(s) and overwrite the front end routes so that they point to your page(s)</li></ul> <div class="tip custom-block"><p class="custom-block-title">Breaking the build</p> <p>Once you start messing with the core Enso functionality it is possible that the changes you're making could
+break parts of the various Enso core functionality.</p> <p>In order to be aware of this, you may run the Enso tests locally, by typing into the terminal:</p> <div class="language-shell extra-class"><pre class="language-shell"><code>phpunit
+</code></pre></div><p>If the tests fail, you may use the results to identify the issue. When opening issues on github,
+if the tests are failing, please let us know as that might speed up the troubleshooting.</p></div> <h2 id="themes"><a href="#themes" aria-hidden="true" class="header-anchor">#</a> Themes</h2> <p>If you want to use a different theme instead of, or thoroughly customize the themes supplied with Enso,
+you should use as example the default themes, available on the <code>node_modules/@enso-ui/themes</code> path.</p> <p>You may then create local copies of the themes and load them in place of the Enso versions, by editing
+<code>webpack.mix.js</code> .</p> <p>The relevant lines are:</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token punctuation">.</span><span class="token function">sass</span><span class="token punctuation">(</span><span class="token string">'node_modules/@enso-ui/themes/bulma/light.scss'</span><span class="token punctuation">,</span> <span class="token string">'public/themes/light/bulma.min.css'</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token function">sass</span><span class="token punctuation">(</span><span class="token string">'node_modules/@enso-ui/themes/bulma/dark.scss'</span><span class="token punctuation">,</span> <span class="token string">'public/themes/dark/bulma.min.css'</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token function">sass</span><span class="token punctuation">(</span><span class="token string">'node_modules/@enso-ui/themes/bulma/light-rtl.scss'</span><span class="token punctuation">,</span> <span class="token string">'public/themes-rtl/light/bulma.min.css'</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token function">sass</span><span class="token punctuation">(</span><span class="token string">'node_modules/@enso-ui/themes/bulma/dark-rtl.scss'</span><span class="token punctuation">,</span> <span class="token string">'public/themes-rtl/dark/bulma.min.css'</span><span class="token punctuation">)</span>
+</code></pre></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/laravel-enso/documentation/edit/master/docs/guide/development.md" target="_blank" rel="noopener noreferrer">Edit this page on Github</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">5/29/2019, 9:11:14 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/guide/usage.html" class="prev">
+          Usage
+        </a></span> <span class="next"><a href="/guide/under-the-hood.html">
+          Under the Hood
+        </a>
+        →
+      </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.8d89e16c.js" defer></script><script src="/assets/js/2.0d2b62f6.js" defer></script><script src="/assets/js/77.b8ca7e3e.js" defer></script>
+  </body>
+</html>
