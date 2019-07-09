@@ -237,6 +237,8 @@ The bulma styled interval filtering component, built on top of the renderless ve
     :interval="interval"/>
 ```
 
+The component can also be used together with `v-model`.
+
 #### Props
 
 All the props from the renderless component can be provided here
