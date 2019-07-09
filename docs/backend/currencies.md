@@ -21,7 +21,7 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 
 * install the package using composer: `composer require laravel-enso/currencies`
 * add the following alias in `webackpack.mix.js`
-    ```
+    ```js
     .webpackConfig({
             resolve: {
                 extensions: ['.js', '.vue', '.json'],
@@ -42,7 +42,7 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 
 * then use `RouteMerger` to import front-end assets using the alias defined in `webpack.mix.js`
 
-    ```
+    ```js
     (new RouteMerger(routes))
         .add(routeImporter(require.context('./routes', false, /.*\.js$/)))
         .add(routeImporter(require.context('@currencies/routes', false, /.*\.js$/)));
