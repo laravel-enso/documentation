@@ -147,7 +147,7 @@ All the props from the renderless component can be provided here
 - `compact` - `boolean`, optional - shows the component using a more compact state
 
 ::: tip Tip
-You can build a custom implementation where you're using some other `datepiker` lib or your custom tempalte
+You can build a custom implementation where you're using some other `datepiker` lib or your custom template
 :::
 
 ### EnsoDateFilter.vue
