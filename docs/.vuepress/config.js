@@ -99,6 +99,7 @@ module.exports = {
                     'comments',
                     'companies',
                     'core',
+                    'currencies',
                     'data-export',
                     'data-import',
                     'discussions',

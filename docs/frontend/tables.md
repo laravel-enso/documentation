@@ -64,7 +64,25 @@ your own custom version.
  `errorHandler` - `function` - function used to handle axios errors
 - `filters` - `object` - a filters object that is sent to the back-end to filter the results
 - `id` - `string`, required, an id for the table
-- `intervals` - `object`, optional - an interval filters object that is sent to the back-end to filter the results
+- `intervals` - `object`, optional - an interval filters object that is sent to the back-end to filter the results. Note that beyond the 
+    `min` and `max` values for a given interval, you must also give the `dbDateFormat` parameter, with the date format to be used
+    for example `intervals` can look like this:
+    
+    ```js
+    data() {
+        return {
+            intervals: {
+                menus: {
+                    updated_at: {
+                        min: null,
+                        max: null,
+                        dbDateFormat: 'Y-m-d H-i-s',
+                    },
+                },
+            },
+        };
+    },
+    ``` 
 - `i18n`, `function`, optional - the function that handles localisation
 - `params` - `object`, optional - a params object that may be used on the back-end to perform additional, custom, operations
 - `path` - `string`, required - the URI path used to fetch the table template.
@@ -85,9 +103,11 @@ This is the main bulma styled component and it is built upon the renderless comp
 ```vue
 <vue-table :path="route('system.menus.initTable')"        
     :error-handler="myErrorHandler"
+    :intervals="intervals"
     :i18n="myI18n"        
-    ref="table"/>        
+    ref="table"/>
 ```
+
 
 #### Props
 
