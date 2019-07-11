@@ -35,7 +35,7 @@ using the [pdftk](https://github.com/mikehaertl/php-pdftk) package for this purp
 
 In order to generate a PDF using the default options, 
 you need to provide a view together with the set of variables for that view,
-and then call the inline method:
+and then call the `inline` method:
 ```php
 $pdf = new Pdf();
 $pdf->loadView(
