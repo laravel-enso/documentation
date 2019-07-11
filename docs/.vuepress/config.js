@@ -117,6 +117,7 @@ module.exports = {
                     'menus',
                     'multitenancy',
                     'notifications',
+                    'pdf',
                     'people',
                     'permissions',
                     'rememberable',
