@@ -62,6 +62,8 @@ The bulma styled form component built on top of the renderless version of the co
 - `field(field)`, returns the field with the given name
 - `param(field)`, returns the parameter with the given name
 - `routeParam(field)`, returns the route parameter with the given name
+- `hideTab(tab)`, hidden all fields in the given tab and remove from the form 
+- `showTab(tab)`, show all fields in the given tab an add it to the form
 
 #### Slots
 - if any fields are marked as custom fields in the form template, then a scoped slot is rendered for each of these
@@ -91,6 +93,50 @@ Designed to be used within the Enso ecosystem, requiring less configuration from
 ```vue
 <enso-form class="box has-background-light raises-on-hover animated fadeIn"
     path="/api/system/menus/2/edit"/>
+```
+
+#### Example to Show/Hide tabs
+
+##### Vue Tamplate
+```vue
+<template>
+    <enso-form class="box has-background-light raises-on-hover animated fadeIn"
+               @ready="init">
+        <template v-slot:showtab="props">
+            <form-field v-bind="props"
+                        @input="toggleTab2($event)"/>
+        </template>
+    </enso-form>
+</template>
+
+<script>
+    import { EnsoForm, FormField } from '@enso-ui/forms/bulma';
+    
+    export default {
+        name: 'Create',
+    
+        components: { EnsoForm, FormField },
+    
+        data: () => ({
+    		ready: false,
+        }),
+    
+        methods:{
+            init(){
+                this.ready = true;
+            },
+            toggleTab2: function (event) {
+                if (this.ready) {
+                    if(event){
+                        this.$refs.form.showTab('Tab 2');
+                    }else{
+                        this.$refs.form.hideTab('Tab 2');
+                    }
+                }
+            },
+        }
+    };
+</script>
 ```
 
 #### Props
