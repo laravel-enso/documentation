@@ -298,6 +298,7 @@ you can pass as a property to the `vue-form` / `enso-form` VueJS components
 - `routeParams($params)`, set the given parameters as the route parameters
 - `authorize(bool $authorize)`, set the authorize flag for the form.
 If this value is not given in the form, the global default value is taken from the config file 
+- `hideSection(string $section)`, marks all fields as hidden in the given section name
 
 It also provides the 2 methods used for generating the properly formatted form configuration:
 - `create($model)`, for a create-type form, where the model is optional. If given, the model attribute values 
