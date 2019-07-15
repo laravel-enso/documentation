@@ -289,6 +289,10 @@ Commonly used to override the form value.
 Commonly used to override the form value.
 - `hide(string $field)`, marks the field as hidden
 - `show(string $field)`, marks the field as visible, opposite effect of `hide()`
+- `hideSection($fields)`, marks as hidden the sections that contain the given fields
+- `showSection($fields)`, marks as visible the sections that contain the given fields
+- `hideTab($tabs)`, marks as hidden the tabs with the given names; note that the names are case sensitive
+- `showTab($tabs)`, marks as visible the tabs with the given names; note that the names are case sensitive
 - `disable(string $field)`, marks the field as disabled
 - `readonly(string $field)`, marks the field as readonly
 - `meta(string $field, string $param, $value)`, sets a specific value, for a meta param, for the given field
@@ -297,8 +301,8 @@ in order to make it available in the front-end. Note that this `params` object i
 you can pass as a property to the `vue-form` / `enso-form` VueJS components
 - `routeParams($params)`, set the given parameters as the route parameters
 - `authorize(bool $authorize)`, set the authorize flag for the form.
-If this value is not given in the form, the global default value is taken from the config file 
-- `hideSection(string $section)`, marks all fields as hidden in the given section name
+If this value is not given in the form, the global default value is taken from the config file
+
 
 It also provides the 2 methods used for generating the properly formatted form configuration:
 - `create($model)`, for a create-type form, where the model is optional. If given, the model attribute values 
