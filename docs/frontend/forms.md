@@ -47,6 +47,20 @@ Renderless component.
 - `i18n` - `Function`, optional - the function that performs translations
 - `locale` - `string`, optional, default `en` - used for the date fields
 
+#### Methods
+
+The components has several methods, of which the following are most useful,
+making sense to have them available in the CoreForm's concrete implementations:
+
+- `fetch()`, fetches the form data & template from the back-end
+- `field(field)`, returns the field with the given name
+- `param(field)`, returns the parameter with the given name
+- `routeParam(field)`, returns the route parameter with the given name
+- `fill(data)`, performs a 'fill' for the field names/values given in the data parameter
+- `setOriginal()`, updates the 'original' data store with the current form data state
+- `hideTab(tab)`, sets the given tab as hidden
+- `showTab(tab)`, sets the given tab as visible
+
 ### VueForm
 
 The bulma styled form component built on top of the renderless version of the component.
@@ -58,12 +72,16 @@ The bulma styled form component built on top of the renderless version of the co
 ```
 
 #### Methods
+The following methods are cascaded from the renderless CoreForm component:
+
 - `fetch()`, fetches the form data & template from the back-end
 - `field(field)`, returns the field with the given name
 - `param(field)`, returns the parameter with the given name
 - `routeParam(field)`, returns the route parameter with the given name
-- `hideTab(tab)`, hidden all fields in the given tab and remove from the form 
-- `showTab(tab)`, show all fields in the given tab an add it to the form
+- `fill(data)`, performs a 'fill' for the field names/values given in the data parameter
+- `setOriginal()`, updates the 'original' data store with the current form data state
+- `hideTab(tab)`, sets the given tab as hidden
+- `showTab(tab)`, sets the given tab as visible
 
 #### Slots
 - if any fields are marked as custom fields in the form template, then a scoped slot is rendered for each of these
@@ -79,28 +97,41 @@ fields. The name of the slot is the field's name. The slot exposes the `props` o
 
 Designed to be used within the Enso ecosystem, requiring less configuration from the dev.
 
+#### Methods
+The following methods are cascaded from the renderless CoreForm component, 
+through the VueForm component and available here:
+
+- `fetch()`, fetches the form data & template from the back-end
+- `field(field)`, returns the field with the given name
+- `param(field)`, returns the parameter with the given name
+- `routeParam(field)`, returns the route parameter with the given name
+- `fill(data)`, performs a 'fill' for the field names/values given in the data parameter
+- `setOriginal()`, updates the 'original' data store with the current form data state
+- `hideTab(tab)`, sets the given tab as hidden
+- `showTab(tab)`, sets the given tab as visible
+
 #### Example
 
 ```vue
-<enso-form class="box has-background-light raises-on-hover animated fadeIn"/>
+<enso-form class="box has-background-light raises-on-hover"/>
 ```
 
 ```vue
-<enso-form class="box has-background-light raises-on-hover animated fadeIn"
+<enso-form class="box has-background-light raises-on-hover"
     :path="route('system.menus.edit', 1, false)"/>
 ```
 
 ```vue
-<enso-form class="box has-background-light raises-on-hover animated fadeIn"
+<enso-form class="box has-background-light raises-on-hover"
     path="/api/system/menus/2/edit"/>
 ```
 
-#### Example to Show/Hide tabs
+#### Example for showing/hiding tabs
 
-##### Vue Tamplate
+##### Vue Template
 ```vue
 <template>
-    <enso-form class="box has-background-light raises-on-hover animated fadeIn"
+    <enso-form class="box has-background-light raises-on-hover"
                @ready="init">
         <template v-slot:showtab="props">
             <form-field v-bind="props"
@@ -114,13 +145,10 @@ Designed to be used within the Enso ecosystem, requiring less configuration from
     
     export default {
         name: 'Create',
-    
         components: { EnsoForm, FormField },
-    
         data: () => ({
     		ready: false,
         }),
-    
         methods:{
             init(){
                 this.ready = true;
