@@ -623,14 +623,14 @@ Is a set of parameters used to configure the supported form elements.
 ##### type
 - Is: required
 - Type: string
-- Value: one of the following `"input"`, `"select"`, `"datepicker"`, `"timepicker"`, `"textarea"`, `"password"`, `"wysiwyg"`
+- Value: one of the following `"input"`, `"select"`, `"datepicker"`, `"timepicker"`, `"textarea"`, `"wysiwyg"`
 
 ##### content
 - Is: required if `type` is `"input"`
 - Type: string
 - Applies to: `"input"`
 
-Represents the type for an <input> HTML element, and therefore can take the expected types such as `"text"`, `"number"`, `"date"`, `"checkbox"`, etc.
+Represents the type for an <input> HTML element, and therefore can take the expected types such as `"text"`, `"number"`, `"date"`, `"checkbox"`, `"password"`, etc.
 Can also take `"money"` (for monetary values inputs).  
 
 ##### disabled
