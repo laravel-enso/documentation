@@ -539,17 +539,31 @@ if you'd leave out `owner_id`, the value of the returned owner attribute would b
 this might be inefficient
 - if you require searching and sorting, build the required query with joins and specify the value for the `data` attribute
 
-### Notes on exporting
+### Notes on exporting (Excel)
 The new exporting feature used in this package allows for the export of practically unlimited number or rows 
 (or, to be more accurate, the number of rows is limited by the `xlsx` format).
 
-In order to achieve this, Laravel queues and jobs are used, so it is mandatory to:
+In order to achieve this, Laravel queues, jobs and mails are used, so it is mandatory to:
 - have the Laravel queueing functionality properly setup and working
 - make sure the queues specified in the `enso.datatable.exports` config also exist in your Laravel `queue` config
 - ensure you're using values fitting your project and hardware for:
     * `enso.datatable.exports.timeout` - this is the job timeout, so you should have an interval longer than your longest job
     * `queues.connections.yourConnection.retry_after` - this is the interval used by Laravel to mark a job as failed, 
     if it's not completed by then. This interval should also be longer than your longest running job.
+- make sure there is a valid configuration for the mail related directives in `.env`:
+    * `MAIL_DRIVER=`
+    * `MAIL_HOST=`
+    * `MAIL_PORT=`
+    * `MAIL_USERNAME=`
+    * `MAIL_PASSWORD=`
+    * `MAIL_ENCRYPTION=`
+
+Enso provides this in its current state, with the mention that you, as user, don't have to stay put on the exporting page until is done. Once the export is ready you receive both push/toastr and email notifications.
+
+- From the notifications panel you can click the associated message and it will navigate you to the Files menu.
+- From the email you get a direct download link valid for 24 hours.
+- From the Files menu you can manually download the file.
+
 
 ### The query
 
