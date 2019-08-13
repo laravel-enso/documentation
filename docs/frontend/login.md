@@ -19,9 +19,9 @@ Login page is part of the Enso core.
 in **"\@enso-ui\ui\src\bulma\pages\auth\components\AuthForm.vue"**
 ```
 <figure class="image logo is-clickable"
-                    @click="$router.push({ name: 'login' })">
-                    <img src="logo.svg">
-                </figure>
+    @click="$router.push({ name: 'login' })">
+    <img src="logo.svg">
+</figure>
 ```
 
 Therefore by changing the **logo.svg** with own custom logo it will be displayed inside the login page
