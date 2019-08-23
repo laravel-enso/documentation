@@ -857,6 +857,7 @@ This means that when a customization is needed, you can extend the class you wan
 bind your local implementation to the core class, in your application service provider, therefore having the
 container use the local implementation instead.
 
+##### Overwriting Controllers \ Validators:
 ```php
 use App\Http\Requests\People\ValidatePersonStore;
 use App\Http\Requests\People\ValidatePersonUpdate;
@@ -875,11 +876,44 @@ class AppServiceProvider extends ServiceProvider
     public function boot() {...}
     
     public function register() {...}
+    
+    ...
+```
+
+##### Overwriting Models :
+
+Local Model
+```php
+namespace App\Models;
+
+use LaravelEnso\Permissions\app\Models\Permission as EnsoPermission;
+
+class Permission extends EnsoPermission
+{
+       public function localRelation()
+       {
+              return this->belongsToMany(LocalRelation::class);
+       }
+}
+```
+Local AppServiceProvider
+```php
+use LaravelEnso\Permissions\app\Models\Permission as EnsoPermission;
+use App\Models\Permission;
+
+class AppServiceProvider extends ServiceProvider
+{
+
+    public $bindings = [
+          EnsoPermission::class => Permission::class
+    ];
+    
+   ...
 ```
 
 ### Changing back end logic
 
-If the modifications you require are more extensive and cannot be resolved via using dependency injection,
+If the modifications you require are more extensive and cannot be resolved via using [dependency injection](#dependency-injection),
 the other option is to overwrite the required routes, and point to your local implementation/controllers.   
 
 ### Changing front end pages
