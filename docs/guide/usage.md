@@ -42,7 +42,7 @@ Once the user is logged in, both the back-end and the front-end will have access
 values that have been added in the application.
 
 If you want to add/contribute a new language, there are a few steps involved, so please check out 
-the [relevant section](https://github.com/laravel-enso/Localisation#contributing-a-new-language) of 
+the [relevant section](https://docs.laravel-enso.com/backend/localisation.html#contributing) of 
 the [localisation](https://github.com/laravel-enso/Localisation) package.
 
 ## Icons
