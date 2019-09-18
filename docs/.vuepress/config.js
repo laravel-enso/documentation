@@ -104,6 +104,7 @@ module.exports = {
                     'data-import',
                     'discussions',
                     'documents',
+                    'enums',
                     'files',
                     'forms',
                     'helpers',
