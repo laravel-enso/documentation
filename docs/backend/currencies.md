@@ -11,7 +11,7 @@ sidebarDepth: 3
 [![Latest Stable Version](https://poser.pugx.org/laravel-enso/currencies/version)](https://packagist.org/packages/laravel-enso/currencies)
 
 Currencies is an extension of the Laravel Enso environment, 
-designed for management of currencies and exchange rates.
+designed for the management of currencies and exchange rates.
 
 This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
 
@@ -60,10 +60,11 @@ The package uses the following icons:
 * `bar-chart`
 
 ## Features
-- can manage currencies and exchange rates
-- a default currency has to be set 
+- handles CRUD operations for currencies and exchange rates
+- manages the default currency for your project 
 - exchange rates can be input for a given day
-- has an included currencies seeder which can be published and further customized
+- comes with an included currencies seeder which can be published and further customized
+- includes front-end assets
 
 ## Publishes
 
