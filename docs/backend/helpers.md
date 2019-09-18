@@ -28,22 +28,65 @@ The following classes, exceptions and traits are available.
 
 ### Classes
 
-- An abstract `Enum` class which can be used to build an enumeration out of an array or a config file and comes with a set of helper functions 
-- An `Obj` class, with a constructor for building an object from an array, an object, a Laravel model that can even have loaded relationships and more. 
-It provides a suite of helper functions, such as: 
-     * `all()`, 
-     * `__toString()`,
-     * `toJson()`,
-     * `toArray()`,
-     * `get($key)`,
-     * `set($key, $value)`,
-     * `has($key)`,
-     * `keys()`,
-     * `values()` 
+- An `Decimals` class which is a wrapper for PHP's `bc*` methods such as `bcadd` 
+with support for a customizable, default precision
 - A `JsonParser` class that takes a JSON file as its constructor's argument, and can parse and transform the file to:
     * object
     * array
     * JSON string
+- An `Obj` class, with a constructor for building an object from an array, an object, a Laravel model that can even have loaded relationships and more. 
+It provides a suite of helper functions, such as: 
+    * `all()`, 
+    * `__toString()`,
+    * `toJson()`,
+    * `toArray()`,
+    * `get($key)`,
+    * `set($key, $value)`,
+    * `has($key)`,
+    * `keys()`,
+    * `values()` 
+
+#### Decimals - ` LaravelEnso\Helpers\app\Classes\Decimals`
+
+All the class' methods are static. 
+
+Methods:
+- `scale($precision)`, sets the default precision. If not specified, the precision will be `2`
+- `add($first, $second, $precision = null)`, calls `bcadd` with the given/default precision
+- `sub($first, $second, $precision = null)`, calls `bcsub` with the given/default precision
+- `mul($first, $second, $precision = null)`, calls `bcmul` with the given/default precision
+- `div($first, $second, $precision = null)`, calls `bcdiv` with the given/default precision
+- `sqrt($first, $second, $precision = null)`, calls `bcsqrt` with the given/default precision
+- `pow($first, $second, $precision = null)`, calls `bcpow` with the given/default precision
+- `mod($first, $second, $precision = null)`, calls `bcmod` with the given/default precision
+- `powmod($first, $second, $precision = null)`, calls `bcpowmod` with the given/default precision
+- `lt($first, $second, $precision = null)`, uses `bccomp` with the given/default precision, 
+returns the boolean result of a less than comparison
+- `lte($first, $second, $precision = null)`, uses `bccomp` with the given/default precision, 
+returns the boolean result of a less or equals than comparison
+- `eq($first, $second, $precision = null)`, uses `bccomp` with the given/default precision, 
+returns the boolean result of an equals comparison
+- `notEq($first, $second, $precision = null)`, uses `bccomp` with the given/default precision, 
+returns the boolean result of not equals comparison
+- `gt($first, $second, $precision = null)`, uses `bccomp` with the given/default precision, 
+returns the boolean result of a greater than comparison
+- `gte($first, $second, $precision = null)`, uses `bccomp` with the given/default precision, 
+returns the boolean result of a greater than or equals comparison
+- `ceil($first, $second, $precision = null)`, uses `bcceil` with the given/default precision, 
+returns the boolean result of a less than comparison
+- `floor($first, $second, $precision = null)`, uses `floor` with the given/default precision, 
+returns the boolean result of a less than comparison
+
+
+#### JsonParser - ` LaravelEnso\Helpers\app\Classes\JsonParser`
+
+The constructor takes a file name.  This must be a text file with valid json content. 
+Note: When trying to read it, a `JsonParseException` exception will be thrown if the file contents is not valid. 
+
+Methods:
+- `object()`, returns an object representation of the file
+- `array()`, returns an array representation of the file
+- `json`, returns an json representation of the file 
 
 #### Obj - ` LaravelEnso\Helpers\app\Classes\Obj`
 
@@ -66,127 +109,7 @@ Methods:
 - `isNotEmpty`, returns true if the object has any property
 - `count`, returns the number of the object's properties
 
-#### Enum - `LaravelEnso\Helpers\app\Classes\Enum`
 
-Is an abstract class that provides enumeration like capabilities, that is meant to be extended 
-and may then be used in 3 modes:
-a) when given a static 'data' parameter, which should be an associative array
-b) when declaring constants on the class
-c) when overriding the static `attributes()` method, which should also return an associative array
-
-Methods:
- - `get(key)`, returns the value of that Enum key
- - `has(key)`, returns true if the Enum has that key
- - `keys`, returns the list of keys, from the data property
- - `values`, returns the list of values, from the data property
- - `all`, returns a translated associative array representation of the enumeration; 
- - `json`, returns a translated json representation of the enumeration; 
- - `array`, returns a translated array representation of the enumeration; 
- - `collection`, returns a translated Laravel collection representation of the enumeration; 
- - `select`, returns a translated Enso VueSelect representation of the enumeration - array of objects, 
- each object with the `id` and `name` attribute;
- 
- If used in mode a), it will give back the list of constants and their values.
- If used in mode b), it will give back the data attribute.
- If used in mode c), it will give back the array you build in the overwritten `attributes()` method
- 
- Examples:
- 
- ##### Constants
- ```php
- class SeniorityEnum extends Enum
- {
-     const Assistant = 1;
-     const Associate = 2;
-     const Staff = 3;
-     const Senior = 4;
-     const Partner = 5;
- }
- 
- ...
- ->where('type', SeniorityEnum::Assistant)
- ...
- ...
- $seniorityTypes = (new SeniorityEnum())->select();
- ```
- 
- ##### Data attribute
- ```php
- class SeniorityEnum extends Enum
-{
-  protected static $data = [
-      1 => 'assistant',
-      2 => 'associate',
-      3 => 'staff',
-      4 => 'senior',
-      5 => 'partner',
-  ];
- }
- ...
- ->where('type', SeniorityEnum::get('assistant'))
- ...
- ...
- $seniorityTypes = (new SeniorityEnum())->select();  
- ```
-
-##### Attributes method
-```php
- class SeniorityEnum extends Enum
- {
-    public static method attributes() {
-        return Seniority::pluck('id','name')->toArray();
-    }
- }
- ...
- ->where('type', SeniorityEnum::get('assistant'))
- ...
- ...
- $seniorityTypes = (new SeniorityEnum())->select();  
- ```
-
-##### Mixed mode
-You can actually utilize a mixed mode that may help you in some specific scenarios, such as the one given below.
-Keep in mind that if you combine the modes, the order in which they are taken into account (the priority) 
-is the following:
-- `$data`
-- `attributes()` 
-- `constants`
-
-Now, why would you want to mix them? Consider the following scenario:
-
-```php
- class SeniorityEnum extends Enum
-{
-    const Assistant = 1;
-    const Associate = 2;
-    const Staff = 3;
-    const Senior = 4;
-    const BigChief = 5;
-    
-    protected static $data = [
-      self::Assistant => 'assistant',
-      self::Associate => 'associate',
-      self::Staff => 'staff',
-      self::Senior => 'senior',
-      self::BigChief => 'BIG chief',
-];
- }
- ...
- ->where('type', SeniorityEnum::BigChief)
- ...
- ...
- $seniorityTypes = (new SeniorityEnum())->select();  
- ```
- 
- Here if you only configured the enumeration using *constants*, it would work, BUT, in the select, 
- the values would be shown as `Assistant,.., BigChief`. That's fine if it works for you, but what if 
- you want to display `BIG chief` instead of `BigChief`? You can't.
- 
- If you go the other route, and not use constants, but use just *data*, you can have `BIG chief` formatted accordingly,
- but throughout the code you have to use `SeniorityEnum::get('BIG chief')` which works, but is error prone.
- 
- So the conclusion is you can use both modes and have the best of both worlds.
-   
 ### Exceptions
 
 - A generic exception: `EnsoException` is available also with a Facade. 
