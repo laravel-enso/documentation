@@ -122,6 +122,7 @@ module.exports = {
                     'pdf',
                     'people',
                     'permissions',
+                    'products',
                     'rememberable',
                     'roles',
                     'searchable',
