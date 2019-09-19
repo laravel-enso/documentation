@@ -14,7 +14,7 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 
 [![Watch the demo](https://laravel-enso.github.io/enums/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/enums/screenshots/bulma_001.png)
 
-<sup>click on the photo to view a short demo in compatible browsers</sup>
+<sup>click on the photo to view a a larger screenshot</sup>
 
 ## Installation
 
