@@ -26,7 +26,7 @@ install using composer `composer require laravel-enso/products`
 
 - features a core products functionality with a model, enums, migrations, 
 routes, controllers, resources, index table, etc 
-- provides CRUD functionality for the product model
+- provides CRUD functionality for the `Product` model
 - defines the relationship with a manufacturer and multiple suppliers
 and can manage the default supplier
 - the Enso `Company` model is used for the manufacturer, 
@@ -34,11 +34,16 @@ suppliers and default supplier relationships;
 `dynamic methods` are added on the `Company` for the reverse relationships.
 - the package's enums are registered automatically to the application's state
 via the `EnumServiceProvider`
+- a `ProductFactory` is included and can be published
 
 ## Usage
 
 The package is meant to be installed on an Enso project and customized as required 
 (or used as it is if that is enough). 
+
+## Publishes
+
+- `php artisan vendor:publish --tag=products-factories` - the included product factory,
    
 ### Contributions
 
