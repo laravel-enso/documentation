@@ -127,6 +127,7 @@ module.exports = {
                     'roles',
                     'searchable',
                     'select',
+                    'services',
                     'tables',
                     'teams',
                     'track-who',
