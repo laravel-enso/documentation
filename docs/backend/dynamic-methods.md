@@ -1,3 +1,7 @@
+---
+sidebarDepth: 3
+---
+
 # Dynamic Methods
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6e342eff10f24db5b89be5fe203e424d)](https://www.codacy.com/app/laravel-enso/dynamic-methods?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/dynamic-methods&amp;utm_campaign=Badge_Grade)
