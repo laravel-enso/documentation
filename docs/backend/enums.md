@@ -1,3 +1,7 @@
+---
+sidebarDepth: 3
+---
+
 # Enums
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/6e342eff10f24db5b89be5fe203e424d)](https://www.codacy.com/app/laravel-enso/enums?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/enums&amp;utm_campaign=Badge_Grade)
@@ -33,6 +37,8 @@ enumeration like capabilities
 - various utility methods are available for the Enum class
 - automatic registration of enums within Enso, giving you the option to have the desired enums to the application state,
 even from within packages
+
+## Usage
 
 #### Enum - `LaravelEnso\Enums\app\Services\Enum`
 
