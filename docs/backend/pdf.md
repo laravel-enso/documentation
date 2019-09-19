@@ -16,6 +16,11 @@ This package can work independently of the [Enso](https://github.com/laravel-ens
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
+[![Watch the demo](https://laravel-enso.github.io/pdf/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/pdf/screenshots/bulma_001.png)
+
+<sup>click on the photo to view a a larger screenshot</sup>
+
+
 ## Installation
 
 install using composer: `composer require laravel-enso/pdf`
