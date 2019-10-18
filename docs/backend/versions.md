@@ -2,7 +2,7 @@
 sidebarDepth: 3
 ---
 
-# Versioning
+# Versions
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/ff415bb65927479a80d173622d3c11ed)](https://www.codacy.com/app/laravel-enso/versions?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/versions&amp;utm_campaign=Badge_Grade)
 [![StyleCI](https://github.styleci.io/repos/134861936/shield?branch=master)](https://github.styleci.io/repos/134861936)
