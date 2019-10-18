@@ -132,7 +132,8 @@ module.exports = {
                     'teams',
                     'track-who',
                     'tutorials',
-                    'versioning'
+                    'versioning',
+                    'versions'
                 ]
             }],
             '/packages/': [{
