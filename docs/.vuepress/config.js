@@ -105,6 +105,7 @@ module.exports = {
                     'discussions',
                     'documents',
                     'dynamic-methods',
+                    'emails',
                     'enums',
                     'files',
                     'forms',
