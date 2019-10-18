@@ -13,9 +13,11 @@ sidebarDepth: 3
 Data Table package with server-side processing, unlimited exporting and VueJS components. 
 Quickly build any complex table based on a JSON template.
 
-This package can work independently of the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+This package can work independently of the 
+[Enso](https://github.com/laravel-enso/Enso) ecosystem.
 
-The front end assets that utilize this api are present in the [tables](https://github.com/enso-ui/tables) package.
+The front end assets that utilize this API are present in the 
+[tables](https://github.com/enso-ui/tables) package.
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
@@ -37,8 +39,8 @@ To install outside of Enso:
 
 2. if needed, publish and customize the config: `php artisan vendor:publish --tag=tables-config`
 
-3. install the api implementation for the front end, [tables](https://github.com/enso-ui/tables). Be sure to check
-out front end docs [here](https://docs.laravel-enso.com/frontend/tables.html).
+3. install front end for the API implementation for the package - [tables](https://github.com/enso-ui/tables). 
+Be sure to check out the front end's docs [here](https://docs.laravel-enso.com/frontend/tables.html).
 
 ## Features
 
@@ -55,21 +57,27 @@ out front end docs [here](https://docs.laravel-enso.com/frontend/tables.html).
 - tooltips for columns/rows
 - front-end translations for labels and even data
 - configurable, on-the-fly view modes: compact, striped, bordered, hover
-- configurable column alignment from the template left / center / right
+- configurable column alignment from the template: left / center / right
 - preferences/state save for each table in the browser's localStorage
-- server-side Excel exporting of the table data, using your current sorting and filtering choices, with email notification and optional push notifications.
-    The export supports a practically unlimited dataset and features real time progress reporting in the interface
+- server-side Excel exporting of the table data, using your current sorting and filtering choices, 
+with email notification and optional push notifications.
+    The export supports a practically unlimited data-set and features real time progress reporting 
+    in the interface
 - reloading of data on demand
-- smart management of huge datasets, with configurable limit
+- resetting of the filters, ordering, etc
+- smart management of huge data-sets, with configurable limit
 - possibility to define actions that apply to the entire, filtered, dataset
 - Enso Enum computation
 - Laravel accessors for the main query model
-- the configuration template for each table has been designed to be as light and straightforward as possible without losing 
-out on features
+- the configuration template for each table has been designed to be as light and straightforward 
+as possible without losing out on features
 - caching support for speeding up the retrieval of data
-- thorough validation of the JSON template with developer friendly messages, in order to avoid misconfiguration issues
+- thorough validation of the JSON template with developer friendly messages, 
+in order to avoid misconfiguration issues
 - Eloquent query friendly with the possibility to easily display nested models attribute values
 - can be used independently of the Enso ecosystem
+- requests front-end - back-end communication is as optimized as possible, while caching 
+is utilized where it makes sense
 
 ### In the future
 
@@ -77,12 +85,13 @@ out on features
 
 ## Usage
 
-The Vue Data Table component works by pulling its configuration through an initialization request. 
+The VueJS Data Table component works by pulling its configuration through an initialization request. 
 After loading its configuration through that first request, it makes another request for pulling in its data, 
 based on its configuration.
 
-If UI changes occur that require the reload of the data (such as when searching, sorting, etc) or the loading of 
-additional data, such as when changing to the next page of results, another request for data is made.
+If UI changes occur that require the reload of the data (such as when searching, sorting, etc) 
+or the loading of additional data, such as when changing to the next page of results, 
+another request for data is made.
 
 This means that the configuration is not re-read as long as the component is not re-drawn.   
 
@@ -92,57 +101,105 @@ Steps:
 
 1. Create the JSON table configuration template. 
 
-Example: [exampleTable.json](https://github.com/laravel-enso/Examples/blob/master/src/app/Tables/Templates/exampleTable.json)
+Example: [permissions.json](https://github.com/laravel-enso/permissions/blob/master/src/app/Tables/Templates/permissions.json)
 
-2. Create the table controller which defines the query and gives the path to the JSON template
+2. Create the init table controller which specifies which table builder class is to be used.
 
-```php
-class UserTableController extends Controller
-{
-    use Datatable, Excel;
-
-    protected $tableClass = UserTable::class;
-}
-```
-
-Example: [TableController.php](https://github.com/laravel-enso/Examples/blob/master/src/app/Http/Controllers/TableController.php)
-
-3. Create the table builder class, which must extend the abstract `Table` class, set the `$templatePath` variable 
-and implement the `query` method
-
-```php
-class UserTable extends Table
-{
-    protected $templatePath = __DIR__.'/../Templates/users.json';
-
-    public function query()
+    ```php
+    use LaravelEnso\Tables\app\Traits\Init;
+    use LaravelEnso\Permissions\app\Tables\Builders\PermissionTable;
+   
+    class InitTable extends Controller
     {
-        return User::select(\DB::raw(
-                'users.id as "dtRowId", owners.name as owner, users.first_name, users.last_name, users.phone,
-                users.email, roles.name as role, users.is_active'
-            ))->join('owners', 'users.owner_id', '=', 'owners.id')
-            ->join('roles', 'users.role_id', '=', 'roles.id');
+        use Init;
+        protected $tableClass = PermissionTable::class;
     }
-}
-```
+    ```
 
-Example: [ExampleTable](https://github.com/laravel-enso/Examples/blob/master/src/app/Tables/Builders/ExampleTable.php) 
+    Example: [TableController.php](https://github.com/laravel-enso/permissions/blob/master/src/app/Http/Controllers/InitTable.php)
+    
+    Note the use of the `Init` trait that should be imported from the `LaravelEnso\Tables` package.
 
-4. Declare the route(s) in your routes file, to make available your controller's methods
+3. Create the table data controller which is used to fetch the data for the front-end:
 
-```php
-Route::get('init', 'TableController@init')->name('init');
-Route::get('data', 'TableController@data')->name('data');
-Route::get('exportExcel', 'TableController@exportExcel')->name('exportExcel');
-```
+    ```php
+    use LaravelEnso\Tables\app\Traits\Data;
+    use LaravelEnso\Permissions\app\Tables\Builders\PermissionTable;
+   
+    class TableData extends Controller
+    {
+        use Data;
+    
+        protected $tableClass = PermissionTable::class;
+    }
+    ```
 
-Example: [web.php](https://github.com/laravel-enso/Examples/blob/master/src/routes/web.php)
+    Example: [TableData.php](https://github.com/laravel-enso/permissions/blob/master/src/app/Http/Controllers/TableData.php)
+    
+    The `$tableClass` value used here is the same as the one from the previous step.
+    
+    Note the use of the `Data` trait that should be imported from the `LaravelEnso\Tables` package.
+
+4. OPTIONAL: If you plan to have the data from the table exportable from the interface, you may create 
+a third controller used in this case:
+
+    ```php
+    use LaravelEnso\Tables\app\Traits\Excel;
+    use LaravelEnso\Permissions\app\Tables\Builders\PermissionTable;
+   
+    class ExportExcel extends Controller
+    {
+        use Excel;
+    
+        protected $tableClass = PermissionTable::class;
+    }
+    ```
+
+5. Create the table builder class, which must implement the `Table` contract, 
+thus requiring the `query()` and the `templatePath()` methods. 
+
+    In the example below we're using a pattern where we're also utilizing a `$templatePath` constant 
+    for better readability as well as making it easier to extend the class, if required. 
+
+    ```php
+    use LaravelEnso\Tables\app\Contracts\Table;
+   
+    class PermissionTable implements Table
+    {
+        protected const TemplatePath = __DIR__.'/../Templates/permissions.json';
+        public function query(): Builder
+        {
+            return Permission::selectRaw('
+                permissions.id, permissions.name, permissions.description,
+                permissions.type, permissions.created_at, permissions.is_default
+            ');
+        }
+        public function templatePath(): string
+        {
+            return static::TemplatePath;
+        }
+    }
+    ```
+
+Example: [PermissionTable](https://github.com/laravel-enso/permissions/blob/master/src/app/Tables/Builders/PermissionTable.php) 
+
+6. Declare the route(s) in your routes file, to make available your controller's methods
+    
+    ```php
+    Route::get('initTable', 'InitTable')->name('initTable');
+    Route::get('tableData', 'TableData')->name('tableData');
+    Route::get('exportExcel', 'ExportExcel')->name('exportExcel');
+    ```
+
+    Example: [api.php](https://github.com/laravel-enso/permissions/blob/master/src/routes/api.php)
    
 5. Import and place place the `VueTable` VueJS component in your page/component and pass it the necessary properties. 
 Within the Enso ecosystem, you may use instead the `EnsoTable` component which requires fewer parameters as it uses 
 Enso specific defaults. 
 
-Example: [index.blade.php](https://github.com/laravel-enso/Examples/blob/master/src/resources/views/table/index.blade.php)
+EnsoTable example: [index.vue](https://github.com/enso-ui/permissions/blob/master/src/bulma/pages/permissions/Index.vue)
+
+VueTable example: [index.blade.php](https://github.com/laravel-enso/Examples/blob/master/src/resources/views/table/index.blade.php)
 
 ### Configuration
 The package comes with a publishable configuration file which you may update in order to fit your 
@@ -150,19 +207,31 @@ project requirements. The various options are explained below.
 
 ```php
 return [
+    'cache' => [
+        'template' => 'production',
+        'count' => true,
+        'prefix' => 'enso:tables',
+        'tag' => 'enso:tables',
+    ],
+
     'validations' => 'local',
+
+    'dtRowId' => 'id',
+
     'labels' => [
-        'crtNo'   => '#',
+        'crtNo' => '#',
         'actions' => 'Actions',
     ],
+
     'lengthMenu' => [
         10, 15, 20, 25, 30,
     ],
+
     'buttons' => [
         'global' => [
             'create' => [
                 'icon' => 'plus',
-                'class' => 'is-success',
+                'class' => null,
                 'routeSuffix' => 'create',
                 'event' => 'create',
                 'action' => 'router',
@@ -192,21 +261,21 @@ return [
         'row' => [
             'show' => [
                 'icon' => 'eye',
-                'class' => 'is-success',
+                'class' => 'is-row-button',
                 'routeSuffix' => 'show',
                 'event' => 'show',
                 'action' => 'router',
             ],
             'edit' => [
                 'icon' => 'pencil-alt',
-                'class' => 'is-warning',
+                'class' => 'is-row-button',
                 'routeSuffix' => 'edit',
                 'event' => 'edit',
                 'action' => 'router',
             ],
             'destroy' => [
                 'icon' => 'trash-alt',
-                'class' => 'is-danger',
+                'class' => 'is-row-button',
                 'routeSuffix' => 'destroy',
                 'event' => 'destroy',
                 'action' => 'ajax',
@@ -217,13 +286,14 @@ return [
             ],
             'download' => [
                 'icon' => 'cloud-download-alt',
-                'class' => 'is-primary',
+                'class' => 'is-row-button',
                 'routeSuffix' => 'download',
                 'event' => 'download',
                 'action' => 'href',
             ],
         ],
     ],
+
     'style' => [
         'default' => ['hover', 'center'],
         'mapping' => [
@@ -237,93 +307,182 @@ return [
         ],
         'highlight' => 'has-background-info',
     ],
+
+    'controls' => ['length', 'columns', 'style', 'reload', 'reset'],
+
     'export' => [
         'path' => 'exports',
-        'timeout' => 500,
-        'notifications' => ['broadcast', 'database'],
+        'timeout' => 60 * 60,
+        'sheetLimit' => 1000000,
+        'notifications' => ['email', 'broadcast', 'database'],
     ],
+
     'queues' => [
         'exports' => 'heavy',
         'notifications' => 'notifications',
     ],
+
     'dateFormat' => 'd-m-Y',
-    'fullInfoRecordLimit' => 100000,
+
+    'fullInfoRecordLimit' => 1000000,
+
     'debounce' => 350,
+
     'responsive' => true,
+
     'method' => 'GET',
+
     'dataRouteSuffix' => 'tableData',
+
     'comparisonOperator' => 'LIKE',
+
+    'searchModes' => ['full', 'startsWith', 'endsWith'],
+
+    'searchMode' => 'startsWith',
 ];
 ```
+#### cache
+A few cache-related options are available:
+- `template`, is a string, values may be `never`/`always`/`production`/`local`/`yourEnvironment`,
+    default is `production`
+    Caching the template will improve the overall table loading and update.
+    
+    Note that it is recommended that during deployment you add a step where you call the
+    `php artisan tables:clear` command in order to clear the cached templates, otherwise you
+    might not see any changes or have issues until the cache expires. 
 
-#### validations 
-is a string, values may be `always`/`local`, default `local`. When parsing the template, the given options are validated because we want to avoid misconfiguration leading to unexpected results. It makes sense to run the validator just during development, however, if you want to also run it in production, you may configure that here. 
+- `count`, is a boolean, default is `true`. When counting the number of results for the table,  
+    a count query has to be performed and for costly queries there can be quite a performance improvement
+    if the count result is cached.
+    
+    Note that if caching the count, you should use the `TableCache` trait on the main/base model,
+    so that the count cache is invalidated if when a model is created or deleted.
+
+- `prefix`, is a string, default is `enso:tables`. This is the prefix used by the caching engine.
+- `tag`, is a string, default is `enso:tables`. This is the tag used by the caching engine.
+
+#### validations
+is a string, values may be `always`/`local`/`yourEnvironment`, default `local`. 
+When parsing the template, the given options are validated because we want to avoid misconfiguration 
+leading to unexpected results. It makes sense to run the validator just during development, 
+however, if you want to also run it in production, you may configure that here. 
+
+#### dtRowId
+is a string, default is `'id'`. This is the id attribute's name used internally by the table package,
+and is required for routing and actions.  
 
 #### labels
-is an array of options for the header names of the implicit columns. Note that these labels are also translated if a translation function is given to the VueJS component, through the `i18n` parameter. Options:   
+is an array of options for the header names of the implicit columns. 
+Note that these labels are also translated if a translation function is given to the VueJS component, 
+through the `i18n` parameter. Options:   
 - `crtNo` is the current line number, default `#`
 - `actions`, is the last table column that contains the row's buttons, default `Actions`
 
 #### lengthMenu
-is an array of numbers, default `[10, 15, 20, 25, 30]` representing the pagination options for the table. For each table's JSON template, the `lengthMenu` parameter is also available, and, if given, it will have higher priority over the global configuration. This allows for some tables to have a different pagination than the default.
+is an array of numbers, default `[10, 15, 20, 25, 30]` representing the pagination options for the table. 
+For each table's JSON template, the `lengthMenu` parameter is also available, and, if given, 
+it will have higher priority over the global configuration. 
+This allows for some tables to have a different pagination than the default.
 
 #### buttons
 is an array of button configurations, with 2 types:
-- `global`, these buttons are the buttons that are rendered above the search input, global for the whole table, which do not depend on the data of a particular row. Defaults:
+- `global`, these buttons are the buttons that are rendered above the above the actual rows, 
+global for the whole table, which do not depend on the data of a particular row. Defaults:
     - `create`, button for creating a new resource
     - `excel`, button for exporting the contents of the table. Note: The export process takes into account your current sorting and filtering.
     - `action`, button for applying an action to all the (filtered) table rows
-- `row`, these are the buttons rendered in the `action` column, and defaults include: 
-        `show`, `edit`, `destroy`, `download`
+- `row`, these are the buttons rendered in the `action` column, and the defaults include: 
+    - `show`, 
+    - `edit`, 
+    - `destroy`, 
+    - `download`
 
 #### style
-is an array of style configurations, with 2 sections:
-- `default`, array of classes, default is `['hover', 'center']`, that are applied by default for all tables. Note that you should set just one alignment specific class in the default.
-- `mapping`, array of configurations for the styles. While designed for/with Bulma, you may specify here custom classes in order to personalize your tables
+is an array of style configurations, with 3 sections:
+- `default`, array of classes, default is `['hover', 'center']`, that are applied by default 
+for all tables. Note that you should set just one alignment specific class in the default.
+- `mapping`, array of configurations for the styles. 
+While designed for/with Bulma, you may specify here custom classes in order to personalize your tables
 - `highlight`, string, default is `has-background-info`, class which is applied for highlighted rows
 
+#### controls
+is an array, with the types of controls available for all tables. By default all controls are present:
+- `length`, 
+- `columns`, 
+- `style`, 
+- `reload`, 
+- `reset`
+
+    Note that this option can be configured for each table, within the JSON template, in which case
+    the 'local' configuration has priority. 
+
+
 #### export
-is an array of configuration options for exporting the contents of a file. Note: The export process takes into account your current sorting and filtering. 
+is an array of configuration options for exporting the contents of a file. 
+Note: The export process takes into account your current sorting and filtering. 
 Also keep in mind that the export uses Jobs and Queues hence the need for a couple of the following options.
+
 Available options:
-- `path`, string, folder where the temporary export file is saved, default `exports`. This folder is expected to reside in `storage/app`
-- `timeout`, number, the value for Laravel jobs timeout. You may want to tweak this depending on the time the export takes due to the server hardware or other factors  
-- `notifications`, array of notification options, default `['broadcast', 'database']`. Note that 
-    email notifications are always used for sending the download link for the export file  
+- `path`, string, folder where the temporary export file is saved, default `exports`. 
+This folder is expected to reside in `storage/app`
+- `timeout`, number, the value for Laravel jobs timeout, default is `60 * 60`
+You may want to tweak this depending on the time the export takes due to the server hardware or 
+other factors.
+- `sheetLimit`, number, default is `1000000`, the maximum rows per sheet. If the export contains more rows, 
+they are added to the next sheet(s).
+- `notifications`, array of notification options, default `['mail', 'broadcast', 'database']`. Note that 
+    email notifications are used for sending the download link for the export file  
+
 
 #### queues
 Here you may configure the queues used for the export process:
 Available options:
-- `exports`, string, the name of the queue used for the actual export. Keep in mind this queue need to exist for your project configuration
-- `notifications`, string, the name of the queue used for the real-time progress UI notifications
+- `exports`, string, default `heavy`, the name of the queue used for the actual export. 
+Keep in mind this queue need to exist for your project configuration
+- `notifications`, string, default `notifications`, 
+the name of the queue used for the real-time progress UI notifications
 
 #### dateFormat
-is a string, with the date format for date columns, which will be used when displaying date values
+is a string, default `'d-m-Y'`, the date format for date columns, 
+which will be used when displaying date values
 
 #### debounce
-is a number, the interval value used for the server-side requests (in milliseconds)
-
-#### responsive
-is a boolean that determines if the table is responsive (automatically hides columns when its width it wider than available)
-
-#### method
-is a either "GET" or "POST". If you're working with larger tables sometimes the URI can get too long 
-and you may run in a 414 Exception. This option allows to configure the request method for fetching data 
-in a local table. If specified in the table template, the local value will have higher priority over the 
-global configuration.
+is a number, default `350`, the interval value used for the server-side requests (in milliseconds)
 
 #### fullInfoRecordLimit
-is a numeric limit, representing the top result set limit when the computation of the filtered & totals functionality 
+is a numeric limit, default `1000000`, representing the top result set limit 
+beyond which the computation of the filtered & totals functionality 
 becomes disabled by default and is made available on-demand.
 
+#### responsive
+is a boolean, default `true`, determines if the table is responsive 
+(automatically hides columns when its width it wider than available)
+
+#### method
+is a string, default is `'GET'`, values can be either `'GET'` or `'POST'`. 
+If you're working with larger tables 
+sometimes the URI can get too long and you may run into a 414 Exception. 
+This option allows to configure the request method for fetching data in a local table. 
+If specified in the table template, the local value will have higher priority over the 
+global configuration.
+
 #### dataRouteSuffix
-string, is the data route suffix used for all tables. Similar to `fullInfoRecordLimit`, you may override the 
-global configuration by specifying this same parameter in the 'local' table template.
+is a string, default is `'tableData'`, the data route suffix used for all tables. 
+Similar to `fullInfoRecordLimit`, you may override the global configuration 
+by specifying this same parameter in the 'local' table template.
 
 #### comparisonOperator
-string, is the default comparison operator used when searching, you may override the 
+is a string, default is `'LIKE'`, the default comparison operator used when searching. You may override the 
 global configuration by specifying this same parameter in the 'local' table template. 
 Valid values are `LIKE`, `ILIKE`. 
+
+#### searchModes
+is an array, default is `['full', 'startsWith', 'endsWith']`, configures the type of searching available
+to the user when typing a search string into table's search box.
+
+#### searchMode
+is a string, default is `'startsWith'`, represents the default search mode and must be enabled in the above
+configuration. It can be overridden within each 'local' table template.
 
 ### Template
 
