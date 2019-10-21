@@ -201,6 +201,81 @@ EnsoTable example: [index.vue](https://github.com/enso-ui/permissions/blob/maste
 
 VueTable example: [index.blade.php](https://github.com/laravel-enso/Examples/blob/master/src/resources/views/table/index.blade.php)
 
+### Advanced Usage
+
+For most use cases, if you want to filter the results in your tables, it is enough to add the desired 
+columns in your template, mark them as searchable, and start typing in the UI search box.
+
+In a similar fashion, if you want to compute totals for numeric columns, mark the desired columns as
+having totals and you're set.
+
+For both cases, totals are applied, results are filtered and the row count is properly computed.
+
+For more complex scenarios, where you might need to alter the query depending on other parameters,
+use complicated raw queries, etc. there are optional interfaces available for the table builder class.   
+
+#### CustomFilter
+
+There will be cases when you'll want to add filters for a table and perform a query with extra 
+clauses, depending on what the user chooses for those filters.
+
+You could, conditionally build your main table query (the one from your `query()` method) 
+depending on what parameters you get in your request, but in that case the Tables package logic 
+wouldn't know you're actually applying a filter, since you'd be modifying the query; as consequence,
+the reported count would be incorrect.
+
+The proper way to apply filters is to have your builder class implement the `CustomFilter` interface,
+and the two required methods:
+- `filterApplies(Obj $params): bool`
+- `filter(Builder $query, Obj $params)`
+
+The `filterApplies(Obj $params): bool` method receives the $params property from the request and
+should check return `true` when filters are to be applied. 
+
+For example:
+```php
+public function filterApplies(Obj $params): bool
+{
+    return $params->filled('is_expired');
+}
+```
+
+The `filter(Builder $query, Obj $params)` receives the resulted query builder from 
+the main `query()` method as well as the request params, and should be used to 
+actually add the filters.
+
+For example:
+```php
+public function filter(Builder $query, Obj $params)
+{
+    $query->when($params->get('is_expired') === true, function ($query) {
+        $query->whereNotNull('expired_at');
+    })->when($params->get('is_expired') === false, function ($query) {
+        $query->whereNull('expired_at');
+    });
+}
+```
+
+#### RawTotal
+
+The `RawTotal` interface demands the implementation of the `rawTotal(Obj $column): string`
+public method.
+
+The method should return a raw query string that would compute the desired total.
+
+The Tables logic will then use this query string and apply it at the proper moment in the data request 
+lifecycle.
+
+Note that in this case, you'll also want to add the `"rawTotal"` value to the `"meta"`
+section of you column's json configuration template. 
+
+#### AuthenticatesOnExport
+
+The `AuthenticatesOnExport` marker interface is to be used on table builder classes 
+where it is mandatory to have available the user requesting the export within the export 
+flow. This could be useful in cases where the export is different depending on the 
+principal user.
+
 ### Configuration
 The package comes with a publishable configuration file which you may update in order to fit your 
 project requirements. The various options are explained below.
@@ -349,7 +424,7 @@ A few cache-related options are available:
     Caching the template will improve the overall table loading and update.
     
     Note that it is recommended that during deployment you add a step where you call the
-    `php artisan tables:clear` command in order to clear the cached templates, otherwise you
+    `php artisan enso:tables:clear` command in order to clear the cached templates, otherwise you
     might not see any changes or have issues until the cache expires. 
 
 - `count`, is a boolean, default is `true`. When counting the number of results for the table,  
@@ -1001,23 +1076,16 @@ once to retrieve the current chunk of data, and then once more to count the resu
 By caching the number of results we can skip counting the results and save time for each request. 
 The more records you work with, the bigger the gain the difference.
 
-In order to activate this feature, in the package config template, set the `cache.count` option to true.
-```php
-...
-'cache' => [
-    'template' => 'production',
-    'count' => true,
-    'prefix' => 'enso:tables',
-    'tag' => 'enso:tables',
-],
-...
-```
-
-On the next request, if the total count information is not in the cache, 
+Once activated, on the next request, if the total count information is not in the cache, 
 it will be computed and also cached.
 
+
+In order to activate this feature, as well as configure the other related options, 
+you should review the the `cache` paragraph from the above configuration section. 
+::: tip
 You should always use this only in combination with the `TableCache` trait on the table's main model. 
 The trait will handle the cache invalidation when a model is created or deleted. To do so just add the trait. 
+:::
 
 ### (Row) Preview support
 
@@ -1056,7 +1124,18 @@ You may see the vue data table in action, with the code for the UserGroups page,
 
 Feel free to look around at the various packages in the [laravel-enso](https://github.com/laravel-enso) repository, 
 to find more examples.
- 
+
+## Commands
+
+- `php artisan enso:tables:clear` - the command clears the cached table templates. 
+    If your cache driver doesn't support tags, the whole cache will be cleared.
+
+::: tip
+If using the caching functionality (see the `cache` notes from the `Configuration` 
+section), you should add this command to one of your production deployment stages
+so as to ensure the latest template versions are used after deploy.
+:::
+
 
 ## Publishes
 
@@ -1065,9 +1144,9 @@ to find more examples.
     builder and custom action 
 - `php artisan vendor:publish --tag=tables-mail` - the templates used for notifications
 - `php artisan vendor:publish --tag=enso-mail` - a common alias for when wanting to update the templates 
-used for notifications
+    used for notifications
 - `php artisan vendor:publish --tag=enso-config` - a common alias for when wanting to update the config,
-once a newer version is released, usually used with the `--force` flag
+    once a newer version is released, usually used with the `--force` flag
 
 ## External dependencies
 
