@@ -341,6 +341,7 @@ return [
     'searchMode' => 'startsWith',
 ];
 ```
+
 #### cache
 A few cache-related options are available:
 - `template`, is a string, values may be `never`/`always`/`production`/`local`/`yourEnvironment`,
@@ -416,7 +417,6 @@ is an array, with the types of controls available for all tables. By default all
     Note that this option can be configured for each table, within the JSON template, in which case
     the 'local' configuration has priority. 
 
-
 #### export
 is an array of configuration options for exporting the contents of a file. 
 Note: The export process takes into account your current sorting and filtering. 
@@ -432,7 +432,6 @@ other factors.
 they are added to the next sheet(s).
 - `notifications`, array of notification options, default `['mail', 'broadcast', 'database']`. Note that 
     email notifications are used for sending the download link for the export file  
-
 
 #### queues
 Here you may configure the queues used for the export process:
@@ -492,7 +491,6 @@ configuration. It can be overridden within each 'local' table template.
     "dataRouteSuffix": "read.suffix",
     "name": "Table Name",
     "crtNo": true,
-    "cache": true,
     "preview": true,
     "flatten": false,
     "auth": false,
@@ -502,6 +500,7 @@ configuration. It can be overridden within each 'local' table template.
     "appends": ["customAttribute"],
     "selectable": false,
     "comparisonOperator": "LIKE",
+    "controls": [ "length", "columns", "style", "reload", "reset" ],
     "buttons": [
         "show", "create", "edit", "destroy", "download", "exportExcel",
         {
@@ -510,9 +509,11 @@ configuration. It can be overridden within each 'local' table template.
             "class": "has-text-purple",
             "routeSuffix": "custom",
             "event": "custom-event",
+            "postEvent": "custom-post-event",
             "action": "router",
             "fullRoute": "optional.full.route",
             "label": "Button Label",
+            "tooltip": "Tooltip", 
             "confirmation": false,
             "message": "Are you sure?",
             "method": "GET/PUT/PATCH/POST/DELETE",
@@ -547,17 +548,15 @@ configuration. It can be overridden within each 'local' table template.
 
 Options:
 - `routePrefix`, required, string, the common route segment, used for reading the data
-- `dataRouteSuffix`, optional, string, the ending route segment, used for reading the data | default is `tableData`
+- `dataRouteSuffix`, optional, string, default `tableData`, the ending route segment, used for reading the data
 - `name`, optional, string, the title used for the table export. If not given, no title is used
 - `crtNo`, optional, boolean, flag for showing the current line number
-- `cache`, optional, boolean, flag for activating the cache for the table total count 
-(more information in the Caching Support section)
 - `preview`, optional, boolean, flag for activating the row preview option / column
 (more information in the Preview Support section) 
 - `flatten`, optional, boolean, flag for flattening the response, allowing columns like "user.person.name" in the template
 - `auth`, optional, boolean, flag for removing auth when using in enso context
-- `debounce`, optional, number, the time in milliseconds that is used for the debounce when reloading data for the table,
- for example when typing in the search box or changing filters, default `100`
+- `debounce`, optional, number, default `100`, the time in milliseconds that is used for the debounce 
+when reloading data for the table, for example when typing in the search box or changing filters
 - `lengthMenu`, optional, array, list of options for the table pagination. If missing, the default values in the 
 global configuration are used. If given, the template values have higher precedence over the global configuration
 - `method`, optional, string, either "GET" or "POST". If missing, the default value in the 
@@ -567,7 +566,7 @@ Note that the appended attributes are available from the main query model.
 Also note, that in order to load the appended attributes through the model's relationships, 
 the raw table query should also include the foreign key id (this is a Laravel requirement).
 - `selectable`, optional, boolean. If enabled, row selection is enabled, 
-which then stores the selected items (the `dtRowId` attributes) in the `selected` attribute.
+which then stores the selected items (the `id` attributes) in the `selected` attribute.
 - `comparisonOperator`, optional, string, the operator used for the table columns searching
 - `buttons`, optional, array, list of buttons that need to be rendered. See below for more in-depth information
 - `columns`, required, array, list of column configurations. See below for more in-depth information
@@ -598,38 +597,42 @@ The most common configuration options for buttons are, as follows:
 - `icon`: required, string, expects Font Awesome icon classes (ensure classes are available in the page)
 - `class`: required, string, expects CSS styling classes
 - `routeSuffix`: optional, string, if given, gets appended to the `routePrefix` template param
-- `event`: optional, string, the name of an event that is emitted on click, which allows for custom in-page handling, 
-outside of the table
-- `postEvent`: optional, string, the name of the event that is emitted after the completion of the ajax request 
-(only applies to ajax type of buttons) 
+- `event`: optional, string, the name of an event that is emitted on click, 
+    which allows for custom in-page handling, outside of the table
+- `postEvent`: optional, string, the name of the event that is emitted 
+    after the completion of the ajax request (only applies to ajax type of buttons) 
 - `action`: optional, string, available options are `router` / `href` / `export` / `ajax`. 
 
 Depending on the chosen options, other parameters could be required:
 - `fullRoute`: optional, string, if given, is used independently from the `routePrefix` param
 - `label`: optional, string, for both global buttons and row buttons
 - `tooltip`: optional, string, should be provided only for row buttons
-- `confirmation`: optional, boolean, flag for showing a confirmation modal before processing the action, such as deletion
-- `message`: optional, string, used in conjunction with `confirmation`, when you want to customize the modal's message
+- `confirmation`: optional, boolean, flag for showing a confirmation modal before processing the action, 
+    such as deletion
+- `message`: optional, string, used in conjunction with `confirmation`, 
+    when you want to customize the modal's message
 - `method`: optional, string, should be given if you have `action` set as `ajax`, 
-available options are: `"GET"` / `"PUT`" / `"PATCH`" / `"POST`" / `"DELETE`"
+    available options are: `"GET"` / `"PUT`" / `"PATCH`" / `"POST`" / `"DELETE`"
 - `params`: optional, object, used if action = `router`, object is added to route params object
 
 #### Columns
 
 The columns configuration attribute is required, and expects an array of configuration objects. 
 Each configuration object may have the following attributes:
-- `label`, required, string, the column name used in the table header. This will be translated if a translation function 
-is available. 
-- `data`, required, string, the table + column wherefrom data gets pulled, in the query. For example 'users.email'
-- `name`, required, string, the alias for that column's data, given in the select query. Alternatively you may also use here nested properties - see the notes below for more info
-- `enum`, optional, string, the class name of the enumeration used to transform/map the values of that column/attribute. 
-For example, you may use this mechanism to show labels instead of integer values, for an attribute that holds 
-the type for a model/table.
+- `label`, required, string, the column name used in the table header. 
+    This will be translated if a translation function is available. 
+- `data`, required, string, the table + column wherefrom data gets pulled, in the query. 
+    For example 'users.email'
+- `name`, required, string, the alias for that column's data, given in the select query. 
+    Alternatively you may also use here nested properties - see the notes below for more info
+- `enum`, optional, string, the class name of the enumeration used to transform/map 
+    the values of that column/attribute. For example, you may use this mechanism to show labels 
+    instead of integer values, for an attribute that holds the type for a model/table.
 - `dateFormat`, string, with the date format for date columns, overrides the default from config
 - `tooltip`, optional, the text used for this column header's tooltip  
 - `class`, optional, will be applied on the table's `<td>`
-- `align`, optional, a value in ["left", "center", "right"], will be applied to the column including header and footer. 
-It has higher priority than the global template `align` attribute
+- `align`, optional, a value in ["left", "center", "right"], will be applied to the column including 
+    header and footer. It has higher priority than the global template `align` attribute
 - `meta`, optional, array of string tags/options, allowing further transformations:
     - `searchable`, optional, marks this column as searchable. If not searchable, a column is not used when 
     using the table search functionality 
@@ -639,22 +642,25 @@ It has higher priority than the global template `align` attribute
     Note that after the initial load, the user will have the option to override the sorting as needed
     - `nullLast`, optional, makes the sorting on this column sort all null values last
     - `translatable`, optional, marks this column's values as translatable
-    The `i18n` parameter translation function should be given to the VueJS table component in order for this to work -
-    inside of Enso, this is done automatically
+    The `i18n` parameter translation function should be given to the VueJS table component 
+    in order for this to work - within the Enso ecosystem, this is done automatically
     - `boolean`, optional, marks this column as boolean, which means it will be rendered as such
-    - `slot`, optional, renders a scoped slot named after the specified column, exposing as props `column` (object), `row` (array) and `loading` (boolean)
-    - `rogue`, optional, marks this column as a rogue column. This marks the column as hidden for display, 
+    - `slot`, optional, renders a scoped slot named after the specified column, 
+        exposing as props `column` (object), `row` (array) and `loading` (boolean)
+    - `rogue`, optional, marks this column as a rogue column. This means the column is hidden for display, 
     while still being available and used for searching
     - `total`, optional, if flagged, calculates a total for this column 
-    - `customTotal`, optional, renders a scoped slot named `${columnName}_custom_total` exposing as props `total` (object) and `column` (object)
+    - `customTotal`, optional, renders a scoped slot named `${columnName}_custom_total` 
+        exposing as props `total` (object) and `column` (object)
     - `date`, optional, marks the data of the column as dates, 
-    - `icon`, optional, if given, it renders a Font Awesome 5 icon as contents, using the 'column.icon' as the icon's class   
+    - `icon`, optional, if given, it renders a Font Awesome 5 icon as contents, 
+        using the 'column.icon' as the icon's class   
     - `clickable`, optional, flags the column as clickable, which means it makes it - you guessed it - clickable. 
     When clicked, it emits the `clicked` event, with the column & row as event payload
     - `notExportable`, optional, flags the column to be skipped on exports
 - `money`, optional, object, is the configuration object used for formatting numbers as money values. 
-Since this is achieved via the accounting.js library, you should take a look at its documentation 
-[here](http://openexchangerates.github.io/accounting.js/#documentation)  
+    Since this is achieved via the `accounting.js` library, you should take a look at its documentation 
+    [here](http://openexchangerates.github.io/accounting.js/#documentation)  
  
 #### The name attribute and nested properties
 
@@ -675,7 +681,7 @@ Since the 1.5.7 package version, it has become possible to use nested models pro
   
 ```php
     return User::select(\DB::raw(
-        'users.id, users.id as "dtRowId", avatars.id as avatarId, group_id,
+        'users.id, avatars.id as avatarId, group_id,
         people.name, people.appellative, people.phone, users.email, roles.name as role,
         users.is_active, users.created_at'
     ))->join('people', 'users.person_id', '=', 'people.id')
@@ -688,27 +694,30 @@ Since the 1.5.7 package version, it has become possible to use nested models pro
 You may notice a few things here:
 - the `name` attribute value is the nested model name + property
 - a `data` value is no longer required
-- the `meta` attribute value's list can no longer contain "searchable", "sortable". If you do give these options, 
-the template validator will let you know that you should remove them
+- the `meta` attribute value's list can no longer contain "searchable", "sortable". 
+    If you do give these options, the template validator will let you know that you should remove them
 - in order for the relationship to work, make sure the select includes any required foreign keys i.e. 
-if you'd leave out `owner_id`, the value of the returned owner attribute would be `null`
+    if you'd leave out `group_id`, the value of the returned group attribute would be `null`
 - also, don't forget to load the relationship, using the query builder's `with` method 
 - this feature makes sense for 1-1 model relationships, not so much for 1-n relationships
 - note that all the nested model's properties will be present in the returned data and depending you your situation, 
-this might be inefficient
+    this might be inefficient
 - if you require searching and sorting, build the required query with joins and specify the value for the `data` attribute
 
 ### Notes on exporting (Excel)
-The new exporting feature used in this package allows for the export of practically unlimited number or rows 
-(or, to be more accurate, the number of rows is limited by the `xlsx` format).
+The new exporting feature used in this package allows for the export of practically unlimited 
+number or rows (or, to be more accurate, the number of rows is limited by the `xlsx` format).
 
 In order to achieve this, Laravel queues, jobs and mails are used, so it is mandatory to:
 - have the Laravel queueing functionality properly setup and working
-- make sure the queues specified in the `enso.datatable.exports` config also exist in your Laravel `queue` config
+- make sure the queues specified in the `enso.datatable.queues.exports` config also exist in your 
+    Laravel `queue` config
 - ensure you're using values fitting your project and hardware for:
-    * `enso.datatable.exports.timeout` - this is the job timeout, so you should have an interval longer than your longest job
-    * `queues.connections.yourConnection.retry_after` - this is the interval used by Laravel to mark a job as failed, 
-    if it's not completed by then. This interval should also be longer than your longest running job.
+    * `enso.datatable.export.timeout` - this is the job timeout, so you should have an 
+        interval longer than your longest job
+    * `queues.connections.yourConnection.retry_after` - this is the interval used by Laravel 
+        to mark a job as failed, if it's not completed by then. This interval should also be longer 
+        than your longest running job.
 - make sure there is a valid configuration for the mail related directives in `.env`:
     * `MAIL_DRIVER=`
     * `MAIL_HOST=`
@@ -717,38 +726,62 @@ In order to achieve this, Laravel queues, jobs and mails are used, so it is mand
     * `MAIL_PASSWORD=`
     * `MAIL_ENCRYPTION=`
 
-Enso provides this in its current state, with the mention that you, as user, don't have to stay put on the exporting page until is done. Once the export is ready you receive both push/toastr and email notifications.
+Enso provides this in its current state, with the mention that you, as user, don't have to remain 
+on the exporting page until is done. Once the export is ready you receive both push/toastr 
+and email notifications.
 
-- From the notifications panel you can click the associated message and it will navigate you to the Files menu.
+To download the generated export:
+- From the notifications panel you can click the associated message and it will navigate you to the 
+Files menu.
 - From the email you get a direct download link valid for 24 hours.
 - From the Files menu you can manually download the file.
 
 
 ### The query
 
-In your TableBuilder implementation, the query must look like this:
+In your `Table` implementation, the query must look like this:
 
 ```php
-public function query()
+public function query(): Builder
 {
-    return UserGroup::select(\DB::raw('id as "dtRowId", id, name, description, is_active, created_at'));
+    return Permission::selectRaw('
+        permissions.id, permissions.name, permissions.description,
+        permissions.type, permissions.created_at, permissions.is_default
+    ');
 }
 ```
 
 Keep in mind that at this stage, we're returning a `QueryBuilder` not a collection of results.
 
-If you need custom logic based on the request you have a `request()` getter available in the TableBuilder.
+If you need custom logic based on the request, you may declare a constructor for your class, 
+with the following signature, where you'll have access to the various data you may need:
+```php
+...
+use LaravelEnso\Tables\app\Services\Data\Request;
+...
+public function __construct(Request $request)
+{
+    $request->columns();
+    $request->meta();
+    $request->filters();
+    $request->intervals();
+    $request->params();
+}
+```
+
+The type of the above parameters is `LaravelEnso\Helpers\app\Classes\Obj`;
 
 ### Actions
 
-While you may have action buttons on each table row, sometimes you may wish to have custom actions, for the entire 
-result set of the table.
+While you may have action buttons on each table row, sometimes you may wish to have custom actions, 
+for the entire result set of the table.
 
 It is important to note that the action will be applied for **ALL** the **FILTERED** results, 
 even the ones that might not be visible on the current page of the table (if there is more than one page).
 
-Also, keep in mind that if the `selectable` option is active in table template, the selection is decoupled from 
-the actions, so, same as before, the action is applied to all the filtered table results.
+Also, keep in mind that if the `selectable` option is active in table template, 
+the selection is decoupled from the actions, so, same as before, 
+the action is applied to all the filtered table results.
 
 #### In-depth example - global custom action
 
@@ -759,78 +792,82 @@ where we add a new button for the owners table:
 ```php
 ...
 "buttons": [
-        "excel", "create", "edit", "destroy",
-        {
-            "type": "global",
-            "icon": "check",
-            "class": null,
-            "routeSuffix": "myAction",
-            "event": "custom-action",
-            "postEvent": "custom-action-done",
-            "action": "ajax",
-            "method": "PATCH",
-            "label": "My Action"
-        }
+    "excel", "create", "edit", "destroy",
+    {
+        "type": "global",
+        "icon": "check",
+        "class": null,
+        "routeSuffix": "myAction",
+        "event": "custom-action",
+        "postEvent": "custom-action-done",
+        "action": "ajax",
+        "method": "PATCH",
+        "label": "My Action"
+    }
 ]
 ...    
 ```
     
 Customize the attributes as required, keeping in mind:
-- the method should match the action performed and needs to be the same as when defining the route
+- the (request) method should match the action performed and needs to be the same as when defining the route
+    in your routes file
 - the suffix is what you'll need to use when defining the route (more on that below)
 
 Note that, if needed, you may define several buttons in a similar fashion.
+
+2. Add a route for your new action and configure its permissions:
+```php
+Route::patch('myAction', 'MyActionController')->name('myAction');
+```
     
-2. Add a new `Action` implementation class, where you actually process the results.
+3. Add a new `Action` implementation class, where you actually process the results.
         
 ```php
-class UserGroupMyAction extends Action
+use LaravelEnso\Tables\app\Services\Action;
+
+class MyAction extends Action
 {
 
-    public function process()
+    public function process(array $row)
     {
-        \Log::info($this->data());
+        \Log::info($row);
+        // you also have acces the $this->request() : Obj
     }
 }
 ```
     
-This needs to extend the abstract `LaravelEnso\VueDatatable\app\Classes\Action` class, 
-and implement the `process` method.  The process method will be called for each available row of data.
+This needs to extend the abstract `LaravelEnso\Tables\app\Services\Action` class, 
+and implement the `process` method.  The process method will be called for **each available row of data**.
 
-Depending on your requirements, you may do the processing here or even generate jobs that will do the processing 
-asynchronously.  
+Depending on your requirements, you may do the processing here or even generate jobs that will 
+do the processing asynchronously.  
       
 3. Add a new controller for the action
 ```php
-class UserGroupMyActionController extends Controller
+class MyActionController extends Controller
 {
-    use Datatable, Action;
+    use Action;
 
-    protected $tableClass = UserGroupTable::class;
-    protected $actionClass = UserGroupMyAction::class;
+    protected $tableClass = PermissionTable::class;
+    protected $actionClass = MyAction::class;
 }
 ```
 
 The controller manages the VueJS component's action request.
 You require:
-* the `Datatable` and `Action` trait
+* the `Action` trait
 * the `$tableClass` variable, for the query
-* the `$actionClass` variable, for your particular action implementation (from step 2)
+* the `$actionClass` variable, for your particular action implementation (from step 3)
 
-Note that you may also reuse your TableController if you prefer and have only one 'action' for a given table.
+Note that you may also reuse your TableData if you prefer and have only one 'action' for a given table.
 
 #### Additional Advanced Details
 The `Action` trait defines an `action` method that is a bit of a wrapper, and looks like this:
 ```php
-public function action(Request $request)
-    {
-        public function action(Request $request)
-            {
-                (new $this->actionClass(
-                    $this->tableClass, $request->all()
-                ))->run();
-            }
-    }
+public function __invoke(Request $request)
+{
+    App::make($this->actionClass, $this->data($request))->handle();
+}
 ```
 
 If for any reason you want to handle more than one action through the same controller, 
@@ -838,20 +875,19 @@ you may declare multiple actionClasses and create multiple action methods in con
 
 1.Add the new route
 ```php
-Route::patch('myAction', 'UserGroupMyActionController@action')
-                            ->name('myAction');
+Route::patch('myAction', 'MyActionController')->name('myAction');
 ```
 
 Remember to place the route nested correctly, considering the possible uri and route name prefixes, 
 as well as the controller namespace.
 
-In this example, the url called for the UserGroups table will be 'administration/userGroups/myAction' and 
-the name of the route will be 'administration.userGroups.myAction'.
+In this example, the url called for the UserGroups table will be 'system/permissions/myAction' and 
+the name of the route will be 'system.permissions.myAction'.
     
-2. Create the new permission
-    Navigate in the app to `system/permissions` and add the new `administration.userGroups.myAction` permission.
+2. Create the new permission. Navigate in the app to `system/permissions` 
+    and add the new `system/permissions/myAction` permission.
 
-3. That's it.
+That's it.
 
 #### The default action button
 
@@ -870,12 +906,12 @@ that can then be used as needed in any table templates in your project.
 A common scenario is when you want to define a per row custom action, on top of the default ones.
 
 Most of the time, you'll want to perform the custom action for the model that's represented on the row 
-so you'll need to be able to identify the model. For that, you can use the `dtRowId` attribute. 
+so you'll need to be able to identify the model. For that, you can use the `id` attribute. 
 
 If you're displaying data gathered from multiple tables, make sure that the identifiers you require are present
 in the select and in the template. If you don't want to display them to the user, you may use rogue columns.
 
-In this example, we'll assume `dtRowId` is sufficient.
+In this example, we'll assume `id` is sufficient.
 
 1. Build the query in the table builder
 
@@ -883,7 +919,7 @@ In this example, we'll assume `dtRowId` is sufficient.
     public function query()
     {
         return MyModel::select(\DB::raw('
-            my_models.id as "dtRowId",
+            my_models.id,
             my_models.name
         '));
     }
@@ -911,8 +947,8 @@ In this example, we'll assume `dtRowId` is sufficient.
 We've named the event `details`.
 
 ::: tip
-Remember that the icon you set for the custom action button must be available (imported) in the page (component)
-where you're displaying the datatable.
+Remember that the icon you set for the custom action button must be available (imported) 
+in the page (component) where you're displaying the datatable.
 :::
 
 3. In the page, catch the event on the datatable Vue component:
@@ -930,7 +966,7 @@ where you're displaying the datatable.
     ...
     methods: {
         handleDetails(event) {
-            const id = event.dtRowId;
+            const id = event.id;
             //your custom logic
         },
     },
@@ -938,47 +974,50 @@ where you're displaying the datatable.
 };
 ```
 
-The event payload is the entire table row, so you have access to the id (dtRowId) and any other attributes
+The event payload is the entire table row, so you have access to the id and any other attributes
 you've added.
 
 ### Configurable huge result set management
 
-When you have huge result sets, the table component will take longer to respond to the user input. In order to improve 
-the user experience, when we have more results than the limit set in the configuration (in the `fullInfoRecordLimit` key),
-the back-end builder no longer computes the number of filtered records and totals for that table.
+When you have huge result sets, the table component will take longer to respond to the user input. 
+In order to improve the user experience, when we have more results than the limit set 
+in the configuration (in the `fullInfoRecordLimit` key), the back-end builder no longer 
+computes the number of filtered records and totals for that table.
 
-However, a blue information icon becomes available in the list of table buttons, that allows the user to
-request this computed information.
+However, a blue information icon becomes available in the list of table buttons, 
+which allows the user to request this computed information.
 
-Since this is an extreme case with tables this big and is a seldom situation, 
+Since this is an extreme case with big tables and is a seldom situation, 
 the configuration for the limit is global.
 
 ### Caching support
 
-We've had cases in production where we need to work with over 2 million results and every performance bit we can get
-is welcome.
+We've had cases in production where we need to work with over 2 million results 
+and every performance bit we can get is welcome.
 
 When the table displays data, if we want to show pagination, we need to execute the main query twice: 
 once to retrieve the current chunk of data, and then once more to count the results.
 
-By caching the number of results we can skip counting the results and save time for each request. The more records you 
-work with, the bigger the gain the difference.
+By caching the number of results we can skip counting the results and save time for each request. 
+The more records you work with, the bigger the gain the difference.
 
-In order to activate this feature, in the table template, add the `cache` option and set it to true.
-```json
+In order to activate this feature, in the package config template, set the `cache.count` option to true.
+```php
 ...
-"method": "POST",
-"crtNo": true,
-"cache": true,
+'cache' => [
+    'template' => 'production',
+    'count' => true,
+    'prefix' => 'enso:tables',
+    'tag' => 'enso:tables',
+],
 ...
 ```
 
 On the next request, if the total count information is not in the cache, 
-it will be computed and also cached for 1 hour.
+it will be computed and also cached.
 
 You should always use this only in combination with the `TableCache` trait on the table's main model. 
-The trait will handle the cache invalidation when a model is created or deleted. 
-To do so add the trait and set `protected $cachedTable` property value to the id of your `vue-table` component. 
+The trait will handle the cache invalidation when a model is created or deleted. To do so just add the trait. 
 
 ### (Row) Preview support
 
@@ -999,7 +1038,7 @@ This will activate the preview table column, where you can add your own content,
 </enso-table>
 ``` 
 
-In the snipped above we're just printing the row but you can obviously add your own 
+In the snippet above we're just printing the row but you can obviously add your own 
 logic or components.
 
 Note that the preview row is also used when the table contents (columns) does not fit
@@ -1011,8 +1050,8 @@ via the slot, the custom content is added after the other columns.
 You may see the vue data table in action, with the code for the UserGroups page, right here:
 - [table builder](https://github.com/laravel-enso/Core/blob/master/src/app/Tables/Builders/UserGroupTable.php)
 - [table template](https://github.com/laravel-enso/Core/blob/master/src/app/Tables/Templates/userGroups.json)
-- [data controller](https://github.com/laravel-enso/Core/blob/master/src/app/Http/Controllers/Administration/UserGroup/UserGroupTableController.php)
-- [front-end vue page](https://github.com/laravel-enso/Enso/blob/master/resources/js/pages/administration/userGroups/Index.vue)
+- [data controller](https://github.com/laravel-enso/Core/blob/master/src/app/Http/Controllers/Administration/UserGroup/TableData.php)
+- [front-end vue page](https://github.com/enso-ui/ui/blob/master/src/bulma/pages/administration/userGroups/Index.vue)
 - [live result](https://www.laravel-enso.com/administration/userGroups/) (if you're not already logged in, use `admin@laravel-enso.com` and `password`)
 
 Feel free to look around at the various packages in the [laravel-enso](https://github.com/laravel-enso) repository, 
@@ -1022,7 +1061,8 @@ to find more examples.
 ## Publishes
 
 - `php artisan vendor:publish --tag=tables-config` - the component configuration
-- `php artisan vendor:publish --tag=tables-classes` - the example table json config and builder 
+- `php artisan vendor:publish --tag=tables-resources` - the example table json config, 
+    builder and custom action 
 - `php artisan vendor:publish --tag=tables-mail` - the templates used for notifications
 - `php artisan vendor:publish --tag=enso-mail` - a common alias for when wanting to update the templates 
 used for notifications
