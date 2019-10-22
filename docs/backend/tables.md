@@ -276,6 +276,17 @@ where it is mandatory to have available the user requesting the export within th
 flow. This could be useful in cases where the export is different depending on the 
 principal user.
 
+#### DynamicTemplate
+
+The `DynamicTemplate` interface demands the implementation of the 
+`cachePrefix(): string` method and is to be used on table builder classes 
+where the utilized template depends on other factors, such as the principal user,
+and where you want to show different sets of data.
+
+This is required when caching the template because it would mean that the cached
+template would be available for all users irrespective of what columns they
+otherwise should or should not see. 
+
 ### Configuration
 The package comes with a publishable configuration file which you may update in order to fit your 
 project requirements. The various options are explained below.
@@ -436,6 +447,9 @@ A few cache-related options are available:
 
 - `prefix`, is a string, default is `enso:tables`. This is the prefix used by the caching engine.
 - `tag`, is a string, default is `enso:tables`. This is the tag used by the caching engine.
+
+If using caching, please also take a look at the Advanced Usage / DynamicTemplate
+section above so that you don't run into any data security issues. 
 
 #### validations
 is a string, values may be `always`/`local`/`yourEnvironment`, default `local`. 
