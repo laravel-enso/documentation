@@ -32,7 +32,7 @@ To install outside of Enso:
 
 2. if needed, publish and customize the config
 
-3. install the api implementation for the front end: `yarm add @enso-ui/forms`
+3. install the front end for the api implementation: `yarm add @enso-ui/forms`
 
 ## Features
 
@@ -53,13 +53,14 @@ To install outside of Enso:
 
 - a template file is needed in order to generate the form data structure object
 - the `Form` object has to be used in the back-end (controller) to parse the template, 
-get additional parameters if required, and build the structure
+    get additional parameters if required, and build the structure
 - although in most common scenarios you can give all the required configuration in the template file, 
-the `Form` class has fluent helper functions for setting/overriding most attributes
+    the `Form` class has fluent helper functions for setting/overriding most attributes
 - a `VueForm` component needs to be included in the view/page/parent component, 
-taking as parameter the URI path used to obtain the form-builder's resulting object 
+    taking as parameter the URI path used to obtain the form-builder's resulting object 
 - an `EnsoForm` component should be included in the view/page/parent component, 
-taking the URI path needed to make the ajax request and fetch the form configuration. Acts like a wrapper for the `VueForm` within the Enso ecosystem
+    taking the URI path needed to make the ajax request and fetch the form configuration. 
+    Acts like a wrapper for the `VueForm` within the Enso ecosystem
 
 ## Usage
 
@@ -67,23 +68,24 @@ When using the form builder functionality, you will be needing several items:
 - the JSON template that configures the form's layout, inputs, actions, etc.
 - a basic Form builder class (which can also contain complex logic for complex scenarios)
 - usually, an endpoint that reads the configuration and returns a properly formatted form configuration
-- importing the `VueForm` / `EnsoForm` VueJS components from the [forms](https://github.com/enso-ui/forms) package
-inside your page/component that renders the form based on the configuration
+- importing the `VueForm` / `EnsoForm` VueJS components from the [forms](https://github.com/enso-ui/forms)
+    package inside your page/component that renders the form based on the configuration
 - one or more endpoints for your form's actions, such as storing, updating, deleting.
 
-1. create a template file for the new form, using `template.json` as an example, and place it inside `app/Forms` (recommended).
+1. create a template file for the new form, using `template.json` as an example, 
+and place it inside `app/Forms` (recommended).
 Below is an example of such a template:
 ```json
 {
     "title": "My Title",
     "icon": "location-arrow",
+    "tabs": true,
     "method": null,
     "routePrefix": "core.addresses",
     "sections": [
         {
             "tab": "First Tab",
             "columns": 3,
-            "tabs": true,
             "fields": [
                 {
                 "label": "County",
@@ -206,7 +208,8 @@ Below is an example of such a template:
 
 ::: tip
 When giving a number of columns, the fields will be evenly divided into columns, and will have equal width. 
-If a custom value is given, then you may specify on each field the desired width. See below for more information.
+If a custom value is given, then you may specify on each field the desired width. 
+See below for more information.
 :::
 
 ::: tip
@@ -225,7 +228,7 @@ class UserGroupForm
 
     public function __construct()
     {
-        $this->form = (new Form(self::TemplatePath));
+        $this->form = (new Form(static::TemplatePath));
     }
 
     public function create()
@@ -249,7 +252,8 @@ this is the place for it.
 In the example above, you can see that for the 'roleList' form attribute we're setting the value 
 by using a helper method on the model.
 
-You may even use the available fluent methods to override (if necessary) default values provided in the template. 
+You may even use the available fluent methods to override (if necessary) default values 
+provided in the template. 
 
 3. in your controller methods return the resulting data from the `Form` builder. 
  
@@ -267,11 +271,11 @@ public function edit(UserGroup $userGroup, UserGroupForm $form)
 }
 ```
 
-In the above examples, we're using injection to create an instance of our Form builder class (UserGroupForm), 
-equivalent to instantiating it using `new` inside the methods. 
+In the above examples, we're using injection to create an instance of our Form builder class 
+(UserGroupForm), equivalent to instantiating it using `new` inside the methods. 
 
 4. inside your page/component import and use the `VueForm` component. 
-Take a look at the [forms](https://docs.laravel-enso.com/frontend/forms.html) ui package documentation 
+Take a look at the [forms](https://docs.laravel-enso.com/frontend/forms.html) UI package documentation 
 for more information.
 
 ### Advanced usage
@@ -279,14 +283,15 @@ for more information.
 The PHP `Form` class provides the following fluent helper functions:
 - `actions(array $actions)`, sets the actions available on the form. 
 Valid actions are `create`, `store`, `update` and `delete` 
-- `routePrefix(string $prefix)`, sets the route prefix that then is used with the various action default endpoints,
+- `routePrefix(string $prefix)`, sets the route prefix that then is used with the various action 
+    default endpoints,
 - `title(string $title)`, the title for the form,
 - `icon(string $icon)`, the icon shown alongside the title
 - `route(string $action, string $route)`, permits setting a specific route for a given action
 - `options(string $name, $value)`, sets the available meta options for a given form attribute
-Commonly used to override the form value.
+    Commonly used to override the form value.
 - `value(string $field, $value)`, sets the starting value for form element
-Commonly used to override the form value.
+    Commonly used to override the form value.
 - `hide(string $field)`, marks the field as hidden
 - `show(string $field)`, marks the field as visible, opposite effect of `hide()`
 - `hideSection($fields)`, marks as hidden the sections that contain the given fields
@@ -297,17 +302,19 @@ Commonly used to override the form value.
 - `readonly(string $field)`, marks the field as readonly
 - `meta(string $field, string $param, $value)`, sets a specific value, for a meta param, for the given field
 - `append($prop, $value)`, adds a property and its value in the template root-level `params` object, 
-in order to make it available in the front-end. Note that this `params` object is different than the `params` object
-you can pass as a property to the `vue-form` / `enso-form` VueJS components
+    in order to make it available in the front-end. Note that this `params` object is different 
+    than the `params` object you can pass as a property to the `vue-form` / `enso-form` VueJS components
 - `routeParams($params)`, set the given parameters as the route parameters
-- `authorize(bool $authorize)`, set the authorize flag for the form.
-If this value is not given in the form, the global default value is taken from the config file
-
+- `authorize(bool $authorize)`, set the authorize flag for the form. If this value is not given 
+    in the form, the global default value is taken from the config file
+- `labels(bool $labels)`, sets the labels attribute on the template. If this value is not given 
+    in the form, the global default value is taken from the config file
 
 It also provides the 2 methods used for generating the properly formatted form configuration:
-- `create($model)`, for a create-type form, where the model is optional. If given, the model attribute values 
-are filled for the form values (another way of setting some default values)
-- `edit($model)`. for an edit-type form, where the model is required. The model's values are set as the form values  
+- `create(Model $model)`, for a create-type form, where the model is optional. If given, 
+    the model attribute values are filled for the form values (another way of setting some default values)
+- `edit(Model $model)`. for an edit-type form, where the model is required. The model's values 
+    are set as the form values
 
 ## Global Configuration
 
@@ -367,26 +374,31 @@ found at `config/enso/forms.php`:
     'selectPlaceholder' => 'Choose',
     'authorize' => true,
     'dividerTitlePlacement' => 'center',
+    'labels' => 'true',
 ```
 
 The following options are available:
-- `validations`, string, values may be 'local' or 'production'. If set to 'local', 
-form configuration validations are performed only when developing locally, 
-while 'production' will always perform the validation checks. 
+- `validations`, string, values may be 'local'/'production'/'yourEnvironment'. If set to 'local', 
+    form configuration validations are performed only when developing locally, 
+    while 'production' will always perform the validation checks. 
 
-::: tip
-The flag only affects the validation of the **template** not the validation of form input values, 
-which is always enabled.
-:::
+    ::: tip
+    The flag only affects the validation of the **template** not the validation of form input values, 
+    which is always enabled.
+    :::
     
 - `buttons`, array, enables the customization of various options for the buttons used in the forms, 
-such as labels, colors, events and more
+    such as labels, colors, events and more
 - `dateFormat`, string, sets the default date format for `datepicker` fields. 
-Note that for this fields and instance of `Carbon` is expected
-- `authorize`, boolean, flag that enables the integration with the laravel-enso authorization, 
-meaning that certain user actions are not available if the user does not have access on the corresponding routes      
-- `dividerTitlePlacement`, string, values may be 'left', 'center', 'right'. Affects the placement of sections' divider text,
-if used and given within the template
+    Note that for these fields an instance of `Carbon` is expected
+- `selectPlaceholder`, string, the placeholder used for select fields, 
+- `authorize`, boolean, default `true`, flag that enables the integration with the Laravel-Enso 
+    authorization, meaning that certain user actions are not available if the user does not have access on 
+    the corresponding routes
+- `dividerTitlePlacement`, string, default `'center'`, values may be 'left', 'center', 'right'. 
+    Affects the placement of sections' divider text, if used and given within the template
+- `labels`, boolean, default `true`. When set to false, no labels are used, instead placeholders will be
+    shown with the label values. The option can be overridden for each template. 
 
 ## Form Configuration
 
@@ -395,24 +407,28 @@ if used and given within the template
 ```
 "title": "Form Title",
 "icon": "icon",    
+"routes: ,
 "routePrefix": "administration.users",
+"routeParams": null,
 "authorize": true,
 "dividerTitlePlacement": "center"
 "params": null,
 "actions": ["create", "store", "update", "destroy" ],
+"autosave": false,
+"debounce": 300
 "method": null,
 "tabs": true,
-"sections": []
+"sections": [],
+"labels": true,
 ```
 
 #### method
-- Is: optional/required 
+- Is: optional 
 - Type: string
 - Values: "post", "patch", "put" 
 
 If using the form normally, by calling `create($model)`, `edit($model)` methods, 
 then the action is set automatically, as "post" for creation and "patch" for edit. 
-If using the form by calling the `build()` method, then you must make sure the method parameter is set.
  
 #### sections
 - Is: required 
@@ -436,9 +452,40 @@ The Font Awesome 5 icon class, for example `"book"` for the `"fa-book"` CSS clas
 - Is: optional 
 - Type: string
 
-Represents the route prefix that is used when checking permissions and building the route/path for a certain button. 
-For example, for a user form's Save button, if the name of the store route is `"administration.users.create"`, 
-then the prefix is `"administration.users"` and the action is `"create"`.
+Represents the route prefix that is used when checking permissions and building the route/path 
+for a certain button. For example, for a user form's Save button, if the name of the store 
+route is `"administration.users.create"`, then the prefix is `"administration.users"` 
+and the action is `"create"`.
+
+#### routes
+- Is: optional 
+- Type: object
+
+An object that will hold the route for each action.
+
+#### actions
+- Is: optional 
+- Type: array of strings, 
+- Values: `"create"`, `"show"`, `"store"`, `"update"`, `"destroy"` 
+
+The actions are used to determine the available buttons in the form. 
+Note that if the `authorize` flag is set to true, the builder also checks if the user 
+has access to/for a certain action,  and if he does not, the respective button won't be shown.  
+If the actions are not given, defaults are used, depending on the `method` parameter, as follows: 
+ - if doing a POST, the actions array is `['store']`
+ - if doing anything else, i.e. a PUT, the actions array is `["create", "show", "update", "destroy"]`
+
+#### autosave
+- Is: optional 
+- Type: boolean, 
+
+If set to true, the form will perform an auto-save when any of its inputs change
+
+#### debounce
+- Is: optional 
+- Type: number, 
+
+Should be used in conjunction with `autosave` so that the number of requests to the backend are limited
  
 #### authorize
 - Is: optional 
@@ -447,15 +494,7 @@ then the prefix is `"administration.users"` and the action is `"create"`.
 Flag that sets whether authorization checks should be made. 
 If not given in the form, the option is read from the global form configuration, 
 found at `config/enso/forms.php`. If given, it overrides the global value.
-
-#### dividerTitlePlacement
-- Is: optional 
-- Type: string
-- Value: may be one of `"left"`, `"center"`, `"right"` 
-
-It specifies the relative position of the divider. 
-If not given, the option is read from the global form configuration, found at `config/enso/forms.php`
-
+ 
 #### params
 - Is: optional 
 - Type: object
@@ -466,29 +505,33 @@ linking the form component/data to other components in the page, etc).
 
 Notes:
 - you may also set extra parameters and their values programmatically, 
-using the `append('attribute', $value)` function on your (`LaravelEnso\forms\app\Classes\Form`) form object instance 
+    using the `append('attribute', $value)` function on your (`LaravelEnso\forms\app\Classes\Form`) 
+    form object instance 
 - also, this `params` object is different to the optional `params` property of the 
-`vue-form` / `enso-form` VueJS component. Keep in mind that *this* `params` object will be accessible in the
-`vue-form`'s data object, while the *other* `params` is a property on the `vue-form`
+    `vue-form` / `enso-form` VueJS component. Keep in mind that *this* `params` 
+    object will be accessible in the `vue-form`'s data object, while the *other* `params` 
+    is a property on the `vue-form`
 
-#### actions
+#### dividerTitlePlacement
 - Is: optional 
-- Type: array of strings, 
-- Values: `"create"`, `"show"`, `"store"`, `"update"`, `"destroy"` 
+- Type: string
+- Value: may be one of `"left"`, `"center"`, `"right"` 
 
-The actions are used to determine the available buttons in the form. 
-Note that if the `authorize` flag is set to true, the builder also checks if the user has access to/for a certain action,
- and if he does not, the respective button won't be shown.  
-If the actions are not given, defaults are used, depending on the `method` parameter, as follows: 
- - if doing a POST, the actions array is `['store']`
- - if doing anything else, i.e. a PUT, the actions array is `["create", "show", "update", "destroy"]`
- 
+It specifies the relative position of the divider. 
+If not given, the option is read from the global form configuration, found at `config/enso/forms.php`
+
 #### tabs     
 - Is: optional 
 - Type: boolean, 
 
 The flag activates the tab feature of the form. This then requires that each section has a tab property 
 which specifies the name of the tab the section belongs to.
+
+#### labels
+- Is: optional 
+- Type: boolean
+
+If set to true, then placeholders will be used instead of labels.
 
 ### Section
 The section is the organizing block for form inputs.
@@ -527,26 +570,19 @@ The section is the organizing block for form inputs.
     }]
 }]
 ``` 
-
-#### tab
-- Is: optional
-- Type: string
-
-Specifies the name of the tab this section belongs to. Each section may have its own tab or multiple sections
-can share a tab.
-
-When setting this option, the `tabs` flag on the main template structure must be present and set to true. 
-
 #### columns
 - Is: required
 - Type: number/string
-- Values: one of the following `1`, `2`, `3`, `4`, `6`, `12`, `"custom"`
+- Values: one of the following `1`, `2`, `3`, `4`, `6`, `12`, `"custom"`, `"slot"`
 
 The attribute specifies how many columns will be used for the form elements in this section. 
 If giving a number, then the size of each element is calculated automatically. 
 
 If using `"custom"`, you need to specify for each filed the column size, 
 by providing the `column` parameter (see below).
+
+If using `"slot"`, then a slot will be rendered for that section. In this case, you also need to
+specify an additional `"slot": "name"` parameter with the desired name of the slot.
 
 #### fields
 - Is: required
@@ -570,6 +606,30 @@ as without setting the `divider` to `true`, the title will not be shown.
 
 Note that the position of the divider title will depend on the value of the 
 `dividerTitlePlacement` parameter (see above).
+
+#### column
+- Is: optional
+- Type: numeric
+
+Flag that specifies the column size. Only needed when the value of columns 
+the value of `"columns"` is `"custom"`.
+
+#### tab
+- Is: optional
+- Type: string
+
+Specifies the name of the tab this section belongs to. Each section may have its own tab 
+or multiple sections can share a tab.
+
+When setting this option, the `tabs` flag on the main template structure must be present and set to true. 
+
+#### slot
+- Is: optional
+- Type: string
+
+Specifies the name of the slot that should be rendered for this section. Only needed when 
+the value of `"columns"` is `"slot"`.
+
 
 ### Field
 Is the individual element of the from, generally representing an input of some sort.
@@ -623,14 +683,16 @@ Is a set of parameters used to configure the supported form elements.
 ##### type
 - Is: required
 - Type: string
-- Value: one of the following `"input"`, `"select"`, `"datepicker"`, `"timepicker"`, `"textarea"`, `"wysiwyg"`
+- Value: one of the following `"input"`, `"select"`, `"datepicker"`, `"timepicker"`, `"textarea"`, 
+    `"password"`, `"wysiwyg"`
 
 ##### content
 - Is: required if `type` is `"input"`
 - Type: string
 - Applies to: `"input"`
 
-Represents the type for an <input> HTML element, and therefore can take the expected types such as `"text"`, `"number"`, `"date"`, `"checkbox"`, `"password"`, etc.
+Represents the type for an <input> HTML element, and therefore can take the expected types 
+such as `"text"`, `"number"`, `"date"`, `"checkbox"`, `"password"`, etc.
 Can also take `"money"` (for monetary values inputs).  
 
 ##### disabled
@@ -681,8 +743,8 @@ This allows you to build and insert custom elements in the form, for complex sce
 - Applies to: `"select"`
 
 If it is an array, it will be considered to be an array of options for that select element,
-each object should contain an `id` and `name` label by default, for the `value` and `label` field respectively.
-You can modify these keys using the `trackBy` and `label` options below.
+each object should contain an `id` and `name` label by default, for the `value` and `label` 
+field respectively. You can modify these keys using the `trackBy` and `label` options below.
 If it is a simple string, it will be considered to be an Enum class name, 
 and the builder will attempt to get the select
 values from the Enum.
@@ -694,8 +756,8 @@ values from the Enum.
 - Default: `id`
 
 Is the attribute that is to be used as identifier for each of the select options 
-i.e. the name of the attribute that is 
-to be used when setting the value for the 'value' attribute of an HTML `<option>` element. 
+i.e. the name of the attribute that is  to be used when setting the value for the 
+'value' attribute of an HTML `<option>` element. 
 
 ##### label
 - Is: optional
@@ -729,6 +791,21 @@ fetch the list of options. When using the `source` parameter, the `options` para
 - Applies to: `"select"`
 
 Flag that determines if the select options should be translated
+
+##### disable-clear
+- Is: optional
+- Type: boolean
+- Applies to: `"select"`
+
+Flag that disables the button to clear a choice which is useful when a selected value is mandatory. 
+
+##### objects
+- Is: optional
+- Type: boolean
+- Applies to: `"select"`
+
+Flag that puts the select in object mode, which means that the form, instead of storing a primitive value
+for the selected value, stores the entire option object, which can be useful for complex scenarios 
 
 #### Input only
 
@@ -772,6 +849,14 @@ For more details, check the [documentation](https://flatpickr.js.org/formatting/
 
 Flag that enables the time picking functionality for the datepicker, 
 in addition to the default date functionality
+
+##### time12hr
+- Is: optional
+- Type: boolean
+- Applies to: `"datepicker"`
+
+Flag that enables the time picker to operate in 12h mode vs 24h mode.
+
 
 #### Textarea only
 
