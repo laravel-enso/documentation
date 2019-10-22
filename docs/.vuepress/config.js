@@ -34,7 +34,6 @@ module.exports = {
             { text: "Guide", link: "/guide/" },
             { text: "Front End", link: "/frontend/" },
             { text: "Back End", link: "/backend/" },
-            { text: "V2", link: "/packages/" },
         ],
         sidebar: {
             '/guide/': [{
