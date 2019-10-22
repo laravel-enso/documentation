@@ -138,51 +138,6 @@ module.exports = {
                     'versions'
                 ]
             }],
-            '/packages/': [{
-                title: 'V2 Packages',
-                collapsable: false,
-                children: [
-                    'action-logger',
-                    'activity-log',
-                    'addresses-manager',
-                    'avatar-manager',
-                    'charts',
-                    'cnp-validator',
-                    'comments-manager',
-                    'companies',
-                    'core',
-                    'data-export',
-                    'data-import',
-                    'discussions',
-                    'documents-manager',
-                    'file-manager',
-                    'form-builder',
-                    'helpers',
-                    'history-tracker',
-                    'how-to-videos',
-                    'image-transformer',
-                    'impersonate',
-                    'localisation',
-                    'log-manager',
-                    'menu-manager',
-                    'multitenancy',
-                    'notifications',
-                    'people',
-                    'permission-manager',
-                    'rememberable',
-                    'role-manager',
-                    'searchable',
-                    'select',
-                    'structure-manager',
-                    'teams',
-                    'test-helper',
-                    'track-who',
-                    'tutorial-manager',
-                    'versioning',
-                    'vue-components',
-                    'vue-datatable'
-                ]
-            }],
         }
     }
 };
