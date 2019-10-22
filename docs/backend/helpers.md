@@ -28,24 +28,19 @@ The following classes, exceptions and traits are available.
 
 ### Classes
 
-- An `Decimals` class which is a wrapper for PHP's `bc*` methods such as `bcadd` 
+- A `Decimals` class which is a wrapper for PHP's `bc*` methods such as `bcadd` 
 with support for a customizable, default precision
-- A `JsonParser` class that takes a JSON file as its constructor's argument, and can parse and transform the file to:
+- A `JsonParser` class that takes a JSON file as its constructor's argument, and can parse and 
+    transform the file to:
     * object
     * array
     * JSON string
-- An `Obj` class, with a constructor for building an object from an array, an object, a Laravel model that can even have loaded relationships and more. 
-It provides a suite of helper functions, such as: 
-    * `all()`, 
-    * `__toString()`,
-    * `toJson()`,
-    * `toArray()`,
-    * `get($key)`,
+- An `Obj` class which extends the Laravel Collection, with a constructor for building an object 
+    from an array, an object, a Laravel model that can even have loaded relationships and more. 
+    You can then use all the native Collection functions, as well as: 
     * `set($key, $value)`,
-    * `has($key)`,
-    * `keys()`,
-    * `values()` 
-
+    * `filled($key)`,
+    
 #### Decimals - ` LaravelEnso\Helpers\app\Classes\Decimals`
 
 All the class' methods are static. 
@@ -90,25 +85,17 @@ Methods:
 
 #### Obj - ` LaravelEnso\Helpers\app\Classes\Obj`
 
-The constructor optionally takes an associate array or an object (even a Laravel model).  This parameter is used to set up the object. 
-For arrays, it uses the array keys as properties and the array values as the property values.
+The constructor optionally takes an associate array or an object (even a Laravel model). 
+This parameter is used to set up the object. For arrays, it uses the array keys as properties 
+and the array values as the property values.
 
 Methods:
 - `all`,
-`__toString()`, returns the string representation of the object
-- `toJson`, gives back the json representation of the object. Note that the String representation also gives back the same 
-- `toArray`, same as `all`, gives back the object's attributes and values as an associative array
-- `get(key)`, returns the value of the object's 'key' property. Return 'null' if the key does not exist
 - `set(key, value)`, sets the value of the object's 'key' property
-- `has(key)`, returns true if the 'key' property exists on the object
 - `filled(key)`, returns true if the 'key' property exists on the object and its value is not null
-- `forget(key)`, unsets the 'key' property
-- `keys`, gives back as array the names of the object's properties
-- `values`, gives back as array the values of the object's properties
-- `isEmpty`, returns true if the object does not have any properties
-- `isNotEmpty`, returns true if the object has any property
-- `count`, returns the number of the object's properties
 
+For the list of available Collection methods, you may check out the official Laravel docs 
+[here](https://laravel.com/docs/6.x/collections#available-methods).
 
 ### Exceptions
 
@@ -118,7 +105,6 @@ by the Laravel's Exception Handler.
 
 - A `FileMissingException`, a child of `EnsoException`
 - A `JsonParseException`, a child of `EnsoException`
-- A `MorphableConfigException`, a child of `EnsoException`
 
 These exceptions are used throughout various Enso packages.
 
@@ -128,9 +114,24 @@ These exceptions are used throughout various Enso packages.
 
 Adds the following methods for models that have a boolean `is_active` property:
 - `whereActive()` scope
-- `whereDisabled()` scope
+- `scopeInactive()` scope
 - `isActive()` helper
-- `isDisabled()` helper
+- `isInactive()` helper
+- `activate()`, updates the model and sets is_active to `true`
+- `deactivate()`, updates the model and sets is_active to `false`
+
+#### AvoidsDeletionConflicts 
+
+The trait is meant to provide a generic user readable message when trying to delete a 
+model that cannot be actually deleted due to foreign key constraints. 
+
+It achieves this by overwriting the model's delete method, calls the parent delete method within a try-catch block
+and if there is any `QueryException`, throws a `ConflictHttpException` letting the user know 
+the model is used and cannot be deleted. 
+
+#### CascadesMorphMap
+
+The trait cascades Laravel's `getMorphClass()` method available on models 
 
 ## Contributions
 
