@@ -104,7 +104,6 @@ meaning it will report an error if there are missing sheets but also if there ar
 - `validations`, string, optional, the desired Laravel (Request) validation that you 
     want applied for this column
 
-
 Please note that the import does not continue if *structure* errors are encountered, 
 such as missing sheets or columns. If there are no structure errors and *content* errors are found, 
 the rows with errors are skipped and valid rows are imported. 
