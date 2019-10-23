@@ -47,19 +47,18 @@ front end implementation [docs](https://docs.laravel-enso.com/frontend/accessori
 ### Configuration
 
 Inside the `config/enso/addresses.php` file, you'll find several customization options:
-- `onDelete`, string, option that manages the case when the commentable entity is deleted and it has attached discussions.
-Valid options are `cascade`, `restrict` | default is `cascade`
+- `onDelete`, string, option that manages the case when the commentable entity is deleted 
+    and it has attached discussions. Valid options are `cascade`, `restrict` | default is `cascade`
 
     With the cascade option, when a discussable model is deleted, the discussions attached to it are also deleted. 
     With the restrict option,  when attempting to delete a discussable model with attached discussions, an exception is thrown.
-- `formTemplate`, the path to a local, custom JSON template for the address form 
-- `loggableMorph`, the list of entities using the addressable functionality, each mapped to its respective loggable attribute
-For example: 
-```php
-'addressable' => [
-    Company::class => 'name',
-],
-```
+- `loggableMorph`, the list of entities using the addressable functionality, 
+    each mapped to its respective loggable attribute. For example: 
+    ```php
+    'addressable' => [
+        Company::class => 'name',
+    ],
+    ```
 - `streetTypes`, the list of street types shown in the form's street type select
 - `buildingTypes`, same as above, for buildings
 - `label`, label configuration options:
@@ -68,20 +67,48 @@ For example:
 
 ### Extending the addresses
 
-In your project you may have the need to alter and or extend the addresses structure by adding/removing table columns.
+In your project you may have the need to alter and or extend the addresses structure by 
+adding/removing table columns.
 To achieve this, you'd need to:
-- add migration(s) to your local project, making the necessary changes. Note that if using sqlite for testing, 
-some of the migration commands may not be available
-- create a local template and set the path in addresses configuration, under the `enso.addresses.formTemplate` key.
-Also, you may mark any form fields as custom and then customize them in your page, using slots (like for the VueForm). 
-- create a new request validation and bind your local implementation to the package's `ValidateAddressRequest`
- in your local `AppServiceProvider`
+- add migration(s) to your local project, making the necessary changes. Note that if using 
+    sqlite for testing, some of the migration commands may not be available
+- create a local model which extends the package model and set the proper `$fillable` attribute, 
+    define relations, etc.    
+- create a local template and set the path in addresses configuration, 
+    under the `enso.addresses.formTemplate` key. Also, you may mark any form fields as custom and then 
+    customize them in your page, using slots (like for the VueForm). 
+- create a new form builder, extend the one in the package (`AddressForm`), and specify the `TemplatePath`
+    to your previously created template.    
+- create a new request validation and extend the one in the package (`ValidateAddressRequest`)
+- bind your local implementations of the model, request and the form builder to their package counterparts
+    in your local `AppServiceProvider`
+
+```php
+class AppServiceProvider extends ServiceProvider
+{
+    public $bindings = [
+        ValidateAddressRequest::class => MyValidateddressRequest::class,
+        AddressForm::class => MyForm::class,
+        Address::class => MyAddress::class,
+    ]; 
+
+    ...
+}
+```
+
+::: tip
+Note that if you just want to customize the label for the address, you may simply publish and customize the 
+`label` section of the config (see the Configuration section above). 
+::: 
 
 ## Publishes
 
 - `php artisan vendor:publish --tag=addresses-seeder` - the seeder used for countries
 - `php artisan vendor:publish --tag=enso-seeders` - a common alias for when wanting to update the seeders
 once a newer version is released, usually used with `--force` 
+- `php artisan vendor:publish --tag=addresses-factory` - the factory used for address
+- `php artisan vendor:publish --tag=enso-seeders` - a common alias for when wanting to update the seeders
+once a newer version is released, usually used with `--force`
 - `php artisan vendor:publish --tag=addresses-config` - configuration file
 - `php artisan vendor:publish --tag=enso-config` - a common alias for when wanting to update the config,
 once a newer version is released, usually used with `--force`
