@@ -24,8 +24,18 @@ To install outside of Enso: `composer require laravel-enso/helpers`
 
 ## Usage
 
-The following classes, exceptions and traits are available.
+The following contracts, classes, exceptions and traits are available.
 
+### Contracts
+
+- `Activatable`, makes sense for models that have  an `is_active`  column demands the 
+    implementation of the following methods:
+    - `isActive(): bool`
+    - `isInactive(): bool`
+
+    Can be used together with the `ActiveState` trait that provides a default implementation of the trait
+    and more. For information on the trait, see below.
+    
 ### Classes
 
 - A `Decimals` class which is a wrapper for PHP's `bc*` methods such as `bcadd` 
@@ -131,7 +141,120 @@ the model is used and cannot be deleted.
 
 #### CascadesMorphMap
 
-The trait cascades Laravel's `getMorphClass()` method available on models 
+The trait cascades Laravel's `getMorphClass()` method available on models and attempts to use 
+a key (if defined), otherwise falling back to the default Laravel implementation
+
+#### SeederProgress
+
+Allows to show a progress bar for long running database seeding processes.
+
+To use it:
+- import the trait
+- declare a constant chunk with a value that makes sense
+- before starting the seed process, call the trait's `start($count)` method with the total 
+    count of the items that will be seeded
+- start the seeding process, while ensuring you're seeding using chunks, and after
+    completing each chunk, call the trait's `advance()` method.   
+- once the seeding is complete,  call the trait's `end()` method.
+
+Example:
+```php
+class ProductSeeder extends Seeder
+{
+    use SeederProgress;
+
+    private const Chunk = 800;
+    
+    public function run()
+    {
+        $this->chunk(self::Chunk)
+            ->start(LegacyProduct::count());
+
+        LegacyProduct::chunkById(self::Chunk, function ($products) {
+            $this->insert($products);
+            $this->advance();
+        });
+        
+        $this->end();
+    }
+
+    private function insert($products) { ... }
+}
+```
+
+#### DateAttributes
+
+Whenever you're receiving date attribute from the front-end and fill/set the values on the model,
+you have to create a setter for that attribute that parses, formats and sets the actual value.
+
+By using the trait, within the setter you can call the trait's 
+`fillDateAttribute('attributeName', $value, $format = null)`
+pass the attribute name and the value (the format is optional) and the trait will do the rest for you.
+
+When determining the format used for parsing, the rules are:
+- use the `$format` method parameter, if given
+- use the configured Enso date format (`enso.config.dateFormat`) is available
+- fallback to Laravel's determined date format
+
+The value and the format are used to obtain a Carbon instance from the given value. 
+If the value already is a Carbon instance, it is left unchanged;
+
+#### InCents
+
+When working with monetary values, the trait is meant to make your life easier if you choose to store 
+these values in cents.
+
+To use the trait:
+- add it to your class
+- declare the `protected $centAttributes = [ ];` field and set the model's monetary/cent attribute names
+- use the `inCents($mode)` to convert your values from/to cents
+
+For example: 
+- when returning a model to the front-end, after retrieving the it from the DB, call the 
+    `inCents(false)` method of the trait which will convert the monetary values from cents to your currency
+- when creating a new model, before filling any monetary attributes, you should call the `inCents(true/false)`
+    method to set the appropriate mode for the values you'll be filling
+    
+The trait does a few things automatically, based on an internal `$inCents` flag/mode:
+- whenever the model is retrieved from the DB, it notes that the values are in cents
+- before saving the model:
+    - if the values are not in cents, it converts them to cents
+    - if the values are in cents, nothing is altered
+    - if it can't determine whether the values are in cents or not, a `LogicException` is thrown   
+- when calling the `inCents` method on a model with dirty monetary attributes, and its internal
+    flag is not set, a `LogicException` is thrown
+    
+::: tip
+The trait's internal `$inCents` flag is public, thus for situations where it makes sense,
+you can set it directly, thus bypassing the `inCents()` method; 
+:::
+
+#### MapsRequestKeys
+
+When working with Resource representations of models, you may choose to use camelCase representations 
+for their attributes. Whenever updating the models based on user input, you'll probably want to fill 
+the updated values, however you'll have to remap them due to the mismatching keys.
+
+The trait can be used for FormRequest validations so that whenever the validation passes,
+you can update the model using:
+
+```php
+$model->update($request->mapped());
+```
+
+#### UpdatesOnTouch
+
+The trait can be used on models where, whenever updated, you might also want to touch 
+other related (or parent) models.
+
+To use it:
+- add the trait to your model
+- declare the `protected $touches = ['relation'];` attribute and set the relationships to the related
+- within your logic, use the trait's `touchOwners`
+
+::: tip
+If any of the related models also use the `UpdatesOnTouch` trait, the touch will be cascaded.
+:::
 
 ## Contributions
 
