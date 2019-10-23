@@ -23,6 +23,20 @@ Install the package:
 yarn add @enso-ui/datepicker
 ```
 
+Import the desired component(s):
+```js
+import { Datepicker } from '@enso-ui/datepicker/bulma';
+```
+
+## Exports
+
+`@enso-ui/datepicker/bulma`:
+- `Datepicker`,
+- `EnsoDatepicker`,
+
+`@enso-ui/datepicker/renderless`:
+- `CoreDatepicker`,
+
 Note that this package has a couple of external dependencies. 
 Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more info.
 
