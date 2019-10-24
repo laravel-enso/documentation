@@ -10,7 +10,7 @@ sidebarDepth: 3
 ![GitHub issues](https://img.shields.io/github/issues/enso-ui/filters.svg) 
 ![npm version](https://img.shields.io/npm/v/@enso-ui/filters.svg) 
 
-Renderless Vue Filter Components with a Bulma implementation
+Renderless VueJS filter components with Bulma implementations
 
 Can be used outside of the Enso ecosystem.
 
@@ -60,9 +60,8 @@ The Bulma styled boolean filtering component, built on top of the above `VueFilt
 
 ```vue
 <boolean-filter class="box raises-on-hover"
-    v-model="somethingBoolean"
-    compact
-    :title="i18n('Mass')"/>
+    :name="i18n('Finalized')"
+    v-model="filters.is_finalized"/>
 ```
 
 #### Props
@@ -77,27 +76,24 @@ The Bulma styled boolean filtering component, built on top of the above `VueFilt
 - `offLabel` - `string`, optional, default ``, the label used for the 'off' option
 - `options`, `array`, optional, default `[]`, the list of options
 - `readonly` - `boolean`, optional, default `false`, if true hides marks the filter as read-only
-- `title` - `string`, optional, default `null`, the title for the filter
+- `name` - `string`, optional, default `null`, the title for the filter
 - `value`, `null`, optional, default `null`, the value of the filter
 
 ### bulma/DateFilter
 
 The Bulma styled date filtering component, built on top of the above renderless version.
 
-#### Example:
-
-```vue
-<date-filter class="box raises-on-hover has-margin-top-large"
-    :interval="interval"/>
-```
-
 #### Props
 
 All the props from the renderless component can be provided here
 
+- `altFormat` - `string`, optional, default `null`, alternative format for the datepicker
+    used under the hood
+- `altInput` - `boolean`, optional, default `false`, flag that activates the usage 
+    of the `altFormat` option above
 - `compact` - `boolean`, optional, default `false`, shows the component using a more compact state
 - `i18n`, `Function`, optional, default `v => v`, the function that performs translations
-- `title`, `string`, optional, default '', a title for the component
+- `name`, `string`, optional, default '', a title for the component
 
 'Passed-through' properties:
 - `default`, 'string', optional, default `today`, 
@@ -106,6 +102,46 @@ All the props from the renderless component can be provided here
     'today', 'yesterday', 'sevenDays', 'thirtyDays', 'custom', 'all'
 - `value` - `string`, optional, default `null`, the format of the filter. Valid options are
     'today', 'yesterday', 'sevenDays', 'thirtyDays', 'custom', 'all'
+- `format` - `string`, optional, default `d-m-Y` - the format of the date
+- `interval` - `Object`, optional - should be of format `{min: null, max: null}`
+- `locale` - `string`, optional, default `en` - the locale used for the picker    
+
+#### Example:
+
+```vue
+<date-filter class="box raises-on-hover has-margin-top-large"
+    v-model="dateInterval"
+    :name="i18n('Date')"
+    :interval="intervals.date"/>
+```
+
+```vue
+params: {
+    dateInterval: 'thirtyDays',
+},
+intervals: {
+    date: {
+        min: null,
+        max: null,
+        dateFormat: null,
+    },
+},
+```
+
+Note that in the examples above, the `interval` property will hold the selected
+interval while the v-model will hold the chosen 'mode'.
+
+The `value`/ v-model - `interval` for a given date are, correspondences are:
+- `"today"` - min: today @ 00:00:00, max: today @ 23:59:59 
+- `"yesterday"` - min: today-1 @ 00:00:00, max: today-1 @ 23:59:59 
+- `"sevenDays"` - min: today-6 @ 00:00:00, max: today @ 23:59:59 
+- `"thirtyDays"` - min: today-29 @ 00:00:00, max: today @ 23:59:59 
+- `"custom"` - min: your-choice, max: your-other-choice 
+- `"all"` - min: null, max: null
+
+::: tip
+The format of the date will depend on the `format` property, see more details above. 
+:::
 
 ### bulma/DateIntervalFilter
 
@@ -114,7 +150,16 @@ The Bulma styled date interval filtering component, built on top of the renderle
 #### Example:
 ```vue
 <date-interval-filter class="box raises-on-hover has-margin-top-large"
+    name="my interval"
     :interval="interval"/>
+```
+
+```vue
+interval: {
+    min: null,
+    max: null,
+    dateFormat: null,
+},
 ```
 
 #### Props
@@ -126,23 +171,17 @@ All the props from the renderless component can be provided here
 - `locale` - `string`, optional, default `en`, the locale used for the picker
 - `maxLabel` - `string`, optional, default `To`, the label for the interval end
 - `minLabel` - `string`, optional, default `From`, the label used for interval start
-- `title` - `string`, optional, default `null`, the title for the filter
+- `name` - `string`, optional, default `null`, the title for the filter
 
 'Passed-through' properties:
 - `format` - `string`, optional, default `d-m-Y`, the format of the date
 - `interval` - `object`, optional, default `{min: null, max: null}`, the min-max interval
+- `locale` - `string`, optional, default `en` - the locale used for the picker
 
 ### bulma/EnsoDateFilter.vue
 
 This Bulma styled date filtering component, built on top of the generic version of the component is 
 designed to be used within the **Enso ecosystem**, requiring less configuration from the dev.
-
-#### Example:
-
-```vue
-<enso-date-filter class="box raises-on-hover has-margin-top-large"
-    :interval="interval"/>
-```
 
 #### Props
 
@@ -153,18 +192,54 @@ All the props from `DateFilter` can be provided here.
 'Passed-through' properties:
 - `compact` - `boolean`, optional, default `false`, shows the component using a more compact state
 - `i18n`, `Function`, optional, default `v => v`, the function that performs translations
-- `title` - `string`, optional, default `null`, a title for the component
+- `name` - `string`, optional, default `null`, a title for the component
+- `format` - `string`, optional, default `d-m-Y` - the format of the date
+- `interval` - `Object`, optional - should be of format `{min: null, max: null}`
+- `locale` - `string`, optional, default `en` - the locale used for the picker
+
+#### Examples:
+
+```vue
+<enso-date-filter class="box raises-on-hover has-margin-top-large"
+    :interval="interval"/>
+```
+
+```vue
+<enso-date-filter class="box raises-on-hover"
+    v-model="params.dateInterval"
+    default="thirtyDays"
+    :name="i18n('Date')"
+    :interval="intervals.date"/>
+```
+
+Note that in the examples above, the `interval` property will hold the selected
+interval while the v-model will hold the chosen 'mode'.
+
+```vue
+params: {
+    dateInterval: 'custom',
+},
+intervals: {
+    date: {
+        min: '24-10-2020',
+        max: '24-10-2021',
+        dateFormat: null,
+    },
+},
+```
+
+The `value`/ v-model - `interval` for a given date are, correspondences are:
+- `"today"` - min: today @ 00:00:00, max: today @ 23:59:59 
+- `"yesterday"` - min: today-1 @ 00:00:00, max: today-1 @ 23:59:59 
+- `"sevenDays"` - min: today-6 @ 00:00:00, max: today @ 23:59:59 
+- `"thirtyDays"` - min: today-29 @ 00:00:00, max: today @ 23:59:59 
+- `"custom"` - min: your-choice, max: your-other-choice 
+- `"all"` - min: null, max: null
 
 ### bulma/EnsoDateIntervalFilter
 
 This Bulma styled date interval filtering component, built on top of the enso date filter version of the component is 
 designed to be used within the **Enso ecosystem**, requiring less configuration from the dev.
-
-#### Example:
-```vue
-<enso-date-interval-filter class="box raises-on-hover has-margin-top-large"
-    :interval="interval"/>
-```
 
 #### Props
 
@@ -175,7 +250,39 @@ All the props from `DateIntervalFilter` can be provided here
 'Passed-through' properties:
 - `compact` - `boolean`, optional, default `false`, shows the component using a more compact state
 - `i18n`, `Function`, optional, default `v => v`, the function that performs translations
-- `title` - `string`, optional, default `null`, a title for the component
+- `name` - `string`, optional, default `null`, a title for the component
+
+#### Example:
+```vue
+<enso-date-interval-filter class="box raises-on-hover has-margin-top-large"
+    v-model="dateInterval"
+    :name="i18n('Date')"
+    :interval="intervals.date"/>
+```
+
+```vue
+params: {
+    dateInterval: 'thirtyDays',
+},
+intervals: {
+    date: {
+        min: null,
+        max: null,
+        dateFormat: null,
+    },
+},
+```
+
+Note that in the examples above, the `interval` property will hold the selected
+interval while the v-model will hold the chosen 'mode'.
+
+The `value`/ v-model - `interval` for a given date are, correspondences are:
+- `"today"` - min: today @ 00:00:00, max: today @ 23:59:59 
+- `"yesterday"` - min: today-1 @ 00:00:00, max: today-1 @ 23:59:59 
+- `"sevenDays"` - min: today-6 @ 00:00:00, max: today @ 23:59:59 
+- `"thirtyDays"` - min: today-29 @ 00:00:00, max: today @ 23:59:59 
+- `"custom"` - min: your-choice, max: your-other-choice 
+- `"all"` - min: null, max: null
 
 ### bulma/EnsoFilter
 
@@ -184,8 +291,11 @@ designed to be used within the **Enso ecosystem**, requiring less configuration 
 
 #### Example:
 ```vue
-<enso-interval-filter class="box raises-on-hover has-margin-top-large"
-    :interval="interval"/>
+<enso-filter class="box raises-on-hover"
+    v-model="filters.products.type"
+    hide-off
+    :options="enums.productTypes._filter()"
+    :name="i18n('Type')"/>
 ```
 
 #### Props
@@ -201,8 +311,10 @@ All the props from `VueFilter` can be provided here.
 - `offLabel` - `string`, optional, default ``, the label used for the 'off' option
 - `options`, `array`, optional, default `[]`, the list of options
 - `readonly` - `boolean`, optional, default `false`, if true hides marks the filter as read-only
-- `title` - `string`, optional, default `null`, the title for the filter
+- `name` - `string`, optional, default `null`, the title for the filter
 - `value`, `null`, optional, default `null`, the value of the filter
+
+Note that each option must have a `{label: 'my-label', value: 'my-value'}` structure. 
 
 ### bulma/EnsoIntervalFilter
 
@@ -224,7 +336,7 @@ All the props from `IntervalFilter` can be provided here.
 - `i18n`, `Function`, optional, default `v => v`, the function that performs translations
 - `maxLabel` - `string`, optional, default `Max`, the label for the interval end
 - `minLabel` - `string`, optional, default `Min`, the label used for interval start
-- `title` - `string`, optional, default `null`, the title for the filter
+- `name` - `string`, optional, default `null`, the title for the filter
 - `value` - `object`, optional, default `{min: null,max: null}`, the selected value
 
 ### bulma/EnsoSelectFilter
@@ -244,7 +356,7 @@ Designed to be used within the Enso ecosystem, requiring less configuration from
 All the props from `IntervalFilter` can be provided here
 
 - `compact` - `boolean`, optional, default `false`, shows the component using a more compact state
-- `title` - `string`, optional, default `null`, the title for the filter
+- `name` - `string`, optional, default `null`, the title for the filter
 - `value` - `object`, optional, default `null`, the selected value
 
 ### bulma/IntervalFilter
@@ -267,10 +379,10 @@ All the props from the renderless component can be provided here.
 - `i18n`, `function`, optional, default `v => v`, the function that performs translations
 - `maxLabel` - `string`, optional, default `Max`, the label for the interval end
 - `minLabel` - `string`, optional, default `Min`, the label used for interval start
-- `title` - `string`, optional, default `null`, the title for the filter
+- `name` - `string`, optional, default `null`, the title for the filter
 
 'Passed-through' Properties:
-- `interval` - `object`, optional, default `{min: null, max: null}`, the min/max values object
+- `value` - `object`, optional, default `{min: null, max: null}`, the min/max values object
 - `type` - `string`, optional, default `string`, the type of the two filter inputs
 
 ### bulma/SelectFilter.vue
@@ -288,40 +400,23 @@ designed to be used within the **Enso ecosystem**, requiring less configuration 
     v-model="myModel"/>
 ```
 
-#### Props
-All the props from `VueFilter` can be provided here.
-- `compact` - `boolean`, optional, default `false`, shows the component using a more compact state
-- `i18n`, `Function`, optional, default `v => v`, the function that performs translations
-- `title` - `string`, optional, default `null`, the title for the filter
-
-'Passed-through' Properties:
-- `compact` - `boolean`, optional, default `false`, shows the component using a more compact state
-- `i18n`, `Function`, optional, default `v => v`, the function that performs translations
-- `title` - `string`, optional, default `null`, the title for the filter
-- `value`, `null`, optional, default `null`, the value of the filter
-
-### bulma/SelectFilter
-
-The Bulma styled select filtering component, built using of `VueSelect`.
-
-#### Example:
 ```vue
-<select-filter title="my title" 
-    multiple
-    :source="route('administration.userGroups.options')"
-    v-model="userGroupId"/>
+<select-filter multiple
+    source="system.roles.options"
+    :placeholder="i18n('Roles')"
+    v-model="filters.roleIds"/>
 ```
 
 #### Props
-- `multiple` - `boolean`, optional - used for multiple selects
+All the props from `VueFilter` can be provided here.
+
 - `compact` - `boolean`, optional, default `false`, shows the component using a more compact state
 - `i18n`, `Function`, optional, default `v => v`, the function that performs translations
-- `title` - `string`, optional, default `null`, the title for the filter
+- `name` - `string`, optional, default `null`, the title for the filter
+
 
 'Passed-through' Properties:
 - `value` - optional, default `null`, the value of the select filter
-
-For more props check the `VueSelect` component from `enso-ui/select`
 
 ### bulma/VueFilter
 
@@ -352,7 +447,7 @@ Here, the option list is given in-line but in practice, you would reference a va
 - `offLabel` - `string`, optional, default ``, the label used for the 'off' option
 - `options`, `array`, optional, default `[]`, the list of options
 - `readonly` - `boolean`, optional, default `false`, if true hides marks the filter as read-only
-- `title` - `string`, optional, default `null`, the title for the filter
+- `name` - `string`, optional, default `null`, the title for the filter
 - `value`, `null`, optional, default `null`, the value of the filter
 
 #### Events
