@@ -41,27 +41,28 @@ import CoreSelect from '@enso-ui/select/renderless';
 The renderless version of the select component.
 
 Properties:
- - `customParams` - `Object`, optional - any params that are sent with the back-end request in server-side mode. They are to be implemented by the developer
- - `debounce` - `number`, optional, default `300` - the debounce interval for fetching servier-side data, in ms
- - `disableClear` - `boolean`, optional, default `false` - disables the clear button and for a single-select, forces the user
- to always have an option selected
- - `disabled` - `boolean`, optional - if true, the control is disabled
- - `errorHandler` - `Function`, optional - a method for handling axios errors
- - `i18n` - `Function`, optional - method that handles localisation
- - `label` - `string`, optional, default `name` - the attribute that is to be used as label from the result/options list
- - `paginate` - `number`, optional, default `100` - the results pagination size
- - `multiple` - `boolean`, optional - if true, the select works in multi-select mode
- - `objects` - `boolean`, optional - if true, the bound v-model will hold the entire object 
- - `options` - `array`, optional - if given, will constitute the list of options 
- - `params` - `Object`, optional - params that are sent with the back-end request in server-side mode and when paired with the Laravel-Enso/VueSelect back-end, are used automatically for filtering the entire object 
- - `pivotParams` - `Object` - params that are sent with the back-end request in server-side mode and 
- when paired with the Laravel-Enso/VueSelect back-end, are used automatically for filtering in pivot type scenarios
- - `readonly` - `boolean`, optional - if true, the select is read only
- - `source` - `string`, optional - the URI for the server-side mode 
- - `taggable` - `boolean`, optional - if true, tagging is enabled
- - `trackBy` - `string`, optional, default `id` - the attribute used for tracking and also the attribute that is bound to the 
- control's v-model
- - `translated` - `boolean`, optional - if true, labels are translated used the translation function
+- `customParams` - `object`, optional - any params that are sent with the back-end request in server-side mode. They are to be implemented by the developer
+- `debounce` - `number`, optional, default `300` - the debounce interval for fetching server-side data, in ms
+- `disableClear` - `boolean`, optional, default `false` - disables the clear button and for a single-select, forces the user
+to always have an option selected
+- `disabled` - `boolean`, optional - if true, the control is disabled
+- `errorHandler` - `Function`, optional - a method for handling axios errors
+- `i18n` - `Function`, optional - method that handles localisation
+- `label` - `string`, optional, default `name` - the attribute that is to be used as label from the result/options list
+- `paginate` - `number`, optional, default `100` - the results pagination size
+- `multiple` - `boolean`, optional - if true, the select works in multi-select mode
+- `objects` - `boolean`, optional - if true, the bound v-model will hold the entire object 
+- `options` - `array`, optional - if given, will constitute the list of options 
+- `params` - `object`, optional - params that are sent with the back-end request in server-side mode and when paired with the Laravel-Enso/VueSelect back-end, are used automatically for filtering the entire object 
+- `pivotParams` - `object` - params that are sent with the back-end request in server-side mode and 
+when paired with the Laravel-Enso/VueSelect back-end, are used automatically for filtering in pivot type scenarios
+- `readonly` - `boolean`, optional - if true, the select is read only
+- `source` - `string`, optional - the URI for the server-side mode 
+- `taggable` - `boolean`, optional - if true, tagging is enabled
+- `trackBy` - `string`, optional, default `id` - the attribute used for tracking and also the attribute that is bound to the 
+control's v-model
+- `translated` - `boolean`, optional - if true, labels are translated used the translation function
+- `value` - `object/primitive/array`, optional, default `[]`/`null`, the value of the current choice / component
 
 #### Events:
 - `fetch`, when the option list has been received
@@ -70,6 +71,12 @@ Properties:
 - `deselect`, when an item is deselected
 - `clear`, when the selection is cleared
 - `add-tag`, when a tag is added
+
+::: tip
+When operation in server-side mode, in cases when there are concurrent fetch requests, the previous
+request is cancelled.
+:::
+
 
 ### Tag
 
@@ -98,13 +105,20 @@ This is the main component built around the renderless component.
 
 All the props from `CoreSelect` can be provided here
 
-- `hasError` - `boolean`, optional - if true, the element has an 'error' style.
-- `labels` - `Object`, optional - the labels for the various states and options. The following  properties are expected: `select`, `deselect`, `noOptions`, `noResults`, `addTag`
-- `placeholder` - `string` - default `false`, if true, the destruction of the card is handled differently, so that transitions work correctly even when closing a card.
+- `hasError` - `boolean`, optional, default `false` - if true, the element has an 'error' style.
+- `labels` - `object`, optional - the labels for the various states and options. 
+    The following  properties are expected: `select`, `deselect`, `noOptions`, `noResults`, `addTag`
+- `placeholder` - `string`, optional, default `'Pick an option'`
 
-Slots:
+#### Slots
 - `selection`, any customization of the selection goes here
 - `options`, customization of the option list goes here
+- `option`, customization of the individual option goes here
+
+#### Methods
+The following CoreSelect options are cascaded and available:
+- `clear()`, clears the selection
+- `fetch()`, reloads the option list for a server-side select
 
 ### EnsoSelect
 
@@ -121,6 +135,14 @@ Designed to be used within the **Enso ecosystem**, requiring less configuration 
 #### Props
 
 All the props from `VueSelect` can be provided here
+
+#### Slots
+- `option`, customization of the individual option goes here
+
+#### Methods
+The following VueSelect options are cascaded and available:
+- `clear()`, clears the selection
+- `fetch()`, reloads the option list for a server-side select
 
 ## Questions & Issues
 
