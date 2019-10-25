@@ -69,6 +69,7 @@ control's v-model
 - `input`, when the selection is updated
 - `select`, when an item is selected
 - `deselect`, when an item is deselected
+- `selection`, when the selection changes, payload is the current selection
 - `clear`, when the selection is cleared
 - `add-tag`, when a tag is added
 
@@ -76,7 +77,6 @@ control's v-model
 When operation in server-side mode, in cases when there are concurrent fetch requests, the previous
 request is cancelled.
 :::
-
 
 ### Tag
 
