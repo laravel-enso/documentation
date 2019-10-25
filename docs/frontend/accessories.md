@@ -32,6 +32,20 @@ import {
 Note that this package has a couple of external dependencies. 
 Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more info.
 
+### Exports
+
+`@enso-ui/accessories/bulma`:
+- `Accessories`,
+- `AddressesCard`,
+- `Addresses`,
+- `RoAddresses`,
+- `CommentsCard`,
+- `Comments`,
+- `Discussions`,
+- `DocumentsCard`,
+- `Documents`,
+- `QuickView`,
+
 ## Usage
 
 ### Accessories.vue
@@ -77,11 +91,15 @@ Being built around a polymorphic relation all the accessory components have two 
 The components can be used within the `Accesories` or independently.
 :::
 
+##### Properties
+- `icons`, boolean, optional, default `false`, if true, shows the icons 
+    for the tabs
+
 ### Addresses
 
 Bulma styled address manager components
 
-Should be used with their [backend sibling](https://github.com/laravel-enso/AddressesManager)
+Should be used with their [backend sibling](https://github.com/laravel-enso/addresses)
 
 #### Addresses.vue
 
@@ -125,6 +143,24 @@ As an example of such customization, you may take a look at the
 - `icon` - `string|array|object`, optional - default 'faMapSigns', the icon for the card title
 - `collapsed` - `boolean`, optional, default `false` - determines the collapsed stated of the card on initial render
 - `title` - `string`, optional - title for the card
+
+### RoAddresses
+
+Romanian Addresses customization for Addresses
+
+Should be used with their [backend sibling](https://github.com/laravel-enso/ro-addresses)
+
+#### RoAddresses.vue
+
+##### Example:
+
+```vue
+<ro-addresses :id="companyId"
+    type="company"
+    ref="addresses"/>
+```
+
+Takes the same properties as Addresses, see above.
 
 ### Comments
 
@@ -197,6 +233,7 @@ Should be used with their [backend sibling](https://github.com/laravel-enso/Docu
 
 - `query` - `string`, optional - used for filtering documents
 - `compact` - `boolean`, optional, default `false` - if true a compact display mode is used
+- `disableControls` - `boolean`, optional, default `false` - if true disables the controls
 
 #### DocumentsCard.vue
 
@@ -210,8 +247,39 @@ Should be used with their [backend sibling](https://github.com/laravel-enso/Docu
 ```
 
 ##### Extra Properties:
+- `icon` - `string|array|object`, optional, default `faCopy`, the icon for the card
 - `collapsed` - `boolean`, optional, default `false` - controls the card initial render state
 - `title` - `string`, optional - the title for the card
+
+#### QuickView.vue
+
+A simple bulma styled, animated, toggable panel/container, meant to optionally show
+other controls/components.
+
+Its visibility is meant to be externally controlled as the component does not emit any events
+and does not have any properties or controls.
+
+#### Example
+
+```vue
+<quick-view
+    @close="quickView = false"
+    v-if="quickView">
+    <p class="title is-5">{{i18n('Accessories')}}</p>
+    <accessories class="has-margin-top-medium">
+        <template slot-scope="{ count }">
+            <tab keep-alive
+                id="Documents">
+                <documents :id="id"
+                    :type="type"
+                    compact
+                    @update="$set(count, 'Documents', $refs.documents.count)"
+                    ref="documents"/>
+            </tab>
+        </template>
+    </accessories>
+</quick-view>
+```
 
 ## Depends on
 
