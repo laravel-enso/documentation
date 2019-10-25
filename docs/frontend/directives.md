@@ -68,6 +68,24 @@ Example:
 </pre>
 ```
 
+### longClick.js
+
+Permits adding actions when long-clicking elements. 
+Note that the duration (in milliseconds) is required. 
+
+Example:
+```vue
+<button class="button is-naked"
+    v-tooltip="i18n('Download invoice (long click for cancel)')"
+    v-long-click:1500="cancelInvoice"
+    key="invoice"
+    @click="downloadInvoice">
+    <span class="icon has-text-info">
+        <fa icon="file-invoice-dollar"/>
+    </span>
+</button>
+```
+
 ### selectOnFocus.js
 
 Selects the contents of the input on focus.
@@ -91,7 +109,7 @@ and when opening a new issue, fill the required information in the issue templat
 
 Issues not conforming to the guidelines may be closed immediately.
 
-## External Dependecies
+## External Dependencies
 
 Uses highlight.js for code formatting
 
