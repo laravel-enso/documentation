@@ -309,6 +309,10 @@ Valid actions are `create`, `store`, `update` and `delete`
     in the form, the global default value is taken from the config file
 - `labels(bool $labels)`, sets the labels attribute on the template. If this value is not given 
     in the form, the global default value is taken from the config file
+- `sectionVisibility($fields, bool $hidden)`, set the sections containing the given 
+    fields as visible/hidden as per the $hidden parameter
+- `sectionVisibility($tabs, bool $hidden)`, set the sections containing the given 
+    tabs as visible/hidden as per the $hidden parameter   
 
 It also provides the 2 methods used for generating the properly formatted form configuration:
 - `create(Model $model)`, for a create-type form, where the model is optional. If given, 
