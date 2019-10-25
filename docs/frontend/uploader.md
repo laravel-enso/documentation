@@ -40,7 +40,7 @@ Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more
 - `EnsoUploader`,
 
 `@enso-ui/typeahead/renderless`:
-- `Uploader`,
+- `CoreUploader`,
 
 
 ### bulma/Uploader.vue
@@ -83,7 +83,7 @@ Example:
 - `isLarge` - `boolean`, optional, default `false`, if true, applies the 'is-small' class
 - `isSmall` - `boolean`, optional, default `false`, if true, applies the 'is-large' class
 
-### renderless/Uploader.vue
+### renderless/CoreUploader.vue
 The renderless typeahead component that can be built upon to create custom components.
 
 Properties:
@@ -93,10 +93,19 @@ Properties:
 - `multiple` - `boolean`, optional, default `false`, if true allows multi-upload 
 - `params` - `Object`, optional, default `null`, extra parameters that can be sent with the request
 - `url` - `string`, required, the URL used for the query/search to the back end
+- `compact` - `boolean`, optional, default `false`, flag to be used in the actual implementation to show
+    a compact version of the uploader
+
+Events:
+- `open-file-browser`, when the file browser opens
+- `upload-start`, when the upload starts
+- `upload-successful`, when the upload completes successfully
+- `upload-error`, when the upload fails with errors
 
 Methods:
 - `browseFiles()`, opens the file picker
 - `reset()`, clears the selected files
+
 
 ## Questions & Issues
 
