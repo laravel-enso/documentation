@@ -99,6 +99,15 @@ Example:
     v-model="query">
 ```
 
+### Exports
+
+`@enso-ui/directives/renderless`:
+- `clickOutside`,
+- `focus`,
+- `hljs`,
+- `longClick`,
+- `selectOnFocus`,
+
 ## Questions & Issues
 
 For questions and support please use the issues functionality
