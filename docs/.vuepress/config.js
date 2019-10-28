@@ -76,6 +76,7 @@ module.exports = {
                     'mixins',
                     'modal',
                     'money',
+                    'people',
                     'progress-bar',
                     'progress-circle',
                     `scroll-to-top`,
