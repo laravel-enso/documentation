@@ -35,8 +35,6 @@ import { Tabs, Tab } from '@enso-ui/tabs/bulma';
 
 `@enso-ui/tabs/bulma`:
 - `Tab`
-- `Alive`
-- `Static`
 - `Tabs`
 - `EnsoTabs`
 
