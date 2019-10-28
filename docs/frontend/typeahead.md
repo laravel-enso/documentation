@@ -40,7 +40,7 @@ Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more
 - `EnsoTypeahead`,
 
 `@enso-ui/typeahead/renderless`:
-- `Typeahead`,
+- `CoreTypeahead`,
 
 ### bulma/EnsoTypeahead.vue
 This bulma styled component built on top of its base version is 

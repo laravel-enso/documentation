@@ -16,12 +16,17 @@ Can be used outside of the Enso ecosystem.
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
-### Installation
+## Installation
 
 Install the package:
 ```
 yarn add @enso-ui/scroll-to-top
 ```
+
+### Exports
+
+`@enso-ui/scroll-to-top/bulma`:
+- `ScrollToTop`
 
 ## Usage
 

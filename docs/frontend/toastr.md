@@ -27,6 +27,18 @@ yarn add @enso-ui/toastr
 Note that this package has a couple of external dependencies. 
 Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more info.
 
+### Exports
+
+`@enso-ui/toastr/bulma`:
+- `Toastr`
+
+`@enso-ui/tabs/renderless`:
+- `Toastr`
+
+`@enso-ui/transitions/renderless`:
+- `Bounce`
+
+
 ## Usage
 
 Import the component(s):
