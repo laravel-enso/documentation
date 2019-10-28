@@ -27,6 +27,8 @@ yarn add @enso-ui/scroll-to-top
 
 `@enso-ui/scroll-to-top/bulma`:
 - `ScrollToTop`
+`@enso-ui/scroll-to-top/renderless`:
+- `CoreScrollToTop`
 
 ## Usage
 
