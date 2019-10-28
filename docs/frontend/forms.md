@@ -28,6 +28,22 @@ yarn add @enso-ui/forms
 Note that this package has a couple of external dependencies. 
 Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more info.
 
+### Exports
+
+`@enso-ui/forms/bulma`:
+- `VueForm`,
+- `EnsoForm`,
+- `DateField`,
+- `InputField`,
+- `MoneyField`,
+- `SelectField`,
+- `SwitchField`,
+- `TextareaField`,
+- `TimeField`,
+
+`@enso-ui/forms/renderless`:
+- `CoreForm`,
+
 ## Usage
 
 Import the desired forms(s):
