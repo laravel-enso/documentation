@@ -51,6 +51,7 @@ Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more
 - `CoreIntervalFilter`,
 - `CoreDateFilter`,
 - `CoreDateIntervalFilter`,
+- `FilterState`,
 
 ### bulma/BooleanFilter.vue
 
