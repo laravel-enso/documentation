@@ -23,7 +23,6 @@ Install the package:
 yarn add @enso-ui/money
 ```
 
-
 ### Exports
 
 `@enso-ui/money`:
