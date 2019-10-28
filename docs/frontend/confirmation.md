@@ -31,9 +31,8 @@ Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more
 `@enso-ui/cofirmation/bulma`:
 - `Confirmation`,
 
-`@enso-ui/cofirmation/components`:
-- `Confirmation`,
-
+`@enso-ui/cofirmation`:
+- `CoreConfirmation`,
 
 ## Usage
 
