@@ -18,7 +18,7 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 
 Can be used with its backend [sibling](https://github.com/laravel-enso/Select)
 
-### Installation
+## Installation
 
 Install the package:
 ```
@@ -27,6 +27,15 @@ yarn add @enso-ui/select
 
 Note that this package has a couple of external dependencies. 
 Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more info.
+
+### Exports
+
+`@enso-ui/select/bulma`:
+- `EnsoSelect`
+- `VueSelect`
+- `Tag`
+`@enso-ui/select`:
+- `CoreSelect`
 
 ## Usage
 
