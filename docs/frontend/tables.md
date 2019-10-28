@@ -28,6 +28,16 @@ yarn add @enso-ui/tables @enso-ui/toastr
 Note that this package has a couple of external dependencies. 
 Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more info.
 
+
+### Exports
+
+`@enso-ui/tables/bulma`:
+- `EnsoTable`, 
+- `VueTable`, 
+
+`@enso-ui/tables/renderless`:
+- `VueTable`,
+
 ## Usage
 
 ### Outside of Enso

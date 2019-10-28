@@ -23,6 +23,12 @@ Install the package:
 yarn add @enso-ui/switch
 ```
 
+### Exports
+
+`@enso-ui/switch/bulma`:
+- `VueSwitch`
+
+
 ## Usage
 
 Import the component:

@@ -28,6 +28,20 @@ Import the desired component(s):
 import { Fade, FadeDown, ... } from '@enso-ui/transitions';
 ```
 
+### Exports
+
+`@enso-ui/transitions`:
+- `Fade`,
+- `FadeLeft`,
+- `FadeRight`,
+- `FadeUp`,
+- `FadeDown`,
+- `SlideLeft`,
+- `SlideRight`,
+- `SlideUp`,
+- `SlideDown`,
+- `Zoom`,
+
 ## Usage
 
 ### Slots

@@ -41,7 +41,7 @@ import { Tabs, Tab } from '@enso-ui/tabs/bulma';
 - `EnsoTabs`
 
 `@enso-ui/tabs/renderless`:
-- `Tabs`
+- `CoreTabs`
 
 ### bulma/Tabs.vue
 The bulma styled tabs component built on top of its renderless version.
