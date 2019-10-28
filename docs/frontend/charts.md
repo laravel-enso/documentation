@@ -31,6 +31,7 @@ Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more
 ### Exports
 
 `@enso-ui/charts/bulma`:
+- `Chart`,
 - `ChartCard`,
 - `EnsoChartCard`,
 `@enso-ui/charts`:
