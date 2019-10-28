@@ -59,6 +59,7 @@ module.exports = {
                     'charts',
                     'companies',
                     'confirmation',
+                    'data-import',
                     'datepicker',
                     'directives',
                     'divider',
