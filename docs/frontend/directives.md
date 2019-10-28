@@ -23,6 +23,15 @@ Install the package:
 yarn add @enso-ui/directives
 ```
 
+### Exports
+
+`@enso-ui/directives`:
+- `clickOutside`,
+- `focus`,
+- `hljs`,
+- `longClick`,
+- `selectOnFocus`,
+
 ## Usage
 
 Import the desired directive(s):
