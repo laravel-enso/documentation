@@ -33,6 +33,8 @@ Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more
 `@enso-ui/forms/bulma`:
 - `VueForm`,
 - `EnsoForm`,
+- `FormField`,
+- `Action`,
 - `DateField`,
 - `InputField`,
 - `MoneyField`,
