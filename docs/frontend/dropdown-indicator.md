@@ -23,6 +23,17 @@ Install the package:
 yarn add @enso-ui/dropdown-indicator
 ```
 
+Import the desired component(s):
+```js
+import DropdownIndicator from '@enso-ui/dropdown-indicator';
+```
+
+### Exports
+
+`@enso-ui/dropdown-indicator`:
+- `DropdownIndicator`,
+
+
 Note that this package has a couple of external dependencies. 
 Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more info.
 
