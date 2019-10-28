@@ -28,6 +28,15 @@ yarn add @enso-ui/charts
 Note that this package has a couple of external dependencies. 
 Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more info.
 
+### Exports
+
+`@enso-ui/charts/bulma`:
+- `ChartCard`,
+- `EnsoChartCard`,
+`@enso-ui/charts`:
+- `Chart`,
+- `colors`,
+
 ## Usage
 Import the desired component(s):
 ```js
