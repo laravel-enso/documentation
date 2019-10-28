@@ -20,6 +20,13 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 
 Installed by `@enso-ui/ui`
 
+### Exports
+
+`@enso-ui/mixins`:
+- `canAccess`, 
+- `errorHandler`, 
+- `i18n`, 
+
 ## Usage
 
 The mixins are available for injection:

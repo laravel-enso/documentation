@@ -23,6 +23,11 @@ Install the package:
 yarn add @enso-ui/loader
 ```
 
+### Exports
+
+`@enso-ui/loader/bulma`:
+- `Loader`
+
 ## Usage
 
 Import the desired component(s):

@@ -14,14 +14,21 @@ Simple Modal Component
 
 The component can be used outside of the Enso ecosystem.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
-
-### Installation
+## Installation
 
 Install the package:
 ```
 yarn add @enso-ui/modal
 ```
+
+### Exports
+
+`@enso-ui/modal/bulma`:
+- `Modal`
+- `ModalCard`
+
+`@enso-ui/modal/renderless`:
+- `CoreModal`
 
 ## Usage
 
