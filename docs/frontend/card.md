@@ -27,6 +27,21 @@ yarn add @enso-ui/card
 Note that this package has a couple of external dependencies. 
 Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more info.
 
+### Exports
+
+`@enso-ui/card/bulma`:
+- `Card`,
+- `CardHeader`,
+- `CardContent`,
+- `CardImage`,
+- `CardFooter`,
+- `CardFooterItem`,
+- `CardControl`,
+- `CardBadge`,
+- `CardCollapse`,
+- `CardRefresh`,
+- `CardRemove`,
+
 ## Usage
 
 Import the desired component(s):
