@@ -30,7 +30,7 @@ Comes pre-installed in Enso.
 
 - permits the management (upload, download, delete, show) of documents in the application
 - can attach documents to any other model
-- uses [FileManager](https://github.com/laravel-enso/FileManager) for file operations
+- uses [Files](https://github.com/laravel-enso/files) for file operations
 - uses the [ImageTransformer](https://github.com/laravel-enso/ImageTransformer) package for optimizing 
 the uploaded image files
 - security policies are used to enforce proper user authorization
