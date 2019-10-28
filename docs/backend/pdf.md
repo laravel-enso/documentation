@@ -20,7 +20,6 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 
 <sup>click on the photo to view a a larger screenshot</sup>
 
-
 ## Installation
 
 install using composer: `composer require laravel-enso/pdf`
