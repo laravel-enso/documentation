@@ -57,6 +57,7 @@ module.exports = {
                     'bulma',
                     'card',
                     'charts',
+                    'companies',
                     'confirmation',
                     'datepicker',
                     'directives',
