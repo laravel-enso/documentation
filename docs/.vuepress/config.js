@@ -54,6 +54,7 @@ module.exports = {
                 collapsable: false,
                 children: [
                     'accessories',
+                    'activity-log',
                     'bulma',
                     'card',
                     'charts',
