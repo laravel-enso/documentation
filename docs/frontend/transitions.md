@@ -41,6 +41,8 @@ import { Fade, FadeDown, ... } from '@enso-ui/transitions';
 - `SlideUp`,
 - `SlideDown`,
 - `Zoom`,
+- `HorizontalSlide`, 
+- `HorizontalFade`
 
 ## Usage
 
