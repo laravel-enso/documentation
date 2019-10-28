@@ -33,7 +33,7 @@ Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more
 - `Toastr`
 
 `@enso-ui/tabs/renderless`:
-- `Toastr`
+- `CoreToastr`
 
 `@enso-ui/transitions/renderless`:
 - `Bounce`
