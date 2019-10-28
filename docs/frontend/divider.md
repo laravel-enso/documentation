@@ -23,6 +23,11 @@ Install the package:
 yarn add @enso-ui/divider
 ```
 
+### Exports
+
+`@enso-ui/divider`:
+- `Divider`,
+
 ## Usage
 
 ### Divider.vue
