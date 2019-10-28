@@ -28,8 +28,6 @@ yarn add @enso-ui/progress-bar
 `@enso-ui/progress-bar`:
 - `ProgressBar`
 
-
-
 ## Usage
 
 Import the desired component(s):
