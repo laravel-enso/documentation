@@ -36,7 +36,7 @@ Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more
 - `VueTable`, 
 
 `@enso-ui/tables/renderless`:
-- `VueTable`,
+- `CoreTable`,
 
 ## Usage
 
