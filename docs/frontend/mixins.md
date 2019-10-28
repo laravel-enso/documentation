@@ -25,7 +25,8 @@ Installed by `@enso-ui/ui`
 `@enso-ui/mixins`:
 - `canAccess`, 
 - `errorHandler`, 
-- `i18n`, 
+- `i18n`,
+- `files`,
 
 ## Usage
 
