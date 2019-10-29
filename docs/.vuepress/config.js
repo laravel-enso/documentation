@@ -107,6 +107,7 @@ module.exports = {
                     'addresses',
                     'charts',
                     'cli',
+                    'calendar',
                     'comments',
                     'companies',
                     'core',
