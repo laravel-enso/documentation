@@ -56,6 +56,7 @@ module.exports = {
                     'accessories',
                     'activity-log',
                     'bulma',
+                    'calendar',
                     'card',
                     'charts',
                     'companies',
