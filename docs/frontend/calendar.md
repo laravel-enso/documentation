@@ -24,6 +24,23 @@ Install the package:
 yarn add @enso-ui/calendar
 ```
 
+## Usage
+
+In order to start using the calendar functionality, create a new calendar 
+from the 'plus' button in the calendar page. 
+
+Then:
+- to create an event, click and hold on the desired day in the calendar, 
+on empty/available space
+- to edit an event, double click the event
+- to delete an event, click and hold an existing event
+- to 'resize' an event, drag on the event's edge
+
+::: tip
+Note that you may not edit events that are read-only - when double-clicking on such events,
+nothing will happen.
+:::
+
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.

@@ -69,6 +69,32 @@ The configuration file contains 2 sections:
 - `calendars`
 - `calendarClasses`
 
+### Custom Calendars
+In addition to the calendars you can create from the UI, there is also the option to define 
+custom calendars, which you can use to display information in the calendar, information
+retrieved from other sources.
+
+One such example custom calendar is included in the package by default. 
+This calendar displays persons' birthdays.
+
+To activate/use it, first publish the package's calendar provider using:
+```
+php artisan vendor:publish --tag=calendar-provider
+```
+
+Then, include the custom calendar implementation in the provider's `register` property:
+```php
+protected $register = [
+    BirthdayCalendar::class,
+];
+```
+
+#### Creating Custom Calendars
+In order to create custom calendars, just three steps are necessary:
+- create a `CustomCalendar` implementation, for your calendar
+- create a `ProvidesEvent` implementation for your calendar's events
+- register the new calendar implementation within the published `CalendarServiceProvider`
+
 ## Commands
 
 - `php artisan enso:calendar:notify` - sends the calendar event reminder notifications
