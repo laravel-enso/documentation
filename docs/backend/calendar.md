@@ -38,13 +38,13 @@ using the alias defined in `webpack.mix.js`
 
     ```js
     (new RouteMerger(routes))
-        .add(routeImporter(require.context('./routes', false, /.*\.js$/)))
-        .add(routeImporter(require.context('@calendar/routes', false, /.*\.js$/)));
+        .add(routeImporter(require.context('@calendar/routes', false, /.*\.js$/)))
+        .add(routeImporter(require.context('./routes', false, /.*\.js$/)));
     ```
 
 * in `resources/js/app.js` import the package's icons
 
-`import '@calendar/icons'`
+`import '@calendar/icons';`
 
 * make sure `hot module replacement` is not active, and run `yarn dev` or `npm run dev`
 
