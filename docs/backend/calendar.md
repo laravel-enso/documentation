@@ -19,21 +19,21 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 
 ## Installation
 
-* install the back-end API package using composer: `composer require laravel-enso/calendar`
-* install the front-end resources: `yarn add @enso-ui/calendar`
-* add a calendar alias in `webpack.mix.js` under the `alias` object:
+- install the back-end API package using composer: `composer require laravel-enso/calendar`
+- install the front-end resources: `yarn add @enso-ui/calendar`
+- add a calendar alias in `webpack.mix.js` under the `alias` object:
     ```js
     '@calendar': `${__dirname}/node_modules/@enso-ui/calendar/src/bulma`,
     ``` 
-* in `resources/js/router.js` file, verify that `RouteMerger` is imported, or import it
+- in `resources/js/router.js` file, verify that `RouteMerger` is imported, or import it
 
     `import RouteMerger from '@core-modules/importers/RouteMerger';`
 
-* make sure `routeImporter` is also imported
+- make sure `routeImporter` is also imported
 
     `import routeImporter from '@core-modules/importers/routeImporter';`
 
-* then use `RouteMerger` to import front-end assets 
+- then use `RouteMerger` to import front-end assets 
 using the alias defined in `webpack.mix.js`
 
     ```js
@@ -42,11 +42,13 @@ using the alias defined in `webpack.mix.js`
         .add(routeImporter(require.context('./routes', false, /.*\.js$/)));
     ```
 
-* in `resources/js/app.js` import the package's icons
+- in `resources/js/app.js` import the package's icons
 
 `import '@calendar/icons';`
 
-* make sure `hot module replacement` is not active, and run `yarn dev` or `npm run dev`
+- publish `CalendarServiceProvider` and register your calendars
+
+- run `yarn dev` or `npm run dev`
 
 ### Icons
 The package uses the following icons:
