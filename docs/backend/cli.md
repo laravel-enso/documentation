@@ -58,7 +58,7 @@ You can use it to create:
 
 You may run the CLI with the following command:
 ```bash
-php artisan enso:make:structure
+php artisan enso:cli
 ```
 
 You'll be presented with a menu you may use for configuring the creation of resources.
@@ -125,7 +125,7 @@ Choosing this option will toggle the validation that is being normally performed
 before the generation of the structure & files 
 
 ## Commands
-- `php artisan enso::make:structure` - runs the structure creation CLI 
+- `php artisan enso::cli` - runs the structure creation CLI 
 
 ## Publishes
 - `php artisan vendor:publish --tag=structuremanager-config` - configuration file
