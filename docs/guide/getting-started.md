@@ -2,33 +2,38 @@
 
 ## Requirements
 
-* See the [Laravel server requirements](https://laravel.com/docs/5.7/installation#server-requirements).
+* See the [Laravel server requirements](https://laravel.com/docs/6.x/installation#server-requirements).
 * Laravel Enso uses the `json` data type.
     * If using MySQL, [a minimum version of 5.7.8 is required](https://dev.mysql.com/doc/refman/5.7/en/json.html).
     * If using MariaDB, [a minimum version of 10.2.7 is required](https://mariadb.com/kb/en/library/json-data-type).
 
 ## Installation Steps
 
-1. Download the project with `git clone https://github.com/laravel-enso/enso.git`
+1. Download the project with `git clone https://github.com/laravel-enso/enso.git --depth 1`
 
 2. Run in the project folder `composer install`
 
-3. Create a database for your site (see the [Laravel database documentation](https://laravel.com/docs/5.7/database)), 
+3. Create a database for your site (see the [Laravel database documentation](https://laravel.com/docs/6.x/database)), 
 copy or rename the `.env.example` file to `.env`, 
 edit the database configuration information, and run `php artisan key:generate`
 
-4. Run `php artisan migrate --seed`
+4. In order to serve the back-end API, take a look at the Local Development Server section of the [Laravel installation documentation](https://laravel.com/docs/6.x/#installation)
+and consider using [Valet](https://laravel.com/docs/6.x/valet) for a better experience
 
-5. Launch the site (see the Local Development Server section of the [Laravel installation documentation](https://laravel.com/docs/5.7/#installation)) 
-and log into the project with user: `admin@laravel-enso.com`, password: `password`
+5. Run `php artisan migrate --seed`
 
-6. Install node dependencies`yarn`
+6. Open the `client` folder, copy the `.env.example` file, save it as `.env` and set the URL 
+for the back-end API (which you've set at step 4)
 
-7. Compile `yarn dev` / `yarn hot`
+7. Run `yarn && yarn build`
+
+8. Launch the site and log into the project with user: `admin@laravel-enso.com`, password: `password`
+
+9. For live reload / hot module replacement functionality run `yarn serve`
 
 ### Optional
 
-8. Setup the configuration files as needed in `config/enso/*.php`
+10. Setup the configuration files as needed in `config/enso/*.php`
 
 Enjoy!
 
