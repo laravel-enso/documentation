@@ -25,6 +25,8 @@ Install the package:
 yarn add @enso-ui/menus
 ```
 
+(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.

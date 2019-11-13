@@ -25,6 +25,9 @@ Install the package:
 ```
 yarn add @enso-ui/typeahead
 ```
+
+(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+
 Import the desired component(s):
 ```js
 import { Typeahead, EnsoTypeahead } from '@enso-ui/typeahead/bulma';

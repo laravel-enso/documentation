@@ -25,6 +25,8 @@ Install the package:
 yarn add @enso-ui/tables @enso-ui/toastr
 ```
 
+(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+
 Note that this package has a couple of external dependencies. 
 Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more info.
 
