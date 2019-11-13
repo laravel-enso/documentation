@@ -26,6 +26,9 @@ Install the package:
 ```
 yarn add @enso-ui/tabs
 ```
+
+(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+
 Import the desired component(s):
 ```js
 import { Tabs, Tab } from '@enso-ui/tabs/bulma';

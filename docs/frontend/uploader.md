@@ -25,6 +25,9 @@ Install the package:
 ```
 yarn add @enso-ui/uploader
 ```
+
+(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+
 Import the desired component(s):
 ```js
 import { Uploader, EnsoUploader } from '@enso-ui/uploader/bulma';

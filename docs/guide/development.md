@@ -611,8 +611,14 @@ library.add(faCar);
 ```
 
 If you haven't done so already, build the front-end and/or start the HMR process.
+CD into the `client` directory and run:
 ```shell
-yarn run hot
+yarn serve
+```
+
+To make a production build, run:
+```shell
+yarn build
 ```
 
 After refreshing the page you should be able to see the new menu and navigate to the index page,
@@ -938,15 +944,6 @@ if the tests are failing, please let us know as that might speed up the troubles
 ## Themes
 
 If you want to use a different theme instead of, or thoroughly customize the themes supplied with Enso, 
-you should use as example the default themes, available on the `node_modules/@enso-ui/themes` path.
+you should use as example the default themes, available on the `client/node_modules/@enso-ui/themes` path.
 
-You may then create local copies of the themes and load them in place of the Enso versions, by editing
-`webpack.mix.js` .
-
-The relevant lines are:
-```js
-.sass('node_modules/@enso-ui/themes/bulma/light.scss', 'public/themes/light/bulma.min.css')
-.sass('node_modules/@enso-ui/themes/bulma/dark.scss', 'public/themes/dark/bulma.min.css')
-.sass('node_modules/@enso-ui/themes/bulma/light-rtl.scss', 'public/themes-rtl/light/bulma.min.css')
-.sass('node_modules/@enso-ui/themes/bulma/dark-rtl.scss', 'public/themes-rtl/dark/bulma.min.css')
-```
+You may create a patch using `patch-package` for the `themes` package and customize them to your heart's desire.

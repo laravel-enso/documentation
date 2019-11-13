@@ -23,6 +23,8 @@ Install the package:
 yarn add @enso-ui/money
 ```
 
+(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+
 ### Exports
 
 `@enso-ui/money`:

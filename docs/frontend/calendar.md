@@ -24,6 +24,8 @@ Install the package:
 yarn add @enso-ui/calendar
 ```
 
+(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+
 ## Usage
 
 In order to start using the calendar functionality, create a new calendar 

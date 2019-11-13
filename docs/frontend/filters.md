@@ -23,6 +23,8 @@ Install the package:
 yarn add @enso-ui/filters
 ```
 
+(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+
 Import the desired component(s):
 ```js
 import { IntervalFilter, DateFilter, ... } from '@enso-ui/filters/bulma';

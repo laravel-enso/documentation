@@ -23,6 +23,8 @@ Install the package:
 yarn add @enso-ui/themes
 ```
 
+(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+
 The package has the two default Enso themes, one light and one dark. The themes must be imported in Enso's `webpack.mix.js`.
 
 ## Removing themes
