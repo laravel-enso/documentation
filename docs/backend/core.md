@@ -153,6 +153,7 @@ Various configuration options are available in the `config` file
 on the `enso.config` configuration 'path', with the following keys:
 - `version`, string, current Enso version. Should be kept up to date when performing Enso updates 
     on new releases
+- `ownerCompanyId`, integer, default `1`, the id of the Application owner/client's Company
 - `showQuote`, boolean, default `true`, show the quote page after login
 - `stateBuilder`, string, default `LocalState::class`, the fully qualified class path for the local 
     application state builder
@@ -171,6 +172,20 @@ on the `enso.config` configuration 'path', with the following keys:
     API monitoring module
 - `extendedDocumentTitle`, boolean, default `false`, setting that shows documents with an extended title
     vs. using a shortened version
+
+Note that where available, it's best to use the `.env` configuration file for customizing
+the options.
+    
+#### Application owner / Client ID
+
+The `LaravelEnso\Companies\app\Models\Company` model comes with an `owner()` method that is
+meant to be used to return a Company instance representing the application owner.
+
+Since it makes sense that the `Company` model from the [Companies](https://github.com/laravel-enso/companies) package 
+may be extended either in other packages or locally, the method's resulted class is resolved from the container.
+
+Thus, if required, you can bind your desired/local implementation to the `LaravelEnso\Companies\app\Models\Company` 
+class in the service provider. You may set the application owner's company id within the main Enso configuration file
     
 #### Themes configuration
         
@@ -207,6 +222,23 @@ These options are enforced via request validation each time the user sets or res
 Please note that regardless of the above configuration, the user can not 'update' his password by 
 re-using his current password.
 
+### Updating the app while in production
+
+When the application is in production, you'll most likely version and lazy load the
+front-end resource so as to reduce the initial load time for the users.
+
+When deploying a new version, the users will still be using the old previous version
+until they refresh their browser page. 
+
+In cases when they haven't got all the assets loaded and they try to load a chunk 
+while using the previous application version, they may encounter an error.
+
+To avoid such a scenario, all logged in users can be notified using push notifications
+that they should save their work and reload the page.  
+
+In order for this notification to be sent, within your deployment flow, you should use 
+the `php artisan enso:announce-app-update` artisan command to send the notification.
+
 ## Publishes
 
 - `php artisan vendor:publish --tag=core-storage` - the storage folder structure
@@ -232,6 +264,8 @@ used for email
 useful when the preferences structure changes  
 - `php artisan enso:preferences:update-global` - adds new global preferences keys for users
 - `php artisan enso:upgrade` - performs new upgrades from the older previous to the latest release
+- `php artisan enso:announce-app-update` - send a notification to the logged in users that the 
+application has been updated and that they should refresh their pages
 
 ## Contributions
 

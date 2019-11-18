@@ -138,6 +138,8 @@ that has to be bound to the custom field, besides your custom logic.
         @input="pivotParams.userGroups.id = $event"/>
 </template>
 ```
+- you may also use the `actions-left` and `actions-right` slots to place controls in the 
+form's actions area 
 ### EnsoForm.vue
 
 Designed to be used within the Enso ecosystem, requiring less configuration from the dev.

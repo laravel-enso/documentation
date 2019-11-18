@@ -465,6 +465,10 @@ A renderless component, which can be used in custom implementations.
 - `default`, 'string', optional, default `today`. Valid options are: 'today', 'yesterday', 'last week', 'last month', 'all'
 - `disabledOptions` - `array`, optional, default `[]` - the list of disabled options. Valid options are
     'today', 'yesterday', 'sevenDays', 'thirtyDays', 'custom', 'all'
+- `direction`, `boolean`, optional, default `false` - if true, then the user can choose to 
+    filter using both past and future presets
+- `forward`, `boolean`, optional, default `false` - if true, the component will start
+    by default showing the future filtering presets
 - `value` - `string`, optional, default `null` - the chosen value. Valid options are
     'today', 'yesterday', 'sevenDays', 'thirtyDays', 'custom', 'all'
 

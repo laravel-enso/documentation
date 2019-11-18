@@ -393,7 +393,7 @@ The following options are available:
     
 - `buttons`, array, enables the customization of various options for the buttons used in the forms, 
     such as labels, colors, events and more
-- `dateFormat`, string, sets the default date format for `datepicker` fields. 
+- `altFormat`, string, sets the default date format for `datepicker` fields. 
     Note that for these fields an instance of `Carbon` is expected
 - `selectPlaceholder`, string, the placeholder used for select fields, 
 - `authorize`, boolean, default `true`, flag that enables the integration with the Laravel-Enso 
@@ -810,6 +810,28 @@ Flag that disables the button to clear a choice which is useful when a selected 
 
 Flag that puts the select in object mode, which means that the form, instead of storing a primitive value
 for the selected value, stores the entire option object, which can be useful for complex scenarios 
+
+##### pivotParams
+- Is: optional
+- Type: object
+- Applies to: `"select"`
+
+Pivot params that get used when using the Select component in server-side mode and are passed along
+with the request, when loading or refreshing the option list.
+
+If using the `OptionsBuilder` trait for the select's back-end endpoint, the pivot parameters
+are applied automatically. 
+
+
+##### customParams
+- Is: optional
+- Type: object
+- Applies to: `"select"`
+
+Custom params that get used when using the Select component in server-side mode and are passed along
+with the request, when loading or refreshing the option list.
+
+On the back-end, the custom params should be read from the request and applied as required.
 
 #### Input only
 
