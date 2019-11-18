@@ -73,7 +73,7 @@ when paired with the Laravel-Enso/VueSelect back-end, are used automatically for
 - `trackBy` - `string`, optional, default `id` - the attribute used for tracking and also the attribute that is bound to the 
 control's v-model
 - `translated` - `boolean`, optional - if true, labels are translated used the translation function
-- `value` - `object/primitive/array`, optional, default `[]`/`null`, the value of the current choice / component
+- `value` - `object/primitive/array`, required, default `[]`/`null`, the value of the current choice / component
 
 #### Events:
 - `fetch`, when the option list has been received
