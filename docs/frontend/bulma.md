@@ -21,6 +21,8 @@ Install the package:
 yarn add @enso-ui/bulma
 ```
 
+(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+
 ## Usage
 
 Import the desired component(s):

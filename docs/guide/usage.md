@@ -21,7 +21,7 @@ You can see the list of currently available commands by running `php artisan ens
 and remember to always consult the changelog.
 
 ### Notes 
-When you run `compose update` and the front-end asseets are published/upgraded recompiling (`yarn dev`/`prod`) is all you need to do.
+When you run `compose update` and the front-end assets are published/upgraded recompiling (`yarn dev`/`prod`) is all you need to do.
 If packages that depend on new permissions are added in the update process, you should run `php artisan:migrate` to add those permissions to the database.
 
 ## Localisation
