@@ -1,6 +1,6 @@
 # Introduction
 [![StyleCI](https://styleci.io/repos/95136264/shield?branch=master)](https://styleci.io/repos/95136264)
-[![Github Issues](https://img.shields.io/github/issues/laravel-enso/enso)](https://waffle.io/laravel-enso/Enso)
+[![Github Issues](https://img.shields.io/github/issues/laravel-enso/enso)](https://github.com/laravel-enso/enso/issues)
 [![Build Status](https://travis-ci.org/laravel-enso/Enso.svg?branch=master)](https://travis-ci.org/laravel-enso/Enso)
 ![GitHub language count](https://img.shields.io/github/languages/count/laravel-enso/enso)
 ![GitHub](https://img.shields.io/github/license/laravel-enso/enso)
