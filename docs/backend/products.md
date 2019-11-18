@@ -20,19 +20,17 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 
 * install the package using composer: `composer require laravel-enso/products`
 * install the front-end ui package using yarn: `yarn add @enso-ui/products`
-* adds the following alias in `webackpack.mix.js`
+* adds the following alias in `client/vue.config.js`
 ```
-.webpackConfig({
-        resolve: {
-            extensions: ['.js', '.vue', '.json'],
-            alias: {
-                 //other aliases
-                '@products': `${__dirname}/node_modules/@enso-ui/products/src/bulma`,
-            },
+configureWebpack: {
+    resolve: {
+        alias: {
+            //other aliases
+            '@products': `${__dirname}/node_modules/@enso-ui/products/src/bulma`,
         },
-    })
+    },
 ```
-* in `resources/js/router.js` file, verify that `RouteMerger` is imported, or import it
+* in `client/js/router.js` file, verify that `RouteMerger` is imported, or import it
 
 `import RouteMerger from '@core-modules/importers/RouteMerger';`
 
@@ -40,13 +38,13 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 
 `import routeImporter from '@core-modules/importers/routeImporter';`
 
-* then use `RouteMerger` to import front-end assets using the alias defined in `webpack.mix.js`
+* then use `RouteMerger` to import front-end assets using the alias defined in `vue.config.js`
 
 ```
 (new RouteMerger(routes))
     //other routes
-    .add(routeImporter(require.context('@products/routes', false, /.*\.js$/)))
-    .add(routeImporter(require.context('./routes', false, /.*\.js$/)));
+    .add(routeImporter(require.context('./routes', false, /.*\.js$/)))
+    .add(routeImporter(require.context('@products/routes', false, /.*\.js$/)));
 ```
 
 * in `resources/js/app.js` import the package's icons

@@ -111,8 +111,9 @@ using the existing ones as example
 
 6. Add the new language in `node_modules/@enso-ui/ui/src/modules/plugins/date-fns/i18n.js`
 
-At this stage, you've made the necessary changes, and everything should work, after compiling the front-end assets with
-`npm run webpack`.
+At this stage, you've made the necessary changes, and everything should work, after compiling 
+the front-end assets with `yarn build` (from within the `client` folder).
+
 Next, we need to commit all updated files to their respective repositories, 
 since we've been working on the published resources as well as directly in the node_modules directory.
 

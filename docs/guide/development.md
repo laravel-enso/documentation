@@ -947,3 +947,11 @@ If you want to use a different theme instead of, or thoroughly customize the the
 you should use as example the default themes, available on the `client/node_modules/@enso-ui/themes` path.
 
 You may create a patch using `patch-package` for the `themes` package and customize them to your heart's desire.
+
+## Adding static assets
+
+If there are local static assets such as image resources which you may require 
+within the project, you can create a `client/src/images` folder and place them there. 
+
+Afterwards, you should add a configuration object to the `CopyPlugin` section 
+from `vue.config.js` so that the images are copied on build.
