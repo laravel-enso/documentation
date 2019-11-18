@@ -82,7 +82,7 @@ Once the files are generated, depending on your choices,
 you'll also be presented with the backend routes you'll need to paste in your `routes/api.php` file.
 
 If you've created front-end resources, don't forget to rebuild your js resources, 
-using `npm run webpack` or similar.
+using `yarn build` (from within the `client` folder).
 
 The available options are listed below:
 

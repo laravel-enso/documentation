@@ -20,17 +20,15 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 ## Installation
 
 * install the package using composer: `composer require laravel-enso/currencies`
-* add the following alias in `webackpack.mix.js`
+* add the following alias in `vue.config.js`
     ```js
-    .webpackConfig({
-            resolve: {
-                extensions: ['.js', '.vue', '.json'],
-                alias: {
-                     //other aliases
-                    '@currencies': `${__dirname}/vendor/laravel-enso/currencies/src/resources/js`,
-                },
+    configureWebpack: {
+        resolve: {
+            alias: {
+                //other aliases
+                '@currencies': `${__dirname}/node_modules/@enso-ui/currencies/src/bulma`,
             },
-        })
+        },
     ```
 * in `resources/js/router.js` file, verify that `RouteMerger` is imported, or import it
 
@@ -40,7 +38,7 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 
     `import routeImporter from '@core-modules/importers/routeImporter';`
 
-* then use `RouteMerger` to import front-end assets using the alias defined in `webpack.mix.js`
+* then use `RouteMerger` to import front-end assets using the alias defined in `vue.config.js`
 
     ```js
     (new RouteMerger(routes))

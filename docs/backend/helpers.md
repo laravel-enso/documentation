@@ -182,23 +182,6 @@ class ProductSeeder extends Seeder
 }
 ```
 
-#### DateAttributes
-
-Whenever you're receiving date attribute from the front-end and fill/set the values on the model,
-you have to create a setter for that attribute that parses, formats and sets the actual value.
-
-By using the trait, within the setter you can call the trait's 
-`fillDateAttribute('attributeName', $value, $format = null)`
-pass the attribute name and the value (the format is optional) and the trait will do the rest for you.
-
-When determining the format used for parsing, the rules are:
-- use the `$format` method parameter, if given
-- use the configured Enso date format (`enso.config.dateFormat`) is available
-- fallback to Laravel's determined date format
-
-The value and the format are used to obtain a Carbon instance from the given value. 
-If the value already is a Carbon instance, it is left unchanged;
-
 #### InCents
 
 When working with monetary values, the trait is meant to make your life easier if you choose to store 

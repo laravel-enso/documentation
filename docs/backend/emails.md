@@ -40,17 +40,15 @@ To install:
         php artisan schedule:run
     ```
   
-* add the following alias in `webackpack.mix.js`
+* add the following alias in `vue.config.js`
     ```
-    .webpackConfig({
-            resolve: {
-                extensions: ['.js', '.vue', '.json'],
-                alias: {
-                     //other aliases
-                    '@emails': `${__dirname}/vendor/laravel-enso/emails/src/resources/js`,
-                },
+    configureWebpack: {
+        resolve: {
+            alias: {
+              //other aliases
+              '@emails': `${__dirname}/../vendor/laravel-enso/emails/src/resources/js`,
             },
-        })
+        },
     ```
 * in `resources/js/router.js` file, verify that `RouteMerger` is imported, or import it
     ```
@@ -62,7 +60,7 @@ To install:
         import routeImporter from '@core-modules/importers/routeImporter';
     ```
 
-* then use `RouteMerger` to import front-end assets using the alias defined in `webpack.mix.js`
+* then use `RouteMerger` to import front-end assets using the alias defined in `vue.config.js`
     ```
     (new RouteMerger(routes))
         .add(routeImporter(require.context('./routes', false, /.*\.js$/)))
