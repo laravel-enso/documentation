@@ -10,6 +10,13 @@ sidebarDepth: 3
 ![GitHub issues](https://img.shields.io/github/issues/enso-ui/calendar.svg) 
 ![npm version](https://img.shields.io/npm/v/@enso-ui/calendar.svg) 
 
+[![Screenshot](https://laravel-enso.github.io/calendar/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/calendar/screenshots/bulma_001.png)
+
+[![Screenshot](https://laravel-enso.github.io/calendar/screenshots/bulma_002_thumb.png)](https://laravel-enso.github.io/calendar/screenshots/bulma_002.png)
+
+<sup>click on the photo to view a large size screenshot</sup>
+
+
 ## Usage
 The component cannot be used outside of the Enso ecosystem.
 

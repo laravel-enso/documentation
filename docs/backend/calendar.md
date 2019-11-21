@@ -17,6 +17,12 @@ This package works exclusively within the [Enso](https://github.com/laravel-enso
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
+[![Screenshot](https://laravel-enso.github.io/calendar/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/calendar/screenshots/bulma_001.png)
+
+[![Screenshot](https://laravel-enso.github.io/calendar/screenshots/bulma_002_thumb.png)](https://laravel-enso.github.io/calendar/screenshots/bulma_002.png)
+
+<sup>click on the photo to view a large size screenshot</sup>
+
 ## Installation
 
 - install the back-end API package using composer: `composer require laravel-enso/calendar`
