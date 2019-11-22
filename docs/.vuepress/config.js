@@ -131,6 +131,7 @@ module.exports = {
                     'localisation',
                     'logs',
                     'migrator',
+                    'measurement-units',
                     'menus',
                     'multitenancy',
                     'notifications',
