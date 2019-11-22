@@ -955,3 +955,29 @@ within the project, you can create a `client/src/images` folder and place them t
 
 Afterwards, you should add a configuration object to the `CopyPlugin` section 
 from `vue.config.js` so that the images are copied on build.
+
+## Linting & Aliases
+
+You may have noticed that there are two `.eslintrc.js` files that come with Enso, by default:
+- in the project root
+- in the `client` folder
+
+The `.eslintrc.js` found in the root folder is used out of the box by most code editors/IDEs
+and that's the reason for its existence. Thus, its configuration is somewhat optional
+because in the worst case, your editor will report errors but the build will complete.
+
+The `.eslintrc.js` found in the `client` folder is used by VueCLI (vue-cli-service)
+during the linting & build phases. Thus, it is essential that it is configured 
+as intended, because otherwise you'll get errors reported and the build may not complete.
+
+::: tip
+
+Whenever we declare aliases for packages or paths, it is ideal to configure/set the aliases
+in:
+- `client/vue.config.js`, for the build
+- `client/eslintrc.js`, for the automatic linting
+- `eslintrc.js`, for your editor's linting
+
+When you look into the files, you'll find examples out of the box.
+
+::: 
