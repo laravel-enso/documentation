@@ -162,7 +162,7 @@ thus requiring the `query()` and the `templatePath()` methods.
     for better readability as well as making it easier to extend the class, if required. 
 
     ```php
-    use LaravelEnso\Tables\app\Contracts\Table;
+    use LaravelEnso\Tables\app\Services\Table;
    
     class PermissionTable implements Table
     {
