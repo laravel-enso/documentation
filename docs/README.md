@@ -19,7 +19,7 @@ footer: MIT Licensed | Copyright © 2018-present Laravel Enso
 # clone in a new project folder
 git clone https://github.com/laravel-enso/enso.git --depth 1
 
-# install composer dependencies
+# install the composer dependencies
 composer install
 
 # create the .env file from the example 
@@ -39,13 +39,13 @@ cd client
 # create the .env file from the example and customize if needed
 cp .env.example .env
 
-# install the front-end dependencies
+# install the npm dependencies
 yarn
 
 # build the assets
 yarn build
 
-#or, for live reload
+#or, for live reload, you can use
 yarn serve
 ```
 
