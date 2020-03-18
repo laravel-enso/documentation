@@ -92,6 +92,7 @@ module.exports = {
                     'themes',
                     'toastr',
                     'transitions',
+                    'tree-view',
                     'tutorials',
                     'typeahead',
                     'ui',

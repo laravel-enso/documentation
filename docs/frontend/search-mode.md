@@ -47,7 +47,7 @@ Import the desired component(s):
 import SearchMode from '@enso-ui/search-mode/bulma';
 ```
 
-### Dropdown
+### SearchMode
 This is the bulma styled component.
 
 ### Example:
