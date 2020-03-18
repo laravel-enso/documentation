@@ -82,6 +82,7 @@ module.exports = {
                     'progress-bar',
                     'progress-circle',
                     'roles',
+                    `search-mode`,
                     `scroll-to-top`,
                     `select`,
                     'switch',
