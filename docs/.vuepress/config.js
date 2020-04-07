@@ -111,6 +111,7 @@ module.exports = {
                     'charts',
                     'cli',
                     'calendar',
+                    'categories',
                     'comments',
                     'companies',
                     'core',
