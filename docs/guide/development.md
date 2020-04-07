@@ -127,6 +127,7 @@ Permission Group ✗
 Permissions ✗
 Menu ✗
 Files ✗
+Package ✗
 
  Choose element to configure:
   [0] Model
@@ -134,8 +135,10 @@ Files ✗
   [2] Permissions
   [3] Menu
   [4] Files
-  [5] Generate
-  [6] Validation
+  [5] Package
+  [6] Generate
+  [7] Toggle Validation
+  [8] Exit
  > 
 ```
 
@@ -150,12 +153,6 @@ you'll receive a warning.
 For each option, you'll be first asked to confirm that you want to
  configure it.
 
-::: tip Feedback
-Once you've configured an option you'll be given feedback regarding the 
-configuration status of the main options as well as what will be generated 
-as a result of your choices.
-:::
-
 ::: tip Making changes
 Once you've configured an option, before generating the files,
  you can go back and re-configure any of the options. 
@@ -163,7 +160,7 @@ Once you've configured an option, before generating the files,
 
 ::: tip Autocomplete
 When making changes to an already configured option, you can 
-type the first character and have the cli autocomplete the previously set value
+type the first character and have the `cli` autocomplete the previously set value
 so you can advance faster through the options. 
 :::
 
@@ -192,17 +189,15 @@ Permission Group ✗
 Permissions ✗
 Menu ✗
 Files ✗
+Package ✗
 
-Will generate:
-structure migration
 ```
 
 You may also input a namespaced name, in which case, the model will be placed 
 in the proper folder.
 
 ::: tip Namespace
-If you are inputting a namespaced model, please type the full namespace, including `App`,
-and use double backslashes. 
+If you are inputting a namespaced model, please type the full namespace, including `App`. 
 :::
 
 ```shell
@@ -213,7 +208,7 @@ name => Car
  > y
 
  name:
- > App\\Vehicles\\Motorized\\Car
+ > App\Vehicles\Motorized\Car
 ```
 
 #### Configuring the permission group
@@ -249,9 +244,8 @@ Permission Group ✓
 Permissions ✗
 Menu ✗
 Files ✗
+Package ✗
 
-Will generate:
-structure migration
 ```
 
 #### Configuring the permissions
@@ -264,6 +258,9 @@ Simply choose the desired permissions from the list:
     - back end route, used to fetch the form data
 * `store` will generate:
     - back end route, used by the form to persist a new resource
+* `show` will generate:
+    - front end route, used to display the show page
+    - back end route, used to fetch a model
 * `edit` will generate:
     - front end route, used to display the edit form for an existing resource.
     - back end route, used to fetch the form data
@@ -271,9 +268,6 @@ Simply choose the desired permissions from the list:
     - back end route, used by the form to update an existing resource 
 * `destroy` will generate:  
     - back end route, used by the form's and tables's delete actions to delete a resource
-* `show` will generate:
-    - front end route, used to display the show page
-    - back end route, used to fetch a model
 * `initTable` will generate:
     - back end route, used for the initialization of the index page's table
 * `tableData` will generate:
@@ -339,9 +333,7 @@ Permission Group ✓
 Permissions ✓
 Menu ✗
 Files ✗
-
-Will generate:
-structure migration
+Package ✗
 
 ```
 
@@ -366,6 +358,9 @@ The menu will need a few attributes:
     
 - the route shall be the named route that is utilized when the user clicks on the menu, 
 in the front-end. This is usually a route that ends with `.index`.
+    You may only specify the final segment of the route, as the permission group is used
+    when building the whole route for the menu.
+    You can also notice that by default, the route is index.
 
     ::: tip Permissions
     If a user does not have access to the given route, that menu will not be visible.
@@ -385,7 +380,7 @@ Menu configuration:
 name => 
 icon => 
 parentMenu => 
-route => 
+route => index
 order_index => 999
 has_children => ✗
 
@@ -402,7 +397,7 @@ has_children => ✗
  > Motorized
 
  route:
- > vehicles.motorized.cars.index
+ > index
 
  order_index:
  > 100
@@ -416,9 +411,7 @@ Permission Group ✓
 Permissions ✓
 Menu ✓
 Files ✗
-
-Will generate:
-structure migration
+Package ✗
 
 ```
 
@@ -427,15 +420,15 @@ structure migration
 Once everything else is configured, you may choose what files you want to have
 generated for you.
 
-Note that the options are interdepenent, so, for instance, if you choose the 
+Note that the options are interdependent, so, for instance, if you choose the 
 `routes` option, the generated routes will match the permissions you selected at the 3rd step.
 
 Simply choose the desired files from the list:
 * model, generates:
    - model class
-* migration, generates:
-    - model table migration
-    - structure migration
+   - model table migration
+* structure, generates:
+   - structure migration
 * routes, generates:
     - front end routes
     - back end routes
@@ -447,7 +440,6 @@ Simply choose the desired files from the list:
     - controllers, table builder and template
 * options, generates:
     - controller
-
 
 ```shell
 Files configuration:
@@ -489,16 +481,54 @@ Permission Group ✓
 Permissions ✓
 Menu ✓
 Files ✓
+Package ✗
 
-Will generate:
-structure migration
-model
-migration
-routes
-views
-form
-table
-options
+```
+
+#### Package
+
+Most of the time you'll probably want to generate a structure in the local project,
+and you don't need to modify anything else.
+
+However, if you want to build a package, you may access the package menu and setup 
+the following options:
+
+* name 
+    - the name of the package
+    - is used for the creation of the package's folder
+* vendor 
+    - the name of the vendor
+    - is used for the creation of the vendor's folder
+* config
+    - if chosen, will create a config file for the package
+* providers
+    - if chose, will create package providers
+    
+When creating a package, don't forget to properly align the model namespace
+with the vendor and package name.
+
+```shell
+Package configuration:
+name => 
+vendor => laravel-enso
+config => ✗
+providers => ✗
+
+ Configure Package (yes/no) [no]:
+ > y
+
+ name:
+ > foo
+
+ vendor:
+ > laravel-enso
+
+ config (yes/no) [no]:
+ > y
+
+ providers (yes/no) [no]:
+ > y
+
 ```
 
 #### Generating the files
@@ -516,8 +546,10 @@ the back end routes are printed in the terminal and you should copy them into yo
   [2] Permissions
   [3] Menu
   [4] Files
-  [5] Generate
-  [6] Validation
+  [5] Package
+  [6] Generate
+  [7] Toggle Validation
+  [8] Exit
  > 5
 
 Copy and paste the following code into your api.php routes file:
@@ -565,7 +597,8 @@ no changes added to commit (use "git add" and/or "git commit -a")
 #### Next steps
 
 Below you'll find examples of customizing the generated files, 
-considering the most complete scenario where we're creating the entire structure, with all the files. 
+considering the most complete scenario where we're creating the entire structure, 
+with all the files locally within the project. 
 
 ##### The table migration
 
