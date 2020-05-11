@@ -34,6 +34,10 @@ for the back-end API (which you've configured at step 4)
 ### Optional
 
 10. Setup the configuration files as needed in `config/enso/*.php`
+11. You may remove the following files from the cloned repository:
+    - `.styleci.yml`
+    - `.travis.yml`
+    - `docker-compose.yml` (if not using Docker)  
 
 Enjoy!
 
@@ -41,7 +45,7 @@ Enjoy!
 Laravel Enso comes with a simple docker environment to help with development. 
 By default it has two containers, the enso container and the enso-mysql container. 
 There is also a optional phpmyadmin container that can be used by removing the commented
-lines in docker-compose.yml.
+lines in `docker-compose.yml`.
 
 #### Containers
 
