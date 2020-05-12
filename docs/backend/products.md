@@ -54,6 +54,7 @@ configureWebpack: {
 * make sure `hot module replacement` is **not** active, and run `yarn dev` or `npm run dev`
 
 * run `php artisan migrate` to create table, add menu, permissions etc.
+* run `php artisan vendor:publish --tag=products-assets` to publish the assets
 
 ## Features
 
