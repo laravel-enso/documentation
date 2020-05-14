@@ -103,7 +103,11 @@ CSS framework agnostic Chart implementation.
 
 #### Props
 - `data` - `Object`, required - the data for the chart
+- `shortNumbers`,`Boolean`, optional - default `false`, if true, applies short number formatting for the chart values
+    Note that if both `shortNumber` and `formatter` is given, only short number is applied and the formatter 
+    function is ignored
 - `formatter` - `function`, optional - datalabels values formatter function
+    Note that `formatter` is incompatible with `shortNumber` 
 - `options` - `Object`, optional - options object for chart.js
 - `type` - `string`, required - specifies the type of chart.  Valid types are 'line', 'bar', 'radar', 'polarArea', 'pie', 'doughnut', 'bubble'.
  
