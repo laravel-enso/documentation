@@ -61,11 +61,8 @@ configureWebpack: {
 routes, controllers, resources, index table, etc 
 - provides CRUD functionality for the `Category` model
 - defines the relationships with a parent category as well as multiple child categories
-- the Enso `Company` model is used for the manufacturer, 
-suppliers and default supplier relationships; 
-`dynamic methods` are added on the `Company` for the reverse relationships.
-via the `EnumServiceProvider`
 - a `CategoryFactory` is included and can be published
+- the `Category` model also supports dynamic methods
 
 ## Usage
 
