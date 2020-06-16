@@ -65,19 +65,26 @@ routes, controllers, resources, index table, etc
 and can manage the default supplier
 - the Enso `Company` model is used for the manufacturer, 
 suppliers and default supplier relationships; 
-`dynamic methods` are added on the `Company` for the reverse relationships.
+`dynamic methods` are added on the `Company` for the `$company->products` (supplied products) 
+& `$company->manufacturedProducts` relationships.
 - the package's enums are registered automatically to the application's state
 via the `EnumServiceProvider`
+- categories support is available via the `laravel-enso/categories` package, and a category can be set per product, 
+from the product form; note that a product can only belong to a child category
+- picture support is available out of the box, where product pictures can be uploaded through the product form;
+the pictures are visible in the index page table
 - a `ProductFactory` is included and can be published
 
 ## Usage
 
-The package is meant to be installed on an Enso project and customized as required 
+The package should be installed on an Enso project and customized as required 
 (or used as it is if that is enough). 
 
 ## Publishes
 
 - `php artisan vendor:publish --tag=products-factories` - the included product factory,
+- `php artisan vendor:publish --tag=products-assets` - the `default-picture` asset, published to the
+`resources/images` folder
    
 ### Contributions
 
