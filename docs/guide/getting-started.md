@@ -20,6 +20,16 @@ edit the database configuration information, and run `php artisan key:generate`
 4. In order to serve the back-end API, take a look at the Local Development Server section of the [Laravel installation documentation](https://laravel.com/docs/6.x/#installation)
 and consider using [Valet](https://laravel.com/docs/6.x/valet) for a better experience
 
+    **Important**: once you're chosen your app's name and set the `APP_URL` in your `.env` file, 
+    make sure you also add the domain to the list of domains in the `SANCTUM_STATEFUL_DOMAINS`. For example:
+    
+    ```
+    ...
+    APP_URL=http://enso.test
+    ...
+    SANCTUM_STATEFUL_DOMAINS=localhost,127.0.0.1,127.0.0.1:8000,localhost:8080,::1,enso.test
+    ```
+
 5. Run `php artisan migrate --seed`
 
 6. Open the `client` folder, copy the `.env.example` file, save it as `.env` and set the URL 
@@ -29,7 +39,7 @@ for the back-end API (which you've configured at step 4)
 
 8. Launch the site and log into the project with user: `admin@laravel-enso.com`, password: `password`
 
-9. For live reload / hot module replacement functionality run `yarn serve`
+9. For live reload / hot module replacement functionality run `client/yarn serve`
 
 ### Optional
 
@@ -43,8 +53,8 @@ Enjoy!
 
 ## Docker
 Laravel Enso comes with a simple docker environment to help with development. 
-By default it has two containers, the enso container and the enso-mysql container. 
-There is also a optional phpmyadmin container that can be used by removing the commented
+By default, it has two containers, the enso container and the enso-mysql container. 
+There is also an optional phpmyadmin container that can be used by removing the commented
 lines in `docker-compose.yml`.
 
 #### Containers
