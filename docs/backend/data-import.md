@@ -4,7 +4,7 @@ sidebarDepth: 3
 
 # DataImport
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b169a2f09f864cd5b274ce63008f04b9)](https://www.codacy.com/app/laravel-enso/dataImport?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/data-import&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/8c53be4df359406b8ce6bc48f627aee8)](https://www.codacy.com/gh/laravel-enso/data-import?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/data-import&amp;utm_campaign=Badge_Grade)
 [![StyleCI](https://github.styleci.io/repos/89221336/shield?branch=master)](https://github.styleci.io/repos/89221336)
 [![License](https://poser.pugx.org/laravel-enso/data-import/license)](https://packagist.org/packages/laravel-enso/data-import)
 [![Total Downloads](https://poser.pugx.org/laravel-enso/data-import/downloads)](https://packagist.org/packages/laravel-enso/data-import)
@@ -60,48 +60,63 @@ with an extra column (on each sheet) that will describe all the validation error
 
 ### Configuration
 The configuration can be found/published in `config/enso/imports.php` and contains:
- - `validations` - string, flag that sets whether import template validations are also 
+ - `validations` - `string`, flag that sets whether import template validations are also 
     executed in production, valid values are `always`/`local`/`yourEnv` | default `local` 
- - `chunkSize` - number, default `1000`, the number of records in a chunk. 
+ - `chunkSize` - `number`, default `1000`, the number of records in a chunk. 
     It should be adjusted for optimum performance on your machine. Note that the size can also be given 
     in the import template, thus overriding the global value
- - `splittingQueue` - string, default `split`, the name of the queue for the chunk splitting job. 
+ - `splittingQueue` - `string`, default `split`, the name of the queue for the chunk splitting job. 
     Can also be set individually, for each import, in its template
- - `queues` - array, the configuration for all the queues used during the import process. 
+ - `queues` - `array`, the configuration for all the queues used during the import process. 
     Note that it's good practice to have more processes for the splitting queue as this is 
     an intensive process, and it needs to keep the other queues 'busy'. Obviously, these queues 
     must be set up in the Laravel `queue` configuration file.
- - `timeout` - number, default `60 * 5`, the Laravel job timeout for the splitting and the rejected summary 
+ - `timeout` - `number`, default `60 * 5`, the Laravel job timeout for the splitting and the rejected summary 
     report generation jobs
- - `errorColumn` - string, default `_errors`the name of the error column used to report issues with the import rows 
+ - `errorColumn` - `string`, default `_errors`the name of the error column used to report issues with the import rows 
     (which appears in the rejected summary xlsx file)
- - `notifications` - array, default `['broadcast', 'database']`, the list of channels used to 
+ - `notifications` - `array`, default `['broadcast', 'database']`, the list of channels used to 
     notify the user
  - `configs` - configuration array, with what's needed to hook the JSON templates to the import package:
      - `label` - the label visible to the user in the interface
      - `template` - the relative path to the JSON import templates
 
 #### JSON Template structure:
-- `timeout`, number, optional, local overriding configuration for the `enso.dataimport.timeout` option
-- `sheets`, array, required, array of sheet configuration objects | required
+- `timeout`, `number`, optional, local overriding configuration for the `enso.dataimport.timeout` option
+- `queue`, `string`, optional, name of the queue used to run the import on
+- `params`, `array`, optional, array of parameter objects, that can be passed to an importer class
+- `sheets`, `array`, required, array of sheet configuration objects | required
 
 Note that the importer expects to find just the sheets given in the template, 
 meaning it will report an error if there are missing sheets but also if there are extra sheets. 
 
+#### Params Configuration object structure:
+
+The configuration object attributes are similar in type and structure to the parameters 
+used within the JSON [Form Builder](https://docs.laravel-enso.com/backend/forms.html#usage) template to configure a form field.
+
+- `name`, `string`, the name of the parameter as it is passed to the importer class, within the `$params` object
+- `validations`, string, the Laravel style validations to be applied to the respective parameter 
+- `label`, `string`, the label used for the field generated for the parameter,
+- `value`, `mixed`, the default, starting value for the parameter,
+- `type`, `string`, type of the input generated for this parameter,
+- `route`, `string`, the route for the select type parameter
+- `params`, `object`, any parameters applied for the input generated for this parameter 
+
 #### Sheet Configuration object structure:
-- `name`, string, required, the name of the sheet. Should be lower snake cased if the 
+- `name`, `string`, required, the name of the sheet. Should be lower snake cased if the 
     sheet name contains spaces, so use `sale_entries` instead of `Sale entries`
-- `importerClass`, string, required, the fully qualified importer class name. 
+- `importerClass`, `string`, required, the fully qualified importer class name. 
     The class contains the actual the import logic.
-- `validatorClass`, string, optional, the fully qualified custom validator class name, 
+- `validatorClass`, `string`, optional, the fully qualified custom validator class name, 
     if you are using custom validators
-- `chunkSize`, number, optional, the size of the chunk used during splitting     
-- `columns`, array, required, contains the column configuration objects  
+- `chunkSize`, `number`, optional, the size of the chunk used during splitting     
+- `columns`, `array`, required, contains the column configuration objects  
 
 #### Column Configuration object structure:
-- `name`, string, required, the name of the column. Similar to the sheet name, 
+- `name`, `string`, required, the name of the column. Similar to the sheet name, 
     column names should be lower snake cased, so use `mobile_phone` instead of `Mobile phone`
-- `validations`, string, optional, the desired Laravel (Request) validation that you 
+- `validations`, `string`, optional, the desired Laravel (Request) validation that you 
     want applied for this column
 
 Please note that the import does not continue if *structure* errors are encountered, 
