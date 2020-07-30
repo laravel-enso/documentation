@@ -30,10 +30,10 @@ Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more
 
 ### Exports
 
-`@enso-ui/cofirmation/bulma`:
+`@enso-ui/confirmation/bulma`:
 - `Confirmation`,
 
-`@enso-ui/cofirmation`:
+`@enso-ui/confirmation`:
 - `CoreConfirmation`,
 
 ## Usage
