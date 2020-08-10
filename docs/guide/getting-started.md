@@ -2,45 +2,64 @@
 
 ## Requirements
 
-* See the [Laravel server requirements](https://laravel.com/docs/5.7/installation#server-requirements).
+* See the [Laravel server requirements](https://laravel.com/docs/6.x/installation#server-requirements).
 * Laravel Enso uses the `json` data type.
     * If using MySQL, [a minimum version of 5.7.8 is required](https://dev.mysql.com/doc/refman/5.7/en/json.html).
     * If using MariaDB, [a minimum version of 10.2.7 is required](https://mariadb.com/kb/en/library/json-data-type).
 
 ## Installation Steps
 
-1. Download the project with `git clone https://github.com/laravel-enso/enso.git`
+1. Download the project with `git clone https://github.com/laravel-enso/enso.git --depth 1`
 
-2. Run in the project folder `composer install`
+2. Within the project folder run `composer install`
 
-3. Create a database for your site (see the [Laravel database documentation](https://laravel.com/docs/5.7/database)), 
+3. Create a database for your site (see the [Laravel database documentation](https://laravel.com/docs/6.x/database)), 
 copy or rename the `.env.example` file to `.env`, 
 edit the database configuration information, and run `php artisan key:generate`
 
-4. Run `php artisan migrate --seed`
+4. In order to serve the back-end API, take a look at the Local Development Server section of the [Laravel installation documentation](https://laravel.com/docs/6.x/#installation)
+and consider using [Valet](https://laravel.com/docs/6.x/valet) for a better experience
 
-5. Launch the site (see the Local Development Server section of the [Laravel installation documentation](https://laravel.com/docs/5.7/#installation)) 
-and log into the project with user: `admin@laravel-enso.com`, password: `password`
+    **Important**: once you're chosen your app's name and set the `APP_URL` in your `.env` file, 
+    make sure you also add the domain to the list of domains in the `SANCTUM_STATEFUL_DOMAINS`. For example:
+    
+    ```
+    ...
+    APP_URL=http://enso.test
+    ...
+    SANCTUM_STATEFUL_DOMAINS=localhost,127.0.0.1,127.0.0.1:8000,localhost:8080,::1,enso.test
+    ```
 
-6. Install node dependencies`yarn`
+5. Run `php artisan migrate --seed`
 
-7. Compile `yarn dev` / `yarn hot`
+6. Open the `client` folder, copy the `.env.example` file, save it as `.env` and set the URL 
+for the back-end API (which you've configured at step 4)
+
+7. Run `yarn && yarn build`
+
+8. Launch the site and log into the project with user: `admin@laravel-enso.com`, password: `password`
+
+9. For live reload / hot module replacement functionality run `client/yarn serve`
 
 ### Optional
 
-8. Setup the configuration files as needed in `config/enso/*.php`
+10. Setup the configuration files as needed in `config/enso/*.php`
+11. You may remove the following files from the cloned repository:
+    - `.styleci.yml`
+    - `.travis.yml`
+    - `docker-compose.yml` (if not using Docker)  
 
 Enjoy!
 
 ## Docker
 Laravel Enso comes with a simple docker environment to help with development. 
-By default it has two containers, the enso container and the enso-mysql container. 
-There is also a optional phpmyadmin container that can be used by removing the commented
-lines in docker-compose.yml.
+By default, it has two containers, the enso container and the enso-mysql container. 
+There is also an optional phpmyadmin container that can be used by removing the commented
+lines in `docker-compose.yml`.
 
 #### Containers
 
-- The enso container run's the apache webserver and has yarn & composer installed.
+- The enso container runs the apache webserver and has `yarn` & `composer` installed.
 - The enso-mysql container handle's the database the default user is `root` with a blank password and the default database is `enso`
 - The enso-phpmyadmin container is optional and attaches a phpMyAdmin instance the the enso-mysql database.
 
@@ -59,15 +78,16 @@ To daemonize the process run `docker-compose up --build -d`.
     * After addressing the error, drop all tables from your site database (or delete and recreate the database), then run `php artisan migrate --seed` again.
 
 ## Features
-A solid starting project, based on [Laravel](https://laravel.com) 5.8, [VueJS](https://vuejs.org) 2,
+A solid starting project, based on [Laravel](https://laravel.com) 6, [VueJS](https://vuejs.org) 2 
+(the build is done with [VueCli](https://cli.vuejs.org/), 
 [Bulma](https://bulma.io), integrated themes from [Bulmaswatch](https://jenil.github.io/bulmaswatch),
 all the VueJS goodies such as [VueEx](https://vuex.vuejs.org/en) and [VueRouter](https://router.vuejs.org/en),
 with features like:
 
-- [Structure generator](https://github.com/laravel-enso/structuremanager) - powerful CLI that allows easy creation of new complex structures, generating all the needed files:
+- [Structure generator](https://github.com/laravel-enso/cli) - powerful CLI that allows easy creation of new complex structures, generating all the needed files:
     - system files for:
         - structure migration that adds menus and permissions and permission groups
-        - front-end routes
+        - front-end routes & CRUD pages
         - back-end routes
     - boilerplate files for:
         - models and table migrations
@@ -76,7 +96,7 @@ with features like:
         - select controller
         - request validator
 
-- [Customizable and powerful datatables](https://github.com/laravel-enso/VueDatatable):
+- [Customizable and powerful datatables](https://github.com/laravel-enso/tables):
     - JSON templates
     - server side
     - multi-argument full column search
@@ -94,20 +114,20 @@ with features like:
     - validation
     - customizable
 
-- [Vue select](https://github.com/laravel-enso/Select) - server side builder with parameter conditioning, including pivot parameters
-- Advanced user groups / [roles](https://github.com/laravel-enso/RoleManager) / [permissions](https://github.com/laravel-enso/PermissionManager) structure
-- [Log management](https://github.com/laravel-enso/LogManager) -  view, download, clear
-- User [action logger](https://github.com/laravel-enso/ActionLogger), so you can keep track of who's done what
-- User [impersonation](https://github.com/laravel-enso/Impersonate) for easy support and debugging
-- Application interface [tutorials](https://github.com/laravel-enso/TutorialManager) based on the awesome [Intro.js](http://introjs.com)
-- [Localisation support](https://github.com/laravel-enso/Localisation)
-- [Charts component](https://github.com/laravel-enso/Charts) with server side data builder, based on [Chart.js](http://www.chartjs.org)
-- [Comments component](https://github.com/laravel-enso/CommentsManager) with support for tagging users
-- [Documents component](https://github.com/laravel-enso/DocumentsManager) with upload, download and inline view
-- Ability to [track](https://github.com/laravel-enso/TrackWho) who created, updated and deleted models, using traits
-- [File uploader](https://github.com/laravel-enso/FileManager) and file management library
-- [Avatar functionality](https://github.com/laravel-enso/AvatarManager) for all users
-- Ability to track the [different versions of a model](https://github.com/laravel-enso/HistoryTracker) through its lifetime
+- [Vue select](https://github.com/laravel-enso/select) - server side builder with parameter conditioning, including pivot parameters
+- Advanced user groups / [roles](https://github.com/laravel-enso/roles) / [permissions](https://github.com/laravel-enso/permissions) structure
+- [Log management](https://github.com/laravel-enso/logs) -  view, download, clear
+- User [action logger](https://github.com/laravel-enso/action-logger), so you can keep track of who's done what
+- User [impersonation](https://github.com/laravel-enso/impersonate) for easy support and debugging
+- Application interface [tutorials](https://github.com/laravel-enso/tutorials) based on the awesome [Intro.js](http://introjs.com)
+- [Localisation support](https://github.com/laravel-enso/localisation)
+- [Charts component](https://github.com/laravel-enso/charts) with server side data builder, based on [Chart.js](http://www.chartjs.org)
+- [Comments component](https://github.com/laravel-enso/comments) with support for tagging users
+- [Documents component](https://github.com/laravel-enso/documents) with upload, download and inline view
+- Ability to [track](https://github.com/laravel-enso/track-who) who created, updated and deleted models, using traits
+- [File uploader](https://github.com/laravel-enso/files) and file management library
+- [Avatar functionality](https://github.com/laravel-enso/avatars) for all users
+- Ability to track the [different versions of a model](https://github.com/laravel-enso/history-tracker) through its lifetime
 - Front-end date-picker and time-picker, based on [Flatpickr](https://chmln.github.io/flatpickr)
 - Server-side type-ahead
 - User, application-wide preferences - every user has the ability to choose his theme (from 10 variants), set the menu style, app language and more
@@ -117,7 +137,8 @@ with features like:
 - Automatic breadcrumbs generation
 - Application-wide timestamp formatting customization through the configuration file
 - Separate front-end state support, so that it's easier to keep your application's logic and data separated from enso's
-- Optimistic concurrency control with versioning, via the [Versioning](https://github.com/laravel-enso/Versioning) package
+- Optimistic concurrency control with versioning, via the [Versioning](https://github.com/laravel-enso/versioning) and 
+    [Versions](https://github.com/laravel-enso/versions) the packages
 - many more helpers and hidden gems
 
 ## Important

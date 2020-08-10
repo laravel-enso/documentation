@@ -26,6 +26,9 @@ Install the package:
 ```
 yarn add @enso-ui/tabs
 ```
+
+(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+
 Import the desired component(s):
 ```js
 import { Tabs, Tab } from '@enso-ui/tabs/bulma';
@@ -35,13 +38,11 @@ import { Tabs, Tab } from '@enso-ui/tabs/bulma';
 
 `@enso-ui/tabs/bulma`:
 - `Tab`
-- `Alive`
-- `Static`
 - `Tabs`
 - `EnsoTabs`
 
 `@enso-ui/tabs/renderless`:
-- `Tabs`
+- `CoreTabs`
 
 ### bulma/Tabs.vue
 The bulma styled tabs component built on top of its renderless version.

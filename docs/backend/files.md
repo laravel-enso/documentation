@@ -36,10 +36,6 @@ Comes pre-installed in Enso.
 - the types of files that are visible in the interfaces are configurable
 - offers a configurable storage size limit
 
-### Configuration & Usage
-
-Be sure to check out the full documentation for this package available at [docs.laravel-enso.com](https://docs.laravel-enso.com/backend/file-manager.html)
-
 ### Contributions
 
 are welcome. Pull requests are great, but issues are good too.

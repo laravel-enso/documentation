@@ -25,8 +25,28 @@ Install the package:
 yarn add @enso-ui/forms
 ```
 
+(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+
 Note that this package has a couple of external dependencies. 
 Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more info.
+
+### Exports
+
+`@enso-ui/forms/bulma`:
+- `VueForm`,
+- `EnsoForm`,
+- `FormField`,
+- `Action`,
+- `DateField`,
+- `InputField`,
+- `MoneyField`,
+- `SelectField`,
+- `SwitchField`,
+- `TextareaField`,
+- `TimeField`,
+
+`@enso-ui/forms/renderless`:
+- `CoreForm`,
 
 ## Usage
 
@@ -41,11 +61,16 @@ import CoreForm from '@enso-ui/forms/renderless';
 Renderless component.
 
 #### Props 
-- `path` - `string`, required - the URI for the form data/template.
+- `path` - `string`, required - the URI for the form data/template, 
+    in which case the `template` parameter is no longer required
+- `template` - `object`, required - the form template object, which may be passed directly,
+    in which case the `path` parameter is no longer required
+- `disableState` - `boolean`, optional, default `false` - if true, then the form state monitoring 
+    functionality is disabled (and for example, you won't know when the form is dirty)
 - `errorHandler` - `function`, optional - an error handling function for the axios requests
-- `params` - `object`, optional - parameters that get sent to the backend when fetching the form data
 - `i18n` - `Function`, optional - the function that performs translations
 - `locale` - `string`, optional, default `en` - used for the date fields
+- `params` - `object`, optional - parameters that get sent to the backend when fetching the form data
 
 #### Methods
 
@@ -53,6 +78,12 @@ The components has several methods, of which the following are most useful,
 making sense to have them available in the CoreForm's concrete implementations:
 
 - `fetch()`, fetches the form data & template from the back-end
+- `customFields()`, returns an array of custom fields
+- `customSections()`, returns an array of custom sections
+- `tabs()`, returns an array of tabs
+- `sectionFields(section)`, returns an array of non hidden fields for the given section
+- `sectionCustomFields(section)`, returns an array of non hidden custom fields for the given section
+- `sections(tab)`, returns an array of sections for the given tab
 - `field(field)`, returns the field with the given name
 - `param(field)`, returns the parameter with the given name
 - `routeParam(field)`, returns the route parameter with the given name
@@ -60,6 +91,18 @@ making sense to have them available in the CoreForm's concrete implementations:
 - `setOriginal()`, updates the 'original' data store with the current form data state
 - `hideTab(tab)`, sets the given tab as hidden
 - `showTab(tab)`, sets the given tab as visible
+
+#### Events
+
+The following event are emitted:
+- `ready`, on form init and after form fetch. The payload is the entire component
+- `loaded`, after fetching the form. The payload is the response data.
+- `show`, when clicking the show button. There is no payload.
+- `create`, when clicking the create button. There is no payload.
+- `submit`, after performing a submit. The payload is the response data.
+- `error`, after a submit error. The payload is the response error.
+- `destroy`, after performing a destroy. There is no payload.
+- `undo`, after performing an undo. There is no payload.
 
 ### VueForm
 
@@ -75,6 +118,7 @@ The bulma styled form component built on top of the renderless version of the co
 The following methods are cascaded from the renderless CoreForm component:
 
 - `fetch()`, fetches the form data & template from the back-end
+- `submit()`, submits the form
 - `field(field)`, returns the field with the given name
 - `param(field)`, returns the parameter with the given name
 - `routeParam(field)`, returns the route parameter with the given name
@@ -85,7 +129,8 @@ The following methods are cascaded from the renderless CoreForm component:
 
 #### Slots
 - if any fields are marked as custom fields in the form template, then a scoped slot is rendered for each of these
-fields. The name of the slot is the field's name. The slot exposes the `props` object that has to be binded to the custom field, besides your custom logic
+fields. The name of the slot is the field's name. The slot exposes the `props` object 
+that has to be bound to the custom field, besides your custom logic.
 
 ```vue
 <template v-slot:group_id="props">
@@ -93,6 +138,8 @@ fields. The name of the slot is the field's name. The slot exposes the `props` o
         @input="pivotParams.userGroups.id = $event"/>
 </template>
 ```
+- you may also use the `actions-left` and `actions-right` slots to place controls in the 
+form's actions area 
 ### EnsoForm.vue
 
 Designed to be used within the Enso ecosystem, requiring less configuration from the dev.
@@ -102,6 +149,7 @@ The following methods are cascaded from the renderless CoreForm component,
 through the VueForm component and available here:
 
 - `fetch()`, fetches the form data & template from the back-end
+- `submit()`, submits the form      
 - `field(field)`, returns the field with the given name
 - `param(field)`, returns the parameter with the given name
 - `routeParam(field)`, returns the route parameter with the given name
@@ -132,10 +180,11 @@ through the VueForm component and available here:
 ```vue
 <template>
     <enso-form class="box has-background-light raises-on-hover"
-               @ready="init">
+        @ready="init"
+        ref="form">
         <template v-slot:showtab="props">
             <form-field v-bind="props"
-                        @input="toggleTab2($event)"/>
+                @input="toggleTab2($event)"/>
         </template>
     </enso-form>
 </template>
@@ -184,6 +233,7 @@ If you want further customization the package provides a component for each type
 ##### SwitchField
 ##### TextareaField.vue
 ##### TimeField.vue
+##### WysiwygField.vue
 
 Don't forget to add your own label when when using the dedicated component.
 
@@ -194,6 +244,52 @@ Don't forget to add your own label when when using the dedicated component.
     v-bind="props"
     @input="doSomethingExtra"/>
 ```
+
+##### DateField
+The component takes the following required properties:
+- `errors`, the form's errors object
+- `field`, the form's field object, for this date field
+- `i18n`, the form's translation function, for this date field
+- `locale`, the locale string to be used for the datepicker used under the hood
+- `timeOnly`, the boolean flag that indicates that the component should only display time
+
+##### InputField
+The component takes the following required properties:
+- `errors`, the form's errors object
+- `field`, the form's field object, for this input field
+- `i18n`, the form's translation function, for this date field
+
+##### MoneyField
+The component takes the following required properties:
+- `errors`, the form's errors object
+- `field`, the form's field object, for this money field
+- `i18n`, the form's translation function, for this date field
+
+##### SelectField
+The component takes the following required properties:
+- `errors`, the form's errors object
+- `field`, the form's field object, for this select field
+- `i18n`, the form's translation function, for select date field
+- `customParams`, the custom params object passed to the VueSelect used under the hood
+- `params`, the params object passed to the VueSelect used under the hood
+- `pivotParams`, the pivot params object passed to the VueSelect used under the hood
+
+##### SwitchField
+The component takes the following required properties:
+- `errors`, the form's errors object
+- `field`, the form's field object, for this switch field
+
+
+##### TextareaField
+The component takes the following required properties:
+- `field`, the form's field object, for this textarea field
+
+##### TimeField
+The component takes the properties as the `DateField` component above.
+
+##### WysiwygField
+The component takes the following required properties:
+- `field`, the form's field object, for this visual editor field
 
 ## Questions & Issues
 

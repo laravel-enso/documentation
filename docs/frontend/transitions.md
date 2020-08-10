@@ -23,10 +23,28 @@ Install the package:
 yarn add @enso-ui/transitions
 ```
 
+(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+
 Import the desired component(s):
 ```js
 import { Fade, FadeDown, ... } from '@enso-ui/transitions';
 ```
+
+### Exports
+
+`@enso-ui/transitions`:
+- `Fade`,
+- `FadeLeft`,
+- `FadeRight`,
+- `FadeUp`,
+- `FadeDown`,
+- `SlideLeft`,
+- `SlideRight`,
+- `SlideUp`,
+- `SlideDown`,
+- `Zoom`,
+- `HorizontalSlide`, 
+- `HorizontalFade`
 
 ## Usage
 

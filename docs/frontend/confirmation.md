@@ -23,8 +23,18 @@ Install the package:
 yarn add @enso-ui/confirmation
 ```
 
+(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+
 Note that this package has a couple of external dependencies. 
 Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more info.
+
+### Exports
+
+`@enso-ui/confirmation/bulma`:
+- `Confirmation`,
+
+`@enso-ui/confirmation`:
+- `CoreConfirmation`,
 
 ## Usage
 
