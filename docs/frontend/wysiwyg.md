@@ -26,6 +26,9 @@ Install the package:
 ```
 yarn add @enso-ui/wysiwyg
 ```
+
+(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+
 Import the desired component(s):
 ```js
 import Wysiwyg from '@enso-ui/wysiwyg/bulma';

@@ -23,6 +23,13 @@ Install the package:
 yarn add @enso-ui/divider
 ```
 
+(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+
+### Exports
+
+`@enso-ui/divider`:
+- `Divider`,
+
 ## Usage
 
 ### Divider.vue

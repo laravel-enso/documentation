@@ -11,7 +11,7 @@ sidebarDepth: 3
 [![Latest Stable Version](https://poser.pugx.org/laravel-enso/currencies/version)](https://packagist.org/packages/laravel-enso/currencies)
 
 Currencies is an extension of the Laravel Enso environment, 
-designed for management of currencies and exchange rates.
+designed for the management of currencies and exchange rates.
 
 This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
 
@@ -20,17 +20,15 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 ## Installation
 
 * install the package using composer: `composer require laravel-enso/currencies`
-* add the following alias in `webackpack.mix.js`
+* add the following alias in `vue.config.js`
     ```js
-    .webpackConfig({
-            resolve: {
-                extensions: ['.js', '.vue', '.json'],
-                alias: {
-                     //other aliases
-                    '@currencies': `${__dirname}/vendor/laravel-enso/currencies/src/resources/js`,
-                },
+    configureWebpack: {
+        resolve: {
+            alias: {
+                //other aliases
+                '@currencies': `${__dirname}/node_modules/@enso-ui/currencies/src/bulma`,
             },
-        })
+        },
     ```
 * in `resources/js/router.js` file, verify that `RouteMerger` is imported, or import it
 
@@ -40,7 +38,7 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 
     `import routeImporter from '@core-modules/importers/routeImporter';`
 
-* then use `RouteMerger` to import front-end assets using the alias defined in `webpack.mix.js`
+* then use `RouteMerger` to import front-end assets using the alias defined in `vue.config.js`
 
     ```js
     (new RouteMerger(routes))
@@ -60,10 +58,11 @@ The package uses the following icons:
 * `bar-chart`
 
 ## Features
-- can manage currencies and exchange rates
-- a default currency has to be set 
+- handles CRUD operations for currencies and exchange rates
+- manages the default currency for your project 
 - exchange rates can be input for a given day
-- has an included currencies seeder which can be published and further customized
+- comes with an included currencies seeder which can be published and further customized
+- includes front-end assets
 
 ## Publishes
 

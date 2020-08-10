@@ -90,7 +90,7 @@ Due to the modular structure of the project, a few steps are necessary:
 
 1. From the UI, navigate to `/system/localisation/create`, add a new language. Under the hood, this creates a few files:
     - a new language file in `src/resources/lang/app/xx.json`, for the project specific translations, 
-    - a new language file in `src/resources/lang/enso/xx.json`, for the core Enso translations, 
+    - a new language file in `vendor/laravel-enso/localisation/src/resources/lang/enso/xx.json`, for the core Enso translations, 
     - a new folder in `src/resources/lang/xx` which contains
     the required Laravel translation files (`auth.php`, `pagination.php`, `passwords.php` and `validation.php`)
 
@@ -98,7 +98,9 @@ Due to the modular structure of the project, a few steps are necessary:
     and that's ok, since the flag class is not yet imported.    
  
 2. Use the interface to translate the existing core keys, by accessing `/system/localisation/editTexts`, 
-selecting the new language and flipping the `app/core` switch to core
+selecting the new language and flipping the `app/core` switch to core.
+
+Any translations you add will be saved directly in the localisation package.
 
 3. Update the `vendor/laravel-enso/localisation/src/database/migrations/2017_01_01_134500_create_structure_for_localisation.php` 
 migration to include the new language
@@ -111,8 +113,9 @@ using the existing ones as example
 
 6. Add the new language in `node_modules/@enso-ui/ui/src/modules/plugins/date-fns/i18n.js`
 
-At this stage, you've made the necessary changes, and everything should work, after compiling the front-end assets with
-`npm run webpack`.
+At this stage, you've made the necessary changes, and everything should work, after compiling 
+the front-end assets with `yarn build` (from within the `client` folder).
+
 Next, we need to commit all updated files to their respective repositories, 
 since we've been working on the published resources as well as directly in the node_modules directory.
 
@@ -120,8 +123,9 @@ since we've been working on the published resources as well as directly in the n
 ##### The Localisation package
 1. already contains the updated migration `2017_01_01_134500_create_structure_for_localisation.php` (ref. step 3, above)
 2. copy the new app lang file `xx.json` from `resources/lang/app/` to `vendor/laravel-enso/localisation/src/resources/lang/app/`
-3. copy the new core Enso lang file `xx.json` from `resources/lang/enso/` to `vendor/laravel-enso/localisation/src/resources/lang/enso/`
-4. copy the new folder `xx` from  `resources/lang/` to `vendor/laravel-enso/localisation/src/resources/lang/`
+3. copy the new folder `xx` from  `resources/lang/` to `vendor/laravel-enso/localisation/src/resources/lang/`
+
+The core translations you have added should already be in the `xx.json` package file.
 
 ##### The NPM ui package
 1. make a git clone for the package and copy the modified file above:
@@ -147,7 +151,7 @@ missing translations, and want to add them, please follow the steps below.
 2. From the UI, navigate to `/system/localisation/` and click on `Edit Texts`.
 3. Choose the desired language, flip the type switch to `Core` and ideally also enable the `Only missing` filter
 4. Fill in the missing texts and save your changes by clicking `Update`
-5. Copy the content of `resources/lang/enso/xx.json` as this is where your changes are saved
+5. Copy the content of `vendor/laravel-enso/localisation/src/resources/lang/enso/xx.json` as this is where your changes are saved
 6. Navigate [here](https://github.com/laravel-enso/Localisation/tree/master/src/resources/lang/enso) and click on the pencil button to edit the file
 7. Paste your translations
 8. Create a pull request for the changes

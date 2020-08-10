@@ -16,20 +16,22 @@ This package can work independently of the [Enso](https://github.com/laravel-ens
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
+[![Watch the demo](https://laravel-enso.github.io/pdf/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/pdf/screenshots/bulma_001.png)
+
+<sup>click on the photo to view a a larger screenshot</sup>
+
 ## Installation
 
-`composer require laravel-enso/pdf`
+install using composer: `composer require laravel-enso/pdf`
 
 ## Features
 
 - is a small wrapper that uses [laravel-snappy](https://github.com/barryvdh/laravel-snappy) under the hood
-- offers the possibility to add a watermark to the document, 
 using the [pdftk](https://github.com/mikehaertl/php-pdftk) package for this purpose
-- uses a series of common defaults for the page, with the option of overriding them
+- utilizes a series of common defaults for the page, with the option of overriding them
     - setting the page orientation to landscape (by default is portrait)
-    - setting a watermark (by default no watermark is used)
     - setting options for the snappy pdf object, such as margins, footer, etc. (for more options, look [here](https://wkhtmltopdf.org/usage/wkhtmltopdf.txt))
-- can provide the generated pdf document inline (for downloads) or save the file to disk (coming soon)    
+- can provide the generated pdf document inline (for downloads) or save the file to disk    
 
 ## Usage
 
@@ -59,7 +61,6 @@ you may chain any modifier methods:
    ]
  )
  ->landscape()
- ->watermark(resource_path('images/watermark.pdf'))
  ->inline();
  ```
  
@@ -68,17 +69,13 @@ you may chain any modifier methods:
 The following methods are required:
 * `loadView(string $view, array $attributes)`, loads/sets the view that is to be used
 for the generation of the pdf, together with the attributes used in that view
-* `inline()`, generates the pdf and returns it as a stream, for download
+* `inline()`, generates the pdf and returns it as a stream, for download OR
+* `save($filePath)`, generates the pdf and saves it on the given path
 
 The following modifier methods are available:
-* `watermark($watermark)`, sets a watermark. The parameter must be the fully qualified path of the watermark file
 * `landscape()`, set the page orientation as landscape (default is portrait)
 * `setOption(string $option, $value)`, set the value for the given option. 
 For a list of options, look [here](https://wkhtmltopdf.org/usage/wkhtmltopdf.txt)
-
-## Publishes
-
-- `php artisan vendor:publish --tag=enso-pdf-config` - an alias for the snappy pdf config
 
 ## External dependencies
 

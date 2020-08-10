@@ -67,44 +67,44 @@ and a great many other features
 
 ## Included packages
 
-[Action Logger](https://github.com/laravel-enso/ActionLogger), 
-[Activity Log](https://github.com/laravel-enso/ActivityLog), 
-[Avatar Manager](https://github.com/laravel-enso/AvatarManager) <sup>1</sup>, 
-[Charts](https://github.com/laravel-enso/Charts), 
-[Companies](https://github.com/laravel-enso/Companies),
-[Data Export](https://github.com/laravel-enso/DataExport),
-[Data Import](https://github.com/laravel-enso/DataImport), 
-[File Manager](https://github.com/laravel-enso/FileManager), 
-[Form Builder](https://github.com/laravel-enso/FormBuilder), 
-[Helpers](https://github.com/laravel-enso/Helpers), 
-[History Tracker](https://github.com/laravel-enso/HistoryTracker),
-[How To Videos](https://github.com/laravel-enso/HowToVideos),
-[Impersonate](https://github.com/laravel-enso/Impersonate), 
+[Action Logger](https://github.com/laravel-enso/action-logger), 
+[Activity Log](https://github.com/laravel-enso/activity-log), 
+[Avatars](https://github.com/laravel-enso/avatars) <sup>1</sup>, 
+[Charts](https://github.com/laravel-enso/charts), 
+[Companies](https://github.com/laravel-enso/companies),
+[Data Export](https://github.com/laravel-enso/data-export),
+[Data Import](https://github.com/laravel-enso/data-import), 
+[Files](https://github.com/laravel-enso/files), 
+[Forms](https://github.com/laravel-enso/forms), 
+[Helpers](https://github.com/laravel-enso/helpers), 
+[History Tracker](https://github.com/laravel-enso/history-tracker),
+[How To](https://github.com/laravel-enso/how-to),
+[Impersonate](https://github.com/laravel-enso/impersonate), 
 [IO](https://github.com/laravel-enso/IO), 
-[Localisation](https://github.com/laravel-enso/Localisation), 
-[Log Manager](https://github.com/laravel-enso/LogManager), 
-[Menu Manager](https://github.com/laravel-enso/MenuManager),
+[Localisation](https://github.com/laravel-enso/localisation), 
+[Logs](https://github.com/laravel-enso/logs), 
+[Menus](https://github.com/laravel-enso/menus),
 [Multi tenancy](https://github.com/laravel-enso/Multitenancy),
 [Notifications](https://github.com/laravel-enso/Notifications), 
 [People](https://github.com/laravel-enso/People), 
-[Permission Manager](https://github.com/laravel-enso/PermissionManager), 
+[Permissions](https://github.com/laravel-enso/permissions), 
 [Rememberable](https://github.com/laravel-enso/Rememberable), 
-[Role Manager](https://github.com/laravel-enso/RoleManager), 
+[Roles](https://github.com/laravel-enso/roles), 
 [Searchable](https://github.com/laravel-enso/Searchable), 
 [Select](https://github.com/laravel-enso/Select), 
-[Structure Manager](https://github.com/laravel-enso/StructureManager), 
+[CLI](https://github.com/laravel-enso/cli), 
 [Teams](https://github.com/laravel-enso/Teams), 
-[TrackWho](https://github.com/laravel-enso/TrackWho), 
-[Tutorial Manager](https://github.com/laravel-enso/TutorialManager), 
-[Versioning](https://github.com/laravel-enso/Versioning),
-[VueDataTable](https://github.com/laravel-enso/VueDataTable), 
+[TrackWho](https://github.com/laravel-enso/track-who), 
+[Tutorials](https://github.com/laravel-enso/tutorials), 
+[Versioning](https://github.com/laravel-enso/versioning),
+[Tables](https://github.com/laravel-enso/tables), 
 
 ## Optional packages
 
-[Addresses Manager](https://github.com/laravel-enso/AddressesManager), 
-[Comments Manager](https://github.com/laravel-enso/CommentsManager),
-[Discussions](https://github.com/laravel-enso/Discussions), 
-[Documents Manager](https://github.com/laravel-enso/DocumentsManager) <sup>1</sup>, 
+[Addresses](https://github.com/laravel-enso/addresses), 
+[Comments ](https://github.com/laravel-enso/comments),
+[Discussions](https://github.com/laravel-enso/discussions), 
+[Documents ](https://github.com/laravel-enso/documents) <sup>1</sup>, 
 
 <sup>1</sup> In order to more efficiently handle images (optimize, resize, crop), 
 a few extra PHP plugins and libraries are recommended:
@@ -124,7 +124,7 @@ sudo apt-get install pngquant gifsicle jpegoptim php7.1-gd
 
 - the `Role` model contains the `AdminId` and `SupervisorId` constants that determine who 
 the administrator and supervisor roles are. Note that `Role` model is part of the 
-[RoleManager](https://github.com/laravel-enso/RoleManager) package but is mentioned here for quick reference  
+[Roles](https://github.com/laravel-enso/roles) package but is mentioned here for quick reference  
 - the `UserGroup` model contains the `AdminGroupId` constant that is used to determine which is the Administrator
 user group
 - the `User` model provides several helper methods for administrative related checks:
@@ -141,7 +141,57 @@ the user may perform before he is given a time-out.
 Once the user reaches the set number of login attempts, he must wait 60 seconds before he may try to 
 login again.
 
-### Password configuration
+#### Configuration
+
+The package comes with several configuration files, the most important ones presented below. Note that 
+if using Enso, these files are published in the local project configuration folder and, if necessary,
+should be customized locally.
+
+#### General configuration
+
+Various configuration options are available in the `config` file 
+on the `enso.config` configuration 'path', with the following keys:
+- `version`, string, current Enso version. Should be kept up to date when performing Enso updates 
+    on new releases
+- `ownerCompanyId`, integer, default `1`, the id of the Application owner/client's Company
+- `showQuote`, boolean, default `true`, show the quote page after login
+- `stateBuilder`, string, default `LocalState::class`, the fully qualified class path for the local 
+    application state builder
+- `defaultRole`, string, default `'admin'`, the name of the default role which 
+    is used for structure migrations
+- `dateFormat`, string, default `'d-m-Y'`, the format in which dates are expected to be received from the 
+    front-end     
+- `dateTimeFormat`, string, default `'d-m-Y H:i:s'`, the format in which date time data is expected 
+    to be received from the front-end
+- `facebook`, string, should be the link to the application owners facebook page    
+- `googleplus`, string, should be the link to the application owners google page    
+- `twitter`, string, should be the link to the application owners twitter page
+- `ravenKey`, string, should be the API key used for the Raven error reporting functionality
+- `cacheLifetime`, numeric, default is `60`, is the cache lifetime
+- `ensoApiToken`, string, default `null`, is the token that needs to be provided is using the 
+    API monitoring module
+- `extendedDocumentTitle`, boolean, default `false`, setting that shows documents with an extended title
+    vs. using a shortened version
+
+Note that where available, it's best to use the `.env` configuration file for customizing
+the options.
+    
+#### Application owner / Client ID
+
+The `LaravelEnso\Companies\app\Models\Company` model comes with an `owner()` method that is
+meant to be used to return a Company instance representing the application owner.
+
+Since it makes sense that the `Company` model from the [Companies](https://github.com/laravel-enso/companies) package 
+may be extended either in other packages or locally, the method's resulted class is resolved from the container.
+
+Thus, if required, you can bind your desired/local implementation to the `LaravelEnso\Companies\app\Models\Company` 
+class in the service provider. You may set the application owner's company id within the main Enso configuration file
+    
+#### Themes configuration
+        
+The themes `enso.themes` configuration files contains mappings for the themes used within Enso.
+
+#### Password configuration
 
 Since the 2.15.2 release, Enso supports additional, password related, configuration options.
 The default values are available on the `config.enso.auth.password` configuration 'path' 
@@ -172,6 +222,23 @@ These options are enforced via request validation each time the user sets or res
 Please note that regardless of the above configuration, the user can not 'update' his password by 
 re-using his current password.
 
+### Updating the app while in production
+
+When the application is in production, you'll most likely version and lazy load the
+front-end resource so as to reduce the initial load time for the users.
+
+When deploying a new version, the users will still be using the old previous version
+until they refresh their browser page. 
+
+In cases when they haven't got all the assets loaded and they try to load a chunk 
+while using the previous application version, they may encounter an error.
+
+To avoid such a scenario, all logged in users can be notified using push notifications
+that they should save their work and reload the page.  
+
+In order for this notification to be sent, within your deployment flow, you should use 
+the `php artisan enso:announce-app-update` artisan command to send the notification.
+
 ## Publishes
 
 - `php artisan vendor:publish --tag=core-storage` - the storage folder structure
@@ -193,9 +260,12 @@ used for email
 
 ## Commands
 
-- `php artisan enso:clear-preferences` - clears the preferences stored in the DB, 
+- `php artisan enso:preferences:clear` - clears the preferences stored in the DB, 
 useful when the preferences structure changes  
-- `php artisan enso:update-global` - adds new global preferences keys for users
+- `php artisan enso:preferences:update-global` - adds new global preferences keys for users
+- `php artisan enso:upgrade` - performs new upgrades from the older previous to the latest release
+- `php artisan enso:announce-app-update` - send a notification to the logged in users that the 
+application has been updated and that they should refresh their pages
 
 ## Contributions
 

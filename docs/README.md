@@ -17,23 +17,36 @@ footer: MIT Licensed | Copyright © 2018-present Laravel Enso
 
 ``` bash
 # clone in a new project folder
-git clone https://github.com/laravel-enso/enso.git ./
+git clone https://github.com/laravel-enso/enso.git --depth 1
 
-# install composer dependencies
+# install the composer dependencies
 composer install
 
-# Configure the .env file
+# create the .env file from the example 
+cp .env.example .env
+
+# configure the .env file, entering name, DB details, etc
+
 # Generate the key
 php artisan key:generate
 
 # run the migrations
-php artisan migrate
+php artisan migrate --seed
 
-# install node dependencies
+# cd into the client server
+cd client
+
+# create the .env file from the example and customize if needed
+cp .env.example .env
+
+# install the npm dependencies
 yarn
 
-# compile
-yarn dev / yarn hot
+# build the assets
+yarn build
+
+#or, for live reload, you can use
+yarn serve
 ```
 
 ::: tip Login
@@ -46,6 +59,6 @@ user: admin@laravel-enso.com / password: password
 
 ### Thanks
 
-Built with <span style="color:red"> &#10084;&#65039;</span>on Laravel 5.8.x, Bulma 0.7.x, Vuejs 2.6.x.
+Built with <span style="color:red"> &#10084;&#65039;</span>on Laravel 6.x, Bulma 0.7.x, VueJS 2.6.x.
 
 **Special thanks** to [Taylor Otwell](https://laravel.com/), [Jeffrey Way](https://laracasts.com), [Evan You](https://vuejs.org/) and [Jeremy Thomas](https://bulma.io).

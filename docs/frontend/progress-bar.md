@@ -16,12 +16,19 @@ Can be used outside of the Enso ecosystem.
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
-### Installation
+## Installation
 
 Install the package:
 ```
 yarn add @enso-ui/progress-bar
 ```
+
+(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+
+### Exports
+
+`@enso-ui/progress-bar`:
+- `ProgressBar`
 
 ## Usage
 

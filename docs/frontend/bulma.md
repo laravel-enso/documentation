@@ -21,6 +21,8 @@ Install the package:
 yarn add @enso-ui/bulma
 ```
 
+(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+
 ## Usage
 
 Import the desired component(s):
@@ -63,6 +65,8 @@ import {
 - `DropdownIndicator`
 - `VueForm`
 - `EnsoForm`
+- `FormField`
+- `Action`
 - `DateField`
 - `InputField`
 - `MoneyField`
@@ -73,20 +77,24 @@ import {
 - `Loader`
 - `Modal`
 - `ModalCard`
+- `Money`
 - `ProgressBar`
+- `ProgressCircle`
+- `ScrollToTop`
+- `VueSelect`
+- `EnsoSelect`
 - `VueTable`
 - `EnsoTable`
 - `Tab`
 - `Tabs`
 - `EnsoTabs`
-- `Money`
 - `Toastr`
 - `ToastrPlugin`
 - `Typeahead`
 - `EnsoTypeahead`
+- `EnsoUploader`
+- `Uploader`
 - `VueSwitch`
-- `VueSelect`
-- `EnsoSelect`
 - `IntervalFilter`
 - `DateFilter`
 - `DateIntervalFilter`
@@ -98,8 +106,7 @@ import {
 - `EnsoFilter`
 - `SelectFilter`
 - `EnsoSelectFilter`
-- `EnsoUploader`
-- `Uploader`
+- `FilterState`
 
 ## Depends on
 

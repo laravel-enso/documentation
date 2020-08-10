@@ -1,7 +1,12 @@
 # Introduction
 [![StyleCI](https://styleci.io/repos/95136264/shield?branch=master)](https://styleci.io/repos/95136264)
-[![Waffle.io - Columns and their card count](https://badge.waffle.io/laravel-enso/Enso.svg?columns=all)](https://waffle.io/laravel-enso/Enso)
+[![Github Issues](https://img.shields.io/github/issues/laravel-enso/enso)](https://github.com/laravel-enso/enso/issues)
 [![Build Status](https://travis-ci.org/laravel-enso/Enso.svg?branch=master)](https://travis-ci.org/laravel-enso/Enso)
+![GitHub language count](https://img.shields.io/github/languages/count/laravel-enso/enso)
+![GitHub](https://img.shields.io/github/license/laravel-enso/enso)
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/laravel-enso/enso)
+![GitHub Release Date](https://img.shields.io/github/release-date/laravel-enso/enso)
+![GitHub commits since latest release](https://img.shields.io/github/commits-since/laravel-enso/enso/latest)
 
 #### Hit the ground running when building your new Laravel SPA project with boilerplate and extra functionality out of the box!
 

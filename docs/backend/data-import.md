@@ -4,7 +4,7 @@ sidebarDepth: 3
 
 # DataImport
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b169a2f09f864cd5b274ce63008f04b9)](https://www.codacy.com/app/laravel-enso/dataImport?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/data-import&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/8c53be4df359406b8ce6bc48f627aee8)](https://www.codacy.com/gh/laravel-enso/data-import?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/data-import&amp;utm_campaign=Badge_Grade)
 [![StyleCI](https://github.styleci.io/repos/89221336/shield?branch=master)](https://github.styleci.io/repos/89221336)
 [![License](https://poser.pugx.org/laravel-enso/data-import/license)](https://packagist.org/packages/laravel-enso/data-import)
 [![Total Downloads](https://poser.pugx.org/laravel-enso/data-import/downloads)](https://packagist.org/packages/laravel-enso/data-import)
@@ -60,48 +60,70 @@ with an extra column (on each sheet) that will describe all the validation error
 
 ### Configuration
 The configuration can be found/published in `config/enso/imports.php` and contains:
- - `validations` - string, flag that sets whether import template validations are also executed in production, 
- valid values are `always`/`local`/`yourEnv` | default `local` 
- - `chunkSize` - number, the number of records in a chunk. It should be adjusted for optimum performance on your machine.
- Not that the size can also be given in the import template, thus overriding the global value
- - `splittingQueue` - string, the name of the queue for the chunk splitting job. Can also be set individually, for each import, in its template
- - `queues` - array, the configuration for all the queues used during the import process. Note that it's good practice to have
- more processes for the splitting queue as this is an intensive process, and it needs to keep the other queues 'busy'.
- Obviously, these queues must be set up in the Laravel `queue` configuration file.
- - `timeout` - number, the Laravel job timeout for the splitting and the rejected summary report generation jobs
- - `errorColumn` - string, the name of the error column used to report issues with the import rows 
- (which appears in the rejected summary xlsx file)
- - `notifications` - array, the list of channels used to notify the user
+ - `validations` - `string`, flag that sets whether import template validations are also 
+    executed in production, valid values are `always`/`local`/`yourEnv` | default `local` 
+ - `chunkSize` - `number`, default `1000`, the number of records in a chunk. 
+    It should be adjusted for optimum performance on your machine. Note that the size can also be given 
+    in the import template, thus overriding the global value
+ - `splittingQueue` - `string`, default `split`, the name of the queue for the chunk splitting job. 
+    Can also be set individually, for each import, in its template
+ - `queues` - `array`, the configuration for all the queues used during the import process. 
+    Note that it's good practice to have more processes for the splitting queue as this is 
+    an intensive process, and it needs to keep the other queues 'busy'. Obviously, these queues 
+    must be set up in the Laravel `queue` configuration file.
+ - `timeout` - `number`, default `60 * 5`, the Laravel job timeout for the splitting and the rejected summary 
+    report generation jobs
+ - `errorColumn` - `string`, default `_errors`the name of the error column used to report issues with the import rows 
+    (which appears in the rejected summary xlsx file)
+ - `notifications` - `array`, default `['broadcast', 'database']`, the list of channels used to 
+    notify the user
  - `configs` - configuration array, with what's needed to hook the JSON templates to the import package:
      - `label` - the label visible to the user in the interface
      - `template` - the relative path to the JSON import templates
 
 #### JSON Template structure:
-- `timeout`, local overriding configuration for the `enso.dataimport.timeout` option | default is `60 * 4` | optional
-- `sheets`, array of sheet configuration objects | required
+- `timeout`, `number`, optional, local overriding configuration for the `enso.dataimport.timeout` option
+- `queue`, `string`, optional, name of the queue used to run the import on
+- `params`, `array`, optional, array of parameter objects, that can be passed to an importer class
+- `sheets`, `array`, required, array of sheet configuration objects | required
 
 Note that the importer expects to find just the sheets given in the template, 
 meaning it will report an error if there are missing sheets but also if there are extra sheets. 
 
+#### Params Configuration object structure:
+
+The configuration object attributes are similar in type and structure to the parameters 
+used within the JSON [Form Builder](https://docs.laravel-enso.com/backend/forms.html#usage) template to configure a form field.
+
+- `name`, `string`, the name of the parameter as it is passed to the importer class, within the `$params` object
+- `validations`, string, the Laravel style validations to be applied to the respective parameter 
+- `label`, `string`, the label used for the field generated for the parameter,
+- `value`, `mixed`, the default, starting value for the parameter,
+- `type`, `string`, type of the input generated for this parameter,
+- `route`, `string`, the route for the select type parameter
+- `params`, `object`, any parameters applied for the input generated for this parameter 
+
 #### Sheet Configuration object structure:
-- `name`, the name of the sheet | required
-    - should be lower snake cased if the sheet name contains spaces, so use `sale_entries` instead of `Sale entries`
-- `importerClass`, the fully qualified importer class name | required. Here you write the import logic.
-- `validatorClass`, the fully qualified custom validator class name, if you are using custom validators | optional
-- `chunkSize`, the size of the chunk used during splitting | default is 1000 | optional    
-- `columns`, array of column configuration objects | required 
+- `name`, `string`, required, the name of the sheet. Should be lower snake cased if the 
+    sheet name contains spaces, so use `sale_entries` instead of `Sale entries`
+- `importerClass`, `string`, required, the fully qualified importer class name. 
+    The class contains the actual the import logic.
+- `validatorClass`, `string`, optional, the fully qualified custom validator class name, 
+    if you are using custom validators
+- `chunkSize`, `number`, optional, the size of the chunk used during splitting     
+- `columns`, `array`, required, contains the column configuration objects  
 
 #### Column Configuration object structure:
-- `name`, the name of the column | required
-    - similar to the sheet name, column names should be lower snake cased, so use `mobile_phone` instead of `Mobile phone`
-- `validations`, the desired Laravel (Request) validation that you want applied for this column
+- `name`, `string`, required, the name of the column. Similar to the sheet name, 
+    column names should be lower snake cased, so use `mobile_phone` instead of `Mobile phone`
+- `validations`, `string`, optional, the desired Laravel (Request) validation that you 
+    want applied for this column
 
-
-Please note that the import does not continue if *structure* errors are encountered, such as missing sheets or columns.
-If there are no structure errors and *content* errors are found, 
+Please note that the import does not continue if *structure* errors are encountered, 
+such as missing sheets or columns. If there are no structure errors and *content* errors are found, 
 the rows with errors are skipped and valid rows are imported. 
 
-### Inside the importer class
+### The importer class
 The importer class given in the JSON template is responsible for doing the actual importing,
  once the file has been validated.
 
@@ -111,17 +133,21 @@ and implement the `run()` method.
 The `run` method receives a row object, which you can use to implement your import logic. 
 
 If you need pre/post import logic for your import, you can then also implement the following interfaces:
-- `LaravelEnso\DataImport\app\Contracts\AfterHook` - requires that you implement the 'after' method 
-- `LaravelEnso\DataImport\app\Contracts\BeforeHook`- requires that you implement the 'before' method
+- `LaravelEnso\DataImport\app\Contracts\AfterHook` - requires that you implement the `after(Obj $params)` method 
+- `LaravelEnso\DataImport\app\Contracts\BeforeHook`- requires that you implement the `before(Obj $params)` method
 
 Inside the two methods you can add your extra logic. 
 
-### Inside the custom validator class
-There might be cases where it's not enough to use the Laravel Request Validation methods. For more complex scenarios you can
-create a custom validator class and declare it your template.
+If you must have the user that is requesting the import available during the import,
+you may also add the `LaravelEnso\DataImport\app\Contracts\Authenticates` marker interface on your 
+importer class.
+
+### The custom validator class
+There might be cases where it's not enough to use the Laravel Request Validation methods. 
+For more complex scenarios you can create a custom validator class and declare it your template.
  
-The validator class must extend the `LaravelEnso\DataImport\app\Classes\Validators\Validator` abstract class and implement
-the `run()` method.
+The validator class must extend the `LaravelEnso\DataImport\app\Services\Validators\Validator` 
+abstract class and implement the `run()` method.
 
 Here you'll have access to the parent class' `addError(string $error)` method. 
 You may use it to add any required issues for the data that fails your custom validation logic.
@@ -136,15 +162,16 @@ in a format that allows him to quickly correct any errors in the file,
 delete the errors column and then simply re-import the summary file.
 
 ### Excel Seeder
-When seeding your database, you may use regular seeders and fill your tables with random data (as configured) 
-but when you have specific data, you may want to set the actual data from the beginning.
+When seeding your database, you may use regular seeders and fill your tables with random data 
+(as configured) but when you have specific data, you may want to set the actual data from the beginning.
 While there's more than one way to achieve this, the Excel Seeder helper allows you to seed your table 
 by using data provided in an excel file, through an import 
 - basically it's a seeder adapter for a regular data import.
 
 There are multiple advantages to this:
 - the data is present in an excel file, and can be added and updated by almost any person
-- even after initially seeding the database, since the import is going to remain available, additional files can be later imported for updates  
+- even after initially seeding the database, since the import is going to remain available, 
+    additional files can be later imported for updates  
 
 #### Steps
 1. create a data import, following your usual flow
@@ -155,16 +182,20 @@ There are multiple advantages to this:
 3. add the actual excel file containing the data to be used when seeding
     * the file should be placed on the `storage/app/files` path
     * the name of the file needs to be the type of the import, and and must have an `xlsx` extension
-    * since you're going to be committing the file to the repository, don't forget to add it to the `.gitignore` exclusion list
+    * since you're going to be committing the file to the repository, 
+        don't forget to add it to the `.gitignore` exclusion list
 4. run the seed process with `php artisan db:seed` 
     * the seeder will run the import process & the data will be available in the database 
     * you'll also be able to see the result of the import in the data imports index page
 
 ## Publishes
 
-- `php artisan vendor:publish --tag=dataimport-config` - configuration files
-- `php artisan vendor:publish --tag=dataimport-examples` - example import
-- `php artisan vendor:publish --tag=dataimport-mail` - the email templates
+- `php artisan vendor:publish --tag=data-import-config` - configuration files
+- `php artisan vendor:publish --tag=data-import-examples` - example import
+- `php artisan vendor:publish --tag=data-import-factory` - the factory for the DataImport model
+- `php artisan vendor:publish --tag=enso-factories` - a common alias for publishing all enso factories,
+once a newer version is released, can be used with the `--force` flag
+- `php artisan vendor:publish --tag=data-import-mail` - the email templates
 - `php artisan vendor:publish --tag=enso-config` - a common alias for when wanting to update configuration,
 once a newer version is released, can be used with the `--force` flag
 - `php artisan vendor:publish --tag=enso-mail` - a common alias for when wanting to update the email templates,
