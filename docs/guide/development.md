@@ -550,7 +550,7 @@ the back end routes are printed in the terminal and you should copy them into yo
   [6] Generate
   [7] Toggle Validation
   [8] Exit
- > 5
+ > 6
 
 Copy and paste the following code into your api.php routes file:
 
