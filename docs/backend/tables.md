@@ -56,7 +56,7 @@ Be sure to check out the front end's docs [here](https://docs.laravel-enso.com/f
 - smart resizing & auto-hide based on screen width. Data is still accessible under an optional child row
 - tooltips for columns/rows
 - front-end translations for labels and even data
-- configurable, on-the-fly view modes: compact, striped, bordered, hover
+- configurable, on-the-fly view modes: narrow, striped, bordered, hover
 - configurable column alignment from the template: left / center / right
 - preferences/state save for each table in the browser's localStorage
 - server-side Excel exporting of the table data, using your current sorting and filtering choices, 
@@ -69,15 +69,21 @@ with email notification and optional push notifications.
 - possibility to define actions that apply to the entire, filtered, dataset
 - Enso Enum computation
 - Laravel accessors for the main query model
-- the configuration template for each table has been designed to be as light and straightforward 
+- the table configuration template for is designed to be as light and straightforward 
 as possible without losing out on features
 - caching support for speeding up the retrieval of data
 - thorough validation of the JSON template with developer friendly messages, 
 in order to avoid misconfiguration issues
 - Eloquent query friendly with the possibility to easily display nested models attribute values
 - can be used independently of the Enso ecosystem
-- requests front-end - back-end communication is as optimized as possible, while caching 
+- front-end - back-end communication is as optimized as possible, while caching 
 is utilized where it makes sense
+- dynamic filters system:
+  - add as many filters as you want through the configuration template
+  - users can then apply and configure one or more filters from the filter menu
+  - all current filters are saved to the browser local storage
+  - users can also save combinations of filters under scenarios, and then switch between scenarios  
+
 
 ### In the future
 
