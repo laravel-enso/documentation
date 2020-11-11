@@ -96,9 +96,9 @@ Steps:
     {
         const UserActivated = 5;
     
-        protected static function attributes()
+        protected static function data(): array
         {
-            return parent::attributes() + [
+            return parent::data() + [
                 static::UserActivated => 'User Activated',
             ];
         }
@@ -114,9 +114,9 @@ use LaravelEnso\ActivityLog\app\Enums\Observers;
 
 class LoggableObservers extends Observers
 {
-    protected static function attributes()
+    protected static function data(): array
     {
-        return parent::attributes() + [
+        return parent::data() + [
             LoggableEvents::UserActivated => ActivateUser::class,
         ];
     }
@@ -127,6 +127,8 @@ class LoggableObservers extends Observers
     we want to create a new event
     
     ```php
+    use LaravelEnso\ActivityLog\Services\Factory;
+  
     class ActivateUser
     {
         public function updatedActiveState($model)
@@ -141,13 +143,16 @@ class LoggableObservers extends Observers
 - create the `UserActivated` event, which must implement the `Loggable` contract
 
     ```php
-    class OrderFinalized implements Loggable
+    use LaravelEnso\ActivityLog\Contracts\Loggable;
+    use LaravelEnso\ActivityLog\Traits\IsLoggable;
+  
+    class UserActivated implements Loggable
     {
         use IsLoggable;
     
         private $model;
     
-        public function __construct(Orderable $model)
+        public function __construct(User $model)
         {
             $this->model = $model;
         }

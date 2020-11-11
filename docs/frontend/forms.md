@@ -91,6 +91,8 @@ making sense to have them available in the CoreForm's concrete implementations:
 - `setOriginal()`, updates the 'original' data store with the current form data state
 - `hideTab(tab)`, sets the given tab as hidden
 - `showTab(tab)`, sets the given tab as visible
+- `hideField(fieldName)`, sets the given field as hidden
+- `showField(fieldName)`, sets the given field as visible
 
 #### Events
 
@@ -157,6 +159,8 @@ through the VueForm component and available here:
 - `setOriginal()`, updates the 'original' data store with the current form data state
 - `hideTab(tab)`, sets the given tab as hidden
 - `showTab(tab)`, sets the given tab as visible
+- `hideField(fieldName)`, sets the given field as hidden
+- `showField(fieldName)`, sets the given field as visible
 
 #### Example
 
@@ -208,6 +212,54 @@ through the VueForm component and available here:
                         this.$refs.form.showTab('Tab 2');
                     }else{
                         this.$refs.form.hideTab('Tab 2');
+                    }
+                }
+            },
+        }
+    };
+</script>
+```
+
+#### Example for showing/hiding fields
+
+Some forms require display-dependencies between one or more field and others. Example scenario : an entity model could have or not an address, therefore there is a checkbox field inside the form called "Has Address" that will show or hide some form fields related to address details.
+
+##### Vue Template
+```vue
+<template>
+    <enso-form class="box has-background-light raises-on-hover"
+        @ready="init"
+        ref="form">
+        <template v-slot:hasAddress="props">
+            <form-field v-bind="props"
+                @input="toggleAddressFields($event)"/>
+        </template>
+    </enso-form>
+</template>
+
+<script>
+    import { EnsoForm, FormField } from '@enso-ui/forms/bulma';
+    
+    export default {
+        name: 'Create',
+        components: { EnsoForm, FormField },
+        data: () => ({
+    		ready: false,
+        }),
+        methods:{
+            init(){
+                this.ready = true;
+            },
+            toggleSnmpReady: function (event) {
+                if (this.ready) {
+                    if(event){
+                        this.$refs.form.showField('address_field_1');
+                        this.$refs.form.showField('address_field_2');
+                        ...
+                    } else {
+                        this.$refs.form.hideField('address_field_1');
+                        this.$refs.form.hideField('address_field_2');
+                        ...
                     }
                 }
             },
