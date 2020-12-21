@@ -51,7 +51,8 @@ Be sure to check out the front end's docs [here](https://docs.laravel-enso.com/f
 - user customizable column visibility
 - configurable action buttons
 - beautiful tag rendering for boolean flags
-- can display and format numbers as money values, and the formatting can be customized via the template
+- can display and format numbers to improve aspect, alignment or show monetary values, 
+  and the formatting can be customized via the template
 - full customization via the use of scoped slots for your columns
 - smart resizing & auto-hide based on screen width. Data is still accessible under an optional child row
 - tooltips for columns/rows
@@ -629,12 +630,10 @@ configuration. It can be overridden within each 'local' table template.
             "tooltip": "My Tooltip Column Detail",
             "class": "is-custom-class",
             "align": "right",
-            "money": {
+            "number": {
                 "symbol": "$",
-                "decimal": ".",
-                "thousand": ",",
                 "precision": 2,
-                "format": "%s%v"
+                "format": "%s %v"
             }
         }
     ]
@@ -753,9 +752,12 @@ Each configuration object may have the following attributes:
     - `clickable`, optional, flags the column as clickable, which means it makes it - you guessed it - clickable. 
     When clicked, it emits the `clicked` event, with the column & row as event payload
     - `notExportable`, optional, flags the column to be skipped on exports
-- `money`, optional, object, is the configuration object used for formatting numbers as money values. 
-    Since this is achieved via the `accounting.js` library, you should take a look at its documentation 
-    [here](http://openexchangerates.github.io/accounting.js/#documentation)  
+- `number`, optional, object, is the configuration object used for formatting numbers. You can use:
+    - `precision`, for the decimal precision
+    - `symbol`, to display any unit of measure, such as `"pcs"`, or currency, such as `"$"`
+    - `template`, to format the positioning, for example `"%s %v" will show the *symbol* and then the *value* 
+      separated by a space 
+    
  
 #### The name attribute and nested properties
 
