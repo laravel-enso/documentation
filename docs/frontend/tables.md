@@ -252,25 +252,42 @@ including sorting and reload the template.
 
 In order to filter using a string of text, you may start typing in the search input.
 
-All columns marked in the template as `'searchable'` will be used for filtering
-and the search type is `WHERE ... OR ...`  
+All columns marked in the template as `'searchable'` (even those marked as `'notVisible'`
+or `'rogue'`) will be used for filtering. The search type is `WHERE ... OR ...`.
 
-By default, there are three search modes available:
-- 'startsWith' - starting with the searched text
-- 'full' - containing the searched text
-- 'endsWith' - ending with the searched text
+For a brief example the following string __abc__ will be used as search value.
+By default, there are five search modes available:
+- `'startsWith'` - starting with the searched text (represented with __ab\*__)
+- `'endsWith'` - ending with the searched text (represented with __\*ab__)
+- `'exactMatch'` (represented with __abc__) 
+- `'full'` - containing the searched text (represented with __\*a\*__)
+- `'doesntContain'` (represented with __~~abc~~__).
+    - Note: Usually, when this search mode is applied on tables, only a single set of data 
+    is targeted (ex: exclude rows if a specific and targeted data cell contains the search text).   
+    When used on enso table all data sets (row's data cells) are targeted. Thus search will
+    behave as follows: in the given example, rows will be excluded only if __all__ data cells
+    contain the string "__abc__" . 
+    - Note: Empty row data cells will be ignored by `'doesntContain'` search mode. 
+    So if there is a row that contains string "abc" and all the other fields are empty, 
+    then it will be considered that all row data cells (in this case just one) contain the 
+    string and thus the row will be __excluded__.
 
 Also, the default search mode is to look for attributes starting with the searched text
-as it's faster than 'containing' and more useful that 'full'.
+as it's faster than `'full'` and more useful than `'exactMatch'`.
 
 In the interface, if you want to switch between the search modes, you can
-use the button that appears at the end of the search input, once you've typed something.
+use the button that appears to the right side of the search input, once you've typed something. 
 
-The button will take the first/first two letters of whatever you've typed and place
-and asterisk wildcard (`*`) to indicate the mode you're in. 
+The button can show a maximum of three characters. To indicate the mode you're in, it will
+display either 3 letters of whatever you've typed or 1-2 letters, replacing the remaining space 
+with asterisk wildcard (`*`).
+Ex: if the search word is "abc", the button will be illustrated like: "ab\*", "\*ab", "abc"
+"\*a\*", "~~abc~~".
+
+The search filter is __case-insensitive__.
 
 ::: tip
-Both the available modes as well as the the default mode can be customized in the
+The available modes as well as the default mode can be customized in the
  `tables` config. 
 :::
 
