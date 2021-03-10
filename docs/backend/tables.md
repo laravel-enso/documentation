@@ -690,7 +690,7 @@ The most common configuration options for buttons are, as follows:
 - `type`: required, string, available options are `row` / `global`
 - `icon`: required, string, expects Font Awesome icon classes (ensure classes are available in the page)
 - `class`: required, string, expects CSS styling classes
-- `routeSuffix`: optional, string, if given, gets appended to the `routePrefix` template param
+- `routeSuffix`: optional, string, if given, gets appended to the `routePrefix` template param. This controls the button visibility based on permission authorization ("canAccess").
 - `event`: optional, string, the name of an event that is emitted on click, 
     which allows for custom in-page handling, outside of the table
 - `postEvent`: optional, string, the name of the event that is emitted 
