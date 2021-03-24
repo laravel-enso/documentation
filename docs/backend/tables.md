@@ -585,6 +585,7 @@ configuration. It can be overridden within each 'local' table template.
 {
     "routePrefix": "route.prefix",
     "dataRouteSuffix": "read.suffix",
+    "dtRowId": "customId",
     "name": "Table Name",
     "crtNo": true,
     "preview": true,
@@ -643,6 +644,7 @@ configuration. It can be overridden within each 'local' table template.
 Options:
 - `routePrefix`, required, string, the common route segment, used for reading the data
 - `dataRouteSuffix`, optional, string, default `tableData`, the ending route segment, used for reading the data
+- `dtRowId`, optional, string, default is 'id' inherited from global configuration (config/enso/tables.php). This can be set as one of the model attribute's (result of table builder query) which will give each table row its uniqueness (usually the id), used internally by the table package, and is required for routing, actions and sorting.
 - `name`, optional, string, the title used for the table export. If not given, no title is used
 - `crtNo`, optional, boolean, flag for showing the current line number
 - `preview`, optional, boolean, flag for activating the row preview option / column
