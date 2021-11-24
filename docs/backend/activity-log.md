@@ -196,6 +196,37 @@ class LoggableObservers extends Observers
         Events::class => LoggableEvents::class,
     ];
     ```
+- above example is easy going since `User` model implements `Activatable` interface and uses `ActiveState` trait, which make the action log work out-of-the-box. In case you have a normal model that does not have these implementations, you must make sure:
+  1. You declare `$observables` inside your model
+      ```php
+          /**
+           * Array of our custom model events declared under model property $observables
+           * @var array
+           */
+    
+          protected $observables = [
+              'updatedActiveState',
+          ];
+      ```
+  2. Fire this event whenever needed:
+     ```php
+        /**
+         * Boot function for User Events
+         *
+         * @return void
+         */
+        protected static function boot(): void
+        {
+            self::updating(fn ($model) => $model->fireEventIfActiveStateUpdated());
+        }
+     
+        private function fireEventIfActiveStateUpdated(): void
+        {
+            if ($this->isDirty('is_active')) {
+                $this->fireModelEvent('updatedActiveState', false);
+            }
+        }
+      ```
 
 - finally, in your published `LoggerServiceProvider` add the new event to your model's events array:
     ```php
