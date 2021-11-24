@@ -585,6 +585,7 @@ configuration. It can be overridden within each 'local' table template.
 {
     "routePrefix": "route.prefix",
     "dataRouteSuffix": "read.suffix",
+    "dtRowId": "customId",
     "name": "Table Name",
     "crtNo": true,
     "preview": true,
@@ -643,6 +644,7 @@ configuration. It can be overridden within each 'local' table template.
 Options:
 - `routePrefix`, required, string, the common route segment, used for reading the data
 - `dataRouteSuffix`, optional, string, default `tableData`, the ending route segment, used for reading the data
+- `dtRowId`, optional, string, default is 'id' inherited from global configuration (config/enso/tables.php). This can be set as one of the model attribute's (result of table builder query) which will give each table row its uniqueness (usually the id), used internally by the table package, and is required for routing, actions and sorting.
 - `name`, optional, string, the title used for the table export. If not given, no title is used
 - `crtNo`, optional, boolean, flag for showing the current line number
 - `preview`, optional, boolean, flag for activating the row preview option / column
@@ -690,7 +692,7 @@ The most common configuration options for buttons are, as follows:
 - `type`: required, string, available options are `row` / `global`
 - `icon`: required, string, expects Font Awesome icon classes (ensure classes are available in the page)
 - `class`: required, string, expects CSS styling classes
-- `routeSuffix`: optional, string, if given, gets appended to the `routePrefix` template param
+- `routeSuffix`: optional, string, if given, gets appended to the `routePrefix` template param. This controls the button visibility based on permission authorization ("canAccess").
 - `event`: optional, string, the name of an event that is emitted on click, 
     which allows for custom in-page handling, outside of the table
 - `postEvent`: optional, string, the name of the event that is emitted 
