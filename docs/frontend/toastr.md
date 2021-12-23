@@ -97,7 +97,7 @@ The renderless toaster notification component which can be built upon to create 
 - `title(string)` - sets on optional title
 - `duration(number)` - sets the duration in ms
 - `position(string)` - sets the position, available options 'top-left', 'top-right', 'top-center', 'bottom-left', 'bottom-right', 'bottom-center' 
-- `html(html)` - displays html content
+- `html()` - sets the html flag to true, displaying html content inside title and body
 
 The methods below are used to display a themed message:
 - `error(message)`
@@ -106,6 +106,9 @@ The methods below are used to display a themed message:
 - `primary(message)`
 - `success(message)`
 - `warning(message)`
+
+Or you can use themed messages dynamically:
+- `toastr(type, message)`
 
 ### Toastr
 
