@@ -614,6 +614,7 @@ configuration. It can be overridden within each 'local' table template.
             "confirmation": false,
             "message": "Are you sure?",
             "method": "GET/PUT/PATCH/POST/DELETE",
+            "selection": false,
             "params": {
                 "first": "foo",
                 "second": "bar"
@@ -709,6 +710,7 @@ Depending on the chosen options, other parameters could be required:
     when you want to customize the modal's message
 - `method`: optional, string, should be given if you have `action` set as `ajax`, 
     available options are: `"GET"` / `"PUT`" / `"PATCH`" / `"POST`" / `"DELETE`"
+- `selection`: works only on `selectable` tables - and it will send a payload with selected rows to the back-end. Buttons that have this set to `true` will only be rendered when a selection is made.
 - `params`: optional, object, used if action = `router`, object is added to route params object
 
 #### Columns
