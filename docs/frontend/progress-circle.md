@@ -23,6 +23,16 @@ Install the package:
 yarn add @enso-ui/progress-circle
 ```
 
+(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+
+### Exports
+
+`@enso-ui/progress-circle`:
+- `ProgressCircle`
+`@enso-ui/progress-circle/bulma`:
+- `ProgressCircle`
+
+
 ## Usage
 
 Import the desired component(s):

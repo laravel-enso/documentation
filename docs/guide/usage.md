@@ -21,7 +21,7 @@ You can see the list of currently available commands by running `php artisan ens
 and remember to always consult the changelog.
 
 ### Notes 
-When you run `compose update` and the front-end asseets are published/upgraded recompiling (`yarn dev`/`prod`) is all you need to do.
+When you run `compose update` and the front-end assets are published/upgraded recompiling (`yarn dev`/`prod`) is all you need to do.
 If packages that depend on new permissions are added in the update process, you should run `php artisan:migrate` to add those permissions to the database.
 
 ## Localisation
@@ -42,7 +42,7 @@ Once the user is logged in, both the back-end and the front-end will have access
 values that have been added in the application.
 
 If you want to add/contribute a new language, there are a few steps involved, so please check out 
-the [relevant section](https://github.com/laravel-enso/Localisation#contributing-a-new-language) of 
+the [relevant section](https://docs.laravel-enso.com/backend/localisation.html#contributing) of 
 the [localisation](https://github.com/laravel-enso/Localisation) package.
 
 ## Icons

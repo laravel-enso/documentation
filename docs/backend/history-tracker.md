@@ -29,6 +29,7 @@ The trait helps keep track of the changes made to a model by saving a snapshot f
 The records in the history table are linked via FK to the original model. Setting a FK *constraint* on the DB column may be set if necessary.
 
 ## Usage
+
 You can choose the attributes you want to track from the model by declaring them as fillable in the history model.
 
 When the model is created, an initial snapshot of the desired attributes is saved. When the model is updated, if any one of the tracked attributes has changed, a new snapshot/history entry is persisted.  

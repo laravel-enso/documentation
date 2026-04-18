@@ -23,7 +23,9 @@ Install the package:
 yarn add @enso-ui/themes
 ```
 
-The package has the two default Enso themes, one light and one dark. The themes must be imported in Enso's `webpack.mix.js`.
+(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+
+The package has the two default Enso themes, one light and one dark.
 
 ## Removing themes
 
@@ -31,10 +33,7 @@ If you remove one of your themes, note that the theme selector will no longer be
 
 ## Customizing the themes
 
-You mai copy the theme you want to customize locally, change it as per your requirements, and then simply import your local theme in the `webpack.mix.js` file.
-
-If you need to customize the aspect of one or more of the components, the customized styles should go into the 
-`bulma/components` sub-folder. 
+You may use `patch-package` to make a patch and save the changes you may have made to the themes.
 
 Since our themes are built on top of Bulma, its variables are customized in the `dark` and `light` sub-folders. 
 

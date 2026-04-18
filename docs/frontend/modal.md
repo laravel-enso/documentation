@@ -14,14 +14,23 @@ Simple Modal Component
 
 The component can be used outside of the Enso ecosystem.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
-
-### Installation
+## Installation
 
 Install the package:
 ```
 yarn add @enso-ui/modal
 ```
+
+(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+
+### Exports
+
+`@enso-ui/modal/bulma`:
+- `Modal`
+- `ModalCard`
+
+`@enso-ui/modal/renderless`:
+- `CoreModal`
 
 ## Usage
 
@@ -35,7 +44,7 @@ import { CoreModal } from '@enso-ui/modal/renderless';
 This modal component renders its contents within a card and is built upon the renderless modal component.
 
 #### Props
-- `show` - `boolean`, optional, default `true`, if true, the modal is visible
+- `transitionDuration` - `Number`, optional, default `500`, the duration of the transition animation
 - `portal` - `string`, optional, default `modals`, the query selector for the portal of the modal. 
 
 #### Slots
@@ -48,8 +57,8 @@ The bulma styled modal component built on top of its renderless version.
 
 Example:
 ```vue
-<modal :show="visible"
-    @close="doNothing">
+<modal v-if="visible"
+    @close="doSomethingElse">
     <div class="box">
         <h5 class="subtitle is-5">
             {{ i18n("Are you sure?") }}

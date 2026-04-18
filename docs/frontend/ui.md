@@ -50,6 +50,8 @@ renderless structure
 ### Exports
 `@enso-ui/ui/bulma`:
 - `App.vue`, the main VueJS application component
+`@enso-ui/ui/renderless`:
+- `App.vue`
 
 ## Documentation
 
