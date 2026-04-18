@@ -2,7 +2,7 @@
 sidebarDepth: 3
 ---
 
-# Card (wip)
+# Card ( wip )
 
 ![NPM License](https://img.shields.io/npm/l/@enso-ui/card.svg)
 ![npm download](https://img.shields.io/npm/dm/@enso-ui/card.svg)
