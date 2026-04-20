@@ -8,36 +8,129 @@ lastUpdated: false
 
 # Documents
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/135a2cb8336d410490cf79a270852d43)](https://app.codacy.com/gh/laravel-enso/documents?utm_source=github.com&utm_medium=referral&utm_content=laravel-enso/documents&utm_campaign=Badge_Grade_Settings)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/12db635b31fd45feb6b24fde2506e58d)](https://www.codacy.com/gh/laravel-enso/documents?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/documents&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/85587885/shield?branch=master)](https://github.styleci.io/repos/85587885)
-[![License](https://poser.pugx.org/laravel-enso/datatable/license)](https://packagist.org/packages/laravel-enso/datatable)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/documents/downloads)](https://packagist.org/packages/laravel-enso/documents)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/documents/version)](https://packagist.org/packages/laravel-enso/documents)
+[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/documents/version)](https://packagist.org/packages/laravel-enso/documents)
+[![Downloads](https://poser.pugx.org/laravel-enso/documents/downloads)](https://packagist.org/packages/laravel-enso/documents)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/documents.svg)](https://github.com/laravel-enso/documents/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/documents.svg)](https://github.com/laravel-enso/documents/pulls)
 
-Documents Manager for [Laravel Enso](https://github.com/laravel-enso/Enso).
+## Description
 
-This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+Documents adds polymorphic document attachments to Enso models.
 
-There is a front end implementation for this this api in the [accessories](https://github.com/enso-ui/accessories) package.
+The package stores uploaded documents through the Enso files layer, exposes document listing, upload, and delete endpoints, supports configurable deletion rules for related models, and can queue OCR for PDF documents whose owners implement the `Ocrable` contract.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+It is meant for backoffice models that need a lightweight document vault with optional OCR processing.
 
-[![Watch the demo](https://laravel-enso.github.io/documents/screenshots/bulma_019_thumb.png)](https://laravel-enso.github.io/documents/videos/bulma_demo_01.webm)
+## Installation
 
-<sup>click on the photo to view a short demo in compatible browsers</sup>
+Install the package:
 
-### Installation, Configuration & Usage
+```bash
+composer require laravel-enso/documents
+```
 
-Be sure to check out the full documentation for this package available at [docs.laravel-enso.com](https://docs.laravel-enso.com/backend/documents.html)
+Run the package migrations:
 
-### Contributions
+```bash
+php artisan migrate
+```
+
+Optional publish:
+
+```bash
+php artisan vendor:publish --tag=documents-config
+```
+
+Default configuration:
+
+```php
+return [
+    'deletableTimeLimit' => 60 * 60,
+    'imageWidth' => 2048,
+    'imageHeight' => 2048,
+    'onDelete' => 'restrict',
+    'loggableMorph' => [
+        'documentable' => [],
+    ],
+    'queues' => [
+        'ocr' => 'heavy',
+    ],
+];
+```
+
+## Features
+
+- Polymorphic one-to-one and one-to-many document relations via the `Documentable` trait.
+- File attachment handling through `laravel-enso/files`.
+- Upload, list, and delete API under `core.documents`.
+- Configurable delete policy with `restrict` or `cascade`.
+- OCR dispatch for PDF documents whose owner implements `Ocrable`.
+
+## Usage
+
+Add the trait to any model that should own documents:
+
+```php
+use Illuminate\Database\Eloquent\Model;
+use LaravelEnso\Documents\Traits\Documentable;
+
+class Order extends Model
+{
+    use Documentable;
+}
+```
+
+Available relations:
+
+- `document()`
+- `documents()`
+
+If the owning model should trigger OCR for uploaded PDFs, implement `LaravelEnso\Documents\Contracts\Ocrable`.
+
+## API
+
+### HTTP routes
+
+- `GET api/core/documents`
+- `POST api/core/documents`
+- `DELETE api/core/documents/{document}`
+
+Route names:
+
+- `core.documents.index`
+- `core.documents.store`
+- `core.documents.destroy`
+
+### Model surface
+
+`LaravelEnso\\Documents\\Models\\Document`
+
+Useful methods:
+
+- `store(array $request, array $files)`
+- `scopeFor(array $params): Builder`
+- `scopeFilter(?string $search): Builder`
+
+## Depends On
+
+Required Enso packages:
+
+- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/files`](https://docs.laravel-enso.com/backend/files.html) [↗](https://github.com/laravel-enso/files)
+- [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
+- [`laravel-enso/image-transformer`](https://docs.laravel-enso.com/backend/image-transformer.html) [↗](https://github.com/laravel-enso/image-transformer)
+- [`laravel-enso/migrator`](https://docs.laravel-enso.com/backend/migrator.html) [↗](https://github.com/laravel-enso/migrator)
+- [`laravel-enso/ocr`](https://docs.laravel-enso.com/backend/ocr.html) [↗](https://git.xtelecom.ro/laravel-enso/ocr)
+- [`laravel-enso/track-who`](https://docs.laravel-enso.com/backend/track-who.html) [↗](https://github.com/laravel-enso/track-who)
+- [`laravel-enso/users`](https://docs.laravel-enso.com/backend/users.html) [↗](https://github.com/laravel-enso/users)
+
+## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-### License
-
-This package is released under the MIT license.
+Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/laravel-enso/documents/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>

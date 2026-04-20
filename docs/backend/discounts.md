@@ -6,73 +6,105 @@ lastUpdated: false
 
 <!-- AUTO-GENERATED: do not edit by hand -->
 
-# discounts
+# Discounts
 
-###  Discounts
+[![License](https://img.shields.io/badge/license-Proprietary-lightgrey.svg)](LICENSE)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](composer.json)
 
-Discounts is a package for the Laravel Enso environment, designed for the management of commercial discounts.
+## Description
 
-**Note:** *This is a commercially licensed package and may not be used without written permission*
+Discounts adds commercial discount management to Enso.
 
-**Note:** *This package cannot be used outside of the Enso environment and is not included by default 
-in the [Laravel Enso Core](https://github.com/laravel-enso/Core) package.*
+The package covers both client and supplier discounts, split into three discount families: general discounts, product discounts, and service discounts. Each family exposes its own CRUD and table endpoints, while the package also provides a small helper trait for filtering discounts by company or person clients.
 
-### Features
-* crud operations for discounts
-* tables & structure generators
+It is intended for private Enso deployments that manage commercial pricing rules across products and services.
 
-### Installation
+## Installation
 
-Note that this package uses commercially available FontAwesome icons. 
-These dependencies should be installed and available in your project:
-```
-"@fortawesome/pro-regular-svg-icons": "^5.10.1",
-"@fortawesome/pro-solid-svg-icons": "^5.10.1",
-``` 
+This is a proprietary package distributed through the private Enso registry.
 
-* add the package repository to your `composer.json` config 
-* install the package using composer: `composer require laravel-enso/discounts`
-* install the front-end ui package using yarn: `yarn add @enso-ui/discounts`
-* adds the following alias in `webackpack.mix.js`
-```
-.webpackConfig({
-        resolve: {
-            extensions: ['.js', '.vue', '.json'],
-            alias: {
-                 //other aliases
-                '@discounts': `${__dirname}/node_modules/@enso-ui/discounts/src/bulma`,
-            },
-        },
-    })
-```
-* in `resources/js/router.js` file, verify that `RouteMerger` is imported, or import it
+Run the package migrations:
 
-`import RouteMerger from '@core-modules/importers/RouteMerger';`
-
-* make sure `routeImporter` is also imported
-
-`import routeImporter from '@core-modules/importers/routeImporter';`
-
-* then use `RouteMerger` to import front-end assets using the alias defined in `webpack.mix.js`
-
-```
-(new RouteMerger(routes))
-    //other routes
-    .add(routeImporter(require.context('@discounts/routes', false, /.*\.js$/)))
-    .add(routeImporter(require.context('./routes', false, /.*\.js$/)));
+```bash
+php artisan migrate
 ```
 
-* in `resources/js/app.js` import the package's icons
+The package exposes only the backend/API layer. Frontend integration is handled by the companion `@enso-ui/discounts` package.
 
-`import '@discounts/icons';`
+## Features
 
-* make sure `hot module replacement` is **not** active, and run `yarn dev` or `npm run dev`
+- Client discount management for general, product, and service discounts.
+- Supplier discount management for general, product, and service discounts.
+- Datatable endpoints, Excel export endpoints, and selector endpoints for every discount family.
+- `DiscountTypes` enum for classifying discount behavior.
+- `HasClient` trait for filtering discounts by company or person client.
 
-* run `php artisan migrate` to create tables, add menus, permissions etc.
+## Usage
 
-## License
+Use the `HasClient` trait on discount-like queries that need to target a company or a person:
 
-[CC-BY-NC-ND-4.0](https://spdx.org/licenses/CC-BY-NC-ND-4.0.html)
+```php
+use LaravelEnso\Discounts\Traits\HasClient;
+
+class ClientProductDiscount extends Model
+{
+    use HasClient;
+}
+```
+
+The package routes are grouped by target audience and discount type:
+
+- `discounts.clients.generals.*`
+- `discounts.clients.products.*`
+- `discounts.clients.services.*`
+- `discounts.suppliers.generals.*`
+- `discounts.suppliers.products.*`
+- `discounts.suppliers.services.*`
+
+## API
+
+### HTTP routes
+
+Client discounts:
+
+- `api/discounts/clients/generals/*`
+- `api/discounts/clients/products/*`
+- `api/discounts/clients/services/*`
+
+Supplier discounts:
+
+- `api/discounts/suppliers/generals/*`
+- `api/discounts/suppliers/products/*`
+- `api/discounts/suppliers/services/*`
+
+Each family exposes:
+
+- `create`
+- `store`
+- `edit`
+- `update`
+- `destroy`
+- `initTable`
+- `tableData`
+- `exportExcel`
+- `options`
+
+## Depends On
+
+Required Enso packages:
+
+- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/dynamic-methods`](https://docs.laravel-enso.com/backend/dynamic-methods.html) [↗](https://github.com/laravel-enso/dynamic-methods)
+- [`laravel-enso/forms`](https://docs.laravel-enso.com/backend/forms.html) [↗](https://github.com/laravel-enso/forms)
+- [`laravel-enso/migrator`](https://docs.laravel-enso.com/backend/migrator.html) [↗](https://github.com/laravel-enso/migrator)
+- [`laravel-enso/products`](https://docs.laravel-enso.com/backend/products.html) [↗](https://git.xtelecom.ro/laravel-enso/products)
+- [`laravel-enso/services`](https://docs.laravel-enso.com/backend/services.html) [↗](https://github.com/laravel-enso/services)
+- [`laravel-enso/tables`](https://docs.laravel-enso.com/backend/tables.html) [↗](https://github.com/laravel-enso/tables)
+
+Runtime companion packages:
+
+- [`laravel-enso/companies`](https://docs.laravel-enso.com/backend/companies.html) [↗](https://github.com/laravel-enso/companies)
+- [`laravel-enso/people`](https://docs.laravel-enso.com/backend/people.html) [↗](https://github.com/laravel-enso/people)
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://git.xtelecom.ro/laravel-enso/discounts/-/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
