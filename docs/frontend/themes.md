@@ -1,6 +1,10 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Themes
 
@@ -12,30 +16,17 @@ sidebarDepth: 3
 
 Enso UI Themes
 
-This package is meant to be used only in the Enso ecosystem.
+## Usage
+
+All components can be used outside of the Enso ecosystem.
+
+### Demo
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
-## Installation
+### Installation, Configuration & Usage
 
-Install the package:
-```
-yarn add @enso-ui/themes
-```
-
-(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
-
-The package has the two default Enso themes, one light and one dark.
-
-## Removing themes
-
-If you remove one of your themes, note that the theme selector will no longer be visible in the right settings side bar.
-
-## Customizing the themes
-
-You may use `patch-package` to make a patch and save the changes you may have made to the themes.
-
-Since our themes are built on top of Bulma, its variables are customized in the `dark` and `light` sub-folders. 
+Be sure to check out the full documentation for this package available at [docs.laravel-enso.com](https://docs.laravel-enso.com/frontend/themes.html)
 
 ## Contributions
 
@@ -45,4 +36,9 @@ Thank you to all the people who already contributed to Enso!
 
 ## License
 
-[ISC](https://opensource.org/licenses/ISC)
+[MIT](https://github.com/enso-ui/themes/blob/master/LICENSE)
+
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/enso-ui/themes/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/10/2026, 1:14:18 PM</div>
+</div>

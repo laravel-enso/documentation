@@ -1,172 +1,252 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Enums
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6e342eff10f24db5b89be5fe203e424d)](https://www.codacy.com/app/laravel-enso/enums?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/enums&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/85492361/shield?branch=master)](https://github.styleci.io/repos/85492361)
-[![License](https://poser.pugx.org/laravel-enso/enums/license)](https://packagist.org/packages/laravel-enso/datatable)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/enums/downloads)](https://packagist.org/packages/laravel-enso/enums)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/enums/version)](https://packagist.org/packages/laravel-enso/enums)
+[![License](https://poser.pugx.org/laravel-enso/enums/license)](LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/enums/version)](https://packagist.org/packages/laravel-enso/enums)
+[![Downloads](https://poser.pugx.org/laravel-enso/enums/downloads)](https://packagist.org/packages/laravel-enso/enums)
+[![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/enums.svg)](https://github.com/laravel-enso/enums/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/enums.svg)](https://github.com/laravel-enso/enums/pulls)
 
-Enum dependency for [Laravel Enso](https://github.com/laravel-enso/Enso).
+## Description
 
-This package can work independently of the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+Enums provides both legacy class-based enumerations and frontend-ready native PHP enum discovery for Laravel Enso.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+The package keeps backwards compatibility with Enso's original enum classes while also scanning vendor and application `Enums` folders for native PHP enums that implement specific contracts. Those enums can then be registered into application state and exposed to the frontend in a normalized shape.
 
-[![Watch the demo](https://laravel-enso.github.io/enums/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/enums/screenshots/bulma_001.png)
+It is used throughout the Enso ecosystem for typed option lists, shared UI state, and enum mapping between backend code and frontend consumers.
 
-<sup>click on the photo to view a a larger screenshot</sup>
+::: warning Note
+Since PHP now provides native enums, we strongly recommend migrating new and existing code to native PHP enums wherever possible.
+
+We still intend to keep supporting the Enso enum registry layer for ecosystem integration and frontend state registration, even as the legacy custom enum implementation is phased out.
+:::
 
 ## Installation
 
-Comes pre-installed in Enso.
+Install the package:
 
-To install outside of Enso:
+```bash
+composer require laravel-enso/enums
+```
 
-1. install the package `composer require laravel-enso/enums` 
+The package auto-registers:
 
+- `LaravelEnso\Enums\AppServiceProvider`
+- `LaravelEnso\Enums\EnumServiceProvider`
+
+If you want to customize which vendor namespaces are scanned, publish the configuration:
+
+```bash
+php artisan vendor:publish --tag=enums-config
+```
+
+If you want an application provider for registering legacy enums explicitly, publish the stub:
+
+```bash
+php artisan vendor:publish --tag=enum-provider
+```
+
+Default configuration:
+
+```php
+return [
+    'vendors' => ['laravel-enso'],
+];
+```
+
+For native frontend enums, place enum classes under your PSR-4 `Enums` folder. In a standard Laravel application this means `app/Enums`.
 
 ## Features
 
-- provides an `Enum` class that can be extended with a local implementation, which will allow you to have 
-enumeration like capabilities
-- provides an `EnumServiceProvider` class that can be extended with a local implementation
-- various utility methods are available for the Enum class
-- automatic registration of enums within Enso, giving you the option to have the desired enums to the application state,
-even from within packages
+- Provides a base class for legacy class-based enums.
+- Supports native PHP enums for frontend/state registration.
+- Scans configured vendor packages and the host application for enum classes.
+- Registers enum state under a single `enums` store payload.
+- Exposes a facade for registering and removing legacy enums.
+- Supports optional enum mapping through a dedicated `Mappable` contract.
+- Includes helper traits for select lists, searching, and random case selection.
 
 ## Usage
 
-#### Enum - `LaravelEnso\Enums\app\Services\Enum`
+### Legacy Class-Based Enums
 
-Is an abstract class that provides enumeration like capabilities, that is meant to be extended 
-and may then be used in 3 modes:
-a) when given a static 'data' parameter, which should be an associative array
-b) when declaring constants on the class
-c) when overriding the static `attributes()` method, which should also return an associative array
+Extend `LaravelEnso\Enums\Services\Enum`:
 
-Methods:
- - `constants`, returns the list of constants defined on the class, or null otherwise
- - `get(key)`, returns the value of that Enum key
- - `has(key)`, returns true if the Enum has that key
- - `keys`, returns the list of keys, from the data property
- - `values`, returns the list of values, from the data property
- - `all`, returns a translated associative array representation of the enumeration; 
- - `json`, returns a translated json representation of the enumeration; 
- - `array`, returns a translated array representation of the enumeration; 
- - `object`, returns a translated object representation of the enumeration; 
- - `collection`, returns a translated Laravel collection representation of the enumeration; 
- - `select`, returns a translated Enso VueSelect representation of the enumeration - array of objects, 
- each object with the `id` and `name` attribute;
- 
- If used in mode a), it will give back the list of constants and their values.
- If used in mode b), it will give back the data attribute.
- If used in mode c), it will give back the array you build in the overwritten `attributes()` method
- 
- Examples:
- 
- ##### Constants
- ```php
- class SeniorityEnum extends Enum
- {
-     const Assistant = 1;
-     const Associate = 2;
-     const Staff = 3;
-     const Senior = 4;
-     const Partner = 5;
- }
- 
- ...
- ->where('type', SeniorityEnum::Assistant)
- ...
- ...
- $seniorityTypes = (new SeniorityEnum())->select();
- ```
- 
- ##### Data attribute
- ```php
- class SeniorityEnum extends Enum
-{
-  protected static $data = [
-      1 => 'assistant',
-      2 => 'associate',
-      3 => 'staff',
-      4 => 'senior',
-      5 => 'partner',
-  ];
- }
- ...
- ->where('type', SeniorityEnum::get('assistant'))
- ...
- ...
- $seniorityTypes = (new SeniorityEnum())->select();  
- ```
-
-##### Attributes method
 ```php
- class SeniorityEnum extends Enum
- {
-    public static method attributes() {
-        return Seniority::pluck('id','name')->toArray();
+use LaravelEnso\Enums\Services\Enum;
+
+class Roles extends Enum
+{
+    public const Admin = 1;
+    public const Supervisor = 2;
+    public const User = 3;
+}
+```
+
+Available helpers:
+
+```php
+Roles::get(1);
+Roles::has(2);
+Roles::keys();
+Roles::values();
+Roles::select();
+Roles::json();
+```
+
+### Native PHP Enums For Frontend State
+
+Implement `LaravelEnso\Enums\Contracts\Frontend` on a backed enum:
+
+```php
+use LaravelEnso\Enums\Contracts\Frontend;
+use LaravelEnso\Enums\Contracts\Mappable;
+use LaravelEnso\Enums\Traits\Select;
+
+enum Status: int implements Frontend, Mappable
+{
+    use Select;
+
+    case Draft = 0;
+    case Published = 1;
+
+    public static function registerBy(): string
+    {
+        return 'statuses';
     }
- }
- ...
- ->where('type', SeniorityEnum::get('assistant'))
- ...
- ...
- $seniorityTypes = (new SeniorityEnum())->select();  
- ```
 
-##### Mixed mode
-You can actually utilize a mixed mode that may help you in some specific scenarios, such as the one given below.
-Keep in mind that if you combine the modes, the order in which they are taken into account (the priority) 
-is the following:
-- `$data`
-- `attributes()` 
-- `constants`
+    public function map(): mixed
+    {
+        return match ($this) {
+            self::Draft => 'Draft',
+            self::Published => 'Published',
+        };
+    }
+}
+```
 
-Now, why would you want to mix them? Consider the following scenario:
+The enum will be discovered from an `Enums` folder and registered under the key returned by `registerBy()`.
+
+### Legacy Enum Registration
+
+Register legacy enums through the facade or `EnumServiceProvider`:
 
 ```php
- class SeniorityEnum extends Enum
-{
-    const Assistant = 1;
-    const Associate = 2;
-    const Staff = 3;
-    const Senior = 4;
-    const BigChief = 5;
-    
-    protected static $data = [
-      self::Assistant => 'assistant',
-      self::Associate => 'associate',
-      self::Staff => 'staff',
-      self::Senior => 'senior',
-      self::BigChief => 'BIG chief',
-];
- }
- ...
- ->where('type', SeniorityEnum::BigChief)
- ...
- ...
- $seniorityTypes = (new SeniorityEnum())->select();  
- ```
- 
- Here if you only configured the enumeration using *constants*, it would work, BUT, in the select, 
- the values would be shown as `Assistant,.., BigChief`. That's fine if it works for you, but what if 
- you want to display `BIG chief` instead of `BigChief`? You can't.
- 
- If you go the other route, and not use constants, but use just *data*, you can have `BIG chief` formatted accordingly,
- but throughout the code you have to use `SeniorityEnum::get('BIG chief')` which works, but is error prone.
- 
- So the conclusion is you can use both modes and have the best of both worlds.
-   
-### Contributions
+use LaravelEnso\Enums\Facades\Enums;
+
+Enums::register([
+    'roles' => \App\Enums\Roles::class,
+]);
+```
+
+## API
+
+### Configuration
+
+`config/enums.php`
+
+Keys:
+
+- `vendors`
+
+The scanner checks:
+
+- `vendor/<configured-vendor>/*`
+- the application base path and its PSR-4 root
+
+### Service Providers
+
+- `LaravelEnso\Enums\AppServiceProvider`
+- `LaravelEnso\Enums\EnumServiceProvider`
+
+Responsibilities:
+
+- merge and publish config
+- publish the legacy enum provider stub
+- register legacy enums listed in the provider's `$register` property
+
+### Legacy Enum Base Class
+
+`LaravelEnso\Enums\Services\Enum`
+
+Key methods:
+
+- `constants(): array`
+- `get($key)`
+- `has($key): bool`
+- `keys()`
+- `values()`
+- `json(): string`
+- `array(): array`
+- `all(): array`
+- `object(): object`
+- `collection()`
+- `select()`
+- `localisation(bool $state = true): void`
+
+### Native Enum Discovery
+
+- `LaravelEnso\Enums\Services\Source`
+- `LaravelEnso\Enums\Services\Enums`
+
+Requirements for discovery:
+
+- enum must exist in an `Enums` folder
+- enum must implement `LaravelEnso\Enums\Contracts\Frontend`
+
+Optional mapping:
+
+- implement `LaravelEnso\Enums\Contracts\Mappable`
+
+### Legacy Enum Registry
+
+- `LaravelEnso\Enums\Services\LegacyEnums`
+- `LaravelEnso\Enums\Facades\Enums`
+
+Key methods:
+
+- `register($enums)`
+- `remove($aliases)`
+- `all(): array`
+
+### State Provider
+
+`LaravelEnso\Enums\State\Enums`
+
+Provides merged enum state for frontend consumption under the `enums` store key.
+
+### Traits
+
+- `LaravelEnso\Enums\Traits\Select`
+- `LaravelEnso\Enums\Traits\Search`
+- `LaravelEnso\Enums\Traits\Random`
+
+## Depends On
+
+Required Enso packages:
+
+- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
+
+Framework dependency:
+
+- [`laravel/framework`](https://github.com/laravel/framework) [↗](https://github.com/laravel/framework)
+
+## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-### License
+Thank you to all the people who already contributed to Enso!
 
-This package is released under the MIT license.
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/enums/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/19/2026, 10:22:09 PM</div>
+</div>

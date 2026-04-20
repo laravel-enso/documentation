@@ -1,10 +1,14 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Impersonate
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/fdc8f68f71064cd0b811462ef097879d)](https://www.codacy.com/app/laravel-enso/impersonate?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/impersonate&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/a6e7ad3ebd5a46cfb8625d37cb68ad9c)](https://www.codacy.com/gh/laravel-enso/impersonate?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/impersonate&amp;utm_campaign=Badge_Grade) 
 [![StyleCI](https://github.styleci.io/repos/94622194/shield?branch=master)](https://github.styleci.io/repos/94622194)
 [![License](https://poser.pugx.org/laravel-enso/impersonate/license)](https://packagist.org/packages/laravel-enso/impersonate)
 [![Total Downloads](https://poser.pugx.org/laravel-enso/impersonate/downloads)](https://packagist.org/packages/laravel-enso/impersonate)
@@ -21,17 +25,9 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 [![Watch the demo](https://laravel-enso.github.io/impersonate/screenshots/bulma_014_thumb.png)](https://laravel-enso.github.io/impersonate/videos/bulma_how_to_impersonate.webm)
 <sup>click on the photo to view a short demo in compatible browsers</sup>
 
-## Installation
+### Installation, Configuration & Usage
 
-Comes pre-installed in Enso.
-
-## Features
-
-- allows a user to impersonate another user, by using a middleware
-- permits testing and debugging from the perspective of another user, without needing his credentials
-- comes with its own controller and routes that permit starting and stopping the impersonation process
-- uses the [Permission Manager](https://github.com/laravel-enso/PermissionManager) package in order to be able to verify permissions
-- the access for the impersonation process is determined by the (admin) user's access to the impersonation routes.
+Be sure to check out the full documentation for this package available at [docs.laravel-enso.com](https://docs.laravel-enso.com/backend/impersonate.html)
 
 ## Contributions
 
@@ -40,3 +36,8 @@ are welcome. Pull requests are great, but issues are good too.
 ## License
 
 This package is released under the MIT license.
+
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/impersonate/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 7/9/2020, 9:27:59 AM</div>
+</div>

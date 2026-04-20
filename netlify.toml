@@ -1,0 +1,7 @@
+[build]
+command = "yarn build"
+publish = "docs/.vuepress/dist"
+
+[build.environment]
+NODE_VERSION = "20"
+NPM_VERSION = "10"

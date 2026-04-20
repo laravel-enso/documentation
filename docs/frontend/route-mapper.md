@@ -1,33 +1,25 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Route Mapper
 
-![npm license](https://img.shields.io/npm/l/@enso-ui/route-mapper.svg) 
-![npm download](https://img.shields.io/npm/dm/@enso-ui/route-mapper.svg) 
-![GitHub top language](https://img.shields.io/github/languages/top/enso-ui/route-mapper.svg) 
-![GitHub issues](https://img.shields.io/github/issues/enso-ui/route-mapper.svg) 
-![npm version](https://img.shields.io/npm/v/@enso-ui/route-mapper.svg) 
+Laravel route mapper
 
 ## Usage
-The component cannot be used outside the Enso ecosystem.
+This package can be used outside the Enso ecosystem.
 
 ### Demo
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
-### Installation
+### Installation, Configuration & Usage
 
-Install the package:
-```
-yarn add @enso-ui/route-mapper
-```
-
-(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
-
-NOTE that as of version `1.0.8` this package need to be transpiled, so for an Enso project,
-you need to include it the `transpileDependencies` array within `vue.config.js`.
+Be sure to check out the full documentation for this package available at [docs.laravel-enso.com](https://docs.laravel-enso.com/frontend/route-mapper.html).
 
 ## Contributions
 
@@ -37,4 +29,9 @@ Thank you to all the people who already contributed to Enso!
 
 ## License
 
-[ISC](https://opensource.org/licenses/ISC)
+[MIT](https://github.com/enso-ui/route-mapper/blob/master/LICENSE)
+
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/enso-ui/route-mapper/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/10/2026, 12:51:17 PM</div>
+</div>

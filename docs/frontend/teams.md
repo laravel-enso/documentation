@@ -1,14 +1,12 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
 
-# Teams
+<!-- AUTO-GENERATED: do not edit by hand -->
 
-![npm license](https://img.shields.io/npm/l/@enso-ui/teams.svg) 
-![npm download](https://img.shields.io/npm/dm/@enso-ui/teams.svg) 
-![GitHub top language](https://img.shields.io/github/languages/top/enso-ui/teams.svg) 
-![GitHub issues](https://img.shields.io/github/issues/enso-ui/teams.svg) 
-![npm version](https://img.shields.io/npm/v/@enso-ui/teams.svg) 
+# Teams
 
 ## Usage
 
@@ -18,16 +16,9 @@ The component cannot be used outside of the Enso ecosystem.
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
-Check the full documentation at  [docs.laravel-enso.com](https://docs.laravel-enso.com).
+### Installation, Configuration & Usage
 
-### Installation
-
-Install the package:
-```
-yarn add @enso-ui/teams
-```
-
-(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+Be sure to check out the full documentation for this package available at [docs.laravel-enso.com](https://docs.laravel-enso.com/frontend/teams.html).
 
 ## Contributions
 
@@ -37,4 +28,9 @@ Thank you to all the people who already contributed to Enso!
 
 ## License
 
-[ISC](https://opensource.org/licenses/ISC)
+[MIT](https://github.com/enso-ui/teams/blob/master/LICENSE)
+
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/enso-ui/teams/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/10/2026, 12:55:04 PM</div>
+</div>

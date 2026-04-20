@@ -1,10 +1,14 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Logs
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/28c7bcb0b5d2451783990e0a151f0a44)](https://www.codacy.com/app/laravel-enso/logs?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/logs&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/7ed12ff883d14464b88343cfdd3bfe0f)](https://www.codacy.com/gh/laravel-enso/logs?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/logs&amp;utm_campaign=Badge_Grade)
 [![StyleCI](https://github.styleci.io/repos/85624363/shield?branch=master)](https://github.styleci.io/repos/85624363)
 [![License](https://poser.pugx.org/laravel-enso/logs/license)](https://packagist.org/packages/laravel-enso/logs)
 [![Total Downloads](https://poser.pugx.org/laravel-enso/logs/downloads)](https://packagist.org/packages/laravel-enso/logs)
@@ -22,22 +26,20 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 
 [![Screenshot](https://laravel-enso.github.io/logs/screenshots/bulma_005_thumb.png)](https://laravel-enso.github.io/logs/screenshots/bulma_005.png)
 
-## Installation
+### Installation, Configuration & Usage
 
-Comes pre-installed in Enso.
+Be sure to check out the full documentation for this package available at [docs.laravel-enso.com](https://docs.laravel-enso.com/backend/logs.html)
 
-## Features
-
-- is a module meant for administrators which offers a streamlined interaction with the application logs
-- permits viewing, downloading and clearing the logs for the application
-- shows all log files inside the `logs` folder
-- can display in-page the contents of the log file, up to certain file size limit, to avoid locking up the browser
-- if the files get too large, only the download option is offered
-
-## Contributions
+### Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-## License
+### License
 
 This package is released under the MIT license.
+<!--/h-->
+
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/logs/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 6/25/2020, 2:51:22 PM</div>
+</div>

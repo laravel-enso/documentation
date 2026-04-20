@@ -1,6 +1,10 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Progress Circle
 
@@ -12,58 +16,16 @@ sidebarDepth: 3
 
 Progress Circle
 
-Can be used outside of the Enso ecosystem.
+## Usage
+The component can be used outside of the Enso ecosystem.
+
+### Demo
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
-### Installation
+### Installation, Configuration & Usage
 
-Install the package:
-```
-yarn add @enso-ui/progress-circle
-```
-
-(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
-
-### Exports
-
-`@enso-ui/progress-circle`:
-- `ProgressCircle`
-`@enso-ui/progress-circle/bulma`:
-- `ProgressCircle`
-
-
-## Usage
-
-Import the desired component(s):
-```js
-import ProgressCircle from '@enso-ui/progress-circle';
-```
-
-### ProgressCircle
-The bulma styled progress circle component. 
-
-Example:
-```vue
-<progress-circle :progress="progress"/>
-```
-
-Properties:
-- `progress` - `number`, required - the progress percentage (must be between 0 and 100)
-- `backgroundStroke` - `string`, optional, default `#f1f1f1` - the background color 
-- `progressStroke` - `string`, optional, default `#2ecc71` - the progress stroke color
-- `textColor` - `string`, optional, default `#555` - the text color
-- `width` - `number`, required - the width of the component
-
-## Questions & Issues
-
-For questions and support please use the issues functionality
-for this package's github repository.
-
-Please make sure to search for existing issues before creating a new issue,
-and when opening a new issue, fill the required information in the issue template.
-
-Issues not conforming to the guidelines may be closed immediately.
+Be sure to check out the full documentation for this package available at [docs.laravel-enso.com](https://docs.laravel-enso.com/frontend/progress-circle.html)
 
 ## Contributions
 
@@ -73,4 +35,9 @@ Thank you to all the people who already contributed to Enso!
 
 ## License
 
-[ISC](https://opensource.org/licenses/ISC)
+[MIT](https://github.com/enso-ui/progress-circle/blob/master/LICENSE)
+
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/enso-ui/progress-circle/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/10/2026, 1:13:33 PM</div>
+</div>

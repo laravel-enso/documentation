@@ -1,10 +1,14 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Teams
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/182a696508584243a45ece7572959a32)](https://www.codacy.com/app/laravel-enso/teams?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/teams&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/f676a30a54294b1fb29c14812b92e600)](https://www.codacy.com/gh/laravel-enso/teams?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/teams&amp;utm_campaign=Badge_Grade)
 [![StyleCI](https://github.styleci.io/repos/151522931/shield?branch=master)](https://github.styleci.io/repos/151522931)
 [![License](https://poser.pugx.org/laravel-enso/teams/license)](https://packagist.org/packages/laravel-enso/teams)
 [![Total Downloads](https://poser.pugx.org/laravel-enso/teams/downloads)](https://packagist.org/packages/laravel-enso/teams)
@@ -22,22 +26,19 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 
 <sup>click on the photo to view a short demo in compatible browsers</sup>
 
-### Features
+### Installation, Configuration & Usage
 
-* simple structure to group users under a team
-* the current team structure is basic, and can be further customized as needed
-* search through teams as required
-* the Team model has its activity tracked (integration with [ActivityLog](https://github.com/laravel-enso/ActivityLog))
-* provides a `Teams` trait that defines the `teams` relationship
+Be sure to check out the full documentation for this package available at [docs.laravel-enso.com](https://docs.laravel-enso.com/backend/teams.html)
 
-## Installation
-
-Comes pre-installed in Enso.
-
-## Contributions
+### Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-## License
+### License
 
 This package is released under the MIT license.
+
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/teams/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 6/24/2020, 4:19:18 PM</div>
+</div>

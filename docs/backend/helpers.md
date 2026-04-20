@@ -1,248 +1,198 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Helpers
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4c084aada0bf4f70bf397338300bfc5d)](https://www.codacy.com/app/laravel-enso/helpers?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/helpers&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/85466970/shield?branch=master)](https://github.styleci.io/repos/85466970)
-[![License](https://poser.pugx.org/laravel-enso/helpers/license)](https://packagist.org/packages/laravel-enso/helpers)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/helpers/downloads)](https://packagist.org/packages/laravel-enso/helpers)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/helpers/version)](https://packagist.org/packages/laravel-enso/helpers)
+[![License](https://poser.pugx.org/laravel-enso/helpers/license)](LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/helpers/version)](https://packagist.org/packages/laravel-enso/helpers)
+[![Downloads](https://poser.pugx.org/laravel-enso/helpers/downloads)](https://packagist.org/packages/laravel-enso/helpers)
+[![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/helpers.svg)](https://github.com/laravel-enso/helpers/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/helpers.svg)](https://github.com/laravel-enso/helpers/pulls)
 
-Helper classes dependency for [Laravel Enso](https://github.com/laravel-enso/Enso).
+## Description
 
-This package can work independently of the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+Helpers is a shared utility package for the Laravel Enso ecosystem.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+It bundles small reusable services, model traits, request helpers, casts, enums, contracts, and exceptions that are consumed by many backend packages. The package is intentionally broad: instead of modelling one business feature, it centralizes low-level building blocks that would otherwise be duplicated across the ecosystem.
+
+Typical use cases include precise decimal arithmetic, monetary calculations, JSON parsing, factory resolution in package models, request key normalization, active-state handling, cent-based storage, seeder progress reporting, and a few convenience enums and casts.
 
 ## Installation
 
-Comes pre-installed in Enso.
+This package is usually installed transitively by other Enso backend packages.
 
-To install outside of Enso: `composer require laravel-enso/helpers` 
+For standalone installation:
+
+```bash
+composer require laravel-enso/helpers
+```
+
+No publishing step is required.
+
+## Features
+
+- Provides decimal-safe arithmetic helpers built on BCMath.
+- Includes utility services for JSON reading, object wrapping, disk-size formatting, loan rates, pricing, chunk sizing, and factory resolution.
+- Provides Eloquent and request traits for active state, cent-based persistence, request-key normalization, morph-map handling, observer cascading, and touch propagation.
+- Includes casts for encrypted strings and JSON-backed object payloads.
+- Ships helper enums for VAT rates and payment methods.
+- Provides ecosystem-level helper exceptions and a JSON-friendly `EnsoException`.
+- Exposes an `Activatable` contract used by packages that model `is_active` semantics.
 
 ## Usage
 
-The following contracts, classes, exceptions and traits are available.
+Use `Decimals` for precise arithmetic:
 
-### Contracts
-
-- `Activatable`, makes sense for models that have  an `is_active`  column demands the 
-    implementation of the following methods:
-    - `isActive(): bool`
-    - `isInactive(): bool`
-
-    Can be used together with the `ActiveState` trait that provides a default implementation of the trait
-    and more. For information on the trait, see below.
-    
-### Classes
-
-- A `Decimals` class which is a wrapper for PHP's `bc*` methods such as `bcadd` 
-with support for a customizable, default precision
-- A `JsonParser` class that takes a JSON file as its constructor's argument, and can parse and 
-    transform the file to:
-    * object
-    * array
-    * JSON string
-- An `Obj` class which extends the Laravel Collection, with a constructor for building an object 
-    from an array, an object, a Laravel model that can even have loaded relationships and more. 
-    You can then use all the native Collection functions, as well as: 
-    * `set($key, $value)`,
-    * `filled($key)`,
-    
-#### Decimals - ` LaravelEnso\Helpers\app\Classes\Decimals`
-
-All the class' methods are static. 
-
-Methods:
-- `scale($precision)`, sets the default precision. If not specified, the precision will be `2`
-- `add($first, $second, $precision = null)`, calls `bcadd` with the given/default precision
-- `sub($first, $second, $precision = null)`, calls `bcsub` with the given/default precision
-- `mul($first, $second, $precision = null)`, calls `bcmul` with the given/default precision
-- `div($first, $second, $precision = null)`, calls `bcdiv` with the given/default precision
-- `sqrt($first, $second, $precision = null)`, calls `bcsqrt` with the given/default precision
-- `pow($first, $second, $precision = null)`, calls `bcpow` with the given/default precision
-- `mod($first, $second, $precision = null)`, calls `bcmod` with the given/default precision
-- `powmod($first, $second, $precision = null)`, calls `bcpowmod` with the given/default precision
-- `lt($first, $second, $precision = null)`, uses `bccomp` with the given/default precision, 
-returns the boolean result of a less than comparison
-- `lte($first, $second, $precision = null)`, uses `bccomp` with the given/default precision, 
-returns the boolean result of a less or equals than comparison
-- `eq($first, $second, $precision = null)`, uses `bccomp` with the given/default precision, 
-returns the boolean result of an equals comparison
-- `notEq($first, $second, $precision = null)`, uses `bccomp` with the given/default precision, 
-returns the boolean result of not equals comparison
-- `gt($first, $second, $precision = null)`, uses `bccomp` with the given/default precision, 
-returns the boolean result of a greater than comparison
-- `gte($first, $second, $precision = null)`, uses `bccomp` with the given/default precision, 
-returns the boolean result of a greater than or equals comparison
-- `ceil($first, $second, $precision = null)`, uses `bcceil` with the given/default precision, 
-returns the boolean result of a less than comparison
-- `floor($first, $second, $precision = null)`, uses `floor` with the given/default precision, 
-returns the boolean result of a less than comparison
-
-
-#### JsonParser - ` LaravelEnso\Helpers\app\Classes\JsonParser`
-
-The constructor takes a file name.  This must be a text file with valid json content. 
-Note: When trying to read it, a `JsonParseException` exception will be thrown if the file contents is not valid. 
-
-Methods:
-- `object()`, returns an object representation of the file
-- `array()`, returns an array representation of the file
-- `json`, returns an json representation of the file 
-
-#### Obj - ` LaravelEnso\Helpers\app\Classes\Obj`
-
-The constructor optionally takes an associate array or an object (even a Laravel model). 
-This parameter is used to set up the object. For arrays, it uses the array keys as properties 
-and the array values as the property values.
-
-Methods:
-- `all`,
-- `set(key, value)`, sets the value of the object's 'key' property
-- `filled(key)`, returns true if the 'key' property exists on the object and its value is not null
-
-For the list of available Collection methods, you may check out the official Laravel docs 
-[here](https://laravel.com/docs/6.x/collections#available-methods).
-
-### Exceptions
-
-- A generic exception: `EnsoException` is available also with a Facade. 
-This exception is extended by all the other Enso specific exceptions and it is not reported 
-by the Laravel's Exception Handler.
-
-- A `FileMissingException`, a child of `EnsoException`
-- A `JsonParseException`, a child of `EnsoException`
-
-These exceptions are used throughout various Enso packages.
-
-### Traits
-
-#### ActiveState 
-
-Adds the following methods for models that have a boolean `is_active` property:
-- `whereActive()` scope
-- `scopeInactive()` scope
-- `isActive()` helper
-- `isInactive()` helper
-- `activate()`, updates the model and sets is_active to `true`
-- `deactivate()`, updates the model and sets is_active to `false`
-
-#### AvoidsDeletionConflicts 
-
-The trait is meant to provide a generic user readable message when trying to delete a 
-model that cannot be actually deleted due to foreign key constraints. 
-
-It achieves this by overwriting the model's delete method, calls the parent delete method within a try-catch block
-and if there is any `QueryException`, throws a `ConflictHttpException` letting the user know 
-the model is used and cannot be deleted. 
-
-#### CascadesMorphMap
-
-The trait cascades Laravel's `getMorphClass()` method available on models and attempts to use 
-a key (if defined), otherwise falling back to the default Laravel implementation
-
-#### SeederProgress
-
-Allows to show a progress bar for long running database seeding processes.
-
-To use it:
-- import the trait
-- declare a constant chunk with a value that makes sense
-- before starting the seed process, call the trait's `start($count)` method with the total 
-    count of the items that will be seeded
-- start the seeding process, while ensuring you're seeding using chunks, and after
-    completing each chunk, call the trait's `advance()` method.   
-- once the seeding is complete,  call the trait's `end()` method.
-
-Example:
 ```php
-class ProductSeeder extends Seeder
+use LaravelEnso\Helpers\Services\Decimals;
+
+$gross = Decimals::add('100.25', '19.75');
+$vat = Decimals::mul('100', '0.19', 4);
+```
+
+Use `JsonReader` to load JSON in different formats:
+
+```php
+use LaravelEnso\Helpers\Services\JsonReader;
+
+$data = (new JsonReader($path))->array();
+$obj = (new JsonReader($path))->obj();
+```
+
+Use `PriceComputor` for pricing totals:
+
+```php
+use LaravelEnso\Helpers\Services\PriceComputor;
+
+$total = (new PriceComputor('100'))
+    ->quantity('2')
+    ->discountPercent('10')
+    ->vatPercent('19')
+    ->total();
+```
+
+Use the `InCents` trait when values are stored as integers in the database:
+
+```php
+use Illuminate\Database\Eloquent\Model;
+use LaravelEnso\Helpers\Traits\InCents;
+
+class Product extends Model
 {
-    use SeederProgress;
+    use InCents;
 
-    private const Chunk = 800;
-    
-    public function run()
-    {
-        $this->chunk(self::Chunk)
-            ->start(LegacyProduct::count());
-
-        LegacyProduct::chunkById(self::Chunk, function ($products) {
-            $this->insert($products);
-            $this->advance();
-        });
-        
-        $this->end();
-    }
-
-    private function insert($products) { ... }
+    protected array $centAttributes = ['amount'];
 }
 ```
 
-#### InCents
-
-When working with monetary values, the trait is meant to make your life easier if you choose to store 
-these values in cents.
-
-To use the trait:
-- add it to your class
-- declare the `protected $centAttributes = [ ];` field and set the model's monetary/cent attribute names
-- use the `inCents($mode)` to convert your values from/to cents
-
-For example: 
-- when returning a model to the front-end, after retrieving the it from the DB, call the 
-    `inCents(false)` method of the trait which will convert the monetary values from cents to your currency
-- when creating a new model, before filling any monetary attributes, you should call the `inCents(true/false)`
-    method to set the appropriate mode for the values you'll be filling
-    
-The trait does a few things automatically, based on an internal `$inCents` flag/mode:
-- whenever the model is retrieved from the DB, it notes that the values are in cents
-- before saving the model:
-    - if the values are not in cents, it converts them to cents
-    - if the values are in cents, nothing is altered
-    - if it can't determine whether the values are in cents or not, a `LogicException` is thrown   
-- when calling the `inCents` method on a model with dirty monetary attributes, and its internal
-    flag is not set, a `LogicException` is thrown
-    
-::: tip
-The trait's internal `$inCents` flag is public, thus for situations where it makes sense,
-you can set it directly, thus bypassing the `inCents()` method; 
-:::
-
-#### MapsRequestKeys
-
-When working with Resource representations of models, you may choose to use camelCase representations 
-for their attributes. Whenever updating the models based on user input, you'll probably want to fill 
-the updated values, however you'll have to remap them due to the mismatching keys.
-
-The trait can be used for FormRequest validations so that whenever the validation passes,
-you can update the model using:
+Normalize validated request keys through `MapsRequestKeys`:
 
 ```php
-$model->update($request->mapped());
+use Illuminate\Foundation\Http\FormRequest;
+use LaravelEnso\Helpers\Traits\MapsRequestKeys;
+
+class StoreCompany extends FormRequest
+{
+    use MapsRequestKeys;
+}
 ```
 
-#### UpdatesOnTouch
+::: warning Note
+When using `InCents`, call `inCents()` before mutating the configured cent attributes.
 
-The trait can be used on models where, whenever updated, you might also want to touch 
-other related (or parent) models.
-
-To use it:
-- add the trait to your model
-- declare the `protected $touches = ['relation'];` attribute and set the relationships to the related
-- within your logic, use the trait's `touchOwners`
-
-::: tip
-If any of the related models also use the `UpdatesOnTouch` trait, the touch will be cascaded.
+If the model already has dirty cent-tracked attributes, switching modes throws `LaravelEnso\Helpers\Exceptions\InCents`.
 :::
+
+## API
+
+### Services
+
+Core helpers:
+
+- `Decimals`
+- `JsonReader`
+- `Obj`
+- `FactoryResolver`
+- `OptimalChunk`
+- `DiskSize`
+
+Financial helpers:
+
+- `PriceComputor`
+- `Loan`
+
+Utility placeholder:
+
+- `Dummy`
+
+### Traits
+
+Model traits:
+
+- `ActiveState`
+- `AvoidsDeletionConflicts`
+- `CascadesMorphMap`
+- `CascadesObservers`
+- `ForceableIndex`
+- `InCents`
+- `UpdatesOnTouch`
+
+Request / validation traits:
+
+- `FiltersRequest`
+- `MapsRequestKeys`
+- `ToSnakeCase`
+- `TransformMorphMap`
+
+Seeder traits:
+
+- `SeederProgress`
+- `DatabaseSeedProgress`
+
+### Casts
+
+- `LaravelEnso\Helpers\Casts\Encrypt`
+- `LaravelEnso\Helpers\Casts\Obj`
+
+### Enums
+
+- `LaravelEnso\Helpers\Enums\PaymentMethods`
+- `LaravelEnso\Helpers\Enums\VatRates`
+
+### Contracts
+
+- `LaravelEnso\Helpers\Contracts\Activatable`
+
+### Exceptions
+
+- `LaravelEnso\Helpers\Exceptions\EnsoException`
+- `LaravelEnso\Helpers\Exceptions\InCents`
+- `LaravelEnso\Helpers\Exceptions\JsonParse`
+
+## Depends On
+
+Required Enso packages:
+
+- [`laravel-enso/enums`](https://docs.laravel-enso.com/backend/enums.html) [↗](https://github.com/laravel-enso/enums)
+
+Framework and runtime dependencies:
+
+- [`laravel/framework`](https://github.com/laravel/framework) [↗](https://github.com/laravel/framework)
+- [`doctrine/dbal`](https://github.com/doctrine/dbal) [↗](https://github.com/doctrine/dbal)
 
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-## License
+Thank you to all the people who already contributed to Enso!
 
-This package is released under the MIT license.
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/helpers/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/19/2026, 10:22:14 PM</div>
+</div>

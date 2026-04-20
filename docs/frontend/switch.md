@@ -1,78 +1,26 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Vue Switch
 
-![npm license](https://img.shields.io/npm/l/@enso-ui/progress-bar.svg) 
-![npm download](https://img.shields.io/npm/dm/@enso-ui/progress-bar.svg) 
-![GitHub top language](https://img.shields.io/github/languages/top/enso-ui/progress-bar.svg) 
-![GitHub issues](https://img.shields.io/github/issues/enso-ui/progress-bar.svg) 
-![npm version](https://img.shields.io/npm/v/@enso-ui/progress-bar.svg) 
-
-Vue Switch
-
-Can be used outside of the Enso ecosystem.
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
-
-## Installation
-
-Install the package:
-```
-yarn add @enso-ui/switch
-```
-
-(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
-
-### Exports
-
-`@enso-ui/switch/bulma`:
-- `VueSwitch`
-
+Vue switch component.
 
 ## Usage
 
-Import the component:
-```js
-import VueSwitch from '@enso-ui/switch/bulma';
-```
+The component can be used outside of the Enso ecosystem.
 
-### VueSwitch
+### Demo
 
-The bulma styled switch component. 
+For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
-#### Example:
-```vue
-<vue-switch class="has-margin-medium is-info"
-    v-model="myModel">
-    Enable
-</vue-switch>
-```
+### Installation, Configuration & Usage
 
-#### Props
-- `disabled` - `boolean`, optional - if true, the control is disabled
-- `readonly` - `boolean`, optional - if true, the control is readonly
-
-##### Via classes
-- you can adjust the size by adding `is-large`, `is-medium`, `is-small`
-- you cand style with with `is-info`, `is-warning`, `is-danger`, `is-success`, `is-primary`
-
-Events:
-- `input`, emitted when the value is changed, with the value/state as payload
-
-Slots:
-- `default`, can be used for having a control label
-
-## Questions & Issues
-
-For questions and support please use the issues functionality
-for this package's github repository.
-
-Please make sure to search for existing issues before creating a new issue,
-and when opening a new issue, fill the required information in the issue template.
-
-Issues not conforming to the guidelines may be closed immediately.
+Be sure to check out the full documentation for this package available at [docs.laravel-enso.com](https://docs.laravel-enso.com/frontend/switch.html).
 
 ## Contributions
 
@@ -82,4 +30,9 @@ Thank you to all the people who already contributed to Enso!
 
 ## License
 
-[ISC](https://opensource.org/licenses/ISC)
+[MIT](https://github.com/enso-ui/switch/blob/master/LICENSE)
+
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/enso-ui/switch/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/10/2026, 12:52:52 PM</div>
+</div>

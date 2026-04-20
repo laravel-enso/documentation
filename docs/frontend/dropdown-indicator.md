@@ -1,6 +1,10 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Dropdown Indicator
 
@@ -12,65 +16,16 @@ sidebarDepth: 3
 
 A simple dropdown indicator
 
-Can be used outside of the Enso ecosystem.
+## Usage
+All components can be used outside of the Enso ecosystem.
+
+### Demo
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
-## Installation
+### Installation, Configuration & Usage
 
-Install the package:
-```
-yarn add @enso-ui/dropdown-indicator
-```
-
-(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
-
-Import the desired component(s):
-```js
-import DropdownIndicator from '@enso-ui/dropdown-indicator';
-```
-
-### Exports
-
-`@enso-ui/dropdown-indicator`:
-- `DropdownIndicator`,
-
-
-Note that this package has a couple of external dependencies. 
-Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more info.
-
-## Usage
-Import the desired component(s):
-```js
-import DropdownIndicator from '@enso-ui/dropdown-indicator';
-```
-
-### Dropdown
-This is the bulma styled component.
-
-### Example:
-```vue
-<dropdown-indicator class="is-small"
-    :collapsed="!menu.expanded"
-    v-if="menu.has_children"/>
-```
-
-### Props
-- `open` - `boolean`, optional - if set to false, the control is rotated up so as to suggest the dropdown is open 
-
-
-### Methods
-- `toggle()`, toggles the state of the indicator & emits a `toggle` event
-
-## Questions & Issues
-
-For questions and support please use the issues functionality
-for this package's github repository.
-
-Please make sure to search for existing issues before creating a new issue,
-and when opening a new issue, fill the required information in the issue template.
-
-Issues not conforming to the guidelines may be closed immediately.
+Be sure to check out the full documentation for this package available at [docs.laravel-enso.com](https://docs.laravel-enso.com/frontend/dropdown-indicator.html)
 
 ## Contributions
 
@@ -80,4 +35,9 @@ Thank you to all the people who already contributed to Enso!
 
 ## License
 
-[ISC](https://opensource.org/licenses/ISC)
+[MIT](https://github.com/enso-ui/dropdown-indicator/blob/master/LICENSE)
+
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/enso-ui/dropdown-indicator/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/10/2026, 1:11:48 PM</div>
+</div>

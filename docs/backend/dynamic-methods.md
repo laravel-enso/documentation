@@ -1,90 +1,220 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Dynamic Methods
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6e342eff10f24db5b89be5fe203e424d)](https://www.codacy.com/app/laravel-enso/dynamic-methods?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/dynamic-methods&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/85492361/shield?branch=master)](https://github.styleci.io/repos/85492361)
-[![License](https://poser.pugx.org/laravel-enso/dynamic-methods/license)](https://packagist.org/packages/laravel-enso/datatable)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/dynamic-methods/downloads)](https://packagist.org/packages/laravel-enso/dynamic-methods)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/dynamic-methods/version)](https://packagist.org/packages/laravel-enso/dynamic-methods)
+[![License](https://poser.pugx.org/laravel-enso/dynamic-methods/license)](LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/dynamic-methods/version)](https://packagist.org/packages/laravel-enso/dynamic-methods)
+[![Downloads](https://poser.pugx.org/laravel-enso/dynamic-methods/downloads)](https://packagist.org/packages/laravel-enso/dynamic-methods)
+[![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/dynamic-methods.svg)](https://github.com/laravel-enso/dynamic-methods/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/dynamic-methods.svg)](https://github.com/laravel-enso/dynamic-methods/pulls)
 
-Dynamic method dependency for [Laravel Enso](https://github.com/laravel-enso/Enso).
+## Description
 
-This package can work independently of the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+Dynamic Methods adds runtime-bound relations, instance methods, scopes, mutators, and static methods to Laravel models and classes.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+The package scans `Dynamics` folders from configured vendor packages and from the host application, instantiates the dynamic definitions it finds, and binds their closures onto the target classes during boot.
 
-[![Watch the demo](https://laravel-enso.github.io/dynamic-methods/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/dynamic-methods/screenshots/bulma_001.png)
-
-<sup>click on the photo to view a a larger screenshot</sup>
+In the Enso ecosystem it is the mechanism used to let independent packages augment shared models like `User` without editing those models directly.
 
 ## Installation
 
-Comes pre-installed in Enso.
+Install the package:
 
-To install outside of Enso:
+```bash
+composer require laravel-enso/dynamic-methods
+```
 
-1. install the package `composer require laravel-enso/dynamic-methods` 
+The service provider is auto-registered and immediately binds all discovered dynamics on boot.
 
+If you want to customize which vendor namespaces are scanned, publish the configuration:
+
+```bash
+php artisan vendor:publish --tag=dynamics-config
+```
+
+Default configuration:
+
+```php
+return [
+    'vendors' => ['laravel-enso'],
+];
+```
+
+For application-level dynamics, place your classes under your app PSR-4 `Dynamics` folder. In a standard Laravel application this means `app/Dynamics`.
 
 ## Features
 
-- provides a trait that can be used to dynamically add methods on a class that would not normally have them
-- additionally, a series of other traits are available that, within the Laravel ecosystem, can be used to ensure
-that the dynamically added methods can be used as/for accessors and relationships
-- the traits can be used as an alternative to repeatedly extending classes, which can prove difficult and error prone
- in the context of building packages on top of other packages, on top of other packages. 
+- Scans configured vendor packages for `Dynamics` classes.
+- Scans the host application for its own `Dynamics` classes.
+- Binds dynamic Eloquent relations through `resolveRelationUsing()`.
+- Binds dynamic instance methods through `resolveMethodUsing()`.
+- Supports dynamic scopes and attribute mutators through the `Abilities` trait.
+- Supports dynamic static methods through `resolveStaticMethodUsing()`.
+- Keeps the dynamic definition format small and package-friendly.
 
 ## Usage
 
-#### Methods - `LaravelEnso\DynamicMethods\app\Traits\Methods`
+To receive dynamic instance methods, relations, scopes, and mutators, a model should implement `LaravelEnso\DynamicMethods\Contracts\DynamicMethods` and use `LaravelEnso\DynamicMethods\Traits\Abilities`.
 
-This is the core trait that permits adding a method to an object via its main method `addDynamicMethod`.
-The method takes a method name and a closure.
+Example model:
 
-Example:
 ```php
-Product::addDynamicMethod('foo', function () {
-    return 'bar';
-});
+use Illuminate\Database\Eloquent\Model;
+use LaravelEnso\DynamicMethods\Contracts\DynamicMethods;
+use LaravelEnso\DynamicMethods\Traits\Abilities;
+
+class User extends Model implements DynamicMethods
+{
+    use Abilities;
+}
 ```
 
-Afterwards, you can simply call the newly added method on Product instances, as if the method had been there all along:
+Define a dynamic relation in a package or app `Dynamics` class:
+
 ```php
-$p = new Product();
-$p->foo(); //'bar'
+use Closure;
+use LaravelEnso\ActionLogger\Models\ActionLog;
+use LaravelEnso\DynamicMethods\Contracts\Relation;
+use LaravelEnso\Users\Models\User;
+
+class ActionLogs implements Relation
+{
+    public function bindTo(): array
+    {
+        return [User::class];
+    }
+
+    public function name(): string
+    {
+        return 'actionLogs';
+    }
+
+    public function closure(): Closure
+    {
+        return fn (User $user) => $user->hasMany(ActionLog::class);
+    }
+}
 ```
 
-#### Mutators - `LaravelEnso\DynamicMethods\app\Traits\Mutators`
+Define a dynamic instance method:
 
-The trait uses `Methods` and overwrites Laravel Model's `hasGetMutator($key)` and `hasSetMutator($key)` methods
-so that when dynamically adding mutator methods on models, the newly added methods are used if necessary.
-
-#### Relations - `LaravelEnso\DynamicMethods\app\Traits\Relations`
-
-The trait uses `Methods` and overwrites Laravel Model's `getRelationValue($key)` method
-so that when dynamically adding relationship methods on models, the newly added methods are used if necessary.
-
-Example:
 ```php
-Product::addDynamicMethod('manufacturer', function () {
-    return $this->belongsTo(Manufacturer::class);
-});
-``` 
+use Closure;
+use Illuminate\Support\Facades\Session;
+use LaravelEnso\DynamicMethods\Contracts\Method;
+use LaravelEnso\Users\Models\User;
 
-#### StaticMethods - `LaravelEnso\DynamicMethods\app\Traits\StaticMethods`
+class IsImpersonating implements Method
+{
+    public function bindTo(): array
+    {
+        return [User::class];
+    }
 
-Similar to `Methods`, the trait permits adding a static method to an object via its main method `addDynamicStaticMethod`.
-The method takes a method name and a closure.
+    public function name(): string
+    {
+        return 'isImpersonating';
+    }
 
-Of course, when calling the method, the call should be made statically.
-   
-### Contributions
+    public function closure(): Closure
+    {
+        return fn () => Session::has('impersonating');
+    }
+}
+```
+
+After boot, the bound methods can be used as if they were defined on the model itself:
+
+```php
+$user->actionLogs();
+$user->isImpersonating();
+```
+
+::: warning Note
+The binder discovers dynamics by reading package `composer.json` PSR-4 configuration and then scanning a `Dynamics` directory relative to that namespace root.
+
+In practice, the package also relies on `laravel-enso/helpers` for `JsonReader`, even though that dependency is currently not declared in `composer.json`.
+:::
+
+## API
+
+### Configuration
+
+`config/dynamics.php`
+
+Keys:
+
+- `vendors`
+
+The binder scans:
+
+- `vendor/<configured-vendor>/*`
+- the application base path and its PSR-4 root
+
+### Service Provider
+
+`LaravelEnso\DynamicMethods\AppServiceProvider`
+
+Responsibilities:
+
+- merges `enso.dynamics` config
+- publishes `config/dynamics.php`
+- runs the binder during boot
+
+### Contracts
+
+- `LaravelEnso\DynamicMethods\Contracts\Method`
+- `LaravelEnso\DynamicMethods\Contracts\Relation`
+- `LaravelEnso\DynamicMethods\Contracts\StaticMethod`
+- `LaravelEnso\DynamicMethods\Contracts\DynamicMethods`
+- `LaravelEnso\DynamicMethods\Contracts\DynamicStaticMethods`
+
+Definition contracts require:
+
+- `name(): string`
+- `closure(): Closure`
+- `bindTo(): array`
+
+### Traits
+
+- `LaravelEnso\DynamicMethods\Traits\Methods`
+- `LaravelEnso\DynamicMethods\Traits\StaticMethods`
+- `LaravelEnso\DynamicMethods\Traits\Abilities`
+
+`Abilities` extends `Methods` and also makes dynamic scopes, accessors, and mutators discoverable through Eloquent's standard model checks.
+
+### Services
+
+- `LaravelEnso\DynamicMethods\Services\Binder`
+- `LaravelEnso\DynamicMethods\Services\Dynamics`
+- `LaravelEnso\DynamicMethods\Services\Method`
+- `LaravelEnso\DynamicMethods\Services\Relation`
+- `LaravelEnso\DynamicMethods\Services\StaticMethod`
+
+## Depends On
+
+Required Enso packages:
+
+- [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
+
+Framework dependency:
+
+- [`laravel/framework`](https://github.com/laravel/framework) [↗](https://github.com/laravel/framework)
+
+## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-### License
+Thank you to all the people who already contributed to Enso!
 
-This package is released under the MIT license.
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/dynamic-methods/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/19/2026, 10:22:07 PM</div>
+</div>

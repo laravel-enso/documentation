@@ -1,6 +1,10 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Calendar
 
@@ -10,13 +14,6 @@ sidebarDepth: 3
 ![GitHub issues](https://img.shields.io/github/issues/enso-ui/calendar.svg) 
 ![npm version](https://img.shields.io/npm/v/@enso-ui/calendar.svg) 
 
-[![Screenshot](https://laravel-enso.github.io/calendar/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/calendar/screenshots/bulma_001.png)
-
-[![Screenshot](https://laravel-enso.github.io/calendar/screenshots/bulma_002_thumb.png)](https://laravel-enso.github.io/calendar/screenshots/bulma_002.png)
-
-<sup>click on the photo to view a large size screenshot</sup>
-
-
 ## Usage
 The component cannot be used outside of the Enso ecosystem.
 
@@ -24,31 +21,9 @@ The component cannot be used outside of the Enso ecosystem.
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
-## Installation
+### Installation, Configuration & Usage
 
-Install the package:
-```
-yarn add @enso-ui/calendar
-```
-
-(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
-
-## Usage
-
-In order to start using the calendar functionality, create a new calendar 
-from the 'plus' button in the calendar page. 
-
-Then:
-- to create an event, click and hold on the desired day in the calendar, 
-on empty/available space
-- to edit an event, double click the event
-- to delete an event, click and hold an existing event
-- to 'resize' an event, drag on the event's edge
-
-::: tip
-Note that you may not edit events that are read-only - when double-clicking on such events,
-nothing will happen.
-:::
+Be sure to check out the full documentation for this package available at [docs.laravel-enso.com](https://docs.laravel-enso.com/frontend/calendar.html)
 
 ## Contributions
 
@@ -58,4 +33,9 @@ Thank you to all the people who already contributed to Enso!
 
 ## License
 
-[ISC](https://opensource.org/licenses/ISC)
+[MIT](https://github.com/enso-ui/calendar/blob/master/LICENSE)
+
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/enso-ui/calendar/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/10/2026, 3:40:08 PM</div>
+</div>

@@ -1,122 +1,235 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Addresses
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c7404086a15a4db6b2080b1d09b0688a)](https://www.codacy.com/app/laravel-enso/addresses?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/addresses&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/113445673/shield?branch=master)](https://github.styleci.io/repos/113445673)
-[![License](https://poser.pugx.org/laravel-enso/addresses/license)](https://packagist.org/packages/laravel-enso/addresses)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/addresses/downloads)](https://packagist.org/packages/laravel-enso/addresses)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/addresses/version)](https://packagist.org/packages/laravel-enso/addresses)
+[![License](https://poser.pugx.org/laravel-enso/addresses/license)](LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/addresses/version)](https://packagist.org/packages/laravel-enso/addresses)
+[![Downloads](https://poser.pugx.org/laravel-enso/addresses/downloads)](https://packagist.org/packages/laravel-enso/addresses)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/addresses.svg)](https://github.com/laravel-enso/addresses/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/addresses.svg)](https://github.com/laravel-enso/addresses/pulls)
 
-Free-form addresses manager for [Laravel Enso](https://github.com/laravel-enso/Enso)
+## Description
 
-This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+Addresses is Laravel Enso's reusable address management package for attaching one or more addresses to morphable entities.
 
-There is a front end implementation for this this api in the [accessories](https://github.com/enso-ui/accessories) package.
+It covers the full backend flow for storing, editing, localizing, and querying addresses, while also shipping geographic reference data and API endpoints for address forms, selectors, and dependent location lookups.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
-
-[![Screenshot](https://laravel-enso.github.io/addresses/screenshots/bulma_041_thumb.png)](https://laravel-enso.github.io/addresses/screenshots/bulma_041.png)
-
-[![Screenshot](https://laravel-enso.github.io/addresses/screenshots/bulma_042_thumb.png)](https://laravel-enso.github.io/addresses/screenshots/bulma_042.png)
+The package is designed to work inside the Enso ecosystem and pairs naturally with the frontend address components from `@enso-ui/addresses`.
 
 ## Installation
 
-Comes pre-installed in Enso.
+This package comes pre-installed in Laravel Enso applications that require address management.
+
+For standalone installation in an Enso-based application:
+
+```bash
+composer require laravel-enso/addresses
+```
+
+The package auto-registers its service provider, loads migrations, merges its configuration, and loads its API routes.
+
+Run the migrations after installation:
+
+```bash
+php artisan migrate
+```
+
+If you need the publishable assets, the package exposes:
+
+- `php artisan vendor:publish --tag=addresses-factory`
+- `php artisan vendor:publish --tag=enso-factories`
+- `php artisan vendor:publish --tag=addresses-seeder`
+- `php artisan vendor:publish --tag=enso-seeders`
+- `php artisan vendor:publish --tag=addresses-config`
+- `php artisan vendor:publish --tag=enso-config`
 
 ## Features
 
-- can be used to attach addresses to any entity, via a polymorphic relationship
-- allows saving of multiple addresses for an addresable entity
-- features an easy flow for setting the default address 
-- comes with an additional table for Countries, with all the countries pre-populated
-- brings its own free-form form for the edit and creation of addresses
-- has a publishable configuration file where you can customize the module to your liking 
-- includes an `Addressable` trait, for defining relationships and attributes
-- the package as whole is designed to be extendable, so you could create custom versions for specific countries
+- Attaches addresses to arbitrary models through a polymorphic `addressable` relation.
+- Supports one default address, billing flags, and shipping flags.
+- Provides dedicated relations for `address()`, `billingAddress()`, `shippingAddresses()`, and `addresses()`.
+- Includes geographic models and data for countries, regions, localities, townships, sectors, and postcodes.
+- Ships API endpoints for CRUD flows, address form bootstrapping, select options, postcode lookup, and geolocation.
+- Generates address labels from structured location data.
+- Supports automatic coordinate lookup through Google geocoding.
+- Allows single-address or multiple-address scenarios depending on the consuming model behavior.
+- Protects addressable model deletion according to the configured `onDelete` strategy.
+- Includes factories, migrations, seeders, validation, JSON form templates, and API resources.
 
 ## Usage
 
-1. you may publish the configuration and customize the options as needed
-2. use the package's `Addresable` trait for the models you want to make addressable
-3. insert the `Addreses` vue component where required in your pages/components, see the 
-front end implementation [docs](https://docs.laravel-enso.com/frontend/accessories.html#addresses) for the available options
-
-### Configuration
-
-Inside the `config/enso/addresses.php` file, you'll find several customization options:
-- `onDelete`, string, option that manages the case when the commentable entity is deleted 
-    and it has attached discussions. Valid options are `cascade`, `restrict` | default is `cascade`
-
-    With the cascade option, when a discussable model is deleted, the discussions attached to it are also deleted. 
-    With the restrict option,  when attempting to delete a discussable model with attached discussions, an exception is thrown.
-- `loggableMorph`, the list of entities using the addressable functionality, 
-    each mapped to its respective loggable attribute. For example: 
-    ```php
-    'addressable' => [
-        Company::class => 'name',
-    ],
-    ```
-- `streetTypes`, the list of street types shown in the form's street type select
-- `buildingTypes`, same as above, for buildings
-- `label`, label configuration options:
-    - `separator`, the separator used when composing labels, default `-`
-    - `attributes`, the list of attributes used for the label, default: `'localityName', 'street', 'number'`
-
-### Extending the addresses
-
-In your project you may have the need to alter and or extend the addresses structure by 
-adding/removing table columns.
-To achieve this, you'd need to:
-- add migration(s) to your local project, making the necessary changes. Note that if using 
-    sqlite for testing, some of the migration commands may not be available
-- create a local model which extends the package model and set the proper `$fillable` attribute, 
-    define relations, etc.    
-- create a local template and set the path in addresses configuration, 
-    under the `enso.addresses.formTemplate` key. Also, you may mark any form fields as custom and then 
-    customize them in your page, using slots (like for the VueForm). 
-- create a new form builder, extend the one in the package (`AddressForm`), and specify the `TemplatePath`
-    to your previously created template.    
-- create a new request validation and extend the one in the package (`ValidateAddressRequest`)
-- bind your local implementations of the model, request and the form builder to their package counterparts
-    in your local `AppServiceProvider`
+Add the `Addressable` trait to the model that should own addresses:
 
 ```php
-class AppServiceProvider extends ServiceProvider
-{
-    public $bindings = [
-        ValidateAddressRequest::class => MyValidateddressRequest::class,
-        AddressForm::class => MyForm::class,
-        Address::class => MyAddress::class,
-    ]; 
+use Illuminate\Database\Eloquent\Model;
+use LaravelEnso\Addresses\Traits\Addressable;
 
-    ...
+class Company extends Model
+{
+    use Addressable;
 }
 ```
 
-::: tip
-Note that if you just want to customize the label for the address, you may simply publish and customize the 
-`label` section of the config (see the Configuration section above). 
-::: 
+You can then work with the provided relations:
 
-## Publishes
+```php
+$company->address;
+$company->billingAddress;
+$company->shippingAddresses;
+$company->addresses;
+```
 
-- `php artisan vendor:publish --tag=addresses-seeder` - the seeder used for countries
-- `php artisan vendor:publish --tag=enso-seeders` - a common alias for when wanting to update the seeders
-once a newer version is released, usually used with `--force` 
-- `php artisan vendor:publish --tag=addresses-factory` - the factory used for address
-- `php artisan vendor:publish --tag=enso-seeders` - a common alias for when wanting to update the seeders
-once a newer version is released, usually used with `--force`
-- `php artisan vendor:publish --tag=addresses-config` - configuration file
-- `php artisan vendor:publish --tag=enso-config` - a common alias for when wanting to update the config,
-once a newer version is released, usually used with `--force`
+Create a new address through the model relationship:
+
+```php
+$company->addresses()->create([
+    'country_id' => 1,
+    'region_id' => 10,
+    'locality_id' => 25,
+    'street' => 'Main Street',
+    'number' => '10',
+    'postcode' => '123456',
+    'is_default' => true,
+]);
+```
+
+The package also exposes selectable address options and CRUD endpoints that can be consumed by Enso forms and frontend components.
+
+::: warning Note
+If the consuming model should behave like a single-address owner, trying to create a second address through the package flow will raise a package exception.
+
+Deletion behavior also depends on `enso.addresses.onDelete`: `cascade` removes addresses with the owner, while `restrict` blocks owner deletion when addresses still exist.
+:::
+
+## API
+
+### Routes
+
+All package routes are registered under:
+
+- prefix: `api/core/addresses`
+- name prefix: `core.addresses.`
+- middleware: `api`, `auth`, `core`
+
+Endpoints:
+
+- `GET /api/core/addresses/localities`
+- `GET /api/core/addresses/regions`
+- `GET /api/core/addresses/sectors`
+- `GET /api/core/addresses`
+- `GET /api/core/addresses/create`
+- `POST /api/core/addresses`
+- `GET /api/core/addresses/options`
+- `GET /api/core/addresses/postcode`
+- `GET /api/core/addresses/{address}/edit`
+- `GET /api/core/addresses/{address}/localize`
+- `PATCH /api/core/addresses/{address}`
+- `PATCH /api/core/addresses/{address}/coordinates`
+- `DELETE /api/core/addresses/{address}`
+- `PATCH /api/core/addresses/makeDefault/{address}`
+- `PATCH /api/core/addresses/makeBilling/{address}`
+- `PATCH /api/core/addresses/makeShipping/{address}`
+- `GET /api/core/addresses/{address}`
+
+### Model
+
+`LaravelEnso\Addresses\Models\Address`
+
+Key relationships:
+
+- `country()`
+- `region()`
+- `locality()`
+- `sector()`
+- `addressable()`
+
+Useful methods:
+
+- `label()`
+- `store()`
+- `makeDefault()`
+- `makeBilling()`
+- `toggleBilling()`
+- `toggleShipping()`
+- `localize()`
+- `shouldBeSingle()`
+- `isLocalized()`
+
+Useful scopes:
+
+- `default()`
+- `notDefault()`
+- `forPerson()`
+- `forCompany()`
+- `for()`
+- `ordered()`
+
+### Trait
+
+`LaravelEnso\Addresses\Traits\Addressable`
+
+Exposes:
+
+- `address()`
+- `billingAddress()`
+- `shippingAddresses()`
+- `addresses()`
+
+It also hooks into model deletion to enforce the configured address cleanup strategy.
+
+### Configuration
+
+Config file:
+
+- `config/enso/addresses.php`
+
+Current package options:
+
+- `onDelete`
+  Controls owner deletion behavior: `cascade` or `restrict`
+- `defaultCountryId`
+  Default country used by the package flows
+
+::: tip Tip
+If you need country-specific behavior or custom address structure, extend the package locally instead of editing vendor code directly. The package was built to allow custom models, requests, form builders, and templates in the host application.
+:::
+
+## Depends On
+
+Required Enso packages:
+
+- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/countries`](https://docs.laravel-enso.com/backend/countries.html) [↗](https://github.com/laravel-enso/countries)
+- [`laravel-enso/enums`](https://docs.laravel-enso.com/backend/enums.html) [↗](https://github.com/laravel-enso/enums)
+- [`laravel-enso/forms`](https://docs.laravel-enso.com/backend/forms.html) [↗](https://github.com/laravel-enso/forms)
+- [`laravel-enso/google`](https://docs.laravel-enso.com/backend/google.html) [↗](https://github.com/laravel-enso/google)
+- [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
+- [`laravel-enso/migrator`](https://docs.laravel-enso.com/backend/migrator.html) [↗](https://github.com/laravel-enso/migrator)
+- [`laravel-enso/rememberable`](https://docs.laravel-enso.com/backend/rememberable.html) [↗](https://github.com/laravel-enso/rememberable)
+- [`laravel-enso/select`](https://docs.laravel-enso.com/backend/select.html) [↗](https://github.com/laravel-enso/select)
+
+Companion frontend package:
+
+- [`@enso-ui/addresses`](https://docs.laravel-enso.com/frontend/addresses.html) [↗](https://github.com/enso-ui/addresses)
+
+External service dependency:
+
+- Google geocoding support through [`laravel-enso/google`](https://docs.laravel-enso.com/backend/google.html) [↗](https://github.com/laravel-enso/google) when using address localization
 
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-## License
+Thank you to all the people who already contributed to Enso!
 
-This package is released under the MIT license.
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/addresses/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 9:56:56 AM</div>
+</div>

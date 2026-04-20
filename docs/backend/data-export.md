@@ -1,10 +1,14 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Data Export
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7ea7f7704b2044f9950074cf8afb6e3f)](https://www.codacy.com/app/laravel-enso/data-export?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/data-export&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/fae89f0edfc2495589062279e8233f76)](https://www.codacy.com/gh/laravel-enso/data-export?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/data-export&amp;utm_campaign=Badge_Grade) 
 [![StyleCI](https://github.styleci.io/repos/148101651/shield?branch=master)](https://github.styleci.io/repos/148101651)
 [![License](https://poser.pugx.org/laravel-enso/data-export/license)](https://packagist.org/packages/laravel-enso/data-export)
 [![Total Downloads](https://poser.pugx.org/laravel-enso/data-export/downloads)](https://packagist.org/packages/laravel-enso/data-export)
@@ -18,26 +22,19 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 
 [![Watch the demo](https://laravel-enso.github.io/data-export/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/data-export/screenshots/bulma_001.png)
 
-## Installation
+### Installation, Configuration & Usage
 
-Comes pre-installed in Enso.
+Be sure to check out the full documentation for this package available at [docs.laravel-enso.com](https://docs.laravel-enso.com/backend/data-export.html)
 
-## Features
-- creates the structures and statuses necessary during the processes of exporting data
-
-## Data-Export model
-Has the following attributes:
-- `id`
-- `name`
-- `entries`
-- `status` 
-- `created_by`
-- `created_at`
-
-## Contributions
+### Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-## License
+### License
 
 This package is released under the MIT license.
+
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/data-export/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 7/9/2020, 8:53:26 AM</div>
+</div>

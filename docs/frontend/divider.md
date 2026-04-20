@@ -1,66 +1,24 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Divider
 
-![NPM License](https://img.shields.io/npm/l/@enso-ui/divider.svg)
-![npm download](https://img.shields.io/npm/dm/@enso-ui/divider.svg)
-![GitHub top language](https://img.shields.io/github/languages/top/enso-ui/divider.svg)
-![GitHub issues](https://img.shields.io/github/issues/enso-ui/divider.svg)
-![npm version](https://img.shields.io/npm/v/@enso-ui/divider.svg)
-
-Vue Divider
-
-The component can be used outside of the Enso ecosystem.
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
-
-## Installation
-
-Install the package:
-```
-yarn add @enso-ui/divider
-```
-
-(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
-
-### Exports
-
-`@enso-ui/divider`:
-- `Divider`,
+Simple divider component.
 
 ## Usage
 
-### Divider.vue
-
-Simple divider component.
-
-#### Example:
-```vue
-<divider title="Divider text" placement="center"/>
-```
-
-#### Props
-- `placement` - `string`, optional, default `center` - the positioning of the title. Valid options are: 'left', 'center', 'right'
-- `title` - `string`, optional - the title/text used for the divider
-
-## Questions & Issues
-
-For questions and support please use the issues functionality
-for this package's github repository.
-
-Please make sure to search for existing issues before creating a new issue,
-and when opening a new issue, fill the required information in the issue template.
-
-Issues not conforming to the guidelines may be closed immediately.
-
-## Contributions
-
-are welcome. Pull requests are great, but issues are good too.
-
-Thank you to all the people who already contributed to Enso!
+The component can be used outside of the Enso ecosystem.
 
 ## License
 
-[ISC](https://opensource.org/licenses/ISC)
+[MIT](https://github.com/enso-ui/divider/blob/master/LICENSE)
+
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/enso-ui/divider/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/10/2026, 1:11:34 PM</div>
+</div>

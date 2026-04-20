@@ -1,6 +1,10 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Menus
 
@@ -11,21 +15,17 @@ sidebarDepth: 3
 ![npm version](https://img.shields.io/npm/v/@enso-ui/menus.svg) 
 
 ## Usage
-
 The component cannot be used outside of the Enso ecosystem.
 
 ### Demo
 
 For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
 
-### Installation
+Check the full documentation at  [docs.laravel-enso.com](https://docs.laravel-enso.com).
 
-Install the package:
-```
-yarn add @enso-ui/menus
-```
+### Installation, Configuration & Usage
 
-(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+Be sure to check out the full documentation for this package available at [docs.laravel-enso.com](https://docs.laravel-enso.com/frontend/menus.html)
 
 ## Contributions
 
@@ -35,4 +35,9 @@ Thank you to all the people who already contributed to Enso!
 
 ## License
 
-[ISC](https://opensource.org/licenses/ISC)
+[MIT](https://github.com/enso-ui/menus/blob/master/LICENSE)
+
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/enso-ui/menus/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/10/2026, 1:12:46 PM</div>
+</div>

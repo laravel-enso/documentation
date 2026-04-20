@@ -1,10 +1,14 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # IO
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/ff415bb65927479a80d173622d3c11ed)](https://www.codacy.com/app/laravel-enso/io?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/io&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/3dd9d03964e34b06bfbd8c11a41ec082)](https://www.codacy.com/gh/laravel-enso/io?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/io&amp;utm_campaign=Badge_Grade)
 [![StyleCI](https://github.styleci.io/repos/168923570/shield?branch=master)](https://github.styleci.io/repos/168923570)
 [![License](https://poser.pugx.org/laravel-enso/io/license)](https://packagist.org/packages/laravel-enso/io)
 [![Total Downloads](https://poser.pugx.org/laravel-enso/io/downloads)](https://packagist.org/packages/laravel-enso/io)
@@ -16,36 +20,21 @@ This package works exclusively within the [Enso](https://github.com/laravel-enso
 
 The front end assets that utilize this api are present in the [ui](https://github.com/enso-ui/ui) package.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com).
 
-## Installation
+### Installation, Configuration & Usage
 
-Comes pre-installed in Enso.
+Be sure to check out the full documentation for this package available at [docs.laravel-enso.com](https://docs.laravel-enso.com/backend/io.html)
 
-## Features
-
-- provides a series of classes useful when working with long running IO operations
-- includes the reusable `IOEvent` broadcastable event class
-- is already used in the Data Import and Data Export packages
-- comes with Enums for the events, statuses and types
-- provides an observer that can be used on models that perform IO operations
-
-## Usage
-
-When wishing to broadcast IO events you need to:
-- add the `HasIOStatuses` on the desired model
-- the model must implement the `IOOperation` interface
-- in `AppServiceProvider`, set the `IOObserver` to observe the model
-
-Whenever the model will be created, or updated, an event will be dispatched.
-
-The Enso front end assets are designed to display the progress information available
-in the dispatched events. 
-
-## Contributions
+### Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-## License
+### License
 
 This package is released under the MIT license.
+
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/io/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 7/8/2020, 3:29:54 PM</div>
+</div>

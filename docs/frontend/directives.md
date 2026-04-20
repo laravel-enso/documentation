@@ -1,144 +1,145 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Directives
 
-![NPM License](https://img.shields.io/npm/l/@enso-ui/directives.svg)
-![npm download](https://img.shields.io/npm/dm/@enso-ui/directives.svg)
-![GitHub top language](https://img.shields.io/github/languages/top/enso-ui/directives.svg)
-![GitHub issues](https://img.shields.io/github/issues/enso-ui/directives.svg)
-![npm version](https://img.shields.io/npm/v/@enso-ui/directives.svg)
-
-Vue Directives Package
-
-The directives can be used outside of the Enso ecosystem.
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+Vue directives used across the Enso UI packages.
 
 ## Installation
 
-Install the package:
-```
+```bash
 yarn add @enso-ui/directives
 ```
 
-(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
-
-### Exports
-
-`@enso-ui/directives`:
-- `clickOutside`,
-- `focus`,
-- `hljs`,
-- `longClick`,
-- `selectOnFocus`,
-
 ## Usage
 
-Import the desired directive(s):
+Register the directives you need locally:
+
 ```js
-import { clickOutside, focus } from '@enso-ui/directives';
+import { clickOutside, scrollIntoView } from '@enso-ui/directives';
+
+export default {
+    directives: { clickOutside, scrollIntoView },
+};
 ```
 
-### clickOutside.js
+Or register them globally:
 
-Directive detects clicking outside the component.
+```js
+import * as directives from '@enso-ui/directives';
 
-Example:
+Object.entries(directives).forEach(([name, directive]) => {
+    app.directive(name, directive);
+});
+```
+
+## API
+
+### `v-click-outside`
+
+Calls a handler when the click target is outside the bound element.
+
 ```vue
-<div v-click-outside="handler" class="navbar-item io">
+<div v-click-outside="close">
     ...
 </div>
 ```
 
-where `handler` must be a `Function`
+### `v-fits-below`
 
-### focus.js
+Computes whether an element fully fits in the current viewport and passes the
+result to a callback.
 
-Focuses the element on initial render
-
-Example:
 ```vue
-<input class="input team-name"
-    v-model="team.name"
-    v-if="team.edit"
-    v-focus>
+<div v-fits-below="updatePlacement">
+    ...
+</div>
 ```
 
-### hljs.js
+```js
+methods: {
+    updatePlacement(fitsBelow) {
+        this.fitsBelow = fitsBelow;
+    },
+},
+```
 
-A directive implementation of the highlight.js library.
+### `v-focus`
 
-Example:
+Focuses the element after the current tick.
+
+```vue
+<input v-focus>
+```
+
+### `v-hljs`
+
+Runs Highlight.js on the first `code` element inside the bound node.
+
 ```vue
 <pre v-hljs>
-    <code class="php">
-        {{ log.content }}
-    </code>
+    <code>{{ snippet }}</code>
 </pre>
 ```
 
-### longClick.js
+### `v-long-click`
 
-Permits adding actions when long-clicking elements. 
-Note that the duration (in milliseconds) is required. 
+Runs a handler only after the pointer stays pressed for the configured duration
+in milliseconds.
 
-Example:
 ```vue
-<button class="button is-naked"
-    v-tooltip="i18n('Download invoice (long click for cancel)')"
-    v-long-click:1500="cancelInvoice"
-    key="invoice"
-    @click="downloadInvoice">
-    <span class="icon has-text-info">
-        <fa icon="file-invoice-dollar"/>
-    </span>
+<button v-long-click:750="archive">
+    Archive
 </button>
 ```
 
-### selectOnFocus.js
+### `v-resize`
 
-Selects the contents of the input on focus.
+Auto-resizes an input to its content width. An optional numeric argument sets
+the minimum width in pixels.
 
-Example:
 ```vue
-<input type="text"
-    class="input is-rounded"
-    v-select-on-focus
-    :placeholder="__('Search')"
-    v-model="query">
+<input v-resize:80 v-model="value">
 ```
 
-### Exports
+### `v-scroll-into-view`
 
-`@enso-ui/directives/renderless`:
-- `clickOutside`,
-- `focus`,
-- `hljs`,
-- `longClick`,
-- `selectOnFocus`,
+Calls `Element.scrollIntoView()` when `scroll` transitions to `true`.
 
-## Questions & Issues
+```vue
+<a v-scroll-into-view="{
+    scroll: active,
+    block: 'nearest',
+    inline: 'nearest',
+    behavior: 'smooth',
+}">
+    Current item
+</a>
+```
 
-For questions and support please use the issues functionality
-for this package's github repository.
+Supported options are the native `scrollIntoView()` options:
+- `block`
+- `inline`
+- `behavior`
 
-Please make sure to search for existing issues before creating a new issue,
-and when opening a new issue, fill the required information in the issue template.
+### `v-select-on-focus`
 
-Issues not conforming to the guidelines may be closed immediately.
+Selects the current value when the element receives focus.
 
-## External Dependencies
-
-Uses highlight.js for code formatting
-
-## Contributions
-
-are welcome. Pull requests are great, but issues are good too.
-
-Thank you to all the people who already contributed to Enso!
+```vue
+<input v-select-on-focus v-model="value">
+```
 
 ## License
 
-[ISC](https://opensource.org/licenses/ISC)
+[MIT](https://github.com/enso-ui/directives/blob/master/LICENSE)
+
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/enso-ui/directives/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/18/2026, 12:34:09 PM</div>
+</div>

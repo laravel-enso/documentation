@@ -1,10 +1,14 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # How-To
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1781cd55ca3048eda6fd70066cc7585a)](https://www.codacy.com/app/laravel-enso/how-to?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/how-to&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/cb7c28bb7a52455aa8c9444f3438e550)](https://www.codacy.com/gh/laravel-enso/how-to?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/how-to&amp;utm_campaign=Badge_Grade)
 [![StyleCI](https://github.styleci.io/repos/109481095/shield?branch=master)](https://github.styleci.io/repos/109481095)
 [![License](https://poser.pugx.org/laravel-enso/HowTo/license)](https://https://packagist.org/packages/laravel-enso/HowTo)
 [![Total Downloads](https://poser.pugx.org/laravel-enso/HowTo/downloads)](https://packagist.org/packages/laravel-enso/HowTo)
@@ -22,25 +26,9 @@ For live examples and demos, you may visit [laravel-enso.com](https://www.larave
 
 <sup>click on the photo to view a short demo in compatible browsers</sup>
 
-## Installation
+### Installation, Configuration & Usage
 
-Comes pre-installed in Enso.
-
-## Features
-
-Allows you to add videos to your application, to show users how to perform a specific action, demonstrate a feature, 
-present a process flow, etc. This is a complementary package to [Tutorial Manager](https://github.com/laravel-enso/TutorialManager).
- 
- * easily upload media clips from your computer, setting a title and a description
- * simple-to-use tag manager
- * optionally add a caption/cover picture for each video
- * optionally tag the clips and then filter them using the tags 
- * permissions dependent controls, where regular users can only view the videos. 
-
-## Publishes
-
-- `php artisan vendor:publish --tag=howToVideos-storage` - the storage folder 
-that holds the medial files that will be uploaded
+Be sure to check out the full documentation for this package available at [docs.laravel-enso.com](https://docs.laravel-enso.com/backend/how-to.html)
 
 ## Contributions
 
@@ -49,3 +37,8 @@ are welcome. Pull requests are great, but issues are good too.
 ## License
 
 This package is released under the MIT license.
+
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/how-to/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 6/25/2020, 1:01:05 PM</div>
+</div>

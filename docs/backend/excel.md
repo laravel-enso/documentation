@@ -1,63 +1,183 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Excel
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/28c7bcb0b5d2451783990e0a151f0a44)](https://www.codacy.com/app/laravel-enso/excel?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/excel&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/85624363/shield?branch=master)](https://github.styleci.io/repos/85624363)
-[![License](https://poser.pugx.org/laravel-enso/excel/license)](https://packagist.org/packages/laravel-enso/excel)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/excel/downloads)](https://packagist.org/packages/laravel-enso/excel)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/excel/version)](https://packagist.org/packages/laravel-enso/excel)
+[![License](https://poser.pugx.org/laravel-enso/excel/license)](LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/excel/version)](https://packagist.org/packages/laravel-enso/excel)
+[![Downloads](https://poser.pugx.org/laravel-enso/excel/downloads)](https://packagist.org/packages/laravel-enso/excel)
+[![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/excel.svg)](https://github.com/laravel-enso/excel/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/excel.svg)](https://github.com/laravel-enso/excel/pulls)
 
-Excel utility package for [Laravel Enso](https://github.com/laravel-enso/Enso)
+## Description
 
-This package can work independently of the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+Excel provides a small contract-based `.xlsx` export service for Laravel and Laravel Enso.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+The package delegates spreadsheet writing to OpenSpout and keeps the exporter API intentionally simple: an exporter object declares the workbook filename, the sheet names, the heading row for each sheet, and the data rows for each sheet.
+
+It is used in Enso to generate downloadable or persisted Excel files from domain-specific exporter classes without coupling those exporters to a concrete writer implementation.
 
 ## Installation
 
-install using composer: `composer require laravel-enso/excel`
+Install the package:
+
+```bash
+composer require laravel-enso/excel
+```
+
+The package does not require service provider registration.
+
+To use it, create a class that implements `LaravelEnso\Excel\Contracts\ExportsExcel`, then pass that exporter to `LaravelEnso\Excel\Services\ExcelExport`.
+
+If you want the generated file saved under a custom storage folder, also implement `LaravelEnso\Excel\Contracts\SavesToDisk`.
 
 ## Features
 
-- is a small wrapper that uses [box/spout](https://github.com/box/spout) under the hood
-- utilizes two contracts for which require specific methods to be available on the specific Excel file generator
-    - `ExportsExcel`
-    - `SavesToDisk`
-- the `ExcelExport` service requires an excel generator parameter that must implement at least the `ExportsExcel` contract
-and optionally the `SavesToDisk` contract
-- can provide the generated excel document inline (for downloads) or save the file to disk    
+- Exports `.xlsx` files through OpenSpout.
+- Supports multi-sheet workbooks.
+- Uses a small `ExportsExcel` contract for exporter classes.
+- Can stream files inline as downloads.
+- Can save files to disk and return their storage path.
+- Supports custom storage folders through `SavesToDisk`.
 
 ## Usage
 
-In order to generate an Excel, you need to create a generator class that implements the `ExcelExport` 
-contract. Then you must instantiate an `ExcelExport` class, passing your generator as a constructor parameter,
-and finally call the `inline` method:
+Define an exporter:
 
 ```php
-$excel = new MyExcelExporter();
-(new ExcelExport($excel))->inline();
+use LaravelEnso\Excel\Contracts\ExportsExcel;
+
+class ContractorStock implements ExportsExcel
+{
+    public function filename(): string
+    {
+        return 'stock_report.xlsx';
+    }
+
+    public function heading(string $sheet): array
+    {
+        return match ($sheet) {
+            'stock' => ['Product', 'Quantity'],
+            'history' => ['Date', 'Product', 'Quantity'],
+        };
+    }
+
+    public function rows(string $sheet): array
+    {
+        return match ($sheet) {
+            'stock' => [['Panel', 12]],
+            'history' => [['2026-04-18', 'Panel', 12]],
+        };
+    }
+
+    public function sheets(): array
+    {
+        return ['stock', 'history'];
+    }
+}
 ```
 
-If you want to have the excel file saved to disk, have your generator also implement the `SavesToDisk`
-contract, and instead of calling the `inline()` method, call the `save()` method on your
-`ExcelExport` instance:
+Stream the export to the browser:
 
 ```php
-$excel = new MyExcelExporter();
-(new ExcelExport($excel))->save();
+use LaravelEnso\Excel\Services\ExcelExport;
+
+return (new ExcelExport(new ContractorStock()))->inline();
 ```
 
-## External dependencies
+Save it to disk:
 
- - [box/spout](https://github.com/box/spout)
+```php
+$path = (new ExcelExport(new ContractorStock()))->save();
+```
+
+Use a custom folder by implementing `SavesToDisk`:
+
+```php
+use LaravelEnso\Excel\Contracts\ExportsExcel;
+use LaravelEnso\Excel\Contracts\SavesToDisk;
+
+class OrderExport implements ExportsExcel, SavesToDisk
+{
+    public function folder(): string
+    {
+        return 'exports/orders';
+    }
+}
+```
+
+::: warning Note
+Every sheet name returned by `sheets()` must have a matching `heading()` and `rows()` implementation.
+
+When the exporter does not implement `SavesToDisk`, files are written under the default `temp` storage folder.
+:::
+
+## API
+
+### Exporter Contracts
+
+- `LaravelEnso\Excel\Contracts\ExportsExcel`
+- `LaravelEnso\Excel\Contracts\SavesToDisk`
+
+`ExportsExcel` requires:
+
+- `filename(): string`
+- `heading(string $sheet): array`
+- `rows(string $sheet): array`
+- `sheets(): array`
+
+`SavesToDisk` adds:
+
+- `folder(): string`
+
+### Export Service
+
+`LaravelEnso\Excel\Services\ExcelExport`
+
+Public methods:
+
+- `__construct(ExportsExcel $exporter)`
+- `inline(): BinaryFileResponse`
+- `save(): string`
+
+Behavior:
+
+- creates the workbook on disk first
+- writes one worksheet per value returned by `sheets()`
+- writes the heading row first, then all data rows
+- downloads and deletes the file after send when using `inline()`
+
+### Exception
+
+`LaravelEnso\Excel\Exceptions\ExcelExport`
+
+Currently exposes:
+
+- `missingInterface()`
+
+## Depends On
+
+Framework dependency:
+
+- [`laravel/framework`](https://github.com/laravel/framework) [↗](https://github.com/laravel/framework)
+
+External dependency:
+
+- [`openspout/openspout`](https://github.com/openspout/openspout) [↗](https://github.com/openspout/openspout)
 
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-## License
+Thank you to all the people who already contributed to Enso!
 
-This package is released under the MIT license.
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/excel/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/19/2026, 10:22:12 PM</div>
+</div>
