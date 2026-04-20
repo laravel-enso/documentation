@@ -357,7 +357,15 @@ const fetchGithubRepoMetadataFromHtml = async ({ owner, repo }) => {
         /"issues":[^}]*"count":(\d+)/iu,
         /aria-label="Issues[^"]*?(\d[\d,]*)[^"]*"/iu,
     ]
+    const mergeRequestsPatterns = [
+        new RegExp(`href="/${escapedOwner}/${escapedRepo}/pulls"[^>]*>[\\s\\S]{0,300}?(\\d[\\d,]*)`, 'iu'),
+        /"pullRequests":[^}]*"count":(\d+)/iu,
+        /aria-label="Pull requests[^"]*?(\d[\d,]*)[^"]*"/iu,
+    ]
     const openIssuesCount = issuesPatterns
+        .map((pattern) => html.match(pattern)?.[1] ?? null)
+        .find(Boolean)
+    const openMergeRequestsCount = mergeRequestsPatterns
         .map((pattern) => html.match(pattern)?.[1] ?? null)
         .find(Boolean)
 
@@ -370,11 +378,26 @@ const fetchGithubRepoMetadataFromHtml = async ({ owner, repo }) => {
         branch: defaultBranchMatch[1],
         url: `https://github.com/${owner}/${repo}`,
         openIssuesCount: openIssuesCount ? Number.parseInt(String(openIssuesCount).replace(/,/gu, ''), 10) : null,
+        openMergeRequestsCount: openMergeRequestsCount ? Number.parseInt(String(openMergeRequestsCount).replace(/,/gu, ''), 10) : null,
     }
 }
 
 const fetchGithubOpenIssueCount = async ({ owner, repo }) => {
     const response = await fetchWithPacing(`https://img.shields.io/github/issues/${owner}/${repo}.svg`)
+
+    if (!response.ok) {
+        return null
+    }
+
+    const svg = await response.text()
+    const matches = [...svg.matchAll(/>(\d[\d,]*)\s+open</giu)]
+    const count = matches.at(-1)?.[1] ?? null
+
+    return count ? Number.parseInt(String(count).replace(/,/gu, ''), 10) : null
+}
+
+const fetchGithubOpenPullRequestCount = async ({ owner, repo }) => {
+    const response = await fetchWithPacing(`https://img.shields.io/github/issues-pr/${owner}/${repo}.svg`)
 
     if (!response.ok) {
         return null
@@ -406,7 +429,8 @@ const fetchGithubRepoMetadata = async ({ owner, repo }) => {
         archived: Boolean(payload.archived),
         branch: payload.default_branch ?? 'main',
         url: payload.html_url,
-        openIssuesCount: payload.open_issues_count ?? 0,
+        openIssuesCount: null,
+        openMergeRequestsCount: null,
     }
 }
 
@@ -426,7 +450,29 @@ const fetchGitlabRepoMetadata = async ({ owner, repo }) => {
         branch: payload.default_branch ?? 'main',
         url: payload.web_url,
         openIssuesCount: payload.open_issues_count ?? 0,
+        openMergeRequestsCount: payload.open_merge_requests_count ?? null,
     }
+}
+
+const fetchGitlabOpenMergeRequestCount = async ({ owner, repo }) => {
+    const response = await fetchWithPacing(
+        `https://git.xtelecom.ro/api/v4/projects/${encodeURIComponent(`${owner}/${repo}`)}/merge_requests?state=opened&scope=all&view=simple&per_page=1`,
+        { headers: gitlabHeaders() },
+    )
+
+    if (!response.ok) {
+        return null
+    }
+
+    const total = response.headers.get('x-total')
+
+    if (total && /^\d+$/u.test(total)) {
+        return Number.parseInt(total, 10)
+    }
+
+    const payload = await response.json()
+
+    return Array.isArray(payload) ? payload.length : null
 }
 
 const fetchRepoMetadata = async (source) => {
@@ -511,6 +557,9 @@ const rewriteRelativeUrls = (content, branch, repository, readmePath) => {
     }
 
     return content
+        .replace(/\[(\!\[[^\]]*?\]\([^)]+\))\]\(([^)\s]+)(\s+"[^"]*")?\)/g, (match, image, target, titlePart = '') => {
+            return `[${image}](${resolveTarget(target, 'link')}${titlePart})`
+        })
         .replace(/(!?\[[^\]]*?\])\(([^)\s]+)(\s+"[^"]*")?\)/g, (match, label, target, titlePart = '') => {
             const kind = label.startsWith('!') ? 'image' : 'link'
             return `${label}(${resolveTarget(target, kind)}${titlePart})`
@@ -1217,13 +1266,17 @@ const summarizeValidation = (report) => {
 
 const isUpdatedPackage = (findings) => findings.every(({ level }) => level === 'info')
 
-const resolveDocumentationStatus = ({ updated, openIssuesCount }) => {
+const resolveDocumentationStatus = ({ updated, openIssuesCount, openMergeRequestsCount }) => {
     if (!updated) {
         return 'red'
     }
 
     if ((openIssuesCount ?? 0) > 0) {
         return 'yellow'
+    }
+
+    if ((openMergeRequestsCount ?? 0) > 0) {
+        return 'blue'
     }
 
     return 'green'
@@ -1238,6 +1291,105 @@ const readCacheEntry = async (sectionId, slug) => {
         }
 
         throw error
+    }
+}
+
+const evaluateSource = async ({ section, source }) => {
+    const cached = await readCacheEntry(section.id, source.slug)
+
+    let content = null
+    let findings
+
+    if (!cached) {
+        findings = await validateReadme({
+            sectionId: section.id,
+            source,
+            repository: null,
+            content: null,
+            cached,
+        })
+    } else if (cached.ok) {
+        source.title = cached.source?.title ?? source.title
+        content = {
+            ...cached.content,
+            syncedAt: cached.syncedAt ?? null,
+        }
+        findings = await validateReadme({
+            sectionId: section.id,
+            source,
+            repository: cached.repository,
+            content,
+            cached,
+        })
+    } else {
+        findings = await validateReadme({
+            sectionId: section.id,
+            source,
+            repository: cached.repository,
+            content: null,
+            cached,
+        })
+    }
+
+    return { cached, content, findings }
+}
+
+const refreshSourceStatus = async ({ section, source, findings }) => {
+    source.updated = isUpdatedPackage(findings)
+
+    if (source.updated) {
+        try {
+            const metadata = await fetchRepoMetadata(source)
+            const repository = parseRepositoryUrl(source.url)
+
+            if (repository.provider === 'github') {
+                const [openIssuesCount, openMergeRequestsCount] = await Promise.all([
+                    fetchGithubOpenIssueCount(repository),
+                    fetchGithubOpenPullRequestCount(repository),
+                ])
+                const htmlMetadata = openIssuesCount === null || openMergeRequestsCount === null
+                    ? await fetchGithubRepoMetadataFromHtml(repository).catch(() => metadata)
+                    : metadata
+
+                source.openIssuesCount = openIssuesCount
+                    ?? htmlMetadata.openIssuesCount
+                    ?? source.openIssuesCount
+                    ?? null
+                source.openMergeRequestsCount = openMergeRequestsCount
+                    ?? htmlMetadata.openMergeRequestsCount
+                    ?? source.openMergeRequestsCount
+                    ?? null
+            } else {
+                source.openIssuesCount = metadata.openIssuesCount ?? source.openIssuesCount ?? null
+                source.openMergeRequestsCount = await fetchGitlabOpenMergeRequestCount(repository)
+                    ?? metadata.openMergeRequestsCount
+                    ?? source.openMergeRequestsCount
+                    ?? null
+            }
+        } catch {
+            source.openIssuesCount = source.openIssuesCount ?? null
+            source.openMergeRequestsCount = source.openMergeRequestsCount ?? null
+        }
+    } else {
+        source.openIssuesCount = source.openIssuesCount ?? null
+        source.openMergeRequestsCount = source.openMergeRequestsCount ?? null
+    }
+
+    source.documentationStatus = resolveDocumentationStatus({
+        updated: source.updated,
+        openIssuesCount: source.openIssuesCount,
+        openMergeRequestsCount: source.openMergeRequestsCount,
+    })
+
+    return {
+        section: section.id,
+        slug: source.slug,
+        title: source.title,
+        updated: source.updated,
+        openIssuesCount: source.openIssuesCount,
+        openMergeRequestsCount: source.openMergeRequestsCount,
+        documentationStatus: source.documentationStatus,
+        findings,
     }
 }
 
@@ -1421,35 +1573,45 @@ const syncSections = async (sections) => {
     }
 }
 
+const syncTargetSources = async (sections, matches) => {
+    const grouped = new Map()
+
+    for (const match of matches) {
+        const bucket = grouped.get(match.section.id) ?? []
+        bucket.push(match)
+        grouped.set(match.section.id, bucket)
+    }
+
+    for (const section of sections.filter((candidate) => grouped.has(candidate.id))) {
+        await mkdir(path.join(cacheRoot, section.id), { recursive: true })
+
+        for (const { source } of grouped.get(section.id) ?? []) {
+            const result = await syncSource({ section, source, force: true })
+
+            if (!result.retained) {
+                section.sources = section.sources.filter((candidate) => candidate.slug !== source.slug)
+            }
+        }
+
+        await persistSection(section)
+    }
+}
+
 const generateSource = async ({ section, source }) => {
-    const cached = await readCacheEntry(section.id, source.slug)
+    const { cached, content, findings } = await evaluateSource({ section, source })
     const outputPath = path.join(root, section.root, `${source.slug}.md`)
 
     let page
-    let findings
 
     if (!cached) {
         page = buildMissingCachePage({ source })
-        findings = await validateReadme({ sectionId: section.id, source, repository: null, content: null, cached })
     } else if (cached.ok) {
-        source.title = cached.source?.title ?? source.title
-        const content = {
-            ...cached.content,
-            syncedAt: cached.syncedAt ?? null,
-        }
         page = buildPage({
             source,
             repository: cached.repository,
             branch: cached.branch,
             content,
             readmePath: cached.readmePath,
-        })
-        findings = await validateReadme({
-            sectionId: section.id,
-            source,
-            repository: cached.repository,
-            content,
-            cached,
         })
     } else {
         page = buildUnavailablePage({
@@ -1459,47 +1621,14 @@ const generateSource = async ({ section, source }) => {
             readmePath: cached.readmePath,
             error: cached.error,
         })
-        findings = await validateReadme({
-            sectionId: section.id,
-            source,
-            repository: cached.repository,
-            content: null,
-            cached,
-        })
     }
 
     await writeFile(outputPath, page)
-    source.updated = isUpdatedPackage(findings)
-    if (source.updated) {
-        try {
-            const metadata = await fetchRepoMetadata(source)
-            const repository = parseRepositoryUrl(source.url)
-
-            source.openIssuesCount = repository.provider === 'github'
-                ? await fetchGithubOpenIssueCount(repository) ?? metadata.openIssuesCount ?? source.openIssuesCount ?? null
-                : metadata.openIssuesCount ?? source.openIssuesCount ?? null
-        } catch {
-            source.openIssuesCount = source.openIssuesCount ?? null
-        }
-    } else {
-        source.openIssuesCount = source.openIssuesCount ?? null
-    }
-    source.documentationStatus = resolveDocumentationStatus({
-        updated: source.updated,
-        openIssuesCount: source.openIssuesCount,
-    })
+    const reportItem = await refreshSourceStatus({ section, source, findings })
 
     process.stdout.write(`generated ${section.id}/${source.slug}\n`)
 
-    return {
-        section: section.id,
-        slug: source.slug,
-        title: source.title,
-        updated: source.updated,
-        openIssuesCount: source.openIssuesCount,
-        documentationStatus: source.documentationStatus,
-        findings,
-    }
+    return reportItem
 }
 
 const generateSections = async (sections) => {
@@ -1530,36 +1659,72 @@ const generateSections = async (sections) => {
     process.stdout.write(`validation summary: ${path.relative(root, validationSummaryPath)}\n`)
 }
 
+const refreshStatusSections = async (sections, matches = null) => {
+    const report = []
+    const scopedMatches = matches ?? sections.flatMap((section) => section.sources.map((source) => ({ section, source })))
+    const touchedSections = new Set(scopedMatches.map(({ section }) => section.id))
+
+    for (const { section, source } of scopedMatches) {
+        const { findings } = await evaluateSource({ section, source })
+        report.push(await refreshSourceStatus({ section, source, findings }))
+        process.stdout.write(`refreshed ${section.id}/${source.slug}: ${source.documentationStatus}\n`)
+    }
+
+    for (const section of sections.filter((candidate) => touchedSections.has(candidate.id))) {
+        await persistSection(section)
+    }
+
+    const summary = summarizeValidation(report)
+
+    await writeFile(validationReportPath, `${JSON.stringify({
+        generatedAt: new Date().toISOString(),
+        mode: 'refresh-status',
+        summary: summary.totals,
+        packages: report,
+    }, null, 4)}\n`)
+    await writeFile(validationSummaryPath, summary.text)
+
+    process.stdout.write(`validation: ${summary.totals.error} errors, ${summary.totals.warning} warnings, ${summary.totals.info} infos\n`)
+    process.stdout.write(`validation report: ${path.relative(root, validationReportPath)}\n`)
+    process.stdout.write(`validation summary: ${path.relative(root, validationSummaryPath)}\n`)
+}
+
 const sections = await loadSections()
 
 if (mode === 'sync') {
-    await syncSections(sections)
-} else if (mode === 'sync-package') {
-    const matches = findTargetSources(sections, targetArg)
-
-    if (matches.length === 0) {
-        throw new Error(`Package not found in sources: ${targetArg}`)
-    }
-
-    if (matches.length > 1) {
-        throw new Error(`Package target is ambiguous: ${targetArg}. Use backend/<slug> or frontend/<slug>.`)
-    }
-
-    const [{ section, source }] = matches
-    await mkdir(path.join(cacheRoot, section.id), { recursive: true })
-    const result = await syncSource({ section, source, force: true })
-
-    if (!result.retained) {
-        section.sources = section.sources.filter((candidate) => candidate.slug !== source.slug)
-        await persistSection(section)
+    if (!targetArg) {
+        await syncSections(sections)
     } else {
-        const reportItem = await generateSource({ section, source })
-        await persistSection(section)
-        const summary = summarizeValidation([reportItem])
-        process.stdout.write(`validation: ${summary.totals.error} errors, ${summary.totals.warning} warnings, ${summary.totals.info} infos\n`)
+        const matches = findTargetSources(sections, targetArg)
+
+        if (matches.length === 0) {
+            throw new Error(`Package not found in sources: ${targetArg}`)
+        }
+
+        if (matches.length > 1) {
+            throw new Error(`Package target is ambiguous: ${targetArg}. Use backend/<slug> or frontend/<slug>.`)
+        }
+
+        await syncTargetSources(sections, matches)
     }
 } else if (mode === 'generate') {
     await generateSections(sections)
+} else if (mode === 'refresh-status') {
+    if (!targetArg) {
+        await refreshStatusSections(sections)
+    } else {
+        const matches = findTargetSources(sections, targetArg)
+
+        if (matches.length === 0) {
+            throw new Error(`Package not found in sources: ${targetArg}`)
+        }
+
+        if (matches.length > 1) {
+            throw new Error(`Package target is ambiguous: ${targetArg}. Use backend/<slug> or frontend/<slug>.`)
+        }
+
+        await refreshStatusSections(sections, matches)
+    }
 } else {
     throw new Error(`Unsupported mode: ${mode}`)
 }

@@ -8,10 +8,10 @@ lastUpdated: false
 
 # Calendar
 
-[![License](https://poser.pugx.org/laravel-enso/calendar/license)](LICENSE)
+[![License](https://poser.pugx.org/laravel-enso/calendar/license)](https://github.com/laravel-enso/calendar/blob/master/LICENSE)
 [![Stable](https://poser.pugx.org/laravel-enso/calendar/version)](https://packagist.org/packages/laravel-enso/calendar)
 [![Downloads](https://poser.pugx.org/laravel-enso/calendar/downloads)](https://packagist.org/packages/laravel-enso/calendar)
-[![PHP](https://img.shields.io/badge/php-8.3%2B-777bb4.svg)](composer.json)
+[![PHP](https://img.shields.io/badge/php-8.3%2B-777bb4.svg)](https://github.com/laravel-enso/calendar/blob/master/composer.json)
 [![Issues](https://img.shields.io/github/issues/laravel-enso/calendar.svg)](https://github.com/laravel-enso/calendar/issues)
 [![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/calendar.svg)](https://github.com/laravel-enso/calendar/pulls)
 

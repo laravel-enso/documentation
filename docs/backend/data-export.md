@@ -8,10 +8,10 @@ lastUpdated: false
 
 # Data Export
 
-[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/laravel-enso/data-export/blob/master/LICENSE)
 [![Stable](https://poser.pugx.org/laravel-enso/data-export/version)](https://packagist.org/packages/laravel-enso/data-export)
 [![Downloads](https://poser.pugx.org/laravel-enso/data-export/downloads)](https://packagist.org/packages/laravel-enso/data-export)
-[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](composer.json)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://github.com/laravel-enso/data-export/blob/master/composer.json)
 [![Issues](https://img.shields.io/github/issues/laravel-enso/data-export.svg)](https://github.com/laravel-enso/data-export/issues)
 [![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/data-export.svg)](https://github.com/laravel-enso/data-export/pulls)
 
@@ -161,5 +161,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/laravel-enso/data-export/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 7/9/2020, 8:53:26 AM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 10:59:47 AM</div>
 </div>

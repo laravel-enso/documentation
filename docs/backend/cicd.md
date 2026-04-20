@@ -65,3 +65,8 @@ Required tools and services:
 - [GitLab CI/CD](https://docs.gitlab.com/ee/ci/) [↗](https://docs.gitlab.com/ee/ci/)
 - [Composer](https://getcomposer.org/) [↗](https://getcomposer.org/)
 - [Yarn](https://classic.yarnpkg.com/) [↗](https://classic.yarnpkg.com/)
+
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://git.xtelecom.ro/laravel-enso/cicd/-/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 10:59:47 AM</div>
+</div>

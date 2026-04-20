@@ -8,10 +8,10 @@ lastUpdated: false
 
 # Sentry
 
-[![License](https://poser.pugx.org/laravel-enso/sentry/license)](LICENSE)
+[![License](https://poser.pugx.org/laravel-enso/sentry/license)](https://github.com/laravel-enso/sentry/blob/master/LICENSE)
 [![Stable](https://poser.pugx.org/laravel-enso/sentry/version)](https://packagist.org/packages/laravel-enso/sentry)
 [![Downloads](https://poser.pugx.org/laravel-enso/sentry/downloads)](https://packagist.org/packages/laravel-enso/sentry)
-[![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](composer.json)
+[![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](https://github.com/laravel-enso/sentry/blob/master/composer.json)
 [![Issues](https://img.shields.io/github/issues/laravel-enso/sentry.svg)](https://github.com/laravel-enso/sentry/issues)
 [![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/sentry.svg)](https://github.com/laravel-enso/sentry/pulls)
 

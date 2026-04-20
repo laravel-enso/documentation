@@ -7,7 +7,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "addresses",
@@ -16,7 +17,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "algolia",
@@ -25,7 +27,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "bookmarks",
@@ -34,7 +37,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "calendar",
@@ -43,7 +47,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "card",
@@ -52,7 +57,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "cargo-partner",
@@ -61,7 +67,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "categories",
@@ -70,7 +77,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "charts",
@@ -79,7 +87,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "checkbox",
@@ -88,7 +97,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "clipboard",
@@ -97,7 +107,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "comments",
@@ -106,7 +117,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "commercial",
@@ -115,7 +127,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "companies",
@@ -124,7 +137,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "confirmation",
@@ -133,7 +147,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "currencies",
@@ -142,7 +157,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "data-import",
@@ -151,7 +167,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "date",
@@ -160,7 +177,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "datepicker",
@@ -169,7 +187,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "directives",
@@ -178,7 +197,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "discounts",
@@ -187,7 +207,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "divider",
@@ -196,7 +217,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "documents",
@@ -205,7 +227,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "dropdown",
@@ -214,7 +237,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "dropdown-indicator",
@@ -223,7 +247,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "eav",
@@ -232,7 +257,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "emag",
@@ -241,7 +267,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "emails",
@@ -250,7 +277,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "pagination",
@@ -259,7 +287,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "enums",
@@ -268,7 +297,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "erd",
@@ -277,7 +307,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "facebook",
@@ -286,7 +317,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "files",
@@ -295,7 +327,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "filters",
@@ -304,7 +337,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "financials",
@@ -313,7 +347,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "forms",
@@ -322,7 +357,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "frisbo",
@@ -331,7 +367,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "google",
@@ -340,7 +377,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "holidays",
@@ -349,7 +387,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "how-to",
@@ -358,7 +397,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "interactions",
@@ -367,7 +407,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "inventory",
@@ -376,7 +417,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "io",
@@ -385,7 +427,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "laravel-validation",
@@ -394,7 +437,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "loader",
@@ -403,7 +447,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "localisation",
@@ -412,7 +457,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "logs",
@@ -421,7 +467,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "measurement-units",
@@ -430,7 +477,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "meili-search",
@@ -439,7 +487,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "menus",
@@ -448,7 +497,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "mixins",
@@ -457,7 +507,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "modal",
@@ -466,7 +517,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "money",
@@ -475,7 +527,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "monitored-emails",
@@ -484,7 +537,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "notifications",
@@ -493,7 +547,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "orderable-trees",
@@ -502,7 +557,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "packaging-units",
@@ -511,7 +567,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "people",
@@ -520,7 +577,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "permissions",
@@ -529,7 +587,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "product-lots",
@@ -538,7 +597,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "products",
@@ -547,7 +607,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "progress-bar",
@@ -556,7 +617,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "progress-circle",
@@ -565,7 +627,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "progress-indicator",
@@ -574,7 +637,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "questionnaires",
@@ -583,7 +647,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "quick-view",
@@ -592,7 +657,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "range-slider",
@@ -601,7 +667,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "rating",
@@ -610,7 +677,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "roles",
@@ -619,7 +687,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "route-mapper",
@@ -628,7 +697,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "sale-channels",
@@ -637,7 +707,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "scroll-to-top",
@@ -646,7 +717,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "search-mode",
@@ -655,7 +727,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "select",
@@ -664,7 +737,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "sentry",
@@ -673,7 +747,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "services",
@@ -682,7 +757,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "smart-bill",
@@ -691,7 +767,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "sms-advert",
@@ -700,7 +777,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "strings",
@@ -709,7 +787,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "tables",
@@ -718,7 +797,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "tabs",
@@ -727,7 +807,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "tasks",
@@ -736,7 +817,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "teams",
@@ -745,7 +827,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "textarea",
@@ -754,7 +837,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "themes",
@@ -763,7 +847,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "ticketing",
@@ -772,7 +857,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "toastr",
@@ -781,7 +867,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "transitions",
@@ -790,7 +877,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "tree-view",
@@ -799,7 +887,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "tutorials",
@@ -808,7 +897,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "typeahead",
@@ -817,7 +907,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "typesense",
@@ -826,7 +917,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "ui",
@@ -835,7 +927,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "auth",
@@ -844,7 +937,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "uniqa",
@@ -853,7 +947,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "uploader",
@@ -862,7 +957,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "ups",
@@ -871,7 +967,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "user-groups",
@@ -880,7 +977,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "users",
@@ -889,7 +987,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "virtual-call-center",
@@ -898,7 +997,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "vouchers",
@@ -907,7 +1007,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "switch",
@@ -916,7 +1017,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "webshop",
@@ -925,7 +1027,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "wysiwyg",
@@ -934,7 +1037,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         }
     ]
 }

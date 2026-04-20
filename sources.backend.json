@@ -7,7 +7,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "green"
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "addresses",
@@ -16,7 +17,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 1,
-            "documentationStatus": "yellow"
+            "documentationStatus": "yellow",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "alfasign",
@@ -25,25 +27,28 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "algolia",
             "title": "Algolia",
             "url": "https://github.com/laravel-enso/algolia",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "algolia-webshop",
-            "title": "algolia-webshop",
+            "title": "Algolia Webshop",
             "url": "https://git.xtelecom.ro/laravel-enso/algolia-webshop",
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "api",
@@ -52,7 +57,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "green"
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 1
         },
         {
             "slug": "audits",
@@ -61,7 +67,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "avatars",
@@ -70,7 +77,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "green"
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "btrl",
@@ -79,7 +87,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "cache-chain",
@@ -88,7 +97,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "green"
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 1
         },
         {
             "slug": "calendar",
@@ -97,43 +107,48 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "green"
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 1
         },
         {
             "slug": "cargo-partner",
-            "title": "CARGO-PARTNER",
+            "title": "Cargo Partner",
             "url": "https://git.xtelecom.ro/laravel-enso/cargo-partner",
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "categories",
             "title": "Categories",
             "url": "https://github.com/laravel-enso/categories",
             "branch": "master",
-            "updated": false,
-            "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "updated": true,
+            "openIssuesCount": 1,
+            "documentationStatus": "yellow",
+            "openMergeRequestsCount": 1
         },
         {
             "slug": "charts",
             "title": "Charts",
             "url": "https://github.com/laravel-enso/charts",
             "branch": "master",
-            "updated": false,
-            "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "updated": true,
+            "openIssuesCount": 16,
+            "documentationStatus": "yellow",
+            "openMergeRequestsCount": 1
         },
         {
             "slug": "cicd",
-            "title": "Cicd",
+            "title": "CI/CD",
             "url": "https://git.xtelecom.ro/laravel-enso/cicd",
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "cli",
@@ -142,7 +157,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "cnp-validator",
@@ -151,16 +167,18 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "green"
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "comments",
             "title": "Comments",
             "url": "https://github.com/laravel-enso/comments",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "commercial",
@@ -169,16 +187,18 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "companies",
             "title": "Companies",
             "url": "https://github.com/laravel-enso/companies",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 1
         },
         {
             "slug": "core",
@@ -187,7 +207,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "countries",
@@ -196,7 +217,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "green"
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "currencies",
@@ -205,61 +227,48 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "data-export",
             "title": "Data Export",
             "url": "https://github.com/laravel-enso/data-export",
             "branch": "master",
-            "updated": false,
-            "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "updated": true,
+            "openIssuesCount": 1,
+            "documentationStatus": "yellow",
+            "openMergeRequestsCount": 1
         },
         {
             "slug": "data-import",
             "title": "Data Import",
             "url": "https://github.com/laravel-enso/data-import",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 1
         },
         {
             "slug": "discounts",
-            "title": "discounts",
+            "title": "Discounts",
             "url": "https://git.xtelecom.ro/laravel-enso/discounts",
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
-        },
-        {
-            "slug": "docs",
-            "title": "Docs",
-            "url": "https://github.com/laravel-enso/docs",
-            "branch": "main",
-            "updated": false,
-            "openIssuesCount": 0,
-            "documentationStatus": "red"
-        },
-        {
-            "slug": "documentation",
-            "title": "Documentation",
-            "url": "https://github.com/laravel-enso/documentation",
-            "branch": "main",
-            "updated": false,
-            "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "documents",
             "title": "Documents",
             "url": "https://github.com/laravel-enso/documents",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "dynamic-methods",
@@ -268,34 +277,38 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "green"
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "eav",
-            "title": "eav",
+            "title": "EAV",
             "url": "https://git.xtelecom.ro/laravel-enso/eav",
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "emag",
-            "title": "emag",
+            "title": "eMag",
             "url": "https://git.xtelecom.ro/laravel-enso/emag",
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "emag-checker",
-            "title": "emag checker",
+            "title": "eMag Checker",
             "url": "https://git.xtelecom.ro/laravel-enso/emag-checker",
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "enums",
@@ -304,7 +317,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "green"
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "excel",
@@ -313,16 +327,18 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "green"
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "facebook",
-            "title": "facebook",
+            "title": "Facebook",
             "url": "https://git.xtelecom.ro/laravel-enso/facebook",
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "files",
@@ -331,7 +347,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "filters",
@@ -340,7 +357,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "financials",
@@ -349,7 +367,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "forms",
@@ -358,7 +377,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "frisbo",
@@ -367,7 +387,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "uniqa",
@@ -376,7 +397,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "google",
@@ -385,7 +407,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "helpers",
@@ -394,7 +417,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "green"
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 1
         },
         {
             "slug": "history-tracker",
@@ -403,7 +427,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "holidays",
@@ -412,7 +437,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "how-to",
@@ -421,7 +447,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "image-transformer",
@@ -430,7 +457,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "green"
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "impersonate",
@@ -439,7 +467,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "interactions",
@@ -448,7 +477,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "inventory",
@@ -457,7 +487,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "io",
@@ -466,7 +497,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "enso",
@@ -475,7 +507,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "laravel-enso.github.io",
@@ -484,7 +517,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "localisation",
@@ -493,7 +527,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "lockable-models",
@@ -502,7 +537,8 @@
             "branch": "main",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "green"
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "logs",
@@ -511,7 +547,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "measurement-units",
@@ -520,7 +557,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "mediator",
@@ -529,7 +567,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "meili-search",
@@ -538,7 +577,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "meili-search-webshop",
@@ -547,7 +587,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "menus",
@@ -556,7 +597,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "monitored-emails",
@@ -565,7 +607,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "notifications",
@@ -574,7 +617,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "packaging-units",
@@ -583,7 +627,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "pdf",
@@ -592,7 +637,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "green"
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "ocr",
@@ -601,7 +647,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "people",
@@ -610,7 +657,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "permissions",
@@ -619,7 +667,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "phpunit-pretty-print",
@@ -628,7 +677,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "product-eav",
@@ -637,7 +687,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "product-lots",
@@ -646,7 +697,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "products",
@@ -655,7 +707,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "questionnaires",
@@ -664,7 +717,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "rememberable",
@@ -673,7 +727,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "green"
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "roles",
@@ -682,7 +737,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "ro-addresses",
@@ -691,7 +747,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "sale-channels",
@@ -700,7 +757,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "searchable",
@@ -709,7 +767,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "select",
@@ -718,7 +777,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "sentry",
@@ -727,7 +787,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "green"
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "services",
@@ -736,7 +797,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "smart-bill",
@@ -745,7 +807,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "sms-advert",
@@ -754,7 +817,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "stripe",
@@ -763,13 +827,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
-        },
-        {
-            "slug": "sunrise-sunset",
-            "title": "Sunrise Sunset",
-            "url": "https://github.com/laravel-enso/sunrise-sunset",
-            "branch": "main"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "tables",
@@ -778,7 +837,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "tasks",
@@ -787,7 +847,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "teams",
@@ -796,7 +857,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "ticketing",
@@ -805,7 +867,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "track-who",
@@ -814,7 +877,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "tutorials",
@@ -823,7 +887,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "typesense",
@@ -832,7 +897,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "typesense-webshop",
@@ -841,7 +907,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "unit-conversion",
@@ -850,7 +917,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "upgrade",
@@ -859,7 +927,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "green"
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 2
         },
         {
             "slug": "ups",
@@ -868,7 +937,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "user-groups",
@@ -877,7 +947,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "users",
@@ -886,7 +957,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "versioning",
@@ -895,7 +967,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "versions",
@@ -904,7 +977,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "virtual-call-center",
@@ -913,7 +987,8 @@
             "branch": "main",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "vouchers",
@@ -922,7 +997,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "webshop",
@@ -931,7 +1007,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         },
         {
             "slug": "webshop-commercial",
@@ -940,7 +1017,8 @@
             "branch": "master",
             "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "red",
+            "openMergeRequestsCount": null
         }
     ]
 }

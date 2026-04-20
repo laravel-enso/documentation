@@ -8,10 +8,10 @@ lastUpdated: false
 
 # Rememberable
 
-[![License](https://poser.pugx.org/laravel-enso/rememberable/license)](LICENSE)
+[![License](https://poser.pugx.org/laravel-enso/rememberable/license)](https://github.com/laravel-enso/rememberable/blob/master/LICENSE)
 [![Stable](https://poser.pugx.org/laravel-enso/rememberable/version)](https://packagist.org/packages/laravel-enso/rememberable)
 [![Downloads](https://poser.pugx.org/laravel-enso/rememberable/downloads)](https://packagist.org/packages/laravel-enso/rememberable)
-[![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](composer.json)
+[![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](https://github.com/laravel-enso/rememberable/blob/master/composer.json)
 [![Issues](https://img.shields.io/github/issues/laravel-enso/rememberable.svg)](https://github.com/laravel-enso/rememberable/issues)
 [![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/rememberable.svg)](https://github.com/laravel-enso/rememberable/pulls)
 

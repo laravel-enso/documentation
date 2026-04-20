@@ -8,10 +8,10 @@ lastUpdated: false
 
 # Dynamic Methods
 
-[![License](https://poser.pugx.org/laravel-enso/dynamic-methods/license)](LICENSE)
+[![License](https://poser.pugx.org/laravel-enso/dynamic-methods/license)](https://github.com/laravel-enso/dynamic-methods/blob/master/LICENSE)
 [![Stable](https://poser.pugx.org/laravel-enso/dynamic-methods/version)](https://packagist.org/packages/laravel-enso/dynamic-methods)
 [![Downloads](https://poser.pugx.org/laravel-enso/dynamic-methods/downloads)](https://packagist.org/packages/laravel-enso/dynamic-methods)
-[![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](composer.json)
+[![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](https://github.com/laravel-enso/dynamic-methods/blob/master/composer.json)
 [![Issues](https://img.shields.io/github/issues/laravel-enso/dynamic-methods.svg)](https://github.com/laravel-enso/dynamic-methods/issues)
 [![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/dynamic-methods.svg)](https://github.com/laravel-enso/dynamic-methods/pulls)
 

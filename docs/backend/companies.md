@@ -8,10 +8,10 @@ lastUpdated: false
 
 # Companies
 
-[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/laravel-enso/companies/blob/master/LICENSE)
 [![Stable](https://poser.pugx.org/laravel-enso/companies/version)](https://packagist.org/packages/laravel-enso/companies)
 [![Downloads](https://poser.pugx.org/laravel-enso/companies/downloads)](https://packagist.org/packages/laravel-enso/companies)
-[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](composer.json)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://github.com/laravel-enso/companies/blob/master/composer.json)
 [![Issues](https://img.shields.io/github/issues/laravel-enso/companies.svg)](https://github.com/laravel-enso/companies/issues)
 [![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/companies.svg)](https://github.com/laravel-enso/companies/pulls)
 
@@ -125,5 +125,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/laravel-enso/companies/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 7/8/2020, 3:40:07 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 10:59:47 AM</div>
 </div>

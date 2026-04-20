@@ -8,10 +8,10 @@ lastUpdated: false
 
 # Categories
 
-[![License](https://poser.pugx.org/laravel-enso/categories/license)](LICENSE)
+[![License](https://poser.pugx.org/laravel-enso/categories/license)](https://github.com/laravel-enso/categories/blob/master/LICENSE)
 [![Stable](https://poser.pugx.org/laravel-enso/categories/version)](https://packagist.org/packages/laravel-enso/categories)
 [![Downloads](https://poser.pugx.org/laravel-enso/categories/downloads)](https://packagist.org/packages/laravel-enso/categories)
-[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](composer.json)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://github.com/laravel-enso/categories/blob/master/composer.json)
 [![Issues](https://img.shields.io/github/issues/laravel-enso/categories.svg)](https://github.com/laravel-enso/categories/issues)
 [![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/categories.svg)](https://github.com/laravel-enso/categories/pulls)
 
@@ -292,5 +292,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/laravel-enso/categories/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 9:39:29 AM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 9:42:57 AM</div>
 </div>

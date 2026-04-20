@@ -46,7 +46,7 @@ const repositorySections = readdirSync(process.cwd())
     .filter((entry) => /^sources\.[^.]+\.json$/u.test(entry))
     .sort()
     .map((entry) => {
-        const content = JSON.parse(readFileSync(path.resolve(process.cwd(), entry), 'utf8')) as Record<string, Array<{ slug: string, title: string, url?: string, updated?: boolean, documentationStatus?: 'red' | 'yellow' | 'green' }>>
+        const content = JSON.parse(readFileSync(path.resolve(process.cwd(), entry), 'utf8')) as Record<string, Array<{ slug: string, title: string, url?: string, updated?: boolean, documentationStatus?: 'red' | 'yellow' | 'green' | 'blue' }>>
         const [id] = Object.keys(content)
 
         if (!id || !(id in repositorySectionMeta) || !Array.isArray(content[id])) {
@@ -72,6 +72,8 @@ const visibilityBadgeRules = repositorySections
         const color = visibility === 'Private' ? '#5b6fd6' : '#2d8f6f'
         const statusColor = source.documentationStatus === 'green'
             ? '#22c55e'
+            : source.documentationStatus === 'blue'
+                ? '#3b82f6'
             : source.documentationStatus === 'yellow'
                 ? '#facc15'
                 : '#ef4444'

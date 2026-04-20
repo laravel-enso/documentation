@@ -8,10 +8,10 @@ lastUpdated: false
 
 # Excel
 
-[![License](https://poser.pugx.org/laravel-enso/excel/license)](LICENSE)
+[![License](https://poser.pugx.org/laravel-enso/excel/license)](https://github.com/laravel-enso/excel/blob/master/LICENSE)
 [![Stable](https://poser.pugx.org/laravel-enso/excel/version)](https://packagist.org/packages/laravel-enso/excel)
 [![Downloads](https://poser.pugx.org/laravel-enso/excel/downloads)](https://packagist.org/packages/laravel-enso/excel)
-[![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](composer.json)
+[![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](https://github.com/laravel-enso/excel/blob/master/composer.json)
 [![Issues](https://img.shields.io/github/issues/laravel-enso/excel.svg)](https://github.com/laravel-enso/excel/issues)
 [![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/excel.svg)](https://github.com/laravel-enso/excel/pulls)
 

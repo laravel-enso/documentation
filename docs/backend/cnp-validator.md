@@ -8,10 +8,10 @@ lastUpdated: false
 
 # CNP Validator
 
-[![License](https://poser.pugx.org/laravel-enso/cnp-validator/license)](LICENSE)
+[![License](https://poser.pugx.org/laravel-enso/cnp-validator/license)](https://github.com/laravel-enso/cnp-validator/blob/master/LICENSE)
 [![Stable](https://poser.pugx.org/laravel-enso/cnp-validator/version)](https://packagist.org/packages/laravel-enso/cnp-validator)
 [![Downloads](https://poser.pugx.org/laravel-enso/cnp-validator/downloads)](https://packagist.org/packages/laravel-enso/cnp-validator)
-[![PHP](https://img.shields.io/badge/php-8.1%2B-777bb4.svg)](composer.json)
+[![PHP](https://img.shields.io/badge/php-8.1%2B-777bb4.svg)](https://github.com/laravel-enso/cnp-validator/blob/master/composer.json)
 [![Issues](https://img.shields.io/github/issues/laravel-enso/cnp-validator.svg)](https://github.com/laravel-enso/cnp-validator/issues)
 [![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/cnp-validator.svg)](https://github.com/laravel-enso/cnp-validator/pulls)
 

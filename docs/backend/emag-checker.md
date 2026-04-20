@@ -8,10 +8,10 @@ lastUpdated: false
 
 # eMag Checker
 
-[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://git.xtelecom.ro/laravel-enso/emag-checker/-/blob/master/LICENSE)
 [![Stable](https://poser.pugx.org/laravel-enso/emag-checker/version)](https://packagist.org/packages/laravel-enso/emag-checker)
 [![Downloads](https://poser.pugx.org/laravel-enso/emag-checker/downloads)](https://packagist.org/packages/laravel-enso/emag-checker)
-[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](composer.json)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://git.xtelecom.ro/laravel-enso/emag-checker/-/blob/master/composer.json)
 
 ## Description
 
@@ -112,5 +112,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://git.xtelecom.ro/laravel-enso/emag-checker/-/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 11/2/2021, 5:12:25 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 1:17:36 PM</div>
 </div>

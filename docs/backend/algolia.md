@@ -8,10 +8,10 @@ lastUpdated: false
 
 # Algolia
 
-[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/laravel-enso/algolia/blob/master/LICENSE)
 [![Stable](https://poser.pugx.org/laravel-enso/algolia/version)](https://packagist.org/packages/laravel-enso/algolia)
 [![Downloads](https://poser.pugx.org/laravel-enso/algolia/downloads)](https://packagist.org/packages/laravel-enso/algolia)
-[![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](composer.json)
+[![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](https://github.com/laravel-enso/algolia/blob/master/composer.json)
 [![Issues](https://img.shields.io/github/issues/laravel-enso/algolia.svg)](https://github.com/laravel-enso/algolia/issues)
 [![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/algolia.svg)](https://github.com/laravel-enso/algolia/pulls)
 
@@ -110,5 +110,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/laravel-enso/algolia/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 8/6/2021, 5:09:59 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 10:59:47 AM</div>
 </div>

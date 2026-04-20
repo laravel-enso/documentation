@@ -5,3 +5,4 @@
 .env.local
 .cache
 docs/.vuepress/dist
+.env

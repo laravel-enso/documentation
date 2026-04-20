@@ -8,10 +8,10 @@ lastUpdated: false
 
 # PDF
 
-[![License](https://poser.pugx.org/laravel-enso/pdf/license)](LICENSE)
+[![License](https://poser.pugx.org/laravel-enso/pdf/license)](https://github.com/laravel-enso/pdf/blob/master/LICENSE)
 [![Stable](https://poser.pugx.org/laravel-enso/pdf/version)](https://packagist.org/packages/laravel-enso/pdf)
 [![Downloads](https://poser.pugx.org/laravel-enso/pdf/downloads)](https://packagist.org/packages/laravel-enso/pdf)
-[![PHP](https://img.shields.io/badge/php-7.4%2B-777bb4.svg)](composer.json)
+[![PHP](https://img.shields.io/badge/php-7.4%2B-777bb4.svg)](https://github.com/laravel-enso/pdf/blob/master/composer.json)
 [![Issues](https://img.shields.io/github/issues/laravel-enso/pdf.svg)](https://github.com/laravel-enso/pdf/issues)
 [![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/pdf.svg)](https://github.com/laravel-enso/pdf/pulls)
 

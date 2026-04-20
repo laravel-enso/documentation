@@ -8,13 +8,11 @@
         "build": "yarn build:assets",
         "scan": "node scripts/manage-sources.mjs scan",
         "sync": "node scripts/sync-readmes.mjs sync",
-        "sync:package": "node scripts/sync-readmes.mjs sync-package",
-        "add-package": "node scripts/manage-sources.mjs add-package",
-        "sync:all": "node scripts/manage-sources.mjs add-missing && yarn sync",
+        "refresh:status": "node scripts/sync-readmes.mjs refresh-status",
+        "add:repo": "node scripts/manage-sources.mjs add-package",
         "build:generator": "node scripts/sync-readmes.mjs generate",
         "build:assets": "vuepress build docs",
-        "sync:build:all": "yarn sync && yarn build:generator && yarn build:assets",
-        "clean": "rm -rf docs/.vuepress/.cache docs/.vuepress/.temp"
+        "clean": "rm -rf docs/.vuepress/.cache docs/.vuepress/.temp docs/.vuepress/dist"
     },
     "devDependencies": {
         "@vuepress/bundler-vite": "^2.0.0-rc.25",

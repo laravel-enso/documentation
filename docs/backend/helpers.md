@@ -8,10 +8,10 @@ lastUpdated: false
 
 # Helpers
 
-[![License](https://poser.pugx.org/laravel-enso/helpers/license)](LICENSE)
+[![License](https://poser.pugx.org/laravel-enso/helpers/license)](https://github.com/laravel-enso/helpers/blob/master/LICENSE)
 [![Stable](https://poser.pugx.org/laravel-enso/helpers/version)](https://packagist.org/packages/laravel-enso/helpers)
 [![Downloads](https://poser.pugx.org/laravel-enso/helpers/downloads)](https://packagist.org/packages/laravel-enso/helpers)
-[![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](composer.json)
+[![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](https://github.com/laravel-enso/helpers/blob/master/composer.json)
 [![Issues](https://img.shields.io/github/issues/laravel-enso/helpers.svg)](https://github.com/laravel-enso/helpers/issues)
 [![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/helpers.svg)](https://github.com/laravel-enso/helpers/pulls)
 

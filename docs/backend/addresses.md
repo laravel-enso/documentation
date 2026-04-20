@@ -8,10 +8,10 @@ lastUpdated: false
 
 # Addresses
 
-[![License](https://poser.pugx.org/laravel-enso/addresses/license)](LICENSE)
+[![License](https://poser.pugx.org/laravel-enso/addresses/license)](https://github.com/laravel-enso/addresses/blob/master/LICENSE)
 [![Stable](https://poser.pugx.org/laravel-enso/addresses/version)](https://packagist.org/packages/laravel-enso/addresses)
 [![Downloads](https://poser.pugx.org/laravel-enso/addresses/downloads)](https://packagist.org/packages/laravel-enso/addresses)
-[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](composer.json)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://github.com/laravel-enso/addresses/blob/master/composer.json)
 [![Issues](https://img.shields.io/github/issues/laravel-enso/addresses.svg)](https://github.com/laravel-enso/addresses/issues)
 [![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/addresses.svg)](https://github.com/laravel-enso/addresses/pulls)
 

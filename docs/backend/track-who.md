@@ -8,10 +8,10 @@ lastUpdated: false
 
 # Track Who
 
-[![License](https://poser.pugx.org/laravel-enso/track-who/license)](LICENSE)
+[![License](https://poser.pugx.org/laravel-enso/track-who/license)](https://github.com/laravel-enso/track-who/blob/master/LICENSE)
 [![Stable](https://poser.pugx.org/laravel-enso/track-who/version)](https://packagist.org/packages/laravel-enso/track-who)
 [![Downloads](https://poser.pugx.org/laravel-enso/track-who/downloads)](https://packagist.org/packages/laravel-enso/track-who)
-[![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](composer.json)
+[![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](https://github.com/laravel-enso/track-who/blob/master/composer.json)
 [![Issues](https://img.shields.io/github/issues/laravel-enso/track-who.svg)](https://github.com/laravel-enso/track-who/issues)
 [![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/track-who.svg)](https://github.com/laravel-enso/track-who/pulls)
 

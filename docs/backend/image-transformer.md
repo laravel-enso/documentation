@@ -8,10 +8,10 @@ lastUpdated: false
 
 # Image Transformer
 
-[![License](https://poser.pugx.org/laravel-enso/image-transformer/license)](LICENSE)
+[![License](https://poser.pugx.org/laravel-enso/image-transformer/license)](https://github.com/laravel-enso/image-transformer/blob/master/LICENSE)
 [![Stable](https://poser.pugx.org/laravel-enso/image-transformer/version)](https://packagist.org/packages/laravel-enso/image-transformer)
 [![Downloads](https://poser.pugx.org/laravel-enso/image-transformer/downloads)](https://packagist.org/packages/laravel-enso/image-transformer)
-[![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](composer.json)
+[![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](https://github.com/laravel-enso/image-transformer/blob/master/composer.json)
 [![Issues](https://img.shields.io/github/issues/laravel-enso/image-transformer.svg)](https://github.com/laravel-enso/image-transformer/issues)
 [![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/image-transformer.svg)](https://github.com/laravel-enso/image-transformer/pulls)
 

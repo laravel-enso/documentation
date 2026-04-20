@@ -8,10 +8,10 @@ lastUpdated: false
 
 # Cache Chain
 
-[![License](https://poser.pugx.org/laravel-enso/cache-chain/license)](LICENSE)
+[![License](https://poser.pugx.org/laravel-enso/cache-chain/license)](https://github.com/laravel-enso/cache-chain/blob/master/LICENSE)
 [![Stable](https://poser.pugx.org/laravel-enso/cache-chain/version)](https://packagist.org/packages/laravel-enso/cache-chain)
 [![Downloads](https://poser.pugx.org/laravel-enso/cache-chain/downloads)](https://packagist.org/packages/laravel-enso/cache-chain)
-[![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](composer.json)
+[![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](https://github.com/laravel-enso/cache-chain/blob/master/composer.json)
 [![Issues](https://img.shields.io/github/issues/laravel-enso/cache-chain.svg)](https://github.com/laravel-enso/cache-chain/issues)
 [![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/cache-chain.svg)](https://github.com/laravel-enso/cache-chain/pulls)
 

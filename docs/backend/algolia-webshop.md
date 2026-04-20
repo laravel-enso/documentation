@@ -8,8 +8,8 @@ lastUpdated: false
 
 # Algolia Webshop
 
-[![License](https://img.shields.io/badge/license-CC--BY--NC--ND%204.0-lightgrey.svg)](LICENSE)
-[![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](composer.json)
+[![License](https://img.shields.io/badge/license-CC--BY--NC--ND%204.0-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/algolia-webshop/-/blob/master/LICENSE)
+[![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](https://git.xtelecom.ro/laravel-enso/algolia-webshop/-/blob/master/composer.json)
 
 ## Description
 
@@ -87,5 +87,5 @@ Required Enso packages:
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://git.xtelecom.ro/laravel-enso/algolia-webshop/-/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 8/6/2021, 5:11:40 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 10:59:47 AM</div>
 </div>

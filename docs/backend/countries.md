@@ -8,10 +8,10 @@ lastUpdated: false
 
 # Countries
 
-[![License](https://poser.pugx.org/laravel-enso/countries/license)](LICENSE)
+[![License](https://poser.pugx.org/laravel-enso/countries/license)](https://github.com/laravel-enso/countries/blob/master/LICENSE)
 [![Stable](https://poser.pugx.org/laravel-enso/countries/version)](https://packagist.org/packages/laravel-enso/countries)
 [![Downloads](https://poser.pugx.org/laravel-enso/countries/downloads)](https://packagist.org/packages/laravel-enso/countries)
-[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](composer.json)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://github.com/laravel-enso/countries/blob/master/composer.json)
 [![Issues](https://img.shields.io/github/issues/laravel-enso/countries.svg)](https://github.com/laravel-enso/countries/issues)
 [![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/countries.svg)](https://github.com/laravel-enso/countries/pulls)
 

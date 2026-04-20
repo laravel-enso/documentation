@@ -8,10 +8,10 @@ lastUpdated: false
 
 # Facebook
 
-[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://git.xtelecom.ro/laravel-enso/facebook/-/blob/master/LICENSE)
 [![Stable](https://poser.pugx.org/laravel-enso/facebook/version)](https://packagist.org/packages/laravel-enso/facebook)
 [![Downloads](https://poser.pugx.org/laravel-enso/facebook/downloads)](https://packagist.org/packages/laravel-enso/facebook)
-[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](composer.json)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://git.xtelecom.ro/laravel-enso/facebook/-/blob/master/composer.json)
 
 ## Description
 
@@ -108,5 +108,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://git.xtelecom.ro/laravel-enso/facebook/-/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 8/6/2021, 5:04:46 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 1:19:22 PM</div>
 </div>

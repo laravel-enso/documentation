@@ -8,10 +8,10 @@ lastUpdated: false
 
 # API
 
-[![License](https://poser.pugx.org/laravel-enso/api/license)](LICENSE)
+[![License](https://poser.pugx.org/laravel-enso/api/license)](https://github.com/laravel-enso/api/blob/master/LICENSE)
 [![Stable](https://poser.pugx.org/laravel-enso/api/version)](https://packagist.org/packages/laravel-enso/api)
 [![Downloads](https://poser.pugx.org/laravel-enso/api/downloads)](https://packagist.org/packages/laravel-enso/api)
-[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](composer.json)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://github.com/laravel-enso/api/blob/master/composer.json)
 [![Issues](https://img.shields.io/github/issues/laravel-enso/api.svg)](https://github.com/laravel-enso/api/issues)
 [![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/api.svg)](https://github.com/laravel-enso/api/pulls)
 
