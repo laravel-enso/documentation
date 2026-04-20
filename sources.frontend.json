@@ -8,7 +8,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "addresses",
@@ -18,7 +18,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "algolia",
@@ -28,7 +28,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "bookmarks",
@@ -38,7 +38,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "calendar",
@@ -48,7 +48,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 1
         },
         {
             "slug": "card",
@@ -58,7 +58,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "cargo-partner",
@@ -68,7 +68,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "categories",
@@ -78,7 +78,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "charts",
@@ -88,7 +88,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "checkbox",
@@ -98,7 +98,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "clipboard",
@@ -108,7 +108,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "comments",
@@ -118,7 +118,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "commercial",
@@ -128,7 +128,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "companies",
@@ -138,7 +138,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "confirmation",
@@ -148,7 +148,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "currencies",
@@ -158,7 +158,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "data-import",
@@ -168,7 +168,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "date",
@@ -178,7 +178,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "datepicker",
@@ -188,7 +188,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "directives",
@@ -198,7 +198,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "discounts",
@@ -208,7 +208,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "divider",
@@ -218,7 +218,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "documents",
@@ -228,7 +228,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 8
         },
         {
             "slug": "dropdown",
@@ -236,9 +236,9 @@
             "url": "https://github.com/enso-ui/dropdown",
             "branch": "master",
             "updated": false,
-            "openIssuesCount": 0,
+            "openIssuesCount": 2,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 1
         },
         {
             "slug": "dropdown-indicator",
@@ -248,7 +248,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "eav",
@@ -258,7 +258,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "emag",
@@ -268,7 +268,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 1
         },
         {
             "slug": "emails",
@@ -278,7 +278,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "pagination",
@@ -288,7 +288,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "enums",
@@ -298,7 +298,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "erd",
@@ -308,7 +308,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "facebook",
@@ -318,7 +318,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "files",
@@ -328,7 +328,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "filters",
@@ -338,7 +338,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "financials",
@@ -348,7 +348,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 1
         },
         {
             "slug": "forms",
@@ -356,9 +356,9 @@
             "url": "https://github.com/enso-ui/forms",
             "branch": "master",
             "updated": false,
-            "openIssuesCount": 0,
+            "openIssuesCount": 1,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "frisbo",
@@ -368,7 +368,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "google",
@@ -378,7 +378,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "holidays",
@@ -388,7 +388,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "how-to",
@@ -398,7 +398,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "interactions",
@@ -408,7 +408,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "inventory",
@@ -418,7 +418,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "io",
@@ -428,7 +428,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "laravel-validation",
@@ -438,7 +438,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "loader",
@@ -448,7 +448,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "localisation",
@@ -458,7 +458,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "logs",
@@ -468,7 +468,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "measurement-units",
@@ -478,7 +478,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "meili-search",
@@ -488,7 +488,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "menus",
@@ -498,7 +498,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "mixins",
@@ -508,7 +508,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "modal",
@@ -518,7 +518,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "money",
@@ -528,7 +528,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "monitored-emails",
@@ -538,7 +538,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "notifications",
@@ -548,7 +548,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "orderable-trees",
@@ -558,7 +558,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "packaging-units",
@@ -568,7 +568,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "people",
@@ -578,7 +578,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "permissions",
@@ -588,7 +588,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "product-lots",
@@ -598,7 +598,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "products",
@@ -608,7 +608,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "progress-bar",
@@ -618,7 +618,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "progress-circle",
@@ -628,7 +628,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "progress-indicator",
@@ -638,7 +638,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "questionnaires",
@@ -648,7 +648,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "quick-view",
@@ -658,7 +658,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "range-slider",
@@ -668,7 +668,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "rating",
@@ -678,7 +678,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "roles",
@@ -688,7 +688,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "route-mapper",
@@ -698,7 +698,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "sale-channels",
@@ -708,7 +708,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "scroll-to-top",
@@ -718,7 +718,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "search-mode",
@@ -728,7 +728,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "select",
@@ -738,7 +738,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "sentry",
@@ -748,7 +748,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "services",
@@ -758,7 +758,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "smart-bill",
@@ -768,7 +768,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "sms-advert",
@@ -778,7 +778,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "strings",
@@ -788,7 +788,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "tables",
@@ -796,9 +796,9 @@
             "url": "https://github.com/enso-ui/tables",
             "branch": "master",
             "updated": false,
-            "openIssuesCount": 0,
+            "openIssuesCount": 4,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 1
         },
         {
             "slug": "tabs",
@@ -808,7 +808,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "tasks",
@@ -818,7 +818,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 2
         },
         {
             "slug": "teams",
@@ -828,7 +828,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "textarea",
@@ -838,7 +838,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "themes",
@@ -846,9 +846,9 @@
             "url": "https://github.com/enso-ui/themes",
             "branch": "master",
             "updated": false,
-            "openIssuesCount": 0,
+            "openIssuesCount": 1,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "ticketing",
@@ -858,7 +858,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "toastr",
@@ -868,7 +868,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "transitions",
@@ -878,7 +878,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "tree-view",
@@ -888,7 +888,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "tutorials",
@@ -898,7 +898,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "typeahead",
@@ -908,7 +908,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "typesense",
@@ -918,7 +918,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "ui",
@@ -926,9 +926,9 @@
             "url": "https://github.com/enso-ui/ui",
             "branch": "master",
             "updated": false,
-            "openIssuesCount": 0,
+            "openIssuesCount": 4,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "auth",
@@ -938,7 +938,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "uniqa",
@@ -948,7 +948,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "uploader",
@@ -958,7 +958,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "ups",
@@ -968,7 +968,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "user-groups",
@@ -978,7 +978,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "users",
@@ -988,7 +988,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "virtual-call-center",
@@ -998,7 +998,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "vouchers",
@@ -1008,7 +1008,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "switch",
@@ -1018,7 +1018,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "webshop",
@@ -1028,7 +1028,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 1
         },
         {
             "slug": "wysiwyg",
@@ -1038,7 +1038,7 @@
             "updated": false,
             "openIssuesCount": 0,
             "documentationStatus": "red",
-            "openMergeRequestsCount": null
+            "openMergeRequestsCount": 2
         }
     ]
 }

@@ -8,31 +8,101 @@ lastUpdated: false
 
 # Searchable
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/6e690a5f33534d87b8991554b961c33b)](https://www.codacy.com/gh/laravel-enso/searchable?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/searchable&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/150948993/shield?branch=master)](https://github.styleci.io/repos/150948993)
-[![License](https://poser.pugx.org/laravel-enso/searchable/license)](https://packagist.org/packages/laravel-enso/searchable)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/searchable/downloads)](https://packagist.org/packages/laravel-enso/searchable)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/searchable/version)](https://packagist.org/packages/laravel-enso/searchable)
+[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/laravel-enso/searchable/blob/master/LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/searchable/version)](https://packagist.org/packages/laravel-enso/searchable)
+[![Downloads](https://poser.pugx.org/laravel-enso/searchable/downloads)](https://packagist.org/packages/laravel-enso/searchable)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://github.com/laravel-enso/searchable/blob/master/composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/searchable.svg)](https://github.com/laravel-enso/searchable/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/searchable.svg)](https://github.com/laravel-enso/searchable/pulls)
 
-Task management dependency for [Laravel](https://laravel.com).
+## Description
 
-[![Watch the demo](https://laravel-enso.github.io/searchable/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/searchable/videos/bulma_demo_01.mp4)
+Searchable provides the global command-palette style search registry used by Laravel Enso.
 
-<sup>click on the photo to view a short demo in compatible browsers</sup>
+The package exposes a single search endpoint, a facade-backed registry for searchable models, and a finder service that resolves results according to configured attributes, scopes, permissions, and optional Scout providers.
 
-### Installation, Configuration & Usage
+It is intended for Enso applications that need cross-module quick search with permission-aware routes and grouped results.
 
-Be sure to check out the full documentation for this package available at [docs.laravel-enso.com](https://docs.laravel-enso.com/backend/searchable.html)
+## Installation
 
-### Contributions
+Install the package:
+
+```bash
+composer require laravel-enso/searchable
+```
+
+Run the package migrations:
+
+```bash
+php artisan migrate
+```
+
+Optional publishes:
+
+```bash
+php artisan vendor:publish --tag=searchable-config
+php artisan vendor:publish --tag=searchable-factories
+```
+
+## Features
+
+- Global `api/core/searchable/index` endpoint.
+- Facade-backed searchable model registry.
+- Finder service that supports local query matching or Scout search providers.
+- Permission-filtered route actions based on the authenticated user's role.
+- Support for route params, custom labels, scopes, permission groups, and nested relation attributes.
+
+## Usage
+
+Register searchable models from any package by extending the package search service provider:
+
+```php
+public $register = [
+    Product::class => [
+        'group' => 'Product',
+        'attributes' => ['name', 'internal_code', 'part_number'],
+        'label' => 'internal_code',
+        'permissionGroup' => 'products',
+    ],
+];
+```
+
+The finder returns grouped results with resolved route params and only the route actions the current user is allowed to execute.
+
+## API
+
+### HTTP routes
+
+- `GET api/core/searchable/index`
+
+### Core services
+
+- `LaravelEnso\\Searchable\\Services\\Search`
+- `LaravelEnso\\Searchable\\Services\\Finder`
+
+Behavior:
+
+- stores registered searchable model definitions
+- executes Scout search when `searchProvider` is configured
+- otherwise executes filter-based database search
+- filters available actions by role permissions
+
+## Depends On
+
+Required Enso packages:
+
+- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/filters`](https://docs.laravel-enso.com/backend/filters.html) [↗](https://github.com/laravel-enso/filters)
+- [`laravel-enso/migrator`](https://docs.laravel-enso.com/backend/migrator.html) [↗](https://github.com/laravel-enso/migrator)
+- [`laravel-enso/permissions`](https://docs.laravel-enso.com/backend/permissions.html) [↗](https://github.com/laravel-enso/permissions)
+
+## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-### License
-
-This package is released under the MIT license.
+Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/laravel-enso/searchable/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 7/9/2020, 9:07:15 AM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 6:26:25 PM</div>
 </div>

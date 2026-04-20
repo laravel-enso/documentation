@@ -6,12 +6,13 @@ lastUpdated: false
 
 <!-- AUTO-GENERATED: do not edit by hand -->
 
-# eMag Checker
+# Emag Checker
 
-[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://git.xtelecom.ro/laravel-enso/emag-checker/-/blob/master/LICENSE)
-[![Stable](https://poser.pugx.org/laravel-enso/emag-checker/version)](https://packagist.org/packages/laravel-enso/emag-checker)
-[![Downloads](https://poser.pugx.org/laravel-enso/emag-checker/downloads)](https://packagist.org/packages/laravel-enso/emag-checker)
+[![License](https://img.shields.io/badge/license-Proprietary-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/emag-checker/-/blob/master/LICENSE)
+[![Stable](https://img.shields.io/badge/stable-2.4.1-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/emag-checker/-/tags)
 [![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://git.xtelecom.ro/laravel-enso/emag-checker/-/blob/master/composer.json)
+[![Issues](https://img.shields.io/badge/issues-1-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/emag-checker/-/issues)
+[![Merge Requests](https://img.shields.io/badge/merge%20requests-1-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/emag-checker/-/merge_requests)
 
 ## Description
 
@@ -19,15 +20,11 @@ eMag Checker extends the Enso eMag integration with competitive-price checking a
 
 The package tracks long-running check operations, augments eMag offers with checker-specific pricing metadata, can automatically adjust client product discounts to defend the buy button, and exposes endpoints for enabling or disabling auto-pricing per offer.
 
-It is designed to run on top of `laravel-enso/emag`, not as a standalone integration.
+It is designed to run on top of `laravel-enso/emag`, not as a standalone integration, and is intended for private Enso deployments that operate on eMag.
 
 ## Installation
 
-Install the package:
-
-```bash
-composer require laravel-enso/emag-checker
-```
+This is a proprietary package distributed through the private Enso registry.
 
 Run the package migrations:
 
@@ -48,11 +45,11 @@ When enabled in production, the package schedules `enso:emag:checker:check-overd
 
 ## Features
 
-- Competitive-price check runs tracked as IO operations.
-- Offer-level auto-pricing flags and competitor state tracking.
-- Discount dropping and discount recalculation services for eMag offers.
+- Full-page competitive-price checks queued as IO operations.
+- Offer-level auto-pricing flags, competitor state tracking, and historical check snapshots.
+- Discount dropping and discount recalculation services for active eMag offers.
 - Auto-pricing activation and deactivation endpoints under the existing eMag offers API.
-- Overdue-check notifications for admin users.
+- Overdue-check notifications for admin users plus recovery tooling for stuck check runs.
 
 ## Usage
 
@@ -70,8 +67,11 @@ Core offer helpers:
 - `activateAutoPricing()`
 - `deactivateAutoPricing()`
 - `tryGoingBelow(Remote $remote)`
+- `checks()`
 
-The pricing service recalculates client product discounts for the eMag company configured in the main eMag settings package.
+The checker processes approved active marketplace offers page by page, snapshots the remote price state for each checked offer, and can either reprice local discounts or drop them entirely depending on the detected scenario.
+
+When a check remains stuck past the configured overdue threshold, the package notifies active admin users and finalizes the pending operation automatically.
 
 ## API
 
@@ -91,6 +91,11 @@ Route names:
 - `enso:emag:drop-discounts`
 - `enso:emag:checker:check-overdue`
 - `enso:emag:finalize-in-progress`
+
+### Configuration
+
+- `enso.emag-checker.enabled`
+- `enso.emag-checker.overdue`
 
 ## Depends On
 
@@ -112,5 +117,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://git.xtelecom.ro/laravel-enso/emag-checker/-/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 1:17:36 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 3:06:58 PM</div>
 </div>

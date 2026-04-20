@@ -6,155 +6,141 @@ lastUpdated: false
 
 <!-- AUTO-GENERATED: do not edit by hand -->
 
-# inventory
+# Inventory
 
-###  Inventory
+[![License](https://img.shields.io/badge/license-Proprietary-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/inventory/-/blob/master/LICENSE)
+[![Stable](https://img.shields.io/badge/stable-5.6.2-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/inventory/-/tags)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://git.xtelecom.ro/laravel-enso/inventory/-/blob/master/composer.json)
+[![Issues](https://img.shields.io/badge/issues-6-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/inventory/-/issues)
+[![Merge Requests](https://img.shields.io/badge/merge%20requests-0-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/inventory/-/merge_requests)
 
-Inventory is a package for the Laravel Enso environment, designed for the management of product inventory.
+## Description
 
-**Note:** *This is a commercially licensed package and may not be used without written permission*
+Inventory manages Enso warehouses, storage positions, labels, stock reservations, and availability calculations.
 
-**Note:** *This package cannot be used outside of the Enso environment and is not included by default 
-in the [Laravel Enso Core](https://github.com/laravel-enso/Core) package.*
+The package exposes CRUD flows for warehouses and positions, position move and product-location endpoints, label indexes and options, and a server-side inventory service that handles insert, move, reserve, fulfill, swap, cancel, and stock-update operations.
 
-### Features
-* structures for holding inventory entries (ins and outs), 
-reservations as well as the current stock, warehouse positions and more
-* API interface for inserting and removing from stock
-* UI interface for viewing various information about the stock, moving products within the stock positions
-* includes generator mechanisms for client invoices & payments
-* various Enums, Exceptions and utility classes
-* configuration for the generated invoices
-* tests
+It is intended for private Enso deployments that need warehouse and stock-control workflows tied to commercial documents.
 
-### Installation
+## Installation
 
-Note that this package uses commercially available FontAwesome icons. 
-These dependencies should be installed and available in your project:
-```
-"@fortawesome/pro-regular-svg-icons": "^5.10.1",
-"@fortawesome/pro-solid-svg-icons": "^5.10.1",
-``` 
+This is a proprietary package distributed through the private Enso registry.
 
-* add the package repository to your `composer.json` config 
-* install the package using composer: `composer require laravel-enso/inventory`
-* install the front-end ui package using yarn: `yarn add @enso-ui/inventory`
-* adds the following alias in `webackpack.mix.js`
-```
-.webpackConfig({
-        resolve: {
-            extensions: ['.js', '.vue', '.json'],
-            alias: {
-                 //other aliases
-                '@inventory': `${__dirname}/node_modules/@enso-ui/inventory/src/bulma`,
-            },
-        },
-    })
-```
-* in `resources/js/router.js` file, verify that `RouteMerger` is imported, or import it
+Run the package migrations:
 
-`import RouteMerger from '@core-modules/importers/RouteMerger';`
-
-* make sure `routeImporter` is also imported
-
-`import routeImporter from '@core-modules/importers/routeImporter';`
-
-* then use `RouteMerger` to import front-end assets using the alias defined in `webpack.mix.js`
-
-```
-(new RouteMerger(routes))
-    //other routes
-    .add(routeImporter(require.context('@inventory/routes', false, /.*\.js$/)))
-    .add(routeImporter(require.context('./routes', false, /.*\.js$/)));
+```bash
+php artisan migrate
 ```
 
-* in `resources/js/app.js` import the package's icons
+Optional publishes:
 
-`import '@inventory/icons';`
+```bash
+php artisan vendor:publish --tag=inventory-factories
+php artisan vendor:publish --tag=inventory-import-template
+```
 
-* make sure `hot module replacement` is **not** active, and run `yarn dev` or `npm run dev`
+## Features
 
-* run `php artisan migrate` to create tables, add menus, permissions etc.
+- Warehouse CRUD, table, export, and options endpoints.
+- Position CRUD, table, export, product lookup, and stock-move endpoints.
+- Label index and options endpoints.
+- Import template for warehouse position onboarding.
+- Inventory service methods for insert, undo insert, move, fulfill, undo fulfill, reserve, swap, cancel, and stock refresh operations.
 
-* run `php artisan vendor:publish --tag=inventory-factories` to publish the included factories
+## Usage
 
+The package mounts its routes under:
 
-### Using the Positions Import
+- `inventory.warehouses.*`
+- `inventory.positions.*`
+- `inventory.labels.*`
+
+Use the service for stock operations:
 
 ```php
-'positions' => [
-    'label' => 'Inventory Positions',
-    'template' => 'vendor/laravel-enso/inventory/src/Imports/Templates/positions.json',
-],
+use LaravelEnso\Inventory\Services\Inventory;
+
+Inventory::reserve($orderLine, 5);
+Inventory::move($product, $fromPosition, $toPosition, 2);
 ```
 
+## API
 
-Default:
-- add the Positions Import configuration to the `config/enso/imports.php` configuration
-- ensure the warehouse we're importing the positions for is given as parameter to the import
-- run the import
+### HTTP routes
 
-Custom:
-- publish the import files using the `inventory-import-template` tag
-- customize the import, update namespaces, add validations, etc
-- add the import to your local `config/enso/imports.php` configuration
+Warehouses:
 
-### Using the Inventory class functionality
-The provided public methods are meant to be used when integrating with other backend / front-end 
- project modules when working with the inventory.
+- `GET api/inventory/warehouses/create`
+- `POST api/inventory/warehouses`
+- `GET api/inventory/warehouses/{warehouse}/edit`
+- `PATCH api/inventory/warehouses/{warehouse}`
+- `DELETE api/inventory/warehouses/{warehouse}`
+- `GET api/inventory/warehouses/initTable`
+- `GET api/inventory/warehouses/tableData`
+- `GET api/inventory/warehouses/exportExcel`
+- `GET api/inventory/warehouses/options`
 
-#### The Inventoriable interface
-The interface must be implemented by the models that work with the inventory, 
-such as Purchase Order entries and Sale Order entries.
+Positions:
 
-#### The HasInventory Trait
-The trait provides a default implementation for the `Inventoriable` interface, so you may simply use these trait inside
-your models instead of defining each method.
+- `GET api/inventory/positions/create`
+- `POST api/inventory/positions`
+- `GET api/inventory/positions/{position}/edit`
+- `PATCH api/inventory/positions/{position}`
+- `DELETE api/inventory/positions/{position}`
+- `GET api/inventory/positions/initTable`
+- `GET api/inventory/positions/tableData`
+- `GET api/inventory/positions/exportExcel`
+- `GET api/inventory/positions/show`
+- `GET api/inventory/positions/{product}/{warehouse?}`
+- `POST api/inventory/positions/move/{product}/{from}/{to}`
 
-#### Inventory::insert(Inventoriable $line, Position $position)
-- creates a new inventory line (InventoryIn)
-- updates the inventory stock for that product
-- updates/creates reservations for other orderables that are not fully reserved
-- supplements any outstanding reservations for the product added to the inventory
-        
-#### Inventory::move(InventoryIn $inventoryIn, Position $position, $quantity)
-- moves a given product quantity from a position to a new position
-- `$inventoryIn` is the line from where we're moving the product
-- `$position` is the new position of the product
-- `$quantity` is the moved quantity, as you can move it partially or totally
-- existing reservations for that inventory line are preserved
-- when doing moves/splits, the created_at attribute is kept as if the product would have been placed on the position from
-the start
+Labels:
 
-#### Inventory::remove(Inventoriable $orderable)
-- removes the product from stock, due to a sale or a product return
-- creates stock removals (InventoryOut) based on product reservations
-- requires reservations to exist beforehand
-- adjust the inventory entries' remaining quantity
-- updates the inventory stock for that product
+- `GET api/inventory/labels`
+- `GET api/inventory/labels/options`
 
-Note, if a remove operation is attempted and no reservations exist, an `InventoryException` is thrown.
+### Service surface
 
-#### Inventory::reserve(Inventoriable $orderable)
-- attempts to create reservations for that orderable, using the available inventory entries
-- may fully or partially reserve the quantity
-- if unable to do a partial reservation, a blank reservation is created
-            
-#### Inventory::cancelReservations(Inventoriable $orderable)
-- cancels the all the reservations for an $orderable
-- updates/creates reservations for other orderables that are not fully reserved
-- attempts to supplement any outstanding reservations for this line's product, due to the newly available quantity
+- `Inventory::insert()`
+- `Inventory::undoInsert()`
+- `Inventory::move()`
+- `Inventory::fulfill()`
+- `Inventory::undoFulfill()`
+- `Inventory::reserve()`
+- `Inventory::swapReservations()`
+- `Inventory::cancelReservation()`
+- `Inventory::supplementInReservations()`
+- `Inventory::supplementProductReservations()`
+- `Inventory::available()`
+- `Inventory::reservedQuantity()`
+- `Inventory::locations()`
+- `Inventory::positionsQuantity()`
+- `Inventory::remainingQuantity()`
+- `Inventory::updateStock()`
 
+## Depends On
 
+Required Enso packages:
 
-### Depends on
-- `jsbarcode` for the barcode generation 
+- [`laravel-enso/addresses`](https://docs.laravel-enso.com/backend/addresses.html) [↗](https://github.com/laravel-enso/addresses)
+- [`laravel-enso/commercial`](https://docs.laravel-enso.com/backend/commercial.html) [↗](https://git.xtelecom.ro/laravel-enso/commercial)
+- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/data-import`](https://docs.laravel-enso.com/backend/data-import.html) [↗](https://github.com/laravel-enso/data-import)
+- [`laravel-enso/dynamic-methods`](https://docs.laravel-enso.com/backend/dynamic-methods.html) [↗](https://github.com/laravel-enso/dynamic-methods)
+- [`laravel-enso/forms`](https://docs.laravel-enso.com/backend/forms.html) [↗](https://github.com/laravel-enso/forms)
+- [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
+- [`laravel-enso/migrator`](https://docs.laravel-enso.com/backend/migrator.html) [↗](https://github.com/laravel-enso/migrator)
+- [`laravel-enso/product-lots`](https://docs.laravel-enso.com/backend/product-lots.html) [↗](https://git.xtelecom.ro/laravel-enso/product-lots)
+- [`laravel-enso/products`](https://docs.laravel-enso.com/backend/products.html) [↗](https://git.xtelecom.ro/laravel-enso/products)
+- [`laravel-enso/select`](https://docs.laravel-enso.com/backend/select.html) [↗](https://github.com/laravel-enso/select)
+- [`laravel-enso/tables`](https://docs.laravel-enso.com/backend/tables.html) [↗](https://github.com/laravel-enso/tables)
+- [`laravel-enso/track-who`](https://docs.laravel-enso.com/backend/track-who.html) [↗](https://github.com/laravel-enso/track-who)
 
-## License
+Companion frontend package:
 
-[CC-BY-NC-ND-4.0](https://spdx.org/licenses/CC-BY-NC-ND-4.0.html)
+- [`@enso-ui/inventory`](https://docs.laravel-enso.com/frontend/inventory.html) [↗](https://git.xtelecom.ro/enso-ui/inventory)
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://git.xtelecom.ro/laravel-enso/inventory/-/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 7/10/2020, 6:17:14 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 6:09:20 PM</div>
 </div>

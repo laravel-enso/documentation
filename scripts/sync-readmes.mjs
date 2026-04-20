@@ -631,6 +631,35 @@ const formatLastUpdated = (value) => {
 
 const buildFrontmatter = () => `---\nsidebarDepth: 3\neditLink: false\nlastUpdated: false\n---`
 
+const buildStaticBadgeUrl = (label, value, color = 'lightgrey') => {
+    return `https://img.shields.io/badge/${encodeURIComponent(label)}-${encodeURIComponent(String(value))}-${color}.svg`
+}
+
+const rewriteDocsMetricBadges = (content, source, repository) => {
+    if (repository?.provider !== 'gitlab') {
+        return content
+    }
+
+    const issueCount = source.openIssuesCount
+    const mergeRequestCount = source.openMergeRequestsCount
+
+    return content
+        .replace(/\[!\[Issues\]\([^)]+\)\]\([^)]+\)\n?/gu, () => {
+            if (issueCount === null || issueCount === undefined) {
+                return ''
+            }
+
+            return `[![Issues](${buildStaticBadgeUrl('issues', issueCount)})](${source.url}${source.url.includes('github.com') ? '/issues' : '/-/issues'})\n`
+        })
+        .replace(/\[!\[Merge Requests\]\([^)]+\)\]\([^)]+\)\n?/gu, () => {
+            if (mergeRequestCount === null || mergeRequestCount === undefined) {
+                return ''
+            }
+
+            return `[![Merge Requests](${buildStaticBadgeUrl('merge requests', mergeRequestCount)})](${source.url}${source.url.includes('github.com') ? '/pulls' : '/-/merge_requests'})\n`
+        })
+}
+
 const buildPage = ({ source, repository, branch, content, readmePath }) => {
     const readmeContent = typeof content === 'string' ? content : content.content
     const lastUpdated = formatLastUpdated(
@@ -640,6 +669,7 @@ const buildPage = ({ source, repository, branch, content, readmePath }) => {
     )
     const sanitized = stripLeadingHeading(stripFrontmatter(readmeContent).trim())
     const rewritten = rewriteRelativeUrls(sanitized, branch, repository, readmePath)
+    const docsRewritten = rewriteDocsMetricBadges(rewritten, source, repository)
     const editUrl = buildEditUrl(repository, branch, readmePath)
     const meta = [
         '<div class="package-page-meta-row">',
@@ -648,7 +678,7 @@ const buildPage = ({ source, repository, branch, content, readmePath }) => {
         '</div>',
     ].join('\n')
 
-    return `${buildFrontmatter()}\n\n${marker}\n\n# ${source.title}\n\n${rewritten}\n\n${meta}\n`
+    return `${buildFrontmatter()}\n\n${marker}\n\n# ${source.title}\n\n${docsRewritten}\n\n${meta}\n`
 }
 
 const buildUnavailablePage = ({ source, repository, branch, readmePath, error }) => {
@@ -778,6 +808,17 @@ const extractSectionBodies = (content) => {
 
 const isBadgeLine = (line) => /shields\.io|badge|!\[[^\]]*\]\([^)]+\)|<img\b/iu.test(line)
 
+const isStableBadge = (value) => {
+    const normalized = value.toLowerCase()
+
+    return normalized.includes('stable')
+        || normalized.includes('/tag/')
+        || normalized.includes('/tags')
+        || /badge\/stable[-/]/iu.test(normalized)
+        || /badge\/tag[-/]/iu.test(normalized)
+        || /poser\.pugx\.org\/.+\/v(?:ersion)?\b/iu.test(normalized)
+}
+
 const extractBadgeBlock = (content) => {
     const lines = stripFrontmatter(content).split('\n')
     const headingIndex = lines.findIndex((line) => /^#\s+.+$/u.test(line))
@@ -817,12 +858,7 @@ const classifyBadge = (line) => {
         return 'license'
     }
 
-    if (
-        normalized.includes('stable')
-        || normalized.includes('version')
-        || normalized.includes('release')
-        || normalized.includes('tag')
-    ) {
+    if (isStableBadge(normalized)) {
         return 'stable'
     }
 
@@ -846,11 +882,17 @@ const classifyBadge = (line) => {
         return 'npm'
     }
 
-    if (normalized.includes('issues-pr') || normalized.includes('pull request') || normalized.includes('merge request') || normalized.includes('/pulls')) {
+    if (
+        /github\/issues-pr\//iu.test(normalized)
+        || normalized.includes('pull request')
+        || normalized.includes('merge request')
+        || normalized.includes('/pulls')
+        || normalized.includes('/merge_requests')
+    ) {
         return 'merge_requests'
     }
 
-    if (normalized.includes('issue')) {
+    if (normalized.includes('issue') || normalized.includes('/issues')) {
         return 'issues'
     }
 
@@ -868,17 +910,15 @@ const hasBadge = (badgeText, badge) => {
         case 'license':
             return normalized.includes('license')
         case 'issues':
-            return /github\/issues\/|!\[issues\]/iu.test(normalized)
+            return /github\/issues\/|!\[issues\]|\/issues(?:\)|$)/iu.test(normalized)
         case 'merge_requests':
-            return normalized.includes('issues-pr')
+            return /github\/issues-pr\//iu.test(normalized)
                 || normalized.includes('pull request')
                 || normalized.includes('merge request')
                 || normalized.includes('/pulls')
+                || normalized.includes('/merge_requests')
         case 'stable':
-            return normalized.includes('stable')
-                || normalized.includes('version')
-                || normalized.includes('release')
-                || normalized.includes('tag')
+            return isStableBadge(normalized)
         case 'downloads':
             return normalized.includes('download')
         case 'vue':
@@ -943,6 +983,16 @@ const readJsonIfExists = async (filePath) => {
 
 const normalizeDescription = (value) => value.trim().replace(/\s+/gu, ' ').toLowerCase()
 
+const expectedLicenseCopyright = (manifest) => {
+    const license = typeof manifest?.license === 'string'
+        ? manifest.license.trim().toLowerCase()
+        : ''
+
+    return license === 'proprietary'
+        ? 'Copyright (c) 2026 Earthlink SRL'
+        : 'Copyright (c) 2026 Laravel Enso'
+}
+
 const validateLocalPackageMetadata = async ({ sectionId, source, repository }) => {
     const packageRoot = localPackageRoot(sectionId, source)
 
@@ -991,9 +1041,7 @@ const validateLocalPackageMetadata = async ({ sectionId, source, repository }) =
 
     if (await fileExists(licensePath)) {
         const license = await readFile(licensePath, 'utf8')
-        const expectedCopyright = repository?.provider === 'gitlab'
-            ? 'Copyright (c) 2026 Earthlink SRL'
-            : 'Copyright (c) 2026 Laravel Enso'
+        const expectedCopyright = expectedLicenseCopyright(manifest)
 
         if (!license.includes(expectedCopyright)) {
             findings.push({
@@ -1012,6 +1060,16 @@ const isLikelyUiPackage = (sectionId, content) => sectionId === 'frontend'
 
 const isLikelyApiPackage = (sectionId, content) => sectionId === 'backend'
     || /\bprops?\b|\bevents?\b|\bmethods?\b|\bemit\b|\bendpoint\b|\broute\b|\bapi\b/iu.test(content)
+
+const effectiveBadgeOrder = ({ sectionId, repository }) => {
+    const badges = [...approvedBadges[sectionId]]
+
+    if (repository?.provider === 'gitlab') {
+        return badges.filter((badge) => badge !== 'downloads')
+    }
+
+    return badges
+}
 
 const validateReadme = async ({ sectionId, source, repository, content, cached }) => {
     const findings = []
@@ -1100,10 +1158,11 @@ const validateReadme = async ({ sectionId, source, repository, content, cached }
         previousIndex = index
     }
 
+    const supportedBadges = effectiveBadgeOrder({ sectionId, repository })
     const classifiedBadges = badgeLines.map(classifyBadge)
     const extraBadges = classifiedBadges.filter((badge) => !['codacy', 'styleci', ...approvedBadges[sectionId]].includes(badge))
 
-    for (const badge of ['license', 'issues', 'merge_requests', 'stable', 'downloads']) {
+    for (const badge of ['license', 'issues', 'merge_requests', 'stable', ...(supportedBadges.includes('downloads') ? ['downloads'] : [])]) {
         if (!hasBadge(badgeText, badge)) {
             findings.push({
                 level: 'warning',
@@ -1129,8 +1188,8 @@ const validateReadme = async ({ sectionId, source, repository, content, cached }
         })
     }
 
-    const orderedRecognizedBadges = classifiedBadges.filter((badge) => approvedBadges[sectionId].includes(badge))
-    const expectedBadgeOrder = approvedBadges[sectionId].filter((badge) => orderedRecognizedBadges.includes(badge))
+    const orderedRecognizedBadges = classifiedBadges.filter((badge) => supportedBadges.includes(badge))
+    const expectedBadgeOrder = supportedBadges.filter((badge) => orderedRecognizedBadges.includes(badge))
 
     if (orderedRecognizedBadges.join('|') !== expectedBadgeOrder.join('|')) {
         findings.push({
@@ -1337,40 +1396,35 @@ const evaluateSource = async ({ section, source }) => {
 const refreshSourceStatus = async ({ section, source, findings }) => {
     source.updated = isUpdatedPackage(findings)
 
-    if (source.updated) {
-        try {
-            const metadata = await fetchRepoMetadata(source)
-            const repository = parseRepositoryUrl(source.url)
+    try {
+        const metadata = await fetchRepoMetadata(source)
+        const repository = parseRepositoryUrl(source.url)
 
-            if (repository.provider === 'github') {
-                const [openIssuesCount, openMergeRequestsCount] = await Promise.all([
-                    fetchGithubOpenIssueCount(repository),
-                    fetchGithubOpenPullRequestCount(repository),
-                ])
-                const htmlMetadata = openIssuesCount === null || openMergeRequestsCount === null
-                    ? await fetchGithubRepoMetadataFromHtml(repository).catch(() => metadata)
-                    : metadata
+        if (repository.provider === 'github') {
+            const [openIssuesCount, openMergeRequestsCount] = await Promise.all([
+                fetchGithubOpenIssueCount(repository),
+                fetchGithubOpenPullRequestCount(repository),
+            ])
+            const htmlMetadata = openIssuesCount === null || openMergeRequestsCount === null
+                ? await fetchGithubRepoMetadataFromHtml(repository).catch(() => metadata)
+                : metadata
 
-                source.openIssuesCount = openIssuesCount
-                    ?? htmlMetadata.openIssuesCount
-                    ?? source.openIssuesCount
-                    ?? null
-                source.openMergeRequestsCount = openMergeRequestsCount
-                    ?? htmlMetadata.openMergeRequestsCount
-                    ?? source.openMergeRequestsCount
-                    ?? null
-            } else {
-                source.openIssuesCount = metadata.openIssuesCount ?? source.openIssuesCount ?? null
-                source.openMergeRequestsCount = await fetchGitlabOpenMergeRequestCount(repository)
-                    ?? metadata.openMergeRequestsCount
-                    ?? source.openMergeRequestsCount
-                    ?? null
-            }
-        } catch {
-            source.openIssuesCount = source.openIssuesCount ?? null
-            source.openMergeRequestsCount = source.openMergeRequestsCount ?? null
+            source.openIssuesCount = openIssuesCount
+                ?? htmlMetadata.openIssuesCount
+                ?? source.openIssuesCount
+                ?? null
+            source.openMergeRequestsCount = openMergeRequestsCount
+                ?? htmlMetadata.openMergeRequestsCount
+                ?? source.openMergeRequestsCount
+                ?? null
+        } else {
+            source.openIssuesCount = metadata.openIssuesCount ?? source.openIssuesCount ?? null
+            source.openMergeRequestsCount = await fetchGitlabOpenMergeRequestCount(repository)
+                ?? metadata.openMergeRequestsCount
+                ?? source.openMergeRequestsCount
+                ?? null
         }
-    } else {
+    } catch {
         source.openIssuesCount = source.openIssuesCount ?? null
         source.openMergeRequestsCount = source.openMergeRequestsCount ?? null
     }
@@ -1659,6 +1713,42 @@ const generateSections = async (sections) => {
     process.stdout.write(`validation summary: ${path.relative(root, validationSummaryPath)}\n`)
 }
 
+const generateTargetSections = async (sections, matches) => {
+    const report = []
+    const grouped = new Map()
+
+    for (const match of matches) {
+        const bucket = grouped.get(match.section.id) ?? []
+        bucket.push(match)
+        grouped.set(match.section.id, bucket)
+    }
+
+    for (const section of sections.filter((candidate) => grouped.has(candidate.id))) {
+        await mkdir(path.join(root, section.root), { recursive: true })
+
+        for (const { source } of grouped.get(section.id) ?? []) {
+            report.push(await generateSource({ section, source }))
+        }
+
+        await persistSection(section)
+    }
+
+    const summary = summarizeValidation(report)
+
+    await writeFile(validationReportPath, `${JSON.stringify({
+        generatedAt: new Date().toISOString(),
+        mode: 'generate',
+        scope: 'targeted',
+        summary: summary.totals,
+        packages: report,
+    }, null, 4)}\n`)
+    await writeFile(validationSummaryPath, summary.text)
+
+    process.stdout.write(`validation: ${summary.totals.error} errors, ${summary.totals.warning} warnings, ${summary.totals.info} infos\n`)
+    process.stdout.write(`validation report: ${path.relative(root, validationReportPath)}\n`)
+    process.stdout.write(`validation summary: ${path.relative(root, validationSummaryPath)}\n`)
+}
+
 const refreshStatusSections = async (sections, matches = null) => {
     const report = []
     const scopedMatches = matches ?? sections.flatMap((section) => section.sources.map((source) => ({ section, source })))
@@ -1708,7 +1798,21 @@ if (mode === 'sync') {
         await syncTargetSources(sections, matches)
     }
 } else if (mode === 'generate') {
-    await generateSections(sections)
+    if (!targetArg) {
+        await generateSections(sections)
+    } else {
+        const matches = findTargetSources(sections, targetArg)
+
+        if (matches.length === 0) {
+            throw new Error(`Package not found in sources: ${targetArg}`)
+        }
+
+        if (matches.length > 1) {
+            throw new Error(`Package target is ambiguous: ${targetArg}. Use backend/<slug> or frontend/<slug>.`)
+        }
+
+        await generateTargetSections(sections, matches)
+    }
 } else if (mode === 'refresh-status') {
     if (!targetArg) {
         await refreshStatusSections(sections)

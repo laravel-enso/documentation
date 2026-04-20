@@ -8,38 +8,74 @@ lastUpdated: false
 
 # Logs
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/7ed12ff883d14464b88343cfdd3bfe0f)](https://www.codacy.com/gh/laravel-enso/logs?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/logs&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/85624363/shield?branch=master)](https://github.styleci.io/repos/85624363)
-[![License](https://poser.pugx.org/laravel-enso/logs/license)](https://packagist.org/packages/laravel-enso/logs)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/logs/downloads)](https://packagist.org/packages/laravel-enso/logs)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/logs/version)](https://packagist.org/packages/laravel-enso/logs)
+[![License](https://poser.pugx.org/laravel-enso/logs/license)](https://github.com/laravel-enso/logs/blob/master/LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/logs/version)](https://packagist.org/packages/laravel-enso/logs)
+[![Downloads](https://poser.pugx.org/laravel-enso/logs/downloads)](https://packagist.org/packages/laravel-enso/logs)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://github.com/laravel-enso/logs/blob/master/composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/logs.svg)](https://github.com/laravel-enso/logs/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/logs.svg)](https://github.com/laravel-enso/logs/pulls)
 
-Log management dependency for [Laravel Enso](https://github.com/laravel-enso/Enso)
+## Description
 
-This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+Logs provides Enso endpoints for browsing, downloading, showing, and deleting application log files.
 
-The front end assets that utilize this api are present in the [ui](https://github.com/enso-ui/ui) package.
+The package exposes a compact log-management API over the application's log storage and is meant to back the corresponding Enso administration screen.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+It is an operational helper package, not a general-purpose logging driver.
 
-[![Screenshot](https://laravel-enso.github.io/logs/screenshots/bulma_004_thumb.png)](https://laravel-enso.github.io/logs/screenshots/bulma_004.png)
+## Installation
 
-[![Screenshot](https://laravel-enso.github.io/logs/screenshots/bulma_005_thumb.png)](https://laravel-enso.github.io/logs/screenshots/bulma_005.png)
+Install the package:
 
-### Installation, Configuration & Usage
+```bash
+composer require laravel-enso/logs
+```
 
-Be sure to check out the full documentation for this package available at [docs.laravel-enso.com](https://docs.laravel-enso.com/backend/logs.html)
+Run the package migrations:
 
-### Contributions
+```bash
+php artisan migrate
+```
+
+## Features
+
+- Log index endpoint.
+- Single-log show and download endpoints.
+- Log deletion endpoint.
+- Simple operational surface under the system namespace.
+
+## Usage
+
+The package mounts its routes under `system.logs.*`.
+
+## API
+
+### HTTP routes
+
+- `GET api/system/logs`
+- `DELETE api/system/logs/{log}`
+- `GET api/system/logs/{log}/download`
+- `GET api/system/logs/{log}`
+
+## Depends On
+
+Required Enso packages:
+
+- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
+- [`laravel-enso/migrator`](https://docs.laravel-enso.com/backend/migrator.html) [↗](https://github.com/laravel-enso/migrator)
+
+Companion frontend package:
+
+- [`@enso-ui/logs`](https://docs.laravel-enso.com/frontend/logs.html) [↗](https://github.com/enso-ui/logs)
+
+## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-### License
-
-This package is released under the MIT license.
-<!--/h-->
+Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/laravel-enso/logs/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 6/25/2020, 2:51:22 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 6:07:54 PM</div>
 </div>

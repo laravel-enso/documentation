@@ -8,8 +8,11 @@ lastUpdated: false
 
 # Algolia Webshop
 
-[![License](https://img.shields.io/badge/license-CC--BY--NC--ND%204.0-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/algolia-webshop/-/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/license-Proprietary-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/algolia-webshop/-/blob/master/LICENSE)
+[![Stable](https://img.shields.io/badge/stable-1.2.0-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/algolia-webshop/-/tags)
 [![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](https://git.xtelecom.ro/laravel-enso/algolia-webshop/-/blob/master/composer.json)
+[![Issues](https://img.shields.io/badge/issues-1-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/algolia-webshop/-/issues)
+[![Merge Requests](https://img.shields.io/badge/merge%20requests-0-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/algolia-webshop/-/merge_requests)
 
 ## Description
 
@@ -87,5 +90,5 @@ Required Enso packages:
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://git.xtelecom.ro/laravel-enso/algolia-webshop/-/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 10:59:47 AM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 3:00:37 PM</div>
 </div>

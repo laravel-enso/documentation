@@ -130,159 +130,43 @@ $options = Category::with('recursiveParent')
 
 The package ships the backend routes and payload builders used by the Enso categories administration UI.
 
-Companion frontend package:
-
-- [`@enso-ui/categories`](https://docs.laravel-enso.com/frontend/categories.html) [↗](https://github.com/enso-ui/categories)
-
 ## API
 
-### Routes
+### HTTP routes
 
-Routes are registered under:
-
-- prefix: `api/administration/categories`
-- name prefix: `administration.categories.`
-- middleware: `api`, `auth`, `core`
-
-Available endpoints:
-
-- `GET /api/administration/categories`
-  `administration.categories.index`
-- `GET /api/administration/categories/create`
-  `administration.categories.create`
-- `GET /api/administration/categories/{category}/edit`
-  `administration.categories.edit`
-- `GET /api/administration/categories/options`
-  `administration.categories.options`
-- `POST /api/administration/categories`
-  `administration.categories.store`
-- `GET /api/administration/categories/initTable`
-  `administration.categories.initTable`
-- `GET /api/administration/categories/tableData`
-  `administration.categories.tableData`
-- `POST /api/administration/categories/{category}/upload`
-  `administration.categories.upload`
-- `PATCH /api/administration/categories/{category}/move`
-  `administration.categories.move`
-- `PATCH /api/administration/categories/{category}`
-  `administration.categories.update`
-- `DELETE /api/administration/categories/{category}`
-  `administration.categories.destroy`
-- `DELETE /api/administration/categories/image/{category}`
-  `administration.categories.image.destroy`
-
-### Model
-
-`LaravelEnso\Categories\Models\Category`
-
-Stored attributes:
-
-- `id`
-- `name`
-- `parent_id`
-- `image_id`
-- `order_index`
-- `is_featured`
-- `created_at`
-- `updated_at`
-
-Relationships:
-
-- `parent()`
-- `recursiveParent()`
-- `subcategories()`
-- `recursiveSubcategories()`
-- `image()`
-
-Public helpers and scopes:
-
-- `label()`
-- `pictureUrl()`
-- `imageWidth()`
-- `imageHeight()`
-- `move()`
-- `tree()`
-- `parentTree()`
-- `flattenCurrentAndBelow()`
-- `flattenCurrentAndBelowIds()`
-- `isParent()`
-- `level()`
-- `depth()`
-- `nextIndex()`
-- `scopeTopLevel()`
-- `scopeContains()`
-- `scopeFeatured()`
-- `reorder()`
-
-### Request validation
-
-The package validates:
-
-- duplicate sibling names on update
-- self-linking attempts on store
-- nesting depth on reorder
-- image uploads with `required|image`
-- top-level-only image uploads
-
-### Builders and resources
-
-Form builder:
-
-- `LaravelEnso\Categories\Forms\Builders\Category`
-
-Table builder:
-
-- `LaravelEnso\Categories\Tables\Builders\Category`
-
-Resources:
-
-- `LaravelEnso\Categories\Http\Resources\Category`
-- `LaravelEnso\Categories\Http\Resources\Label`
-
-### Config
-
-`config/enso/categories.php`
-
-Options:
-
-- `maxNestingLevel`
-
-Environment variable:
-
-- `CATEGORIES_MAX_NESTING_LEVEL`
-
-### Imports
-
-Import classes:
-
-- `LaravelEnso\Categories\Imports\Importers\Categories`
-- `LaravelEnso\Categories\Imports\Validators\Categories`
-
-They support category imports with optional parent lookup by name.
+- `GET api/administration/categories`
+- `GET api/administration/categories/create`
+- `GET api/administration/categories/{category}/edit`
+- `GET api/administration/categories/options`
+- `POST api/administration/categories`
+- `GET api/administration/categories/initTable`
+- `GET api/administration/categories/tableData`
+- `POST api/administration/categories/{category}/upload`
+- `PATCH api/administration/categories/{category}/move`
+- `PATCH api/administration/categories/{category}`
+- `DELETE api/administration/categories/{category}`
+- `DELETE api/administration/categories/image/{category}`
 
 ## Depends On
 
 Required Enso packages:
 
 - [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/data-import`](https://docs.laravel-enso.com/backend/data-import.html) [↗](https://github.com/laravel-enso/data-import)
 - [`laravel-enso/dynamic-methods`](https://docs.laravel-enso.com/backend/dynamic-methods.html) [↗](https://github.com/laravel-enso/dynamic-methods)
 - [`laravel-enso/files`](https://docs.laravel-enso.com/backend/files.html) [↗](https://github.com/laravel-enso/files)
 - [`laravel-enso/forms`](https://docs.laravel-enso.com/backend/forms.html) [↗](https://github.com/laravel-enso/forms)
 - [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
 - [`laravel-enso/migrator`](https://docs.laravel-enso.com/backend/migrator.html) [↗](https://github.com/laravel-enso/migrator)
 - [`laravel-enso/permissions`](https://docs.laravel-enso.com/backend/permissions.html) [↗](https://github.com/laravel-enso/permissions)
-- [`laravel-enso/products`](https://docs.laravel-enso.com/backend/products.html) [↗](https://github.com/laravel-enso/products)
+- [`laravel-enso/products`](https://docs.laravel-enso.com/backend/products.html) [↗](https://git.xtelecom.ro/laravel-enso/products)
 - [`laravel-enso/rememberable`](https://docs.laravel-enso.com/backend/rememberable.html) [↗](https://github.com/laravel-enso/rememberable)
 - [`laravel-enso/select`](https://docs.laravel-enso.com/backend/select.html) [↗](https://github.com/laravel-enso/select)
 - [`laravel-enso/tables`](https://docs.laravel-enso.com/backend/tables.html) [↗](https://github.com/laravel-enso/tables)
 
-Optional integration package:
+Companion frontend package:
 
-- [`laravel-enso/data-import`](https://docs.laravel-enso.com/backend/data-import.html) [↗](https://github.com/laravel-enso/data-import)
-
-Framework dependency:
-
-- [Laravel framework ↗](https://github.com/laravel/framework)
+- [`@enso-ui/categories`](https://docs.laravel-enso.com/frontend/categories.html) [↗](https://github.com/enso-ui/categories)
 
 ## Contributions
 
@@ -292,5 +176,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/laravel-enso/categories/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 9:42:57 AM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 6:26:25 PM</div>
 </div>

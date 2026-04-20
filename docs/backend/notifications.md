@@ -8,37 +8,84 @@ lastUpdated: false
 
 # Notifications
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/2d66701f3de944f188795401b954360d)](https://www.codacy.com/gh/laravel-enso/notifications?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/notifications&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/85684795/shield?branch=master)](https://github.styleci.io/repos/85684795)
-[![License](https://poser.pugx.org/laravel-enso/notifications/license)](https://packagist.org/packages/laravel-enso/notifications)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/notifications/downloads)](https://packagist.org/packages/laravel-enso/notifications)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/notifications/version)](https://packagist.org/packages/laravel-enso/notifications)
+[![License](https://poser.pugx.org/laravel-enso/notifications/license)](https://github.com/laravel-enso/notifications/blob/master/LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/notifications/version)](https://packagist.org/packages/laravel-enso/notifications)
+[![Downloads](https://poser.pugx.org/laravel-enso/notifications/downloads)](https://packagist.org/packages/laravel-enso/notifications)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://github.com/laravel-enso/notifications/blob/master/composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/notifications.svg)](https://github.com/laravel-enso/notifications/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/notifications.svg)](https://github.com/laravel-enso/notifications/pulls)
 
-Notifications functionality dependency for [Laravel Enso](https://github.com/laravel-enso/Enso)
+## Description
 
-This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+Notifications provides Enso API endpoints and broadcast channels for user notifications.
 
-The front end assets that utilize this api are present in the [ui](https://github.com/enso-ui/ui) package.
+The package exposes listing, counting, read, read-all, delete, and delete-all endpoints on top of Laravel's database notifications, and registers a per-user broadcast channel based on the configured auth model.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+It is intended to back the Enso notification dropdown and related realtime UI flows.
 
-[![Watch the demo](https://laravel-enso.github.io/notifications/screenshots/bulma_033_thumb.png)](https://laravel-enso.github.io/notifications/videos/bulma_demo_01.webm)
+## Installation
 
-<sup>click on the photo to view a short demo in compatible browsers</sup>
+Install the package:
 
-### Installation, Configuration & Usage
+```bash
+composer require laravel-enso/notifications
+```
 
-Be sure to check out the full documentation for this package available at [docs.laravel-enso.com](https://docs.laravel-enso.com/backend/notifications.html)
+Run the package migrations:
+
+```bash
+php artisan migrate
+```
+
+## Features
+
+- Notification list and unread-count endpoints.
+- Mark-one and mark-all-as-read endpoints.
+- Delete-one and delete-all endpoints.
+- Broadcast channel registration for user-specific notification streams.
+
+## Usage
+
+Main route group:
+
+- `core.notifications.*`
+
+The broadcast channel is derived from the configured auth model namespace and ends with `.{id}`.
+
+## API
+
+### HTTP routes
+
+- `GET api/core/notifications`
+- `DELETE api/core/notifications/destroyAll`
+- `DELETE api/core/notifications/{notification}`
+- `GET api/core/notifications/count`
+- `PATCH api/core/notifications/read/{notification}`
+- `POST api/core/notifications/readAll`
+
+### Broadcast
+
+- per-user notification channel for the configured auth provider model
+
+## Depends On
+
+Required packages:
+
+- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/migrator`](https://docs.laravel-enso.com/backend/migrator.html) [↗](https://github.com/laravel-enso/migrator)
+- `pusher/pusher-php-server`
+
+Companion frontend package:
+
+- [`@enso-ui/notifications`](https://docs.laravel-enso.com/frontend/notifications.html) [↗](https://github.com/enso-ui/notifications)
 
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-## License
-
-This package is released under the MIT license.
+Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/laravel-enso/notifications/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 6/25/2020, 2:11:28 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 6:08:05 PM</div>
 </div>

@@ -22,6 +22,367 @@ export const searchIndex = [
     "extraFields": []
   },
   {
+    "title": "Introduction",
+    "headers": [],
+    "path": "/guide/",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "Development",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Enso conventions",
+        "slug": "enso-conventions",
+        "link": "#enso-conventions",
+        "children": [
+          {
+            "level": 3,
+            "title": "Named routes",
+            "slug": "named-routes",
+            "link": "#named-routes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Routes and permissions",
+            "slug": "routes-and-permissions",
+            "link": "#routes-and-permissions",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Invocable controllers",
+            "slug": "invocable-controllers",
+            "link": "#invocable-controllers",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Fat models, slim controllers",
+            "slug": "fat-models-slim-controllers",
+            "link": "#fat-models-slim-controllers",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Building CRUD structures",
+        "slug": "building-crud-structures",
+        "link": "#building-crud-structures",
+        "children": [
+          {
+            "level": 3,
+            "title": "Using the CLI",
+            "slug": "using-the-cli",
+            "link": "#using-the-cli",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Overwriting functionality",
+        "slug": "overwriting-functionality",
+        "link": "#overwriting-functionality",
+        "children": [
+          {
+            "level": 3,
+            "title": "Dependency injection",
+            "slug": "dependency-injection",
+            "link": "#dependency-injection",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Changing back end logic",
+            "slug": "changing-back-end-logic",
+            "link": "#changing-back-end-logic",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Changing front end pages",
+            "slug": "changing-front-end-pages",
+            "link": "#changing-front-end-pages",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Themes",
+        "slug": "themes",
+        "link": "#themes",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Adding static assets",
+        "slug": "adding-static-assets",
+        "link": "#adding-static-assets",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Linting & Aliases",
+        "slug": "linting-aliases",
+        "link": "#linting-aliases",
+        "children": []
+      }
+    ],
+    "path": "/guide/development.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "Getting Started",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Requirements",
+        "slug": "requirements",
+        "link": "#requirements",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation Steps",
+        "slug": "installation-steps",
+        "link": "#installation-steps",
+        "children": [
+          {
+            "level": 3,
+            "title": "Optional",
+            "slug": "optional",
+            "link": "#optional",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Docker",
+        "slug": "docker",
+        "link": "#docker",
+        "children": [
+          {
+            "level": 3,
+            "title": "Known issues",
+            "slug": "known-issues",
+            "link": "#known-issues",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Important",
+        "slug": "important",
+        "link": "#important",
+        "children": []
+      }
+    ],
+    "path": "/guide/getting-started.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "License",
+    "headers": [],
+    "path": "/guide/license.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "Thanks",
+    "headers": [],
+    "path": "/guide/thanks.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "Under the Hood",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Authentication",
+        "slug": "authentication",
+        "link": "#authentication",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Stateful vs Stateless",
+        "slug": "stateful-vs-stateless",
+        "link": "#stateful-vs-stateless",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Session management",
+        "slug": "session-management",
+        "link": "#session-management",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Security",
+        "slug": "security",
+        "link": "#security",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Authentication",
+        "slug": "authentication-1",
+        "link": "#authentication-1",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Authorization",
+        "slug": "authorization",
+        "link": "#authorization",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Middleware & Middleware Groups",
+        "slug": "middleware-middleware-groups",
+        "link": "#middleware-middleware-groups",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "UserGroups, Roles & Users",
+        "slug": "usergroups-roles-users",
+        "link": "#usergroups-roles-users",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Preferences",
+        "slug": "preferences",
+        "link": "#preferences",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Translations",
+        "slug": "translations",
+        "link": "#translations",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Environment",
+        "slug": "environment",
+        "link": "#environment",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Telemetry",
+        "slug": "telemetry",
+        "link": "#telemetry",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Exceptions",
+        "slug": "exceptions",
+        "link": "#exceptions",
+        "children": []
+      }
+    ],
+    "path": "/guide/under-the-hood.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "Usage",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Setup a new project",
+        "slug": "setup-a-new-project",
+        "link": "#setup-a-new-project",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Updates",
+        "slug": "updates",
+        "link": "#updates",
+        "children": [
+          {
+            "level": 3,
+            "title": "Notes",
+            "slug": "notes",
+            "link": "#notes",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Localisation",
+        "slug": "localisation",
+        "link": "#localisation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Icons",
+        "slug": "icons",
+        "link": "#icons",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Email templates",
+        "slug": "email-templates",
+        "link": "#email-templates",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Vuex store",
+        "slug": "vuex-store",
+        "link": "#vuex-store",
+        "children": [
+          {
+            "level": 3,
+            "title": "Back-End",
+            "slug": "back-end",
+            "link": "#back-end",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Front-End",
+            "slug": "front-end",
+            "link": "#front-end",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "path": "/guide/usage.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
     "title": "Front End",
     "headers": [
       {
@@ -3883,8 +4244,66 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "algolia-webshop",
-    "headers": [],
+    "title": "Algolia Webshop",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "Service bindings",
+            "slug": "service-bindings",
+            "link": "#service-bindings",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Queue job",
+            "slug": "queue-job",
+            "link": "#queue-job",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      }
+    ],
     "path": "/backend/algolia-webshop.html",
     "pathLocale": "/",
     "extraFields": []
@@ -3893,10 +4312,67 @@ export const searchIndex = [
     "title": "Algolia",
     "headers": [
       {
-        "level": 3,
-        "title": "laravel-enso - algolia",
-        "slug": "laravel-enso-algolia",
-        "link": "#laravel-enso-algolia",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Artisan commands",
+            "slug": "artisan-commands",
+            "link": "#artisan-commands",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Contributions",
+        "slug": "contributions",
+        "link": "#contributions",
         "children": []
       }
     ],
@@ -4343,8 +4819,66 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "CARGO-PARTNER",
-    "headers": [],
+    "title": "Cargo Partner",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Artisan commands",
+            "slug": "artisan-commands",
+            "link": "#artisan-commands",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      }
+    ],
     "path": "/backend/cargo-partner.html",
     "pathLocale": "/",
     "extraFields": []
@@ -4410,44 +4944,9 @@ export const searchIndex = [
         "children": [
           {
             "level": 3,
-            "title": "Routes",
-            "slug": "routes",
-            "link": "#routes",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Model",
-            "slug": "model",
-            "link": "#model",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Request validation",
-            "slug": "request-validation",
-            "link": "#request-validation",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Builders and resources",
-            "slug": "builders-and-resources",
-            "link": "#builders-and-resources",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Config",
-            "slug": "config",
-            "link": "#config",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Imports",
-            "slug": "imports",
-            "link": "#imports",
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
             "children": []
           }
         ]
@@ -4580,15 +5079,15 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "Cicd",
-    "headers": [],
-    "path": "/backend/cicd.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Cli",
+    "title": "CI/CD",
     "headers": [
+      {
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
       {
         "level": 2,
         "title": "Installation",
@@ -4601,29 +5100,114 @@ export const searchIndex = [
         "title": "Features",
         "slug": "features",
         "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      }
+    ],
+    "path": "/backend/cicd.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "Cli",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
         "children": [
           {
             "level": 3,
-            "title": "Configuration & Usage",
-            "slug": "configuration-usage",
-            "link": "#configuration-usage",
+            "title": "Artisan command",
+            "slug": "artisan-command",
+            "link": "#artisan-command",
             "children": []
           },
           {
             "level": 3,
-            "title": "Contributions",
-            "slug": "contributions",
-            "link": "#contributions",
+            "title": "Published configuration",
+            "slug": "published-configuration",
+            "link": "#published-configuration",
             "children": []
           },
           {
             "level": 3,
-            "title": "License",
-            "slug": "license",
-            "link": "#license",
+            "title": "Generated artifacts",
+            "slug": "generated-artifacts",
+            "link": "#generated-artifacts",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Validation rules",
+            "slug": "validation-rules",
+            "link": "#validation-rules",
             "children": []
           }
         ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Contributions",
+        "slug": "contributions",
+        "link": "#contributions",
+        "children": []
       }
     ],
     "path": "/backend/cli.html",
@@ -4706,45 +5290,67 @@ export const searchIndex = [
     "title": "Comments",
     "headers": [
       {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage",
-        "link": "#installation-configuration-usage",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
         "children": []
       },
       {
-        "level": 3,
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Model surface",
+            "slug": "model-surface",
+            "link": "#model-surface",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
         "title": "Contributions",
         "slug": "contributions",
         "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage-1",
-        "link": "#installation-configuration-usage-1",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "Contributions",
-        "slug": "contributions-1",
-        "link": "#contributions-1",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "License",
-        "slug": "license-1",
-        "link": "#license-1",
         "children": []
       }
     ],
@@ -4756,14 +5362,14 @@ export const searchIndex = [
     "title": "Commercial",
     "headers": [
       {
-        "level": 3,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
         "children": []
       },
       {
-        "level": 3,
+        "level": 2,
         "title": "Installation",
         "slug": "installation",
         "link": "#installation",
@@ -4771,16 +5377,52 @@ export const searchIndex = [
       },
       {
         "level": 2,
-        "title": "Extending",
-        "slug": "extending",
-        "link": "#extending",
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
         "children": []
       },
       {
         "level": 2,
-        "title": "Test",
-        "slug": "test",
-        "link": "#test",
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "Main route groups",
+            "slug": "main-route-groups",
+            "link": "#main-route-groups",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Order lifecycle endpoints",
+            "slug": "order-lifecycle-endpoints",
+            "link": "#order-lifecycle-endpoints",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Artisan commands",
+            "slug": "artisan-commands",
+            "link": "#artisan-commands",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
         "children": []
       }
     ],
@@ -4792,24 +5434,60 @@ export const searchIndex = [
     "title": "Companies",
     "headers": [
       {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage",
-        "link": "#installation-configuration-usage",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
         "children": []
       },
       {
-        "level": 3,
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
         "title": "Contributions",
         "slug": "contributions",
         "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
         "children": []
       }
     ],
@@ -5014,45 +5692,53 @@ export const searchIndex = [
     "title": "Currencies",
     "headers": [
       {
-        "level": 3,
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
         "title": "Features",
         "slug": "features",
         "link": "#features",
         "children": []
       },
       {
-        "level": 3,
-        "title": "Instalation",
-        "slug": "instalation",
-        "link": "#instalation",
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
         "children": []
       },
       {
-        "level": 3,
-        "title": "Publishes",
-        "slug": "publishes",
-        "link": "#publishes",
-        "children": []
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          }
+        ]
       },
       {
-        "level": 3,
-        "title": "Icons",
-        "slug": "icons",
-        "link": "#icons",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
         "children": []
       }
     ],
@@ -5064,24 +5750,74 @@ export const searchIndex = [
     "title": "Data Export",
     "headers": [
       {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage",
-        "link": "#installation-configuration-usage",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
         "children": []
       },
       {
-        "level": 3,
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Artisan commands",
+            "slug": "artisan-commands",
+            "link": "#artisan-commands",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Extension points",
+            "slug": "extension-points",
+            "link": "#extension-points",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
         "title": "Contributions",
         "slug": "contributions",
         "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
         "children": []
       }
     ],
@@ -5093,24 +5829,74 @@ export const searchIndex = [
     "title": "Data Import",
     "headers": [
       {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage",
-        "link": "#installation-configuration-usage",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
         "children": []
       },
       {
-        "level": 3,
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Artisan commands",
+            "slug": "artisan-commands",
+            "link": "#artisan-commands",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Extension points",
+            "slug": "extension-points",
+            "link": "#extension-points",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
         "title": "Contributions",
         "slug": "contributions",
         "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
         "children": []
       }
     ],
@@ -5119,24 +5905,17 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "discounts",
+    "title": "Discounts",
     "headers": [
       {
-        "level": 3,
-        "title": "Discounts",
-        "slug": "discounts-1",
-        "link": "#discounts-1",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
         "children": []
       },
       {
-        "level": 3,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 3,
+        "level": 2,
         "title": "Installation",
         "slug": "installation",
         "link": "#installation",
@@ -5144,9 +5923,38 @@ export const searchIndex = [
       },
       {
         "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
         "children": []
       }
     ],
@@ -5155,41 +5963,70 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "Docs",
-    "headers": [],
-    "path": "/backend/docs.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Documentation",
-    "headers": [],
-    "path": "/backend/documentation.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
     "title": "Documents",
     "headers": [
       {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage",
-        "link": "#installation-configuration-usage",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
         "children": []
       },
       {
-        "level": 3,
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Model surface",
+            "slug": "model-surface",
+            "link": "#model-surface",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
         "title": "Contributions",
         "slug": "contributions",
         "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
         "children": []
       }
     ],
@@ -5291,13 +6128,56 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "eav",
+    "title": "EAV",
     "headers": [
       {
-        "level": 3,
-        "title": "laravel-enso - eav",
-        "slug": "laravel-enso-eav",
-        "link": "#laravel-enso-eav",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
         "children": []
       }
     ],
@@ -5306,13 +6186,77 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "emag checker",
+    "title": "Emag Checker",
     "headers": [
       {
-        "level": 3,
-        "title": "laravel-enso - emag-checks",
-        "slug": "laravel-enso-emag-checks",
-        "link": "#laravel-enso-emag-checks",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Artisan commands",
+            "slug": "artisan-commands",
+            "link": "#artisan-commands",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Configuration",
+            "slug": "configuration",
+            "link": "#configuration",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Contributions",
+        "slug": "contributions",
+        "link": "#contributions",
         "children": []
       }
     ],
@@ -5321,13 +6265,56 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "emag",
+    "title": "Emag",
     "headers": [
       {
-        "level": 3,
-        "title": "Emag",
-        "slug": "emag-1",
-        "link": "#emag-1",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
         "children": []
       }
     ],
@@ -5637,13 +6624,70 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "facebook",
+    "title": "Facebook",
     "headers": [
       {
-        "level": 3,
-        "title": "laravel-enso - facebook",
-        "slug": "laravel-enso-facebook",
-        "link": "#laravel-enso-facebook",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Upgrade helper",
+            "slug": "upgrade-helper",
+            "link": "#upgrade-helper",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Contributions",
+        "slug": "contributions",
+        "link": "#contributions",
         "children": []
       }
     ],
@@ -5652,27 +6696,63 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "File Manager",
+    "title": "Files",
     "headers": [
       {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage",
-        "link": "#installation-configuration-usage",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
         "children": []
       },
       {
-        "level": 3,
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
         "title": "Contributions",
         "slug": "contributions",
         "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
         "children": []
       }
     ],
@@ -5684,24 +6764,67 @@ export const searchIndex = [
     "title": "Filters",
     "headers": [
       {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage",
-        "link": "#installation-configuration-usage",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
         "children": []
       },
       {
-        "level": 3,
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "Services",
+            "slug": "services",
+            "link": "#services",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Enums",
+            "slug": "enums",
+            "link": "#enums",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
         "title": "Contributions",
         "slug": "contributions",
         "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
         "children": []
       }
     ],
@@ -5710,24 +6833,17 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "financials",
+    "title": "Financials",
     "headers": [
       {
-        "level": 3,
-        "title": "Financials",
-        "slug": "financials-1",
-        "link": "#financials-1",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
         "children": []
       },
       {
-        "level": 3,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 3,
+        "level": 2,
         "title": "Installation",
         "slug": "installation",
         "link": "#installation",
@@ -5735,16 +6851,38 @@ export const searchIndex = [
       },
       {
         "level": 2,
-        "title": "Configuration",
-        "slug": "configuration",
-        "link": "#configuration",
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
         "children": []
       },
       {
         "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
         "children": []
       }
     ],
@@ -5756,24 +6894,131 @@ export const searchIndex = [
     "title": "Forms",
     "headers": [
       {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage",
-        "link": "#installation-configuration-usage",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
         "children": []
       },
       {
-        "level": 3,
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": [
+          {
+            "level": 3,
+            "title": "Template structure",
+            "slug": "template-structure",
+            "link": "#template-structure",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Minimal template example",
+            "slug": "minimal-template-example",
+            "link": "#minimal-template-example",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Form service API",
+            "slug": "form-service-api",
+            "link": "#form-service-api",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Supported field types",
+            "slug": "supported-field-types",
+            "link": "#supported-field-types",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Supported meta keys",
+            "slug": "supported-meta-keys",
+            "link": "#supported-meta-keys",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Template validation rules",
+            "slug": "template-validation-rules",
+            "link": "#template-validation-rules",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Frontend companion",
+            "slug": "frontend-companion",
+            "link": "#frontend-companion",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "Services",
+            "slug": "services",
+            "link": "#services",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Published resources",
+            "slug": "published-resources",
+            "link": "#published-resources",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Configuration highlights",
+            "slug": "configuration-highlights",
+            "link": "#configuration-highlights",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Test traits",
+            "slug": "test-traits",
+            "link": "#test-traits",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
         "title": "Contributions",
         "slug": "contributions",
         "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
         "children": []
       }
     ],
@@ -5782,20 +7027,135 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "FRISBO",
-    "headers": [],
+    "title": "Frisbo",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Artisan commands",
+            "slug": "artisan-commands",
+            "link": "#artisan-commands",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      }
+    ],
     "path": "/backend/frisbo.html",
     "pathLocale": "/",
     "extraFields": []
   },
   {
-    "title": "google",
+    "title": "Google",
     "headers": [
       {
-        "level": 3,
-        "title": "laravel-enso - google",
-        "slug": "laravel-enso-google",
-        "link": "#laravel-enso-google",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Services",
+            "slug": "services",
+            "link": "#services",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Contributions",
+        "slug": "contributions",
+        "link": "#contributions",
         "children": []
       }
     ],
@@ -5933,28 +7293,63 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "holidays",
+    "title": "Holidays",
     "headers": [
       {
-        "level": 3,
-        "title": "laravel-enso - holidays",
-        "slug": "laravel-enso-holidays",
-        "link": "#laravel-enso-holidays",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
         "children": []
-      }
-    ],
-    "path": "/backend/holidays.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "How-To",
-    "headers": [
+      },
       {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage",
-        "link": "#installation-configuration-usage",
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Models",
+            "slug": "models",
+            "link": "#models",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
         "children": []
       },
       {
@@ -5963,12 +7358,70 @@ export const searchIndex = [
         "slug": "contributions",
         "link": "#contributions",
         "children": []
+      }
+    ],
+    "path": "/backend/holidays.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "How-to",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
       },
       {
         "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Contributions",
+        "slug": "contributions",
+        "link": "#contributions",
         "children": []
       }
     ],
@@ -6059,10 +7512,60 @@ export const searchIndex = [
     "title": "Impersonate",
     "headers": [
       {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage",
-        "link": "#installation-configuration-usage",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Middleware",
+            "slug": "middleware",
+            "link": "#middleware",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
         "children": []
       },
       {
@@ -6070,13 +7573,6 @@ export const searchIndex = [
         "title": "Contributions",
         "slug": "contributions",
         "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
         "children": []
       }
     ],
@@ -6086,61 +7582,127 @@ export const searchIndex = [
   },
   {
     "title": "Interactions",
-    "headers": [],
-    "path": "/backend/interactions.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "inventory",
     "headers": [
       {
-        "level": 3,
-        "title": "Inventory",
-        "slug": "inventory-1",
-        "link": "#inventory-1",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
         "children": []
       },
       {
-        "level": 3,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 3,
+        "level": 2,
         "title": "Installation",
         "slug": "installation",
         "link": "#installation",
         "children": []
       },
       {
-        "level": 3,
-        "title": "Using the Positions Import",
-        "slug": "using-the-positions-import",
-        "link": "#using-the-positions-import",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "Using the Inventory class functionality",
-        "slug": "using-the-inventory-class-functionality",
-        "link": "#using-the-inventory-class-functionality",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "Depends on",
-        "slug": "depends-on",
-        "link": "#depends-on",
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
         "children": []
       },
       {
         "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Artisan command",
+            "slug": "artisan-command",
+            "link": "#artisan-command",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      }
+    ],
+    "path": "/backend/interactions.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "Inventory",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Service surface",
+            "slug": "service-surface",
+            "link": "#service-surface",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
         "children": []
       }
     ],
@@ -6152,24 +7714,52 @@ export const searchIndex = [
     "title": "IO",
     "headers": [
       {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage",
-        "link": "#installation-configuration-usage",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
         "children": []
       },
       {
-        "level": 3,
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
         "title": "Contributions",
         "slug": "contributions",
         "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
         "children": []
       }
     ],
@@ -6414,24 +8004,74 @@ export const searchIndex = [
     "title": "Localisation",
     "headers": [
       {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage",
-        "link": "#installation-configuration-usage",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
         "children": []
       },
       {
-        "level": 3,
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Middleware",
+            "slug": "middleware",
+            "link": "#middleware",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Artisan commands",
+            "slug": "artisan-commands",
+            "link": "#artisan-commands",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
         "title": "Contributions",
         "slug": "contributions",
         "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
         "children": []
       }
     ],
@@ -6522,24 +8162,60 @@ export const searchIndex = [
     "title": "Logs",
     "headers": [
       {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage",
-        "link": "#installation-configuration-usage",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
         "children": []
       },
       {
-        "level": 3,
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
         "title": "Contributions",
         "slug": "contributions",
         "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
         "children": []
       }
     ],
@@ -6551,24 +8227,60 @@ export const searchIndex = [
     "title": "Measurement Units",
     "headers": [
       {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage",
-        "link": "#installation-configuration-usage",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
         "children": []
       },
       {
-        "level": 3,
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
         "title": "Contributions",
         "slug": "contributions",
         "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
         "children": []
       }
     ],
@@ -6606,20 +8318,142 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "meili-search-webshop",
-    "headers": [],
+    "title": "Meili Search Webshop",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "Service bindings",
+            "slug": "service-bindings",
+            "link": "#service-bindings",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Queue jobs",
+            "slug": "queue-jobs",
+            "link": "#queue-jobs",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      }
+    ],
     "path": "/backend/meili-search-webshop.html",
     "pathLocale": "/",
     "extraFields": []
   },
   {
-    "title": "meili-search",
+    "title": "Meili Search",
     "headers": [
       {
-        "level": 3,
-        "title": "laravel-enso - meili-search",
-        "slug": "laravel-enso-meili-search",
-        "link": "#laravel-enso-meili-search",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Artisan commands",
+            "slug": "artisan-commands",
+            "link": "#artisan-commands",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Service",
+            "slug": "service",
+            "link": "#service",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Contributions",
+        "slug": "contributions",
+        "link": "#contributions",
         "children": []
       }
     ],
@@ -6631,24 +8465,60 @@ export const searchIndex = [
     "title": "Menus",
     "headers": [
       {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage",
-        "link": "#installation-configuration-usage",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
         "children": []
       },
       {
-        "level": 3,
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
         "title": "Contributions",
         "slug": "contributions",
         "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
         "children": []
       }
     ],
@@ -6657,13 +8527,70 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "monitored-emails",
+    "title": "Monitored Emails",
     "headers": [
       {
-        "level": 3,
-        "title": "laravel-enso - monitored-emails",
-        "slug": "laravel-enso-monitored-emails",
-        "link": "#laravel-enso-monitored-emails",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Artisan commands",
+            "slug": "artisan-commands",
+            "link": "#artisan-commands",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Queue job",
+            "slug": "queue-job",
+            "link": "#queue-job",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
         "children": []
       },
       {
@@ -6671,13 +8598,6 @@ export const searchIndex = [
         "title": "Contributions",
         "slug": "contributions",
         "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
         "children": []
       }
     ],
@@ -6689,10 +8609,60 @@ export const searchIndex = [
     "title": "Notifications",
     "headers": [
       {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage",
-        "link": "#installation-configuration-usage",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Broadcast",
+            "slug": "broadcast",
+            "link": "#broadcast",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
         "children": []
       },
       {
@@ -6700,13 +8670,6 @@ export const searchIndex = [
         "title": "Contributions",
         "slug": "contributions",
         "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
         "children": []
       }
     ],
@@ -6725,24 +8688,60 @@ export const searchIndex = [
     "title": "Packaging Units",
     "headers": [
       {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage",
-        "link": "#installation-configuration-usage",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
         "children": []
       },
       {
-        "level": 3,
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
         "title": "Contributions",
         "slug": "contributions",
         "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
         "children": []
       }
     ],
@@ -6826,24 +8825,60 @@ export const searchIndex = [
     "title": "People",
     "headers": [
       {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage",
-        "link": "#installation-configuration-usage",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
         "children": []
       },
       {
-        "level": 3,
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
         "title": "Contributions",
         "slug": "contributions",
         "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
         "children": []
       }
     ],
@@ -6855,10 +8890,60 @@ export const searchIndex = [
     "title": "Permissions",
     "headers": [
       {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage",
-        "link": "#installation-configuration-usage",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Middleware",
+            "slug": "middleware",
+            "link": "#middleware",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
         "children": []
       },
       {
@@ -6866,13 +8951,6 @@ export const searchIndex = [
         "title": "Contributions",
         "slug": "contributions",
         "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
         "children": []
       }
     ],
@@ -6881,49 +8959,70 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "PHPUnit Pretty Print",
+    "title": "Product Eav",
     "headers": [
       {
-        "level": 3,
-        "title": "Instalation Steps",
-        "slug": "instalation-steps",
-        "link": "#instalation-steps",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
         "children": []
       },
       {
-        "level": 3,
-        "title": "Notes",
-        "slug": "notes",
-        "link": "#notes",
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
         "children": []
       },
       {
-        "level": 3,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
         "children": []
       },
       {
-        "level": 3,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
         "children": []
-      }
-    ],
-    "path": "/backend/phpunit-pretty-print.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "product eav",
-    "headers": [
+      },
       {
-        "level": 3,
-        "title": "laravel-enso - ProductEav",
-        "slug": "laravel-enso-producteav",
-        "link": "#laravel-enso-producteav",
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "Product bindings",
+            "slug": "product-bindings",
+            "link": "#product-bindings",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Dynamic product methods",
+            "slug": "dynamic-product-methods",
+            "link": "#dynamic-product-methods",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Observer",
+            "slug": "observer",
+            "link": "#observer",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
         "children": []
       }
     ],
@@ -6932,13 +9031,56 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "product-lots",
+    "title": "Product Lots",
     "headers": [
       {
-        "level": 3,
-        "title": "laravel-enso - product-lots",
-        "slug": "laravel-enso-product-lots",
-        "link": "#laravel-enso-product-lots",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
         "children": []
       }
     ],
@@ -6950,24 +9092,67 @@ export const searchIndex = [
     "title": "Products",
     "headers": [
       {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage",
-        "link": "#installation-configuration-usage",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
         "children": []
       },
       {
-        "level": 3,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
         "children": []
       },
       {
-        "level": 3,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Artisan commands",
+            "slug": "artisan-commands",
+            "link": "#artisan-commands",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Search registration",
+            "slug": "search-registration",
+            "link": "#search-registration",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
         "children": []
       }
     ],
@@ -6976,13 +9161,56 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "questionnaires",
+    "title": "Questionnaires",
     "headers": [
       {
-        "level": 3,
-        "title": "laravel-enso - questionnaires",
-        "slug": "laravel-enso-questionnaires",
-        "link": "#laravel-enso-questionnaires",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
         "children": []
       }
     ],
@@ -7070,84 +9298,70 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "Romanian Addresses",
+    "title": "Roles",
     "headers": [
       {
-        "level": 3,
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
         "title": "Features",
         "slug": "features",
         "link": "#features",
         "children": []
       },
       {
-        "level": 3,
+        "level": 2,
         "title": "Usage",
         "slug": "usage",
         "link": "#usage",
         "children": []
       },
       {
-        "level": 3,
-        "title": "Import",
-        "slug": "import",
-        "link": "#import",
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Artisan commands",
+            "slug": "artisan-commands",
+            "link": "#artisan-commands",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
         "children": []
       },
       {
-        "level": 3,
-        "title": "Publishes",
-        "slug": "publishes",
-        "link": "#publishes",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "Notes",
-        "slug": "notes",
-        "link": "#notes",
-        "children": []
-      },
-      {
-        "level": 3,
+        "level": 2,
         "title": "Contributions",
         "slug": "contributions",
         "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/backend/ro-addresses.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Roles",
-    "headers": [
-      {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage",
-        "link": "#installation-configuration-usage",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
         "children": []
       }
     ],
@@ -7156,13 +9370,56 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "sale channels",
+    "title": "Sale Channels",
     "headers": [
       {
-        "level": 3,
-        "title": "laravel-enso - sale-channels",
-        "slug": "laravel-enso-sale-channels",
-        "link": "#laravel-enso-sale-channels",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
         "children": []
       }
     ],
@@ -7174,24 +9431,67 @@ export const searchIndex = [
     "title": "Searchable",
     "headers": [
       {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage",
-        "link": "#installation-configuration-usage",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
         "children": []
       },
       {
-        "level": 3,
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Core services",
+            "slug": "core-services",
+            "link": "#core-services",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
         "title": "Contributions",
         "slug": "contributions",
         "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
         "children": []
       }
     ],
@@ -7203,10 +9503,60 @@ export const searchIndex = [
     "title": "Select",
     "headers": [
       {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage",
-        "link": "#installation-configuration-usage",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "Builder traits",
+            "slug": "builder-traits",
+            "link": "#builder-traits",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Response service",
+            "slug": "response-service",
+            "link": "#response-service",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
         "children": []
       },
       {
@@ -7214,13 +9564,6 @@ export const searchIndex = [
         "title": "Contributions",
         "slug": "contributions",
         "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
         "children": []
       }
     ],
@@ -7365,13 +9708,63 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "smart-bill",
+    "title": "Smart Bill",
     "headers": [
       {
-        "level": 3,
-        "title": "laravel-enso - smart-bill",
-        "slug": "laravel-enso-smart-bill",
-        "link": "#laravel-enso-smart-bill",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Invoice actions",
+            "slug": "invoice-actions",
+            "link": "#invoice-actions",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
         "children": []
       }
     ],
@@ -7380,8 +9773,66 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "SMS-ADVERT",
-    "headers": [],
+    "title": "Sms Advert",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Action",
+            "slug": "action",
+            "link": "#action",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      }
+    ],
     "path": "/backend/sms-advert.html",
     "pathLocale": "/",
     "extraFields": []
@@ -7390,24 +9841,60 @@ export const searchIndex = [
     "title": "Stripe",
     "headers": [
       {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage",
-        "link": "#installation-configuration-usage",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
         "children": []
       },
       {
-        "level": 3,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
         "children": []
       },
       {
-        "level": 3,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "HTTP routes",
+            "slug": "http-routes",
+            "link": "#http-routes",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Core service",
+            "slug": "core-service",
+            "link": "#core-service",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
         "children": []
       }
     ],
@@ -7419,24 +9906,116 @@ export const searchIndex = [
     "title": "Tables",
     "headers": [
       {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage",
-        "link": "#installation-configuration-usage",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
         "children": []
       },
       {
-        "level": 3,
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": [
+          {
+            "level": 3,
+            "title": "1. Implement a table builder",
+            "slug": "_1-implement-a-table-builder",
+            "link": "#_1-implement-a-table-builder",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2. Expose the three backend endpoints",
+            "slug": "_2-expose-the-three-backend-endpoints",
+            "link": "#_2-expose-the-three-backend-endpoints",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "3. Define the JSON template",
+            "slug": "_3-define-the-json-template",
+            "link": "#_3-define-the-json-template",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Template structure",
+            "slug": "template-structure",
+            "link": "#template-structure",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Request and query pipeline",
+            "slug": "request-and-query-pipeline",
+            "link": "#request-and-query-pipeline",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Computors and formatting",
+            "slug": "computors-and-formatting",
+            "link": "#computors-and-formatting",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Export flow",
+            "slug": "export-flow",
+            "link": "#export-flow",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Caching and extension points",
+            "slug": "caching-and-extension-points",
+            "link": "#caching-and-extension-points",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Tests",
+            "slug": "tests",
+            "link": "#tests",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
         "title": "Contributions",
         "slug": "contributions",
         "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
         "children": []
       }
     ],
@@ -7445,13 +10024,55 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "tasks",
+    "title": "Tasks",
     "headers": [
       {
-        "level": 3,
-        "title": "laravel-enso - tasks",
-        "slug": "laravel-enso-tasks",
-        "link": "#laravel-enso-tasks",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Contributions",
+        "slug": "contributions",
+        "link": "#contributions",
         "children": []
       }
     ],
@@ -7463,24 +10084,52 @@ export const searchIndex = [
     "title": "Teams",
     "headers": [
       {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage",
-        "link": "#installation-configuration-usage",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
         "children": []
       },
       {
-        "level": 3,
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
         "title": "Contributions",
         "slug": "contributions",
         "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
         "children": []
       }
     ],
@@ -7490,7 +10139,57 @@ export const searchIndex = [
   },
   {
     "title": "Ticketing",
-    "headers": [],
+    "headers": [
+      {
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Contributions",
+        "slug": "contributions",
+        "link": "#contributions",
+        "children": []
+      }
+    ],
     "path": "/backend/ticketing.html",
     "pathLocale": "/",
     "extraFields": []
@@ -7528,46 +10227,16 @@ export const searchIndex = [
       },
       {
         "level": 2,
-        "title": "Features",
-        "slug": "features-1",
-        "link": "#features-1",
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
         "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage-1",
-        "link": "#usage-1",
-        "children": [
-          {
-            "level": 3,
-            "title": "Required Columns",
-            "slug": "required-columns",
-            "link": "#required-columns",
-            "children": []
-          }
-        ]
       },
       {
         "level": 2,
         "title": "Depends On",
         "slug": "depends-on",
         "link": "#depends-on",
-        "children": [
-          {
-            "level": 3,
-            "title": "Required Columns",
-            "slug": "required-columns-1",
-            "link": "#required-columns-1",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on-1",
-        "link": "#depends-on-1",
         "children": []
       },
       {
@@ -7586,10 +10255,45 @@ export const searchIndex = [
     "title": "Tutorials",
     "headers": [
       {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage",
-        "link": "#installation-configuration-usage",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
         "children": []
       },
       {
@@ -7598,13 +10302,6 @@ export const searchIndex = [
         "slug": "contributions",
         "link": "#contributions",
         "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
       }
     ],
     "path": "/backend/tutorials.html",
@@ -7612,20 +10309,112 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "typesense-webshop",
-    "headers": [],
+    "title": "Typesense Webshop",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Contributions",
+        "slug": "contributions",
+        "link": "#contributions",
+        "children": []
+      }
+    ],
     "path": "/backend/typesense-webshop.html",
     "pathLocale": "/",
     "extraFields": []
   },
   {
-    "title": "typesense",
+    "title": "Typesense",
     "headers": [
       {
-        "level": 3,
-        "title": "laravel-enso - typesense",
-        "slug": "laravel-enso-typesense",
-        "link": "#laravel-enso-typesense",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Contributions",
+        "slug": "contributions",
+        "link": "#contributions",
         "children": []
       }
     ],
@@ -7706,6 +10495,13 @@ export const searchIndex = [
             "children": []
           }
         ]
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api-1",
+        "link": "#api-1",
+        "children": []
       },
       {
         "level": 2,
@@ -7834,20 +10630,112 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "Ups",
-    "headers": [],
+    "title": "UPS",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Contributions",
+        "slug": "contributions",
+        "link": "#contributions",
+        "children": []
+      }
+    ],
     "path": "/backend/ups.html",
     "pathLocale": "/",
     "extraFields": []
   },
   {
-    "title": "user-groups",
+    "title": "User Groups",
     "headers": [
       {
-        "level": 3,
-        "title": "laravel-enso - user-groups",
-        "slug": "laravel-enso-user-groups",
-        "link": "#laravel-enso-user-groups",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Contributions",
+        "slug": "contributions",
+        "link": "#contributions",
         "children": []
       }
     ],
@@ -7856,13 +10744,55 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "users",
+    "title": "Users",
     "headers": [
       {
-        "level": 3,
-        "title": "laravel-enso - users",
-        "slug": "laravel-enso-users",
-        "link": "#laravel-enso-users",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Contributions",
+        "slug": "contributions",
+        "link": "#contributions",
         "children": []
       }
     ],
@@ -7943,13 +10873,55 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "virtual-call-center",
+    "title": "Virtual Call Center",
     "headers": [
       {
-        "level": 3,
-        "title": "laravel-enso - virtual-call-center",
-        "slug": "laravel-enso-virtual-call-center",
-        "link": "#laravel-enso-virtual-call-center",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Contributions",
+        "slug": "contributions",
+        "link": "#contributions",
         "children": []
       }
     ],
@@ -7958,13 +10930,55 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "vouchers",
+    "title": "Vouchers",
     "headers": [
       {
-        "level": 3,
-        "title": "laravel-enso - vouchers",
-        "slug": "laravel-enso-vouchers",
-        "link": "#laravel-enso-vouchers",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Contributions",
+        "slug": "contributions",
+        "link": "#contributions",
         "children": []
       }
     ],
@@ -7973,27 +10987,55 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "Webshop Discount",
+    "title": "Webshop Commercial",
     "headers": [
       {
-        "level": 3,
-        "title": "Installation, Configuration & Usage",
-        "slug": "installation-configuration-usage",
-        "link": "#installation-configuration-usage",
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
         "children": []
       },
       {
-        "level": 3,
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
         "title": "Contributions",
         "slug": "contributions",
         "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 3,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
         "children": []
       }
     ],
@@ -8006,214 +11048,17 @@ export const searchIndex = [
     "headers": [
       {
         "level": 2,
-        "title": "Current issues, workarounds and notes on Installation, Configuration & Usage.",
-        "slug": "current-issues-workarounds-and-notes-on-installation-configuration-usage",
-        "link": "#current-issues-workarounds-and-notes-on-installation-configuration-usage",
-        "children": [
-          {
-            "level": 3,
-            "title": "Cannot install Composer packages to Webshop package",
-            "slug": "cannot-install-composer-packages-to-webshop-package",
-            "link": "#cannot-install-composer-packages-to-webshop-package",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Installing Ziggy as front-end router",
-            "slug": "installing-ziggy-as-front-end-router",
-            "link": "#installing-ziggy-as-front-end-router",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Cannot get vite dev /  HMR to work for Webshop Package",
-            "slug": "cannot-get-vite-dev-hmr-to-work-for-webshop-package",
-            "link": "#cannot-get-vite-dev-hmr-to-work-for-webshop-package",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Other notes on the current status",
-            "slug": "other-notes-on-the-current-status",
-            "link": "#other-notes-on-the-current-status",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
         "children": []
       },
       {
         "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
         "children": []
-      }
-    ],
-    "path": "/backend/webshop.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Introduction",
-    "headers": [],
-    "path": "/guide/",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Development",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Enso conventions",
-        "slug": "enso-conventions",
-        "link": "#enso-conventions",
-        "children": [
-          {
-            "level": 3,
-            "title": "Named routes",
-            "slug": "named-routes",
-            "link": "#named-routes",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Routes and permissions",
-            "slug": "routes-and-permissions",
-            "link": "#routes-and-permissions",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Invocable controllers",
-            "slug": "invocable-controllers",
-            "link": "#invocable-controllers",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Fat models, slim controllers",
-            "slug": "fat-models-slim-controllers",
-            "link": "#fat-models-slim-controllers",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Building CRUD structures",
-        "slug": "building-crud-structures",
-        "link": "#building-crud-structures",
-        "children": [
-          {
-            "level": 3,
-            "title": "Using the CLI",
-            "slug": "using-the-cli",
-            "link": "#using-the-cli",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Overwriting functionality",
-        "slug": "overwriting-functionality",
-        "link": "#overwriting-functionality",
-        "children": [
-          {
-            "level": 3,
-            "title": "Dependency injection",
-            "slug": "dependency-injection",
-            "link": "#dependency-injection",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Changing back end logic",
-            "slug": "changing-back-end-logic",
-            "link": "#changing-back-end-logic",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Changing front end pages",
-            "slug": "changing-front-end-pages",
-            "link": "#changing-front-end-pages",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Themes",
-        "slug": "themes",
-        "link": "#themes",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Adding static assets",
-        "slug": "adding-static-assets",
-        "link": "#adding-static-assets",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Linting & Aliases",
-        "slug": "linting-aliases",
-        "link": "#linting-aliases",
-        "children": []
-      }
-    ],
-    "path": "/guide/development.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Getting Started",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Requirements",
-        "slug": "requirements",
-        "link": "#requirements",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation Steps",
-        "slug": "installation-steps",
-        "link": "#installation-steps",
-        "children": [
-          {
-            "level": 3,
-            "title": "Optional",
-            "slug": "optional",
-            "link": "#optional",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Docker",
-        "slug": "docker",
-        "link": "#docker",
-        "children": [
-          {
-            "level": 3,
-            "title": "Known issues",
-            "slug": "known-issues",
-            "link": "#known-issues",
-            "children": []
-          }
-        ]
       },
       {
         "level": 2,
@@ -8224,199 +11069,34 @@ export const searchIndex = [
       },
       {
         "level": 2,
-        "title": "Important",
-        "slug": "important",
-        "link": "#important",
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Contributions",
+        "slug": "contributions",
+        "link": "#contributions",
         "children": []
       }
     ],
-    "path": "/guide/getting-started.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "License",
-    "headers": [],
-    "path": "/guide/license.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Thanks",
-    "headers": [],
-    "path": "/guide/thanks.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Under the Hood",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Authentication",
-        "slug": "authentication",
-        "link": "#authentication",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Stateful vs Stateless",
-        "slug": "stateful-vs-stateless",
-        "link": "#stateful-vs-stateless",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Session management",
-        "slug": "session-management",
-        "link": "#session-management",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Security",
-        "slug": "security",
-        "link": "#security",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Authentication",
-        "slug": "authentication-1",
-        "link": "#authentication-1",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Authorization",
-        "slug": "authorization",
-        "link": "#authorization",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Middleware & Middleware Groups",
-        "slug": "middleware-middleware-groups",
-        "link": "#middleware-middleware-groups",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "UserGroups, Roles & Users",
-        "slug": "usergroups-roles-users",
-        "link": "#usergroups-roles-users",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Preferences",
-        "slug": "preferences",
-        "link": "#preferences",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Translations",
-        "slug": "translations",
-        "link": "#translations",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Environment",
-        "slug": "environment",
-        "link": "#environment",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Telemetry",
-        "slug": "telemetry",
-        "link": "#telemetry",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Exceptions",
-        "slug": "exceptions",
-        "link": "#exceptions",
-        "children": []
-      }
-    ],
-    "path": "/guide/under-the-hood.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Usage",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Setup a new project",
-        "slug": "setup-a-new-project",
-        "link": "#setup-a-new-project",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Updates",
-        "slug": "updates",
-        "link": "#updates",
-        "children": [
-          {
-            "level": 3,
-            "title": "Notes",
-            "slug": "notes",
-            "link": "#notes",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Localisation",
-        "slug": "localisation",
-        "link": "#localisation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Icons",
-        "slug": "icons",
-        "link": "#icons",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Email templates",
-        "slug": "email-templates",
-        "link": "#email-templates",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Vuex store",
-        "slug": "vuex-store",
-        "link": "#vuex-store",
-        "children": [
-          {
-            "level": 3,
-            "title": "Back-End",
-            "slug": "back-end",
-            "link": "#back-end",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Front-End",
-            "slug": "front-end",
-            "link": "#front-end",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "path": "/guide/usage.html",
+    "path": "/backend/webshop.html",
     "pathLocale": "/",
     "extraFields": []
   },

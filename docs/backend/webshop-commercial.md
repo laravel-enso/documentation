@@ -6,33 +6,93 @@ lastUpdated: false
 
 <!-- AUTO-GENERATED: do not edit by hand -->
 
-# Webshop Discount
+# Webshop Commercial
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/182a696508584243a45ece7572959a32)](https://www.codacy.com/app/laravel-enso/webshop-discount?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/webshop-discount&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/151522931/shield?branch=master)](https://github.styleci.io/repos/151522931)
-[![License](https://poser.pugx.org/laravel-enso/webshop-discount/license)](https://packagist.org/packages/laravel-enso/webshop-discount)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/webshop-discount/downloads)](https://packagist.org/packages/laravel-enso/webshop-discount)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/webshop-discount/version)](https://packagist.org/packages/laravel-enso/webshop-discount)
+[![License](https://img.shields.io/badge/license-Proprietary-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/webshop-commercial/-/blob/master/LICENSE)
+[![Stable](https://img.shields.io/badge/stable-2.3.2-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/webshop-commercial/-/tags)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://git.xtelecom.ro/laravel-enso/webshop-commercial/-/blob/master/composer.json)
+[![Issues](https://img.shields.io/badge/issues-0-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/webshop-commercial/-/issues)
+[![Merge Requests](https://img.shields.io/badge/merge%20requests-0-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/webshop-commercial/-/merge_requests)
 
-Webshop Discount dependency for [Laravel Enso](https://github.com/laravel-enso/Enso).
+## Description
 
-This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+Webshop Commercial bridges the public webshop with Enso commercial documents and Stripe payments.
 
-The front end assets that utilize this api are present in the [ui](https://github.com/enso-ui/ui) package.
+The package extends webshop orders with commercial sale and line data, stores local transaction references, creates orders from cart entries, integrates with Stripe payment intents and checkout flows, listens for payment success events, and finalizes paid orders into the commercial domain.
 
-### Installation, Configuration & Usage
+## Installation
 
-soon...
+This is a proprietary package distributed through the private Enso registry.
 
-### Contributions
+Run the migrations:
+
+```bash
+php artisan migrate
+```
+
+Make sure the host application already has:
+
+- `laravel-enso/commercial`
+- `laravel-enso/products`
+- `laravel-enso/stripe`
+- `laravel-enso/webshop`
+
+## Features
+
+- Commercial order storage and order-line mapping for webshop carts.
+- Stripe payment-intent and checkout-session creation.
+- Webshop payment route integration for authenticated customers.
+- Event listener for Stripe payment success.
+- Invoice and payment-status aware order model.
+- Payment received notification flow.
+
+## Usage
+
+Published routes:
+
+- `GET webshop/payment-intent/{order}`
+- internal account payment and order-pay controllers bound through service providers
+
+Main classes:
+
+- `LaravelEnso\WebshopCommercial\Models\Order`
+- `LaravelEnso\WebshopCommercial\Models\Line`
+- `Services\Orders\Store`
+- `Services\Orders\Finalize`
+- `Services\Stripe\Intent`
+- `Services\Stripe\Payment`
+
+The package also overrides webshop payment services through `WebshopServiceProvider` so the storefront order payment flow resolves the commercial implementation automatically.
+
+## API
+
+This package exposes its backend integration through the routes, controllers, services, jobs, and configuration points referenced in the usage examples above.
+
+Consumers should rely on the published config keys, documented route groups, and explicit service classes shown in the examples. Internal helper classes, listeners, casts, and background jobs are implementation details unless the README calls them out as extension points.
+
+## Depends On
+
+Required Enso packages:
+
+- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/commercial`](https://docs.laravel-enso.com/backend/commercial.html) [↗](https://git.xtelecom.ro/laravel-enso/commercial)
+- [`laravel-enso/discounts`](https://docs.laravel-enso.com/backend/discounts.html) [↗](https://git.xtelecom.ro/laravel-enso/discounts)
+- [`laravel-enso/dynamic-methods`](https://docs.laravel-enso.com/backend/dynamic-methods.html) [↗](https://github.com/laravel-enso/dynamic-methods)
+- [`laravel-enso/products`](https://docs.laravel-enso.com/backend/products.html) [↗](https://git.xtelecom.ro/laravel-enso/products)
+- [`laravel-enso/stripe`](https://docs.laravel-enso.com/backend/stripe.html) [↗](https://git.xtelecom.ro/laravel-enso/stripe)
+- [`laravel-enso/webshop`](https://docs.laravel-enso.com/backend/webshop.html) [↗](https://git.xtelecom.ro/laravel-enso/webshop)
+
+External service dependency:
+
+- Stripe payment intents, checkout sessions, and payment events
+
+## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-### License
-
-This package is released under the PROPRIETARY licence
+Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://git.xtelecom.ro/laravel-enso/webshop-commercial/-/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 6/11/2020, 11:32:45 AM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 7:34:47 PM</div>
 </div>

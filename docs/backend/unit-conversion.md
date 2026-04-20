@@ -11,7 +11,7 @@ lastUpdated: false
 [![License](https://poser.pugx.org/laravel-enso/unit-conversion/license)](https://github.com/laravel-enso/unit-conversion/blob/main/LICENSE)
 [![Stable](https://poser.pugx.org/laravel-enso/unit-conversion/version)](https://packagist.org/packages/laravel-enso/unit-conversion)
 [![Downloads](https://poser.pugx.org/laravel-enso/unit-conversion/downloads)](https://packagist.org/packages/laravel-enso/unit-conversion)
-[![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](https://github.com/laravel-enso/unit-conversion/blob/main/composer.json)
+[![PHP](https://img.shields.io/badge/php-8.3%2B-777bb4.svg)](https://github.com/laravel-enso/unit-conversion/blob/main/composer.json)
 [![Issues](https://img.shields.io/github/issues/laravel-enso/unit-conversion.svg)](https://github.com/laravel-enso/unit-conversion/issues)
 [![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/unit-conversion.svg)](https://github.com/laravel-enso/unit-conversion/pulls)
 
@@ -139,15 +139,17 @@ The package exposes:
 - `LaravelEnso\UnitConversion\Exceptions\Conversion`
 - `LaravelEnso\UnitConversion\Exceptions\Expression`
 
+## API
+
+This package exposes its backend integration through the routes, controllers, services, jobs, and configuration points referenced in the usage examples above.
+
+Consumers should rely on the published config keys, documented route groups, and explicit service classes shown in the examples. Internal helper classes, listeners, casts, and background jobs are implementation details unless the README calls them out as extension points.
+
 ## Depends On
 
 Required Enso packages:
 
 - [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
-
-Framework dependency:
-
-- [`laravel/framework`](https://github.com/laravel/framework) [↗](https://github.com/laravel/framework)
 
 ## Contributions
 
@@ -157,5 +159,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/laravel-enso/unit-conversion/edit/main/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/19/2026, 10:26:00 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 7:35:04 PM</div>
 </div>

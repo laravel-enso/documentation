@@ -8,33 +8,72 @@ lastUpdated: false
 
 # IO
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/3dd9d03964e34b06bfbd8c11a41ec082)](https://www.codacy.com/gh/laravel-enso/io?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/io&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/168923570/shield?branch=master)](https://github.styleci.io/repos/168923570)
-[![License](https://poser.pugx.org/laravel-enso/io/license)](https://packagist.org/packages/laravel-enso/io)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/io/downloads)](https://packagist.org/packages/laravel-enso/io)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/io/version)](https://packagist.org/packages/laravel-enso/io)
+[![License](https://poser.pugx.org/laravel-enso/io/license)](https://github.com/laravel-enso/io/blob/master/LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/io/version)](https://packagist.org/packages/laravel-enso/io)
+[![Downloads](https://poser.pugx.org/laravel-enso/io/downloads)](https://packagist.org/packages/laravel-enso/io)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://github.com/laravel-enso/io/blob/master/composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/io.svg)](https://github.com/laravel-enso/io/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/io.svg)](https://github.com/laravel-enso/io/pulls)
 
-IO process monitoring dependency for [Laravel-Enso](https://laravel-enso.com).
+## Description
 
-This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+IO provides Enso process-monitoring events, websocket channels, and status enums for long-running operations.
 
-The front end assets that utilize this api are present in the [ui](https://github.com/enso-ui/ui) package.
+The package registers broadcast channels for per-user and superior-level operation streams, maps websocket topics for the frontend, and ships observers, events, contracts, and enums around IO operation tracking.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com).
+It is an infrastructure package for operational feedback rather than a CRUD module.
 
-### Installation, Configuration & Usage
+## Installation
 
-Be sure to check out the full documentation for this package available at [docs.laravel-enso.com](https://docs.laravel-enso.com/backend/io.html)
+Install the package:
 
-### Contributions
+```bash
+composer require laravel-enso/io
+```
+
+## Features
+
+- Broadcast channels for `operations` and `operations.{userId}`.
+- Websocket topic registration for IO updates.
+- IO operation event and observer classes.
+- Status and type enums for monitored operations.
+
+## Usage
+
+The package is intended to be consumed by other Enso modules that implement the `IOOperation` contract and broadcast progress updates over the registered websocket channels.
+
+Superior users receive the shared `operations` channel, while regular users receive their own `operations.{userId}` channel.
+
+## API
+
+There is no HTTP API.
+
+Operational surface:
+
+- broadcast channels `operations` and `operations.{userId}`
+- websocket topic `io`
+- `LaravelEnso\\IO\\Contracts\\IOOperation`
+
+## Depends On
+
+Required Enso packages:
+
+- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/enums`](https://docs.laravel-enso.com/backend/enums.html) [↗](https://github.com/laravel-enso/enums)
+- [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
+- [`laravel-enso/users`](https://docs.laravel-enso.com/backend/users.html) [↗](https://github.com/laravel-enso/users)
+
+Companion frontend package:
+
+- [`@enso-ui/io`](https://docs.laravel-enso.com/frontend/io.html) [↗](https://github.com/enso-ui/io)
+
+## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-### License
-
-This package is released under the MIT license.
+Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/laravel-enso/io/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 7/8/2020, 3:29:54 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 6:07:49 PM</div>
 </div>

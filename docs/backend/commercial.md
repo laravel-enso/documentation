@@ -8,93 +8,152 @@ lastUpdated: false
 
 # Commercial
 
-Commercial is a package for the Laravel Enso environment, designed for purchases and sales management.
+[![License](https://img.shields.io/badge/license-Proprietary-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/commercial/-/blob/master/LICENSE)
+[![Stable](https://img.shields.io/badge/stable-5.18.5-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/commercial/-/tags)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://git.xtelecom.ro/laravel-enso/commercial/-/blob/master/composer.json)
+[![Issues](https://img.shields.io/badge/issues-0-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/commercial/-/issues)
+[![Merge Requests](https://img.shields.io/badge/merge%20requests-0-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/commercial/-/merge_requests)
 
-**Note:** *This is a commercially licensed package and may not be used without written permission*
+## Description
 
-**Note:** *This package cannot be used outside of the Enso environment and is not included by default 
-in the [Laravel Enso Core](https://github.com/laravel-enso/Core) package.*
+Commercial is the Enso business-flow package for purchases, sales, returns, inventory-side adjustments, and operational order documents.
 
-### Features
-* permits creating purchases and purchase returns
-* permits creating sales and sale returns
-* relies on the inventory package for the inventory handling
-* relies on the financials package for the handling of invoices and payments
-* various Enums, Exceptions and utility classes
-* configuration for the generated orders
+The package exposes full API flows for purchases, purchase returns, sales, and sale returns, adds stock-adjustment and stock-audit endpoints on top of the inventory and product stacks, publishes printable order and note templates, sends operational notifications, and schedules recurring stock-value, stock-rotation, supplier-order, and expiring-lot maintenance jobs in production.
 
-### Installation
+It is designed for private Enso deployments that need transactional commercial operations on top of the broader inventory, financials, and product ecosystem.
 
-Note that this package uses commercially available FontAwesome icons. 
-These dependencies should be installed and available in your project:
-```
-"@fortawesome/pro-regular-svg-icons": "^5.10.1",
-"@fortawesome/pro-solid-svg-icons": "^5.10.1",
-``` 
+## Installation
 
-This package depends on the following laravel-enso modules:
+This is a proprietary package distributed through the private Enso registry.
 
-* laravel-enso/products for the products structure
-* laravel-enso/inventory for its stock handling API, as well as on some of its Vue components.
-* laravel-enso/financials for its document generation API
-* laravel-enso/discounts for the discounts computation
+Run the package migrations:
 
-If not already installed, please install them and pay attention to each package's requirements and instructions.
-
-* add this package's repository to your `composer.json` config (as well as those of its dependencies listed above) 
-* install the package using composer: `composer require laravel-enso/commercial`
-* install the front-end ui package using yarn: `yarn add @enso-ui/commercial`
-* adds the following alias in `webackpack.mix.js`
-```
-.webpackConfig({
-        resolve: {
-            extensions: ['.js', '.vue', '.json'],
-            alias: {
-                 //other aliases
-                '@commercial': `${__dirname}/node_modules/@enso-ui/commercial/src/bulma`,
-            },
-        },
-    })
-```
-* in `resources/js/router.js` file, verify that `RouteMerger` is imported, or import it
-
-`import RouteMerger from '@core-modules/importers/RouteMerger';`
-
-* make sure `routeImporter` is also imported
-
-`import routeImporter from '@core-modules/importers/routeImporter';`
-
-* then use `RouteMerger` to import front-end assets using the alias defined in `webpack.mix.js`
-
-```
-(new RouteMerger(routes))
-    //other routes
-    .add(routeImporter(require.context('@commercial/routes', false, /.*\.js$/)))
-    .add(routeImporter(require.context('./routes', false, /.*\.js$/)));
+```bash
+php artisan migrate
 ```
 
-* in `resources/js/app.js` import the package's icons
+Optional publishes:
 
-`import '@commercial/icons';`
+```bash
+php artisan vendor:publish --tag=commercial-factories
+php artisan vendor:publish --tag=commercial-views
+```
 
-* make sure `hot module replacement` is **not** active, and run `yarn dev` or `npm run dev`
+The package also expects the matching frontend package in applications that render the commercial UI:
 
-* run `php artisan migrate` to create tables, add menus, permissions etc.
+```bash
+yarn add @enso-ui/commercial
+```
 
-* run `php artisan vendor:publish --tag=fiscal-factories` to publish the included factories
+## Features
 
-## Extending
-If necessary:
-- local computors
-- local product
-- local parent models, with relationships pointing to local child models (Sale -> SaleLine, Product)
-- bind local models
-- add observers for local models
-- local seeders must use the local classes that extend the package models
+- Purchase, sale, purchase-return, and sale-return CRUD and lifecycle endpoints.
+- Inventory-side stock adjustments, reservation lookups, stock-audit views, and per-product stock details.
+- Printable purchase orders, goods-received notes, delivery notes, stock-removal documents, and related email flows.
+- Invoice, payment, bundle, voucher, and line-item support inside the commercial order flows.
+- Scheduled stock-value updates, stock-rotation refreshes, default-supplier recalculation, supplier-order generation, and expiring-lot notifications.
 
-## Test
+## Usage
+
+The package is mounted automatically through its service providers and route files once installed.
+
+In production it schedules these maintenance commands:
+
+```bash
+php artisan enso:commercial:update-stock-values --daily
+php artisan enso:commercial:update-stock-rotation --daily
+php artisan enso:commercial:generate-supplier-orders
+php artisan enso:commercial:expiring-lots-notification
+php artisan enso:commercial:update-default-supplier
+```
+
+Automatic supplier-order generation runs only when `Settings::autoRestock()` is enabled, while expiring-lot notifications are scheduled only when product lots exist.
+
+Commercial also registers observers for sale-status transitions and inventory stock updates, so order-state and stock-side calculations stay synchronized with the rest of the Enso domain.
+
+## API
+
+### Main route groups
+
+Mounted under `api/commercial`:
+
+- `partner`
+- `products`
+- `services`
+- `addresses`
+- `purchases.*`
+- `purchaseReturns.*`
+- `sales.*`
+- `saleReturns.*`
+- `audit.*`
+- `stats.orders`
+- `settings.*`
+
+Mounted outside the commercial prefix:
+
+- `inventory.adjust`
+- `inventory.reservations`
+- `inventory.updateAdjustmentOrders`
+- `products.stocks.details`
+
+### Order lifecycle endpoints
+
+Purchases include transitions such as:
+
+- `confirm`
+- `ship`
+- `receive`
+- `fulfill`
+- `finalize`
+- `cancel`
+
+Sales include transitions such as:
+
+- `fulfill`
+- `prepare`
+- `ship`
+- `deliver`
+- `finalize`
+- `cancel`
+
+Purchase returns and sale returns expose the equivalent reverse-flow lifecycle endpoints plus printable document endpoints and email actions.
+
+### Artisan commands
+
+- `enso:commercial:update-stock-values {--daily}`
+- `enso:commercial:update-stock-rotation {--daily}`
+- `enso:commercial:generate-supplier-orders`
+- `enso:commercial:expiring-lots-notification`
+- `enso:commercial:update-default-supplier`
+
+## Depends On
+
+Required Enso packages:
+
+- [`laravel-enso/addresses`](https://docs.laravel-enso.com/backend/addresses.html) [↗](https://github.com/laravel-enso/addresses)
+- [`laravel-enso/comments`](https://docs.laravel-enso.com/backend/comments.html) [↗](https://github.com/laravel-enso/comments)
+- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/data-import`](https://docs.laravel-enso.com/backend/data-import.html) [↗](https://github.com/laravel-enso/data-import)
+- [`laravel-enso/discounts`](https://docs.laravel-enso.com/backend/discounts.html) [↗](https://git.xtelecom.ro/laravel-enso/discounts)
+- [`laravel-enso/documents`](https://docs.laravel-enso.com/backend/documents.html) [↗](https://github.com/laravel-enso/documents)
+- [`laravel-enso/dynamic-methods`](https://docs.laravel-enso.com/backend/dynamic-methods.html) [↗](https://github.com/laravel-enso/dynamic-methods)
+- [`laravel-enso/enums`](https://docs.laravel-enso.com/backend/enums.html) [↗](https://github.com/laravel-enso/enums)
+- [`laravel-enso/financials`](https://docs.laravel-enso.com/backend/financials.html) [↗](https://git.xtelecom.ro/laravel-enso/financials)
+- [`laravel-enso/forms`](https://docs.laravel-enso.com/backend/forms.html) [↗](https://github.com/laravel-enso/forms)
+- [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
+- [`laravel-enso/history-tracker`](https://docs.laravel-enso.com/backend/history-tracker.html) [↗](https://github.com/laravel-enso/history-tracker)
+- [`laravel-enso/inventory`](https://docs.laravel-enso.com/backend/inventory.html) [↗](https://git.xtelecom.ro/laravel-enso/inventory)
+- [`laravel-enso/measurement-units`](https://docs.laravel-enso.com/backend/measurement-units.html) [↗](https://git.xtelecom.ro/laravel-enso/measurement-units)
+- [`laravel-enso/migrator`](https://docs.laravel-enso.com/backend/migrator.html) [↗](https://github.com/laravel-enso/migrator)
+- [`laravel-enso/pdf`](https://docs.laravel-enso.com/backend/pdf.html) [↗](https://github.com/laravel-enso/pdf)
+- [`laravel-enso/sale-channels`](https://docs.laravel-enso.com/backend/sale-channels.html) [↗](https://git.xtelecom.ro/laravel-enso/sale-channels)
+- [`laravel-enso/searchable`](https://docs.laravel-enso.com/backend/searchable.html) [↗](https://git.xtelecom.ro/laravel-enso/searchable)
+- [`laravel-enso/services`](https://docs.laravel-enso.com/backend/services.html) [↗](https://git.xtelecom.ro/laravel-enso/services)
+- [`laravel-enso/tables`](https://docs.laravel-enso.com/backend/tables.html) [↗](https://github.com/laravel-enso/tables)
+- [`laravel-enso/versions`](https://docs.laravel-enso.com/backend/versions.html) [↗](https://github.com/laravel-enso/versions)
+- [`laravel-enso/vouchers`](https://docs.laravel-enso.com/backend/vouchers.html) [↗](https://git.xtelecom.ro/laravel-enso/vouchers)
 
 <div class="package-page-meta-row">
-  <a class="package-page-edit" href="https://git.xtelecom.ro/laravel-enso/commercial/-/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 10/4/2019, 3:18:55 PM</div>
+  <a class="package-page-edit" href="https://git.xtelecom.ro/laravel-enso/commercial/-/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitLab</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 5:32:00 PM</div>
 </div>
