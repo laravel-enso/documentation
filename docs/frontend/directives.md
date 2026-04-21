@@ -1,137 +1,97 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Directives
 
-![NPM License](https://img.shields.io/npm/l/@enso-ui/directives.svg)
-![npm download](https://img.shields.io/npm/dm/@enso-ui/directives.svg)
-![GitHub top language](https://img.shields.io/github/languages/top/enso-ui/directives.svg)
-![GitHub issues](https://img.shields.io/github/issues/enso-ui/directives.svg)
-![npm version](https://img.shields.io/npm/v/@enso-ui/directives.svg)
+[![License](https://img.shields.io/badge/license-MIT-10b981.svg)](https://github.com/enso-ui/directives/blob/master/LICENSE)
+[![Stable](https://img.shields.io/badge/stable-3.1.2-2563eb.svg)](https://www.npmjs.com/package/@enso-ui/directives)
+[![Downloads](https://img.shields.io/npm/dm/@enso-ui/directives.svg)](https://www.npmjs.com/package/@enso-ui/directives)
+[![Vue](https://img.shields.io/badge/vue-3.x-42b883.svg)](https://vuejs.org/)
+[![JavaScript](https://img.shields.io/badge/javascript-ES2020-f7df1e.svg)](https://developer.mozilla.org/docs/Web/JavaScript)
+[![npm](https://img.shields.io/badge/npm-package-cb3837.svg)](https://www.npmjs.com/package/@enso-ui/directives)
+[![Issues](https://img.shields.io/github/issues/enso-ui/directives.svg)](https://github.com/enso-ui/directives/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/enso-ui/directives.svg)](https://github.com/enso-ui/directives/pulls)
 
-Vue Directives Package
+## Description
 
-The directives can be used outside of the Enso ecosystem.
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+Vue directives used across Enso UI packages.
 
 ## Installation
 
-Install the package:
-```
+```bash
 yarn add @enso-ui/directives
 ```
 
-(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+## Features
 
-### Exports
-
-`@enso-ui/directives`:
-- `clickOutside`,
-- `focus`,
-- `hljs`,
-- `longClick`,
-- `selectOnFocus`,
+- exports reusable DOM and interaction directives consumed across Enso UI packages
+- supports focus, click-outside, select-on-focus, resize, long-click, and scroll-into-view flows
+- includes a Highlight.js directive for rendered code snippets
 
 ## Usage
 
-Import the desired directive(s):
+Register the directives you need locally:
+
 ```js
-import { clickOutside, focus } from '@enso-ui/directives';
+import { clickOutside, scrollIntoView } from '@enso-ui/directives';
+
+export default {
+    directives: { clickOutside, scrollIntoView },
+};
 ```
 
-### clickOutside.js
+Or register them globally:
 
-Directive detects clicking outside the component.
+```js
+import * as directives from '@enso-ui/directives';
 
-Example:
-```vue
-<div v-click-outside="handler" class="navbar-item io">
-    ...
-</div>
+Object.entries(directives).forEach(([name, directive]) => {
+    app.directive(name, directive);
+});
 ```
 
-where `handler` must be a `Function`
+## API
 
-### focus.js
+### `v-click-outside`
 
-Focuses the element on initial render
+Calls a handler when the click target is outside the bound element.
 
-Example:
-```vue
-<input class="input team-name"
-    v-model="team.name"
-    v-if="team.edit"
-    v-focus>
-```
+### `v-fits-below`
 
-### hljs.js
+Computes whether an element fully fits in the current viewport and passes the result to a callback.
 
-A directive implementation of the highlight.js library.
+### `v-focus`
 
-Example:
-```vue
-<pre v-hljs>
-    <code class="php">
-        {{ log.content }}
-    </code>
-</pre>
-```
+Focuses the element after the current tick.
 
-### longClick.js
+### `v-hljs`
 
-Permits adding actions when long-clicking elements. 
-Note that the duration (in milliseconds) is required. 
+Runs Highlight.js on the first `code` element inside the bound node.
 
-Example:
-```vue
-<button class="button is-naked"
-    v-tooltip="i18n('Download invoice (long click for cancel)')"
-    v-long-click:1500="cancelInvoice"
-    key="invoice"
-    @click="downloadInvoice">
-    <span class="icon has-text-info">
-        <fa icon="file-invoice-dollar"/>
-    </span>
-</button>
-```
+### `v-long-click`
 
-### selectOnFocus.js
+Runs a handler only after the pointer stays pressed for the configured duration in milliseconds.
 
-Selects the contents of the input on focus.
+### `v-resize`
 
-Example:
-```vue
-<input type="text"
-    class="input is-rounded"
-    v-select-on-focus
-    :placeholder="__('Search')"
-    v-model="query">
-```
+Auto-resizes an input to its content width. An optional numeric argument sets the minimum width in pixels.
 
-### Exports
+### `v-scroll-into-view`
 
-`@enso-ui/directives/renderless`:
-- `clickOutside`,
-- `focus`,
-- `hljs`,
-- `longClick`,
-- `selectOnFocus`,
+Calls `Element.scrollIntoView()` when `scroll` transitions to `true`.
 
-## Questions & Issues
+### `v-select-on-focus`
 
-For questions and support please use the issues functionality
-for this package's github repository.
+Selects the current value when the element receives focus.
 
-Please make sure to search for existing issues before creating a new issue,
-and when opening a new issue, fill the required information in the issue template.
+## Depends On
 
-Issues not conforming to the guidelines may be closed immediately.
-
-## External Dependencies
-
-Uses highlight.js for code formatting
+- [`highlight.js`](https://highlightjs.org/)
 
 ## Contributions
 
@@ -141,4 +101,9 @@ Thank you to all the people who already contributed to Enso!
 
 ## License
 
-[ISC](https://opensource.org/licenses/ISC)
+[MIT](https://github.com/enso-ui/directives/blob/master/LICENSE)
+
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/enso-ui/directives/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 10:07:07 AM</div>
+</div>

@@ -1,49 +1,76 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Track Who
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c2848e5734e44faab61fb3391a91a11e)](https://www.codacy.com/app/laravel-enso/track-who?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/track-who&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/85499255/shield?branch=master)](https://github.styleci.io/repos/85499255)
-[![License](https://poser.pugx.org/laravel-enso/track-who/license)](https://packagist.org/packages/laravel-enso/track-who)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/track-who/downloads)](https://packagist.org/packages/laravel-enso/track-who)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/track-who/version)](https://packagist.org/packages/laravel-enso/track-who)
+[![License](https://poser.pugx.org/laravel-enso/track-who/license)](https://github.com/laravel-enso/track-who/blob/master/LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/track-who/version)](https://packagist.org/packages/laravel-enso/track-who)
+[![Downloads](https://poser.pugx.org/laravel-enso/track-who/downloads)](https://packagist.org/packages/laravel-enso/track-who)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://github.com/laravel-enso/track-who/blob/master/composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/track-who.svg)](https://github.com/laravel-enso/track-who/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/track-who.svg)](https://github.com/laravel-enso/track-who/pulls)
 
-Create, update and delete authoring tracking dependency for Laravel.
+## Description
 
-This package can work independently of the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+Track Who adds simple auditing traits for Enso models.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+It fills the conventional `created_by`, `updated_by`, and `deleted_by` columns from the authenticated user and is designed to be composed into models without pulling in a full audit trail package.
 
 ## Installation
 
-Comes pre-installed in Enso. 
+Install the package:
 
-To install outside of Enso: `composer require laravel-enso/trackwho`
+```bash
+composer require laravel-enso/track-who
+```
+
+Use it only on models whose tables already contain the matching audit columns.
 
 ## Features
 
-- keeps track of the user that performed various actions on a record / model
-- requires the presence of the proper model attributes / table columns
-- once the structure is set up, by using the proper trait, the information is added automatically
-- the trait works only when the user is authenticated, in order to avoid issues during tests or when using the cli/tinker
-- provides a `TrackWho` resource that can be used within Enso
+- `CreatedBy` trait for `created_by`
+- `UpdatedBy` trait for `updated_by`
+- `DeletedBy` trait for `deleted_by`
+- Minimal surface area with no extra configuration
 
 ## Usage
 
-1. In the Model where you want to track the creating, updating or deleting user, add
-
 ```php
-use CreatedBy, UpdatedBy, DeletedBy;
+use Illuminate\Database\Eloquent\Model;
+use LaravelEnso\TrackWho\Traits\CreatedBy;
+use LaravelEnso\TrackWho\Traits\UpdatedBy;
+
+class Voucher extends Model
+{
+    use CreatedBy;
+    use UpdatedBy;
+}
 ```
 
-2. Make sure that the model's table has the `created_by` | `updated_by` | `deleted_by` column(s)
+Add `DeletedBy` when soft-delete style author tracking is also needed.
+
+## API
+
+This package exposes its backend integration through the routes, controllers, services, jobs, and configuration points referenced in the usage examples above.
+
+Consumers should rely on the published config keys, documented route groups, and explicit service classes shown in the examples. Internal helper classes, listeners, casts, and background jobs are implementation details unless the README calls them out as extension points.
+
+## Depends On
+
+This package does not depend on other Enso backend packages.
 
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-## License
+Thank you to all the people who already contributed to Enso!
 
-This package is released under the MIT license.
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/track-who/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 4:33:04 PM</div>
+</div>

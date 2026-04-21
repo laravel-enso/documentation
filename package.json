@@ -1,11 +1,27 @@
 {
+    "private": true,
+    "engines": {
+        "node": ">=20.9.0"
+    },
     "scripts": {
-        "docs:dev": "vuepress dev docs",
-        "docs:build": "vuepress build docs"
+        "dev": "vuepress dev docs",
+        "build": "node scripts/netlify-build.mjs",
+        "build:site": "yarn build:assets",
+        "build:refresh": "yarn sync && yarn build:generator && yarn refresh:status && yarn build:assets",
+        "scan": "node scripts/manage-sources.mjs scan",
+        "sync": "node scripts/sync-readmes.mjs sync",
+        "refresh:status": "node scripts/sync-readmes.mjs refresh-status",
+        "add:repo": "node scripts/manage-sources.mjs add-package",
+        "build:generator": "node scripts/sync-readmes.mjs generate",
+        "build:assets": "vuepress build docs",
+        "clean": "rm -rf docs/.vuepress/.cache docs/.vuepress/.temp docs/.vuepress/dist"
     },
     "devDependencies": {
-        "@vuepress/plugin-google-analytics": "^1.0.0-alpha.46",
-        "vuepress": "^1.0.0-alpha.44"
-    },
-    "dependencies": {}
+        "@vuepress/bundler-vite": "^2.0.0-rc.25",
+        "@vuepress/plugin-remove-pwa": "^2.0.0-rc.25",
+        "@vuepress/plugin-search": "2.0.0-rc.24",
+        "@vuepress/theme-default": "^2.0.0-rc.25",
+        "sass-embedded": "^1.99.0",
+        "vuepress": "^2.0.0-rc.25"
+    }
 }

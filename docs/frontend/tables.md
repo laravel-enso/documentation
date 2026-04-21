@@ -1,738 +1,347 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Tables
 
-![npm license](https://img.shields.io/npm/l/@enso-ui/tables.svg) 
-![npm download](https://img.shields.io/npm/dm/@enso-ui/tables.svg) 
-![GitHub top language](https://img.shields.io/github/languages/top/enso-ui/tables.svg) 
-![GitHub issues](https://img.shields.io/github/issues/enso-ui/tables.svg) 
-![npm version](https://img.shields.io/npm/v/@enso-ui/tables.svg) 
+[![License](https://img.shields.io/badge/license-MIT-10b981.svg)](https://github.com/enso-ui/tables/blob/master/LICENSE)
+[![Stable](https://img.shields.io/badge/stable-4.1.16-2563eb.svg)](https://www.npmjs.com/package/@enso-ui/tables)
+[![Downloads](https://img.shields.io/npm/dm/@enso-ui/tables.svg)](https://www.npmjs.com/package/@enso-ui/tables)
+[![Vue](https://img.shields.io/badge/vue-3.x-42b883.svg)](https://vuejs.org/)
+[![JavaScript](https://img.shields.io/badge/javascript-ES2020-f7df1e.svg)](https://developer.mozilla.org/docs/Web/JavaScript)
+[![SCSS](https://img.shields.io/badge/scss-supported-c6538c.svg)](https://sass-lang.com/)
+[![npm](https://img.shields.io/badge/npm-package-cb3837.svg)](https://www.npmjs.com/package/@enso-ui/tables)
+[![Issues](https://img.shields.io/github/issues/enso-ui/tables.svg)](https://github.com/enso-ui/tables/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/enso-ui/tables.svg)](https://github.com/enso-ui/tables/pulls)
 
-DataTable Vue Components with a Bulma implementation over a renderless core
+## Description
 
-Can be used outside of the Enso ecosystem.
+Tables is the Enso UI data-grid engine.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+It combines:
+- a renderless request, state, and preference manager in `CoreTable`
+- Bulma table presentation shells in `VueTable` and `EnsoTable`
+- a large set of internal toolbar, header, body, footer, pagination, filter, and action components
 
-Should be used with its backend [sibling](https://github.com/laravel-enso/VueDatatable)
+The package is designed around the backend table contract exposed by `laravel-enso/tables`. The frontend does not hardcode one table schema; it receives a template and meta payload, then builds sorting, filtering, selection, export, actions, totals, hidden columns, and persisted user preferences from that contract.
 
 ## Installation
 
 Install the package:
+
+```bash
+yarn add @enso-ui/tables
 ```
-yarn add @enso-ui/tables @enso-ui/toastr
-```
 
-(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+The package can be consumed standalone when you provide the full table contract yourself, but it is usually paired with the Laravel Enso backend package.
 
-Note that this package has a couple of external dependencies. 
-Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more info.
+## Features
 
-
-### Exports
-
-`@enso-ui/tables/bulma`:
-- `EnsoTable`, 
-- `VueTable`, 
-
-`@enso-ui/tables/renderless`:
-- `CoreTable`,
+- exports `VueTable` and `EnsoTable` from the Bulma entrypoint
+- initializes itself from a backend `initTable` endpoint and keeps read requests synchronized with the template contract
+- persists table preferences such as page size, search, sort, visible columns, style, filters, intervals, params, and scenarios in `localStorage`
+- supports top toolbar controls for search, search mode, filters, filter scenarios, column visibility, style selection, export, and global buttons
+- supports row actions, selection, page selection, highlighting, preview rows, hidden responsive rows, totals, pagination, and record counters
+- supports custom cell slots, row-action slots, global-control slots, preview slots, and custom-total slots
 
 ## Usage
 
-### Outside of Enso
+Basic Enso usage:
 
-Import the following in a main js file:
-```js
-import Vue from 'vue';
-import axios from 'axios';
-import Toastr from '@enso-ui/toastr/bulma';
-import ToastrPlugin from '@enso-ui/toastr';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-
-Vue.component('fa', FontAwesomeIcon);
-
-Vue.use(ToastrPlugin, {
-    layout: Toastr,
-    options: {
-        duration: 3500,
-        position: 'right',
-    },
-});
-
-window.axios = axios;
-```
-
-Then in any given page import the component:
-```js
-import { VueTable } from '@enso-ui/tables/bulma';
-```
-
-And then use it within your page:
-```js
-<vue-table class="box is-paddingless raises-on-hover is-rounded"
-    path="/examples/table/init"
-    id="example"/>
-```
-
-### Within Enso
-
-Enso comes with a series of defaults and conventions, and there are Enso specific
-versions of some components that make use of these conventions so you add as 
-little as possible configuration.
-
-Import the Enso version of the component:
-```js
+```vue
+<script setup>
 import { EnsoTable } from '@enso-ui/tables/bulma';
+</script>
+
+<EnsoTable id="users" />
 ```
 
-Use the component in your page:
-```js
-<enso-table class="box is-paddingless raises-on-hover"
-    id="permissions"/>
-```
-
-If you're following conventions, the table component will try to determine
-the endpoint's path by using the current page's path as well as assuming
-the path's suffix will be `initTable`.
-
-Of course, you can still manually specify and thus overwrite this determined path:
-```js
-<enso-table class="box is-paddingless raises-on-hover"
-    path="/api/system/permissions/initTable"
-    id="permissions"/>
-```
-
-There's also the `route()` helper available, so instead of the above you can also use
-it in combination with named routes:
-```js
-:path="route('system.permissions.initTable')"
-```
-
-## Usage Details
-
-### CoreTable
-
-This is the renderless version of the component that can be built upon to create 
-your own custom version.
-
-#### Props
-- `errorHandler` - `function` - used to handle axios errors
-- `filters` - `object` - a filters object that is sent to the back-end 
-    to filter the results
-- `id` - `string`, required, an identifier for the table component, 
-    required for caching this table's preferences/settings
-- `intervals` - `object`, optional - an interval filters object that is sent 
-    to the back-end to filter the results. Note that if the interval is a date, 
-    in addition to the `min` and `max` values for a given interval, 
-    you must also give  the `dateFormat` parameter, with the date format to be used
-    for example `intervals` can look like this:
-    
-    ```js
-    data() {
-        return {
-            intervals: {
-                menus: {
-                    updated_at: {
-                        min: null,
-                        max: null,
-                        dateFormat: 'Y-m-d H-i-s',
-                    },
-                },
-            },
-        };
-    },
-    ```
-    ::: tip
-    If using within Enso, you may forgo specifying a format, 
-    and can set the `dateFormat` attribute as `null`, in which case, the back-end
-    component will use the global Enso format, from the configuration file 
-    (`config('enso.config.dateTimeFormat')`).
-    
-    Note that even if null, you're still required to specify the `dateFormat` attribute
-    for date intervals.
-    ::: 
-  
-- `i18n`, `function`, optional - the function that handles localisation
-- `params` - `object`, optional - a params object that may be used on the 
-    back-end to perform additional, custom, operations
-- `initParams` - `object`, optional - a params object that may be used on the 
-    back-end during the init phase
-- `path` - `string`, required - the URI path used to fetch the table template.
-
-#### Events:
-- `ready` - when the component is initialized after fetching its template, BEFORE fetching the actual table data
-- `fetching` - just before making the request to fetch the table data
-- `fetched` - when the table data has been fetched
-- `clicked` - when clicking on a `clickable` column
-- `reset` - when clicking the reset button
-
-Various other user events may be emitted depending on the configured template.
-
-### VueTable
-
-This is the main bulma styled component and it is built upon the renderless 
-component `renderless/VueTable.vue`.
-
-#### Example:
-```vue
-<vue-table :path="route('system.menus.initTable')"        
-    :error-handler="myErrorHandler"
-    :intervals="intervals"
-    :i18n="myI18n"        
-    id="myTable"/>
-```
-
-
-#### Props
-
-All the props from `CoreTable` can be provided here
-
-#### Slots
-- if any columns have the `slot` attribute in their meta, in the template, then a scoped slot is rendered for each of these
-columns. The name of the slot is the column's name. The slot exposes the `row` & `column` objects
+Custom cell slot:
 
 ```vue
-<vue-table :path="route('system.menus.initTable')"        
-    :error-handler="myErrorHandler"
-    :i18n="myI18n"        
-    ref="table"> 
-    <template v-slot:my_column="{ row, column }">
-        <span>{{ row[column.name] }}
+<VueTable
+    id="orders"
+    :http="http"
+    :path="path"
+    :filters="filters"
+    :intervals="intervals">
+    <template #customer="{ row, loading }">
+        <span :class="{ 'has-text-grey-light': loading }">
+            {{ row.customer.name }}
+        </span>
     </template>
-</vue-table>
+</VueTable>
 ```
 
-- if you using custom totals in your table template, 
-    you may also add the template to be for the custom total
-- if using preview option in you table template, a preview slot will also be available.
-    The name of the slot is `'preview'`
-
-### EnsoTable
-
-Is designed to be used within the Enso ecosystem, 
-requiring minimal configuration from the dev. 
-
-Example:
-```vue
-<enso-table class="box is-paddingless raises-on-hover is-rounded"
-    :path="route('system.permissions.initTable')"
-    id="permissions"/>
-```
-
-#### Props
-
-All the props from `VueTable` can be provided here
-
-#### Slots
-
-The custom slots from `VueTable` are available here
-
-### Filtering and Sorting
-
-#### Sorting
-
-In order for a column to be sortable, it needs to be marked in the 
-template as such (`'sortable'`);
-
-Once the columns are configured as searchable, when you want to sort using a 
-certain column, it is enough to click the column's header.
-
-Once a sorting has been applied, there will be a small 'x' button visible which you
-can use to cancel the sorting.
-
-::: tip
-You may also use the reset button to clear **all** the table customizations 
-including sorting and reload the template.
-::: 
-
-#### Filtering
-
-In order to filter using a string of text, you may start typing in the search input.
-
-All columns marked in the template as `'searchable'` (even those marked as `'notVisible'`
-or `'rogue'`) will be used for filtering. The search type is `WHERE ... OR ...`.
-
-For a brief example the following string __abc__ will be used as search value.
-By default, there are five search modes available:
-- `'startsWith'` - starting with the searched text (represented with __ab\*__)
-- `'endsWith'` - ending with the searched text (represented with __\*ab__)
-- `'exactMatch'` (represented with __abc__) 
-- `'full'` - containing the searched text (represented with __\*a\*__)
-- `'doesntContain'` (represented with __~~abc~~__).
-    - Note: Usually, when this search mode is applied on tables, only a single set of data 
-    is targeted (ex: exclude rows if a specific and targeted data cell contains the search text).   
-    When used on enso table all data sets (row's data cells) are targeted. Thus search will
-    behave as follows: in the given example, rows will be excluded only if __all__ data cells
-    contain the string "__abc__" . 
-    - Note: Empty row data cells will be ignored by `'doesntContain'` search mode. 
-    So if there is a row that contains string "abc" and all the other fields are empty, 
-    then it will be considered that all row data cells (in this case just one) contain the 
-    string and thus the row will be __excluded__.
-
-Also, the default search mode is to look for attributes starting with the searched text
-as it's faster than `'full'` and more useful than `'exactMatch'`.
-
-In the interface, if you want to switch between the search modes, you can
-use the button that appears to the right side of the search input, once you've typed something. 
-
-The button can show a maximum of three characters. To indicate the mode you're in, it will
-display either 3 letters of whatever you've typed or 1-2 letters, replacing the remaining space 
-with asterisk wildcard (`*`).
-Ex: if the search word is "abc", the button will be illustrated like: "ab\*", "\*ab", "abc"
-"\*a\*", "~~abc~~".
-
-The search filter is __case-insensitive__.
-
-::: tip
-The available modes as well as the default mode can be customized in the
- `tables` config. 
-:::
-
-::: tip
-Once the mode has been changed in the interface, the preferences are saved in the 
-browser's local storage.
-:::
-
-If you want to remove the search filtering, clear the search input.
-
-::: tip
-You may also use the reset button to clear **all** the table customizations 
-including searching and reload the template.
-:::
-
-### Advanced Filtering
-
-Beyond the automatic filtering available out of the box, the VueJS component takes 
-a set parameters which you can use on the back-end to customize the query:
-- intervals
-- filters
-- params
-
-Intervals are meant for applying date/dateTime restrictions on your results, 
-are applied automatically and should respect table and column names:
-```js
-intervals: {
-    sales: {
-        date: {
-            min: null,
-            max: null,
-            dateFormat: null,
-        },
-    },
-```
-
-Please take a look at the CoreTable parameters section above for more information
-on the value of `dateFormat`.
-
-Filters are meant for applying generic restrictions on your results, 
-are applied automatically and should also respect table and column names:
-```js
-filters() {
-    return {
-        products: {
-            id: null,
-        },
-    };
-},
-```
-
-Params are meant for building custom logic restrictions on your results
-and are NOT applied automatically. As such the parameter structure and attribute
-names depend on your choices.
+Public instance helpers:
 
 ```js
-params: {
-    fulfilled: null,
-    client: null,
+table.fetch();
+table.reset();
+table.highlight(rowId);
+table.clearSelected();
+table.selected();
 ```
 
-The parameters object will be made available in your table builder specific methods. 
-Please be sure to read the advanced usage 
-[section](https://docs.laravel-enso.com/backend/tables.html#advanced-usage) 
-of the documentation for more information. 
+## API
 
-### Table Init Sample Response
+### Bulma Exports
 
-Below is the response from the back-end when the table is initialized.  The sample is taken from the [https://www.laravel-enso.com/system/menus/](https://www.laravel-enso.com/system/menus/) index page.
+Import from `@enso-ui/tables/bulma`.
 
-```json
-{
-    "template":{
-        "crtNo":true,
-        "buttons":{
-            "global":[
-                {
-                    "icon":"file-excel",
-                    "class":null,
-                    "event":"export-excel",
-                    "action":"export",
-                    "label":"Excel",
-                    "name":"excel",
-                    "path":"\/api\/system\/menus\/exportExcel"
-                },
-                {
-                    "icon":"plus",
-                    "class":null,
-                    "event":"create",
-                    "action":"router",
-                    "label":"Create",
-                    "name":"create",
-                    "route":"system.menus.create"
-                }
-            ],
-            "row":[
-                {
-                    "icon":"pencil-alt",
-                    "class":"is-row-button",
-                    "event":"edit",
-                    "action":"router",
-                    "name":"edit",
-                    "route":"system.menus.edit"
-                },
-                {
-                    "icon":"trash-alt",
-                    "class":"is-row-button",
-                    "event":"destroy",
-                    "action":"ajax",
-                    "method":"DELETE",
-                    "message":"The selected record is about to be deleted. Are you sure?",
-                    "confirmation":true,
-                    "postEvent":"destroyed",
-                    "name":"destroy",
-                    "path":"\/api\/system\/menus\/dtRowId"
-                }
-            ]
-        },
-        "appends":[
-            "computedIcon"
-        ],
-        "columns":[
-            {
-                "label":"Name",
-                "name":"name",
-                "data":"menus.name",
-                "meta":{
-                    "average":false,
-                    "boolean":false,
-                    "clickable":false,
-                    "cents":false,
-                    "customTotal":false,
-                    "date":false,
-                    "datetime":false,
-                    "filterable":false,
-                    "icon":false,
-                    "notExportable":false,
-                    "nullLast":false,
-                    "searchable":true,
-                    "rawTotal":false,
-                    "rogue":false,
-                    "slot":false,
-                    "sortable":true,
-                    "translatable":false,
-                    "total":false,
-                    "notVisible":false,
-                    "visible":true,
-                    "hidden":false,
-                    "sort":null
-                }
-            },
-            {
-                "label":"Icon",
-                "name":"computedIcon",
-                "data":"menus.computedIcon",
-                "meta":{
-                    "average":false,
-                    "boolean":false,
-                    "clickable":false,
-                    "cents":false,
-                    "customTotal":false,
-                    "date":false,
-                    "datetime":false,
-                    "filterable":false,
-                    "icon":true,
-                    "notExportable":true,
-                    "nullLast":false,
-                    "searchable":false,
-                    "rawTotal":false,
-                    "rogue":false,
-                    "slot":false,
-                    "sortable":false,
-                    "translatable":false,
-                    "total":false,
-                    "notVisible":false,
-                    "visible":true,
-                    "hidden":false,
-                    "sort":null
-                }
-            },
-            {
-                "label":"Parent",
-                "name":"parent",
-                "data":"parent_menus.name",
-                "meta":{
-                    "average":false,
-                    "boolean":false,
-                    "clickable":false,
-                    "cents":false,
-                    "customTotal":false,
-                    "date":false,
-                    "datetime":false,
-                    "filterable":false,
-                    "icon":false,
-                    "notExportable":false,
-                    "nullLast":false,
-                    "searchable":true,
-                    "rawTotal":false,
-                    "rogue":false,
-                    "slot":false,
-                    "sortable":true,
-                    "translatable":false,
-                    "total":false,
-                    "notVisible":false,
-                    "visible":true,
-                    "hidden":false,
-                    "sort":null
-                }
-            },
-            {
-                "label":"Route",
-                "name":"route",
-                "data":"permissions.name",
-                "meta":{
-                    "average":false,
-                    "boolean":false,
-                    "clickable":false,
-                    "cents":false,
-                    "customTotal":false,
-                    "date":false,
-                    "datetime":false,
-                    "filterable":false,
-                    "icon":false,
-                    "notExportable":false,
-                    "nullLast":false,
-                    "searchable":true,
-                    "rawTotal":false,
-                    "rogue":false,
-                    "slot":false,
-                    "sortable":true,
-                    "translatable":false,
-                    "total":false,
-                    "notVisible":false,
-                    "visible":true,
-                    "hidden":false,
-                    "sort":null
-                }
-            },
-            {
-                "label":"Has Children",
-                "name":"has_children",
-                "data":"menus.has_children",
-                "meta":{
-                    "average":false,
-                    "boolean":true,
-                    "clickable":false,
-                    "cents":false,
-                    "customTotal":false,
-                    "date":false,
-                    "datetime":false,
-                    "filterable":false,
-                    "icon":false,
-                    "notExportable":false,
-                    "nullLast":false,
-                    "searchable":false,
-                    "rawTotal":false,
-                    "rogue":false,
-                    "slot":false,
-                    "sortable":false,
-                    "translatable":false,
-                    "total":false,
-                    "notVisible":false,
-                    "visible":true,
-                    "hidden":false,
-                    "sort":null
-                }
-            },
-            {
-                "label":"Order",
-                "name":"order_index",
-                "data":"menus.order_index",
-                "meta":{
-                    "average":false,
-                    "boolean":false,
-                    "clickable":false,
-                    "cents":false,
-                    "customTotal":false,
-                    "date":false,
-                    "datetime":false,
-                    "filterable":false,
-                    "icon":false,
-                    "notExportable":false,
-                    "nullLast":false,
-                    "searchable":false,
-                    "rawTotal":false,
-                    "rogue":false,
-                    "slot":false,
-                    "sortable":true,
-                    "translatable":false,
-                    "total":false,
-                    "notVisible":false,
-                    "visible":true,
-                    "hidden":false,
-                    "sort":null
-                }
-            },
-            {
-                "label":"Created At",
-                "name":"created_at",
-                "data":"menus.created_at",
-                "meta":{
-                    "average":false,
-                    "boolean":false,
-                    "clickable":false,
-                    "cents":false,
-                    "customTotal":false,
-                    "date":true,
-                    "datetime":false,
-                    "filterable":false,
-                    "icon":false,
-                    "notExportable":false,
-                    "nullLast":false,
-                    "searchable":false,
-                    "rawTotal":false,
-                    "rogue":false,
-                    "slot":false,
-                    "sortable":true,
-                    "translatable":false,
-                    "total":false,
-                    "notVisible":false,
-                    "visible":true,
-                    "hidden":false,
-                    "sort":null
-                }
-            }
-        ],
-        "model":"menu",
-        "table":"menus",
-        "dtRowId":"id",
-        "lengthMenu":[
-            10,
-            15,
-            20,
-            25,
-            30
-        ],
-        "debounce":350,
-        "method":"GET",
-        "labels":{
-            "crtNo":"#",
-            "actions":"Actions"
-        },
-        "comparisonOperator":"LIKE",
-        "responsive":true,
-        "searchModes":[
-            "full",
-            "startsWith",
-            "endsWith",
-            "exactMatch",
-            "doesntContain"
-        ],
-        "dateFormat":"d-m-Y",
-        "selectable":false,
-        "preview":false,
-        "name":"menus",
-        "readPath":"\/api\/system\/menus\/tableData",
-        "defaultSort":"menus.id",
-        "align":[
-            "has-text-centered"
-        ],
-        "style":[
-            "is-hoverable",
-            "is-striped"
-        ],
-        "aligns":{
-            "center":"has-text-centered",
-            "left":"has-text-left",
-            "right":"has-text-right"
-        },
-        "styles":{
-            "bordered":"is-bordered",
-            "compact":"is-narrow",
-            "hover":"is-hoverable",
-            "striped":"is-striped"
-        },
-        "highlight":"has-background-info",
-        "controls":[
-            "length",
-            "columns",
-            "style",
-            "reload",
-            "reset"
-        ],
-        "actions":true
-    },
-    "meta":{
-        "start":0,
-        "search":"",
-        "loading":false,
-        "forceInfo":false,
-        "filterable":false,
-        "searchable":true,
-        "sort":false,
-        "total":false,
-        "date":true,
-        "datetime":false,
-        "translatable":false,
-        "enum":false,
-        "cents":false,
-        "money":false,
-        "resource":false,
-        "length":10,
-        "searchMode":"full",
-        "fullInfoRecordLimit":1000000
-    },
-    "apiVersion":"3.4"
-}
-```
+Exported components:
+- `VueTable`
+- `EnsoTable`
 
-### Table Data Sample Response
+### `VueTable`
 
-Below is the response given by the backend when searching for something via the search input.
+Framework-agnostic Bulma shell around `CoreTable`.
 
-```json
-{
-   "data":[
-      {
-         "id":1,
-         "name":"core.home.index",
-         "description":"App State Builder",
-         "type":"Read",
-         "created_at":"08-09-2019",
-         "is_default":true,
-         "isRead":true
-      }
-   ],
-   "count":444,
-   "filtered":1,
-   "total":[
+Props:
+- forwards all attrs to `CoreTable` and `TableContent`
 
-   ],
-   "fullRecordInfo":true,
-   "filters":true
-}
-```
+Computed public state:
+- `body`
+- `slots`
 
-## Questions & Issues
+Public methods:
+- `fetch()`
+- `reset()`
+- `highlight(dtRowId)`
+- `removeHighlight(dtRowId)`
+- `toggleHighlight(dtRowId)`
+- `clearHighlighted()`
+- `selected()`
+- `clearSelected()`
+- `highlighted()`
+- `selectable(state = true)`
 
-For questions and support please use the issues functionality
-for this package's github repository.
+Behavior:
+- waits for `CoreTable` to become ready
+- renders `TableContent`
+- forwards all dynamic body and control slots declared by the table template
 
-Please make sure to search for existing issues before creating a new issue,
-and when opening a new issue, fill the required information in the issue template.
+### `EnsoTable`
 
-Issues not conforming to the guidelines may be closed immediately.
+Application-aware shell built on top of `VueTable`.
+
+Injected dependencies:
+- `errorHandler`
+- `http`
+- `i18n`
+- `routerErrorHandler`
+
+Additional behavior:
+- derives `path` automatically from the current route when no explicit `path` attr is provided
+- proxies the same public methods exposed by `VueTable`
+- is the standard table shell used in Enso applications
+
+### `CoreTable`
+
+Renderless engine that owns the table lifecycle, request payloads, preferences, and selection state.
+
+Props:
+- `errorHandler: Function`
+- `hasFilters: boolean | null = null`
+- `filters: object | null = null`
+- `filterVersion: number = 1.0`
+- `http: Function`
+- `i18n: Function = value => value`
+- `id: string`
+- `initParams: object | null = null`
+- `intervals: object | null = null`
+- `params: object | null = null`
+- `path: string`
+- `routerErrorHandler: Function`
+
+Emits:
+- `ready`
+- `reset`
+- `fetching`
+- `fetched`
+- `update:filters`
+- `update:intervals`
+- `update:params`
+- `ajax-error`
+- `action-error`
+- button-specific post events emitted by backend button definitions
+
+State owned by `CoreTable`:
+- `state.template`
+- `state.meta`
+- `state.body`
+- `state.selected`
+- `state.highlighted`
+- `state.pageSelected`
+- `state.confirmation`
+- `state.filterScenarios`
+- `state.expanded`
+- `state.action`
+
+Lifecycle:
+1. `init()` requests the backend init payload from `path`
+2. `prepare()` stores the table template and meta payload
+3. `loadPreferences()` restores persisted preferences when compatible
+4. `fetch()` reads the current page body using filters, intervals, params, visible columns, sort, search, and pagination
+
+Preference persistence:
+- uses `localStorage` keys derived from `id`
+- stores API version, template style, meta state, visible columns, filters, intervals, params, and filter scenarios
+- invalidates stale preferences when the API version, filter version, or column set changes
+
+Public methods:
+- `init()`
+- `fetch()`
+- `reset()`
+- `request()`
+- `readRequest(method, exportMode = false, selection = false)`
+- `requestColumns(exportMode)`
+- `exportData({ path, postEvent })`
+- `ajax(method, path, postEvent)`
+- `action(buttonConfig)`
+- `buttonAction(button, row = null)`
+- `doButtonAction()`
+- `actionPath(button, dtRowId)`
+- `routeParams(button, row)`
+- `activeScenario()`
+- `selectable(state = true)`
+- `togglePageSelect()`
+- `refreshPageSelected()`
+- `highlight(dtRowId)`
+- `removeHighlight(dtRowId)`
+- `toggleHighlight(dtRowId)`
+- `clearHighlighted()`
+- `clearSelected()`
+- `visibleColumns()`
+- `invisibleColumns()`
+- `visibleColumn(column)`
+- `hiddenColumns()`
+- `hiddenColspan()`
+- `columnAlignment(column)`
+- `totalFormat(value)`
+
+Dynamic slot surface derived from the backend template:
+- column slots for every column with `meta.slot`
+- row-action slots for row buttons with `slot`
+- global control slots for global buttons with `slot`
+- `preview`
+- `<column>_custom_total` for columns with `meta.customTotal`
+
+### Request and Data Contract
+
+The table runtime expects two backend payload shapes:
+
+Initialization payload:
+- `apiVersion`
+- `template`
+- `meta`
+
+Body payload returned by `fetch()`:
+- `data`
+- `count`
+- `fullRecordInfo`
+- totals and extra body metadata, when exposed by the backend package
+
+The request payload sent back to the server includes:
+- `internalFilters`
+- `filters`
+- `intervals`
+- `params`
+- `columns`
+- `meta.start`
+- `meta.length`
+- `meta.sort`
+- `meta.search`
+- `meta.forceInfo`
+- `meta.searchMode`
+
+### Table Template Responsibilities
+
+The backend template drives all major frontend behaviors:
+- table style and alignment
+- column labels, visibility, slot usage, sortability, and totals
+- row and global buttons
+- actions and route metadata
+- selectable rows
+- preview rows
+- responsive hidden-column expansion
+- debounce, filters, search mode, and record info settings
+
+### Internal Rendering Parts
+
+The public shell is small, but most table behavior is implemented by internal Bulma parts:
+
+- `TableContent` composes top controls, header, body, footer, pagination, empty state, overlay, and confirmation
+- `TableHeader` renders sortable headers, tooltips, row-selection header checkbox, preview toggle column, and actions label
+- `TableBody` renders normal rows, hidden child rows, row buttons, preview rows, per-cell slots, highlight classes, and row selection
+- `TableFooter` renders footer totals and custom-total slots
+- `Confirmation` renders row/global button confirmations before destructive actions
+
+### Toolbar and Footer Controls
+
+The table ships a large internal control surface:
+
+Top controls:
+- search
+- search mode
+- column visibility
+- style selector
+- length menu
+- dropdown actions
+- filter editor
+- filter labels
+- filter scenarios
+
+Filter implementations:
+- string
+- number
+- boolean
+- enum
+- date
+- custom select
+
+Bottom controls:
+- pagination
+- record info
+
+### Selection, Highlighting, and Hidden Rows
+
+Built-in row state handling includes:
+- row selection and page selection
+- highlighted rows by `dtRowId`
+- responsive child rows when columns are hidden
+- expansion state tracking in `state.expanded`
+
+### Export and Button Actions
+
+Buttons defined by the backend template can trigger:
+- router navigation
+- AJAX requests
+- export requests
+- custom emitted events
+
+The frontend handles confirmation gates, request dispatch, route param extraction, post events, and loading states.
+
+## Companion Backend Package
+
+- [`laravel-enso/tables`](https://docs.laravel-enso.com/backend/tables.html) [↗](https://github.com/laravel-enso/tables)
+
+## Depends On
+
+- [`@enso-ui/date`](https://docs.laravel-enso.com/frontend/date.html) [↗](https://github.com/enso-ui/date)
+- [`@enso-ui/datepicker`](https://docs.laravel-enso.com/frontend/datepicker.html) [↗](https://github.com/enso-ui/datepicker)
+- [`@enso-ui/directives`](https://docs.laravel-enso.com/frontend/directives.html) [↗](https://github.com/enso-ui/directives)
+- [`@enso-ui/dropdown`](https://docs.laravel-enso.com/frontend/dropdown.html) [↗](https://github.com/enso-ui/dropdown)
+- [`@enso-ui/enums`](https://docs.laravel-enso.com/frontend/enums.html) [↗](https://github.com/enso-ui/enums)
+- [`@enso-ui/loader`](https://docs.laravel-enso.com/frontend/loader.html) [↗](https://github.com/enso-ui/loader)
+- [`@enso-ui/modal`](https://docs.laravel-enso.com/frontend/modal.html) [↗](https://github.com/enso-ui/modal)
+- [`@enso-ui/search-mode`](https://docs.laravel-enso.com/frontend/search-mode.html) [↗](https://github.com/enso-ui/search-mode)
+- [`@enso-ui/select`](https://docs.laravel-enso.com/frontend/select.html) [↗](https://github.com/enso-ui/select)
+- [`@enso-ui/vue-switch`](https://docs.laravel-enso.com/frontend/switch.html) [↗](https://github.com/enso-ui/switch)
 
 ## Contributions
 
@@ -742,4 +351,9 @@ Thank you to all the people who already contributed to Enso!
 
 ## License
 
-[ISC](https://opensource.org/licenses/ISC)
+[MIT](https://github.com/enso-ui/tables/blob/master/LICENSE)
+
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/enso-ui/tables/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 1:12:56 PM</div>
+</div>

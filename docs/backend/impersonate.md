@@ -1,42 +1,85 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Impersonate
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/fdc8f68f71064cd0b811462ef097879d)](https://www.codacy.com/app/laravel-enso/impersonate?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/impersonate&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/94622194/shield?branch=master)](https://github.styleci.io/repos/94622194)
-[![License](https://poser.pugx.org/laravel-enso/impersonate/license)](https://packagist.org/packages/laravel-enso/impersonate)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/impersonate/downloads)](https://packagist.org/packages/laravel-enso/impersonate)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/impersonate/version)](https://packagist.org/packages/laravel-enso/impersonate)
+[![License](https://poser.pugx.org/laravel-enso/impersonate/license)](https://github.com/laravel-enso/impersonate/blob/master/LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/impersonate/version)](https://packagist.org/packages/laravel-enso/impersonate)
+[![Downloads](https://poser.pugx.org/laravel-enso/impersonate/downloads)](https://packagist.org/packages/laravel-enso/impersonate)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://github.com/laravel-enso/impersonate/blob/master/composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/impersonate.svg)](https://github.com/laravel-enso/impersonate/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/impersonate.svg)](https://github.com/laravel-enso/impersonate/pulls)
 
-User impersonation dependency for [Laravel Enso](https://github.com/laravel-enso/Enso).
+## Description
 
-This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+Impersonate adds Enso user impersonation routes, middleware, and frontend boot state.
 
-The front end assets that utilize this api are present in the [ui](https://github.com/enso-ui/ui) package.
+The package exposes start and stop impersonation endpoints, registers the `impersonate` middleware alias, and publishes an `Impersonating` state provider so the frontend can reflect the current session mode.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
-
-[![Watch the demo](https://laravel-enso.github.io/impersonate/screenshots/bulma_014_thumb.png)](https://laravel-enso.github.io/impersonate/videos/bulma_how_to_impersonate.webm)
-<sup>click on the photo to view a short demo in compatible browsers</sup>
+It is a focused authentication-adjacent package, not a full access-management system on its own.
 
 ## Installation
 
-Comes pre-installed in Enso.
+Install the package:
+
+```bash
+composer require laravel-enso/impersonate
+```
+
+Run the package migrations:
+
+```bash
+php artisan migrate
+```
 
 ## Features
 
-- allows a user to impersonate another user, by using a middleware
-- permits testing and debugging from the perspective of another user, without needing his credentials
-- comes with its own controller and routes that permit starting and stopping the impersonation process
-- uses the [Permission Manager](https://github.com/laravel-enso/PermissionManager) package in order to be able to verify permissions
-- the access for the impersonation process is determined by the (admin) user's access to the impersonation routes.
+- Start and stop impersonation endpoints.
+- Dedicated impersonation middleware alias.
+- Frontend state provider for current impersonation status.
+- Authorization provider wiring through the package service providers.
+
+## Usage
+
+The package mounts:
+
+```php
+route('core.impersonate.start', ['user' => $user]);
+route('core.impersonate.stop');
+```
+
+## API
+
+### HTTP routes
+
+- `GET api/core/impersonate/{user}`
+- `GET api/core/impersonate/stop`
+
+### Middleware
+
+- `impersonate`
+
+## Depends On
+
+Required Enso packages:
+
+- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/dynamic-methods`](https://docs.laravel-enso.com/backend/dynamic-methods.html) [↗](https://github.com/laravel-enso/dynamic-methods)
+- [`laravel-enso/migrator`](https://docs.laravel-enso.com/backend/migrator.html) [↗](https://github.com/laravel-enso/migrator)
+- [`laravel-enso/users`](https://docs.laravel-enso.com/backend/users.html) [↗](https://github.com/laravel-enso/users)
 
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-## License
+Thank you to all the people who already contributed to Enso!
 
-This package is released under the MIT license.
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/impersonate/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 4:28:33 PM</div>
+</div>

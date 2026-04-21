@@ -1,69 +1,52 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
 
-# Scroll to top
+<!-- AUTO-GENERATED: do not edit by hand -->
 
-![npm license](https://img.shields.io/npm/l/@enso-ui/scroll-to-top.svg) 
-![npm download](https://img.shields.io/npm/dm/@enso-ui/scroll-to-top.svg) 
-![GitHub top language](https://img.shields.io/github/languages/top/enso-ui/scroll-to-top.svg) 
-![GitHub issues](https://img.shields.io/github/issues/enso-ui/scroll-to-top.svg) 
-![npm version](https://img.shields.io/npm/v/@enso-ui/scroll-to-top.svg) 
+# Scroll to Top
 
-Scroll to top functionality
-
-Can be used outside of the Enso ecosystem.
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
-
+[![License](https://img.shields.io/badge/license-MIT-10b981.svg)](https://github.com/enso-ui/scroll-to-top/blob/master/LICENSE)
+[![Stable](https://img.shields.io/badge/stable-4.1.4-2563eb.svg)](https://www.npmjs.com/package/@enso-ui/scroll-to-top)
+[![Downloads](https://img.shields.io/npm/dm/@enso-ui/scroll-to-top.svg)](https://www.npmjs.com/package/@enso-ui/scroll-to-top)
+[![Vue](https://img.shields.io/badge/vue-3.x-42b883.svg)](https://vuejs.org/)
+[![JavaScript](https://img.shields.io/badge/javascript-ES2020-f7df1e.svg)](https://developer.mozilla.org/docs/Web/JavaScript)
+[![SCSS](https://img.shields.io/badge/scss-supported-c6538c.svg)](https://sass-lang.com/)
+[![npm](https://img.shields.io/badge/npm-package-cb3837.svg)](https://www.npmjs.com/package/@enso-ui/scroll-to-top)
+[![Issues](https://img.shields.io/github/issues/enso-ui/scroll-to-top.svg)](https://github.com/enso-ui/scroll-to-top/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/enso-ui/scroll-to-top.svg)](https://github.com/enso-ui/scroll-to-top/pulls)
+## Description
+Scroll to top trigger for Enso UI layouts.
 ## Installation
-
 Install the package:
-```
+
+```bash
 yarn add @enso-ui/scroll-to-top
 ```
-
-(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
-
-### Exports
-
-`@enso-ui/scroll-to-top/bulma`:
-- `ScrollToTop`
-`@enso-ui/scroll-to-top/renderless`:
-- `CoreScrollToTop`
-
+## Features
+- exports `ScrollToTop` as its public surface
+- keeps the Bulma presentation layer separate from the renderless/stateful layer where applicable
 ## Usage
-
-Import the desired component(s):
-```js
-import ScrollToTop from '@enso-ui/scroll-to-top/bulma';
-import CoreScrollToTop from '@enso-ui/scroll-to-top/renderless';
-```
-
-### ScrollToTop
-The bulma styled scroll-to-top component. 
-
-Example:
 ```vue
-<scroll-to-top :progress="progress"/>
+<script setup>
+import ScrollToTop from '@enso-ui/scroll-to-top/bulma';
+</script>
 ```
+## API
+### `ScrollToTop`
 
-## Questions & Issues
-
-For questions and support please use the issues functionality
-for this package's github repository.
-
-Please make sure to search for existing issues before creating a new issue,
-and when opening a new issue, fill the required information in the issue template.
-
-Issues not conforming to the guidelines may be closed immediately.
-
+Public export available from `src/bulma/ScrollToTop.vue`.
+## Depends On
+- No additional Enso UI dependencies.
 ## Contributions
-
 are welcome. Pull requests are great, but issues are good too.
-
 Thank you to all the people who already contributed to Enso!
-
 ## License
+[MIT](https://github.com/enso-ui/scroll-to-top/blob/master/LICENSE)
 
-[ISC](https://opensource.org/licenses/ISC)
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/enso-ui/scroll-to-top/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 2:24:47 PM</div>
+</div>

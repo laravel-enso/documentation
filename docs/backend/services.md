@@ -1,47 +1,110 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Services
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6e342eff10f24db5b89be5fe203e424d)](https://www.codacy.com/app/laravel-enso/services?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/services&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/85492361/shield?branch=master)](https://github.styleci.io/repos/85492361)
-[![License](https://poser.pugx.org/laravel-enso/services/license)](https://packagist.org/packages/laravel-enso/datatable)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/services/downloads)](https://packagist.org/packages/laravel-enso/services)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/services/version)](https://packagist.org/packages/laravel-enso/services)
+[![License](https://poser.pugx.org/laravel-enso/services/license)](https://github.com/laravel-enso/services/blob/master/LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/services/version)](https://packagist.org/packages/laravel-enso/services)
+[![Downloads](https://poser.pugx.org/laravel-enso/services/downloads)](https://packagist.org/packages/laravel-enso/services)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://github.com/laravel-enso/services/blob/master/composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/services.svg)](https://github.com/laravel-enso/services/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/services.svg)](https://github.com/laravel-enso/services/pulls)
 
-Services package for [Laravel Enso](https://github.com/laravel-enso/Enso).
+## Description
 
-This package cannot work independently of the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+Services manages sellable service records inside Laravel Enso.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
-
+The package ships the service model, CRUD endpoints, validation, options lookup, form builders, and a server-side table builder for the administration UI. It is intended for Enso applications that need reusable service catalog entries alongside products and measurement units.
 
 ## Installation
 
-install using composer `composer require laravel-enso/services` 
+Install the package:
+
+```bash
+composer require laravel-enso/services
+```
+
+Run the package migrations:
+
+```bash
+php artisan migrate
+```
+
+Optional publish:
+
+```bash
+php artisan vendor:publish --tag=services-factories
+```
 
 ## Features
 
-- features a core services functionality with a model, enums, migrations, 
-routes, controllers, resources, index table, etc 
-- provides CRUD functionality for the `Service` model
-- a `ServiceFactory` is included and can be published
+- CRUD endpoints for service records.
+- Form builders for create and edit flows backed by `service.json`.
+- Server-side table builder backed by `services.json`.
+- Options endpoint for async selects through `OptionsBuilder`.
+- Supplier pivot payload support in the form builder and validator.
+- Factories and feature coverage for forms, options, and datatable flows.
 
 ## Usage
 
-The package is meant to be installed on an Enso project and customized as required 
-(or used as it is if that is enough). 
-   
-## Publishes
+The package mounts its routes automatically through `AppServiceProvider`.
 
-- `php artisan vendor:publish --tag=services-factories` - the included service factory,
-   
-   
-### Contributions
+Main flows:
+
+- create and edit forms through `LaravelEnso\Services\Forms\Builders\Service`
+- datatable bootstrap and rows through `LaravelEnso\Services\Tables\Builders\Service`
+- select options through `LaravelEnso\Services\Http\Controllers\Options`
+
+Validation is handled by `LaravelEnso\Services\Http\Requests\ValidateService`, which requires:
+
+- `measurement_unit_id`
+- `name`
+- unique `code`
+- positive `list_price`
+- integer `vat_percent`
+- optional supplier rows with acquisition prices
+
+## API
+
+Mounted under `api/services`:
+
+- `GET create`
+- `POST /`
+- `GET {service}/edit`
+- `PATCH {service}`
+- `DELETE {service}`
+- `GET initTable`
+- `GET tableData`
+- `GET exportExcel`
+- `GET options`
+
+## Depends On
+
+Required Enso packages:
+
+- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/dynamic-methods`](https://docs.laravel-enso.com/backend/dynamic-methods.html) [↗](https://github.com/laravel-enso/dynamic-methods)
+- [`laravel-enso/forms`](https://docs.laravel-enso.com/backend/forms.html) [↗](https://github.com/laravel-enso/forms)
+- [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
+- [`laravel-enso/measurement-units`](https://docs.laravel-enso.com/backend/measurement-units.html) [↗](https://github.com/laravel-enso/measurement-units)
+- [`laravel-enso/tables`](https://docs.laravel-enso.com/backend/tables.html) [↗](https://github.com/laravel-enso/tables)
+
+Companion frontend package:
+
+- [`@enso-ui/services`](https://docs.laravel-enso.com/frontend/services.html) [↗](https://github.com/enso-ui/services)
+
+## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-### License
+Thank you to all the people who already contributed to Enso!
 
-This package is released under the MIT license.
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/services/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 4:32:21 PM</div>
+</div>

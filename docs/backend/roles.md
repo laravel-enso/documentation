@@ -1,50 +1,127 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Roles
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/bd4373f8222b4bcb81c08148404909c9)](https://www.codacy.com/app/laravel-enso/roles?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/roles&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/94814370/shield?branch=master)](https://github.styleci.io/repos/94814370)
-[![License](https://poser.pugx.org/laravel-enso/roles/license)](https://packagist.org/packages/laravel-enso/roles)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/roles/downloads)](https://packagist.org/packages/laravel-enso/roles)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/roles/version)](https://packagist.org/packages/laravel-enso/roles)
+[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/laravel-enso/roles/blob/master/LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/roles/version)](https://packagist.org/packages/laravel-enso/roles)
+[![Downloads](https://poser.pugx.org/laravel-enso/roles/downloads)](https://packagist.org/packages/laravel-enso/roles)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://github.com/laravel-enso/roles/blob/master/composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/roles.svg)](https://github.com/laravel-enso/roles/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/roles.svg)](https://github.com/laravel-enso/roles/pulls)
 
-Role Manager dependency for [Laravel Enso](https://github.com/laravel-enso/Enso)
+## Description
 
-This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+Roles manages role records and role-to-permission assignment in Laravel Enso.
 
-The front end assets that utilize this api are present in the [ui](https://github.com/enso-ui/ui) package.
+The package exposes CRUD and table APIs for roles, companion endpoints for reading and writing role permissions, and a sync command used to propagate role configuration between environments.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
-
-[![Watch the demo](https://laravel-enso.github.io/roles/screenshots/bulma_021_thumb.png)](https://laravel-enso.github.io/roles/videos/bulma_demo_01.webm)
-
-<sup>click on the photo to view a short demo in compatible browsers</sup>
+It is intended for Enso applications that use permission-based route access and need roles managed from the backoffice instead of hard-coded seeds alone.
 
 ## Installation
 
-Comes pre-installed in Enso.
+Install the package:
+
+```bash
+composer require laravel-enso/roles
+```
+
+Run the package migrations:
+
+```bash
+php artisan migrate
+```
+
+Optional publishes:
+
+```bash
+php artisan vendor:publish --tag=roles-config
+php artisan vendor:publish --tag=roles-factory
+php artisan vendor:publish --tag=roles-seeder
+```
 
 ## Features
 
-- manages roles for the users of the application
-- uses a hierarchical organization of permissions, which allow for a visual and intuitive update of permissions for a certain role
-- comes by default with the `Administrator` and `Supervisor` roles
+- Role CRUD, options, table init, table data, and Excel export endpoints.
+- Permission assignment endpoints for reading, setting, and writing role permissions.
+- Config publishing for role restrictions and group visibility.
+- `enso:roles:sync` command for syncing local role definitions from `config/local/roles`.
 
-## Publishes
+## Usage
 
-- `php artisan vendor:publish --tag=roles-factory` - the factory for the `Role` model
-- `php artisan vendor:publish --tag=roles-seeder` - a seeder that will allow you to manage roles locally and then sync them with the live instance of the app
-- `php artisan vendor:publish --tag=enso-factories` - a common alias for when wanting to update the factories,
-once a newer version is released, usually used with the `--force` flag
-- `php artisan vendor:publish --tag=enso-seeders` - a common alias for when wanting to update the seeders,
-once a newer version is released, usually used with the `--force` flag
+Main route groups:
+
+- `system.roles.*`
+- `system.roles.permissions.*`
+
+Permission assignment flow:
+
+- read current role permissions through `permissions.get`
+- submit updates through `permissions.set`
+- persist config files through `permissions.write`
+
+Environment sync:
+
+```bash
+php artisan enso:roles:sync
+```
+
+The command only runs when the local `config/local/roles` directory exists.
+
+## API
+
+### HTTP routes
+
+- `GET api/system/roles/create`
+- `POST api/system/roles`
+- `GET api/system/roles/{role}/edit`
+- `PATCH api/system/roles/{role}`
+- `DELETE api/system/roles/{role}`
+- `GET api/system/roles/initTable`
+- `GET api/system/roles/tableData`
+- `GET api/system/roles/exportExcel`
+- `GET api/system/roles/options`
+- `GET api/system/roles/permissions/get/{role}`
+- `POST api/system/roles/permissions/set/{role}`
+- `POST api/system/roles/permissions/write/{role}`
+
+### Artisan commands
+
+- `enso:roles:sync`
+
+## Depends On
+
+Required Enso packages:
+
+- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/enums`](https://docs.laravel-enso.com/backend/enums.html) [↗](https://github.com/laravel-enso/enums)
+- [`laravel-enso/forms`](https://docs.laravel-enso.com/backend/forms.html) [↗](https://github.com/laravel-enso/forms)
+- [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
+- [`laravel-enso/menus`](https://docs.laravel-enso.com/backend/menus.html) [↗](https://github.com/laravel-enso/menus)
+- [`laravel-enso/migrator`](https://docs.laravel-enso.com/backend/migrator.html) [↗](https://github.com/laravel-enso/migrator)
+- [`laravel-enso/permissions`](https://docs.laravel-enso.com/backend/permissions.html) [↗](https://github.com/laravel-enso/permissions)
+- [`laravel-enso/rememberable`](https://docs.laravel-enso.com/backend/rememberable.html) [↗](https://github.com/laravel-enso/rememberable)
+- [`laravel-enso/select`](https://docs.laravel-enso.com/backend/select.html) [↗](https://github.com/laravel-enso/select)
+- [`laravel-enso/tables`](https://docs.laravel-enso.com/backend/tables.html) [↗](https://github.com/laravel-enso/tables)
+- [`laravel-enso/user-groups`](https://docs.laravel-enso.com/backend/user-groups.html) [↗](https://github.com/laravel-enso/user-groups)
+- [`laravel-enso/users`](https://docs.laravel-enso.com/backend/users.html) [↗](https://github.com/laravel-enso/users)
+
+Companion frontend package:
+
+- [`@enso-ui/roles`](https://docs.laravel-enso.com/frontend/roles.html) [↗](https://github.com/enso-ui/roles)
 
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-## License
+Thank you to all the people who already contributed to Enso!
 
-This package is released under the MIT license.
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/roles/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 4:31:38 PM</div>
+</div>

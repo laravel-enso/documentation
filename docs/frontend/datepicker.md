@@ -1,131 +1,120 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Datepicker
 
-![npm license](https://img.shields.io/npm/l/@enso-ui/datepicker.svg) 
-![npm download](https://img.shields.io/npm/dm/@enso-ui/datepicker.svg) 
-![GitHub top language](https://img.shields.io/github/languages/top/enso-ui/datepicker.svg) 
-![GitHub issues](https://img.shields.io/github/issues/enso-ui/datepicker.svg) 
-![npm version](https://img.shields.io/npm/v/@enso-ui/datepicker.svg) 
+[![License](https://img.shields.io/badge/license-MIT-10b981.svg)](https://github.com/enso-ui/datepicker/blob/master/LICENSE)
+[![Stable](https://img.shields.io/badge/stable-3.1.4-2563eb.svg)](https://www.npmjs.com/package/@enso-ui/datepicker)
+[![Downloads](https://img.shields.io/npm/dm/@enso-ui/datepicker.svg)](https://www.npmjs.com/package/@enso-ui/datepicker)
+[![Vue](https://img.shields.io/badge/vue-3.x-42b883.svg)](https://vuejs.org/)
+[![JavaScript](https://img.shields.io/badge/javascript-ES2020-f7df1e.svg)](https://developer.mozilla.org/docs/Web/JavaScript)
+[![SCSS](https://img.shields.io/badge/scss-supported-c6538c.svg)](https://sass-lang.com/)
+[![npm](https://img.shields.io/badge/npm-package-cb3837.svg)](https://www.npmjs.com/package/@enso-ui/datepicker)
+[![Issues](https://img.shields.io/github/issues/enso-ui/datepicker.svg)](https://github.com/enso-ui/datepicker/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/enso-ui/datepicker.svg)](https://github.com/enso-ui/datepicker/pulls)
 
-Vue Datepicker renderless component based on Flatpickr with a bulma template.
+## Description
 
-Can be used outside of the Enso ecosystem.
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+Bulma and renderless Flatpickr wrappers for Enso UI.
 
 ## Installation
 
 Install the package:
-```
+
+```bash
 yarn add @enso-ui/datepicker
 ```
 
-(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+## Features
 
-Import the desired component(s):
-```js
-import { Datepicker } from '@enso-ui/datepicker/bulma';
-```
-
-## Exports
-
-`@enso-ui/datepicker/bulma`:
-- `Datepicker`,
-- `EnsoDatepicker`,
-
-`@enso-ui/datepicker/renderless`:
-- `CoreDatepicker`,
-
-Note that this package has a couple of external dependencies. 
-Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more info.
+- ships Bulma-styled `Datepicker` and `EnsoDatepicker` components
+- exposes the renderless `CoreDatepicker` for custom input renderers
+- wraps Flatpickr with locale switching, time/date modes, and clear-button handling
 
 ## Usage
 
-```js
-import { Datepicker } from '@enso-ui/datepicker/bulma';
-
-<datepicker v-model="birthday"
-    week-numbers
-    format="m-d-Y"/>
-```
-
-### renderless/Datepicker.vue
-The component is a renderless date picker component that is meant to be built upon when creating
-a specific implementation, for example with a different styling.
-
-#### Props
-- `altInput` - `boolean`, optional, default `false`, permits to show the user a readable date (as per altFormat), 
-    but return something totally different to the server
-- `altFormat` - `string`, optional, default `null`, alternative date format, see above  
-- `disabled` - `boolean`, optional, default `false`
-- `disableClear` - `boolean`, optional, default `false`, removes the clear button so the user cannot unselect the option
-- `format` - `string`, optional, default 'd-m-Y'
-- `locale` - `string`, optional, default `en`
-- `max` - `string`, optional, default `null` - sets a high limit for the selected date
-    that will be the max date that can be chosen 
-- `min` - `string`, optional, default `null` - sets a low limit for the selected date
-- `readonly` - `boolean`, optional, default `false`
-- `time` - `boolean`, optional. If set to true, the component allows choosing the time
-- `time12hr` - `boolean`, optional, default `false`. If set to true, the time will be in 12 hour format
-- `timeOnly` - `boolean`, optional, default `false`. If set to true, the component allows choosing ONLY the time (no date)
-- `value` - `string`, null/string/date/array, required
-- `weekNumbers` - `boolean`, optional, default `false`. If set to true, 
-the component also shows week numbers
-
-::: tip Tip
-The renderless component can be used to build a custom layout
-:::
-
-### Datepicker
-This is the main bulma styled component and it is built upon the renderless
-component `renderless/Datepicker.vue`
-
-#### Example:
 ```vue
-<datepicker v-model="interval.min"
-    :format="format"
-    :is-warning="equals"
-    :locale="locale"
-    :placeholder="i18n('My placeholder')"
-    :max="interval.max"/>
+<script setup>
+import { EnsoDatepicker } from '@enso-ui/datepicker/bulma';
+</script>
+
+<EnsoDatepicker v-model="date" />
 ```
 
-#### Props
+## API
 
-All the props from the renderless component can be used here, and, in addition:
-- `placeholder` - `string`, optional, default `'Select Date'`
-- `isDanger` - `boolean`, optional, default `false`
-- `isWarning` - `boolean`, optional, default `false`
+### `Datepicker`
 
-### EnsoDatepicker
-Designed to be used within the Enso ecosystem, it uses several defaults & conventions 
-requiring less configuration from the dev. 
+Bulma-styled input wrapper around `CoreDatepicker`.
 
-#### Example:
-```vue
-<datepicker v-model="interval.min"/>
-```
+Import: `@enso-ui/datepicker/bulma`
 
-#### Props
+Props:
+- `isDanger: boolean = false`
+- `isSmall: boolean = false`
+- `isWarning: boolean = false`
+- `isSuccess: boolean = false`
+- `placeholder: string = 'Select Date'`
+- `readonly: boolean = false`
 
-All the props from the renderless respectively the base component can be used here.
+Methods:
+- `clear()`
 
-## Questions & Issues
+### `EnsoDatepicker`
 
-For questions and support please use the issues functionality
-for this package's github repository.
+Convenience wrapper that derives the display format and locale from Enso app preferences.
 
-Please make sure to search for existing issues before creating a new issue,
-and when opening a new issue, fill the required information in the issue template.
+Import: `@enso-ui/datepicker/bulma`
 
-Issues not conforming to the guidelines may be closed immediately.
+Props:
+- `altFormat: string | null = null`
+- `time: boolean = false`
 
-## External Dependencies
+### `CoreDatepicker`
 
-Built around [Flatpickr](https://github.com/flatpickr/flatpickr).
+Renderless Flatpickr wrapper.
+
+Import: `@enso-ui/datepicker/renderless`
+
+Props:
+- `altInput: boolean = false`
+- `altFormat: string | null = null`
+- `disabled: boolean = false`
+- `disableClear: boolean = false`
+- `format: string = 'Y-m-d'`
+- `locale: string = 'en'`
+- `max: string | null = null`
+- `min: string | null = null`
+- `readonly: boolean = false`
+- `time: boolean = false`
+- `time12hr: boolean = false`
+- `timeOnly: boolean = false`
+- `modelValue: string | Date | Array | null`
+- `weekNumbers: boolean = false`
+
+Events:
+- `update:modelValue`
+- `value-updated`
+
+Slot props:
+- `clearButton`
+- `clearEvents`
+- `inputBindings`
+- `readonly`
+- `timeOnly`
+
+Methods:
+- `clear()`
+- `reset()`
+
+## Depends On
+
+- [`flatpickr`](https://flatpickr.js.org/)
 
 ## Contributions
 
@@ -135,4 +124,9 @@ Thank you to all the people who already contributed to Enso!
 
 ## License
 
-[ISC](https://opensource.org/licenses/ISC)
+[MIT](https://github.com/enso-ui/datepicker/blob/master/LICENSE)
+
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/enso-ui/datepicker/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 10:00:53 AM</div>
+</div>

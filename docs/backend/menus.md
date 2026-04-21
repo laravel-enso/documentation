@@ -1,69 +1,105 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Menus
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3f2ff01a8dc04044a13c6f4fbb9e21bd)](https://www.codacy.com/app/laravel-enso/menus?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/menus&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/94800927/shield?branch=master)](https://github.styleci.io/repos/94800927)
-[![License](https://poser.pugx.org/laravel-enso/menus/license)](https://packagist.org/packages/laravel-enso/menus)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/menus/downloads)](https://packagist.org/packages/laravel-enso/menus)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/menus/version)](https://packagist.org/packages/laravel-enso/menus)
+[![License](https://poser.pugx.org/laravel-enso/menus/license)](https://github.com/laravel-enso/menus/blob/master/LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/menus/version)](https://packagist.org/packages/laravel-enso/menus)
+[![Downloads](https://poser.pugx.org/laravel-enso/menus/downloads)](https://packagist.org/packages/laravel-enso/menus)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://github.com/laravel-enso/menus/blob/master/composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/menus.svg)](https://github.com/laravel-enso/menus/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/menus.svg)](https://github.com/laravel-enso/menus/pulls)
 
+## Description
 
-Menu Manager dependency for [Laravel Enso](https://github.com/laravel-enso/Enso)
+Menus manages Enso navigation records and menu ordering.
 
-This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+The package exposes CRUD, organize, table init, table data, and Excel export endpoints for system menus, and integrates with permissions and roles to control navigable routes.
 
-The front end assets that utilize this api are present in the [ui](https://github.com/enso-ui/ui) package.
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
-
-[![Watch the demo](https://laravel-enso.github.io/menus/screenshots/bulma_012_thumb.png)](https://laravel-enso.github.io/menus/videos/bulma_menu_management.webm)
-
-<sup>click on the photo to view a short demo in compatible browsers</sup>
+It is intended to back the Enso administration screen that defines menu structure and hierarchy.
 
 ## Installation
 
-Comes pre-installed in Enso.
+Install the package:
+
+```bash
+composer require laravel-enso/menus
+```
+
+Run the package migrations:
+
+```bash
+php artisan migrate
+```
+
+Optional publish:
+
+```bash
+php artisan vendor:publish --tag=menus-factory
+```
 
 ## Features
 
-- allow for the easy management of the main (sidebar) menus of the application
-- permits the creation, update, delete, ordering of the menus
+- Menu CRUD endpoints.
+- Drag-and-drop style ordering endpoint.
+- Table init, table data, and Excel export endpoints.
+- Integration with permissions and roles.
+- Factories for bootstrapping menu data.
 
 ## Usage
 
-Please note that because we want to keep the compiled size down, throughout the enso ecosystem, 
-icons are imported selectively.
+Main route group:
 
-What this means for the menu editor, is that when adding/changing a menu, you should also make sure you 
-import the required icons. The proper place to include the new icons is:
+- `system.menus.*`
 
-`resources/js/app.js`
+The package also exposes an explicit organize action:
 
-### Under the Hood
+```php
+route('system.menus.organize');
+```
 
-- a menu element may have several roles attached and is rendered only for the users with the respective roles
-- menu element attributes:
-  - `parent_id`: the id of its parent menu, if he has a parent, or null
-  - `name`: the label that is translated and visible in the UI
-  - `icon`: the icon classes, visible in the UI
-  - `order_index`: used for ordering the elements of the menu in the desired sequence
-  - `link`: is the link that's going to be accessed when clicking on the menu
-  - `has_children`: is a flag telling us if a menu element has children and is used when rendering the menu
-- for the menu changes to take effect, a page refresh or a re-login is needed 
+## API
 
-## Publishes
+### HTTP routes
 
-- `php artisan vendor:publish --tag=menus-factory` - the factory for the `Menu` model
-- `php artisan vendor:publish --tag=enso-factories` - a common alias for when wanting to update the factories,
-once a newer version is released, usually used with the `--force` flag
+- `GET api/system/menus/create`
+- `POST api/system/menus`
+- `GET api/system/menus/{menu}/edit`
+- `PATCH api/system/menus/{menu}`
+- `DELETE api/system/menus/{menu}`
+- `PUT api/system/menus/organize`
+- `GET api/system/menus/initTable`
+- `GET api/system/menus/tableData`
+- `GET api/system/menus/exportExcel`
+
+## Depends On
+
+Required Enso packages:
+
+- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/forms`](https://docs.laravel-enso.com/backend/forms.html) [↗](https://github.com/laravel-enso/forms)
+- [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
+- [`laravel-enso/migrator`](https://docs.laravel-enso.com/backend/migrator.html) [↗](https://github.com/laravel-enso/migrator)
+- [`laravel-enso/permissions`](https://docs.laravel-enso.com/backend/permissions.html) [↗](https://github.com/laravel-enso/permissions)
+- [`laravel-enso/roles`](https://docs.laravel-enso.com/backend/roles.html) [↗](https://github.com/laravel-enso/roles)
+- [`laravel-enso/tables`](https://docs.laravel-enso.com/backend/tables.html) [↗](https://github.com/laravel-enso/tables)
+
+Companion frontend package:
+
+- [`@enso-ui/menus`](https://docs.laravel-enso.com/frontend/menus.html) [↗](https://github.com/enso-ui/menus)
 
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-## License
+Thank you to all the people who already contributed to Enso!
 
-This package is released under the MIT license.
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/menus/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 4:30:10 PM</div>
+</div>

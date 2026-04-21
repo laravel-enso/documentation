@@ -1,139 +1,103 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # People
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/aa76029e3e4c471d91370e29534f436f)](https://www.codacy.com/app/laravel-enso/People?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/People&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/151952913/shield?branch=master)](https://github.styleci.io/repos/151952913)
-[![License](https://poser.pugx.org/laravel-enso/people/license)](https://packagist.org/packages/laravel-enso/people)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/people/downloads)](https://packagist.org/packages/laravel-enso/people)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/people/version)](https://packagist.org/packages/laravel-enso/people)
+[![License](https://poser.pugx.org/laravel-enso/people/license)](https://github.com/laravel-enso/people/blob/master/LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/people/version)](https://packagist.org/packages/laravel-enso/people)
+[![Downloads](https://poser.pugx.org/laravel-enso/people/downloads)](https://packagist.org/packages/laravel-enso/people)
+[![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](https://github.com/laravel-enso/people/blob/master/composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/people.svg)](https://github.com/laravel-enso/people/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/people.svg)](https://github.com/laravel-enso/people/pulls)
 
-Person management dependency for [Laravel Enso](https://github.com/laravel-enso/Enso).
+## Description
 
-This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+People manages person records for Laravel Enso.
 
-The front end assets that utilize this api are present in the [ui](https://github.com/enso-ui/ui) package.
+The package exposes CRUD, options, table init, table data, and Excel export endpoints for people, and integrates addresses, remembering, searchable behavior, and morph-map registration for the `Person` model.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
-
-[![Screenshot](https://laravel-enso.github.io/people/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/people/screenshots/bulma_001.png)
-
-[![Screenshot](https://laravel-enso.github.io/people/screenshots/bulma_002_thumb.png)](https://laravel-enso.github.io/people/screenshots/bulma_002.png)
-
-<sup>click on the photo to view a large size screenshot</sup>
+It is intended to provide a reusable person domain that can be referenced by other Enso modules.
 
 ## Installation
 
-Comes pre-installed in Enso.
+Install the package:
+
+```bash
+composer require laravel-enso/people
+```
+
+Run the package migrations:
+
+```bash
+php artisan migrate
+```
+
+Optional publish:
+
+```bash
+php artisan vendor:publish --tag=people-factory
+```
 
 ## Features
 
-- separates the people centric operations from the core application user model
-- allows the management of people and their details
-- integrates with and extends the application user
-- is built upon the premise that all the application users are people, but some people may not be application users
-- can be reused and integrated with other modules which might handle categories of people (e.g. company people)
-- a `PersonFactory` is included by default in the package
-- a policy is used to ensure that a person email update cannot be performed if the person is linked to an user
-- custom validations may be added through the package configuration
-- the people server-side select functionality is included by default
-- the included `IsPerson` trait can be used on other models that have a `person` relationship and require email synchronization
-- enums are used for person genders and titles  
+- Person CRUD endpoints.
+- Options endpoint for select fields.
+- Table init, table data, and Excel export endpoints.
+- Morph-map registration for the `Person` model.
+- Integration with addresses and searchable helpers.
 
 ## Usage
 
-### Backstory
+Main route group:
 
-In previous Enso versions, there was no common ground between application users and 
-other categories of actors which also represented people, for example contacts and (some types of) clients.
-This sometimes lead to duplicated data as well as brittle and non reusable types and relationships.
+- `administration.people.*`
 
-In order to move towards better maintainability, the decision to move common data into persons was taken. 
-Now the people structure can be reused as needed.
+## API
 
-### Under the Hood
+### HTTP routes
 
-- the model comes with a  `hasUser` helper to check if this person is linked to an user
-- once the person has activity in the system (through any other model relationship), it cannot be deleted
-- the proper way to delete a person is to first delete any other models it is linked to 
-- since an application user will always be a person, and for Laravel authentication purposes, 
-the user is supposed to have an email address and so the 'synchronization' between the user and the person is required. 
-Therefore, if the user email is updated, the person email is also updated. 
-The same thing happens if a user is created from a person, but a different email is set.
-- note that if users are created through a separate/external mechanism you will need to ensure that a corresponding 
-person is created/available during the process
-- all `Person` attributes are fillable
-- the `uid` Person attribute is meant as generic holder for a person's unique identifier 
-which varies from situation to situation (e.g. SSN)
-- the `Person` model has the following helpers:
-    * `hasUser` - returns true if this person is associated to a user
-    * `gender` - determines the gender based on the set person title. If no title is set, null is returned
-    * `isMandatary` - returns true if this user is set a company's mandatary
-- the `PersonPolicy` ensures that:
-    * administrators can make any changes
-    * a user can only set a     
+- `GET api/administration/people/create`
+- `POST api/administration/people`
+- `GET api/administration/people/{person}/edit`
+- `PATCH api/administration/people/{person}`
+- `DELETE api/administration/people/{person}`
+- `GET api/administration/people/initTable`
+- `GET api/administration/people/tableData`
+- `GET api/administration/people/exportExcel`
+- `GET api/administration/people/options`
 
-### Configuration
+## Depends On
 
-The `config/enso/people.php` configuration file, lets you customize the following:
-- `formTemplate`, - string, is the project relative path to the person form template, 
-useful for overriding the original 
-- `tableTemplate`, - string, is the project relative path to the person table template, 
-useful for overriding the original 
+Required Enso packages:
 
-### Extending the people functionality
+- [`laravel-enso/addresses`](https://docs.laravel-enso.com/backend/addresses.html) [↗](https://github.com/laravel-enso/addresses)
+- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/dynamic-methods`](https://docs.laravel-enso.com/backend/dynamic-methods.html) [↗](https://github.com/laravel-enso/dynamic-methods)
+- [`laravel-enso/enums`](https://docs.laravel-enso.com/backend/enums.html) [↗](https://github.com/laravel-enso/enums)
+- [`laravel-enso/forms`](https://docs.laravel-enso.com/backend/forms.html) [↗](https://github.com/laravel-enso/forms)
+- [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
+- [`laravel-enso/migrator`](https://docs.laravel-enso.com/backend/migrator.html) [↗](https://github.com/laravel-enso/migrator)
+- [`laravel-enso/rememberable`](https://docs.laravel-enso.com/backend/rememberable.html) [↗](https://github.com/laravel-enso/rememberable)
+- [`laravel-enso/searchable`](https://docs.laravel-enso.com/backend/searchable.html) [↗](https://github.com/laravel-enso/searchable)
+- [`laravel-enso/tables`](https://docs.laravel-enso.com/backend/tables.html) [↗](https://github.com/laravel-enso/tables)
+- [`laravel-enso/track-who`](https://docs.laravel-enso.com/backend/track-who.html) [↗](https://github.com/laravel-enso/track-who)
 
-In your project you may have the need to alter and or extend the people structure by adding/removing table columns.
-To achieve this, you'd need to:
-- add migration(s) to your local project, making the necessary changes. Note that if using sqlite for testing, 
-some of the migration commands may not be available
-- create a new template for the person form, and declare it in the config (`formTemplate`)
-- create a new template for the person table, and declare it in the config (`tableTemplate`)
-- create a new person request validation, as required, which should extends the Enso person validation
-    ```php
-    use LaravelEnso\Companies\app\Http\Requests\ValidatePersonStore as EnsoPersonStore;
-    
-    class ValidatePersonStore extends EnsoPersonStore
-    ...
-    ```
-- create a new `Person`, as required, which should extend the Enso Person model, and set the `$fillable` property
-- bind your local implementations to the package's request validations and model in your local `AppServiceProvider` 
+Companion frontend package:
 
-    ```php
-    use LaravelEnso\People\app\Http\Requests\ValidatePersonStore;
-    use App\Http\Requests\ValidatePersonStoreRequest as LocalPersonStore;
-    use LaravelEnso\People\app\Http\Requests\ValidatePersonUpdate;
-    use App\Http\Requests\ValidatePersonUpdateRequest as LocalPersonUpdate;
-    
-    public function boot()
-    {
-        $this->app->bind(ValidatePersonStore::class, function () {
-            return new LocalPersonStore();
-        });
-        $this->app->bind(ValidatePersonUpdate::class, function () {
-            return new LocalPersonUpdate();
-        });
-        $this->app->bind(EnsoPerson::class, function () {
-          return new Person();
-        });
-    }
-    ``` 
-
-## Publishes
-
-- `php artisan vendor:publish --tag=people-config` - configuration file
-- `php artisan vendor:publish --tag=enso-config` - a common alias for when wanting to update the config,
-once a newer version is released, usually used with the `--force` flag
-- `php artisan vendor:publish --tag=people-factory` - the factory for the `Person` model
-- `php artisan vendor:publish --tag=enso-factories` - a common alias for when wanting to update the factories,
-once a newer version is released, usually used with the `--force` flag
+- [`@enso-ui/people`](https://docs.laravel-enso.com/frontend/people.html) [↗](https://github.com/enso-ui/people)
 
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-## License
+Thank you to all the people who already contributed to Enso!
 
-This package is released under the MIT license.
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/people/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 4:31:05 PM</div>
+</div>

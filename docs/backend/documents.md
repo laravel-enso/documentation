@@ -1,102 +1,142 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Documents
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3118ebe6bb4647df99675e83a9f56de2)](https://www.codacy.com/app/laravel-enso/documents?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/documents&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/85587885/shield?branch=master)](https://github.styleci.io/repos/85587885)
-[![License](https://poser.pugx.org/laravel-enso/datatable/license)](https://packagist.org/packages/laravel-enso/datatable)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/documents/downloads)](https://packagist.org/packages/laravel-enso/documents)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/documents/version)](https://packagist.org/packages/laravel-enso/documents)
+[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/laravel-enso/documents/blob/master/LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/documents/version)](https://packagist.org/packages/laravel-enso/documents)
+[![Downloads](https://poser.pugx.org/laravel-enso/documents/downloads)](https://packagist.org/packages/laravel-enso/documents)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://github.com/laravel-enso/documents/blob/master/composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/documents.svg)](https://github.com/laravel-enso/documents/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/documents.svg)](https://github.com/laravel-enso/documents/pulls)
 
-Documents Manager for [Laravel Enso](https://github.com/laravel-enso/Enso).
+## Description
 
-This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+Documents adds polymorphic document attachments to Enso models.
 
-There is a front end implementation for this this api in the [accessories](https://github.com/enso-ui/accessories) package.
+The package stores uploaded documents through the Enso files layer, exposes document listing, upload, and delete endpoints, supports configurable deletion rules for related models, and can queue OCR for PDF documents whose owners implement the `Ocrable` contract.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
-
-[![Watch the demo](https://laravel-enso.github.io/documents/screenshots/bulma_019_thumb.png)](https://laravel-enso.github.io/documents/videos/bulma_demo_01.webm)
-
-<sup>click on the photo to view a short demo in compatible browsers</sup>
+It is meant for backoffice models that need a lightweight document vault with optional OCR processing.
 
 ## Installation
 
-Comes pre-installed in Enso.
+Install the package:
+
+```bash
+composer require laravel-enso/documents
+```
+
+Run the package migrations:
+
+```bash
+php artisan migrate
+```
+
+Optional publish:
+
+```bash
+php artisan vendor:publish --tag=documents-config
+```
+
+Default configuration:
+
+```php
+return [
+    'deletableTimeLimit' => 60 * 60,
+    'imageWidth' => 2048,
+    'imageHeight' => 2048,
+    'onDelete' => 'restrict',
+    'loggableMorph' => [
+        'documentable' => [],
+    ],
+    'queues' => [
+        'ocr' => 'heavy',
+    ],
+];
+```
 
 ## Features
 
-- permits the management (upload, download, delete, show) of documents in the application
-- can attach documents to any other model
-- uses [Files](https://github.com/laravel-enso/files) for file operations
-- uses the [ImageTransformer](https://github.com/laravel-enso/ImageTransformer) package for optimizing 
-the uploaded image files
-- security policies are used to enforce proper user authorization
-- comes with a `Documentable` trait that can be quickly added to the model you want to give this functionality to
-- offers various configuration options, including the option to delete all attached documents 
-to a Documentable entity, when it gets deleted 
-- creates a `Document` model that has a `documentable` morphTo relationship
-- polymorphic relationships are used, which makes it possible to attach documents to any other entity
-- once documents are attached to an entity, you should not be able to delete the entity without deciding what
-you want to do with the associated documents. This is configurable in the options, see below
+- Polymorphic one-to-one and one-to-many document relations via the `Documentable` trait.
+- File attachment handling through `laravel-enso/files`.
+- Upload, list, and delete API under `core.documents`.
+- Configurable delete policy with `restrict` or `cascade`.
+- OCR dispatch for PDF documents whose owner implements `Ocrable`.
 
 ## Usage
 
-1. add `use Documentable` in the Model that needs documents and import the trait. 
-Then you'll have access to the `$model->documents` relationship
+Add the trait to any model that should own documents:
 
-2. because users upload documents you can add `use Documents` to the User model. 
-This trait will set the relationship between users and the documents that they create
+```php
+use Illuminate\Database\Eloquent\Model;
+use LaravelEnso\Documents\Traits\Documentable;
 
-3. import the `Documents` vue component and use it in your pages/components, see the 
-front end implementation [docs](https://docs.laravel-enso.com/frontend/accessories.html#documents) 
-for the available options
+class Order extends Model
+{
+    use Documentable;
+}
+```
 
-**IMPORTANT NOTE:** 
+Available relations:
 
-Since this package is using image processing libraries and these underlying libraries may use a lot of memory, 
-especially if the processed files are large (for example, for an 8MB image file, more than 128MB of memory might be used ),
-make sure to configure php accordingly and/or do `ini_set(‘memory_limit’, ‘256M’);`   
+- `document()`
+- `documents()`
 
-Failure to do so may result in silent errors if allotted memory is insufficient.
+If the owning model should trigger OCR for uploaded PDFs, implement `LaravelEnso\Documents\Contracts\Ocrable`.
 
-### Configuration
+## API
 
-The `config/enso/documents.php` configuration file, lets you customize the following:
-- `deletableTimeLimit` - the time limit for deleting an uploaded document, in seconds. 
-Default is `60 * 60`  (1 hour)
-- `linkExpiration`, - the time limit for document share link, in seconds. 
-Default is `60 * 60 * 24`  (1 day)
-- `imageWidth` - the image width, in pixels, used when resizing bigger picture files. Default is `2048`
-- `imageHeight` - the image height, in pixels, used when resizing bigger picture files. Default is `2048`
-- `onDelete`, string, option that manages the case when the commentable entity is deleted and it has attached addresses.
-Valid options are `cascade`, `restrict` | default is `cascade`
+### HTTP routes
 
-    With the cascade option, when a commentable model is deleted, the comments attached to it are also deleted. 
-    With the restrict option,  when attempting to delete a commentable model with attached comments, an exception is thrown.
-    
-- `loggableMorph`, the list of entities using the commentable functionality, each mapped to its respective loggable attribute
-For example: 
-    ```php
-    'commentable' => [
-        Company::class => 'name',
-    ],
-    ```
+- `GET api/core/documents`
+- `POST api/core/documents`
+- `DELETE api/core/documents/{document}`
 
-   This configuration is used for activity logging.
+Route names:
 
-## Publishes
+- `core.documents.index`
+- `core.documents.store`
+- `core.documents.destroy`
 
-- `php artisan vendor:publish --tag=documents-config` - configuration file
-- `php artisan vendor:publish --tag=enso-config` - a common alias for when wanting to update the config,
-once a newer version is released, usually used with the `--force` flag
+### Model surface
+
+`LaravelEnso\\Documents\\Models\\Document`
+
+Useful methods:
+
+- `store(array $request, array $files)`
+- `scopeFor(array $params): Builder`
+- `scopeFilter(?string $search): Builder`
+
+## Depends On
+
+Required Enso packages:
+
+- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/files`](https://docs.laravel-enso.com/backend/files.html) [↗](https://github.com/laravel-enso/files)
+- [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
+- [`laravel-enso/image-transformer`](https://docs.laravel-enso.com/backend/image-transformer.html) [↗](https://github.com/laravel-enso/image-transformer)
+- [`laravel-enso/migrator`](https://docs.laravel-enso.com/backend/migrator.html) [↗](https://github.com/laravel-enso/migrator)
+- [`laravel-enso/ocr`](https://docs.laravel-enso.com/backend/ocr.html) [↗](https://git.xtelecom.ro/laravel-enso/ocr)
+- [`laravel-enso/track-who`](https://docs.laravel-enso.com/backend/track-who.html) [↗](https://github.com/laravel-enso/track-who)
+- [`laravel-enso/users`](https://docs.laravel-enso.com/backend/users.html) [↗](https://github.com/laravel-enso/users)
+
+Companion frontend package:
+
+- [`@enso-ui/documents`](https://docs.laravel-enso.com/frontend/documents.html) [↗](https://github.com/enso-ui/documents)
 
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-## License
+Thank you to all the people who already contributed to Enso!
 
-This package is released under the MIT license.
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/documents/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 6:07:12 PM</div>
+</div>

@@ -1,51 +1,94 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
 
-# How-To
+<!-- AUTO-GENERATED: do not edit by hand -->
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1781cd55ca3048eda6fd70066cc7585a)](https://www.codacy.com/app/laravel-enso/how-to?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/how-to&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/109481095/shield?branch=master)](https://github.styleci.io/repos/109481095)
-[![License](https://poser.pugx.org/laravel-enso/HowTo/license)](https://https://packagist.org/packages/laravel-enso/HowTo)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/HowTo/downloads)](https://packagist.org/packages/laravel-enso/HowTo)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/HowTo/version)](https://packagist.org/packages/laravel-enso/HowTo)
+# How-to
 
-How-to video manager for [Laravel Enso](https://github.com/laravel-enso/Enso).
+[![License](https://poser.pugx.org/laravel-enso/how-to/license)](https://github.com/laravel-enso/how-to/blob/master/LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/how-to/version)](https://packagist.org/packages/laravel-enso/how-to)
+[![Downloads](https://poser.pugx.org/laravel-enso/how-to/downloads)](https://packagist.org/packages/laravel-enso/how-to)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://github.com/laravel-enso/how-to/blob/master/composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/how-to.svg)](https://github.com/laravel-enso/how-to/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/how-to.svg)](https://github.com/laravel-enso/how-to/pulls)
 
-This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+## Description
 
-The front end assets that utilize this api are present in the [ui](https://github.com/enso-ui/ui) package.
+How-To manages internal tutorial videos, posters, and tags for Laravel Enso.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+The package exposes CRUD-style endpoints for videos, tags, and posters, stores the media and metadata, and is meant to back the Enso in-app help and tutorial area.
 
-[![Watch the demo](https://laravel-enso.github.io/how-to/screenshots/bulma_selection_112_thumb.png)](https://laravel-enso.github.io/how-to/videos/bulma_demo.mp4)
-
-<sup>click on the photo to view a short demo in compatible browsers</sup>
+It is an Enso companion package rather than a standalone media platform.
 
 ## Installation
 
-Comes pre-installed in Enso.
+Install the package:
+
+```bash
+composer require laravel-enso/how-to
+```
+
+Run the package migrations:
+
+```bash
+php artisan migrate
+```
 
 ## Features
 
-Allows you to add videos to your application, to show users how to perform a specific action, demonstrate a feature, 
-present a process flow, etc. This is a complementary package to [Tutorial Manager](https://github.com/laravel-enso/TutorialManager).
- 
- * easily upload media clips from your computer, setting a title and a description
- * simple-to-use tag manager
- * optionally add a caption/cover picture for each video
- * optionally tag the clips and then filter them using the tags 
- * permissions dependent controls, where regular users can only view the videos. 
+- Video create, update, show, list, and delete endpoints.
+- Tag create, update, list, and delete endpoints.
+- Poster upload, show, and delete endpoints.
+- Validation and resource classes for the tutorial media domain.
 
-## Publishes
+## Usage
 
-- `php artisan vendor:publish --tag=howToVideos-storage` - the storage folder 
-that holds the medial files that will be uploaded
+The package mounts its endpoints under:
+
+- `howTo.videos.*`
+- `howTo.tags.*`
+- `howTo.posters.*`
+
+## API
+
+### HTTP routes
+
+- `GET api/howTo/videos`
+- `POST api/howTo/videos`
+- `PATCH api/howTo/videos/{video}`
+- `DELETE api/howTo/videos/{video}`
+- `GET api/howTo/videos/{video}`
+- `GET api/howTo/tags`
+- `POST api/howTo/tags`
+- `PATCH api/howTo/tags/{tag}`
+- `DELETE api/howTo/tags/{tag}`
+- `POST api/howTo/posters`
+- `DELETE api/howTo/posters/{poster}`
+- `GET api/howTo/posters/{poster}`
+
+## Depends On
+
+Required Enso packages:
+
+- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/files`](https://docs.laravel-enso.com/backend/files.html) [↗](https://github.com/laravel-enso/files)
+- [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
+- [`laravel-enso/migrator`](https://docs.laravel-enso.com/backend/migrator.html) [↗](https://github.com/laravel-enso/migrator)
+
+Companion frontend package:
+
+- [`@enso-ui/how-to`](https://docs.laravel-enso.com/frontend/how-to.html) [↗](https://github.com/enso-ui/how-to)
 
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-## License
+Thank you to all the people who already contributed to Enso!
 
-This package is released under the MIT license.
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/how-to/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 6:07:35 PM</div>
+</div>

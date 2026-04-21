@@ -1,89 +1,111 @@
-# Usage
+# Platform Concepts
 
-## Setup a new project
+Laravel Enso is easier to work with once you understand the contracts that tie the backend and frontend together.
 
-1. Follow the install steps
-2. Delete the .git folder and run `git init`, then configure repository for your custom project
-3. Develop
-4. To update run `composer update` / `yarn update` and compile
-5. Breaking changes in the dependencies? Update your custom code then update the new versions in `composer.json` and run `composer update`
-6. Need another new project ? Start again from the first step
+This page describes the concepts that show up repeatedly across the ecosystem.
 
-## Updates
-When we must make breaking changes to the packages, we increase the minor version. 
-Due to how dependencies are defined, composer will not update the dependencies for you in that case, 
-that's why you need to look at the changelog, be aware of the changes, update your code and then manually update 
-the dependencies' minor version, so that you can continue to receive updates.  
+## Backend-driven UI
 
-When updating Enso and introducing possibly breaking changes, we might make available various Artisan commands, 
-meant to make the update easier.
-You can see the list of currently available commands by running `php artisan enso` 
-and remember to always consult the changelog.
+Enso is built around the idea that major UI structures are described on the backend and rendered on the frontend.
 
-### Notes 
-When you run `compose update` and the front-end assets are published/upgraded recompiling (`yarn dev`/`prod`) is all you need to do.
-If packages that depend on new permissions are added in the update process, you should run `php artisan:migrate` to add those permissions to the database.
+Typical examples:
 
-## Localisation
+- backend form contracts rendered by `@enso-ui/forms`
+- backend table contracts rendered by `@enso-ui/tables`
+- backend route and permission contracts consumed by the frontend shell
+- backend select endpoints consumed by select and typeahead packages
 
-Localisation is supported, with several languages already available out of the box and 
-with the option to add others.
+This keeps business rules, authorization, and structure close to the backend, while still allowing the frontend to stay modular and reusable.
 
-Once a language has been made available, an application user can choose the language
-he wants to use in the preferences side bar.  Until that choice is made, 
-users will be using the default application locale.
+## Routes as application contracts
 
-Since on the authentication pages (login, password reset) the user is not currently logged in
-and the system would not normally have access to his preferences, the application 
-will attempt to use the user's preferences from the browser's local storage if they were ever set,
-falling back to the application language otherwise.  
+Named routes are a core part of the Enso model.
 
-Once the user is logged in, both the back-end and the front-end will have access to the translated
-values that have been added in the application.
+They are used for:
 
-If you want to add/contribute a new language, there are a few steps involved, so please check out 
-the [relevant section](https://docs.laravel-enso.com/backend/localisation.html#contributing) of 
-the [localisation](https://github.com/laravel-enso/Localisation) package.
+- navigation
+- authorization
+- menu visibility
+- breadcrumbs
+- linking frontend pages to backend resources
 
-## Icons
-We want to keep the compiled size down throughout the Enso ecosystem so icons are imported selectively.
+The route name is more than a URL alias. In Enso it becomes part of the application contract.
 
-What this means for you is that the necessary icons should be imported inside your components/pages. 
-If you want to import FA icons globally (not recommended) the place to include them is: 
+## Permissions and menus
 
-`resources/assets/js/app.js`
+Permissions are tied closely to named routes.
 
-For menus, icons should be imported in:
-`assets/js/core/structure/sidebar/icons/app.js`
+At a high level:
 
-For languages, flag icons should be imported in:
-`resources/assets/sass/app.scss`
+- permissions authorize access to application capabilities
+- menus expose those capabilities visually
+- the frontend shell uses route access and menu visibility together
 
-(use `flags.scss` as a reference)
+This is why route naming, permission naming, and menu structure should be treated as one coherent unit.
 
-## Email templates
-By default, Enso comes with a few templates for the email notifications used out of the box.
-If you need to create other templates or change the existing ones, a good starting point is to publish
-the existing templates, using the `php artisan vendor:publish --tag=enso-mail` artisan command.
+## Companion packages
 
-The blade templates will be published in the  `resources/views/vendor/laravel-enso` folder.
-You'll find the template layout and partials in the `core` folder and sub-folders.   
+Many Enso modules have both a backend and a frontend package.
 
-By default, the Mailtrap [token variable](https://documentation.mailgun.com/en/latest/user_manual.html#tracking-unsubscribes) is used for the unsubscribe link. 
-You may customize the footer partial to use the desired token.  
+The backend package usually owns:
 
-## Vuex store
-When developing an application on top of Enso, it makes sense to keep your app state data separate from the core Enso state. 
-In order to achieve this, you need to customize just 2 files, one for each layer.
+- routes
+- permissions
+- form and table templates
+- validation
+- persistence
+- resources and business logic
 
-### Back-End
-- you need a `StateBuilder` implementation class, 
-that should be given as a value for the `enso.config.stateBuilder` configuration parameter 
-- by default, the `App\Classes\LocalState` is provided as blank template
-- the additional state data is returned to the front end via the same response (`/core/api`) as the core Enso state data
+The frontend package usually owns:
 
-### Front-End
-As you may need to initialize or otherwise process the local state data received from the back-end, 
-`resources/assets/js/localState.js` holds the entry point method you can customize and add logic to.
+- page modules
+- reusable UI components
+- route modules
+- visual integration with the Enso shell
 
-Here you'll have access to the Vuex `context` object and your local `state` data, received from the back-end. 
+The companion package model allows the ecosystem to stay modular without losing the coupling needed for backend-driven flows.
+
+## Shared state and runtime contracts
+
+Enso also uses shared runtime contracts beyond visible UI components.
+
+These include:
+
+- bootstrap state flowing from backend to frontend
+- shared route maps
+- permissions exposed to the shell
+- user preferences
+- localisation payloads
+- backend enums surfaced to frontend consumers
+
+This is part of why Enso feels like a platform instead of just a collection of isolated packages.
+
+## Preferences, localisation, and themes
+
+Enso applications are expected to support user-level runtime customization.
+
+The platform includes support for:
+
+- user preferences
+- language selection
+- theme selection
+- persisted UI choices such as layout state and similar shell behavior
+
+These are cross-cutting platform concerns, not page-specific features.
+
+## Why Enso is modular
+
+The package model exists to keep ownership explicit.
+
+Instead of putting everything into one application repository, Enso separates concerns into packages with clear boundaries:
+
+- backend ownership
+- frontend ownership
+- host-app ownership
+
+That separation makes it easier to:
+
+- reuse platform building blocks
+- upgrade parts of the ecosystem independently
+- keep business logic out of shared packages
+- keep shared behavior out of app-local code

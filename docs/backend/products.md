@@ -1,95 +1,137 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Products
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6e342eff10f24db5b89be5fe203e424d)](https://www.codacy.com/app/laravel-enso/products?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/products&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/85492361/shield?branch=master)](https://github.styleci.io/repos/85492361)
-[![License](https://poser.pugx.org/laravel-enso/products/license)](https://packagist.org/packages/laravel-enso/datatable)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/products/downloads)](https://packagist.org/packages/laravel-enso/products)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/products/version)](https://packagist.org/packages/laravel-enso/products)
+[![License](https://img.shields.io/badge/license-Proprietary-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/products/-/blob/master/LICENSE)
+[![Stable](https://img.shields.io/badge/stable-4.15.5-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/products/-/tags)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://git.xtelecom.ro/laravel-enso/products/-/blob/master/composer.json)
+[![Issues](https://img.shields.io/badge/issues-2-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/products/-/issues)
+[![Merge Requests](https://img.shields.io/badge/merge%20requests-2-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/products/-/merge_requests)
 
-Products package for [Laravel Enso](https://github.com/laravel-enso/Enso).
+## Description
 
-This package cannot work independently of the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+Products provides the base catalog, media, documents, supplier links, and bundle support used by commercial and inventory modules in Laravel Enso.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+The package exposes CRUD and table APIs for products, nested APIs for pictures and documents, searchable registration, and a scheduled command that recalculates bundle prices overnight.
+
+It is the core private catalog package on which product EAV, inventory, webshop, discounts, and related commercial flows build.
 
 ## Installation
 
-* install the package using composer: `composer require laravel-enso/products`
-* install the front-end ui package using yarn: `yarn add @enso-ui/products`
-* adds the following alias in `client/vue.config.js`
-```
-configureWebpack: {
-    resolve: {
-        alias: {
-            //other aliases
-            '@products': `${__dirname}/node_modules/@enso-ui/products/src/bulma`,
-        },
-    },
-```
-* in `client/js/router.js` file, verify that `RouteMerger` is imported, or import it
+Install the package:
 
-`import RouteMerger from '@core-modules/importers/RouteMerger';`
-
-* make sure `routeImporter` is also imported
-
-`import routeImporter from '@core-modules/importers/routeImporter';`
-
-* then use `RouteMerger` to import front-end assets using the alias defined in `vue.config.js`
-
-```
-(new RouteMerger(routes))
-    //other routes
-    .add(routeImporter(require.context('./routes', false, /.*\.js$/)))
-    .add(routeImporter(require.context('@products/routes', false, /.*\.js$/)));
+```bash
+composer require laravel-enso/products
 ```
 
-* in `resources/js/app.js` import the package's icons
+Run the package migrations:
 
-`import '@products/icons';`
+```bash
+php artisan migrate
+```
 
-* make sure `hot module replacement` is **not** active, and run `yarn dev` or `npm run dev`
+Optional publishes:
 
-* run `php artisan migrate` to create table, add menu, permissions etc.
-* run `php artisan vendor:publish --tag=products-assets` to publish the assets
+```bash
+php artisan vendor:publish --tag=products-config
+php artisan vendor:publish --tag=products-factories
+php artisan vendor:publish --tag=products-assets
+```
 
 ## Features
 
-- features a core products functionality with a model, enums, migrations, 
-routes, controllers, resources, index table, etc 
-- provides CRUD functionality for the `Product` model
-- defines the relationship with a manufacturer and multiple suppliers
-and can manage the default supplier
-- the Enso `Company` model is used for the manufacturer, 
-suppliers and default supplier relationships; 
-`dynamic methods` are added on the `Company` for the `$company->products` (supplied products) 
-& `$company->manufacturedProducts` relationships.
-- the package's enums are registered automatically to the application's state
-via the `EnumServiceProvider`
-- categories support is available via the `laravel-enso/categories` package, and a category can be set per product, 
-from the product form; note that a product can only belong to a child category
-- picture support is available out of the box, where product pictures can be uploaded through the product form;
-the pictures are visible in the index page table
-- a `ProductFactory` is included and can be published
+- Product CRUD, options, supplier options, bundleable options, and Excel export endpoints.
+- Nested picture and document upload APIs with reorder support.
+- Form template with tabs for general data, category, suppliers, pictures, bundle composition, and rich descriptions.
+- Searchable registration for `name`, `internal_code`, and `part_number`.
+- Scheduled `enso:products:update-bundle-prices` command executed daily at `01:25`.
+- Morph map registration for the `Product` model.
 
 ## Usage
 
-The package should be installed on an Enso project and customized as required 
-(or used as it is if that is enough). 
+Main route groups:
 
-## Publishes
+- `products.*`
+- `products.pictures.*`
+- `products.documents.*`
 
-- `php artisan vendor:publish --tag=products-factories` - the included product factory,
-- `php artisan vendor:publish --tag=products-assets` - the `default-picture` asset, published to the
-`resources/images` folder
-   
-### Contributions
+The core product form template includes:
 
-are welcome. Pull requests are great, but issues are good too.
+- general catalog fields
+- supplier selection and default supplier
+- bundle configuration
+- gallery and document tabs
+- category slot integration
 
-### License
+Bundle prices are recalculated automatically by the scheduler, or manually:
 
-This package is released under the MIT license.
+```bash
+php artisan enso:products:update-bundle-prices
+```
+
+## API
+
+### HTTP routes
+
+- `GET api/products/create`
+- `POST api/products`
+- `GET api/products/{product}/edit`
+- `PATCH api/products/{product}`
+- `DELETE api/products/{product}`
+- `GET api/products/initTable`
+- `GET api/products/tableData`
+- `GET api/products/exportExcel`
+- `GET api/products/options`
+- `GET api/products/suppliers`
+- `GET api/products/bundleables`
+- `GET api/products/pictures/{product}`
+- `POST api/products/pictures/{product}`
+- `DELETE api/products/pictures/{picture}`
+- `PATCH api/products/pictures/{picture}/reorder`
+- `GET api/products/documents/{product}`
+- `POST api/products/documents/{product}`
+- `DELETE api/products/documents/{productDocument}`
+- `PATCH api/products/documents/{productDocument}/reorder`
+
+### Artisan commands
+
+- `enso:products:update-bundle-prices`
+
+### Search registration
+
+- group: `Product`
+- attributes: `name`, `internal_code`, `part_number`
+- permission group: `products`
+
+## Depends On
+
+Required Enso packages:
+
+- [`laravel-enso/categories`](https://docs.laravel-enso.com/backend/categories.html) [↗](https://github.com/laravel-enso/categories)
+- [`laravel-enso/comments`](https://docs.laravel-enso.com/backend/comments.html) [↗](https://github.com/laravel-enso/comments)
+- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/data-import`](https://docs.laravel-enso.com/backend/data-import.html) [↗](https://github.com/laravel-enso/data-import)
+- [`laravel-enso/documents`](https://docs.laravel-enso.com/backend/documents.html) [↗](https://github.com/laravel-enso/documents)
+- [`laravel-enso/dynamic-methods`](https://docs.laravel-enso.com/backend/dynamic-methods.html) [↗](https://github.com/laravel-enso/dynamic-methods)
+- [`laravel-enso/enums`](https://docs.laravel-enso.com/backend/enums.html) [↗](https://github.com/laravel-enso/enums)
+- [`laravel-enso/forms`](https://docs.laravel-enso.com/backend/forms.html) [↗](https://github.com/laravel-enso/forms)
+- [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
+- [`laravel-enso/measurement-units`](https://docs.laravel-enso.com/backend/measurement-units.html) [↗](https://github.com/laravel-enso/measurement-units)
+- [`laravel-enso/migrator`](https://docs.laravel-enso.com/backend/migrator.html) [↗](https://github.com/laravel-enso/migrator)
+- [`laravel-enso/packaging-units`](https://docs.laravel-enso.com/backend/packaging-units.html) [↗](https://github.com/laravel-enso/packaging-units)
+- [`laravel-enso/tables`](https://docs.laravel-enso.com/backend/tables.html) [↗](https://github.com/laravel-enso/tables)
+
+Companion frontend package:
+
+- [`@enso-ui/products`](https://docs.laravel-enso.com/frontend/products.html) [↗](https://git.xtelecom.ro/enso-ui/products)
+
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://git.xtelecom.ro/laravel-enso/products/-/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 6:03:45 PM</div>
+</div>

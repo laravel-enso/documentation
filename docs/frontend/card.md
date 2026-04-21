@@ -1,325 +1,165 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Card
 
-![NPM License](https://img.shields.io/npm/l/@enso-ui/card.svg)
-![npm download](https://img.shields.io/npm/dm/@enso-ui/card.svg)
-![GitHub top language](https://img.shields.io/github/languages/top/enso-ui/card.svg)
-![GitHub issues](https://img.shields.io/github/issues/enso-ui/card.svg)
-![npm version](https://img.shields.io/npm/v/@enso-ui/card.svg)
+[![License](https://img.shields.io/badge/license-MIT-10b981.svg)](https://github.com/enso-ui/card/blob/master/LICENSE)
+[![Stable](https://img.shields.io/badge/stable-4.0.7-2563eb.svg)](https://www.npmjs.com/package/@enso-ui/card)
+[![Downloads](https://img.shields.io/npm/dm/@enso-ui/card.svg)](https://www.npmjs.com/package/@enso-ui/card)
+[![Vue](https://img.shields.io/badge/vue-3.x-42b883.svg)](https://vuejs.org/)
+[![JavaScript](https://img.shields.io/badge/javascript-ES2020-f7df1e.svg)](https://developer.mozilla.org/docs/Web/JavaScript)
+[![SCSS](https://img.shields.io/badge/scss-supported-c6538c.svg)](https://sass-lang.com/)
+[![npm](https://img.shields.io/badge/npm-package-cb3837.svg)](https://www.npmjs.com/package/@enso-ui/card)
+[![Issues](https://img.shields.io/github/issues/enso-ui/card.svg)](https://github.com/enso-ui/card/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/enso-ui/card.svg)](https://github.com/enso-ui/card/pulls)
 
-Bulma styled Card component
+## Description
 
-Can be used outside of the Enso ecosystem.
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+Composable Bulma card primitives for Enso UI.
 
 ## Installation
 
 Install the package:
 
-```
+```bash
 yarn add @enso-ui/card
 ```
 
-(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+This package is also available through the full `enso-ui` workspace bundle.
 
-Note that this package has a couple of external dependencies. 
-Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more info.
+## Features
 
-### Exports
-
-`@enso-ui/card/bulma`:
-- `Card`,
-- `CardHeader`,
-- `CardContent`,
-- `CardImage`,
-- `CardFooter`,
-- `CardFooterItem`,
-- `CardControl`,
-- `CardBadge`,
-- `CardCollapse`,
-- `CardRefresh`,
-- `CardRemove`,
+- exports the complete Bulma card shell used by Enso dashboards and detail views
+- provides collapsible, removable, loading, and overlay-aware card behavior through shared injected state
+- ships dedicated header, content, footer, and control primitives for consistent composition
 
 ## Usage
 
-Import the desired component(s):
-
-```js
-import { Card, CardHeader, ... } from '@enso-ui/card/bulma';
-```
-
-### Card
-
-This is the main component. It can optionally have, via slots:
-- header, with:
-    - title
-    - controls
-- image
-- content
-- footer, with:
-    - items
-
-As noted above, you may skip one or more of these components, as required 
-(for example, you may not need controls, a footer, etc).
-
-::: tip Tip
-Cards may be nested and when nesting them, the collapsible feature works as expected
-:::
-
-::: tip Tip
-You may use transitions for the cards.
-:::
-
-#### Example:
 ```vue
+<script setup>
 import {
-    Card, CardHeader, CardControl, CardCollapse, CardContent,
-    CardFooter, CardFooterItem,
+    Card, CardHeader, CardContent, CardBadge, CardRefresh, CardCollapse,
 } from '@enso-ui/card/bulma';
+</script>
 
-<card collapsible>
-    <card-header>
-        <template v-slot:title>
-            <span class="icon is-small has-margin-right-small">
-                <fa icon="video"/>
-            </span>
-            My Title
+<Card collapsible>
+    <CardHeader collapsible>
+        <template #title>Orders</template>
+        <template #controls>
+            <CardBadge :label="12" />
+            <CardRefresh @refresh="reload" />
+            <CardCollapse />
         </template>
-        <template v-slot:controls>
-            <card-control v-tooltip="'my tooltip'">
-                <span class="icon">
-                    <fa icon="info-circle"/>
-                </span>
-            </card-control>                
-            <card-control>
-                <span class="icon"
-                    @click="$emit('edit')">
-                    <fa :icon="['far', 'edit']"/>
-                </span>
-            </card-control>                
-            <card-collapse/>
-        </template>
-    </card-header>
-    <card-content class="is-paddingless">
-        Actual content goes here
-    </card-content>
-    <card-footer>
-        <card-footer-item>
-            First footer item
-        </card-footer-item>
-    </card-footer>
-</card>
+    </CardHeader>
+    <CardContent>
+        ...
+    </CardContent>
+</Card>
 ```
 
-#### Props
-- `loading` - `boolean`, optional - controls an overlay loader
-- `collapsible` - `boolean`, optional - needs to be true if you want the card to be collapsible
-- `collapsed` - `boolean`, optional - controls the initial render state
-- `transition` - `boolean`, optional - if true, the destruction of the card is handled in such a way that that custom transitions work correctly even when removing the card.
+## API
 
-#### Slots
-- `default`, all content goes here
+### `Card`
 
-#### Events
+Root card container that provides shared collapse/remove state to child parts.
+
+Import: `@enso-ui/card/bulma`
+
+Props:
+- `collapsed: boolean = false` initial collapsed state.
+- `collapsible: boolean = false` enables toggle behaviour.
+- `overlay: boolean = false` overlays the card content.
+- `loading: boolean = false` shows the card loader.
+
+Events:
 - `collapse`
 - `expand`
 - `remove`
 
-### CardHeader
+### `CardHeader`
 
-The component is a container for the header contents.
+Header wrapper with `title` and `controls` slots.
 
-Note that when using `collapsible` clicking the header will work as collapse control too.
+Import: `@enso-ui/card/bulma`
 
-#### Slots
-- `title`, for showing a title
-- `controls`, for any Card controls
+Props:
+- `collapsible: boolean = false` renders an inline collapse control.
 
-### CardBadge
+### `CardContent`
 
-The component shows a badge within a Card's controls area.
+Content wrapper that collapses automatically when the parent card is collapsible.
 
-#### Example:
-```vue
-<card>
-    <card-header>
-        <div slot="controls">
-            <card-badge label="some label"/>
-        </div>
-    </card-header>
-</card>
-```
+Import: `@enso-ui/card/bulma`
 
-#### Props
-- `label` - `string|number`, required,
-- `type` - `string`, optional - controls the color of the tag, see [here](https://bulma.io/documentation/elements/tag/) for more info.
+### `CardImage`
 
-### CardCollapse
+Image wrapper matching Bulma card markup.
 
-The component shows a dropdown indicator control and can be used to collapse or expand the card. To make the card collapsible you just have to use this component in the `controls` slot of `CardHeader`.
+Import: `@enso-ui/card/bulma`
 
-#### Example:
-```vue
-<card>
-    <card-header>
-        <div slot="controls">
-            <card-collapse/>
-        </div>
-    </card-header>
-</card>
-```
+### `CardFooter`
 
-### CardControl
+Footer wrapper for footer items or custom actions.
 
-The component is use to create custom controls.
+Import: `@enso-ui/card/bulma`
 
-#### Example:
-```vue
-<card>
-    <card-header>
-        <div slot="controls">
-            <card-control v-tooltip="'my tooltip'">
-                <span class="icon"
-                    @click="doSomething">
-                    <fa icon="info-circle"/>
-                </span>
-            </card-control>
-        </div>
-    </card-header>
-</card>
-```
+### `CardFooterItem`
 
-#### Slots
-- `default`, all content goes here
+Single footer link item.
 
-### CardRefresh
+Import: `@enso-ui/card/bulma`
 
-The component is a refresh control for the card. 
+### `CardControl`
 
-#### Example:
-```vue
-<card>
-    <card-header>
-        <div slot="controls">
-            <card-refresh @refresh="refresh"/>
-        </div>
-    </card-header>
-</card>
-```
+Low-level clickable wrapper for header controls.
 
-#### Events:
-- `refresh`, when clicked; the event needs to be handled by the developer.
+Import: `@enso-ui/card/bulma`
 
-### CardRemove
+### `CardBadge`
 
-The component is a remove/close control for the card. 
+Header control that renders a Bulma tag.
 
-#### Example:
-```vue
-<card>
-    <card-header>
-        <div slot="controls">
-            <card-remove @remove="handleRemoval"/>
-        </div>
-    </card-header>
-</card>
-```
+Import: `@enso-ui/card/bulma`
 
-### CardContent
+Props:
+- `label: string | number`
+- `type: string | null = null`
 
-The component is the container for the card's content.
+### `CardCollapse`
 
-Example:
-```vue
-<card>
-    <card-content>
-        Place your content here
-    </card-content>
-</card>
-```
+Header control that toggles the parent card collapse state.
 
-#### Slots
-- `default`, all content goes here
+Import: `@enso-ui/card/bulma`
 
-### CardFooter
+### `CardRefresh`
 
-The component is the container for the card's footer.
+Header control that emits a guarded `refresh` event.
 
-```vue
-<card>
-    <card-header>
-        Header content here
-    </card-header>
-    <card-content>
-        Main content here
-    </card-content>
-    <card-footer>
-        Footer content here
-    </card-footer>
-</card>
-```
+Import: `@enso-ui/card/bulma`
 
-#### Slots
-- `default`, all content goes here
+Props:
+- `loading: boolean = false` disables repeat emits and spins the icon.
 
-::: warning Notice
-A card footer should contain at least a card footer item if you want to go with the classic bulma design.
-:::
+Events:
+- `refresh`
 
-### CardFooterItem
+### `CardRemove`
 
-The component is the container for one footer item.
+Header control that marks the parent card as removed.
 
-```vue
-<card>
-    <card-content>
-        Main content
-    </card-content>
-    <card-footer>
-        <card-footer-item>
-            Item content
-        </card-footer-item>
-        <card-footer-item>
-            Item content
-        </card-footer-item>
-    </card-footer>
-</card>
-```
+Import: `@enso-ui/card/bulma`
 
-#### Slots
-- `default`, all content goes here
+## Depends On
 
-### CardImage
-
-The component is the container for an image.
-
-#### Example:
-```vue
-<card>
-    <card-image>
-        <figure class="image is-4by3">
-            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-        </figure>
-    </card-image>
-</card>
-```
-
-#### Slots
-- `default`, all content goes here
-
-## Questions & Issues
-
-For questions and support please use the issues functionality
-for this package's github repository.
-
-Please make sure to search for existing issues before creating a new issue,
-and when opening a new issue, fill the required information in the issue template.
-
-Issues not conforming to the guidelines may be closed immediately.
+- [`@enso-ui/dropdown-indicator`](https://docs.laravel-enso.com/frontend/dropdown-indicator.html) [↗](https://github.com/enso-ui/dropdown-indicator)
+- [`@enso-ui/loader`](https://docs.laravel-enso.com/frontend/loader.html) [↗](https://github.com/enso-ui/loader)
+- [`@enso-ui/transitions`](https://docs.laravel-enso.com/frontend/transitions.html) [↗](https://github.com/enso-ui/transitions)
+- [`Bulma`](https://bulma.io/)
 
 ## Contributions
 
@@ -329,4 +169,9 @@ Thank you to all the people who already contributed to Enso!
 
 ## License
 
-[ISC](https://opensource.org/licenses/ISC)
+[MIT](https://github.com/enso-ui/card/blob/master/LICENSE)
+
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/enso-ui/card/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 9:21:31 PM</div>
+</div>

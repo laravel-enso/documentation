@@ -1,43 +1,92 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Teams
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/182a696508584243a45ece7572959a32)](https://www.codacy.com/app/laravel-enso/teams?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/teams&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/151522931/shield?branch=master)](https://github.styleci.io/repos/151522931)
-[![License](https://poser.pugx.org/laravel-enso/teams/license)](https://packagist.org/packages/laravel-enso/teams)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/teams/downloads)](https://packagist.org/packages/laravel-enso/teams)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/teams/version)](https://packagist.org/packages/laravel-enso/teams)
+[![License](https://poser.pugx.org/laravel-enso/teams/license)](https://github.com/laravel-enso/teams/blob/master/LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/teams/version)](https://packagist.org/packages/laravel-enso/teams)
+[![Downloads](https://poser.pugx.org/laravel-enso/teams/downloads)](https://packagist.org/packages/laravel-enso/teams)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://github.com/laravel-enso/teams/blob/master/composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/teams.svg)](https://github.com/laravel-enso/teams/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/teams.svg)](https://github.com/laravel-enso/teams/pulls)
 
-Team management dependency for [Laravel Enso](https://github.com/laravel-enso/Enso).
+## Description
 
-This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+Teams adds lightweight team administration to Laravel Enso.
 
-The front end assets that utilize this api are present in the [ui](https://github.com/enso-ui/ui) package.
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
-
-[![Watch the demo](https://laravel-enso.github.io/teams/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/teams/videos/bulma_demo_01.mp4)
-
-<sup>click on the photo to view a short demo in compatible browsers</sup>
-
-### Features
-
-* simple structure to group users under a team
-* the current team structure is basic, and can be further customized as needed
-* search through teams as required
-* the Team model has its activity tracked (integration with [ActivityLog](https://github.com/laravel-enso/ActivityLog))
-* provides a `Teams` trait that defines the `teams` relationship
+The package stores team records, manages user membership through a pivot table, exposes CRUD-style API endpoints plus select options, and registers search integration for the team model.
 
 ## Installation
 
-Comes pre-installed in Enso.
+Install the package:
+
+```bash
+composer require laravel-enso/teams
+```
+
+Run the migrations:
+
+```bash
+php artisan migrate
+```
+
+## Features
+
+- Team model plus many-to-many user membership pivot.
+- Index, store, destroy, and options endpoints.
+- Request validation through `ValidateTeam`.
+- JSON resources for API payloads.
+- Search service provider registration for team search integration.
+
+## Usage
+
+Routes are registered under:
+
+- prefix: `api/administration/teams`
+- name prefix: `administration.teams.`
+- middleware: `api`, `auth`, `core`
+
+Endpoints:
+
+- `GET /`
+- `POST /`
+- `DELETE {team}`
+- `GET options`
+
+The main model is `LaravelEnso\Teams\Models\Team`.
+
+## API
+
+This package exposes its backend integration through the routes, controllers, services, jobs, and configuration points referenced in the usage examples above.
+
+Consumers should rely on the published config keys, documented route groups, and explicit service classes shown in the examples. Internal helper classes, listeners, casts, and background jobs are implementation details unless the README calls them out as extension points.
+
+## Depends On
+
+Required Enso packages:
+
+- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/dynamic-methods`](https://docs.laravel-enso.com/backend/dynamic-methods.html) [↗](https://github.com/laravel-enso/dynamic-methods)
+- [`laravel-enso/migrator`](https://docs.laravel-enso.com/backend/migrator.html) [↗](https://github.com/laravel-enso/migrator)
+- [`laravel-enso/rememberable`](https://docs.laravel-enso.com/backend/rememberable.html) [↗](https://github.com/laravel-enso/rememberable)
+- [`laravel-enso/select`](https://docs.laravel-enso.com/backend/select.html) [↗](https://github.com/laravel-enso/select)
+
+Companion frontend package:
+
+- [`@enso-ui/teams`](https://docs.laravel-enso.com/frontend/teams.html) [↗](https://github.com/enso-ui/teams)
 
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-## License
+Thank you to all the people who already contributed to Enso!
 
-This package is released under the MIT license.
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/teams/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 4:32:53 PM</div>
+</div>

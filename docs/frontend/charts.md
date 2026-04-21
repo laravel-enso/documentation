@@ -1,136 +1,113 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Charts
 
-![NPM License](https://img.shields.io/npm/l/@enso-ui/charts.svg)
-![npm download](https://img.shields.io/npm/dm/@enso-ui/charts.svg)
-![GitHub top language](https://img.shields.io/github/languages/top/enso-ui/charts.svg)
-![GitHub issues](https://img.shields.io/github/issues/enso-ui/charts.svg)
-![npm version](https://img.shields.io/npm/v/@enso-ui/charts.svg)
+[![License](https://img.shields.io/badge/license-MIT-10b981.svg)](https://github.com/enso-ui/charts/blob/master/LICENSE)
+[![Stable](https://img.shields.io/badge/stable-5.0.6-2563eb.svg)](https://www.npmjs.com/package/@enso-ui/charts)
+[![Downloads](https://img.shields.io/npm/dm/@enso-ui/charts.svg)](https://www.npmjs.com/package/@enso-ui/charts)
+[![Vue](https://img.shields.io/badge/vue-3.x-42b883.svg)](https://vuejs.org/)
+[![JavaScript](https://img.shields.io/badge/javascript-ES2020-f7df1e.svg)](https://developer.mozilla.org/docs/Web/JavaScript)
+[![SCSS](https://img.shields.io/badge/scss-supported-c6538c.svg)](https://sass-lang.com/)
+[![npm](https://img.shields.io/badge/npm-package-cb3837.svg)](https://www.npmjs.com/package/@enso-ui/charts)
+[![Issues](https://img.shields.io/github/issues/enso-ui/charts.svg)](https://github.com/enso-ui/charts/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/enso-ui/charts.svg)](https://github.com/enso-ui/charts/pulls)
 
-Vue Charts Package
+## Description
 
-Can be used outside of the Enso ecosystem.
-
-Should be used with its backend [sibling](https://github.com/laravel-enso/Charts)
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+Chart.js wrappers and chart card presenters for Enso UI.
 
 ## Installation
 
 Install the package:
-```
+
+```bash
 yarn add @enso-ui/charts
 ```
 
-(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+This package is also available through the full `enso-ui` workspace bundle.
 
-Note that this package has a couple of external dependencies. 
-Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more info.
+## Features
 
-### Exports
-
-`@enso-ui/charts/bulma`:
-- `Chart`,
-- `ChartCard`,
-- `EnsoChartCard`,
-`@enso-ui/charts`:
-- `Chart`,
-- `colors`,
+- exports the low-level `Chart` component plus the shared color palette
+- ships higher-level Bulma presenters such as `ChartCard` and `EnsoChartCard` for Enso dashboards
+- registers Chart.js plugins for data labels and annotations out of the box
+- supports runtime option mutation, dataset updates, SVG export, and responsive resizing
 
 ## Usage
-Import the desired component(s):
-```js
-import { EnsoChartCard as ChartCard } from '@enso-ui/charts/bulma';
-```
 
-```js
+```vue
+<script setup>
 import { Chart, colors } from '@enso-ui/charts';
+
+const data = {
+    labels: ['Jan', 'Feb', 'Mar'],
+    datasets: [{ label: 'Orders', data: [3, 7, 5], backgroundColor: colors.slice(0, 3) }],
+};
+</script>
+
+<Chart type="bar" :data="data" />
 ```
 
-### ChartCard.vue
+## API
 
-Bulma Chart Card implementation on top of the Card component.
+### `Chart`
 
-#### Example:
-```vue
-<chart-card class="is-rounded raises-on-hover has-margin-bottom-large"
-    source="/api/dashboard/pie"/>
-```
+Low-level Chart.js canvas wrapper.
 
-#### Props
-- `collapsed` - `boolean`, optional - controls the card's initial render state
-- `errorHandler` - `function`, optional - provides a custom error handler for axios
-- `i18n` - `function`, optional - provides localisation
-- `params` - `Object`, optional - parameter bag that is sent to the backend when fetching data
-- `source` - `string`, required - the URI used for fetching the chart data
- 
-#### Methods
-- `fetch()` - fetches data from the backend
-- `resize()` - resizes the charts
+Import: `@enso-ui/charts`
 
-### EnsoChartCard
+Props:
+- `data: object` chart labels and datasets.
+- `display: function` datalabel visibility strategy.
+- `shortNumbers: boolean = false` enables short number formatting.
+- `valueFormatter: function` value formatter for datalabels.
+- `scaleFormatter: function` callback used to mutate scale config.
+- `options: object = {}` chart options override.
+- `type: string` one of `line`, `bar`, `horizontalBar`, `radar`, `polarArea`, `pie`, `doughnut`, `bubble`.
 
-The above component designed to be used within the Enso ecosystem, requiring less configuration from the dev. 
+Methods:
+- `resize()`
+- `svg()`
+- `update()`
 
-#### Example:
-```vue
-<chart-card class="is-rounded raises-on-hover has-margin-bottom-large"
-    source="/api/dashboard/pie"/>
-```
+### `colors`
 
-#### Props
-- `params` - `Object`, optional, default `null`, extra parameters that get sent to the backend when fetching data
-- `source` - `string`, required, the URI used for fetching the chart data
+Default export palette array used by charts and cards.
 
-#### Methods
-- `fetch()` - fetches data from the backend
-- `resize()` - resizes the charts
+Import: `@enso-ui/charts`
 
-### Chart
+### `ChartCard`
 
-CSS framework agnostic Chart implementation.
+Bulma card wrapper around `Chart` that fetches its config from an HTTP source.
 
-#### Example:
-```vue
-<chart class="has-padding-medium"
-    :data="data"
-    :options="options"
-    :type="type"/>
-```
+Import: `@enso-ui/charts/src/bulma/ChartCard.vue`
 
-#### Props
-- `data` - `Object`, required - the data for the chart
-- `shortNumbers`,`Boolean`, optional - default `false`, if true, applies short number formatting for the chart values
-    Note that if both `shortNumber` and `formatter` is given, only short number is applied and the formatter 
-    function is ignored
-- `formatter` - `function`, optional - datalabels values formatter function
-    Note that `formatter` is incompatible with `shortNumber` 
-- `options` - `Object`, optional - options object for chart.js
-- `type` - `string`, required - specifies the type of chart.  Valid types are 'line', 'bar', 'radar', 'polarArea', 'pie', 'doughnut', 'bubble'.
- 
-#### Methods
-- `resize()` - resizes the charts
+### `EnsoChartCard`
 
-## Questions & Issues
+Chart card variant wired to injected Enso `i18n` and `errorHandler` helpers.
 
-For questions and support please use the issues functionality
-for this package's github repository.
+Import: `@enso-ui/charts/src/bulma/EnsoChartCard.vue`
 
-Please make sure to search for existing issues before creating a new issue,
-and when opening a new issue, fill the required information in the issue template.
+## Companion Backend Package
 
-Issues not conforming to the guidelines may be closed immediately.
+- [`laravel-enso/charts`](https://docs.laravel-enso.com/backend/charts.html) [↗](https://github.com/laravel-enso/charts)
 
-## External Dependencies
+The backend companion usually provides the HTTP endpoints and chart payloads consumed by `ChartCard` and `EnsoChartCard`.
 
-Built with [chart.js](https://www.chartjs.org/docs/latest/).
+## Depends On
 
-Uses [chartjs-plugin-datalabels](https://chartjs-plugin-datalabels.netlify.com/)
-
-For PNG download uses [file-saver](https://github.com/eligrey/FileSaver.js#readme)
+- [`@enso-ui/card`](https://docs.laravel-enso.com/frontend/card.html) [↗](https://github.com/enso-ui/card)
+- [`@enso-ui/directives`](https://docs.laravel-enso.com/frontend/directives.html) [↗](https://github.com/enso-ui/directives)
+- [`@enso-ui/mixins`](https://docs.laravel-enso.com/frontend/mixins.html) [↗](https://github.com/enso-ui/mixins)
+- [`chart.js`](https://www.chartjs.org/)
+- [`chartjs-plugin-annotation`](https://www.chartjs.org/chartjs-plugin-annotation/latest/guide/)
+- [`chartjs-plugin-datalabels`](https://chartjs-plugin-datalabels.netlify.app/)
 
 ## Contributions
 
@@ -140,4 +117,9 @@ Thank you to all the people who already contributed to Enso!
 
 ## License
 
-[ISC](https://opensource.org/licenses/ISC)
+[MIT](https://github.com/enso-ui/charts/blob/master/LICENSE)
+
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/enso-ui/charts/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 9:47:06 AM</div>
+</div>

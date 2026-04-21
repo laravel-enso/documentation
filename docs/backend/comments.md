@@ -1,98 +1,148 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Comments
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d96ab52d782d46b9a94e00ea6059b34c)](https://www.codacy.com/app/laravel-enso/comments?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/comments&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/85583597/shield?branch=master)](https://github.styleci.io/repos/85583597)
-[![License](https://poser.pugx.org/laravel-enso/comments/license)](https://packagist.org/packages/laravel-enso/comments)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/comments/downloads)](https://packagist.org/packages/laravel-enso/comments)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/comments/version)](https://packagist.org/packages/laravel-enso/comments)
+[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/laravel-enso/comments/blob/master/LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/comments/version)](https://packagist.org/packages/laravel-enso/comments)
+[![Downloads](https://poser.pugx.org/laravel-enso/comments/downloads)](https://packagist.org/packages/laravel-enso/comments)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://github.com/laravel-enso/comments/blob/master/composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/comments.svg)](https://github.com/laravel-enso/comments/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/comments.svg)](https://github.com/laravel-enso/comments/pulls)
 
-Comments Manager for [Laravel Enso](https://github.com/laravel-enso/Enso).
+## Description
 
-This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+Comments adds polymorphic comments and tagged-user notifications to Enso models.
 
-There is a front end implementation for this this api in the [accessories](https://github.com/enso-ui/accessories) package.
+The package exposes a reusable `Commentable` trait, ships the comments CRUD API used by the backoffice, tracks authorship through Enso audit traits, and supports tagged users through a pivot relation and queued notifications.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
-
-[![Watch the demo](https://laravel-enso.github.io/commentsmanager/screenshots/bulma_018_thumb.png)](https://laravel-enso.github.io/commentsmanager/videos/bulma_demo_01.webm)
-
-<sup>click on the photo to view a short demo in compatible browsers</sup>
+Delete behavior is configurable, allowing applications to either cascade comment deletion or block deletion when related comments exist.
 
 ## Installation
 
-Comes pre-installed in Enso.
+Install the package:
+
+```bash
+composer require laravel-enso/comments
+```
+
+Run the package migrations:
+
+```bash
+php artisan migrate
+```
+
+Optional publishes:
+
+```bash
+php artisan vendor:publish --tag=comments-config
+php artisan vendor:publish --tag=comments-mail
+php artisan vendor:publish --tag=comments-factory
+```
+
+Default configuration:
+
+```php
+return [
+    'editableTimeLimit' => 24 * 60 * 60,
+    'onDelete' => 'cascade',
+    'humanReadableDates' => true,
+    'loggableMorph' => [
+        'commentable' => [],
+    ],
+];
+```
 
 ## Features
 
-The package offers a quick and easy flow for adding comments to any model.
-
-- gives the possibility to add, update and delete comments
-- has the option of tagging other users in the comments using `@` and the user name
-- users are notified via push [Notifications](https://github.com/laravel-enso/Notifications) when they are tagged
-- uses its own policies to ensure users edit comments only when they are allowed to do so
-- uses [TrackWho](https://github.com/laravel-enso/TrackWho) to keep track of the users that are posting comments
-- depends on [Avatar Manager](https://github.com/laravel-enso/AvatarManager) to display user avatars, when available
-- uses a light, internal mechanism for tagged user auto-completion
-- polymorphic relationships are used, which makes it possible to attach comments to any other entity
+- Polymorphic one-to-one and one-to-many comments through the `Commentable` trait.
+- Tagged users stored on a pivot table and notified through queued notifications.
+- Comments API with list, create, update, destroy, and user option endpoints.
+- Configurable delete strategy via `restrict` or `cascade`.
+- Automatic parent touching for updated commentable records.
 
 ## Usage
 
-1. you may publish the configuration and customize the options as needed
-2. add the `Commentable` trait in the Model to which you need to add comments. 
-    You can then use the `$model->comments` relationship
-3. since users post comments, and users can tag other users, the `User` model has the `Comments` trait, 
-    which gives you access to the user's comments, as well as the comments he's tagged in 
-4. if you need to customize the `CommentTagNotification` you need to publish it first with
-    `php artisan vendor:publish --tag=comments-notification`
-5. insert the `Comments` vue component where required in your pages/components, see the 
-   front end implementation [docs](https://docs.laravel-enso.com/frontend/accessories.html#comments) for the available options
+Add the trait to any model that should expose comments:
 
-### Configuration
-In the `config/enso/comments.php` configuration file you may set the following options:
+```php
+use Illuminate\Database\Eloquent\Model;
+use LaravelEnso\Comments\Traits\Commentable;
 
-- `editableTimeLimit`, number, the amount of seconds after which a comment is no longer editable | default is `24 * 60 * 60` seconds (1 day)
-- `onDelete`, string, option that manages the case when the commentable entity is deleted and it has attached addresses.
-Valid options are `cascade`, `restrict` | default is `cascade`
+class Post extends Model
+{
+    use Commentable;
+}
+```
 
-    With the cascade option, when a commentable model is deleted, the comments attached to it are also deleted. 
-    With the restrict option,  when attempting to delete a commentable model with attached comments, an exception is thrown.
-    
-- `loggableMorph`, the list of entities using the commentable functionality, each mapped to its respective loggable attribute
-For example: 
-    ```php
-    'commentable' => [
-        Company::class => 'name',
-    ],
-    ```
+Available relationships:
 
-   This configuration option is used for activity logging.
+- `comment()`
+- `comments()`
 
-### Extending the comments
+When a model is deleted, the package will either reject the deletion or cascade comment deletion based on `enso.comments.onDelete`.
 
-In your project you may have the need to alter and or extend the comment notification.
-To achieve this, you'd need to:
-- create a new CommentTagNotification, ensuring it implements the `NotifiesTaggedUsers` marker interface. 
-- bind your local implementation to the interface in your local `AppServiceProvider`
+Tagged users can be synchronized and notified through the `Comment` model:
 
-## Publishes
-- `php artisan vendor:publish --tag=comments-config` - configuration file
-- `php artisan vendor:publish --tag=enso-config` - a common alias for when wanting to update the configuration,
-once a newer version is released, usually used with the `--force` flag
-- `php artisan vendor:publish --tag=comments-email-template` - the templates used for notifications
-- `php artisan vendor:publish --tag=enso-mail` - a common alias for when wanting to update the templates 
-used for notifications, usually used with the `--force` flag
-- `php artisan vendor:publish --tag=comments-factory` - the factory used for comments
-- `php artisan vendor:publish --tag=enso-factories` - a common alias for when wanting to update the factories 
-once a newer version is released, usually used with the `--force` flag
+```php
+$comment->syncTags($taggedUsers)->notify('/posts/1');
+```
+
+## API
+
+### HTTP routes
+
+- `GET api/core/comments`
+- `POST api/core/comments`
+- `PATCH api/core/comments/{comment}`
+- `DELETE api/core/comments/{comment}`
+- `GET api/core/comments/users`
+
+Route names:
+
+- `core.comments.index`
+- `core.comments.store`
+- `core.comments.update`
+- `core.comments.destroy`
+- `core.comments.users`
+
+### Model surface
+
+`LaravelEnso\\Comments\\Models\\Comment`
+
+Useful methods:
+
+- `scopeFor(array $params): Builder`
+- `syncTags(array $taggedUsers)`
+- `notify(string $path)`
+
+## Depends On
+
+Required Enso packages:
+
+- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/dynamic-methods`](https://docs.laravel-enso.com/backend/dynamic-methods.html) [↗](https://github.com/laravel-enso/dynamic-methods)
+- [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
+- [`laravel-enso/migrator`](https://docs.laravel-enso.com/backend/migrator.html) [↗](https://github.com/laravel-enso/migrator)
+- [`laravel-enso/track-who`](https://docs.laravel-enso.com/backend/track-who.html) [↗](https://github.com/laravel-enso/track-who)
+- [`laravel-enso/users`](https://docs.laravel-enso.com/backend/users.html) [↗](https://github.com/laravel-enso/users)
+
+Companion frontend package:
+
+- [`@enso-ui/comments`](https://docs.laravel-enso.com/frontend/comments.html) [↗](https://github.com/enso-ui/comments)
 
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-## License
+Thank you to all the people who already contributed to Enso!
 
-This package is released under the MIT license.
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/comments/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 6:05:25 PM</div>
+</div>

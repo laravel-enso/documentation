@@ -1,96 +1,108 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Searchable
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9bd280636d3840b696f6bf788820a6db)](https://www.codacy.com/app/laravel-enso/Searchable?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/searchable&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/150948993/shield?branch=master)](https://github.styleci.io/repos/150948993)
-[![License](https://poser.pugx.org/laravel-enso/searchable/license)](https://packagist.org/packages/laravel-enso/searchable)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/searchable/downloads)](https://packagist.org/packages/laravel-enso/searchable)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/searchable/version)](https://packagist.org/packages/laravel-enso/searchable)
+[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/laravel-enso/searchable/blob/master/LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/searchable/version)](https://packagist.org/packages/laravel-enso/searchable)
+[![Downloads](https://poser.pugx.org/laravel-enso/searchable/downloads)](https://packagist.org/packages/laravel-enso/searchable)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://github.com/laravel-enso/searchable/blob/master/composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/searchable.svg)](https://github.com/laravel-enso/searchable/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/searchable.svg)](https://github.com/laravel-enso/searchable/pulls)
 
-Project wide searching dependency for [Laravel Enso](https://github.com/laravel-enso/Enso).
+## Description
 
-This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+Searchable provides the global command-palette style search registry used by Laravel Enso.
 
-The front end assets that utilize this api are present in the [ui](https://github.com/enso-ui/ui) package.
+The package exposes a single search endpoint, a facade-backed registry for searchable models, and a finder service that resolves results according to configured attributes, scopes, permissions, and optional Scout providers.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
-
-[![Watch the demo](https://laravel-enso.github.io/searchable/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/searchable/videos/bulma_demo_01.mp4)
-
-<sup>click on the photo to view a short demo in compatible browsers</sup>
+It is intended for Enso applications that need cross-module quick search with permission-aware routes and grouped results.
 
 ## Installation
 
-Comes pre-installed in Enso.
+Install the package:
 
-### Features
+```bash
+composer require laravel-enso/searchable
+```
 
-- can search for any configured model
-- various actions are contextually available for each result, also depending on permissions
-- the icons used for the actions are customizable
-- the number is limited (by default at 10 results per model) to avoid too many DB hits
-- any model may be added to the searchable list
-- per-model customizations are available, such as attributes to search and the label to use when showing results
+Run the package migrations:
 
-Note: Although available result model actions are shown based on the current user's permissions for that model, 
-care must be taken when due to the search functionality, results could be listed that user might not be meant to see.
+```bash
+php artisan migrate
+```
 
-It is recommended to look into and use global query scopes for these scenarios.    
+Optional publishes:
+
+```bash
+php artisan vendor:publish --tag=searchable-config
+php artisan vendor:publish --tag=searchable-factories
+```
+
+## Features
+
+- Global `api/core/searchable/index` endpoint.
+- Facade-backed searchable model registry.
+- Finder service that supports local query matching or Scout search providers.
+- Permission-filtered route actions based on the authenticated user's role.
+- Support for route params, custom labels, scopes, permission groups, and nested relation attributes.
 
 ## Usage
 
-### Configuration
-
-The package needs to be configured by specifying the models we want searchable. The configuration file can be found
-at `config/searchable.php` 
-
-The following parameters are available:
-*  `defaultLabel` - the default label attribute to be used for all models, 
-unless overwritten on the model specific configuration (see below) | default is `name`
-* `routes` - customizes the icons used for the routes (remember to also have the icons available/imported)
-    - `show`, default is `eye` 
-    - `edit`, default is `pencil-alt`
-    - `index`, default is `list-ul`
-* `limit` - the max limit of results per model. Keep in mind that more results may be available, so if looking for a specific result, 
- be more specific when searching | default is `10`
-* `models` - the list of models and their configurations that are searchable by the package
-
-#### Model Configuration
-
-Each model can be configured with a mix of required and optional attributes
+Register searchable models from any package by extending the package search service provider:
 
 ```php
-User::class => [
-    'group' => 'User',
-    'attributes' => ['first_name', 'last_name', 'email'],
-    'label' => 'fullName',
-    'permissionGroup' => 'administration.users',
-    'scopes' => ['active'],
-],
+public $register = [
+    Product::class => [
+        'group' => 'Product',
+        'attributes' => ['name', 'internal_code', 'part_number'],
+        'label' => 'internal_code',
+        'permissionGroup' => 'products',
+    ],
+];
 ```
 
-* `group` - string, the name of the group this model belongs to, used to group the results. If not given, the class spaced base name is used, e.g. "User", "Permission Group" | (optional)
-* `attributes` - array, the list of model attributes that we want to look at when searching | required
-* `label` - string, the model attribute we want to use as representation of the model, optional. If given, this configuration option
-overrides the global default `defaultLabel` option. Note that a computed attribute can be given as well | (optional)
-* `permissionGroup` - string, the name of the permission group to use when displaying action options for this model's results | required
-* `permissions` - array, the list of permissions to be used for this model's results action options. 
-If not given, actions are displayed  (based on permissions) for `index`, `show` and `edit` | (optional)
-* `scopes` - array, the list of scopes to be used when querying the model | (optional) 
+The finder returns grouped results with resolved route params and only the route actions the current user is allowed to execute.
 
-### Publishes
+## API
 
-- `php artisan vendor:publish --tag=searchable-config` - configuration file
-- `php artisan vendor:publish --tag=enso-config` - a common alias for when wanting to update the config,
-once a newer version is released, can be used with the `--force` flag
+### HTTP routes
+
+- `GET api/core/searchable/index`
+
+### Core services
+
+- `LaravelEnso\\Searchable\\Services\\Search`
+- `LaravelEnso\\Searchable\\Services\\Finder`
+
+Behavior:
+
+- stores registered searchable model definitions
+- executes Scout search when `searchProvider` is configured
+- otherwise executes filter-based database search
+- filters available actions by role permissions
+
+## Depends On
+
+Required Enso packages:
+
+- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/filters`](https://docs.laravel-enso.com/backend/filters.html) [↗](https://github.com/laravel-enso/filters)
+- [`laravel-enso/migrator`](https://docs.laravel-enso.com/backend/migrator.html) [↗](https://github.com/laravel-enso/migrator)
+- [`laravel-enso/permissions`](https://docs.laravel-enso.com/backend/permissions.html) [↗](https://github.com/laravel-enso/permissions)
 
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-## License
+Thank you to all the people who already contributed to Enso!
 
-This package is released under the MIT license.
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/searchable/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 4:31:49 PM</div>
+</div>

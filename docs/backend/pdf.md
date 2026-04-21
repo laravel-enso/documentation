@@ -1,91 +1,151 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # PDF
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/28c7bcb0b5d2451783990e0a151f0a44)](https://www.codacy.com/app/laravel-enso/logs?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/pdf&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/85624363/shield?branch=master)](https://github.styleci.io/repos/85624363)
-[![License](https://poser.pugx.org/laravel-enso/pdf/license)](https://packagist.org/packages/laravel-enso/pdf)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/pdf/downloads)](https://packagist.org/packages/laravel-enso/pdf)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/pdf/version)](https://packagist.org/packages/laravel-enso/pdf)
+[![License](https://poser.pugx.org/laravel-enso/pdf/license)](https://github.com/laravel-enso/pdf/blob/master/LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/pdf/version)](https://packagist.org/packages/laravel-enso/pdf)
+[![Downloads](https://poser.pugx.org/laravel-enso/pdf/downloads)](https://packagist.org/packages/laravel-enso/pdf)
+[![PHP](https://img.shields.io/badge/php-7.4%2B-777bb4.svg)](https://github.com/laravel-enso/pdf/blob/master/composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/pdf.svg)](https://github.com/laravel-enso/pdf/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/pdf.svg)](https://github.com/laravel-enso/pdf/pulls)
 
-PDF utility package for [Laravel Enso](https://github.com/laravel-enso/Enso)
+## Description
 
-This package can work independently of the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+Pdf provides a small Laravel Enso wrapper around Snappy / wkhtmltopdf for generating PDF documents from Blade views.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+The package exposes a fluent `Pdf` service that applies Enso's default page settings, loads a view with data, and then lets the caller inline, download, save, or output the rendered PDF.
 
-[![Watch the demo](https://laravel-enso.github.io/pdf/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/pdf/screenshots/bulma_001.png)
-
-<sup>click on the photo to view a a larger screenshot</sup>
+It is used across the ecosystem for invoices, orders, delivery notes, stock documents, and other printable documents that need a consistent PDF pipeline.
 
 ## Installation
 
-install using composer: `composer require laravel-enso/pdf`
+Install the package:
+
+```bash
+composer require laravel-enso/pdf
+```
+
+The package relies on `barryvdh/laravel-snappy`, which in turn requires a working `wkhtmltopdf` binary in the target environment.
+
+No additional provider registration is needed beyond Composer's package discovery.
 
 ## Features
 
-- is a small wrapper that uses [laravel-snappy](https://github.com/barryvdh/laravel-snappy) under the hood
-using the [pdftk](https://github.com/mikehaertl/php-pdftk) package for this purpose
-- utilizes a series of common defaults for the page, with the option of overriding them
-    - setting the page orientation to landscape (by default is portrait)
-    - setting options for the snappy pdf object, such as margins, footer, etc. (for more options, look [here](https://wkhtmltopdf.org/usage/wkhtmltopdf.txt))
-- can provide the generated pdf document inline (for downloads) or save the file to disk    
+- Wraps `barryvdh/laravel-snappy` in a small fluent service.
+- Loads Blade views with arbitrary data before rendering.
+- Streams PDFs inline in the browser.
+- Supports file download responses.
+- Supports saving generated PDFs to disk.
+- Exposes raw PDF output as a string.
+- Ships with Enso defaults for paper size, margins, orientation, and footer pagination.
 
 ## Usage
 
-In order to generate a PDF using the default options, 
-you need to provide a view together with the set of variables for that view,
-and then call the `inline` method:
+Generate a PDF from a Blade view:
+
 ```php
-$pdf = new Pdf();
-$pdf->loadView(
-  'pdf.myBlade', 
-  [
-      'data' => $myData
-  ]
-)
-->inline();
+use LaravelEnso\Pdf\Services\Pdf;
+
+return (new Pdf())
+    ->loadView('documents.order', ['order' => $order])
+    ->inline('order.pdf');
 ```
 
-If you want to customize the defaults, before calling the `inline` method, 
-you may chain any modifier methods:
+Download instead of inlining:
 
 ```php
- $pdf = new Pdf();
- $pdf->loadView(
-   'pdf.myBlade', 
-   [
-       'data' => $myData
-   ]
- )
- ->landscape()
- ->inline();
- ```
- 
-## Available methods
+return (new Pdf())
+    ->loadView('documents.invoice', ['invoice' => $invoice])
+    ->download('invoice.pdf');
+```
 
-The following methods are required:
-* `loadView(string $view, array $attributes)`, loads/sets the view that is to be used
-for the generation of the pdf, together with the attributes used in that view
-* `inline()`, generates the pdf and returns it as a stream, for download OR
-* `save($filePath)`, generates the pdf and saves it on the given path
+Save the generated file:
 
-The following modifier methods are available:
-* `landscape()`, set the page orientation as landscape (default is portrait)
-* `setOption(string $option, $value)`, set the value for the given option. 
-For a list of options, look [here](https://wkhtmltopdf.org/usage/wkhtmltopdf.txt)
+```php
+(new Pdf())
+    ->loadView('documents.note', ['model' => $model])
+    ->save(storage_path('app/temp/document.pdf'));
+```
 
-## External dependencies
+Switch to landscape and override options when needed:
 
- - [laravel-snappy](https://github.com/barryvdh/laravel-snappy) 
- - [php-pdftk](https://github.com/mikehaertl/php-pdftk) 
+```php
+$pdf = (new Pdf())
+    ->landscape()
+    ->setOption('margin-top', 5)
+    ->loadView('documents.report', ['report' => $report]);
+```
+
+::: warning Note
+This package is only a wrapper around Snappy. Rendering still depends on the availability and correctness of the underlying `wkhtmltopdf` binary in the running environment.
+:::
+
+## API
+
+### Contracts
+
+- `LaravelEnso\Pdf\Contracts\GeneratesPdf`
+- `LaravelEnso\Pdf\Contracts\SavesPdf`
+
+`GeneratesPdf` defines:
+
+- `inline(): Response`
+- `output(): string`
+
+`SavesPdf` defines:
+
+- `save()`
+
+### Pdf Service
+
+`LaravelEnso\Pdf\Services\Pdf`
+
+Public methods:
+
+- `__construct()`
+- `inline(string $filename = 'document.pdf'): Response`
+- `output(): string`
+- `save($filename, $overwrite = false): PdfWrapper`
+- `download(string $filename): Response`
+- `landscape(): self`
+- `setOption(string $option, $value): self`
+- `loadView(string $view, array $attributes): self`
+
+Default options applied in the factory:
+
+- `paper: a4`
+- `orientation: portrait`
+- `margin-top: 10`
+- `margin-left: 5`
+- `margin-right: 5`
+- `margin-bottom: 10`
+- `footer-font-size: 8`
+- `footer-center: "Page [page] from [toPage]"`
+
+## Depends On
+
+Framework dependency:
+
+- [`laravel/framework`](https://github.com/laravel/framework) [↗](https://github.com/laravel/framework)
+
+External dependencies:
+
+- [`barryvdh/laravel-snappy`](https://github.com/barryvdh/laravel-snappy) [↗](https://github.com/barryvdh/laravel-snappy)
+- [`wkhtmltopdf`](https://wkhtmltopdf.org/) [↗](https://wkhtmltopdf.org/)
 
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-## License
+Thank you to all the people who already contributed to Enso!
 
-This package is released under the MIT license.
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/pdf/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 4:30:54 PM</div>
+</div>

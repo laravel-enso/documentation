@@ -1,141 +1,135 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Cli
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e4d11f692afc45769893a5299069e643)](https://www.codacy.com/app/laravel-enso/cli?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/Cli&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/95235866/shield?branch=master)](https://github.styleci.io/repos/95235866)
-[![License](https://poser.pugx.org/laravel-enso/cli/license)](https://packagist.org/packages/laravel-enso/cli)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/cli/downloads)](https://packagist.org/packages/laravel-enso/cli)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/cli/version)](https://packagist.org/packages/laravel-enso/cli)
+[![License](https://poser.pugx.org/laravel-enso/cli/license)](https://github.com/laravel-enso/cli/blob/master/LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/cli/version)](https://packagist.org/packages/laravel-enso/cli)
+[![Downloads](https://poser.pugx.org/laravel-enso/cli/downloads)](https://packagist.org/packages/laravel-enso/cli)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://github.com/laravel-enso/cli/blob/master/composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/cli.svg)](https://github.com/laravel-enso/cli/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/cli.svg)](https://github.com/laravel-enso/cli/pulls)
 
-Resource generation CLI & Structure Manager dependency for [Laravel Enso](https://github.com/laravel-enso/Enso)
+## Description
 
-This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+Cli is the interactive scaffolding tool for Laravel Enso resources and packages.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+The package exposes the `enso:cli` command, keeps a restorable configuration session in cache, validates the configured model and menu structure before generation, and writes the backend, frontend, and package boilerplate needed for standard Enso CRUD modules.
 
-[![Watch the demo](https://laravel-enso.github.io/cli/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/cli/videos/bulma_demo01.mp4)
-
-<sup>click on the photo to view a short demo in compatible browsers</sup>
+It is intended to accelerate repetitive Enso structure work, not to replace manual refinement after the initial scaffold is created.
 
 ## Installation
 
-Comes pre-installed in Enso.
+Install the package:
+
+```bash
+composer require laravel-enso/cli
+```
+
+If you want to publish the configuration presets used by the generator:
+
+```bash
+php artisan vendor:publish --tag=cli-config
+```
+
+The package automatically:
+
+- registers the `enso:cli` Artisan command
+- merges the structure presets from `config/enso/structures`
+- writes generated files into either the application tree or a new Enso package tree, depending on the selected options
 
 ## Features
 
-- comes with an easy to use CLI for the creation of Enso resources
-- can be used to easily insert (default) data, during the install of a package, or later when new routes and permissions are required and can create menus, assign default permissions, etc.
-- when adding menus and permissions, automatic access for the administrator role is added
-- for adding menus and permissions the package relies on laravel-enso/migrator
-    
+- Interactive command flow for configuring model, permission group, permissions, menu, files, and package metadata.
+- Validation for namespaced model paths, menu routing consistency, and parent-menu selection before generation.
+- Cached session restore so incomplete scaffolding sessions can be resumed.
+- Writers for models, migrations, form builders and templates, table builders and templates, CRUD routes, Vue pages, and structure migrations.
+- Package scaffolding support, including resources, optional config, and optional service providers.
+
 ## Usage
 
-The packages includes a command line interface is a powerful tool meant to help you 
-quickly create the needed files structure when adding new resources for your application.
+Start the interactive generator:
 
-You can use it to create:
-* menus
-* permissions and permission groups
-* models
-* front-end routes
-* back-end routes
-* [FormBuilder](https://github.com/laravel-enso/FormBuilder)
-    * form builders
-    * json templates (boilerplate)
-    * specific validation request
-    * form controllers
-* [VueDatatable](https://github.com/laravel-enso/VueDatatable) 
-    * table builders
-    * table templates (boilerplate)
-    * table controllers
-* [Select](https://github.com/laravel-enso/Select)
-    * controllers
-
-### CLI Usage
-
-You may run the CLI with the following command:
 ```bash
 php artisan enso:cli
 ```
 
-You'll be presented with a menu you may use for configuring the creation of resources.
-Some of the options may depend on other options, so if you choose something that has such
-dependencies, you'll be notified.
+The command lets you configure these sections before generation:
 
-The CLI menu options are listed in a logical order, as, for instance, 
-you can't add Permissions without first specifying a Permission Group. 
+- `Model`
+- `Permission Group`
+- `Permissions`
+- `Menu`
+- `Files`
+- `Package`
 
-When choosing an option, you'll also be presented with the current configuration for that option
-especially useful when going back to edit some of the options.
+When generation succeeds, the package clears the cached session and, when needed, prints the API route include that must be added to the host application's `routes/api.php`.
 
-When editing an option, you may start typing to get an autocomplete option, 
-for the currently configured value.
+Validation can be toggled off temporarily from the command menu, but the intended workflow is to keep it enabled and fix the reported configuration errors before generating files.
 
-After configuring the desired options, you should select the **Files** you want generated.
+## API
 
-When satisfied with your selection, use the **Generate** option to have the files created.
+### Artisan command
 
-Once the files are generated, depending on your choices, 
-you'll also be presented with the backend routes you'll need to paste in your `routes/api.php` file.
+- `enso:cli`
 
-If you've created front-end resources, don't forget to rebuild your js resources, 
-using `yarn build` (from within the `client` folder).
+### Published configuration
 
-The available options are listed below:
+Published under `config/enso/structures`:
 
-#### [0] Model
-- type in a name for the model;
+- `model.php`
+- `menu.php`
+- `permissions.php`
+- `package.php`
+- `params.php`
+- `files.php`
+- `permissionGroup.php`
 
-As per the Laravel convention, models should be upper-camel-cased
+### Generated artifacts
 
-#### [1] Permission Group
-- type in the name for the permission group
+Depending on the selected file set, the generator can write:
 
-Note that per Enso convention, the name must coincide with the common part of the resource permission. 
-For example, `administration.users` is used for the Users' permission group. 
+- Eloquent model classes
+- create-table and structure migrations
+- form builders, templates, and request validators
+- table builders and templates
+- CRUD API controllers and route stubs
+- frontend view pages and route files
+- package resources, config, and providers
 
-#### [2] Permissions
-- select which resources you want permissions generated for
+### Validation rules
 
-The permissions will be generated for you, there is no need to configure anything else here.
+Built-in validation covers:
 
-#### [3] Menu
-- type a name for the menu; this will be the user-visible label
-- type in the desired Font Awesome icon class; make sure to have the given class imported and available  
-- type in the name of the parent menu, if applicable (for example `Administration`)
-- type in the name of the route used when clicking on the menu (for example `administration.users.index`)
-- type in the order index for this menu element; This is used for the ordering of the menus and submenus 
-- choose whether a certain menu will have children
+- namespaced model syntax using forward slashes
+- menu route alignment with permission routes
+- regular menu items requiring a route
+- parent menu existence and ambiguity checks
+- parent-menu route restrictions when `has_children` is enabled
 
-#### [4] Files
-- choose which files you want generated by the tool
+## Depends On
 
-Note than one selection will generate the required files for that resource, 
-for instance, choosing `model` will generate just the model class, but choosing `form`
- will generate a controller, a builder, a template and a validation request.
+Required Enso packages:
 
-#### [5] Generate
-Choosing this option will generate the files based on your configuration and selections.
-
-#### [6] Validation
-Choosing this option will toggle the validation that is being normally performed 
-before the generation of the structure & files 
-
-## Commands
-- `php artisan enso::cli` - runs the structure creation CLI 
-
-## Publishes
-- `php artisan vendor:publish --tag=structuremanager-config` - configuration file
-- `php artisan vendor:publish --tag=enso-config` - a common alias for when wanting to update the configuration,
-once a newer version is released, usually used with the `--force` flag
+- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
+- [`laravel-enso/menus`](https://docs.laravel-enso.com/backend/menus.html) [↗](https://github.com/laravel-enso/menus)
+- [`laravel-enso/permissions`](https://docs.laravel-enso.com/backend/permissions.html) [↗](https://github.com/laravel-enso/permissions)
+- [`laravel-enso/enums`](https://docs.laravel-enso.com/backend/enums.html) [↗](https://github.com/laravel-enso/enums)
+- [`laravel-enso/roles`](https://docs.laravel-enso.com/backend/roles.html) [↗](https://github.com/laravel-enso/roles)
 
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-## License
+Thank you to all the people who already contributed to Enso!
 
-This package is released under the MIT license.
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/cli/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 3:31:55 PM</div>
+</div>

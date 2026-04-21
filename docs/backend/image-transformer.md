@@ -1,72 +1,152 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Image Transformer
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/49a59dad1899460fa451510ef96307bb)](https://www.codacy.com/app/laravel-enso/ImageTransformer?utm_source=github.com&utm_medium=referral&utm_content=laravel-enso/ImageTransformer&utm_campaign=badger)
-[![StyleCI](https://github.styleci.io/repos/96102464/shield?branch=master)](https://github.styleci.io/repos/96102464)
-[![License](https://poser.pugx.org/laravel-enso/image-transformer/license)](https://packagist.org/packages/laravel-enso/image-transformer)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/image-transformer/downloads)](https://packagist.org/packages/laravel-enso/image-transformer)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/image-transformer/version)](https://packagist.org/packages/laravel-enso/image-transformer)
+[![License](https://poser.pugx.org/laravel-enso/image-transformer/license)](https://github.com/laravel-enso/image-transformer/blob/master/LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/image-transformer/version)](https://packagist.org/packages/laravel-enso/image-transformer)
+[![Downloads](https://poser.pugx.org/laravel-enso/image-transformer/downloads)](https://packagist.org/packages/laravel-enso/image-transformer)
+[![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](https://github.com/laravel-enso/image-transformer/blob/master/composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/image-transformer.svg)](https://github.com/laravel-enso/image-transformer/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/image-transformer.svg)](https://github.com/laravel-enso/image-transformer/pulls)
 
-Image transformer dependency for [Laravel Enso](https://github.com/laravel-enso/Enso).
+## Description
 
-This package can work independently of the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+Image Transformer provides a small service for validating, resizing, and optimizing uploaded images.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+It wraps Intervention Image for resize operations and Spatie's image optimizer for post-processing, while enforcing a limited set of supported image mime types before any transformation is attempted.
+
+The package is useful in upload flows where images should be normalized before storage, for example avatars, covers, gallery images, or document attachments that need size limits and optimization.
 
 ## Installation
 
-Comes pre-installed in Enso.
+Install the package:
 
-To install outside of Enso: 
+```bash
+composer require laravel-enso/image-transformer
+```
 
-`composer require laravel-enso/image-transformer`
+The package relies on:
 
-In order for the optimization to work, you need to have the following packages installed:
-* pngquant
-* gifsicle
-* jpegoptim
-* php7.1-gd or php-imagick
+- `intervention/image-laravel` for reading and resizing images
+- `spatie/laravel-image-optimizer` for optimization
 
-On Linux, you can do that with: `sudo apt-get install pngquant gifsicle jpegoptim php7.1-gd`
+To use resizing, the runtime must have at least one supported image extension installed:
 
-**IMPORTANT NOTE:** 
-
-The underlying image processing libraries may use a lot of memory, 
-especially if the processed files are large (for example, for an 8MB file, more than 128MB of memory might be used ),
-so make sure to configure php accordingly and/or do `ini_set(‘memory_limit’, ‘256M’);`   
-
-Failure to do so may result in silent errors if allotted memory is insufficient.
+- `gd`
+- `imagick`
 
 ## Features
 
-- handles image optimization, using the [Laravel Image Optimizer](https://github.com/spatie/laravel-image-optimizer) library
-- handles image cropping, using the [Intervention Image](https://github.com/intervention/image) library
-- for the non essential libraries, handles missing libraries gracefully, logging the fact but does not throw an error
+- Validates uploaded files before transformation.
+- Supports `png`, `jpeg`, `gif`, and `webp` images.
+- Optimizes images in place through Spatie's optimizer chain.
+- Resizes images proportionally by width, by height, or by both through `resize()`.
+- Prevents upsizing by only resizing when the original image is larger than the requested dimension.
+- Saves transformations back to the original file path.
 
 ## Usage
-The `ImageTransformer` class has 2 public methods:
-- `optimize`, takes no argument and tries to optimize the file
-- `resize`, takes the target width and height and resizes the file, possibly changing the aspect ration
-- `width`, resizes the file to the given width, maintaining aspect ratio
-- `height`, resizes the file to the given height, maintaining aspect ratio
 
-Note, an `ImageTransformerException` is thrown if:
-- the `gd` or `imagick` extensions are missing
-- a file type not supported for an uploaded file
-- an uploaded file fails the basic validation
+Create a transformer from an uploaded file:
 
-## External dependencies
+```php
+use LaravelEnso\ImageTransformer\Services\ImageTransformer;
 
-- [Laravel Image Optimizer](https://github.com/spatie/laravel-image-optimizer)
-- [Intervention Image](https://github.com/intervention/image)
+$transformer = new ImageTransformer($file);
+```
+
+Optimize the original file:
+
+```php
+$transformer->optimize();
+```
+
+Resize proportionally to a maximum width:
+
+```php
+$transformer->width(512);
+```
+
+Resize proportionally to a maximum height:
+
+```php
+$transformer->height(512);
+```
+
+Apply both constraints in sequence:
+
+```php
+$transformer->resize(1024, 768);
+```
+
+::: tip Tip
+The transformer edits the original file in place.
+
+If you need to preserve the original upload, copy or move it before calling `optimize()`, `width()`, `height()`, or `resize()`.
+:::
+
+## API
+
+### Service
+
+`LaravelEnso\ImageTransformer\Services\ImageTransformer`
+
+Constructor:
+
+- `__construct(File $file)`
+
+Public methods:
+
+- `optimize(): self`
+- `resize(int $width, int $height): self`
+- `width(int $width): self`
+- `height(int $height): self`
+
+### Supported Mime Types
+
+The service accepts:
+
+- `image/png`
+- `image/jpeg`
+- `image/gif`
+- `image/webp`
+
+### Exceptions
+
+The package exposes:
+
+- `LaravelEnso\ImageTransformer\Exceptions\File`
+- `LaravelEnso\ImageTransformer\Exceptions\Dependency`
+
+Scenarios covered:
+
+- invalid uploaded file
+- unsupported mime type
+- missing `gd` / `imagick` extension when resizing
+
+## Depends On
+
+Required Enso packages:
+
+- [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
+
+External dependencies:
+
+- [`intervention/image-laravel`](https://github.com/Intervention/image-laravel) [↗](https://github.com/Intervention/image-laravel)
+- [`spatie/laravel-image-optimizer`](https://github.com/spatie/laravel-image-optimizer) [↗](https://github.com/spatie/laravel-image-optimizer)
 
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-## License
+Thank you to all the people who already contributed to Enso!
 
-This package is released under the MIT license.
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/image-transformer/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 4:28:23 PM</div>
+</div>

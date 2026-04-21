@@ -1,357 +1,426 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Forms
 
-![NPM License](https://img.shields.io/npm/l/@enso-ui/forms.svg)
-![npm download](https://img.shields.io/npm/dm/@enso-ui/forms.svg)
-![GitHub top language](https://img.shields.io/github/languages/top/enso-ui/forms.svg)
-![GitHub issues](https://img.shields.io/github/issues/enso-ui/forms.svg)
-![npm version](https://img.shields.io/npm/v/@enso-ui/forms.svg)
+[![License](https://img.shields.io/badge/license-MIT-10b981.svg)](https://github.com/enso-ui/forms/blob/master/LICENSE)
+[![Stable](https://img.shields.io/badge/stable-4.1.10-2563eb.svg)](https://www.npmjs.com/package/@enso-ui/forms)
+[![Downloads](https://img.shields.io/npm/dm/@enso-ui/forms.svg)](https://www.npmjs.com/package/@enso-ui/forms)
+[![Vue](https://img.shields.io/badge/vue-3.x-42b883.svg)](https://vuejs.org/)
+[![JavaScript](https://img.shields.io/badge/javascript-ES2020-f7df1e.svg)](https://developer.mozilla.org/docs/Web/JavaScript)
+[![SCSS](https://img.shields.io/badge/scss-supported-c6538c.svg)](https://sass-lang.com/)
+[![npm](https://img.shields.io/badge/npm-package-cb3837.svg)](https://www.npmjs.com/package/@enso-ui/forms)
+[![Issues](https://img.shields.io/github/issues/enso-ui/forms.svg)](https://github.com/enso-ui/forms/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/enso-ui/forms.svg)](https://github.com/enso-ui/forms/pulls)
 
-Vue Form Package
+## Description
 
-Can be used outside of the Enso ecosystem.
+Forms renders the backend-driven Enso form contract exposed by `laravel-enso/forms`.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
-
-Should be used with its backend [sibling](https://github.com/laravel-enso/FormBuilder)
+The package combines:
+- a renderless engine that loads the form template, tracks state, computes payloads, and submits data
+- Bulma shells that render headers, sections, tabs, actions, and fields
+- field components that map backend field metadata to concrete UI controls
 
 ## Installation
 
 Install the package:
-```
+
+```bash
 yarn add @enso-ui/forms
 ```
 
-(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+## Features
 
-Note that this package has a couple of external dependencies. 
-Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more info.
-
-### Exports
-
-`@enso-ui/forms/bulma`:
-- `VueForm`,
-- `EnsoForm`,
-- `FormField`,
-- `Action`,
-- `DateField`,
-- `InputField`,
-- `MoneyField`,
-- `SelectField`,
-- `SwitchField`,
-- `TextareaField`,
-- `TimeField`,
-
-`@enso-ui/forms/renderless`:
-- `CoreForm`,
+- renders full Enso forms from backend JSON templates
+- exposes `VueForm` and `EnsoForm` as the main public shells
+- supports standard field types such as input, select, money, date, time, switch, textarea, and wysiwyg
+- supports custom field slots and custom section slots
+- supports autosave, tabbed forms, undo, create/show/destroy actions, and redirect flows
+- exposes public helpers for filling values, reading dirty state, showing and hiding tabs, and manipulating fields
 
 ## Usage
 
-Import the desired forms(s):
-```js
-import { EnsoForm, VueForm } from '@enso-ui/forms/bulma';
-import CoreForm from '@enso-ui/forms/renderless';
-```
-
-### CoreForm
-
-Renderless component.
-
-#### Props 
-- `path` - `string`, required - the URI for the form data/template, 
-    in which case the `template` parameter is no longer required
-- `template` - `object`, required - the form template object, which may be passed directly,
-    in which case the `path` parameter is no longer required
-- `disableState` - `boolean`, optional, default `false` - if true, then the form state monitoring 
-    functionality is disabled (and for example, you won't know when the form is dirty)
-- `errorHandler` - `function`, optional - an error handling function for the axios requests
-- `i18n` - `Function`, optional - the function that performs translations
-- `locale` - `string`, optional, default `en` - used for the date fields
-- `params` - `object`, optional - parameters that get sent to the backend when fetching the form data
-
-#### Methods
-
-The components has several methods, of which the following are most useful,
-making sense to have them available in the CoreForm's concrete implementations:
-
-- `fetch()`, fetches the form data & template from the back-end
-- `customFields()`, returns an array of custom fields
-- `customSections()`, returns an array of custom sections
-- `tabs()`, returns an array of tabs
-- `sectionFields(section)`, returns an array of non hidden fields for the given section
-- `sectionCustomFields(section)`, returns an array of non hidden custom fields for the given section
-- `sections(tab)`, returns an array of sections for the given tab
-- `field(field)`, returns the field with the given name
-- `param(field)`, returns the parameter with the given name
-- `routeParam(field)`, returns the route parameter with the given name
-- `fill(data)`, performs a 'fill' for the field names/values given in the data parameter
-- `setOriginal()`, updates the 'original' data store with the current form data state
-- `hideTab(tab)`, sets the given tab as hidden
-- `showTab(tab)`, sets the given tab as visible
-- `hideField(fieldName)`, sets the given field as hidden
-- `showField(fieldName)`, sets the given field as visible
-
-#### Events
-
-The following event are emitted:
-- `ready`, on form init and after form fetch. The payload is the entire component
-- `loaded`, after fetching the form. The payload is the response data.
-- `show`, when clicking the show button. There is no payload.
-- `create`, when clicking the create button. There is no payload.
-- `submit`, after performing a submit. The payload is the response data.
-- `error`, after a submit error. The payload is the response error.
-- `destroy`, after performing a destroy. There is no payload.
-- `undo`, after performing an undo. There is no payload.
-
-### VueForm
-
-The bulma styled form component built on top of the renderless version of the component.
-
-#### Example:
-```vue
-<vue-form
-    path="/api/system/menus/2/edit"/>
-```
-
-#### Methods
-The following methods are cascaded from the renderless CoreForm component:
-
-- `fetch()`, fetches the form data & template from the back-end
-- `submit()`, submits the form
-- `field(field)`, returns the field with the given name
-- `param(field)`, returns the parameter with the given name
-- `routeParam(field)`, returns the route parameter with the given name
-- `fill(data)`, performs a 'fill' for the field names/values given in the data parameter
-- `setOriginal()`, updates the 'original' data store with the current form data state
-- `hideTab(tab)`, sets the given tab as hidden
-- `showTab(tab)`, sets the given tab as visible
-
-#### Slots
-- if any fields are marked as custom fields in the form template, then a scoped slot is rendered for each of these
-fields. The name of the slot is the field's name. The slot exposes the `props` object 
-that has to be bound to the custom field, besides your custom logic.
+Basic usage with `VueForm`:
 
 ```vue
-<template v-slot:group_id="props">
-    <form-field v-bind="props"
-        @input="pivotParams.userGroups.id = $event"/>
-</template>
-```
-- you may also use the `actions-left` and `actions-right` slots to place controls in the 
-form's actions area 
-### EnsoForm.vue
-
-Designed to be used within the Enso ecosystem, requiring less configuration from the dev.
-
-#### Methods
-The following methods are cascaded from the renderless CoreForm component, 
-through the VueForm component and available here:
-
-- `fetch()`, fetches the form data & template from the back-end
-- `submit()`, submits the form      
-- `field(field)`, returns the field with the given name
-- `param(field)`, returns the parameter with the given name
-- `routeParam(field)`, returns the route parameter with the given name
-- `fill(data)`, performs a 'fill' for the field names/values given in the data parameter
-- `setOriginal()`, updates the 'original' data store with the current form data state
-- `hideTab(tab)`, sets the given tab as hidden
-- `showTab(tab)`, sets the given tab as visible
-- `hideField(fieldName)`, sets the given field as hidden
-- `showField(fieldName)`, sets the given field as visible
-
-#### Example
-
-```vue
-<enso-form class="box has-background-light raises-on-hover"/>
-```
-
-```vue
-<enso-form class="box has-background-light raises-on-hover"
-    :path="route('system.menus.edit', 1, false)"/>
-```
-
-```vue
-<enso-form class="box has-background-light raises-on-hover"
-    path="/api/system/menus/2/edit"/>
-```
-
-#### Example for showing/hiding tabs
-
-##### Vue Template
-```vue
-<template>
-    <enso-form class="box has-background-light raises-on-hover"
-        @ready="init"
-        ref="form">
-        <template v-slot:showtab="props">
-            <form-field v-bind="props"
-                @input="toggleTab2($event)"/>
-        </template>
-    </enso-form>
-</template>
-
-<script>
-    import { EnsoForm, FormField } from '@enso-ui/forms/bulma';
-    
-    export default {
-        name: 'Create',
-        components: { EnsoForm, FormField },
-        data: () => ({
-    		ready: false,
-        }),
-        methods:{
-            init(){
-                this.ready = true;
-            },
-            toggleTab2: function (event) {
-                if (this.ready) {
-                    if(event){
-                        this.$refs.form.showTab('Tab 2');
-                    }else{
-                        this.$refs.form.hideTab('Tab 2');
-                    }
-                }
-            },
-        }
-    };
+<script setup>
+import { VueForm } from '@enso-ui/forms/bulma';
 </script>
+
+<VueForm
+    :http="http"
+    :path="route('administration.users.edit', 1)" />
 ```
 
-#### Example for showing/hiding fields
+Enso-aware usage with route and bookmark integration:
 
-Some forms require display-dependencies between one or more field and others. Example scenario : an entity model could have or not an address, therefore there is a checkbox field inside the form called "Has Address" that will show or hide some form fields related to address details.
-
-##### Vue Template
 ```vue
-<template>
-    <enso-form class="box has-background-light raises-on-hover"
-        @ready="init"
-        ref="form">
-        <template v-slot:hasAddress="props">
-            <form-field v-bind="props"
-                @input="toggleAddressFields($event)"/>
-        </template>
-    </enso-form>
-</template>
-
-<script>
-    import { EnsoForm, FormField } from '@enso-ui/forms/bulma';
-    
-    export default {
-        name: 'Create',
-        components: { EnsoForm, FormField },
-        data: () => ({
-    		ready: false,
-        }),
-        methods:{
-            init(){
-                this.ready = true;
-            },
-            toggleSnmpReady: function (event) {
-                if (this.ready) {
-                    if(event){
-                        this.$refs.form.showField('address_field_1');
-                        this.$refs.form.showField('address_field_2');
-                        ...
-                    } else {
-                        this.$refs.form.hideField('address_field_1');
-                        this.$refs.form.hideField('address_field_2');
-                        ...
-                    }
-                }
-            },
-        }
-    };
+<script setup>
+import { EnsoForm } from '@enso-ui/forms/bulma';
 </script>
+
+<EnsoForm :disable-state="false" />
 ```
 
-#### Props
+## API
 
-All the props from the renderless component can be provided here
+### Bulma Exports
 
-#### Components for custom fields
+Import from `@enso-ui/forms/bulma`.
 
-Starting with v1.1.0 you should always use `FormField` when dealing with slots.
+Exported components:
+- `VueForm`
+- `EnsoForm`
+- `FormField`
+- `FormFieldGroup`
+- `Action`
+- `DateField`
+- `InputField`
+- `MoneyField`
+- `SelectField`
+- `SwitchField`
+- `TextareaField`
+- `TimeField`
 
-If you want further customization the package provides a component for each type of field:
+### `VueForm`
 
-##### DateField
-##### InputField
-##### MoneyField
-##### SelectField
-##### SwitchField
-##### TextareaField.vue
-##### TimeField.vue
-##### WysiwygField.vue
+Framework-agnostic form shell that wraps `CoreForm` and renders the standard Bulma form layout.
 
-Don't forget to add your own label when when using the dedicated component.
+Responsibilities:
+- fetches the backend form contract through `CoreForm`
+- renders the loader skeleton while the contract is loading
+- renders `FormContent`, default field slots, section slots, and action slots
+- proxies the public helper methods exposed by `CoreForm`
 
-#### Example:
-```vue
-<label class="label">My Field</label>
-<date-field v-bind="props"
-    v-bind="props"
-    @input="doSomethingExtra"/>
-```
+Public methods:
+- `fetch()`
+- `submit()`
+- `field(name)`
+- `param(name)`
+- `routeParam(name)`
+- `fill(state)`
+- `setOriginal()`
+- `undo()`
+- `hideTab(tab)`
+- `showTab(tab)`
+- `hideField(field)`
+- `showField(field)`
 
-##### DateField
-The component takes the following required properties:
-- `errors`, the form's errors object
-- `field`, the form's field object, for this date field
-- `i18n`, the form's translation function, for this date field
-- `locale`, the locale string to be used for the datepicker used under the hood
-- `timeOnly`, the boolean flag that indicates that the component should only display time
+Computed public state:
+- `data`
+- `formData`
+- `dirty`
+- `dirtyFields`
+- `errors`
+- `customFields`
+- `customSections`
 
-##### InputField
-The component takes the following required properties:
-- `errors`, the form's errors object
-- `field`, the form's field object, for this input field
-- `i18n`, the form's translation function, for this date field
+### `EnsoForm`
 
-##### MoneyField
-The component takes the following required properties:
-- `errors`, the form's errors object
-- `field`, the form's field object, for this money field
-- `i18n`, the form's translation function, for this date field
+Application-aware shell built on top of `VueForm`.
 
-##### SelectField
-The component takes the following required properties:
-- `errors`, the form's errors object
-- `field`, the form's field object, for this select field
-- `i18n`, the form's translation function, for select date field
-- `customParams`, the custom params object passed to the VueSelect used under the hood
-- `params`, the params object passed to the VueSelect used under the hood
-- `pivotParams`, the pivot params object passed to the VueSelect used under the hood
+Additional behavior:
+- injects `http`, `i18n`, `route`, `errorHandler`, `routerErrorHandler`, and `toastr`
+- derives `path` from the current route when none is passed through attrs
+- uses Enso UI preferences to resolve the current language
+- integrates with bookmarks state persistence when form state tracking is enabled
+- shows success toasts after `submit` and `destroy`
 
-##### SwitchField
-The component takes the following required properties:
-- `errors`, the form's errors object
-- `field`, the form's field object, for this switch field
+Props:
+- `disableState: boolean = false`
 
+Public methods:
+- all methods exposed by `VueForm`
 
-##### TextareaField
-The component takes the following required properties:
-- `field`, the form's field object, for this textarea field
+### `CoreForm`
 
-##### TimeField
-The component takes the properties as the `DateField` component above.
+Renderless engine that owns the backend contract and form lifecycle.
 
-##### WysiwygField
-The component takes the following required properties:
-- `field`, the form's field object, for this visual editor field
+Props:
+- `disableState: boolean = false`
+- `errorHandler: Function`
+- `http: Function`
+- `i18n: Function = key => key`
+- `locale: string = 'en'`
+- `params: object | null = null`
+- `path: string`
+- `routerErrorHandler: Function`
+- `submitPath: string | null = null`
+- `template: object | null = null`
 
-## Questions & Issues
+Emits:
+- `create`
+- `destroy`
+- `error`
+- `loaded`
+- `ready`
+- `show`
+- `submitting`
+- `submit`
+- `submitted`
+- `template-fetch-error`
+- `undo`
 
-For questions and support please use the issues functionality
-for this package's github repository.
+Provided helpers for descendants:
+- `create`
+- `customFields`
+- `customSections`
+- `destroy`
+- `dirty`
+- `disableState`
+- `errorCount`
+- `errorHandler`
+- `errors`
+- `fieldBindings`
+- `fieldType`
+- `focusError`
+- `http`
+- `i18n`
+- `locale`
+- `params`
+- `sectionCustomFields`
+- `sections`
+- `show`
+- `state`
+- `submit`
+- `tabbed`
+- `tabs`
+- `undo`
+- `visibleSection`
 
-Please make sure to search for existing issues before creating a new issue,
-and when opening a new issue, fill the required information in the issue template.
+Public methods:
+- `fetch()`
+- `submit()`
+- `field(name)`
+- `param(name)`
+- `routeParam(name)`
+- `fill(data)`
+- `setOriginal()`
+- `undo()`
+- `hideField(fieldName, forceUpdate = true)`
+- `showField(fieldName, forceUpdate = true)`
+- `hideSection(section, forceUpdate = true)`
+- `showSection(section, forceUpdate = true)`
+- `hideTab(tab)`
+- `showTab(tab)`
+- `customFields()`
+- `customSections()`
+- `dirty()`
+- `dirtyFields()`
+- `errorCount(tab)`
 
-Issues not conforming to the guidelines may be closed immediately.
+Field type mapping:
+- `input + text|number|email|password|encrypt` -> `InputField`
+- `input + checkbox` -> `SwitchField`
+- `input + money` -> `MoneyField`
+- `select` -> `SelectField`
+- `textarea` -> `TextareaField`
+- `datepicker` -> `DateField`
+- `timepicker` -> `TimeField`
+- `wysiwyg` -> `WysiwygField`
+
+### `FormField`
+
+Single-field wrapper that resolves the field component automatically.
+
+Props:
+- `field: object`
+
+Behavior:
+- resolves the concrete field component through `fieldType(field)`
+- wires shared props such as `errors`, `http`, `i18n`, and `locale`
+- renders field labels, tooltips, validation messages, and autosave hooks
+
+### `FormFieldGroup`
+
+Field wrapper with addon and grouped layout support.
+
+Props:
+- `field: object`
+- `hasAddons: boolean = false`
+- `isGrouped: boolean = false`
+
+Slots:
+- `left`
+- `right`
+- default
+
+Behavior:
+- renders the same automatic field resolution as `FormField`
+- adds left and right slots around the concrete control
+- is useful for paired controls such as buttons, prefixes, suffixes, and grouped actions
+
+### `Action`
+
+Reusable button renderer used by `FormActions`.
+
+Props:
+- `button: object`
+- `disabled: boolean = false`
+- `loading: boolean = false`
+- `tag: 'a' | 'button'`
+
+Emits:
+- `click`
+
+Behavior:
+- maps known Enso action icon names such as `check`, `plus`, `eye`, `undo`, and `trash-alt`
+- renders button label and icon according to the backend action payload
+
+### `InputField`
+
+Standard text, number, email, password, and encrypted input renderer.
+
+Props:
+- `errors: object`
+- `field: object`
+- `i18n: Function`
+- `tabindex: number | null = null`
+
+Emits:
+- `focus`
+- `blur`
+- `changed`
+
+Behavior:
+- uses numeric `v-model.number` for numeric content
+- converts `encrypt` to a password input
+- shows `RevealPassword` when the field allows reveal mode
+- clears the field error when the model changes
+
+### `SelectField`
+
+Form wrapper around `@enso-ui/select`.
+
+Props:
+- `errors: object`
+- `field: object`
+- `http: Function | null = null`
+- `i18n: Function`
+- `customParams: object = {}`
+- `params: object = {}`
+- `pivotParams: object = {}`
+
+Emits:
+- `changed`
+
+Public methods:
+- `clear()`
+- `fetch()`
+
+Behavior:
+- passes backend metadata straight to `VueSelect`
+- merges field-level params with passed params
+- updates `field.meta.options` after fetch
+
+### `DateField`
+
+Date and datetime renderer built on top of `@enso-ui/datepicker`.
+
+Props:
+- `errors: object`
+- `field: object`
+- `i18n: Function`
+- `locale: string`
+- `timeOnly: boolean = false`
+
+Emits:
+- `changed`
+
+Public methods:
+- `clear()`
+
+Behavior:
+- enables `altInput` automatically when `field.meta.altFormat` exists
+- reuses the same component for time-only mode through `TimeField`
+
+### `TimeField`
+
+Thin wrapper around `DateField` with `timeOnly` enabled.
+
+Behavior:
+- uses the `DateField` contract
+- renders time-only pickers while preserving the same backend field metadata format
+
+### `MoneyField`
+
+Money input built on top of `@enso-ui/money`.
+
+Props:
+- `errors: object`
+- `field: object`
+- `i18n: Function`
+- `tabindex: number | null = null`
+
+Emits:
+- `changed`
+
+Behavior:
+- forwards backend money metadata to the `Money` component
+- renders `ErrorIcon` when validation fails
+
+### `SwitchField`
+
+Boolean checkbox renderer built on top of `@enso-ui/switch`.
+
+Props:
+- `errors: object`
+- `field: object`
+
+Emits:
+- `changed`
+
+Behavior:
+- disables itself when the backend field is disabled or readonly
+
+### `TextareaField`
+
+Textarea renderer for multiline fields.
+
+Props:
+- `field: object`
+
+Emits:
+- `changed`
+
+Behavior:
+- reads `errors` and `i18n` from injection
+- honors `field.meta.resize`
+- clears validation errors on update
+
+### Internal Layout Components
+
+These components are not exported from `bulma/index.js`, but they define the default form layout used by `VueForm` and `EnsoForm`:
+- `FormContent` orchestrates the header, sections, tabs, and footer actions
+- `FormHeader` renders the form title and subtitle block
+- `FormSection` lays out rows and columns inside a section
+- `FormTabs` renders tabbed forms and error counters per tab
+- `FormActions` renders back, destroy, show, create, store, update, error-clear, and undo actions
+- `Confirmation` renders the destroy confirmation inline
+
+## Companion Backend Package
+
+- [`laravel-enso/forms`](https://docs.laravel-enso.com/backend/forms.html) [↗](https://github.com/laravel-enso/forms)
+
+## Depends On
+
+- [`@enso-ui/datepicker`](https://docs.laravel-enso.com/frontend/datepicker.html) [↗](https://github.com/enso-ui/datepicker)
+- [`@enso-ui/directives`](https://docs.laravel-enso.com/frontend/directives.html) [↗](https://github.com/enso-ui/directives)
+- [`@enso-ui/divider`](https://docs.laravel-enso.com/frontend/divider.html) [↗](https://github.com/enso-ui/divider)
+- [`@enso-ui/laravel-validation`](https://docs.laravel-enso.com/frontend/laravel-validation.html) [↗](https://github.com/enso-ui/laravel-validation)
+- [`@enso-ui/loader`](https://docs.laravel-enso.com/frontend/loader.html) [↗](https://github.com/enso-ui/loader)
+- [`@enso-ui/modal`](https://docs.laravel-enso.com/frontend/modal.html) [↗](https://github.com/enso-ui/modal)
+- [`@enso-ui/money`](https://docs.laravel-enso.com/frontend/money.html) [↗](https://github.com/enso-ui/money)
+- [`@enso-ui/select`](https://docs.laravel-enso.com/frontend/select.html) [↗](https://github.com/enso-ui/select)
+- [`@enso-ui/vue-switch`](https://docs.laravel-enso.com/frontend/switch.html) [↗](https://github.com/enso-ui/switch)
+- [`@enso-ui/tabs`](https://docs.laravel-enso.com/frontend/tabs.html) [↗](https://github.com/enso-ui/tabs)
+- [`@enso-ui/wysiwyg`](https://docs.laravel-enso.com/frontend/wysiwyg.html) [↗](https://github.com/enso-ui/wysiwyg)
 
 ## Contributions
 
@@ -361,4 +430,9 @@ Thank you to all the people who already contributed to Enso!
 
 ## License
 
-[ISC](https://opensource.org/licenses/ISC)
+[MIT](https://github.com/enso-ui/forms/blob/master/LICENSE)
+
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/enso-ui/forms/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 12:57:48 PM</div>
+</div>

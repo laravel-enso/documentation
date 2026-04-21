@@ -4,61 +4,71 @@ home: true
 actionText: Get Started →
 actionLink: /guide/
 features:
-  - title: Single Page App
-    details: Aims to deliver a robust boilerplate for any complex business application, with superiour performance
-  - title: Laravel, Vue, Bulma
-    details: The beauty of Bulma combined with the flexibility of Vue powered by a Laravel Back End
-  - title: Modular, Extensible
-    details: Made up of tens of packages and modules. Easily to extend and customize
+  - title: Backend-driven UI
+    details: Build complex business flows with Laravel APIs, Vue pages, backend form contracts, and backend table contracts working together.
+  - title: Modular packages
+    details: Compose the platform from focused backend and frontend packages, then keep only the modules your application needs.
+  - title: Production-oriented
+    details: Start from a real business application shell with authentication, permissions, preferences, localisation, forms, tables, documents, charts, and more.
 footer: MIT Licensed | Copyright © 2018-present Laravel Enso
 ---
 
-### Try it up
+Laravel Enso is a modular application platform for building admin panels and business software with Laravel and Vue.
 
-``` bash
-# clone in a new project folder
+It combines a Laravel backend, an Enso UI frontend, and a large set of ecosystem packages that cover the common infrastructure of complex internal applications.
+
+### Requirements
+
+::: warning Runtime requirements
+`PHP 8.3+` | `Node.js 20+` | `MySQL 8+` | `Composer` | `Yarn`
+:::
+
+### Try it out
+
+```bash
+# clone into a new project folder
 git clone https://github.com/laravel-enso/enso.git --depth 1
 
-# install the composer dependencies
+# install backend dependencies
 composer install
 
-# create the .env file from the example 
+# create and configure the backend environment
 cp .env.example .env
-
-# configure the .env file, entering name, DB details, etc
-
-# Generate the key
 php artisan key:generate
-
-# run the migrations
 php artisan migrate --seed
 
-# cd into the client server
+# install frontend dependencies
 cd client
-
-# create the .env file from the example and customize if needed
 cp .env.example .env
-
-# install the npm dependencies
 yarn
 
-# build the assets
+# build the frontend assets
 yarn build
+```
 
-#or, for live reload, you can use
+For live reload during development, run:
+
+```bash
 yarn serve
 ```
 
-::: tip Login
-user: admin@laravel-enso.com / password: password
+### Default login
+
+::: tip
+`admin@laravel-enso.com` / `password`
 :::
 
-*fully working in less than 5 minutes!*
+### What you get
+
+- authentication, authorization, roles, permissions, and user preferences
+- backend-driven forms and backend-driven tables
+- localisation, themes, notifications, charts, comments, documents, and file handling
+- a package ecosystem for extending both backend and frontend consistently
 
 ---
 
 ### Thanks
 
-Built with <span style="color:red"> &#10084;&#65039;</span>on Laravel 6.x, Bulma 0.7.x, VueJS 2.6.x.
+Built with <span style="color:red"> &#10084;&#65039;</span> + <img src="/laravel.svg" alt="Laravel" style="height:1.2em;vertical-align:-0.18em"> + <img src="/vuejs.svg" alt="VueJS" style="height:1.2em;vertical-align:-0.18em"> + <img src="/bulma.svg" alt="Bulma" style="height:1.2em;vertical-align:-0.18em">.
 
 **Special thanks** to [Taylor Otwell](https://laravel.com/), [Jeffrey Way](https://laracasts.com), [Evan You](https://vuejs.org/) and [Jeremy Thomas](https://bulma.io).

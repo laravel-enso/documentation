@@ -1,292 +1,84 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Accessories
 
-![npm license](https://img.shields.io/npm/l/@enso-ui/accessories.svg) 
-![npm download](https://img.shields.io/npm/dm/@enso-ui/accessories.svg) 
-![GitHub top language](https://img.shields.io/github/languages/top/enso-ui/accessories.svg) 
-![GitHub issues](https://img.shields.io/github/issues/enso-ui/accessories.svg) 
-![npm version](https://img.shields.io/npm/v/@enso-ui/accessories.svg) 
+[![License](https://img.shields.io/badge/license-MIT-10b981.svg)](https://github.com/enso-ui/accessories/blob/master/LICENSE)
+[![Stable](https://img.shields.io/badge/stable-5.0.3-2563eb.svg)](https://www.npmjs.com/package/@enso-ui/accessories)
+[![Downloads](https://img.shields.io/npm/dm/@enso-ui/accessories.svg)](https://www.npmjs.com/package/@enso-ui/accessories)
+[![Vue](https://img.shields.io/badge/vue-3.x-42b883.svg)](https://vuejs.org/)
+[![JavaScript](https://img.shields.io/badge/javascript-ES2020-f7df1e.svg)](https://developer.mozilla.org/docs/Web/JavaScript)
+[![SCSS](https://img.shields.io/badge/scss-supported-c6538c.svg)](https://sass-lang.com/)
+[![npm](https://img.shields.io/badge/npm-package-cb3837.svg)](https://www.npmjs.com/package/@enso-ui/accessories)
+[![Issues](https://img.shields.io/github/issues/enso-ui/accessories.svg)](https://github.com/enso-ui/accessories/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/enso-ui/accessories.svg)](https://github.com/enso-ui/accessories/pulls)
 
-Accessories
+## Description
 
-This package contains a suite of reusable components that can be used exclusively within the Enso ecosystem.
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+Accessory tabs wrapper with translated labels and per-tab counters for Enso UI.
 
 ## Installation
 
 Install the package:
-```
+
+```bash
 yarn add @enso-ui/accessories
 ```
 
-(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+This package is also available through the full `enso-ui` workspace bundle.
 
-Import the desired component(s):
-```js
-import {
-    Accessories, Addresses, Comments, Discussions, Documents,
-} from '@enso-ui/accessories/bulma';
-```
+## Features
 
-Note that this package has a couple of external dependencies. 
-Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more info.
-
-### Exports
-
-`@enso-ui/accessories/bulma`:
-- `Accessories`,
-- `AddressesCard`,
-- `Addresses`,
-- `RoAddresses`,
-- `CommentsCard`,
-- `Comments`,
-- `Discussions`,
-- `DocumentsCard`,
-- `Documents`,
-- `QuickView`,
+- wraps `@enso-ui/tabs/bulma` and replaces the default tab-label renderer
+- switches between translated text labels and Font Awesome icons through the `icons` prop
+- exposes a mutable `count` map to the default slot so tab panes can publish badges
+- renders dark Bulma counter tags next to any tab that sets a positive count
 
 ## Usage
 
-### Accessories.vue
-
-The bulma styled container for the various components that acts in a similar fashion to the Tabs.
-
-#### Example:
 ```vue
-import { Accessories, Addresses, Comments } from '@enso-ui/accessories/bulma';
-import { Tab } from `@enso-ui/tabs/bulma`;
+<script setup>
+import Accessories from '@enso-ui/accessories/bulma';
+import { Tab } from '@enso-ui/tabs/bulma';
+</script>
 
-<accessories>
-    <template slot-scope="{ count }">
-        <tab keep-alive
-            id="Addresses">
-            <addresses :id="myCompanyId"
-                type="LaravelEnso\Companies\app\Models\Company"
-                @update="$set(count, 'Addresses', $refs.addresses.count)"
-                ref="addresses"/>
-        </tab>
-        <tab keep-alive
-            id="Comments">
-            <comments :id="myCompanyId"
-                type="LaravelEnso\Companies\app\Models\Company"
-                @update="$set(count, 'Comments', $refs.comments.count)"
-                ref="comments"/>
-        </tab>
-    </template>
-</accessories>
+<Accessories v-slot="{ count }">
+    <tab id="Comments">
+        <CommentsCard @update="count.Comments = 6" />
+    </tab>
+    <tab id="Documents">
+        <DocumentsCard @update="count.Documents = 2" />
+    </tab>
+</Accessories>
 ```
 
-The exposed `count` object is used to display a counter badge on each tab and it's up to each tab content to manage this count.
+## API
 
-The accessory components can be attached to any model so that you could have, for instance, addresses for companies and addresses for people. They all work with a corresponding backend package that is built around a Model that has polymorphic relations to the attached models. 
+### `Accessories`
 
-::: warning Note
-Being built around a polymorphic relation all the accessory components have two required props:
-- `id` - `number`, required, the id of the morphable model
-- `type` - `string`, required, default `null`, the type of the morphable model
-:::
+Default export that wraps `EnsoTabs` and customizes the label slot.
 
-::: tip Tip
-The components can be used within the `Accesories` or independently.
-:::
+Import: `@enso-ui/accessories/bulma`
 
-##### Properties
-- `icons`, boolean, optional, default `false`, if true, shows the icons 
-    for the tabs
+Props:
+- `icons: boolean = false` toggles icon-based labels instead of translated text labels.
 
-### Addresses
+Events:
+- No public emits.
 
-Bulma styled address manager components
+Slots:
+- `default` receives `{ count }`, a mutable object keyed by tab id.
 
-Should be used with their [backend sibling](https://github.com/laravel-enso/addresses)
+## Depends On
 
-#### Addresses.vue
-
-##### Example:
-
-```vue
-<addresses :id="myCompanyId"
-   type="LaravelEnso\Companies\app\Models\Company"/>
-```
-
-##### Extra Properties:
-
-- `query` - `string`, optional, default '', addresses filtering search query string
-
-##### Customization
-
-If you need to customize the address card, you may also pass a different template using the 'address' slot, 
-provided for this purpose.
-
-Also, when declaring custom fields in the address form template, respective slots will be be generated in the 
-`AddressForm` component, so you may also add further form customizations.
-
-As an example of such customization, you may take a look at the 
-[RoAddresses](https://github.com/laravel-enso/RoAddresses) package and the `RoAddress.vue` component.
-
-#### AddressesCard.vue
-
-`Addresses` in a `Card` with some additional options
-
-##### Example:
-
-```vue
-<addresses-card collapsed
-   title="Company Addresses"
-   :id="myCompanyId"
-   type="LaravelEnso\Companies\app\Models\Company"/>
-```
-
-##### Extra Properties:
-
-- `icon` - `string|array|object`, optional - default 'faMapSigns', the icon for the card title
-- `collapsed` - `boolean`, optional, default `false` - determines the collapsed stated of the card on initial render
-- `title` - `string`, optional - title for the card
-
-### RoAddresses
-
-Romanian Addresses customization for Addresses
-
-Should be used with their [backend sibling](https://github.com/laravel-enso/ro-addresses)
-
-#### RoAddresses.vue
-
-##### Example:
-
-```vue
-<ro-addresses :id="companyId"
-    type="company"
-    ref="addresses"/>
-```
-
-Takes the same properties as Addresses, see above.
-
-### Comments
-
-Bulma styled comments manager components.
-
-Should be used with their [backend sibling](https://github.com/laravel-enso/CommentsManager)
-
-#### Comments.vue
-
-##### Example:
-
-```vue
-<comments :id="myCompanyId"
-   type="LaravelEnso\Companies\app\Models\Company"/>
-```
-
-##### Extra Properties:
-
-- `query` - `string`, optional - used for filtering the comments
-
-#### CommentsCard.vue
-
-`Comments` in a `Card` with some additional options
-
-##### Example:
-
-```vue
-<comments-card collapsed
-   title="Posted Comments"
-   :id="myCompanyId"
-   type="LaravelEnso\Companies\app\Models\Company"/>
-```
-
-##### Extra Properties:
-- `icon` - `string|array|object`, optional, default `faComments`, the icon for the card
-- `collapsed` - `boolean`, optional, default `false`, if true, the card is collapsed
-- `title` - `string`, optional, default '', the title for the card
-
-### Discussions
-
-Bulma discussion manager components.
-
-Should be used with their [backend sibling](https://github.com/laravel-enso/Discussions)
-
-#### Discussions.vue
-
-##### Example:
-
-```vue
-<discussions :id="myCompanyId"
-   type="LaravelEnso\Companies\app\Models\Company"/>
-```
-
-### Documents
-
-Bulma styled document manager components.
-
-Should be used with their [backend sibling](https://github.com/laravel-enso/DocumentssManager)
-
-#### Documents.vue
-
-##### Example:
-
-```vue
-<documents :id="myCompanyId"
-   type="LaravelEnso\Companies\app\Models\Company"/>
-```
-
-##### Extra Properties:
-
-- `query` - `string`, optional - used for filtering documents
-- `compact` - `boolean`, optional, default `false` - if true a compact display mode is used
-- `disableControls` - `boolean`, optional, default `false` - if true disables the controls
-
-#### DocumentsCard.vue
-
-##### Example:
-
-```vue
-<documents-card collapsed
-   title="Uploaded Documents"
-   :id="myCompanyId"
-   type="LaravelEnso\Companies\app\Models\Company"/>
-```
-
-##### Extra Properties:
-- `icon` - `string|array|object`, optional, default `faCopy`, the icon for the card
-- `collapsed` - `boolean`, optional, default `false` - controls the card initial render state
-- `title` - `string`, optional - the title for the card
-
-#### QuickView.vue
-
-A simple bulma styled, animated, toggable panel/container, meant to optionally show
-other controls/components.
-
-Its visibility is meant to be externally controlled as the component does not emit any events
-and does not have any properties or controls.
-
-#### Example
-
-```vue
-<quick-view
-    @close="quickView = false"
-    v-if="quickView">
-    <p class="title is-5">{{i18n('Accessories')}}</p>
-    <accessories class="has-margin-top-medium">
-        <template slot-scope="{ count }">
-            <tab keep-alive
-                id="Documents">
-                <documents :id="id"
-                    :type="type"
-                    compact
-                    @update="$set(count, 'Documents', $refs.documents.count)"
-                    ref="documents"/>
-            </tab>
-        </template>
-    </accessories>
-</quick-view>
-```
-
-## Depends on
-
-Discussions are currently built with [vue-quill-editor](https://github.com/surmon-china/vue-quill-editor) & [quill](https://quilljs.com/) but in the near future we will migrate it on our own [wysiywg](https://github.com/enso-ui/wysiwyg)
+- [`@enso-ui/tabs`](https://docs.laravel-enso.com/frontend/tabs.html) [↗](https://github.com/enso-ui/tabs)
+- [`@fortawesome/vue-fontawesome`](https://github.com/FortAwesome/vue-fontawesome)
+- [`Bulma`](https://bulma.io/)
 
 ## Contributions
 
@@ -296,4 +88,9 @@ Thank you to all the people who already contributed to Enso!
 
 ## License
 
-[ISC](https://opensource.org/licenses/ISC)
+[MIT](https://github.com/enso-ui/accessories/blob/master/LICENSE)
+
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/enso-ui/accessories/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 9:21:31 PM</div>
+</div>

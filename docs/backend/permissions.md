@@ -1,66 +1,111 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Permissions
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f321064c5cc74a3b914aab81854266b4)](https://www.codacy.com/app/laravel-enso/permissions?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/permissions&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/94779938/shield?branch=master)](https://github.styleci.io/repos/94779938)
-[![License](https://poser.pugx.org/laravel-enso/permissions/license)](https://packagist.org/packages/laravel-enso/permissions)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/permissions/downloads)](https://packagist.org/packages/laravel-enso/permissions)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/permissions/version)](https://packagist.org/packages/laravel-enso/permissions)
+[![License](https://poser.pugx.org/laravel-enso/permissions/license)](https://github.com/laravel-enso/permissions/blob/master/LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/permissions/version)](https://packagist.org/packages/laravel-enso/permissions)
+[![Downloads](https://poser.pugx.org/laravel-enso/permissions/downloads)](https://packagist.org/packages/laravel-enso/permissions)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://github.com/laravel-enso/permissions/blob/master/composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/permissions.svg)](https://github.com/laravel-enso/permissions/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/permissions.svg)](https://github.com/laravel-enso/permissions/pulls)
 
-Permissions dependency for [Laravel Enso](https://github.com/laravel-enso/Enso)
+## Description
 
-This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+Permissions manages Enso route permissions and route-access checks.
 
-The front end assets that utilize this api are present in the [ui](https://github.com/enso-ui/ui) package.
+The package exposes CRUD, options, table init, table data, and Excel export endpoints for system permissions, and registers the `verify-route-access` middleware alias used to guard application routes.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
-
-[![Screenshot](https://laravel-enso.github.io/permissionsmanager/screenshots/bulma_029_thumb.png)](https://laravel-enso.github.io/permissionsmanager/screenshots/bulma_029.png)
+It is intended to work together with menus, roles, and users for route-level authorization.
 
 ## Installation
 
-Comes pre-installed in Enso.
+Install the package:
+
+```bash
+composer require laravel-enso/permissions
+```
+
+Run the package migrations:
+
+```bash
+php artisan migrate
+```
+
+Optional publish:
+
+```bash
+php artisan vendor:publish --tag=permissions-factories
+```
 
 ## Features
 
-- permissions are managed based on the user role
-- allows creating, updating and deleting of permissions for each route
-- has the `access-route` policy which can be used to check if the a user is authorized on a given route
-- comes with the `VerifyRouteAccess` middleware that checks against unauthorized access
+- Permission CRUD endpoints.
+- Options endpoint for select fields.
+- Table init, table data, and Excel export endpoints.
+- Route access middleware alias.
+- Integration with menus, roles, and users.
 
 ## Usage
 
-- inside `web.php` there is a route for each action within the application, and each route has the `name` attribute defined
-- for each route where we need to have authorization checks, we must define a permission, permission which needs to have the same name as the route
-- routes: 
-    - are nested, the resulting name looking something like `group1.group2...route`
-    - when creating new routes, be sure to follow the Enso convention and use camelCase (`myGroup.myRoute`) instead of snake_case(`my_group.my_route`) or mix-n-matching. 
-    This will make for a more consistent feel and also ensure the Enso logic will work as designed.
-- for each request we check the existence of the link between the user's role and the permission for the request's route
-- permissions' attributes:
-     - name: see above
-     - description - is human readable and is used when displaying a user's action history (on his profile page)
-     - type - may be `read` or `write` and is an informative flag
-     - is_default - flag which lets us know if a permission needs to be automatically allotted to any new role we create
-- for routes where we don't need to have authorization checks, permissions are not mandatory, **BUT**
-- if we want to log and display the users' actions, permissions become necessary, as they're used when displaying statistics
-- permissions are automatically grouped together, based on their segments, in the UI, for presentation and functional purposes, so 
-administrators can easily configure roles
+Main route group:
 
-## Publishes
+- `system.permissions.*`
 
-once a newer version is released, usually used with the `--force` flag
-- `php artisan vendor:publish --tag=permissions-factory` - the factory for the `Permission` model
-- `php artisan vendor:publish --tag=enso-factories` - a common alias for when wanting to update the factories,
-once a newer version is released, usually used with the `--force` flag
+Middleware alias:
+
+- `verify-route-access`
+
+## API
+
+### HTTP routes
+
+- `GET api/system/permissions/create`
+- `POST api/system/permissions`
+- `GET api/system/permissions/{permission}/edit`
+- `PATCH api/system/permissions/{permission}`
+- `DELETE api/system/permissions/{permission}`
+- `GET api/system/permissions/initTable`
+- `GET api/system/permissions/tableData`
+- `GET api/system/permissions/exportExcel`
+- `GET api/system/permissions/options`
+
+### Middleware
+
+- `verify-route-access`
+
+## Depends On
+
+Required Enso packages:
+
+- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/dynamic-methods`](https://docs.laravel-enso.com/backend/dynamic-methods.html) [↗](https://github.com/laravel-enso/dynamic-methods)
+- [`laravel-enso/enums`](https://docs.laravel-enso.com/backend/enums.html) [↗](https://github.com/laravel-enso/enums)
+- [`laravel-enso/forms`](https://docs.laravel-enso.com/backend/forms.html) [↗](https://github.com/laravel-enso/forms)
+- [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
+- [`laravel-enso/menus`](https://docs.laravel-enso.com/backend/menus.html) [↗](https://github.com/laravel-enso/menus)
+- [`laravel-enso/migrator`](https://docs.laravel-enso.com/backend/migrator.html) [↗](https://github.com/laravel-enso/migrator)
+- [`laravel-enso/roles`](https://docs.laravel-enso.com/backend/roles.html) [↗](https://github.com/laravel-enso/roles)
+- [`laravel-enso/select`](https://docs.laravel-enso.com/backend/select.html) [↗](https://github.com/laravel-enso/select)
+- [`laravel-enso/tables`](https://docs.laravel-enso.com/backend/tables.html) [↗](https://github.com/laravel-enso/tables)
+- [`laravel-enso/users`](https://docs.laravel-enso.com/backend/users.html) [↗](https://github.com/laravel-enso/users)
+
+Companion frontend package:
+
+- [`@enso-ui/permissions`](https://docs.laravel-enso.com/frontend/permissions.html) [↗](https://github.com/enso-ui/permissions)
 
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-## License
+Thank you to all the people who already contributed to Enso!
 
-This package is released under the MIT license.
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/permissions/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 4:31:17 PM</div>
+</div>

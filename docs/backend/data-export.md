@@ -1,43 +1,165 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Data Export
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7ea7f7704b2044f9950074cf8afb6e3f)](https://www.codacy.com/app/laravel-enso/data-export?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/data-export&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/148101651/shield?branch=master)](https://github.styleci.io/repos/148101651)
-[![License](https://poser.pugx.org/laravel-enso/data-export/license)](https://packagist.org/packages/laravel-enso/data-export)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/data-export/downloads)](https://packagist.org/packages/laravel-enso/data-export)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/data-export/version)](https://packagist.org/packages/laravel-enso/data-export)
+[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/laravel-enso/data-export/blob/master/LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/data-export/version)](https://packagist.org/packages/laravel-enso/data-export)
+[![Downloads](https://poser.pugx.org/laravel-enso/data-export/downloads)](https://packagist.org/packages/laravel-enso/data-export)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://github.com/laravel-enso/data-export/blob/master/composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/data-export.svg)](https://github.com/laravel-enso/data-export/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/data-export.svg)](https://github.com/laravel-enso/data-export/pulls)
 
-Data Export structure dependency for [Laravel Enso](https://github.com/laravel-enso/Enso).
+## Description
 
-This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+Data Export adds tracked XLSX export generation to Enso.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+The package stores export state and progress, attaches the generated file to the Enso files system, supports both asynchronous query-based exports and synchronous in-memory exporters, and notifies users when the export finishes or fails.
 
-[![Watch the demo](https://laravel-enso.github.io/data-export/screenshots/bulma_001_thumb.png)](https://laravel-enso.github.io/data-export/screenshots/bulma_001.png)
+It is designed for backoffice flows where long-running exports should be observable, cancellable, and retained for a configurable period.
 
 ## Installation
 
-Comes pre-installed in Enso.
+Install the package:
+
+```bash
+composer require laravel-enso/data-export
+```
+
+Run the package migrations:
+
+```bash
+php artisan migrate
+```
+
+Optional publishes:
+
+```bash
+php artisan vendor:publish --tag=data-export-config
+php artisan vendor:publish --tag=data-export-mail
+```
+
+Default configuration:
+
+```php
+return [
+    'rowLimit' => env('EXPORT_ROW_LIMIT', 1000000),
+    'retainFor' => (int) env('EXPORT_RETAIN_FOR', 60),
+];
+```
+
+The package schedules `enso:data-export:purge` daily.
 
 ## Features
-- creates the structures and statuses necessary during the processes of exporting data
 
-## Data-Export model
-Has the following attributes:
-- `id`
-- `name`
-- `entries`
-- `status` 
-- `created_by`
-- `created_at`
+- Asynchronous XLSX exports based on a query builder.
+- Synchronous export support for classic Enso Excel exporters.
+- Export progress tracking and IO broadcasting support.
+- File attachment and cleanup integration through `laravel-enso/files`.
+- Hooks for setup, teardown, custom notifications, custom row actions, and custom sheet names.
+- Cancel endpoint and automatic retention purge.
+
+## Usage
+
+Implement the asynchronous exporter contract:
+
+```php
+use Illuminate\Database\Eloquent\Builder;
+use LaravelEnso\DataExport\Contracts\ExportsExcel;
+
+class OrdersExport implements ExportsExcel
+{
+    public function filename(): string
+    {
+        return 'orders.xlsx';
+    }
+
+    public function heading(): array
+    {
+        return ['Id', 'Number'];
+    }
+
+    public function query(): Builder
+    {
+        return Order::query();
+    }
+
+    public function attributes(): array
+    {
+        return ['id', 'number'];
+    }
+
+    public function mapping($row): array
+    {
+        return [$row->id, $row->number];
+    }
+}
+```
+
+Dispatch the export through the model:
+
+```php
+use LaravelEnso\DataExport\Models\Export;
+
+Export::excel(new OrdersExport());
+```
+
+## API
+
+### HTTP routes
+
+- `PATCH api/export/{export}/cancel`
+
+Route name:
+
+- `export.cancel`
+
+### Artisan commands
+
+- `enso:data-export:purge`
+
+### Extension points
+
+- `BeforeHook`
+- `AfterHook`
+- `CustomCount`
+- `CustomMax`
+- `CustomMin`
+- `CustomRowAction`
+- `CustomSheetName`
+- `Notifies`
+
+## Depends On
+
+Required Enso packages:
+
+- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/enums`](https://docs.laravel-enso.com/backend/enums.html) [↗](https://github.com/laravel-enso/enums)
+- [`laravel-enso/files`](https://docs.laravel-enso.com/backend/files.html) [↗](https://github.com/laravel-enso/files)
+- [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
+- [`laravel-enso/io`](https://docs.laravel-enso.com/backend/io.html) [↗](https://git.xtelecom.ro/laravel-enso/io)
+- [`laravel-enso/track-who`](https://docs.laravel-enso.com/backend/track-who.html) [↗](https://github.com/laravel-enso/track-who)
+
+Optional Enso companion package:
+
+- [`laravel-enso/excel`](https://docs.laravel-enso.com/backend/excel.html) [↗](https://github.com/laravel-enso/excel)
+
+Required external package:
+
+- [`openspout/openspout`](https://github.com/openspout/openspout) [↗](https://github.com/openspout/openspout)
 
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-## License
+Thank you to all the people who already contributed to Enso!
 
-This package is released under the MIT license.
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/data-export/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 10:59:47 AM</div>
+</div>

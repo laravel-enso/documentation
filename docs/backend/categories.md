@@ -1,84 +1,180 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Categories
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/aa6c0917f8c6425f87eb94c01d84b2f8)](https://www.codacy.com/app/laravel-enso/categories?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/categories&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/85484767/shield?branch=master)](https://github.styleci.io/repos/85484767)
-[![License](https://poser.pugx.org/laravel-enso/categories/license)](https://packagist.org/packages/laravel-enso/categories)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/categories/downloads)](https://packagist.org/packages/laravel-enso/categories)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/categories/version)](https://packagist.org/packages/laravel-enso/categories)
+[![License](https://poser.pugx.org/laravel-enso/categories/license)](https://github.com/laravel-enso/categories/blob/master/LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/categories/version)](https://packagist.org/packages/laravel-enso/categories)
+[![Downloads](https://poser.pugx.org/laravel-enso/categories/downloads)](https://packagist.org/packages/laravel-enso/categories)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://github.com/laravel-enso/categories/blob/master/composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/categories.svg)](https://github.com/laravel-enso/categories/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/categories.svg)](https://github.com/laravel-enso/categories/pulls)
 
-Categories package for [Laravel Enso](https://github.com/laravel-enso/Enso).
+## Description
 
-This package cannot work independently of the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+Categories is Laravel Enso's reusable hierarchical category management package.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+It provides the backend flow for storing, editing, listing, reordering, importing, and decorating nested categories, together with form and table builders that plug directly into the Enso admin UI. The package also supports optional category images, featured categories, select-friendly labels, and tree-shaped API payloads for frontend consumers.
 
 ## Installation
 
-* install the package using composer: `composer require laravel-enso/categories`
-* install the front-end ui package using yarn: `yarn add @enso-ui/categories`
-* adds the following alias in `client/vue.config.js`
-```
-configureWebpack: {
-    resolve: {
-        alias: {
-            //other aliases
-            '@categories': `${__dirname}/node_modules/@enso-ui/categories/src/bulma`,
-        },
-    },
-```
-* in `client/js/router.js` file, verify that `RouteMerger` is imported, or import it
+This package comes pre-installed in Laravel Enso distributions that need category administration.
 
-`import RouteMerger from '@core-modules/importers/RouteMerger';`
+For standalone package installation inside an Enso-based application:
 
-* make sure `routeImporter` is also imported
-
-`import routeImporter from '@core-modules/importers/routeImporter';`
-
-* then use `RouteMerger` to import front-end assets using the alias defined in `vue.config.js`
-
-```
-(new RouteMerger(routes))
-    //other routes
-    .add(routeImporter(require.context('./routes', false, /.*\.js$/)))
-    .add(routeImporter(require.context('@categories/routes', false, /.*\.js$/)));
+```bash
+composer require laravel-enso/categories
 ```
 
-* in `resources/js/app.js` import the package's icons
+The package auto-registers its service provider, loads its routes and migrations, and merges the `enso.categories` configuration namespace.
 
-`import '@categories/icons';`
+Run the migrations after installation:
 
-* make sure `hot module replacement` is **not** active, and run `yarn dev` or `npm run dev`
+```bash
+php artisan migrate
+```
 
-* run `php artisan migrate` to create table, add menu, permissions etc.
+If you want to publish the package config or its factory stubs:
+
+```bash
+php artisan vendor:publish --tag=categories-config
+php artisan vendor:publish --tag=categories-factory
+```
 
 ## Features
 
-- features a core categories functionality with a model, migrations, 
-routes, controllers, resources, index table, etc 
-- provides CRUD functionality for the `Category` model
-- defines the relationships with a parent category as well as multiple child categories
-- a `CategoryFactory` is included and can be published
-- the `Category` model also supports dynamic methods
+- Stores categories in a self-referencing tree through `parent_id`.
+- Keeps siblings ordered automatically through `order_index` and the global `Ordered` scope.
+- Exposes full CRUD endpoints for category administration.
+- Supports drag-and-drop style reorder and parent reassignment through the `move()` workflow.
+- Builds frontend-ready form payloads through the Enso forms builder.
+- Builds table metadata and data endpoints through the Enso tables builder.
+- Returns nested category trees with image metadata for UI consumers.
+- Generates select-compatible labels such as `Parent > Child`.
+- Supports optional category images through Enso files integration.
+- Restricts image uploads to top-level categories only.
+- Supports featured categories through the `is_featured` flag and `featured()` scope.
+- Includes import and validation classes for category dataset ingestion.
+- Provides helper methods for parent trees, subtree flattening, depth, and level calculations.
+
+::: warning Note
+Only top-level categories can have images attached. Upload validation blocks image uploads for nested categories.
+
+The maximum nesting depth is controlled through `CATEGORIES_MAX_NESTING_LEVEL`.
+:::
 
 ## Usage
 
-The package is meant to be installed on an Enso project and customized as required 
-(or used as it is if that is enough). 
+### Basic model usage
 
-Note that this package is a dependency of the [products](https://docs.laravel-enso.com/backend/products.html) Enso package.
+Create a top-level category:
 
-## Publishes
+```php
+use LaravelEnso\Categories\Models\Category;
 
-- `php artisan vendor:publish --tag=categories-factories` - the included category factory,
-   
-### Contributions
+$category = Category::create([
+    'name' => 'Solar Panels',
+    'is_featured' => true,
+]);
+```
+
+Create a child category:
+
+```php
+$subcategory = Category::create([
+    'name' => 'Monocrystalline',
+    'parent_id' => $category->id,
+    'is_featured' => false,
+    'order_index' => Category::nextIndex($category->id),
+]);
+```
+
+Move a category to a different parent and position:
+
+```php
+$subcategory->move(orderIndex: 1, parentId: null);
+```
+
+Read the nested tree:
+
+```php
+$tree = Category::tree();
+```
+
+Inspect hierarchy helpers:
+
+```php
+$level = $subcategory->level();
+$depth = $category->depth();
+$parentTree = $subcategory->parentTree();
+$flattenedIds = $category->flattenCurrentAndBelowIds();
+```
+
+### Select labels
+
+Use the label resource when a dropdown needs the full breadcrumb:
+
+```php
+$options = Category::with('recursiveParent')
+    ->get()
+    ->map
+    ->label();
+```
+
+### Frontend integration
+
+The package ships the backend routes and payload builders used by the Enso categories administration UI.
+
+## API
+
+### HTTP routes
+
+- `GET api/administration/categories`
+- `GET api/administration/categories/create`
+- `GET api/administration/categories/{category}/edit`
+- `GET api/administration/categories/options`
+- `POST api/administration/categories`
+- `GET api/administration/categories/initTable`
+- `GET api/administration/categories/tableData`
+- `POST api/administration/categories/{category}/upload`
+- `PATCH api/administration/categories/{category}/move`
+- `PATCH api/administration/categories/{category}`
+- `DELETE api/administration/categories/{category}`
+- `DELETE api/administration/categories/image/{category}`
+
+## Depends On
+
+Required Enso packages:
+
+- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/data-import`](https://docs.laravel-enso.com/backend/data-import.html) [↗](https://github.com/laravel-enso/data-import)
+- [`laravel-enso/dynamic-methods`](https://docs.laravel-enso.com/backend/dynamic-methods.html) [↗](https://github.com/laravel-enso/dynamic-methods)
+- [`laravel-enso/files`](https://docs.laravel-enso.com/backend/files.html) [↗](https://github.com/laravel-enso/files)
+- [`laravel-enso/forms`](https://docs.laravel-enso.com/backend/forms.html) [↗](https://github.com/laravel-enso/forms)
+- [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
+- [`laravel-enso/migrator`](https://docs.laravel-enso.com/backend/migrator.html) [↗](https://github.com/laravel-enso/migrator)
+- [`laravel-enso/permissions`](https://docs.laravel-enso.com/backend/permissions.html) [↗](https://github.com/laravel-enso/permissions)
+- [`laravel-enso/products`](https://docs.laravel-enso.com/backend/products.html) [↗](https://git.xtelecom.ro/laravel-enso/products)
+- [`laravel-enso/rememberable`](https://docs.laravel-enso.com/backend/rememberable.html) [↗](https://github.com/laravel-enso/rememberable)
+- [`laravel-enso/select`](https://docs.laravel-enso.com/backend/select.html) [↗](https://github.com/laravel-enso/select)
+- [`laravel-enso/tables`](https://docs.laravel-enso.com/backend/tables.html) [↗](https://github.com/laravel-enso/tables)
+
+Companion frontend package:
+
+- [`@enso-ui/categories`](https://docs.laravel-enso.com/frontend/categories.html) [↗](https://github.com/enso-ui/categories)
+
+## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-### License
+Thank you to all the people who already contributed to Enso!
 
-This package is released under the MIT license.
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/categories/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 6:26:25 PM</div>
+</div>

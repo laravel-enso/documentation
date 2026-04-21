@@ -1,77 +1,130 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Currencies
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7c8421322ab94fc2a612bcf56bc0f294)](https://www.codacy.com/app/laravel-enso/currencies?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/currencies&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/194647672/shield?branch=master)](https://github.styleci.io/repos/194647672)
-[![License](https://poser.pugx.org/laravel-enso/currencies/license)](https://packagist.org/packages/laravel-enso/currencies)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/currencies/downloads)](https://packagist.org/packages/laravel-enso/currencies)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/currencies/version)](https://packagist.org/packages/laravel-enso/currencies)
+[![License](https://img.shields.io/badge/license-Proprietary-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/currencies/-/blob/main/LICENSE)
+[![Stable](https://img.shields.io/badge/stable-1.6.1-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/currencies/-/tags)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://git.xtelecom.ro/laravel-enso/currencies/-/blob/main/composer.json)
+[![Issues](https://img.shields.io/badge/issues-0-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/currencies/-/issues)
+[![Merge Requests](https://img.shields.io/badge/merge%20requests-0-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/currencies/-/merge_requests)
 
-Currencies is an extension of the Laravel Enso environment, 
-designed for the management of currencies and exchange rates.
+## Description
 
-This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+Currencies adds currency and exchange-rate management to Enso.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+The package exposes CRUD flows for currencies and exchange rates, keeps track of the application's default currency, links currencies to countries through currency codes, and provides a conversion service together with a conversion endpoint.
+
+It is intended for private Enso deployments that need administrative currency management and server-side amount conversion.
 
 ## Installation
 
-* install the package using composer: `composer require laravel-enso/currencies`
-* add the following alias in `vue.config.js`
-    ```js
-    configureWebpack: {
-        resolve: {
-            alias: {
-                //other aliases
-                '@currencies': `${__dirname}/node_modules/@enso-ui/currencies/src/bulma`,
-            },
-        },
-    ```
-* in `resources/js/router.js` file, verify that `RouteMerger` is imported, or import it
+This is a proprietary package distributed through the private Enso registry.
 
-    `import RouteMerger from '@core-modules/importers/RouteMerger';`
+Run the package migrations:
 
-* make sure `routeImporter` is also imported
+```bash
+php artisan migrate
+```
 
-    `import routeImporter from '@core-modules/importers/routeImporter';`
+Optional publishes:
 
-* then use `RouteMerger` to import front-end assets using the alias defined in `vue.config.js`
+```bash
+php artisan vendor:publish --tag=currencies-config
+php artisan vendor:publish --tag=currency-seeder
+```
 
-    ```js
-    (new RouteMerger(routes))
-        .add(routeImporter(require.context('./routes', false, /.*\.js$/)))
-        .add(routeImporter(require.context('@currencies/routes', false, /.*\.js$/)));
-    ```
+Default configuration:
 
-* in `resources/js/app.js` import the package's icons
-
-`import '@currencies/icons'`
-
-* make sure `hot module replacement` is not active, and run `yarn dev` or `npm run dev`
-
-### Icons
-The package uses the following icons:
-* `coins`
-* `bar-chart`
+```php
+return [
+    'converterPrecision' => 4,
+];
+```
 
 ## Features
-- handles CRUD operations for currencies and exchange rates
-- manages the default currency for your project 
-- exchange rates can be input for a given day
-- comes with an included currencies seeder which can be published and further customized
-- includes front-end assets
 
-## Publishes
+- Currency CRUD and selector endpoints.
+- Exchange-rate CRUD endpoints with per-date conversion values.
+- Default currency protection against accidental deletion.
+- Server-side conversion service with configurable precision and fallback to the most recent rate when the requested date has no exact match.
+- Included seeders and factories for bootstrapping data.
 
-- `php artisan vendor:publish --tag=currency-seeder` - the currency seeder
+## Usage
 
-## Contributions
+Use the conversion service in code:
 
-are welcome. Pull requests are great, but issues are good too.
+```php
+use LaravelEnso\Currencies\Models\Currency;
+use LaravelEnso\Currencies\Services\Conversion;
 
-## License
+$from = Currency::whereCode('EUR')->firstOrFail();
+$to = Currency::whereCode('RON')->firstOrFail();
 
-This package is released under the MIT license.
+$amount = (new Conversion())
+    ->from($from)
+    ->to($to)
+    ->amount('100.00')
+    ->handle();
+```
+
+You can also convert to the default currency directly:
+
+```php
+Conversion::toDefault($from, '100.00');
+```
+
+## API
+
+### HTTP routes
+
+Currencies:
+
+- `GET api/administration/currencies/create`
+- `POST api/administration/currencies`
+- `GET api/administration/currencies/{currency}/edit`
+- `PATCH api/administration/currencies/{currency}`
+- `DELETE api/administration/currencies/{currency}`
+- `GET api/administration/currencies/initTable`
+- `GET api/administration/currencies/tableData`
+- `GET api/administration/currencies/exportExcel`
+- `GET api/administration/currencies/options`
+- `GET api/administration/currencies/convert`
+
+Exchange rates:
+
+- `GET api/administration/exchangeRates/create`
+- `POST api/administration/exchangeRates`
+- `GET api/administration/exchangeRates/{exchangeRate}/edit`
+- `PATCH api/administration/exchangeRates/{exchangeRate}`
+- `DELETE api/administration/exchangeRates/{exchangeRate}`
+- `GET api/administration/exchangeRates/initTable`
+- `GET api/administration/exchangeRates/tableData`
+- `GET api/administration/exchangeRates/exportExcel`
+
+## Depends On
+
+Required Enso packages:
+
+- [`laravel-enso/api`](https://docs.laravel-enso.com/backend/api.html) [↗](https://github.com/laravel-enso/api)
+- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/countries`](https://docs.laravel-enso.com/backend/countries.html) [↗](https://git.xtelecom.ro/laravel-enso/countries)
+- [`laravel-enso/forms`](https://docs.laravel-enso.com/backend/forms.html) [↗](https://github.com/laravel-enso/forms)
+- [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
+- [`laravel-enso/migrator`](https://docs.laravel-enso.com/backend/migrator.html) [↗](https://github.com/laravel-enso/migrator)
+- [`laravel-enso/select`](https://docs.laravel-enso.com/backend/select.html) [↗](https://github.com/laravel-enso/select)
+- [`laravel-enso/tables`](https://docs.laravel-enso.com/backend/tables.html) [↗](https://github.com/laravel-enso/tables)
+
+Companion frontend package:
+
+- [`@enso-ui/currencies`](https://docs.laravel-enso.com/frontend/currencies.html) [↗](https://github.com/enso-ui/currencies)
+
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://git.xtelecom.ro/laravel-enso/currencies/-/edit/main/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 8:41:47 PM</div>
+</div>

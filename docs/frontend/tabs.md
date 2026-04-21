@@ -1,185 +1,76 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Tabs
 
-![npm license](https://img.shields.io/npm/l/@enso-ui/tabs.svg) 
-![npm download](https://img.shields.io/npm/dm/@enso-ui/tabs.svg) 
-![GitHub top language](https://img.shields.io/github/languages/top/enso-ui/tabs.svg) 
-![GitHub issues](https://img.shields.io/github/issues/enso-ui/tabs.svg) 
-![npm version](https://img.shields.io/npm/v/@enso-ui/tabs.svg) 
-
-Simply Tabs
-
-## Usage
-
-Unless where specified otherwise, the components can be used outside of the Enso ecosystem.
-
-### Demo
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
-
-### Installation
-
+[![License](https://img.shields.io/badge/license-MIT-10b981.svg)](https://github.com/enso-ui/tabs/blob/master/LICENSE)
+[![Stable](https://img.shields.io/badge/stable-3.1.1-2563eb.svg)](https://www.npmjs.com/package/@enso-ui/tabs)
+[![Downloads](https://img.shields.io/npm/dm/@enso-ui/tabs.svg)](https://www.npmjs.com/package/@enso-ui/tabs)
+[![Vue](https://img.shields.io/badge/vue-3.x-42b883.svg)](https://vuejs.org/)
+[![JavaScript](https://img.shields.io/badge/javascript-ES2020-f7df1e.svg)](https://developer.mozilla.org/docs/Web/JavaScript)
+[![SCSS](https://img.shields.io/badge/scss-supported-c6538c.svg)](https://sass-lang.com/)
+[![npm](https://img.shields.io/badge/npm-package-cb3837.svg)](https://www.npmjs.com/package/@enso-ui/tabs)
+[![Issues](https://img.shields.io/github/issues/enso-ui/tabs.svg)](https://github.com/enso-ui/tabs/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/enso-ui/tabs.svg)](https://github.com/enso-ui/tabs/pulls)
+## Description
+Tab primitives and Bulma tab shells for Enso UI.
+## Installation
 Install the package:
-```
+
+```bash
 yarn add @enso-ui/tabs
 ```
-
-(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
-
-Import the desired component(s):
-```js
-import { Tabs, Tab } from '@enso-ui/tabs/bulma';
-```
-
-### Exports
-
-`@enso-ui/tabs/bulma`:
-- `Tab`
-- `Tabs`
-- `EnsoTabs`
-
-`@enso-ui/tabs/renderless`:
-- `CoreTabs`
-
-### bulma/Tabs.vue
-The bulma styled tabs component built on top of its renderless version.
-
-Example 1:
+## Features
+- exports `Tab`, `Tabs`, `EnsoTabs` as its public surface
+- keeps the Bulma presentation layer separate from the renderless/stateful layer where applicable
+## Usage
 ```vue
-<tabs>
-    <tab id="Foo Tab">
-        Foo Contents
-    </tab>
-    <tab id="Bar Tab">
-        Bar Contents
-    </tab>
-</tabs>
+<script setup>
+import { Tab, Tabs, EnsoTabs } from '@enso-ui/tabs/bulma';
+</script>
 ```
+## API
+### `Tab`
 
-Example 2:
-```vue
-<tabs>
-    <template v-slot:label="{ tab }">
-        <span>
-            {{ tab }}
-        </span>        
-    </template>
-    <div class="columns is-reverse-mobile">
-        <div class="column is-two-thirds">
-            <tab v-for="folder in folders"
-                :key="folder"
-                :id="folder">
-                
-                Tab content here
-                
-            </tab>
-        </div>        
-    </div>
-</tabs>
-```
-
-Properties:
-- `alignment` - `string`, optional, default `left`, the alignment of the tabs, valid options are: 'left', 'centered', 'right'
-- `boxed` - `boolean`, optional, default `false`, if true, applies the 'is-boxed' class for the tab list
-- `fullwidth` - `boolean`, optional, default `false`, if true, applies the 'is-fullwidth' class
-- `size` - `string`, optional, default `normal`, the size of the tabs, valid options are: 'normal', 'small', 'medium', 'large'
-- `toggle` - `boolean`, optional, default `false`, if true, applies the 'is-toggle' class
-- `toggleRounded` - `boolean`, optional, default `false`, if true, applies the 'is-toggle-rounded' class
-
-Slots:
-- `label`, slot for the tab labels
-- `default`, slot for the actual tabs/contents
-
-### bulma/EnsoTabs.vue
-
-This bulma styled tabs component built on top of its renderless version is 
-designed to be used within the **Enso ecosystem**, requiring less configuration from the dev. 
-
-Properties:
-- `size` - `string`, optional, default `normal`, the size of the tabs, valid options are: 'normal', 'small', 'medium', 'large'
-
-Slots:
-- `label`, slot for the tab labels
-- `default`, slot for the actual tabs/contents
-
-### renderless/EnsoTabs.vue
-
-The renderless version tabs component. It can be built upon to implement custom component designs.
-
-Methods:
-- `register(tab)`, registers a tab component. If it's the only tab, it also activates that tab.
-- `remove(tab)`, removes a tab from the tab list
-- `select(tab)`, emits a `selected` event and activates the tab
-- `activate(activeTab)`, activates a tab and emits the `activated` event
-- `tabIndex(tab)`, returns the index of a tab
-
-### tabs/Tab.vue
-
-A type of tab to be used within the Tabs component.
+Public export available from `src/tabs/Tab.vue`.
 
 Props:
-- `id` - `string|Object`, required, the id of the tab
-- `default` - `boolean`, optional, default `false`, if true, the tab is activated after creation
-- `keepAlive` - `boolean`, optional, default `false`, if true, the type of the tab is `Alive` otherwise `Static` is used
+- `id`
+- `default`
+- `keepAlive`
 
-Methods:
-- `register()`, emits a `register` event, the event payload is `this`
-- `activate()`, emits a `activate` event, the event payload is `this`
-- `enable()`, marks this tab as enabled
-- `disable()`, marks this tab as disabled
-- `remove()`, emits a `remove` event, the event payload is `this`
+### `Tabs`
 
-### tabs/Alive.vue
-
-An alive type of tab used within the Tab component.
+Public export available from `src/bulma/Tabs.vue`.
 
 Props:
-- `active` - `boolean`, optional, default `false`, if true, the tab is visible.
+- `alignment`
+- `boxed`
+- `fullwidth`
+- `size`
+- `toggle`
+- `toggleRounded`
 
-In case of the Alive tab (as opposed to the Static tab), the tab is hidden when not visible, but not destroyed. 
-For example if the content of the tab is a complex, resources intensive component, 
-the component is not destroyed & recreated when the user switches back & forth to this tab.  
+### `EnsoTabs`
 
-### tabs/Static.vue
-
-A static type of tab used within the Tab component.
+Public export available from `src/bulma/EnsoTabs.vue`.
 
 Props:
-- `active` - `boolean`, optional, default `false`, if true, the tab is visible
-
-In case of the Static tab (as opposed to the Alive tab), the tab is hidden when not visible, and also destroyed. 
-For example if the content of the tab is a complex, resources intensive component, 
-the component is destroyed & recreated when the user switches back & forth to this tab which might take longer to display, 
-generate multiple requests, consume extra resources.
-
-One advantage of using a Static tab is that, the data within the tab will be as recent as the last time the tab was 
-activated by the user, since that is when it got recreated.
-
-## Questions & Issues
-
-For questions and support please use the issues functionality
-for this package's github repository.
-
-Please make sure to search for existing issues before creating a new issue,
-and when opening a new issue, fill the required information in the issue template.
-
-Issues not conforming to the guidelines may be closed immediately.
-
-## Depends on
-
-- `animate.css`
-- `bulma`
-- `vue`
-
+- `size`
+## Depends On
+- No additional Enso UI dependencies.
 ## Contributions
-
 are welcome. Pull requests are great, but issues are good too.
-
 Thank you to all the people who already contributed to Enso!
-
 ## License
+[MIT](https://github.com/enso-ui/tabs/blob/master/LICENSE)
 
-[ISC](https://opensource.org/licenses/ISC)
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/enso-ui/tabs/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 2:13:47 PM</div>
+</div>

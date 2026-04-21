@@ -1,98 +1,85 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Confirmation
 
-![npm license](https://img.shields.io/npm/l/@enso-ui/confirmation.svg) 
-![npm download](https://img.shields.io/npm/dm/@enso-ui/confirmation.svg) 
-![GitHub top language](https://img.shields.io/github/languages/top/enso-ui/confirmation.svg) 
-![GitHub issues](https://img.shields.io/github/issues/enso-ui/confirmation.svg) 
-![npm version](https://img.shields.io/npm/v/@enso-ui/confirmation.svg) 
+[![License](https://img.shields.io/badge/license-MIT-10b981.svg)](https://github.com/enso-ui/confirmation/blob/master/LICENSE)
+[![Stable](https://img.shields.io/badge/stable-3.1.2-2563eb.svg)](https://www.npmjs.com/package/@enso-ui/confirmation)
+[![Downloads](https://img.shields.io/npm/dm/@enso-ui/confirmation.svg)](https://www.npmjs.com/package/@enso-ui/confirmation)
+[![Vue](https://img.shields.io/badge/vue-3.x-42b883.svg)](https://vuejs.org/)
+[![JavaScript](https://img.shields.io/badge/javascript-ES2020-f7df1e.svg)](https://developer.mozilla.org/docs/Web/JavaScript)
+[![npm](https://img.shields.io/badge/npm-package-cb3837.svg)](https://www.npmjs.com/package/@enso-ui/confirmation)
+[![Issues](https://img.shields.io/github/issues/enso-ui/confirmation.svg)](https://github.com/enso-ui/confirmation/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/enso-ui/confirmation.svg)](https://github.com/enso-ui/confirmation/pulls)
 
-Minimalist confirmation dialog
+## Description
 
-Can be used outside of the Enso ecosystem.
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+Confirmation dropdown primitives and Bulma actions for Enso UI.
 
 ## Installation
 
 Install the package:
-```
+
+```bash
 yarn add @enso-ui/confirmation
 ```
 
-(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+This package is also available through the full `enso-ui` workspace bundle.
 
-Note that this package has a couple of external dependencies. 
-Read [here](https://docs.laravel-enso.com/frontend/#other-dependencies) for more info.
+## Features
 
-### Exports
-
-`@enso-ui/confirmation/bulma`:
-- `Confirmation`,
-
-`@enso-ui/confirmation`:
-- `CoreConfirmation`,
+- ships a core confirmation popper primitive and a Bulma-styled action wrapper
+- uses `v-tooltip` dropdowns to anchor confirm/cancel actions to any trigger slot
+- exposes explicit `cancel` and `confirm` callbacks to slot content
 
 ## Usage
 
-### bulma/Confirmation.vue
-This is the main bulma styled component. It has a default slot where a clickable element should be placed.
- 
-It can optionally have:
-- a confirm action button/link
-- a cancel action button/link
-
-Example:
 ```vue
-<confirmation placement="bottom"
-    @confirm="doSomething">
-    <span class="icon is-small has-text-danger">
-        <fa icon="trash-alt"/>
-    </span>
-</confirmation>
+<script setup>
+import Confirmation from '@enso-ui/confirmation/bulma';
+</script>
+
+<Confirmation @confirm="destroy">
+    <button class="button is-danger">Delete</button>
+</Confirmation>
 ```
 
+## API
+
+### `Confirmation`
+
+Bulma-flavoured wrapper with built-in icon buttons for cancel and confirm.
+
+Import: `@enso-ui/confirmation/bulma`
+
+Events:
+- `cancel`
+- `confirm`
+
+### `CoreConfirmation`
+
+Low-level confirmation popper primitive.
+
+Import: `@enso-ui/confirmation/index.js`
+
+Events:
+- `cancel`
+- `confirm`
+
 Slots:
-- `default`, main content goes here
+- `default` trigger content.
+- `cancel` receives `{ cancel }`.
+- `confirm` receives `{ confirm }`.
 
-### components/Confirmation.vue
-The component is a base component for the confirmation component above without any styling.
+## Depends On
 
-It can be used for creating a custom confirmation with your CSS style of choice.
-
-It uses the `v-popover` component from `v-tooltip`.
-
-#### Slots
-- `default`, main content goes here
-- `confirm`, a custom control for the confirm action can go here, scoped, exposes the `confirm` method
-- `cancel`, a custom control for the cancel action can go here, scoped, exposes the `cancel` method
-
-If a confirm/cancel control is provided, the control should call the confirm/cancel method 
-made exposed on the slot.
-
-Both these methods emit a `confirm` respectively `cancel` event, that should be 
-handled on the parent, as required.
-
-Methods:
-- `cancel()`, closes the dialog & emits a `cancel` event
-- `confirm()`, closes the dialog & emits a `confirm` event
-
-## Questions & Issues
-
-For questions and support please use the issues functionality
-for this package's github repository.
-
-Please make sure to search for existing issues before creating a new issue,
-and when opening a new issue, fill the required information in the issue template.
-
-Issues not conforming to the guidelines may be closed immediately.
-
-## Depends on
-
-Built with `popover` from [v-tooltip](https://github.com/Akryum/v-tooltip)
+- [`v-tooltip`](https://github.com/Akryum/floating-vue)
+- [`Bulma`](https://bulma.io/)
 
 ## Contributions
 
@@ -102,4 +89,9 @@ Thank you to all the people who already contributed to Enso!
 
 ## License
 
-[ISC](https://opensource.org/licenses/ISC)
+[MIT](https://github.com/enso-ui/confirmation/blob/master/LICENSE)
+
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/enso-ui/confirmation/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 9:21:32 PM</div>
+</div>

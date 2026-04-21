@@ -1,89 +1,122 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Select
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c6799b0705d34fdab5cd100e7cfe6312)](https://www.codacy.com/app/laravel-enso/select?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/select&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/85489940/shield?branch=master)](https://github.styleci.io/repos/85489940)
-[![License](https://poser.pugx.org/laravel-enso/select/license)](https://packagist.org/packages/laravel-enso/select)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/select/downloads)](https://packagist.org/packages/laravel-enso/select)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/select/version)](https://packagist.org/packages/laravel-enso/select)
+[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/laravel-enso/select/blob/master/LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/select/version)](https://packagist.org/packages/laravel-enso/select)
+[![Downloads](https://poser.pugx.org/laravel-enso/select/downloads)](https://packagist.org/packages/laravel-enso/select)
+[![PHP](https://img.shields.io/badge/php-8.0%2B-777bb4.svg)](https://github.com/laravel-enso/select/blob/master/composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/select.svg)](https://github.com/laravel-enso/select/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/select.svg)](https://github.com/laravel-enso/select/pulls)
 
-Single and multi-select server-side option list builder
+## Description
 
-This package can work independently of the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+Select provides the server-side option and typeahead builders used by Laravel Enso select controls.
 
-The front end assets that utilize this api are present in the [select](https://github.com/enso-ui/select) package.
+The package ships traits for controller-style endpoints and a configurable `Options` response service that supports selected values, search queries, plain filters, pivot filters, resources, appended attributes, and nested relation attributes.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
-
-[![Watch the demo](https://laravel-enso.github.io/select/screenshots/bulma_031.png)](https://laravel-enso.github.io/select/videos/bulma_demo_01.mp4)
-
-<sup>click on the photo to view a short demo in compatible browsers</sup>
+It can be used inside or outside Enso when a Laravel application needs consistent server-side select data feeds.
 
 ## Installation
 
-Comes pre-installed in Enso.
+Install the package:
 
-To install outside of Enso:
+```bash
+composer require laravel-enso/select
+```
 
-1. install the package: `composer require laravel-enso/select`
-2. install the front end api implementation: `yarn add @enso-ui/select`
+Publish the configuration if you want to change defaults such as `trackBy`, `searchMode`, or query attributes:
+
+```bash
+php artisan vendor:publish --tag=select-config
+```
 
 ## Features
 
-- a standalone component with minimal dependencies
-- the select options can be retrieved via ajax calls or, given directly, via a parameter
-- when getting the data via ajax, the component can take various parameters for results filtering
-- for the back-end, the package comes with a trait for easy retrieval and formatting of the data 
-- can filter the option list dynamically even based on the model’s one-to-many / many-to-many relationships
-- can search in multiple attributes of a model, and the attribute(s) may be nested
-- can specify the attribute used as label for the select options
-- can be used to create a new 'tag' if no suitable result is found (soon)
-- can use the arrow keys to navigate the list of results and Enter to select/deselect 
-- is as small as can be, without skimping on features
+- `OptionsBuilder` trait for standard select endpoints.
+- `TypeaheadBuilder` trait for typeahead payload conversion.
+- `Options` service implementing `Responsable`.
+- Search across local attributes and nested relation attributes.
+- Support for selected values, pagination limit, params, pivot params, custom resources, and model appends.
 
 ## Usage
 
-1. Use the `OptionsBuilder` trait in your desired (select) Controller
+Typical options endpoint:
 
-2. Define an `options` route for your Controller (and permissions as required)
+```php
+class Options
+{
+    use OptionsBuilder;
 
-3. Declare inside your controller the `$model` property as shown below:
-	
-	`protected $model = Model::class`
-	
-	where `Model::class` will be the Model used by the builder to extract the list of options
-	
-	You can use model computed attributes to display attributes when using the server-side mode, 
-    since the entire model is sent back to the front-end.
-	
-	By default, the model’s `name` attribute as a label for the select option list - but this is customizable - and the `id` for the key. 
-	See the options bellow for details. 
-	
-5. In your page/component add the VueSelect component, and pass it the required parameters. Be sure to read the 
-front end's api docs [here](https://docs.laravel-enso.com/frontend/select.html).
+    protected string $model = Company::class;
+    protected array $queryAttributes = ['name', 'person.name'];
+}
+```
 
-### OptionBuilder trait options
+Typical typeahead endpoint:
 
-- `$queryAttributes`, array with the list of attributes we're searching in, when getting the select options | default `['name']` | (optional)
-- `$model`, string, the fully qualified namespace of the class that we're querying on, in order to get the select options | default `null` | required
-- `query(Request $request)`, a method which will return the query builder that we're using when querying for options | default `null` | (optional)
+```php
+class Typeahead
+{
+    use TypeaheadBuilder;
 
-::: tip Tip
-If a query method is provided, it's going to be used, if it's not given, a default query will be constructed, using the given class and other values.
-:::
+    protected string $model = Company::class;
+}
+```
 
-::: tip Tip
-The query attribute(s) given may have a nested structure, for instance `user.name` where `user` is a relationship on the model. 
-In such a case the builder will follow through the relationships to query the given attribute.
-:::
+Supported request inputs include:
+
+- `value`
+- `query`
+- `paginate`
+- `trackBy`
+- `searchMode`
+- `params`
+- `pivotParams`
+
+## API
+
+### Builder traits
+
+- `LaravelEnso\\Select\\Traits\\OptionsBuilder`
+- `LaravelEnso\\Select\\Traits\\TypeaheadBuilder`
+
+### Response service
+
+- `LaravelEnso\\Select\\Services\\Options`
+
+Behavior:
+
+- merges selected values ahead of fresh results
+- applies direct and pivot relation filters
+- performs filter-based search through `laravel-enso/filters`
+- sorts by the first query attribute when possible
+- returns a collection or an API resource collection
+
+## Depends On
+
+Required Enso packages:
+
+- [`laravel-enso/filters`](https://docs.laravel-enso.com/backend/filters.html) [↗](https://github.com/laravel-enso/filters)
+- [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
+
+Companion frontend package:
+
+- [`@enso-ui/select`](https://docs.laravel-enso.com/frontend/select.html) [↗](https://github.com/enso-ui/select)
 
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-## License
+Thank you to all the people who already contributed to Enso!
 
-This package is released under the MIT license.
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/select/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 4:32:00 PM</div>
+</div>

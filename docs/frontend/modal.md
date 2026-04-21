@@ -1,118 +1,86 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
+
+<!-- AUTO-GENERATED: do not edit by hand -->
 
 # Modal
 
-![npm license](https://img.shields.io/npm/l/@enso-ui/modal.svg) 
-![npm download](https://img.shields.io/npm/dm/@enso-ui/modal.svg) 
-![GitHub top language](https://img.shields.io/github/languages/top/enso-ui/modal.svg) 
-![GitHub issues](https://img.shields.io/github/issues/enso-ui/modal.svg) 
-![npm version](https://img.shields.io/npm/v/@enso-ui/modal.svg) 
+[![License](https://img.shields.io/badge/license-MIT-10b981.svg)](https://github.com/enso-ui/modal/blob/master/LICENSE)
+[![Stable](https://img.shields.io/badge/stable-3.2.3-2563eb.svg)](https://www.npmjs.com/package/@enso-ui/modal)
+[![Downloads](https://img.shields.io/npm/dm/@enso-ui/modal.svg)](https://www.npmjs.com/package/@enso-ui/modal)
+[![Vue](https://img.shields.io/badge/vue-3.x-42b883.svg)](https://vuejs.org/)
+[![JavaScript](https://img.shields.io/badge/javascript-ES2020-f7df1e.svg)](https://developer.mozilla.org/docs/Web/JavaScript)
+[![SCSS](https://img.shields.io/badge/scss-supported-c6538c.svg)](https://sass-lang.com/)
+[![npm](https://img.shields.io/badge/npm-package-cb3837.svg)](https://www.npmjs.com/package/@enso-ui/modal)
+[![Issues](https://img.shields.io/github/issues/enso-ui/modal.svg)](https://github.com/enso-ui/modal/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/enso-ui/modal.svg)](https://github.com/enso-ui/modal/pulls)
 
-Simple Modal Component
+## Description
 
-The component can be used outside of the Enso ecosystem.
+Modal provides lightweight modal wrappers together with a renderless close controller for Bulma-based overlays.
 
 ## Installation
 
 Install the package:
-```
+
+```bash
 yarn add @enso-ui/modal
 ```
 
-(within Enso, remember to `cd` into the `client` folder before installing front-end assets)
+The components can be used inside or outside the Enso ecosystem.
 
-### Exports
+## Features
 
-`@enso-ui/modal/bulma`:
-- `Modal`
-- `ModalCard`
-
-`@enso-ui/modal/renderless`:
-- `CoreModal`
+- exports `Modal` and `ModalCard` from the Bulma entrypoint
+- uses `CoreModal` internally to centralize close handling and Escape support
+- renders through `teleport` and transition wrappers
+- passes a `close()` slot helper to modal content
 
 ## Usage
 
-Import the desired component(s):
-```js
-import { Modal, ModalCard } from '@enso-ui/modal/bulma';
-import { CoreModal } from '@enso-ui/modal/renderless';
-```
-
-### CoreModal.vue
-This modal component renders its contents within a card and is built upon the renderless modal component.
-
-#### Props
-- `transitionDuration` - `Number`, optional, default `500`, the duration of the transition animation
-- `portal` - `string`, optional, default `modals`, the query selector for the portal of the modal. 
-
-#### Slots
-
-Has a default scopedSlot that exposes the `close` method.
-
-### Modal
-
-The bulma styled modal component built on top of its renderless version. 
-
-Example:
 ```vue
-<modal v-if="visible"
-    @close="doSomethingElse">
-    <div class="box">
-        <h5 class="subtitle is-5">
-            {{ i18n("Are you sure?") }}
-        </h5>
-        <hr>
-        <div class="level">
-            <div class="level-left">
-                <div class="level-item">
-                    <button class="button is-outlined"
-                        @click="cancel">
-                        {{ i18n('Cancel') }}
-                    </button>
-                </div>
-            </div>
-            <div class="level-right">
-                <div class="level-item">
-                    <button class="button is-danger has-margin-left-small"
-                        @click="doSomething">
-                        {{ i18n('Yes') }}
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</modal>
+<script setup>
+import { ModalCard } from '@enso-ui/modal/bulma';
+</script>
+
+<ModalCard @close="closed = true">
+    <template #header="{ close }">...</template>
+    <template #body="{ close }">...</template>
+    <template #footer="{ close }">...</template>
+</ModalCard>
 ```
 
-#### Props
-All the props from `CoreModal` can be provided here
+## API
 
-Slots:
-- `default`, all content goes here
+### Bulma exports
 
-### ModalCard
+Import: `@enso-ui/modal/bulma`
 
-This modal component renders its contents within a card and is built upon the renderless modal component.
+#### `Modal`
+- emits: `show`, `close`
+- default slot receives `{ close }`
+- renders a standard Bulma modal content container
 
-#### Props
-All the props from `CoreModal` can be provided here
+#### `ModalCard`
+- emits: `show`, `close`
+- named slots: `header`, `body`, `footer`
+- every slot receives `{ close }`
+- renders a Bulma modal-card layout
 
-Slots:
-- `header`, the card header contents go here
-- `body`, the card body contents go here
-- `footer`, the card header contents go here
+### Renderless core
 
-## Questions & Issues
+#### `CoreModal`
+- prop: `visible: boolean`
+- emits: `update:visible`
+- slot props: `{ close }`
+- closes on Escape and centralizes the visible-state contract for the Bulma wrappers
 
-For questions and support please use the issues functionality
-for this package's github repository.
+## Depends On
 
-Please make sure to search for existing issues before creating a new issue,
-and when opening a new issue, fill the required information in the issue template.
-
-Issues not conforming to the guidelines may be closed immediately.
+- [`@enso-ui/transitions`](https://docs.laravel-enso.com/frontend/transitions.html) [↗](https://github.com/enso-ui/transitions)
 
 ## Contributions
 
@@ -122,4 +90,9 @@ Thank you to all the people who already contributed to Enso!
 
 ## License
 
-[ISC](https://opensource.org/licenses/ISC)
+[MIT](https://github.com/enso-ui/modal/blob/master/LICENSE)
+
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/enso-ui/modal/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 1:04:44 PM</div>
+</div>

@@ -1,58 +1,105 @@
 ---
 sidebarDepth: 3
+editLink: false
+lastUpdated: false
 ---
 
-# Tutorial Manager
+<!-- AUTO-GENERATED: do not edit by hand -->
 
+# Tutorials
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/282735fb74e647c4b630056271b66d77)](https://www.codacy.com/app/laravel-enso/tutorials?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/tutorials&amp;utm_campaign=Badge_Grade)
-[![StyleCI](https://github.styleci.io/repos/85628545/shield?branch=master)](https://github.styleci.io/repos/85628545)
-[![License](https://poser.pugx.org/laravel-enso/tutorials/license)](https://packagist.org/packages/laravel-enso/tutorials)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/tutorials/downloads)](https://packagist.org/packages/laravel-enso/tutorials)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/tutorials/version)](https://packagist.org/packages/laravel-enso/tutorials)
+[![License](https://poser.pugx.org/laravel-enso/tutorials/license)](https://github.com/laravel-enso/tutorials/blob/master/LICENSE)
+[![Stable](https://poser.pugx.org/laravel-enso/tutorials/version)](https://packagist.org/packages/laravel-enso/tutorials)
+[![Downloads](https://poser.pugx.org/laravel-enso/tutorials/downloads)](https://packagist.org/packages/laravel-enso/tutorials)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://github.com/laravel-enso/tutorials/blob/master/composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/tutorials.svg)](https://github.com/laravel-enso/tutorials/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/tutorials.svg)](https://github.com/laravel-enso/tutorials/pulls)
 
-Tutorial management dependency for [Laravel Enso](https://github.com/laravel-enso/Enso).
+## Description
 
-This package works exclusively within the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+Tutorials manages in-app guidance content for Laravel Enso.
 
-The front end assets that utilize this api are present in the [ui](https://github.com/enso-ui/ui) package.
-
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
-
-[![Screenshot](https://laravel-enso.github.io/tutorials/screenshots/bulma_023_thumb.png)](https://laravel-enso.github.io/tutorials/screenshots/bulma_023.png)
-
-[![Watch the demo](https://laravel-enso.github.io/tutorials/screenshots/bulma_026_thumb.png)](https://laravel-enso.github.io/tutorials/videos/bulma_demo_01.webm)
-
-<sup>click on the photo to view a short demo in compatible browsers</sup>
+The package stores tutorial records, exposes create/edit/table/export endpoints, serves a runtime `load` endpoint for frontend consumers, and classifies tutorials by placement through an enum.
 
 ## Installation
 
-Comes pre-installed in Enso.
+Install the package:
+
+```bash
+composer require laravel-enso/tutorials
+```
+
+Run the migrations:
+
+```bash
+php artisan migrate
+```
 
 ## Features
 
-- allows for a user friendly way of teaching users how to use the interface of the application
-- permits adding, updating and deleting tutorial entries that can then be played for the selected route
-- the tutorial functionality may be started/restarted from the right-hand sidebar, using the `?` button
-- the `tutorials` table is used for the tutorial module and has several key attributes:
-   - `permission_id` -  the permission where they're in use, since permissions are tied to routes, 
-   and we're using permissions to know which tutorials to load for a page
-   - `element` - identifies the element within the DOM, and may be an element, an id, in which case it should be 
-   prefixed with a `#` or a class, in which case it should be prefixed with `.` or a combination of these
-   - `placement` -  sets the position of the tutorial dialog, relative to the DOM element, 
-   and can be: `top`, `bottom`, `left` or `right`
-   - `order_index` - gives the order in which a particular tutorial element should be displayed, 
-   in the context of the available tutorials for a certain page
+- CRUD backend with form and table builders.
+- Runtime loader endpoint for frontend tutorial rendering.
+- Placement enum for deciding where tutorials are shown.
+- JSON resources for edit/show payloads.
 
-## Publishes
-- `php artisan vendor:publish --tag=tutorials-factory` - the factory for the `Tutorial` model
-- `php artisan vendor:publish --tag=enso-factories` - a common alias for when wanting to update the factories,
-once a newer version is released, usually used with the `--force` flag
+## Usage
+
+Routes are registered under:
+
+- prefix: `api/system/tutorials`
+- name prefix: `system.tutorials.`
+- middleware: `api`, `auth`, `core`
+
+Endpoints:
+
+- `GET create`
+- `POST /`
+- `GET {tutorial}/edit`
+- `PATCH {tutorial}`
+- `DELETE {tutorial}`
+- `GET initTable`
+- `GET tableData`
+- `GET exportExcel`
+- `GET load`
+
+Key model:
+
+- `LaravelEnso\Tutorials\Models\Tutorial`
+
+Enum:
+
+- `LaravelEnso\Tutorials\Enums\Placement`
+
+## API
+
+This package exposes its backend integration through the routes, controllers, services, jobs, and configuration points referenced in the usage examples above.
+
+Consumers should rely on the published config keys, documented route groups, and explicit service classes shown in the examples. Internal helper classes, listeners, casts, and background jobs are implementation details unless the README calls them out as extension points.
+
+## Depends On
+
+Required Enso packages:
+
+- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
+- [`laravel-enso/dynamic-methods`](https://docs.laravel-enso.com/backend/dynamic-methods.html) [↗](https://github.com/laravel-enso/dynamic-methods)
+- [`laravel-enso/enums`](https://docs.laravel-enso.com/backend/enums.html) [↗](https://github.com/laravel-enso/enums)
+- [`laravel-enso/forms`](https://docs.laravel-enso.com/backend/forms.html) [↗](https://github.com/laravel-enso/forms)
+- [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
+- [`laravel-enso/migrator`](https://docs.laravel-enso.com/backend/migrator.html) [↗](https://github.com/laravel-enso/migrator)
+- [`laravel-enso/permissions`](https://docs.laravel-enso.com/backend/permissions.html) [↗](https://github.com/laravel-enso/permissions)
+- [`laravel-enso/tables`](https://docs.laravel-enso.com/backend/tables.html) [↗](https://github.com/laravel-enso/tables)
+
+Companion frontend package:
+
+- [`@enso-ui/tutorials`](https://docs.laravel-enso.com/frontend/tutorials.html) [↗](https://github.com/enso-ui/tutorials)
 
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
-## License
+Thank you to all the people who already contributed to Enso!
 
-This package is released under the MIT license.
+<div class="package-page-meta-row">
+  <a class="package-page-edit" href="https://github.com/laravel-enso/tutorials/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 4:33:15 PM</div>
+</div>
