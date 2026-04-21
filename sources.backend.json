@@ -525,10 +525,10 @@
             "title": "Migrator",
             "url": "https://github.com/laravel-enso/migrator",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
             "openMergeRequestsCount": 0,
-            "documentationStatus": "red"
+            "documentationStatus": "green"
         },
         {
             "slug": "monitored-emails",
