@@ -521,6 +521,16 @@
             "openMergeRequestsCount": 0
         },
         {
+            "slug": "migrator",
+            "title": "Migrator",
+            "url": "https://github.com/laravel-enso/migrator",
+            "branch": "master",
+            "updated": false,
+            "openIssuesCount": 0,
+            "openMergeRequestsCount": 0,
+            "documentationStatus": "red"
+        },
+        {
             "slug": "monitored-emails",
             "title": "Monitored Emails",
             "url": "https://github.com/laravel-enso/monitored-emails",
