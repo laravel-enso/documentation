@@ -12,7 +12,7 @@ lastUpdated: false
 [![Stable](https://img.shields.io/badge/stable-1.5.1-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/cargo-partner/-/tags)
 [![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://git.xtelecom.ro/laravel-enso/cargo-partner/-/blob/main/composer.json)
 [![Issues](https://img.shields.io/badge/issues-0-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/cargo-partner/-/issues)
-[![Merge Requests](https://img.shields.io/badge/merge%20requests-0-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/cargo-partner/-/merge_requests)
+[![Merge Requests](https://img.shields.io/badge/merge%20requests-1-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/cargo-partner/-/merge_requests)
 
 ## Description
 

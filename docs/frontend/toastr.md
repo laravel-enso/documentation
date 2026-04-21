@@ -6,7 +6,7 @@ lastUpdated: false
 
 <!-- AUTO-GENERATED: do not edit by hand -->
 
-# Departments
+# Toastr
 
 README content is not available locally yet.
 

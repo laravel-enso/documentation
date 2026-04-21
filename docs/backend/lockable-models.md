@@ -172,5 +172,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/laravel-enso/lockable-models/edit/main/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 4:29:27 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/19/2026, 10:25:51 PM</div>
 </div>

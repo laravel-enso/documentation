@@ -115,5 +115,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/laravel-enso/meili-search/edit/main/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 4:29:59 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 6:07:58 PM</div>
 </div>

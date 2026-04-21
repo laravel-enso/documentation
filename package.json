@@ -12,6 +12,7 @@
         "sync": "node scripts/sync-readmes.mjs sync",
         "refresh:status": "node scripts/sync-readmes.mjs refresh-status",
         "add:repo": "node scripts/manage-sources.mjs add-package",
+        "remove:repo": "node scripts/manage-sources.mjs remove-package",
         "build:generator": "node scripts/sync-readmes.mjs generate",
         "build:assets": "vuepress build docs",
         "clean": "rm -rf docs/.vuepress/.cache docs/.vuepress/.temp docs/.vuepress/dist"

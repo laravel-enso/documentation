@@ -99,5 +99,5 @@ Required Enso packages:
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://git.xtelecom.ro/laravel-enso/product-eav/-/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 5:56:27 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 6:26:25 PM</div>
 </div>

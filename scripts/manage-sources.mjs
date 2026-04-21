@@ -144,6 +144,21 @@ const titleCase = (value) => value
 
 const normalizeSlug = (value) => value.toLowerCase()
 
+const parseSectionTarget = (value, command) => {
+    if (!value || !value.includes('/')) {
+        throw new Error(`Provide a target in the form section/slug for ${command}.`)
+    }
+
+    const [section, ...slugParts] = value.split('/')
+    const slug = normalizeSlug(slugParts.join('/'))
+
+    if (!section || !slug || !(section in sourceFiles)) {
+        throw new Error(`Invalid target for ${command}: ${value}`)
+    }
+
+    return { section, slug }
+}
+
 const extractReadmeTitle = (content, fallback) => {
     const match = content.match(/^#\s+(.+?)\s*$/mu)
 
@@ -578,12 +593,28 @@ const addMissingPackages = async () => {
     process.stdout.write(`added total: ${missing.length}\n`)
 }
 
+const removePackage = async (value) => {
+    const { section, slug } = parseSectionTarget(value, 'remove-package')
+    const entries = await readSourceFile(section)
+    const nextEntries = entries.filter(({ slug: existingSlug }) => normalizeSlug(existingSlug) !== slug)
+
+    if (entries.length === nextEntries.length) {
+        process.stdout.write(`not present: ${section}/${slug}\n`)
+        return
+    }
+
+    await writeSourceFile(section, nextEntries)
+    process.stdout.write(`removed ${section}/${slug}\n`)
+}
+
 if (mode === 'scan') {
     await scanForMissingPackages()
 } else if (mode === 'add-package') {
     await addPackage(input)
+} else if (mode === 'remove-package') {
+    await removePackage(input)
 } else if (mode === 'add-missing') {
     await addMissingPackages()
 } else {
-    throw new Error('Supported commands: scan, add-package, add-missing')
+    throw new Error('Supported commands: scan, add-package, remove-package, add-missing')
 }

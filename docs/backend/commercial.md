@@ -11,7 +11,8 @@ lastUpdated: false
 [![License](https://img.shields.io/badge/license-Proprietary-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/commercial/-/blob/master/LICENSE)
 [![Stable](https://img.shields.io/badge/stable-5.18.5-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/commercial/-/tags)
 [![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://git.xtelecom.ro/laravel-enso/commercial/-/blob/master/composer.json)
-[![Issues](https://img.shields.io/badge/issues-0-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/commercial/-/issues)
+[![Issues](https://img.shields.io/badge/issues-9-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/commercial/-/issues)
+[![Merge Requests](https://img.shields.io/badge/merge%20requests-1-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/commercial/-/merge_requests)
 
 ## Description
 

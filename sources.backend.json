@@ -55,9 +55,9 @@
             "title": "Audits",
             "url": "https://github.com/laravel-enso/audits",
             "branch": "main",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 1,
-            "documentationStatus": "red",
+            "documentationStatus": "yellow",
             "openMergeRequestsCount": 0
         },
         {
@@ -449,26 +449,6 @@
             "openIssuesCount": 0,
             "documentationStatus": "blue",
             "openMergeRequestsCount": 1
-        },
-        {
-            "slug": "enso",
-            "title": "Laravel Enso",
-            "url": "https://github.com/laravel-enso/enso",
-            "branch": "master",
-            "updated": false,
-            "openIssuesCount": 13,
-            "documentationStatus": "red",
-            "openMergeRequestsCount": 11
-        },
-        {
-            "slug": "laravel-enso.github.io",
-            "title": "laravel-enso.github.io",
-            "url": "https://github.com/laravel-enso/laravel-enso.github.io",
-            "branch": "master",
-            "updated": false,
-            "openIssuesCount": 0,
-            "documentationStatus": "red",
-            "openMergeRequestsCount": 0
         },
         {
             "slug": "localisation",
