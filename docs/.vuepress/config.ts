@@ -129,6 +129,15 @@ const siteStyles = `
     --search-result-width: 22rem;
 }
 
+html[data-theme="dark"] {
+    --search-bg-color: #1f1f24;
+    --search-accent-color: #3eaf7c;
+    --search-text-color: #f1f5f9;
+    --search-border-color: #3a3a43;
+    --search-item-text-color: #cbd5e1;
+    --search-item-focus-bg-color: #2a2a31;
+}
+
 .vp-navbar-items-wrapper {
     flex: 1;
 }
@@ -294,6 +303,7 @@ export default defineUserConfig({
     ],
     bundler: viteBundler(),
     theme: defaultTheme({
+        colorMode: 'auto',
         logo: '/enso.svg',
         repo: 'laravel-enso/documentation',
         docsDir: 'docs',

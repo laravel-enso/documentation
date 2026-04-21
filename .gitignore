@@ -1,8 +1,11 @@
 /node_modules
 /.vscode
 /.idea
-.DS_STORE
+/.netlify
+.DS_Store
+.env
 .env.local
 .cache
+docs/.vuepress/.cache
+docs/.vuepress/.temp
 docs/.vuepress/dist
-.env
