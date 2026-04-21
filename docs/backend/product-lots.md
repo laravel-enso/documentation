@@ -11,7 +11,8 @@ lastUpdated: false
 [![License](https://img.shields.io/badge/license-Proprietary-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/product-lots/-/blob/master/LICENSE)
 [![Stable](https://img.shields.io/badge/stable-2.4.1-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/product-lots/-/tags)
 [![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://git.xtelecom.ro/laravel-enso/product-lots/-/blob/master/composer.json)
-[![Issues](https://img.shields.io/badge/issues-0-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/product-lots/-/issues)
+[![Issues](https://img.shields.io/badge/issues-1-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/product-lots/-/issues)
+[![Merge Requests](https://img.shields.io/badge/merge%20requests-0-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/product-lots/-/merge_requests)
 
 ## Description
 
@@ -86,5 +87,5 @@ Companion frontend package:
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://git.xtelecom.ro/laravel-enso/product-lots/-/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 6:08:23 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 6:03:45 PM</div>
 </div>

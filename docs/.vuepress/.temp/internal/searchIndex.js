@@ -420,6 +420,1156 @@ export const searchIndex = [
     "extraFields": []
   },
   {
+    "title": "Front End",
+    "headers": [],
+    "path": "/frontend/",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "Accessories",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "Accessories",
+            "slug": "accessories-1",
+            "link": "#accessories-1",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Contributions",
+        "slug": "contributions",
+        "link": "#contributions",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "License",
+        "slug": "license",
+        "link": "#license",
+        "children": []
+      }
+    ],
+    "path": "/frontend/accessories.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "Addresses",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "Addresses",
+            "slug": "addresses-1",
+            "link": "#addresses-1",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "AddressesCard",
+            "slug": "addressescard",
+            "link": "#addressescard",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Companion Backend Package",
+        "slug": "companion-backend-package",
+        "link": "#companion-backend-package",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Contributions",
+        "slug": "contributions",
+        "link": "#contributions",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "License",
+        "slug": "license",
+        "link": "#license",
+        "children": []
+      }
+    ],
+    "path": "/frontend/addresses.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "Algolia",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "Index",
+            "slug": "index",
+            "link": "#index",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Routes",
+        "slug": "routes",
+        "link": "#routes",
+        "children": [
+          {
+            "level": 3,
+            "title": "integrations/algolia/settings",
+            "slug": "integrations-algolia-settings",
+            "link": "#integrations-algolia-settings",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Companion Backend Package",
+        "slug": "companion-backend-package",
+        "link": "#companion-backend-package",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Contributions",
+        "slug": "contributions",
+        "link": "#contributions",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "License",
+        "slug": "license",
+        "link": "#license",
+        "children": []
+      }
+    ],
+    "path": "/frontend/algolia.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "Audits",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "Index",
+            "slug": "index",
+            "link": "#index",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Diff",
+            "slug": "diff",
+            "link": "#diff",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Routes",
+        "slug": "routes",
+        "link": "#routes",
+        "children": [
+          {
+            "level": 3,
+            "title": "system/audit",
+            "slug": "system-audit",
+            "link": "#system-audit",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Companion Backend Package",
+        "slug": "companion-backend-package",
+        "link": "#companion-backend-package",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Contributions",
+        "slug": "contributions",
+        "link": "#contributions",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "License",
+        "slug": "license",
+        "link": "#license",
+        "children": []
+      }
+    ],
+    "path": "/frontend/audits.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "Auth",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "PasswordStrength",
+            "slug": "passwordstrength",
+            "link": "#passwordstrength",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "auth()",
+            "slug": "auth-1",
+            "link": "#auth-1",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "register()",
+            "slug": "register",
+            "link": "#register",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Routes",
+        "slug": "routes",
+        "link": "#routes",
+        "children": [
+          {
+            "level": 3,
+            "title": "Guest auth pages",
+            "slug": "guest-auth-pages",
+            "link": "#guest-auth-pages",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Backend Integration",
+        "slug": "backend-integration",
+        "link": "#backend-integration",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Contributions",
+        "slug": "contributions",
+        "link": "#contributions",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "License",
+        "slug": "license",
+        "link": "#license",
+        "children": []
+      }
+    ],
+    "path": "/frontend/auth.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "Bookmarks",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "Bookmarks",
+            "slug": "bookmarks-1",
+            "link": "#bookmarks-1",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Contributions",
+        "slug": "contributions",
+        "link": "#contributions",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "License",
+        "slug": "license",
+        "link": "#license",
+        "children": []
+      }
+    ],
+    "path": "/frontend/bookmarks.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "Calendar",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "Index",
+            "slug": "index",
+            "link": "#index",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Routes",
+        "slug": "routes",
+        "link": "#routes",
+        "children": [
+          {
+            "level": 3,
+            "title": "/calendar",
+            "slug": "calendar-1",
+            "link": "#calendar-1",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Companion Backend Package",
+        "slug": "companion-backend-package",
+        "link": "#companion-backend-package",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Contributions",
+        "slug": "contributions",
+        "link": "#contributions",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "License",
+        "slug": "license",
+        "link": "#license",
+        "children": []
+      }
+    ],
+    "path": "/frontend/calendar.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "Card",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "Card",
+            "slug": "card-1",
+            "link": "#card-1",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "CardHeader",
+            "slug": "cardheader",
+            "link": "#cardheader",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "CardContent",
+            "slug": "cardcontent",
+            "link": "#cardcontent",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "CardImage",
+            "slug": "cardimage",
+            "link": "#cardimage",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "CardFooter",
+            "slug": "cardfooter",
+            "link": "#cardfooter",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "CardFooterItem",
+            "slug": "cardfooteritem",
+            "link": "#cardfooteritem",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "CardControl",
+            "slug": "cardcontrol",
+            "link": "#cardcontrol",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "CardBadge",
+            "slug": "cardbadge",
+            "link": "#cardbadge",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "CardCollapse",
+            "slug": "cardcollapse",
+            "link": "#cardcollapse",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "CardRefresh",
+            "slug": "cardrefresh",
+            "link": "#cardrefresh",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "CardRemove",
+            "slug": "cardremove",
+            "link": "#cardremove",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Contributions",
+        "slug": "contributions",
+        "link": "#contributions",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "License",
+        "slug": "license",
+        "link": "#license",
+        "children": []
+      }
+    ],
+    "path": "/frontend/card.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "Cargo Partner",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "Index",
+            "slug": "index",
+            "link": "#index",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Routes",
+        "slug": "routes",
+        "link": "#routes",
+        "children": [
+          {
+            "level": 3,
+            "title": "integrations/cargoPartner/settings",
+            "slug": "integrations-cargopartner-settings",
+            "link": "#integrations-cargopartner-settings",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Companion Backend Package",
+        "slug": "companion-backend-package",
+        "link": "#companion-backend-package",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "License",
+        "slug": "license",
+        "link": "#license",
+        "children": []
+      }
+    ],
+    "path": "/frontend/cargo-partner.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "Categories",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "Index",
+            "slug": "index",
+            "link": "#index",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Create",
+            "slug": "create",
+            "link": "#create",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Edit",
+            "slug": "edit",
+            "link": "#edit",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Routes",
+        "slug": "routes",
+        "link": "#routes",
+        "children": [
+          {
+            "level": 3,
+            "title": "administration/categories",
+            "slug": "administration-categories",
+            "link": "#administration-categories",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Companion Backend Package",
+        "slug": "companion-backend-package",
+        "link": "#companion-backend-package",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Contributions",
+        "slug": "contributions",
+        "link": "#contributions",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "License",
+        "slug": "license",
+        "link": "#license",
+        "children": []
+      }
+    ],
+    "path": "/frontend/categories.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "Charts",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "Chart",
+            "slug": "chart",
+            "link": "#chart",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "colors",
+            "slug": "colors",
+            "link": "#colors",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "ChartCard",
+            "slug": "chartcard",
+            "link": "#chartcard",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "EnsoChartCard",
+            "slug": "ensochartcard",
+            "link": "#ensochartcard",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Companion Backend Package",
+        "slug": "companion-backend-package",
+        "link": "#companion-backend-package",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Contributions",
+        "slug": "contributions",
+        "link": "#contributions",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "License",
+        "slug": "license",
+        "link": "#license",
+        "children": []
+      }
+    ],
+    "path": "/frontend/charts.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "Checkbox",
+    "headers": [
+      {
+        "level": 2,
+        "title": "Description",
+        "slug": "description",
+        "link": "#description",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Installation",
+        "slug": "installation",
+        "link": "#installation",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Features",
+        "slug": "features",
+        "link": "#features",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Usage",
+        "slug": "usage",
+        "link": "#usage",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "API",
+        "slug": "api",
+        "link": "#api",
+        "children": [
+          {
+            "level": 3,
+            "title": "CheckboxManager",
+            "slug": "checkboxmanager",
+            "link": "#checkboxmanager",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "CheckboxItems",
+            "slug": "checkboxitems",
+            "link": "#checkboxitems",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "Depends On",
+        "slug": "depends-on",
+        "link": "#depends-on",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Contributions",
+        "slug": "contributions",
+        "link": "#contributions",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "License",
+        "slug": "license",
+        "link": "#license",
+        "children": []
+      }
+    ],
+    "path": "/frontend/checkbox.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
     "title": "Back End",
     "headers": [],
     "path": "/backend/",
@@ -588,21 +1738,6 @@ export const searchIndex = [
       }
     ],
     "path": "/backend/addresses.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Alfa Sign",
-    "headers": [
-      {
-        "level": 3,
-        "title": "laravel-enso - Alfa Sign",
-        "slug": "laravel-enso-alfa-sign",
-        "link": "#laravel-enso-alfa-sign",
-        "children": []
-      }
-    ],
-    "path": "/backend/alfasign.html",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -1034,21 +2169,6 @@ export const searchIndex = [
       }
     ],
     "path": "/backend/avatars.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "BTRL",
-    "headers": [
-      {
-        "level": 3,
-        "title": "laravel-enso - BTRL",
-        "slug": "laravel-enso-btrl",
-        "link": "#laravel-enso-btrl",
-        "children": []
-      }
-    ],
-    "path": "/backend/btrl.html",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -2616,85 +3736,6 @@ export const searchIndex = [
       }
     ],
     "path": "/backend/eav.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Emag Checker",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "HTTP routes",
-            "slug": "http-routes",
-            "link": "#http-routes",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Artisan commands",
-            "slug": "artisan-commands",
-            "link": "#artisan-commands",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Configuration",
-            "slug": "configuration",
-            "link": "#configuration",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      }
-    ],
-    "path": "/backend/emag-checker.html",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -7477,9900 +8518,6 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "Front End",
-    "headers": [],
-    "path": "/frontend/",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Accessories",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Accessories",
-            "slug": "accessories-1",
-            "link": "#accessories-1",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/accessories.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Activity Log",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Index",
-            "slug": "index",
-            "link": "#index",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/activityLog",
-            "slug": "activitylog",
-            "link": "#activitylog",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Backend Integration",
-        "slug": "backend-integration",
-        "link": "#backend-integration",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/activity-log.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Addresses",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Addresses",
-            "slug": "addresses-1",
-            "link": "#addresses-1",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "AddressesCard",
-            "slug": "addressescard",
-            "link": "#addressescard",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/addresses.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Algolia",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Index",
-            "slug": "index",
-            "link": "#index",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "integrations/algolia/settings",
-            "slug": "integrations-algolia-settings",
-            "link": "#integrations-algolia-settings",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/algolia.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Audits",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Index",
-            "slug": "index",
-            "link": "#index",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Diff",
-            "slug": "diff",
-            "link": "#diff",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "system/audit",
-            "slug": "system-audit",
-            "link": "#system-audit",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/audits.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Auth",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "PasswordStrength",
-            "slug": "passwordstrength",
-            "link": "#passwordstrength",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "auth()",
-            "slug": "auth-1",
-            "link": "#auth-1",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "register()",
-            "slug": "register",
-            "link": "#register",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "Guest auth pages",
-            "slug": "guest-auth-pages",
-            "link": "#guest-auth-pages",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Backend Integration",
-        "slug": "backend-integration",
-        "link": "#backend-integration",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/auth.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Bookmarks",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Bookmarks",
-            "slug": "bookmarks-1",
-            "link": "#bookmarks-1",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/bookmarks.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Calendar",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Index",
-            "slug": "index",
-            "link": "#index",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/calendar",
-            "slug": "calendar-1",
-            "link": "#calendar-1",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/calendar.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Card",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Card",
-            "slug": "card-1",
-            "link": "#card-1",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "CardHeader",
-            "slug": "cardheader",
-            "link": "#cardheader",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "CardContent",
-            "slug": "cardcontent",
-            "link": "#cardcontent",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "CardImage",
-            "slug": "cardimage",
-            "link": "#cardimage",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "CardFooter",
-            "slug": "cardfooter",
-            "link": "#cardfooter",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "CardFooterItem",
-            "slug": "cardfooteritem",
-            "link": "#cardfooteritem",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "CardControl",
-            "slug": "cardcontrol",
-            "link": "#cardcontrol",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "CardBadge",
-            "slug": "cardbadge",
-            "link": "#cardbadge",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "CardCollapse",
-            "slug": "cardcollapse",
-            "link": "#cardcollapse",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "CardRefresh",
-            "slug": "cardrefresh",
-            "link": "#cardrefresh",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "CardRemove",
-            "slug": "cardremove",
-            "link": "#cardremove",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/card.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Cargo Partner",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Index",
-            "slug": "index",
-            "link": "#index",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "integrations/cargoPartner/settings",
-            "slug": "integrations-cargopartner-settings",
-            "link": "#integrations-cargopartner-settings",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/cargo-partner.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Categories",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Index",
-            "slug": "index",
-            "link": "#index",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Create",
-            "slug": "create",
-            "link": "#create",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Edit",
-            "slug": "edit",
-            "link": "#edit",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "administration/categories",
-            "slug": "administration-categories",
-            "link": "#administration-categories",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/categories.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Charts",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Chart",
-            "slug": "chart",
-            "link": "#chart",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "colors",
-            "slug": "colors",
-            "link": "#colors",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "ChartCard",
-            "slug": "chartcard",
-            "link": "#chartcard",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "EnsoChartCard",
-            "slug": "ensochartcard",
-            "link": "#ensochartcard",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/charts.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Checkbox",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "CheckboxManager",
-            "slug": "checkboxmanager",
-            "link": "#checkboxmanager",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "CheckboxItems",
-            "slug": "checkboxitems",
-            "link": "#checkboxitems",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/checkbox.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Clipboard",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Clipboard",
-            "slug": "clipboard-1",
-            "link": "#clipboard-1",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/clipboard.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Comments",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Comments",
-            "slug": "comments-1",
-            "link": "#comments-1",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "CommentsCard",
-            "slug": "commentscard",
-            "link": "#commentscard",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/comments.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Commercial",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route pages",
-            "slug": "route-pages",
-            "link": "#route-pages",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Reusable deep-import components",
-            "slug": "reusable-deep-import-components",
-            "link": "#reusable-deep-import-components",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/commercial/sales",
-            "slug": "commercial-sales",
-            "link": "#commercial-sales",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "/commercial/saleReturns",
-            "slug": "commercial-salereturns",
-            "link": "#commercial-salereturns",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "/commercial/purchases",
-            "slug": "commercial-purchases",
-            "link": "#commercial-purchases",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "/commercial/purchaseReturns",
-            "slug": "commercial-purchasereturns",
-            "link": "#commercial-purchasereturns",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "/commercial/audit",
-            "slug": "commercial-audit",
-            "link": "#commercial-audit",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "/commercial/settings",
-            "slug": "commercial-settings",
-            "link": "#commercial-settings",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Additional page modules",
-            "slug": "additional-page-modules",
-            "link": "#additional-page-modules",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/commercial.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Companies",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Index",
-            "slug": "index",
-            "link": "#index",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Create",
-            "slug": "create",
-            "link": "#create",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Edit",
-            "slug": "edit",
-            "link": "#edit",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "PeopleCard",
-            "slug": "peoplecard",
-            "link": "#peoplecard",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "administration/companies",
-            "slug": "administration-companies",
-            "link": "#administration-companies",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/companies.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Confirmation",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Confirmation",
-            "slug": "confirmation-1",
-            "link": "#confirmation-1",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "CoreConfirmation",
-            "slug": "coreconfirmation",
-            "link": "#coreconfirmation",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/confirmation.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Contracts",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Index",
-            "slug": "index",
-            "link": "#index",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Form",
-            "slug": "form",
-            "link": "#form",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Additional acts modules",
-            "slug": "additional-acts-modules",
-            "link": "#additional-acts-modules",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/contracts",
-            "slug": "contracts-1",
-            "link": "#contracts-1",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Backend Integration",
-        "slug": "backend-integration",
-        "link": "#backend-integration",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/contracts.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Control Panel",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Index",
-            "slug": "index",
-            "link": "#index",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Application administration pages",
-            "slug": "application-administration-pages",
-            "link": "#application-administration-pages",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Dashboard widgets",
-            "slug": "dashboard-widgets",
-            "link": "#dashboard-widgets",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/dashboard",
-            "slug": "dashboard",
-            "link": "#dashboard",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "administration/applications",
-            "slug": "administration-applications",
-            "link": "#administration-applications",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Packages",
-        "slug": "companion-backend-packages",
-        "link": "#companion-backend-packages",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/control-panel.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Currencies",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "CurrenciesIndex",
-            "slug": "currenciesindex",
-            "link": "#currenciesindex",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "CurrenciesCreate",
-            "slug": "currenciescreate",
-            "link": "#currenciescreate",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "CurrenciesEdit",
-            "slug": "currenciesedit",
-            "link": "#currenciesedit",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "ExchangeRatesIndex",
-            "slug": "exchangeratesindex",
-            "link": "#exchangeratesindex",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "ExchangeRatesCreate",
-            "slug": "exchangeratescreate",
-            "link": "#exchangeratescreate",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "ExchangeRatesEdit",
-            "slug": "exchangeratesedit",
-            "link": "#exchangeratesedit",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Conversion",
-            "slug": "conversion",
-            "link": "#conversion",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "administration/currencies",
-            "slug": "administration-currencies",
-            "link": "#administration-currencies",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "administration/exchangeRates",
-            "slug": "administration-exchangerates",
-            "link": "#administration-exchangerates",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/currencies.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Data Import",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Index",
-            "slug": "index",
-            "link": "#index",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "ImportUploader",
-            "slug": "importuploader",
-            "link": "#importuploader",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Parameter components",
-            "slug": "parameter-components",
-            "link": "#parameter-components",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/import",
-            "slug": "import",
-            "link": "#import",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/data-import.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Date",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "format(date, formatStr, locale = 'en')",
-            "slug": "format-date-formatstr-locale-en",
-            "link": "#format-date-formatstr-locale-en",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "formatDistance(date, locale = 'en')",
-            "slug": "formatdistance-date-locale-en",
-            "link": "#formatdistance-date-locale-en",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "i18n",
-            "slug": "i18n",
-            "link": "#i18n",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "unicode2php(formatStr)",
-            "slug": "unicode2php-formatstr",
-            "link": "#unicode2php-formatstr",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/date.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Datepicker",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Datepicker",
-            "slug": "datepicker-1",
-            "link": "#datepicker-1",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "EnsoDatepicker",
-            "slug": "ensodatepicker",
-            "link": "#ensodatepicker",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "CoreDatepicker",
-            "slug": "coredatepicker",
-            "link": "#coredatepicker",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/datepicker.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Departments",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Index",
-            "slug": "index",
-            "link": "#index",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Create",
-            "slug": "create",
-            "link": "#create",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Edit",
-            "slug": "edit",
-            "link": "#edit",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "administration/departments",
-            "slug": "administration-departments",
-            "link": "#administration-departments",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Backend Integration",
-        "slug": "backend-integration",
-        "link": "#backend-integration",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/departments.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Directives",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "v-click-outside",
-            "slug": "v-click-outside",
-            "link": "#v-click-outside",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "v-fits-below",
-            "slug": "v-fits-below",
-            "link": "#v-fits-below",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "v-focus",
-            "slug": "v-focus",
-            "link": "#v-focus",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "v-hljs",
-            "slug": "v-hljs",
-            "link": "#v-hljs",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "v-long-click",
-            "slug": "v-long-click",
-            "link": "#v-long-click",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "v-resize",
-            "slug": "v-resize",
-            "link": "#v-resize",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "v-scroll-into-view",
-            "slug": "v-scroll-into-view",
-            "link": "#v-scroll-into-view",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "v-select-on-focus",
-            "slug": "v-select-on-focus",
-            "link": "#v-select-on-focus",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/directives.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Discounts",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Default export",
-            "slug": "default-export",
-            "link": "#default-export",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Shared form building block",
-            "slug": "shared-form-building-block",
-            "link": "#shared-form-building-block",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/discounts/clients",
-            "slug": "discounts-clients",
-            "link": "#discounts-clients",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "/discounts/suppliers",
-            "slug": "discounts-suppliers",
-            "link": "#discounts-suppliers",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/discounts.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Divider",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Divider",
-            "slug": "divider-1",
-            "link": "#divider-1",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/divider.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Documents",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Documents",
-            "slug": "documents-1",
-            "link": "#documents-1",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "DocumentsCard",
-            "slug": "documentscard",
-            "link": "#documentscard",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/documents.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Dropdown Indicator",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "DropdownIndicator",
-            "slug": "dropdownindicator",
-            "link": "#dropdownindicator",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/dropdown-indicator.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Dropdown",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Dropdown",
-            "slug": "dropdown-1",
-            "link": "#dropdown-1",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "DropdownItem",
-            "slug": "dropdownitem",
-            "link": "#dropdownitem",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "CoreDropdown",
-            "slug": "coredropdown",
-            "link": "#coredropdown",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/dropdown.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Eav",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "FormEav",
-            "slug": "formeav",
-            "link": "#formeav",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Values",
-            "slug": "values",
-            "link": "#values",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/eav/groups",
-            "slug": "eav-groups",
-            "link": "#eav-groups",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/eav.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Emag",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Index",
-            "slug": "index",
-            "link": "#index",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Emag",
-            "slug": "emag-1",
-            "link": "#emag-1",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "QuarantinedOrders",
-            "slug": "quarantinedorders",
-            "link": "#quarantinedorders",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Additional page modules",
-            "slug": "additional-page-modules",
-            "link": "#additional-page-modules",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/integrations/emag/settings",
-            "slug": "integrations-emag-settings",
-            "link": "#integrations-emag-settings",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Deep-import page modules",
-            "slug": "deep-import-page-modules",
-            "link": "#deep-import-page-modules",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/emag.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Emails",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Index",
-            "slug": "index",
-            "link": "#index",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Create",
-            "slug": "create",
-            "link": "#create",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Edit",
-            "slug": "edit",
-            "link": "#edit",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "EmailForm",
-            "slug": "emailform",
-            "link": "#emailform",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/emails",
-            "slug": "emails-1",
-            "link": "#emails-1",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/emails.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Enums",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Enum",
-            "slug": "enum",
-            "link": "#enum",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "initEnums",
-            "slug": "initenums",
-            "link": "#initenums",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "enums",
-            "slug": "enums-1",
-            "link": "#enums-1",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "register",
-            "slug": "register",
-            "link": "#register",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/enums.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "ERD",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Erd",
-            "slug": "erd-1",
-            "link": "#erd-1",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/erd.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Facebook",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route modules",
-            "slug": "route-modules",
-            "link": "#route-modules",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Settings page",
-            "slug": "settings-page",
-            "link": "#settings-page",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/integrations/facebook/settings",
-            "slug": "integrations-facebook-settings",
-            "link": "#integrations-facebook-settings",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/facebook.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Files",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Page modules",
-            "slug": "page-modules",
-            "link": "#page-modules",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "File-browser building blocks",
-            "slug": "file-browser-building-blocks",
-            "link": "#file-browser-building-blocks",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/files",
-            "slug": "files-1",
-            "link": "#files-1",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "/administration/fileTypes",
-            "slug": "administration-filetypes",
-            "link": "#administration-filetypes",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/files.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Filters",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Bulma Exports",
-            "slug": "bulma-exports",
-            "link": "#bulma-exports",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "InputFilter",
-            "slug": "inputfilter",
-            "link": "#inputfilter",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "IntervalFilter",
-            "slug": "intervalfilter",
-            "link": "#intervalfilter",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "DateFilter",
-            "slug": "datefilter",
-            "link": "#datefilter",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "SelectFilter",
-            "slug": "selectfilter",
-            "link": "#selectfilter",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "ToggleFilter",
-            "slug": "togglefilter",
-            "link": "#togglefilter",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "BooleanFilter",
-            "slug": "booleanfilter",
-            "link": "#booleanfilter",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "VueFilter",
-            "slug": "vuefilter",
-            "link": "#vuefilter",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Enso Wrappers",
-            "slug": "enso-wrappers",
-            "link": "#enso-wrappers",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Renderless Primitives",
-            "slug": "renderless-primitives",
-            "link": "#renderless-primitives",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/filters.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Financials",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route modules",
-            "slug": "route-modules",
-            "link": "#route-modules",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Page modules",
-            "slug": "page-modules",
-            "link": "#page-modules",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/financials/clients/invoices",
-            "slug": "financials-clients-invoices",
-            "link": "#financials-clients-invoices",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "/financials/clients/payments",
-            "slug": "financials-clients-payments",
-            "link": "#financials-clients-payments",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "/financials/suppliers/invoices",
-            "slug": "financials-suppliers-invoices",
-            "link": "#financials-suppliers-invoices",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "/financials/suppliers/payments",
-            "slug": "financials-suppliers-payments",
-            "link": "#financials-suppliers-payments",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Additional page modules",
-            "slug": "additional-page-modules",
-            "link": "#additional-page-modules",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/financials.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Forms",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Bulma Exports",
-            "slug": "bulma-exports",
-            "link": "#bulma-exports",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "VueForm",
-            "slug": "vueform",
-            "link": "#vueform",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "EnsoForm",
-            "slug": "ensoform",
-            "link": "#ensoform",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "CoreForm",
-            "slug": "coreform",
-            "link": "#coreform",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "FormField",
-            "slug": "formfield",
-            "link": "#formfield",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "FormFieldGroup",
-            "slug": "formfieldgroup",
-            "link": "#formfieldgroup",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Action",
-            "slug": "action",
-            "link": "#action",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "InputField",
-            "slug": "inputfield",
-            "link": "#inputfield",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "SelectField",
-            "slug": "selectfield",
-            "link": "#selectfield",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "DateField",
-            "slug": "datefield",
-            "link": "#datefield",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "TimeField",
-            "slug": "timefield",
-            "link": "#timefield",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "MoneyField",
-            "slug": "moneyfield",
-            "link": "#moneyfield",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "SwitchField",
-            "slug": "switchfield",
-            "link": "#switchfield",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "TextareaField",
-            "slug": "textareafield",
-            "link": "#textareafield",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Internal Layout Components",
-            "slug": "internal-layout-components",
-            "link": "#internal-layout-components",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/forms.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Frisbo",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route modules",
-            "slug": "route-modules",
-            "link": "#route-modules",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Reusable components",
-            "slug": "reusable-components",
-            "link": "#reusable-components",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/integrations/frisbo/settings",
-            "slug": "integrations-frisbo-settings",
-            "link": "#integrations-frisbo-settings",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/frisbo.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Google",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route modules",
-            "slug": "route-modules",
-            "link": "#route-modules",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Settings page",
-            "slug": "settings-page",
-            "link": "#settings-page",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/integrations/google/settings",
-            "slug": "integrations-google-settings",
-            "link": "#integrations-google-settings",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/google.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Holidays",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route modules",
-            "slug": "route-modules",
-            "link": "#route-modules",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/holidays",
-            "slug": "holidays-1",
-            "link": "#holidays-1",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/holidays.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "How to",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route page",
-            "slug": "route-page",
-            "link": "#route-page",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/howTo/videos",
-            "slug": "howto-videos",
-            "link": "#howto-videos",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/how-to.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Interactions",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Bulma exports",
-            "slug": "bulma-exports",
-            "link": "#bulma-exports",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Routed page",
-            "slug": "routed-page",
-            "link": "#routed-page",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/interactions",
-            "slug": "interactions-2",
-            "link": "#interactions-2",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/interactions.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Inventory",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route modules",
-            "slug": "route-modules",
-            "link": "#route-modules",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Page modules",
-            "slug": "page-modules",
-            "link": "#page-modules",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Reusable components",
-            "slug": "reusable-components",
-            "link": "#reusable-components",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/inventory/warehouses",
-            "slug": "inventory-warehouses",
-            "link": "#inventory-warehouses",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "/inventory/positions",
-            "slug": "inventory-positions",
-            "link": "#inventory-positions",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "/inventory/labels",
-            "slug": "inventory-labels",
-            "link": "#inventory-labels",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/inventory.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "IO",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Bulma components",
-            "slug": "bulma-components",
-            "link": "#bulma-components",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Core controller",
-            "slug": "core-controller",
-            "link": "#core-controller",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Operation",
-            "slug": "operation",
-            "link": "#operation",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Presentation components",
-            "slug": "presentation-components",
-            "link": "#presentation-components",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/io.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Laravel Validation",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Errors",
-            "slug": "errors",
-            "link": "#errors",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/laravel-validation.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Loader",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Bulma exports",
-            "slug": "bulma-exports",
-            "link": "#bulma-exports",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/loader.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Localisation",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route pages",
-            "slug": "route-pages",
-            "link": "#route-pages",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Helper components",
-            "slug": "helper-components",
-            "link": "#helper-components",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Registration",
-            "slug": "registration",
-            "link": "#registration",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/system/localisation",
-            "slug": "system-localisation",
-            "link": "#system-localisation",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/localisation.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Logs",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Page modules",
-            "slug": "page-modules",
-            "link": "#page-modules",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/system/logs",
-            "slug": "system-logs",
-            "link": "#system-logs",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/logs.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Measurement Units",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Page modules",
-            "slug": "page-modules",
-            "link": "#page-modules",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/administration/measurementUnits",
-            "slug": "administration-measurementunits",
-            "link": "#administration-measurementunits",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/measurement-units.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Meili Search",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route modules",
-            "slug": "route-modules",
-            "link": "#route-modules",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/integrations/meilisearch/settings",
-            "slug": "integrations-meilisearch-settings",
-            "link": "#integrations-meilisearch-settings",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/meili-search.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Menus",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Page modules",
-            "slug": "page-modules",
-            "link": "#page-modules",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Menu components",
-            "slug": "menu-components",
-            "link": "#menu-components",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Utilities",
-            "slug": "utilities",
-            "link": "#utilities",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/system/menus",
-            "slug": "system-menus",
-            "link": "#system-menus",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/menus.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Mixins",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Root exports",
-            "slug": "root-exports",
-            "link": "#root-exports",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/mixins.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Modal",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Bulma exports",
-            "slug": "bulma-exports",
-            "link": "#bulma-exports",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Renderless core",
-            "slug": "renderless-core",
-            "link": "#renderless-core",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/modal.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Money",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Money",
-            "slug": "money-1",
-            "link": "#money-1",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/money.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Monitored Emails",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route modules",
-            "slug": "route-modules",
-            "link": "#route-modules",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Page modules",
-            "slug": "page-modules",
-            "link": "#page-modules",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/administration/monitoredEmails",
-            "slug": "administration-monitoredemails",
-            "link": "#administration-monitoredemails",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/monitored-emails.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Notifications",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route and registration modules",
-            "slug": "route-and-registration-modules",
-            "link": "#route-and-registration-modules",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Navbar component",
-            "slug": "navbar-component",
-            "link": "#navbar-component",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Settings component",
-            "slug": "settings-component",
-            "link": "#settings-component",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/core/notifications/index",
-            "slug": "core-notifications-index",
-            "link": "#core-notifications-index",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/notifications.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Orderable Trees",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Default export",
-            "slug": "default-export",
-            "link": "#default-export",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/orderable-trees.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Packaging Units",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route modules",
-            "slug": "route-modules",
-            "link": "#route-modules",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Page modules",
-            "slug": "page-modules",
-            "link": "#page-modules",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/administration/packagingUnits",
-            "slug": "administration-packagingunits",
-            "link": "#administration-packagingunits",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/packaging-units.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Pagination",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Bulma exports",
-            "slug": "bulma-exports",
-            "link": "#bulma-exports",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/pagination.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "People",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route modules",
-            "slug": "route-modules",
-            "link": "#route-modules",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Page modules",
-            "slug": "page-modules",
-            "link": "#page-modules",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/administration/people",
-            "slug": "administration-people",
-            "link": "#administration-people",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/people.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Permissions",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route modules",
-            "slug": "route-modules",
-            "link": "#route-modules",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Page modules",
-            "slug": "page-modules",
-            "link": "#page-modules",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Helper module",
-            "slug": "helper-module",
-            "link": "#helper-module",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": [
-          {
-            "level": 3,
-            "title": "/system/permissions",
-            "slug": "system-permissions",
-            "link": "#system-permissions",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/permissions.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Product Lots",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route pages",
-            "slug": "route-pages",
-            "link": "#route-pages",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/product-lots.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Products",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route pages",
-            "slug": "route-pages",
-            "link": "#route-pages",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Reusable deep-import components",
-            "slug": "reusable-deep-import-components",
-            "link": "#reusable-deep-import-components",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/products.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Progress Bar",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "ProgressBar",
-            "slug": "progressbar",
-            "link": "#progressbar",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/progress-bar.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Progress Circle",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "ProgressCircle",
-            "slug": "progresscircle",
-            "link": "#progresscircle",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/progress-circle.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Progress Indicator",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "ProgressIndicator",
-            "slug": "progressindicator",
-            "link": "#progressindicator",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "EnhancedProgressIndicator",
-            "slug": "enhancedprogressindicator",
-            "link": "#enhancedprogressindicator",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/progress-indicator.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Questionnaires",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route pages",
-            "slug": "route-pages",
-            "link": "#route-pages",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Reusable deep-import components",
-            "slug": "reusable-deep-import-components",
-            "link": "#reusable-deep-import-components",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/questionnaires.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Quick View",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "QuickView",
-            "slug": "quickview",
-            "link": "#quickview",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/quick-view.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Range Slider",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "RangeSlider",
-            "slug": "rangeslider",
-            "link": "#rangeslider",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/range-slider.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Rating",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Rating",
-            "slug": "rating-1",
-            "link": "#rating-1",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/rating.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Roles",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route pages",
-            "slug": "route-pages",
-            "link": "#route-pages",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/roles.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Route Mapper",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/route-mapper.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Sale Channels",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route pages",
-            "slug": "route-pages",
-            "link": "#route-pages",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/sale-channels.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Scroll to Top",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "ScrollToTop",
-            "slug": "scrolltotop",
-            "link": "#scrolltotop",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/scroll-to-top.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Search Mode",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "SearchMode",
-            "slug": "searchmode",
-            "link": "#searchmode",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/search-mode.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Select",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "VueSelect",
-            "slug": "vueselect",
-            "link": "#vueselect",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "EnsoSelect",
-            "slug": "ensoselect",
-            "link": "#ensoselect",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Tag",
-            "slug": "tag",
-            "link": "#tag",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/select.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Sentry",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/sentry.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Services",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route pages",
-            "slug": "route-pages",
-            "link": "#route-pages",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Reusable deep-import components",
-            "slug": "reusable-deep-import-components",
-            "link": "#reusable-deep-import-components",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/services.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Smart Bill",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route pages",
-            "slug": "route-pages",
-            "link": "#route-pages",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/smart-bill.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "SMS Advert",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route pages",
-            "slug": "route-pages",
-            "link": "#route-pages",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/sms-advert.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Strings",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/strings.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Switch",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "VueSwitch",
-            "slug": "vueswitch",
-            "link": "#vueswitch",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/switch.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Tables",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Bulma Exports",
-            "slug": "bulma-exports",
-            "link": "#bulma-exports",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "VueTable",
-            "slug": "vuetable",
-            "link": "#vuetable",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "EnsoTable",
-            "slug": "ensotable",
-            "link": "#ensotable",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "CoreTable",
-            "slug": "coretable",
-            "link": "#coretable",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Request and Data Contract",
-            "slug": "request-and-data-contract",
-            "link": "#request-and-data-contract",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Table Template Responsibilities",
-            "slug": "table-template-responsibilities",
-            "link": "#table-template-responsibilities",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Internal Rendering Parts",
-            "slug": "internal-rendering-parts",
-            "link": "#internal-rendering-parts",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Toolbar and Footer Controls",
-            "slug": "toolbar-and-footer-controls",
-            "link": "#toolbar-and-footer-controls",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Selection, Highlighting, and Hidden Rows",
-            "slug": "selection-highlighting-and-hidden-rows",
-            "link": "#selection-highlighting-and-hidden-rows",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Export and Button Actions",
-            "slug": "export-and-button-actions",
-            "link": "#export-and-button-actions",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/tables.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Tabs",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Tab",
-            "slug": "tab",
-            "link": "#tab",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Tabs",
-            "slug": "tabs-1",
-            "link": "#tabs-1",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "EnsoTabs",
-            "slug": "ensotabs",
-            "link": "#ensotabs",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/tabs.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Tasks",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route pages",
-            "slug": "route-pages",
-            "link": "#route-pages",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Reusable deep-import components",
-            "slug": "reusable-deep-import-components",
-            "link": "#reusable-deep-import-components",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/tasks.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Teams",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route pages",
-            "slug": "route-pages",
-            "link": "#route-pages",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Reusable deep-import components",
-            "slug": "reusable-deep-import-components",
-            "link": "#reusable-deep-import-components",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/teams.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Textarea",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "AutosizeTextarea",
-            "slug": "autosizetextarea",
-            "link": "#autosizetextarea",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/textarea.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Themes",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/themes.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Ticketing",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route pages",
-            "slug": "route-pages",
-            "link": "#route-pages",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/ticketing.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Toastr",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/toastr.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Transitions",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Fade",
-            "slug": "fade",
-            "link": "#fade",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Zoom",
-            "slug": "zoom",
-            "link": "#zoom",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Slide",
-            "slug": "slide",
-            "link": "#slide",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Collapse",
-            "slug": "collapse",
-            "link": "#collapse",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/transitions.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Tree View",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "TreeView",
-            "slug": "treeview",
-            "link": "#treeview",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/tree-view.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Tutorials",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route pages",
-            "slug": "route-pages",
-            "link": "#route-pages",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/tutorials.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Typeahead",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Typeahead",
-            "slug": "typeahead-1",
-            "link": "#typeahead-1",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "EnsoTypeahead",
-            "slug": "ensotypeahead",
-            "link": "#ensotypeahead",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/typeahead.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Typesense",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route pages",
-            "slug": "route-pages",
-            "link": "#route-pages",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/typesense.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "UI",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Root",
-            "slug": "root",
-            "link": "#root",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/ui.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Uploader",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Uploader",
-            "slug": "uploader-1",
-            "link": "#uploader-1",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "EnsoUploader",
-            "slug": "ensouploader",
-            "link": "#ensouploader",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/uploader.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "ups",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route pages",
-            "slug": "route-pages",
-            "link": "#route-pages",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/ups.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "User Groups",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route pages",
-            "slug": "route-pages",
-            "link": "#route-pages",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/user-groups.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Users",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route pages",
-            "slug": "route-pages",
-            "link": "#route-pages",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Reusable deep-import components",
-            "slug": "reusable-deep-import-components",
-            "link": "#reusable-deep-import-components",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/users.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Virtual Call Center",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route pages",
-            "slug": "route-pages",
-            "link": "#route-pages",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/virtual-call-center.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Vouchers",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route pages",
-            "slug": "route-pages",
-            "link": "#route-pages",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/vouchers.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Webshop",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Route pages",
-            "slug": "route-pages",
-            "link": "#route-pages",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Reusable deep-import components",
-            "slug": "reusable-deep-import-components",
-            "link": "#reusable-deep-import-components",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Routes",
-        "slug": "routes",
-        "link": "#routes",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Companion Backend Package",
-        "slug": "companion-backend-package",
-        "link": "#companion-backend-package",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/webshop.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "WYSIWYG",
-    "headers": [
-      {
-        "level": 2,
-        "title": "Description",
-        "slug": "description",
-        "link": "#description",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Installation",
-        "slug": "installation",
-        "link": "#installation",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Features",
-        "slug": "features",
-        "link": "#features",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Usage",
-        "slug": "usage",
-        "link": "#usage",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "API",
-        "slug": "api",
-        "link": "#api",
-        "children": [
-          {
-            "level": 3,
-            "title": "Wysiwyg",
-            "slug": "wysiwyg-1",
-            "link": "#wysiwyg-1",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "Depends On",
-        "slug": "depends-on",
-        "link": "#depends-on",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Contributions",
-        "slug": "contributions",
-        "link": "#contributions",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "License",
-        "slug": "license",
-        "link": "#license",
-        "children": []
-      }
-    ],
-    "path": "/frontend/wysiwyg.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
     "title": "",
     "headers": [],
     "path": "/404.html",
@@ -17378,3 +8525,16 @@ export const searchIndex = [
     "extraFields": []
   }
 ]
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updateSearchIndex) {
+    __VUE_HMR_RUNTIME__.updateSearchIndex(searchIndex)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ searchIndex }) => {
+    __VUE_HMR_RUNTIME__.updateSearchIndex(searchIndex)
+  })
+}

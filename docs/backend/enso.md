@@ -145,5 +145,5 @@ This package is released under the MIT license.
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/laravel-enso/enso/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 11/27/2020, 3:11:16 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 4:28:55 PM</div>
 </div>

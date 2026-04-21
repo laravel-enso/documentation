@@ -5,7 +5,9 @@
     },
     "scripts": {
         "dev": "vuepress dev docs",
-        "build": "yarn build:assets",
+        "build": "node scripts/netlify-build.mjs",
+        "build:site": "yarn build:assets",
+        "build:refresh": "yarn sync && yarn build:generator && yarn refresh:status && yarn build:assets",
         "scan": "node scripts/manage-sources.mjs scan",
         "sync": "node scripts/sync-readmes.mjs sync",
         "refresh:status": "node scripts/sync-readmes.mjs refresh-status",

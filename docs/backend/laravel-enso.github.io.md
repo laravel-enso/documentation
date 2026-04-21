@@ -206,5 +206,5 @@ More details are available on the project's [repository page](https://github.com
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/laravel-enso/laravel-enso.github.io/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 7/7/2017, 7:25:08 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 4:29:06 PM</div>
 </div>

@@ -89,5 +89,5 @@ Proprietary. See [LICENSE](https://git.xtelecom.ro/enso-ui/cargo-partner/-/blob/
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://git.xtelecom.ro/enso-ui/cargo-partner/-/edit/main/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 9:41:01 AM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 9:47:02 AM</div>
 </div>

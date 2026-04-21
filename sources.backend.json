@@ -1,954 +1,924 @@
 {
-  "backend": [
-    {
-      "slug": "action-logger",
-      "title": "Action Logger",
-      "url": "https://github.com/laravel-enso/action-logger",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "addresses",
-      "title": "Addresses",
-      "url": "https://github.com/laravel-enso/addresses",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 1,
-      "documentationStatus": "yellow",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "alfasign",
-      "title": "Alfa Sign",
-      "url": "https://git.xtelecom.ro/laravel-enso/alfasign",
-      "branch": "main",
-      "updated": false,
-      "openIssuesCount": 0,
-      "documentationStatus": "red",
-      "openMergeRequestsCount": null
-    },
-    {
-      "slug": "algolia",
-      "title": "Algolia",
-      "url": "https://github.com/laravel-enso/algolia",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "algolia-webshop",
-      "title": "Algolia Webshop",
-      "url": "https://git.xtelecom.ro/laravel-enso/algolia-webshop",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 1,
-      "documentationStatus": "yellow",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "api",
-      "title": "API",
-      "url": "https://github.com/laravel-enso/api",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "blue",
-      "openMergeRequestsCount": 1
-    },
-    {
-      "slug": "audits",
-      "title": "Audits",
-      "url": "https://github.com/laravel-enso/audits",
-      "branch": "main",
-      "updated": true,
-      "openIssuesCount": 1,
-      "documentationStatus": "yellow",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "avatars",
-      "title": "Avatars",
-      "url": "https://github.com/laravel-enso/avatars",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "btrl",
-      "title": "BTRL",
-      "url": "https://git.xtelecom.ro/laravel-enso/btrl",
-      "branch": "main",
-      "updated": false,
-      "openIssuesCount": 0,
-      "documentationStatus": "red",
-      "openMergeRequestsCount": null
-    },
-    {
-      "slug": "cache-chain",
-      "title": "Cache Chain",
-      "url": "https://github.com/laravel-enso/cache-chain",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "blue",
-      "openMergeRequestsCount": 1
-    },
-    {
-      "slug": "calendar",
-      "title": "Calendar",
-      "url": "https://github.com/laravel-enso/calendar",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "blue",
-      "openMergeRequestsCount": 1
-    },
-    {
-      "slug": "cargo-partner",
-      "title": "Cargo Partner",
-      "url": "https://git.xtelecom.ro/laravel-enso/cargo-partner",
-      "branch": "main",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "categories",
-      "title": "Categories",
-      "url": "https://github.com/laravel-enso/categories",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 1,
-      "documentationStatus": "yellow",
-      "openMergeRequestsCount": 1
-    },
-    {
-      "slug": "charts",
-      "title": "Charts",
-      "url": "https://github.com/laravel-enso/charts",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "blue",
-      "openMergeRequestsCount": 1
-    },
-    {
-      "slug": "cicd",
-      "title": "CI/CD",
-      "url": "https://git.xtelecom.ro/laravel-enso/cicd",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "blue",
-      "openMergeRequestsCount": 3
-    },
-    {
-      "slug": "cli",
-      "title": "Cli",
-      "url": "https://github.com/laravel-enso/cli",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 2,
-      "documentationStatus": "yellow",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "cnp-validator",
-      "title": "CNP Validator",
-      "url": "https://github.com/laravel-enso/cnp-validator",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "comments",
-      "title": "Comments",
-      "url": "https://github.com/laravel-enso/comments",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "commercial",
-      "title": "Commercial",
-      "url": "https://git.xtelecom.ro/laravel-enso/commercial",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": null
-    },
-    {
-      "slug": "companies",
-      "title": "Companies",
-      "url": "https://github.com/laravel-enso/companies",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "blue",
-      "openMergeRequestsCount": 1
-    },
-    {
-      "slug": "core",
-      "title": "Core",
-      "url": "https://github.com/laravel-enso/core",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 1,
-      "documentationStatus": "yellow",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "countries",
-      "title": "Countries",
-      "url": "https://github.com/laravel-enso/countries",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "currencies",
-      "title": "Currencies",
-      "url": "https://git.xtelecom.ro/laravel-enso/currencies",
-      "branch": "main",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "data-export",
-      "title": "Data Export",
-      "url": "https://github.com/laravel-enso/data-export",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 1,
-      "documentationStatus": "yellow",
-      "openMergeRequestsCount": 1
-    },
-    {
-      "slug": "data-import",
-      "title": "Data Import",
-      "url": "https://github.com/laravel-enso/data-import",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "blue",
-      "openMergeRequestsCount": 1
-    },
-    {
-      "slug": "discounts",
-      "title": "Discounts",
-      "url": "https://git.xtelecom.ro/laravel-enso/discounts",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "documents",
-      "title": "Documents",
-      "url": "https://github.com/laravel-enso/documents",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "dynamic-methods",
-      "title": "Dynamic Methods",
-      "url": "https://github.com/laravel-enso/dynamic-methods",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "eav",
-      "title": "EAV",
-      "url": "https://git.xtelecom.ro/laravel-enso/eav",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "emag",
-      "title": "Emag",
-      "url": "https://git.xtelecom.ro/laravel-enso/emag",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 5,
-      "documentationStatus": "yellow",
-      "openMergeRequestsCount": 4
-    },
-    {
-      "slug": "emag-checker",
-      "title": "Emag Checker",
-      "url": "https://git.xtelecom.ro/laravel-enso/emag-checker",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 1,
-      "documentationStatus": "yellow",
-      "openMergeRequestsCount": 1
-    },
-    {
-      "slug": "enums",
-      "title": "Enums",
-      "url": "https://github.com/laravel-enso/enums",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "excel",
-      "title": "Excel",
-      "url": "https://github.com/laravel-enso/excel",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "facebook",
-      "title": "Facebook",
-      "url": "https://github.com/laravel-enso/facebook",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "files",
-      "title": "Files",
-      "url": "https://github.com/laravel-enso/files",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "blue",
-      "openMergeRequestsCount": 1
-    },
-    {
-      "slug": "filters",
-      "title": "Filters",
-      "url": "https://github.com/laravel-enso/filters",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "financials",
-      "title": "Financials",
-      "url": "https://git.xtelecom.ro/laravel-enso/financials",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 4,
-      "documentationStatus": "yellow",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "forms",
-      "title": "Forms",
-      "url": "https://github.com/laravel-enso/forms",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 1,
-      "documentationStatus": "yellow",
-      "openMergeRequestsCount": 1
-    },
-    {
-      "slug": "frisbo",
-      "title": "Frisbo",
-      "url": "https://git.xtelecom.ro/laravel-enso/frisbo",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 3,
-      "documentationStatus": "yellow",
-      "openMergeRequestsCount": 2
-    },
-    {
-      "slug": "google",
-      "title": "Google",
-      "url": "https://github.com/laravel-enso/google",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "helpers",
-      "title": "Helpers",
-      "url": "https://github.com/laravel-enso/helpers",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "blue",
-      "openMergeRequestsCount": 1
-    },
-    {
-      "slug": "holidays",
-      "title": "Holidays",
-      "url": "https://github.com/laravel-enso/holidays",
-      "branch": "main",
-      "updated": true,
-      "openIssuesCount": 1,
-      "documentationStatus": "yellow",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "how-to",
-      "title": "How-to",
-      "url": "https://github.com/laravel-enso/how-to",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "image-transformer",
-      "title": "Image Transformer",
-      "url": "https://github.com/laravel-enso/image-transformer",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "impersonate",
-      "title": "Impersonate",
-      "url": "https://github.com/laravel-enso/impersonate",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "interactions",
-      "title": "Interactions",
-      "url": "https://git.xtelecom.ro/laravel-enso/interactions",
-      "branch": "main",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "inventory",
-      "title": "Inventory",
-      "url": "https://git.xtelecom.ro/laravel-enso/inventory",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 6,
-      "documentationStatus": "yellow",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "io",
-      "title": "IO",
-      "url": "https://github.com/laravel-enso/io",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "blue",
-      "openMergeRequestsCount": 1
-    },
-    {
-      "slug": "enso",
-      "title": "Laravel Enso",
-      "url": "https://github.com/laravel-enso/enso",
-      "branch": "master",
-      "updated": false,
-      "openIssuesCount": 0,
-      "documentationStatus": "red",
-      "openMergeRequestsCount": null
-    },
-    {
-      "slug": "laravel-enso.github.io",
-      "title": "laravel-enso.github.io",
-      "url": "https://github.com/laravel-enso/laravel-enso.github.io",
-      "branch": "master",
-      "updated": false,
-      "openIssuesCount": 0,
-      "documentationStatus": "red",
-      "openMergeRequestsCount": null
-    },
-    {
-      "slug": "localisation",
-      "title": "Localisation",
-      "url": "https://github.com/laravel-enso/localisation",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 1,
-      "documentationStatus": "yellow",
-      "openMergeRequestsCount": 1
-    },
-    {
-      "slug": "lockable-models",
-      "title": "Lockable Models",
-      "url": "https://github.com/laravel-enso/lockable-models",
-      "branch": "main",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "logs",
-      "title": "Logs",
-      "url": "https://github.com/laravel-enso/logs",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "measurement-units",
-      "title": "Measurement Units",
-      "url": "https://github.com/laravel-enso/measurement-units",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "blue",
-      "openMergeRequestsCount": 1
-    },
-    {
-      "slug": "meili-search",
-      "title": "Meili Search",
-      "url": "https://github.com/laravel-enso/meili-search",
-      "branch": "main",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "meili-search-webshop",
-      "title": "Meili Search Webshop",
-      "url": "https://git.xtelecom.ro/laravel-enso/meili-search-webshop",
-      "branch": "main",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "menus",
-      "title": "Menus",
-      "url": "https://github.com/laravel-enso/menus",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "monitored-emails",
-      "title": "Monitored Emails",
-      "url": "https://github.com/laravel-enso/monitored-emails",
-      "branch": "main",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "notifications",
-      "title": "Notifications",
-      "url": "https://github.com/laravel-enso/notifications",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "blue",
-      "openMergeRequestsCount": 1
-    },
-    {
-      "slug": "packaging-units",
-      "title": "Packaging Units",
-      "url": "https://github.com/laravel-enso/packaging-units",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "pdf",
-      "title": "PDF",
-      "url": "https://github.com/laravel-enso/pdf",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "people",
-      "title": "People",
-      "url": "https://github.com/laravel-enso/people",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "blue",
-      "openMergeRequestsCount": 1
-    },
-    {
-      "slug": "permissions",
-      "title": "Permissions",
-      "url": "https://github.com/laravel-enso/permissions",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "blue",
-      "openMergeRequestsCount": 1
-    },
-    {
-      "slug": "product-eav",
-      "title": "Product Eav",
-      "url": "https://git.xtelecom.ro/laravel-enso/product-eav",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 1,
-      "documentationStatus": "yellow",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "product-lots",
-      "title": "Product Lots",
-      "url": "https://git.xtelecom.ro/laravel-enso/product-lots",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 1,
-      "documentationStatus": "yellow",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "products",
-      "title": "Products",
-      "url": "https://git.xtelecom.ro/laravel-enso/products",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 2,
-      "documentationStatus": "yellow",
-      "openMergeRequestsCount": 2
-    },
-    {
-      "slug": "questionnaires",
-      "title": "Questionnaires",
-      "url": "https://git.xtelecom.ro/laravel-enso/questionnaires",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 1,
-      "documentationStatus": "yellow",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "rememberable",
-      "title": "Rememberable",
-      "url": "https://github.com/laravel-enso/rememberable",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 16,
-      "documentationStatus": "yellow",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "roles",
-      "title": "Roles",
-      "url": "https://github.com/laravel-enso/roles",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "blue",
-      "openMergeRequestsCount": 1
-    },
-    {
-      "slug": "sale-channels",
-      "title": "Sale Channels",
-      "url": "https://git.xtelecom.ro/laravel-enso/sale-channels",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 1,
-      "documentationStatus": "yellow",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "searchable",
-      "title": "Searchable",
-      "url": "https://github.com/laravel-enso/searchable",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "select",
-      "title": "Select",
-      "url": "https://github.com/laravel-enso/select",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "blue",
-      "openMergeRequestsCount": 2
-    },
-    {
-      "slug": "sentry",
-      "title": "Sentry",
-      "url": "https://github.com/laravel-enso/sentry",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "services",
-      "title": "Services",
-      "url": "https://github.com/laravel-enso/services",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "blue",
-      "openMergeRequestsCount": 1
-    },
-    {
-      "slug": "smart-bill",
-      "title": "Smart Bill",
-      "url": "https://git.xtelecom.ro/laravel-enso/smart-bill",
-      "branch": "main",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "blue",
-      "openMergeRequestsCount": 1
-    },
-    {
-      "slug": "sms-advert",
-      "title": "Sms Advert",
-      "url": "https://git.xtelecom.ro/laravel-enso/sms-advert",
-      "branch": "main",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "blue",
-      "openMergeRequestsCount": 1
-    },
-    {
-      "slug": "stripe",
-      "title": "Stripe",
-      "url": "https://git.xtelecom.ro/laravel-enso/stripe",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "tables",
-      "title": "Tables",
-      "url": "https://github.com/laravel-enso/tables",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 4,
-      "documentationStatus": "yellow",
-      "openMergeRequestsCount": 1
-    },
-    {
-      "slug": "tasks",
-      "title": "Tasks",
-      "url": "https://github.com/laravel-enso/tasks",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "blue",
-      "openMergeRequestsCount": 3
-    },
-    {
-      "slug": "teams",
-      "title": "Teams",
-      "url": "https://github.com/laravel-enso/teams",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "ticketing",
-      "title": "Ticketing",
-      "url": "https://git.xtelecom.ro/laravel-enso/ticketing",
-      "branch": "main",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "blue",
-      "openMergeRequestsCount": 1
-    },
-    {
-      "slug": "track-who",
-      "title": "Track Who",
-      "url": "https://github.com/laravel-enso/track-who",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "tutorials",
-      "title": "Tutorials",
-      "url": "https://github.com/laravel-enso/tutorials",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "blue",
-      "openMergeRequestsCount": 1
-    },
-    {
-      "slug": "typesense",
-      "title": "Typesense",
-      "url": "https://github.com/laravel-enso/typesense",
-      "branch": "main",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "typesense-webshop",
-      "title": "Typesense Webshop",
-      "url": "https://git.xtelecom.ro/laravel-enso/typesense-webshop",
-      "branch": "main",
-      "updated": true,
-      "openIssuesCount": 1,
-      "documentationStatus": "yellow",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "unit-conversion",
-      "title": "Unit Conversion",
-      "url": "https://github.com/laravel-enso/unit-conversion",
-      "branch": "main",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "upgrade",
-      "title": "Upgrade",
-      "url": "https://github.com/laravel-enso/upgrade",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "blue",
-      "openMergeRequestsCount": 2
-    },
-    {
-      "slug": "ups",
-      "title": "UPS",
-      "url": "https://git.xtelecom.ro/laravel-enso/ups",
-      "branch": "main",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "user-groups",
-      "title": "User Groups",
-      "url": "https://github.com/laravel-enso/user-groups",
-      "branch": "main",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "blue",
-      "openMergeRequestsCount": 1
-    },
-    {
-      "slug": "users",
-      "title": "Users",
-      "url": "https://github.com/laravel-enso/users",
-      "branch": "main",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "blue",
-      "openMergeRequestsCount": 1
-    },
-    {
-      "slug": "versions",
-      "title": "Versions",
-      "url": "https://github.com/laravel-enso/versions",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 1,
-      "documentationStatus": "yellow",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "virtual-call-center",
-      "title": "Virtual Call Center",
-      "url": "https://git.xtelecom.ro/laravel-enso/virtual-call-center",
-      "branch": "main",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "vouchers",
-      "title": "Vouchers",
-      "url": "https://git.xtelecom.ro/laravel-enso/vouchers",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    },
-    {
-      "slug": "webshop",
-      "title": "Webshop",
-      "url": "https://git.xtelecom.ro/laravel-enso/webshop",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 6,
-      "documentationStatus": "yellow",
-      "openMergeRequestsCount": 2
-    },
-    {
-      "slug": "webshop-commercial",
-      "title": "Webshop Commercial",
-      "url": "https://git.xtelecom.ro/laravel-enso/webshop-commercial",
-      "branch": "master",
-      "updated": true,
-      "openIssuesCount": 0,
-      "documentationStatus": "green",
-      "openMergeRequestsCount": 0
-    }
-  ]
+    "backend": [
+        {
+            "slug": "action-logger",
+            "title": "Action Logger",
+            "url": "https://github.com/laravel-enso/action-logger",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "addresses",
+            "title": "Addresses",
+            "url": "https://github.com/laravel-enso/addresses",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 1,
+            "documentationStatus": "yellow",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "algolia",
+            "title": "Algolia",
+            "url": "https://github.com/laravel-enso/algolia",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "algolia-webshop",
+            "title": "Algolia Webshop",
+            "url": "https://git.xtelecom.ro/laravel-enso/algolia-webshop",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 1,
+            "documentationStatus": "yellow",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "api",
+            "title": "API",
+            "url": "https://github.com/laravel-enso/api",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 1
+        },
+        {
+            "slug": "audits",
+            "title": "Audits",
+            "url": "https://github.com/laravel-enso/audits",
+            "branch": "main",
+            "updated": false,
+            "openIssuesCount": 1,
+            "documentationStatus": "red",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "avatars",
+            "title": "Avatars",
+            "url": "https://github.com/laravel-enso/avatars",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "cache-chain",
+            "title": "Cache Chain",
+            "url": "https://github.com/laravel-enso/cache-chain",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 1
+        },
+        {
+            "slug": "calendar",
+            "title": "Calendar",
+            "url": "https://github.com/laravel-enso/calendar",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 1
+        },
+        {
+            "slug": "cargo-partner",
+            "title": "Cargo Partner",
+            "url": "https://git.xtelecom.ro/laravel-enso/cargo-partner",
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 1
+        },
+        {
+            "slug": "categories",
+            "title": "Categories",
+            "url": "https://github.com/laravel-enso/categories",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 1,
+            "documentationStatus": "yellow",
+            "openMergeRequestsCount": 1
+        },
+        {
+            "slug": "charts",
+            "title": "Charts",
+            "url": "https://github.com/laravel-enso/charts",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 1
+        },
+        {
+            "slug": "cicd",
+            "title": "CI/CD",
+            "url": "https://git.xtelecom.ro/laravel-enso/cicd",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 3
+        },
+        {
+            "slug": "cli",
+            "title": "Cli",
+            "url": "https://github.com/laravel-enso/cli",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 2,
+            "documentationStatus": "yellow",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "cnp-validator",
+            "title": "CNP Validator",
+            "url": "https://github.com/laravel-enso/cnp-validator",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "comments",
+            "title": "Comments",
+            "url": "https://github.com/laravel-enso/comments",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "commercial",
+            "title": "Commercial",
+            "url": "https://git.xtelecom.ro/laravel-enso/commercial",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 9,
+            "documentationStatus": "yellow",
+            "openMergeRequestsCount": 1
+        },
+        {
+            "slug": "companies",
+            "title": "Companies",
+            "url": "https://github.com/laravel-enso/companies",
+            "branch": "master",
+            "updated": false,
+            "openIssuesCount": 0,
+            "documentationStatus": "red",
+            "openMergeRequestsCount": 1
+        },
+        {
+            "slug": "core",
+            "title": "Core",
+            "url": "https://github.com/laravel-enso/core",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 1,
+            "documentationStatus": "yellow",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "countries",
+            "title": "Countries",
+            "url": "https://github.com/laravel-enso/countries",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "currencies",
+            "title": "Currencies",
+            "url": "https://git.xtelecom.ro/laravel-enso/currencies",
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "data-export",
+            "title": "Data Export",
+            "url": "https://github.com/laravel-enso/data-export",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 1,
+            "documentationStatus": "yellow",
+            "openMergeRequestsCount": 1
+        },
+        {
+            "slug": "data-import",
+            "title": "Data Import",
+            "url": "https://github.com/laravel-enso/data-import",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 1
+        },
+        {
+            "slug": "discounts",
+            "title": "Discounts",
+            "url": "https://git.xtelecom.ro/laravel-enso/discounts",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "documents",
+            "title": "Documents",
+            "url": "https://github.com/laravel-enso/documents",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "dynamic-methods",
+            "title": "Dynamic Methods",
+            "url": "https://github.com/laravel-enso/dynamic-methods",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "eav",
+            "title": "EAV",
+            "url": "https://git.xtelecom.ro/laravel-enso/eav",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "emag",
+            "title": "Emag",
+            "url": "https://git.xtelecom.ro/laravel-enso/emag",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 5,
+            "documentationStatus": "yellow",
+            "openMergeRequestsCount": 4
+        },
+        {
+            "slug": "enums",
+            "title": "Enums",
+            "url": "https://github.com/laravel-enso/enums",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "excel",
+            "title": "Excel",
+            "url": "https://github.com/laravel-enso/excel",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "facebook",
+            "title": "Facebook",
+            "url": "https://github.com/laravel-enso/facebook",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "files",
+            "title": "Files",
+            "url": "https://github.com/laravel-enso/files",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 1
+        },
+        {
+            "slug": "filters",
+            "title": "Filters",
+            "url": "https://github.com/laravel-enso/filters",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "financials",
+            "title": "Financials",
+            "url": "https://git.xtelecom.ro/laravel-enso/financials",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 4,
+            "documentationStatus": "yellow",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "forms",
+            "title": "Forms",
+            "url": "https://github.com/laravel-enso/forms",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 1,
+            "documentationStatus": "yellow",
+            "openMergeRequestsCount": 1
+        },
+        {
+            "slug": "frisbo",
+            "title": "Frisbo",
+            "url": "https://git.xtelecom.ro/laravel-enso/frisbo",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 3,
+            "documentationStatus": "yellow",
+            "openMergeRequestsCount": 2
+        },
+        {
+            "slug": "google",
+            "title": "Google",
+            "url": "https://github.com/laravel-enso/google",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "helpers",
+            "title": "Helpers",
+            "url": "https://github.com/laravel-enso/helpers",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 1
+        },
+        {
+            "slug": "holidays",
+            "title": "Holidays",
+            "url": "https://github.com/laravel-enso/holidays",
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 1,
+            "documentationStatus": "yellow",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "how-to",
+            "title": "How-to",
+            "url": "https://github.com/laravel-enso/how-to",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "image-transformer",
+            "title": "Image Transformer",
+            "url": "https://github.com/laravel-enso/image-transformer",
+            "branch": "master",
+            "updated": false,
+            "openIssuesCount": 0,
+            "documentationStatus": "red",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "impersonate",
+            "title": "Impersonate",
+            "url": "https://github.com/laravel-enso/impersonate",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "interactions",
+            "title": "Interactions",
+            "url": "https://git.xtelecom.ro/laravel-enso/interactions",
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "inventory",
+            "title": "Inventory",
+            "url": "https://git.xtelecom.ro/laravel-enso/inventory",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 6,
+            "documentationStatus": "yellow",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "io",
+            "title": "IO",
+            "url": "https://github.com/laravel-enso/io",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 1
+        },
+        {
+            "slug": "enso",
+            "title": "Laravel Enso",
+            "url": "https://github.com/laravel-enso/enso",
+            "branch": "master",
+            "updated": false,
+            "openIssuesCount": 13,
+            "documentationStatus": "red",
+            "openMergeRequestsCount": 11
+        },
+        {
+            "slug": "laravel-enso.github.io",
+            "title": "laravel-enso.github.io",
+            "url": "https://github.com/laravel-enso/laravel-enso.github.io",
+            "branch": "master",
+            "updated": false,
+            "openIssuesCount": 0,
+            "documentationStatus": "red",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "localisation",
+            "title": "Localisation",
+            "url": "https://github.com/laravel-enso/localisation",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 1,
+            "documentationStatus": "yellow",
+            "openMergeRequestsCount": 1
+        },
+        {
+            "slug": "lockable-models",
+            "title": "Lockable Models",
+            "url": "https://github.com/laravel-enso/lockable-models",
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "logs",
+            "title": "Logs",
+            "url": "https://github.com/laravel-enso/logs",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "measurement-units",
+            "title": "Measurement Units",
+            "url": "https://github.com/laravel-enso/measurement-units",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 1
+        },
+        {
+            "slug": "meili-search",
+            "title": "Meili Search",
+            "url": "https://github.com/laravel-enso/meili-search",
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "meili-search-webshop",
+            "title": "Meili Search Webshop",
+            "url": "https://git.xtelecom.ro/laravel-enso/meili-search-webshop",
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "menus",
+            "title": "Menus",
+            "url": "https://github.com/laravel-enso/menus",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "monitored-emails",
+            "title": "Monitored Emails",
+            "url": "https://github.com/laravel-enso/monitored-emails",
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "notifications",
+            "title": "Notifications",
+            "url": "https://github.com/laravel-enso/notifications",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 1
+        },
+        {
+            "slug": "packaging-units",
+            "title": "Packaging Units",
+            "url": "https://github.com/laravel-enso/packaging-units",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "pdf",
+            "title": "PDF",
+            "url": "https://github.com/laravel-enso/pdf",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "people",
+            "title": "People",
+            "url": "https://github.com/laravel-enso/people",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 1
+        },
+        {
+            "slug": "permissions",
+            "title": "Permissions",
+            "url": "https://github.com/laravel-enso/permissions",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 1
+        },
+        {
+            "slug": "product-eav",
+            "title": "Product Eav",
+            "url": "https://git.xtelecom.ro/laravel-enso/product-eav",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 1,
+            "documentationStatus": "yellow",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "product-lots",
+            "title": "Product Lots",
+            "url": "https://git.xtelecom.ro/laravel-enso/product-lots",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 1,
+            "documentationStatus": "yellow",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "products",
+            "title": "Products",
+            "url": "https://git.xtelecom.ro/laravel-enso/products",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 2,
+            "documentationStatus": "yellow",
+            "openMergeRequestsCount": 2
+        },
+        {
+            "slug": "questionnaires",
+            "title": "Questionnaires",
+            "url": "https://git.xtelecom.ro/laravel-enso/questionnaires",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 1,
+            "documentationStatus": "yellow",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "rememberable",
+            "title": "Rememberable",
+            "url": "https://github.com/laravel-enso/rememberable",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "roles",
+            "title": "Roles",
+            "url": "https://github.com/laravel-enso/roles",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 1
+        },
+        {
+            "slug": "sale-channels",
+            "title": "Sale Channels",
+            "url": "https://git.xtelecom.ro/laravel-enso/sale-channels",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 1,
+            "documentationStatus": "yellow",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "searchable",
+            "title": "Searchable",
+            "url": "https://github.com/laravel-enso/searchable",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "select",
+            "title": "Select",
+            "url": "https://github.com/laravel-enso/select",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 2
+        },
+        {
+            "slug": "sentry",
+            "title": "Sentry",
+            "url": "https://github.com/laravel-enso/sentry",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "services",
+            "title": "Services",
+            "url": "https://github.com/laravel-enso/services",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 1
+        },
+        {
+            "slug": "smart-bill",
+            "title": "Smart Bill",
+            "url": "https://git.xtelecom.ro/laravel-enso/smart-bill",
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 1
+        },
+        {
+            "slug": "sms-advert",
+            "title": "Sms Advert",
+            "url": "https://git.xtelecom.ro/laravel-enso/sms-advert",
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 1
+        },
+        {
+            "slug": "stripe",
+            "title": "Stripe",
+            "url": "https://git.xtelecom.ro/laravel-enso/stripe",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "tables",
+            "title": "Tables",
+            "url": "https://github.com/laravel-enso/tables",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 4,
+            "documentationStatus": "yellow",
+            "openMergeRequestsCount": 1
+        },
+        {
+            "slug": "tasks",
+            "title": "Tasks",
+            "url": "https://github.com/laravel-enso/tasks",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 3
+        },
+        {
+            "slug": "teams",
+            "title": "Teams",
+            "url": "https://github.com/laravel-enso/teams",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "ticketing",
+            "title": "Ticketing",
+            "url": "https://git.xtelecom.ro/laravel-enso/ticketing",
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 1
+        },
+        {
+            "slug": "track-who",
+            "title": "Track Who",
+            "url": "https://github.com/laravel-enso/track-who",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "tutorials",
+            "title": "Tutorials",
+            "url": "https://github.com/laravel-enso/tutorials",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 1
+        },
+        {
+            "slug": "typesense",
+            "title": "Typesense",
+            "url": "https://github.com/laravel-enso/typesense",
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "typesense-webshop",
+            "title": "Typesense Webshop",
+            "url": "https://git.xtelecom.ro/laravel-enso/typesense-webshop",
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 1,
+            "documentationStatus": "yellow",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "unit-conversion",
+            "title": "Unit Conversion",
+            "url": "https://github.com/laravel-enso/unit-conversion",
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "upgrade",
+            "title": "Upgrade",
+            "url": "https://github.com/laravel-enso/upgrade",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 2
+        },
+        {
+            "slug": "ups",
+            "title": "UPS",
+            "url": "https://git.xtelecom.ro/laravel-enso/ups",
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "user-groups",
+            "title": "User Groups",
+            "url": "https://github.com/laravel-enso/user-groups",
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 1
+        },
+        {
+            "slug": "users",
+            "title": "Users",
+            "url": "https://github.com/laravel-enso/users",
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "blue",
+            "openMergeRequestsCount": 1
+        },
+        {
+            "slug": "versions",
+            "title": "Versions",
+            "url": "https://github.com/laravel-enso/versions",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 1,
+            "documentationStatus": "yellow",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "virtual-call-center",
+            "title": "Virtual Call Center",
+            "url": "https://git.xtelecom.ro/laravel-enso/virtual-call-center",
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "vouchers",
+            "title": "Vouchers",
+            "url": "https://git.xtelecom.ro/laravel-enso/vouchers",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "webshop",
+            "title": "Webshop",
+            "url": "https://git.xtelecom.ro/laravel-enso/webshop",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 6,
+            "documentationStatus": "yellow",
+            "openMergeRequestsCount": 2
+        },
+        {
+            "slug": "webshop-commercial",
+            "title": "Webshop Commercial",
+            "url": "https://git.xtelecom.ro/laravel-enso/webshop-commercial",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        }
+    ]
 }

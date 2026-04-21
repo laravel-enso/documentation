@@ -11,16 +11,6 @@
             "openMergeRequestsCount": 0
         },
         {
-            "slug": "activity-log",
-            "title": "Activity Log",
-            "url": "https://github.com/enso-ui/activity-log",
-            "branch": "master",
-            "updated": true,
-            "openIssuesCount": 0,
-            "documentationStatus": "green",
-            "openMergeRequestsCount": 0
-        },
-        {
             "slug": "addresses",
             "title": "Addresses",
             "url": "https://github.com/enso-ui/addresses",
@@ -181,26 +171,6 @@
             "openMergeRequestsCount": 0
         },
         {
-            "slug": "contracts",
-            "title": "Contracts",
-            "url": "https://git.xtelecom.ro/enso-ui/contracts",
-            "branch": "master",
-            "updated": true,
-            "openIssuesCount": 0,
-            "documentationStatus": "green",
-            "openMergeRequestsCount": 0
-        },
-        {
-            "slug": "control-panel",
-            "title": "Control Panel",
-            "url": "https://github.com/enso-ui/control-panel",
-            "branch": "master",
-            "updated": true,
-            "openIssuesCount": 0,
-            "documentationStatus": "green",
-            "openMergeRequestsCount": 0
-        },
-        {
             "slug": "currencies",
             "title": "Currencies",
             "url": "https://github.com/enso-ui/currencies",
@@ -234,16 +204,6 @@
             "slug": "datepicker",
             "title": "Datepicker",
             "url": "https://github.com/enso-ui/datepicker",
-            "branch": "master",
-            "updated": true,
-            "openIssuesCount": 0,
-            "documentationStatus": "green",
-            "openMergeRequestsCount": 0
-        },
-        {
-            "slug": "departments",
-            "title": "Departments",
-            "url": "https://git.xtelecom.ro/enso-ui/departments",
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
@@ -806,8 +766,8 @@
             "url": "https://github.com/enso-ui/sentry",
             "branch": "master",
             "updated": true,
-            "openIssuesCount": 16,
-            "documentationStatus": "yellow",
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -1012,7 +972,7 @@
         },
         {
             "slug": "ups",
-            "title": "ups",
+            "title": "UPS",
             "url": "https://git.xtelecom.ro/enso-ui/ups",
             "branch": "main",
             "updated": true,
