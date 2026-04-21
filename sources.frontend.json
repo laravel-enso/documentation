@@ -895,9 +895,9 @@
             "title": "Toastr",
             "url": "https://github.com/enso-ui/toastr",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {

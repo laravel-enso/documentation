@@ -175,9 +175,9 @@
             "title": "Companies",
             "url": "https://github.com/laravel-enso/companies",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "blue",
             "openMergeRequestsCount": 1
         },
         {
