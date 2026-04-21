@@ -405,9 +405,9 @@
             "title": "Image Transformer",
             "url": "https://github.com/laravel-enso/image-transformer",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {

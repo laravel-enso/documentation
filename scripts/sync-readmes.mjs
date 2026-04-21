@@ -860,7 +860,7 @@ const classifyBadge = (line) => {
         return 'license'
     }
 
-    if (normalized.includes('image')) {
+    if (/\[!\[image\]\]|\bbadge\/image[-/]/iu.test(normalized)) {
         return 'image'
     }
 
@@ -926,7 +926,7 @@ const hasBadge = (badgeText, badge) => {
         case 'stable':
             return isStableBadge(normalized)
         case 'image':
-            return normalized.includes('image')
+            return /\[!\[image\]\]|\bbadge\/image[-/]/iu.test(normalized)
         case 'downloads':
             return normalized.includes('download')
         case 'vue':
