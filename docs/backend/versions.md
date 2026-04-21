@@ -8,31 +8,108 @@ lastUpdated: false
 
 # Versions
 
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/d29de6dcf01e4ae6928776f6e03284ef)](https://www.codacy.com/gh/laravel-enso/versions?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=laravel-enso/versions&amp;utm_campaign=Badge_Grade) 
-[![StyleCI](https://github.styleci.io/repos/134861936/shield?branch=master)](https://github.styleci.io/repos/134861936)
-[![License](https://poser.pugx.org/laravel-enso/versions/license)](https://packagist.org/packages/laravel-enso/versions)
-[![Total Downloads](https://poser.pugx.org/laravel-enso/versions/downloads)](https://packagist.org/packages/laravel-enso/versions)
-[![Latest Stable Version](https://poser.pugx.org/laravel-enso/versions/version)](https://packagist.org/packages/laravel-enso/versions)
+[![License](https://img.shields.io/badge/license-MIT-10b981.svg)](https://github.com/laravel-enso/versions/blob/master/LICENSE)
+[![Stable](https://img.shields.io/badge/stable-2.0.0-2563eb.svg)](https://packagist.org/packages/laravel-enso/versions)
+[![Downloads](https://img.shields.io/packagist/dm/laravel-enso/versions.svg)](https://packagist.org/packages/laravel-enso/versions)
+[![PHP](https://img.shields.io/badge/php-7.4%2B-777bb4.svg)](https://github.com/laravel-enso/versions/blob/master/composer.json)
+[![Issues](https://img.shields.io/github/issues/laravel-enso/versions.svg)](https://github.com/laravel-enso/versions/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/versions.svg)](https://github.com/laravel-enso/versions/pulls)
 
-Prevents update conflicts using the optimistic lock pattern in Laravel
+## Description
 
-This package can work independently of the [Enso](https://github.com/laravel-enso/Enso) ecosystem.
+Versions prevents concurrent-update conflicts through an optimistic-lock field on Eloquent models.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+The package increments a version column on each update, checks the persisted version under a database lock before writing, and throws an HTTP 409 conflict when the record was modified after it was loaded.
 
-### Installation, Configuration & Usage
+It can work independently of the Laravel Enso ecosystem.
 
-Be sure to check out the full documentation for this package available at [docs.laravel-enso.com](https://docs.laravel-enso.com/backend/versions.html)
+## Installation
+
+Install the package:
+
+```bash
+composer require laravel-enso/versions
+```
+
+Add the trait to a model that has a version column:
+
+```php
+use Illuminate\Database\Eloquent\Model;
+use LaravelEnso\Versions\Traits\Versions;
+
+class Invoice extends Model
+{
+    use Versions;
+}
+```
+
+The trait expects a `version` integer column by default. To use another column name, define a protected `$versioningAttribute` property on the model.
+
+## Features
+
+- Sets the version column to `1` when creating a model.
+- Starts a database transaction before updates and checks the persisted version under a lock.
+- Increments the version automatically when the update is accepted.
+- Throws a `ConflictHttpException` when another process already changed the record.
+
+## Usage
+
+Manual version check:
+
+```php
+$invoice->checkVersion($request->integer('version'));
+```
+
+Custom version column:
+
+```php
+class Invoice extends Model
+{
+    use Versions;
+
+    protected string $versioningAttribute = 'lock_version';
+}
+```
+
+If the check fails, the package throws `LaravelEnso\\Versions\\Exceptions\\Version`, which extends Symfony's `ConflictHttpException`.
+
+## API
+
+### Trait
+
+- `LaravelEnso\\Versions\\Traits\\Versions`
+
+Main methods:
+
+- `checkVersion(?int $version = null): void`
+
+Lifecycle hooks:
+
+- `bootVersions()`
+
+### Exception
+
+- `LaravelEnso\\Versions\\Exceptions\\Version`
+
+Factory method:
+
+- `Version::recordModified(string $class)`
+
+## Depends On
+
+This package has no Enso package dependencies and can be used independently.
 
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
 
+Thank you to all the people who already contributed to Enso!
+
 ## License
 
-This package is released under the MIT license.
+[MIT](https://github.com/laravel-enso/versions/blob/master/LICENSE)
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/laravel-enso/versions/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 7/9/2020, 9:10:06 AM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 11:24:43 AM</div>
 </div>

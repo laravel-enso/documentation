@@ -12,7 +12,6 @@ lastUpdated: false
 [![Stable](https://img.shields.io/badge/stable-5.18.5-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/commercial/-/tags)
 [![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://git.xtelecom.ro/laravel-enso/commercial/-/blob/master/composer.json)
 [![Issues](https://img.shields.io/badge/issues-0-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/commercial/-/issues)
-[![Merge Requests](https://img.shields.io/badge/merge%20requests-0-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/commercial/-/merge_requests)
 
 ## Description
 
@@ -153,7 +152,11 @@ Required Enso packages:
 - [`laravel-enso/versions`](https://docs.laravel-enso.com/backend/versions.html) [↗](https://github.com/laravel-enso/versions)
 - [`laravel-enso/vouchers`](https://docs.laravel-enso.com/backend/vouchers.html) [↗](https://git.xtelecom.ro/laravel-enso/vouchers)
 
+Companion frontend package:
+
+- [`@enso-ui/commercial`](https://docs.laravel-enso.com/frontend/commercial.html) [↗](https://git.xtelecom.ro/enso-ui/commercial)
+
 <div class="package-page-meta-row">
-  <a class="package-page-edit" href="https://git.xtelecom.ro/laravel-enso/commercial/-/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitLab</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 5:32:00 PM</div>
+  <a class="package-page-edit" href="https://git.xtelecom.ro/laravel-enso/commercial/-/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 7:48:19 PM</div>
 </div>

@@ -8,23 +8,112 @@ lastUpdated: false
 
 # Dropdown
 
-![npm license](https://img.shields.io/npm/l/@enso-ui/dropdown.svg) 
-![npm download](https://img.shields.io/npm/dm/@enso-ui/dropdown.svg) 
-![GitHub top language](https://img.shields.io/github/languages/top/enso-ui/dropdown.svg) 
-![GitHub issues](https://img.shields.io/github/issues/enso-ui/dropdown.svg) 
-![npm version](https://img.shields.io/npm/v/@enso-ui/dropdown.svg) 
+[![License](https://img.shields.io/badge/license-MIT-10b981.svg)](https://github.com/enso-ui/dropdown/blob/master/LICENSE)
+[![Stable](https://img.shields.io/badge/stable-4.1.3-2563eb.svg)](https://www.npmjs.com/package/@enso-ui/dropdown)
+[![Downloads](https://img.shields.io/npm/dm/@enso-ui/dropdown.svg)](https://www.npmjs.com/package/@enso-ui/dropdown)
+[![Vue](https://img.shields.io/badge/vue-3.x-42b883.svg)](https://vuejs.org/)
+[![JavaScript](https://img.shields.io/badge/javascript-ES2020-f7df1e.svg)](https://developer.mozilla.org/docs/Web/JavaScript)
+[![SCSS](https://img.shields.io/badge/scss-supported-c6538c.svg)](https://sass-lang.com/)
+[![npm](https://img.shields.io/badge/npm-package-cb3837.svg)](https://www.npmjs.com/package/@enso-ui/dropdown)
+[![Issues](https://img.shields.io/github/issues/enso-ui/dropdown.svg)](https://github.com/enso-ui/dropdown/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/enso-ui/dropdown.svg)](https://github.com/enso-ui/dropdown/pulls)
 
-Vue Dropdown component
+## Description
 
-All components can be used outside of the Enso ecosystem.
+Dropdown provides both Bulma-flavored and renderless dropdown primitives for Enso UI.
 
-## Demo
+The Bulma entrypoint renders trigger, menu, transition, and placement behavior, while the renderless layer owns keyboard navigation, registration, and selection flow.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+## Installation
 
-## Installation, Configuration & Usage
+Install the package:
 
-Be sure to check out the full documentation for this package available at [docs.laravel-enso.com](https://docs.laravel-enso.com/frontend/dropdown.html)
+```bash
+yarn add @enso-ui/dropdown
+```
+
+This package can also be consumed outside the Enso ecosystem.
+
+## Features
+
+- exports `Dropdown` and `DropdownItem` from the Bulma entrypoint
+- exports `CoreDropdown` from the renderless entrypoint
+- supports keyboard navigation, selection tracking, click-outside closing, and up/down placement
+- composes cleanly with custom trigger, controls, and item slots
+
+## Usage
+
+```vue
+<script>
+import { Dropdown, DropdownItem } from '@enso-ui/dropdown';
+
+export default {
+    components: { Dropdown, DropdownItem },
+};
+</script>
+```
+
+Renderless usage:
+
+```js
+import { CoreDropdown } from '@enso-ui/dropdown/renderless';
+```
+
+## API
+
+### `Dropdown`
+
+Bulma-styled dropdown wrapper.
+
+Import: `@enso-ui/dropdown`
+
+Props:
+- `opensUp: boolean` default `false`
+
+Methods:
+- `show()`
+- `hide()`
+
+Slots:
+- `trigger`
+- `label`
+- `controls`
+- `items`
+
+### `DropdownItem`
+
+Selectable Bulma dropdown item.
+
+Import: `@enso-ui/dropdown`
+
+Props:
+- `selected: boolean` default `false`
+
+Events:
+- `select`
+
+### `CoreDropdown`
+
+Renderless dropdown state owner.
+
+Import: `@enso-ui/dropdown/renderless`
+
+Props:
+- `disableControls: boolean` default `false`
+- `disabled: boolean` default `false`
+- `dropdownClass: string` default `'dropdown'`
+- `itemClass: string` default `'dropdown-item'`
+- `manual: boolean` default `false`
+
+Events:
+- `show`
+- `hide`
+
+## Depends On
+
+- [`@enso-ui/directives`](https://docs.laravel-enso.com/frontend/directives.html) [↗](https://github.com/enso-ui/directives)
+- [`@enso-ui/dropdown-indicator`](https://docs.laravel-enso.com/frontend/dropdown-indicator.html) [↗](https://github.com/enso-ui/dropdown-indicator)
+- [`@enso-ui/transitions`](https://docs.laravel-enso.com/frontend/transitions.html) [↗](https://github.com/enso-ui/transitions)
 
 ## Contributions
 
@@ -38,5 +127,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/enso-ui/dropdown/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/10/2026, 1:11:43 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 12:02:15 PM</div>
 </div>

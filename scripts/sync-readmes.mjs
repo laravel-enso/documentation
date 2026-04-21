@@ -1,4 +1,4 @@
-import { access, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises'
+import { access, mkdir, readFile, readdir, rm, stat, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import process from 'node:process'
 
@@ -696,6 +696,8 @@ const approvedBadges = {
     backend: ['license', 'stable', 'downloads', 'php', 'issues', 'merge_requests'],
     frontend: ['license', 'stable', 'downloads', 'vue', 'javascript', 'scss', 'npm', 'issues', 'merge_requests'],
 }
+
+const isInfrastructureBackendRepo = (sectionId, source) => sectionId === 'backend' && source?.slug === 'cicd'
 const staleDescriptions = new Set([
     'main requirement & dependency aggregator for laravel enso',
     'soon...',
@@ -858,6 +860,10 @@ const classifyBadge = (line) => {
         return 'license'
     }
 
+    if (normalized.includes('image')) {
+        return 'image'
+    }
+
     if (isStableBadge(normalized)) {
         return 'stable'
     }
@@ -919,6 +925,8 @@ const hasBadge = (badgeText, badge) => {
                 || normalized.includes('/merge_requests')
         case 'stable':
             return isStableBadge(normalized)
+        case 'image':
+            return normalized.includes('image')
         case 'downloads':
             return normalized.includes('download')
         case 'vue':
@@ -954,6 +962,10 @@ const workspaceRoot = path.resolve(documentationRoot, '..')
 
 const localPackageRoot = (sectionId, source) => {
     if (sectionId === 'backend') {
+        if (source.slug === 'cicd') {
+            return path.join(workspaceRoot, 'cicd')
+        }
+
         return path.join(workspaceRoot, 'solarlink', 'vendor', 'laravel-enso', source.slug)
     }
 
@@ -983,7 +995,11 @@ const readJsonIfExists = async (filePath) => {
 
 const normalizeDescription = (value) => value.trim().replace(/\s+/gu, ' ').toLowerCase()
 
-const expectedLicenseCopyright = (manifest) => {
+const expectedLicenseCopyright = (manifest, source = null, sectionId = null) => {
+    if (isInfrastructureBackendRepo(sectionId, source)) {
+        return 'Copyright (c) 2026 Earthlink SRL'
+    }
+
     const license = typeof manifest?.license === 'string'
         ? manifest.license.trim().toLowerCase()
         : ''
@@ -1001,17 +1017,18 @@ const validateLocalPackageMetadata = async ({ sectionId, source, repository }) =
     }
 
     const findings = []
+    const isInfrastructureRepo = isInfrastructureBackendRepo(sectionId, source)
     const manifestName = sectionId === 'backend' ? 'composer.json' : 'package.json'
     const manifestPath = path.join(packageRoot, manifestName)
     const manifest = await readJsonIfExists(manifestPath)
 
-    if (!manifest) {
+    if (!manifest && !isInfrastructureRepo) {
         findings.push({
             level: 'warning',
             code: `missing_${manifestName.replace('.', '_')}`,
             message: `Local package is present, but ${manifestName} is missing.`,
         })
-    } else {
+    } else if (manifest) {
         if (!manifest.license || typeof manifest.license !== 'string' || !manifest.license.trim()) {
             findings.push({
                 level: 'warning',
@@ -1041,7 +1058,7 @@ const validateLocalPackageMetadata = async ({ sectionId, source, repository }) =
 
     if (await fileExists(licensePath)) {
         const license = await readFile(licensePath, 'utf8')
-        const expectedCopyright = expectedLicenseCopyright(manifest)
+        const expectedCopyright = expectedLicenseCopyright(manifest, source, sectionId)
 
         if (!license.includes(expectedCopyright)) {
             findings.push({
@@ -1062,6 +1079,10 @@ const isLikelyApiPackage = (sectionId, content) => sectionId === 'backend'
     || /\bprops?\b|\bevents?\b|\bmethods?\b|\bemit\b|\bendpoint\b|\broute\b|\bapi\b/iu.test(content)
 
 const effectiveBadgeOrder = ({ sectionId, repository }) => {
+    if (sectionId === 'backend' && repository?.baseUrl === 'https://git.xtelecom.ro/laravel-enso/cicd') {
+        return ['license', 'image', 'issues', 'merge_requests']
+    }
+
     const badges = [...approvedBadges[sectionId]]
 
     if (repository?.provider === 'gitlab') {
@@ -1107,6 +1128,7 @@ const validateReadme = async ({ sectionId, source, repository, content, cached }
     const requiredSections = ['Description', 'Installation', 'Features', 'Usage', 'Depends On']
     const expectedOrder = ['Description', 'Installation', 'Features', 'Usage', 'API', 'Depends On', 'Contributions']
     const isPublicPackage = repository?.provider === 'github'
+    const isInfrastructureRepo = isInfrastructureBackendRepo(sectionId, source)
 
     if (!titleMatch) {
         findings.push({
@@ -1160,9 +1182,16 @@ const validateReadme = async ({ sectionId, source, repository, content, cached }
 
     const supportedBadges = effectiveBadgeOrder({ sectionId, repository })
     const classifiedBadges = badgeLines.map(classifyBadge)
-    const extraBadges = classifiedBadges.filter((badge) => !['codacy', 'styleci', ...approvedBadges[sectionId]].includes(badge))
+    const allowedBadges = isInfrastructureRepo
+        ? ['codacy', 'styleci', ...approvedBadges[sectionId], 'image']
+        : ['codacy', 'styleci', ...approvedBadges[sectionId]]
+    const extraBadges = classifiedBadges.filter((badge) => !allowedBadges.includes(badge))
 
-    for (const badge of ['license', 'issues', 'merge_requests', 'stable', ...(supportedBadges.includes('downloads') ? ['downloads'] : [])]) {
+    const requiredBadges = isInfrastructureRepo
+        ? ['license', 'image', 'issues', 'merge_requests']
+        : ['license', 'issues', 'merge_requests', 'stable', ...(supportedBadges.includes('downloads') ? ['downloads'] : [])]
+
+    for (const badge of requiredBadges) {
         if (!hasBadge(badgeText, badge)) {
             findings.push({
                 level: 'warning',
@@ -1199,7 +1228,7 @@ const validateReadme = async ({ sectionId, source, repository, content, cached }
         })
     }
 
-    if (sectionId === 'backend' && !hasBadge(badgeText, 'php')) {
+    if (sectionId === 'backend' && !isInfrastructureRepo && !hasBadge(badgeText, 'php')) {
         findings.push({
             level: 'warning',
             code: 'missing_badge_php',
@@ -1548,6 +1577,42 @@ const listLocalGeneratedSlugs = async (sectionRoot) => {
     }
 }
 
+const syncLocalPackage = async ({ section, source, reason }) => {
+    const packageRoot = localPackageRoot(section.id, source)
+    const readmeFile = path.join(packageRoot, 'README.md')
+
+    if (!packageRoot || !await fileExists(readmeFile)) {
+        throw reason
+    }
+
+    const content = await readFile(readmeFile, 'utf8')
+    const lastModified = (await stat(readmeFile)).mtime.toISOString()
+    const repository = parseRepositoryUrl(source.url)
+
+    await writeFile(cachePath(section.id, source.slug), `${JSON.stringify({
+        ok: true,
+        syncedAt: new Date().toISOString(),
+        source,
+        branch: source.branch,
+        repository,
+        readmePath: 'README.md',
+        content: {
+            content: ensureRepositoryContent(
+                content,
+                repository.provider === 'gitlab' ? 'GitLab' : 'GitHub',
+                { owner: repository.owner, repo: repository.repo },
+                source.branch,
+                'README.md',
+            ),
+            lastModified,
+        },
+    }, null, 4)}\n`)
+
+    process.stdout.write(`synced local fallback ${section.id}/${source.slug}: ${String(reason.message ?? reason)}\n`)
+
+    return { retained: true, synced: true, deferred: false, pruned: false }
+}
+
 const isTransientSyncError = (error) => {
     const message = String(error?.message ?? error).toLowerCase()
 
@@ -1594,6 +1659,12 @@ const syncSource = async ({ section, source, localSlugs = null, force = false })
 
         return { retained: true, synced: true, deferred: false, pruned: false }
     } catch (error) {
+        try {
+            return await syncLocalPackage({ section, source, reason: error })
+        } catch {
+            // continue with normal error handling
+        }
+
         if (isTransientSyncError(error)) {
             process.stdout.write(`deferred ${section.id}/${source.slug}: ${String(error.message ?? error)}\n`)
 

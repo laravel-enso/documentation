@@ -6,9 +6,9 @@ lastUpdated: false
 
 <!-- AUTO-GENERATED: do not edit by hand -->
 
-# alfa-sign
+# Alfa Sign
 
-###  laravel-enso - alfasign
+###  laravel-enso - Alfa Sign
 Coming soon
 
 <div class="package-page-meta-row">

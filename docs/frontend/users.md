@@ -8,34 +8,86 @@ lastUpdated: false
 
 # Users
 
-![npm license](https://img.shields.io/npm/l/@enso-ui/users.svg) 
-![npm download](https://img.shields.io/npm/dm/@enso-ui/users.svg) 
-![GitHub top language](https://img.shields.io/github/languages/top/enso-ui/users.svg) 
-![GitHub issues](https://img.shields.io/github/issues/enso-ui/users.svg) 
-![npm version](https://img.shields.io/npm/v/@enso-ui/users.svg) 
+[![License](https://img.shields.io/badge/license-MIT-10b981.svg)](https://github.com/enso-ui/users/blob/master/LICENSE)
+[![Stable](https://img.shields.io/badge/stable-3.1.10-2563eb.svg)](https://www.npmjs.com/package/@enso-ui/users)
+[![Downloads](https://img.shields.io/npm/dm/@enso-ui/users.svg)](https://www.npmjs.com/package/@enso-ui/users)
+[![Vue](https://img.shields.io/badge/vue-3.x-42b883.svg)](https://vuejs.org/)
+[![JavaScript](https://img.shields.io/badge/javascript-ES2020-f7df1e.svg)](https://developer.mozilla.org/docs/Web/JavaScript)
+[![SCSS](https://img.shields.io/badge/scss-supported-c6538c.svg)](https://sass-lang.com/)
+[![npm](https://img.shields.io/badge/npm-package-cb3837.svg)](https://www.npmjs.com/package/@enso-ui/users)
+[![Issues](https://img.shields.io/github/issues/enso-ui/users.svg)](https://github.com/enso-ui/users/issues)
+[![Merge Requests](https://img.shields.io/github/issues-pr/enso-ui/users.svg)](https://github.com/enso-ui/users/pulls)
+## Description
+User administration pages and profile panels for Enso UI.
+## Installation
+Install the package:
 
+```bash
+yarn add @enso-ui/users
+```
+## Features
+- ships route-aware page modules consumed by the Enso application shell
+- covers create flows where the backend package exposes them
+- covers edit flows where the backend package exposes them
+- includes index/list pages backed by Enso tables, forms, or integration settings
+- ships reusable page-specific building blocks through deep-import component paths
 ## Usage
-The component cannot be used outside of the Enso ecosystem.
+```vue
+<script setup>
+import Create from '@enso-ui/users/src/bulma/pages/users/Create.vue';
+</script>
+```
+## API
+### Route pages
 
-### Demo
+The practical public surface is page-oriented and centered on the route modules shipped by the package.
 
-For live examples and demos, you may visit [laravel-enso.com](https://www.laravel-enso.com)
+Pages:
+- `src/bulma/pages/users/Create.vue`
+- `src/bulma/pages/users/Edit.vue`
+- `src/bulma/pages/users/Index.vue`
+- `src/bulma/pages/users/Show.vue`
 
-### Installation, Configuration & Usage
+### Reusable deep-import components
 
-Be sure to check out the full documentation for this package available at [docs.laravel-enso.com](https://docs.laravel-enso.com/frontend/users.html)
+Common reusable modules exposed under `src/bulma/pages/*/components`:
+- `src/bulma/pages/users/components/Avatar.vue`
+- `src/bulma/pages/users/components/Session.vue`
+- `src/bulma/pages/users/components/Sessions.vue`
+- `src/bulma/pages/users/components/Token.vue`
+- `src/bulma/pages/users/components/TokenForm.vue`
+- `src/bulma/pages/users/components/Tokens.vue`
+- `src/bulma/pages/users/components/Url.vue`
+- `src/bulma/pages/users/components/UserProfile.vue`
+## Routes
 
+Users ships the following named route entries:
+
+- `administration.users.create`
+  Path fragment: `create/:person`
+  Route file: `src/bulma/routes/administration/users/create.js`
+- `administration.users.edit`
+  Path fragment: `:user/edit`
+  Route file: `src/bulma/routes/administration/users/edit.js`
+- `administration.users.index`
+  Path fragment: `/`
+  Route file: `src/bulma/routes/administration/users/index.js`
+- `administration.users.show`
+  Path fragment: `:user`
+  Route file: `src/bulma/routes/administration/users/show.js`
+## Companion Backend Package
+
+- [`laravel-enso/users`](https://docs.laravel-enso.com/backend/users.html) [↗](https://github.com/laravel-enso/users)
+
+## Depends On
+- No additional Enso UI dependencies.
 ## Contributions
-
 are welcome. Pull requests are great, but issues are good too.
-
-Thank you to all the users who already contributed to Enso!
-
+Thank you to all the people who already contributed to Enso!
 ## License
-
-MIT
+[MIT](https://github.com/enso-ui/users/blob/master/LICENSE)
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/enso-ui/users/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/9/2026, 5:03:53 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 2:21:38 PM</div>
 </div>

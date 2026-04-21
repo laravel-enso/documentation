@@ -5,9 +5,19 @@
             "title": "Accessories",
             "url": "https://github.com/enso-ui/accessories",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "activity-log",
+            "title": "Activity Log",
+            "url": "https://github.com/enso-ui/activity-log",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -15,29 +25,49 @@
             "title": "Addresses",
             "url": "https://github.com/enso-ui/addresses",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
             "slug": "algolia",
-            "title": "algolia",
+            "title": "Algolia",
             "url": "https://github.com/enso-ui/algolia",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "audits",
+            "title": "Audits",
+            "url": "https://github.com/enso-ui/audits",
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "auth",
+            "title": "Auth",
+            "url": "https://github.com/enso-ui/auth",
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
             "slug": "bookmarks",
-            "title": "bookmarks",
+            "title": "Bookmarks",
             "url": "https://github.com/enso-ui/bookmarks",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -45,9 +75,9 @@
             "title": "Calendar",
             "url": "https://github.com/enso-ui/calendar",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "blue",
             "openMergeRequestsCount": 1
         },
         {
@@ -55,9 +85,9 @@
             "title": "Card",
             "url": "https://github.com/enso-ui/card",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -65,9 +95,9 @@
             "title": "Cargo Partner",
             "url": "https://git.xtelecom.ro/enso-ui/cargo-partner",
             "branch": "main",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -75,9 +105,9 @@
             "title": "Categories",
             "url": "https://github.com/enso-ui/categories",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -85,9 +115,9 @@
             "title": "Charts",
             "url": "https://github.com/enso-ui/charts",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -95,9 +125,9 @@
             "title": "Checkbox",
             "url": "https://github.com/enso-ui/checkbox",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -105,9 +135,9 @@
             "title": "Clipboard",
             "url": "https://github.com/enso-ui/clipboard",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -115,9 +145,9 @@
             "title": "Comments",
             "url": "https://github.com/enso-ui/comments",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -125,9 +155,9 @@
             "title": "Commercial",
             "url": "https://git.xtelecom.ro/enso-ui/commercial",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -135,9 +165,9 @@
             "title": "Companies",
             "url": "https://github.com/enso-ui/companies",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -145,9 +175,29 @@
             "title": "Confirmation",
             "url": "https://github.com/enso-ui/confirmation",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "contracts",
+            "title": "Contracts",
+            "url": "https://git.xtelecom.ro/enso-ui/contracts",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "control-panel",
+            "title": "Control Panel",
+            "url": "https://github.com/enso-ui/control-panel",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -155,9 +205,9 @@
             "title": "Currencies",
             "url": "https://github.com/enso-ui/currencies",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -165,9 +215,9 @@
             "title": "Data Import",
             "url": "https://github.com/enso-ui/data-import",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -175,9 +225,9 @@
             "title": "Date",
             "url": "https://github.com/enso-ui/date",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -185,9 +235,19 @@
             "title": "Datepicker",
             "url": "https://github.com/enso-ui/datepicker",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "departments",
+            "title": "Departments",
+            "url": "https://git.xtelecom.ro/enso-ui/departments",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -195,9 +255,9 @@
             "title": "Directives",
             "url": "https://github.com/enso-ui/directives",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -205,9 +265,9 @@
             "title": "Discounts",
             "url": "https://git.xtelecom.ro/enso-ui/discounts",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -215,9 +275,9 @@
             "title": "Divider",
             "url": "https://github.com/enso-ui/divider",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -225,9 +285,9 @@
             "title": "Documents",
             "url": "https://github.com/enso-ui/documents",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "blue",
             "openMergeRequestsCount": 8
         },
         {
@@ -235,9 +295,9 @@
             "title": "Dropdown",
             "url": "https://github.com/enso-ui/dropdown",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 2,
-            "documentationStatus": "red",
+            "documentationStatus": "yellow",
             "openMergeRequestsCount": 1
         },
         {
@@ -245,9 +305,9 @@
             "title": "Dropdown Indicator",
             "url": "https://github.com/enso-ui/dropdown-indicator",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -255,19 +315,19 @@
             "title": "Eav",
             "url": "https://git.xtelecom.ro/enso-ui/eav",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
             "slug": "emag",
-            "title": "eMAG",
+            "title": "Emag",
             "url": "https://git.xtelecom.ro/enso-ui/emag",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "blue",
             "openMergeRequestsCount": 1
         },
         {
@@ -275,19 +335,9 @@
             "title": "Emails",
             "url": "https://github.com/enso-ui/emails",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
-            "openMergeRequestsCount": 0
-        },
-        {
-            "slug": "pagination",
-            "title": "Enso UI Pagination",
-            "url": "https://github.com/enso-ui/pagination",
-            "branch": "main",
-            "updated": false,
-            "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -295,9 +345,9 @@
             "title": "Enums",
             "url": "https://github.com/enso-ui/enums",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -305,19 +355,19 @@
             "title": "ERD",
             "url": "https://github.com/enso-ui/erd",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
             "slug": "facebook",
-            "title": "facebook",
+            "title": "Facebook",
             "url": "https://github.com/enso-ui/facebook",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -325,9 +375,9 @@
             "title": "Files",
             "url": "https://github.com/enso-ui/files",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -335,9 +385,9 @@
             "title": "Filters",
             "url": "https://github.com/enso-ui/filters",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -345,9 +395,9 @@
             "title": "Financials",
             "url": "https://git.xtelecom.ro/enso-ui/financials",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "blue",
             "openMergeRequestsCount": 1
         },
         {
@@ -355,9 +405,9 @@
             "title": "Forms",
             "url": "https://github.com/enso-ui/forms",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 1,
-            "documentationStatus": "red",
+            "documentationStatus": "yellow",
             "openMergeRequestsCount": 0
         },
         {
@@ -365,39 +415,39 @@
             "title": "Frisbo",
             "url": "https://git.xtelecom.ro/enso-ui/frisbo",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
             "slug": "google",
-            "title": "google",
+            "title": "Google",
             "url": "https://github.com/enso-ui/google",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
             "slug": "holidays",
-            "title": "How To",
+            "title": "Holidays",
             "url": "https://github.com/enso-ui/holidays",
             "branch": "main",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
             "slug": "how-to",
-            "title": "How To",
+            "title": "How to",
             "url": "https://github.com/enso-ui/how-to",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -405,9 +455,9 @@
             "title": "Interactions",
             "url": "https://git.xtelecom.ro/enso-ui/interactions",
             "branch": "main",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -415,9 +465,9 @@
             "title": "Inventory",
             "url": "https://git.xtelecom.ro/enso-ui/inventory",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -425,9 +475,9 @@
             "title": "IO",
             "url": "https://github.com/enso-ui/io",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -435,9 +485,9 @@
             "title": "Laravel Validation",
             "url": "https://github.com/enso-ui/laravel-validation",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -445,9 +495,9 @@
             "title": "Loader",
             "url": "https://github.com/enso-ui/loader",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -455,9 +505,9 @@
             "title": "Localisation",
             "url": "https://github.com/enso-ui/localisation",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -465,9 +515,9 @@
             "title": "Logs",
             "url": "https://github.com/enso-ui/logs",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -475,19 +525,19 @@
             "title": "Measurement Units",
             "url": "https://github.com/enso-ui/measurement-units",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
             "slug": "meili-search",
-            "title": "MeiliSearch",
+            "title": "Meili Search",
             "url": "https://github.com/enso-ui/meili-search",
             "branch": "main",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -495,9 +545,9 @@
             "title": "Menus",
             "url": "https://github.com/enso-ui/menus",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -505,9 +555,9 @@
             "title": "Mixins",
             "url": "https://github.com/enso-ui/mixins",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -515,9 +565,9 @@
             "title": "Modal",
             "url": "https://github.com/enso-ui/modal",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -525,9 +575,9 @@
             "title": "Money",
             "url": "https://github.com/enso-ui/money",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -535,19 +585,19 @@
             "title": "Monitored Emails",
             "url": "https://github.com/enso-ui/monitored-emails",
             "branch": "main",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
             "slug": "notifications",
-            "title": "notifications",
+            "title": "Notifications",
             "url": "https://github.com/enso-ui/notifications",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -555,9 +605,9 @@
             "title": "Orderable Trees",
             "url": "https://github.com/enso-ui/orderable-trees",
             "branch": "main",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -565,9 +615,19 @@
             "title": "Packaging Units",
             "url": "https://github.com/enso-ui/packaging-units",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "pagination",
+            "title": "Pagination",
+            "url": "https://github.com/enso-ui/pagination",
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -575,9 +635,9 @@
             "title": "People",
             "url": "https://github.com/enso-ui/people",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -585,9 +645,9 @@
             "title": "Permissions",
             "url": "https://github.com/enso-ui/permissions",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -595,9 +655,9 @@
             "title": "Product Lots",
             "url": "https://git.xtelecom.ro/enso-ui/product-lots",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -605,9 +665,9 @@
             "title": "Products",
             "url": "https://git.xtelecom.ro/enso-ui/products",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -615,9 +675,9 @@
             "title": "Progress Bar",
             "url": "https://github.com/enso-ui/progress-bar",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -625,9 +685,9 @@
             "title": "Progress Circle",
             "url": "https://github.com/enso-ui/progress-circle",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -635,9 +695,9 @@
             "title": "Progress Indicator",
             "url": "https://github.com/enso-ui/progress-indicator",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -645,19 +705,19 @@
             "title": "Questionnaires",
             "url": "https://git.xtelecom.ro/enso-ui/questionnaires",
             "branch": "main",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
             "slug": "quick-view",
-            "title": "QuickView",
+            "title": "Quick View",
             "url": "https://github.com/enso-ui/quick-view",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -665,9 +725,9 @@
             "title": "Range Slider",
             "url": "https://github.com/enso-ui/range-slider",
             "branch": "main",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -675,9 +735,9 @@
             "title": "Rating",
             "url": "https://github.com/enso-ui/rating",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -685,9 +745,9 @@
             "title": "Roles",
             "url": "https://github.com/enso-ui/roles",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -695,9 +755,9 @@
             "title": "Route Mapper",
             "url": "https://github.com/enso-ui/route-mapper",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -705,19 +765,19 @@
             "title": "Sale Channels",
             "url": "https://git.xtelecom.ro/enso-ui/sale-channels",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
             "slug": "scroll-to-top",
-            "title": "Scroll To Top",
+            "title": "Scroll to Top",
             "url": "https://github.com/enso-ui/scroll-to-top",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -725,9 +785,9 @@
             "title": "Search Mode",
             "url": "https://github.com/enso-ui/search-mode",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -735,9 +795,9 @@
             "title": "Select",
             "url": "https://github.com/enso-ui/select",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -745,9 +805,9 @@
             "title": "Sentry",
             "url": "https://github.com/enso-ui/sentry",
             "branch": "master",
-            "updated": false,
-            "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "updated": true,
+            "openIssuesCount": 16,
+            "documentationStatus": "yellow",
             "openMergeRequestsCount": 0
         },
         {
@@ -755,9 +815,9 @@
             "title": "Services",
             "url": "https://github.com/enso-ui/services",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -765,9 +825,9 @@
             "title": "Smart Bill",
             "url": "https://git.xtelecom.ro/enso-ui/smart-bill",
             "branch": "main",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -775,9 +835,9 @@
             "title": "SMS Advert",
             "url": "https://git.xtelecom.ro/enso-ui/sms-advert",
             "branch": "main",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -785,9 +845,19 @@
             "title": "Strings",
             "url": "https://github.com/enso-ui/strings",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "switch",
+            "title": "Switch",
+            "url": "https://github.com/enso-ui/switch",
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -795,9 +865,9 @@
             "title": "Tables",
             "url": "https://github.com/enso-ui/tables",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 4,
-            "documentationStatus": "red",
+            "documentationStatus": "yellow",
             "openMergeRequestsCount": 1
         },
         {
@@ -805,9 +875,9 @@
             "title": "Tabs",
             "url": "https://github.com/enso-ui/tabs",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -815,9 +885,9 @@
             "title": "Tasks",
             "url": "https://github.com/enso-ui/tasks",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "blue",
             "openMergeRequestsCount": 2
         },
         {
@@ -825,9 +895,9 @@
             "title": "Teams",
             "url": "https://github.com/enso-ui/teams",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -835,9 +905,9 @@
             "title": "Textarea",
             "url": "https://github.com/enso-ui/textarea",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -845,9 +915,9 @@
             "title": "Themes",
             "url": "https://github.com/enso-ui/themes",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 1,
-            "documentationStatus": "red",
+            "documentationStatus": "yellow",
             "openMergeRequestsCount": 0
         },
         {
@@ -855,9 +925,9 @@
             "title": "Ticketing",
             "url": "https://git.xtelecom.ro/enso-ui/ticketing",
             "branch": "main",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -865,9 +935,9 @@
             "title": "Toastr",
             "url": "https://github.com/enso-ui/toastr",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -875,9 +945,9 @@
             "title": "Transitions",
             "url": "https://github.com/enso-ui/transitions",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -885,9 +955,9 @@
             "title": "Tree View",
             "url": "https://github.com/enso-ui/tree-view",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -895,9 +965,9 @@
             "title": "Tutorials",
             "url": "https://github.com/enso-ui/tutorials",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -905,9 +975,9 @@
             "title": "Typeahead",
             "url": "https://github.com/enso-ui/typeahead",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -915,9 +985,9 @@
             "title": "Typesense",
             "url": "https://github.com/enso-ui/typesense",
             "branch": "main",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -925,29 +995,9 @@
             "title": "UI",
             "url": "https://github.com/enso-ui/ui",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 4,
-            "documentationStatus": "red",
-            "openMergeRequestsCount": 0
-        },
-        {
-            "slug": "auth",
-            "title": "UI Authentication",
-            "url": "https://github.com/enso-ui/auth",
-            "branch": "main",
-            "updated": false,
-            "openIssuesCount": 0,
-            "documentationStatus": "red",
-            "openMergeRequestsCount": 0
-        },
-        {
-            "slug": "uniqa",
-            "title": "uniqa",
-            "url": "https://git.xtelecom.ro/enso-ui/uniqa",
-            "branch": "main",
-            "updated": false,
-            "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "yellow",
             "openMergeRequestsCount": 0
         },
         {
@@ -955,9 +1005,9 @@
             "title": "Uploader",
             "url": "https://github.com/enso-ui/uploader",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -965,9 +1015,9 @@
             "title": "ups",
             "url": "https://git.xtelecom.ro/enso-ui/ups",
             "branch": "main",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -975,9 +1025,9 @@
             "title": "User Groups",
             "url": "https://github.com/enso-ui/user-groups",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -985,9 +1035,9 @@
             "title": "Users",
             "url": "https://github.com/enso-ui/users",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -995,9 +1045,9 @@
             "title": "Virtual Call Center",
             "url": "https://git.xtelecom.ro/enso-ui/virtual-call-center",
             "branch": "main",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -1005,19 +1055,9 @@
             "title": "Vouchers",
             "url": "https://git.xtelecom.ro/enso-ui/vouchers",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
-            "openMergeRequestsCount": 0
-        },
-        {
-            "slug": "switch",
-            "title": "Vue Switch",
-            "url": "https://github.com/enso-ui/switch",
-            "branch": "master",
-            "updated": false,
-            "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -1025,9 +1065,9 @@
             "title": "Webshop",
             "url": "https://git.xtelecom.ro/enso-ui/webshop",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "blue",
             "openMergeRequestsCount": 1
         },
         {
@@ -1035,9 +1075,9 @@
             "title": "WYSIWYG",
             "url": "https://github.com/enso-ui/wysiwyg",
             "branch": "master",
-            "updated": false,
+            "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "red",
+            "documentationStatus": "blue",
             "openMergeRequestsCount": 2
         }
     ]

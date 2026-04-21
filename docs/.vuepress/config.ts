@@ -35,6 +35,7 @@ const guideSidebar = [
             '/guide/getting-started.md',
             '/guide/usage.md',
             '/guide/development.md',
+            '/guide/core-building-blocks.md',
             '/guide/under-the-hood.md',
             '/guide/thanks.md',
             '/guide/license.md',
@@ -303,8 +304,8 @@ export default defineUserConfig({
         contributors: false,
         navbar: [
             { text: 'Guide', link: '/guide/' },
-            { text: 'Front End', link: '/frontend/' },
             { text: 'Back End', link: '/backend/' },
+            { text: 'Front End', link: '/frontend/' },
         ],
         sidebar: {
             '/guide/': guideSidebar,

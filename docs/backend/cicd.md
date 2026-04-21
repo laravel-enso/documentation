@@ -11,6 +11,7 @@ lastUpdated: false
 [![License](https://img.shields.io/badge/license-Proprietary-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/cicd/-/blob/master/LICENSE)
 [![Image](https://img.shields.io/badge/image-php8.2--bookworm-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/cicd/-/tree/php8.2-bookworm)
 [![Issues](https://img.shields.io/badge/issues-0-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/cicd/-/issues)
+[![Merge Requests](https://img.shields.io/badge/merge%20requests-3-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/cicd/-/merge_requests)
 
 ## Description
 
@@ -80,5 +81,5 @@ docs/backend/cicd.md
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://git.xtelecom.ro/laravel-enso/cicd/-/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 3:45:58 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 3:46:56 PM</div>
 </div>

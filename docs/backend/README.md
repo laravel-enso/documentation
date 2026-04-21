@@ -5,7 +5,8 @@ lastUpdated: false
 
 # Back End
 
-Collection of Back End packages published under the `laravel-enso`
-organization and adjacent ecosystem repositories.
+This section contains the active Laravel Enso backend package collection.
 
-Select a package on the left to view more.
+It covers the backend packages published under the `laravel-enso` organization, together with adjacent ecosystem repositories that are part of the current platform surface.
+
+Select a package on the left to explore its documentation, dependencies, and companion frontend package where applicable.

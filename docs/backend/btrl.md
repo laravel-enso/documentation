@@ -6,9 +6,9 @@ lastUpdated: false
 
 <!-- AUTO-GENERATED: do not edit by hand -->
 
-# btrl
+# BTRL
 
-###  laravel-enso - btrl
+###  laravel-enso - BTRL
 Coming soon
 
 <div class="package-page-meta-row">
