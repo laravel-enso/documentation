@@ -1,4 +1,6 @@
 import { execSync } from 'node:child_process'
+import { mkdir, writeFile } from 'node:fs/promises'
+import path from 'node:path'
 
 const parseHookPayload = () => {
     const incoming = process.env.INCOMING_HOOK_BODY?.trim()
@@ -24,6 +26,20 @@ const run = (command) => {
         env: process.env,
     })
 }
+
+const writeSiteStatus = async () => {
+    const root = process.cwd()
+    const cacheRoot = path.join(root, '.cache')
+    const filePath = path.join(cacheRoot, 'site-status.json')
+
+    await mkdir(cacheRoot, { recursive: true })
+    await writeFile(filePath, `${JSON.stringify({
+        updatedAt: new Date().toISOString(),
+        mode: refreshRequested ? 'full-sync' : 'build-only',
+    }, null, 4)}\n`)
+}
+
+await writeSiteStatus()
 
 if (refreshRequested) {
     process.stdout.write('Running scheduled docs refresh build\n')

@@ -17,6 +17,47 @@ const analyticsHead = process.env.VUEPRESS_GA_ID?.trim()?.startsWith('G-')
     ]]
     : []
 
+const readSiteStatus = () => {
+    try {
+        return JSON.parse(readFileSync(path.resolve(process.cwd(), '.cache/site-status.json'), 'utf8'))
+    } catch {
+        return null
+    }
+}
+
+const siteStatus = readSiteStatus()
+
+const siteStatusMarkup = (() => {
+    if (!siteStatus?.updatedAt) {
+        return ''
+    }
+
+    const formattedTimestamp = new Intl.DateTimeFormat('en-US', {
+        dateStyle: 'medium',
+        timeStyle: 'short',
+    }).format(new Date(siteStatus.updatedAt))
+
+    const modeLabel = siteStatus.mode === 'full-sync'
+        ? 'full sync'
+        : 'build only'
+
+    return `<div class="home-site-build-status"><strong>Last updated:</strong> ${formattedTimestamp} <span class="mode">(${modeLabel})</span></div>`
+})()
+
+const siteStatusScript = siteStatusMarkup
+    ? `
+document.addEventListener('DOMContentLoaded', () => {
+    const footer = document.querySelector('.vp-home .vp-footer');
+
+    if (!footer || footer.querySelector('.home-site-build-status')) {
+        return;
+    }
+
+    footer.insertAdjacentHTML('beforeend', ${JSON.stringify(siteStatusMarkup)});
+});
+`
+    : ''
+
 const repositorySectionMeta = {
     backend: {
         title: 'Back End',
@@ -220,6 +261,17 @@ html[data-theme="dark"] {
     font-weight: 400;
 }
 
+.home-site-build-status {
+    margin-top: 0.45rem;
+    color: var(--vp-c-text-mute);
+    font-size: 0.78rem;
+    text-align: center;
+}
+
+.home-site-build-status .mode {
+    color: #4f6f95;
+}
+
 .external-link-icon [vp-content] li > a.route-link + a[target="_blank"]::after {
     content: none !important;
     display: none !important;
@@ -268,6 +320,10 @@ html[data-theme="dark"] {
     .package-page-last-updated {
         text-align: left;
     }
+
+    .home-site-build-status {
+        text-align: left;
+    }
 }
 
 ${visibilityBadgeRules}
@@ -292,6 +348,8 @@ export default defineUserConfig({
     description: 'Full featured Single Page Application boilerplate',
     head: [
         ...analyticsHead,
+        ['script', {}, `window.__ENSO_DOCS_SITE_STATUS__ = ${JSON.stringify(siteStatus)};`],
+        ...(siteStatusScript ? [['script', {}, siteStatusScript] as const] : []),
         ['style', {}, siteStyles],
         ['link', { rel: 'icon', href: '/enso.png' }],
         ['link', { rel: 'manifest', href: '/manifest.json' }],
