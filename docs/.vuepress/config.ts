@@ -41,7 +41,7 @@ const siteStatusMarkup = (() => {
         ? 'full sync'
         : 'build only'
 
-    return `<div class="home-site-build-status"><strong>Last updated:</strong> ${formattedTimestamp} <span class="mode">(${modeLabel})</span></div>`
+    return `<div class="home-site-build-status"><strong>Last updated:</strong> ${formattedTimestamp} <span class="mode">(${modeLabel})</span> <a class="commands-tag" href="/guide/commands.html">Commands</a></div>`
 })()
 
 const siteStatusScript = siteStatusMarkup
@@ -270,6 +270,27 @@ html[data-theme="dark"] {
 
 .home-site-build-status .mode {
     color: #4f6f95;
+}
+
+.home-site-build-status .commands-tag {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 0.45rem;
+    padding: 0.08rem 0.42rem;
+    border: 1px solid rgba(79, 111, 149, 0.18);
+    border-radius: 999px;
+    background: rgba(79, 111, 149, 0.08);
+    color: #4f6f95;
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1.1;
+    text-decoration: none !important;
+    vertical-align: middle;
+}
+
+.home-site-build-status .commands-tag:hover {
+    text-decoration: none !important;
+    background: rgba(79, 111, 149, 0.12);
 }
 
 .external-link-icon [vp-content] li > a.route-link + a[target="_blank"]::after {

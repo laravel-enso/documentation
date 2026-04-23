@@ -11,6 +11,7 @@
         "scan": "node scripts/manage-sources.mjs scan",
         "sync": "node scripts/sync-readmes.mjs sync",
         "refresh:status": "node scripts/sync-readmes.mjs refresh-status",
+        "cleanup:tracker": "node scripts/close-stale-tracker.mjs",
         "add:repo": "node scripts/manage-sources.mjs add-package",
         "remove:repo": "node scripts/manage-sources.mjs remove-package",
         "build:generator": "node scripts/sync-readmes.mjs generate",
