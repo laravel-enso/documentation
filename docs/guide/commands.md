@@ -5,7 +5,7 @@ This page documents the working commands of the `documentation` repository.
 All examples below assume you are in:
 
 ```bash
-cd /Users/adi/code/documentation
+cd ../code/documentation
 ```
 
 ## Command groups
