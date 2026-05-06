@@ -10,12 +10,11 @@ cd ../code/documentation
 
 ## Command groups
 
-The commands fall into four groups:
+The commands fall into three groups:
 
 - local preview and static site build
 - repository sync and page generation
 - source registry maintenance
-- tracker cleanup
 
 ## Local preview and build
 
@@ -200,62 +199,6 @@ yarn remove:repo frontend/example
 ```
 
 Use it when a repository should no longer appear in the docs registry.
-
-## Tracker cleanup
-
-### `yarn cleanup:tracker`
-
-Closes stale issues and merge requests across repositories registered in the docs source files.
-
-By default, it runs in `dry-run` mode and only reports candidates.
-
-Required argument:
-
-- `--before=ISO_TIMESTAMP`
-
-Examples:
-
-```bash
-yarn cleanup:tracker --before=2026-01-01T00:00:00Z
-```
-
-Issues only:
-
-```bash
-yarn cleanup:tracker --before=2026-01-01T00:00:00Z --type=issues
-```
-
-Merge requests only:
-
-```bash
-yarn cleanup:tracker --before=2026-01-01T00:00:00Z --type=merge-requests
-```
-
-Single repository:
-
-```bash
-yarn cleanup:tracker --before=2026-01-01T00:00:00Z --repo=backend/companies
-yarn cleanup:tracker --before=2026-01-01T00:00:00Z --repo=enso-ui/forms
-```
-
-Custom excluded labels:
-
-```bash
-yarn cleanup:tracker --before=2026-01-01T00:00:00Z --exclude-labels=security,planned,keep-open
-```
-
-Apply changes:
-
-```bash
-yarn cleanup:tracker --before=2026-01-01T00:00:00Z --apply
-```
-
-The command:
-
-- reads repositories from `sources.backend.json` and `sources.frontend.json`
-- supports GitHub and GitLab
-- posts a standard cleanup comment
-- closes the issue, pull request, or merge request when `--apply` is present
 
 ## Recommended workflows
 

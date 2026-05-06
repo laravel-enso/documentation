@@ -281,6 +281,12 @@
             "openMergeRequestsCount": 4
         },
         {
+            "slug": "emag-checker",
+            "title": "Emag Checker",
+            "url": "https://git.xtelecom.ro/laravel-enso/emag-checker",
+            "branch": "master"
+        },
+        {
             "slug": "enums",
             "title": "Enums",
             "url": "https://github.com/laravel-enso/enums",
@@ -621,6 +627,12 @@
             "openMergeRequestsCount": 2
         },
         {
+            "slug": "projects",
+            "title": "projects",
+            "url": "https://git.xtelecom.ro/laravel-enso/projects",
+            "branch": "main"
+        },
+        {
             "slug": "questionnaires",
             "title": "Questionnaires",
             "url": "https://git.xtelecom.ro/laravel-enso/questionnaires",
@@ -729,6 +741,12 @@
             "openIssuesCount": 0,
             "documentationStatus": "green",
             "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "sunrise-sunset",
+            "title": "Sunrise Sunset",
+            "url": "https://github.com/laravel-enso/sunrise-sunset",
+            "branch": "main"
         },
         {
             "slug": "tables",

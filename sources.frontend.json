@@ -661,6 +661,12 @@
             "openMergeRequestsCount": 0
         },
         {
+            "slug": "projects",
+            "title": "Projects",
+            "url": "https://git.xtelecom.ro/enso-ui/projects",
+            "branch": "main"
+        },
+        {
             "slug": "questionnaires",
             "title": "Questionnaires",
             "url": "https://git.xtelecom.ro/enso-ui/questionnaires",
