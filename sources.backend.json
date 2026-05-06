@@ -746,7 +746,11 @@
             "slug": "sunrise-sunset",
             "title": "Sunrise Sunset",
             "url": "https://github.com/laravel-enso/sunrise-sunset",
-            "branch": "main"
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 0,
+            "openMergeRequestsCount": 0,
+            "documentationStatus": "green"
         },
         {
             "slug": "tables",
