@@ -51,9 +51,9 @@
             "openMergeRequestsCount": 1
         },
         {
-            "slug": "audits",
-            "title": "Audits",
-            "url": "https://github.com/laravel-enso/audits",
+            "slug": "audit",
+            "title": "Audit",
+            "url": "https://github.com/laravel-enso/audit",
             "branch": "main",
             "updated": true,
             "openIssuesCount": 1,

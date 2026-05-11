@@ -31,9 +31,9 @@
             "openMergeRequestsCount": 0
         },
         {
-            "slug": "audits",
-            "title": "Audits",
-            "url": "https://github.com/enso-ui/audits",
+            "slug": "audit",
+            "title": "Audit",
+            "url": "https://github.com/enso-ui/audit",
             "branch": "main",
             "updated": true,
             "openIssuesCount": 0,
