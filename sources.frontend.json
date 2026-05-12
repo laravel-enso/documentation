@@ -11,6 +11,12 @@
             "openMergeRequestsCount": 0
         },
         {
+            "slug": "action-logger",
+            "title": "Action Logger",
+            "url": "https://github.com/enso-ui/action-logger",
+            "branch": "main"
+        },
+        {
             "slug": "addresses",
             "title": "Addresses",
             "url": "https://github.com/enso-ui/addresses",
@@ -29,6 +35,12 @@
             "openIssuesCount": 0,
             "documentationStatus": "green",
             "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "api",
+            "title": "Api",
+            "url": "https://github.com/enso-ui/api",
+            "branch": "main"
         },
         {
             "slug": "audit",
@@ -825,6 +837,12 @@
             "openIssuesCount": 0,
             "documentationStatus": "green",
             "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "system-notifications",
+            "title": "System Notifications",
+            "url": "https://git.xtelecom.ro/enso-ui/system-notifications",
+            "branch": "main"
         },
         {
             "slug": "tables",

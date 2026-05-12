@@ -457,6 +457,12 @@
             "openMergeRequestsCount": 1
         },
         {
+            "slug": "system-notifications",
+            "title": "Laravel Enso System Notifications",
+            "url": "https://git.xtelecom.ro/laravel-enso/system-notifications",
+            "branch": "main"
+        },
+        {
             "slug": "localisation",
             "title": "Localisation",
             "url": "https://github.com/laravel-enso/localisation",
