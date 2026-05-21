@@ -463,6 +463,12 @@
             "branch": "main"
         },
         {
+            "slug": "projects",
+            "title": "Laravel Enso Projects",
+            "url": "https://git.xtelecom.ro/laravel-enso/projects",
+            "branch": "main"
+        },
+        {
             "slug": "system-notifications",
             "title": "Laravel Enso System Notifications",
             "url": "https://git.xtelecom.ro/laravel-enso/system-notifications",
@@ -637,12 +643,6 @@
             "openIssuesCount": 2,
             "documentationStatus": "yellow",
             "openMergeRequestsCount": 2
-        },
-        {
-            "slug": "projects",
-            "title": "projects",
-            "url": "https://git.xtelecom.ro/laravel-enso/projects",
-            "branch": "main"
         },
         {
             "slug": "questionnaires",

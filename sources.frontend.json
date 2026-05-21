@@ -38,7 +38,7 @@
         },
         {
             "slug": "api",
-            "title": "Api",
+            "title": "API",
             "url": "https://github.com/enso-ui/api",
             "branch": "main"
         },
