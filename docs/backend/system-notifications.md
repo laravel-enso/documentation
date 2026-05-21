@@ -6,7 +6,7 @@ lastUpdated: false
 
 <!-- AUTO-GENERATED: do not edit by hand -->
 
-# Laravel Enso System Notifications
+# System Notifications
 
 Configurable system notification definitions for Laravel Enso applications.
 
@@ -102,5 +102,5 @@ MIT.
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://git.xtelecom.ro/laravel-enso/system-notifications/-/edit/main/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 5/13/2026, 7:43:05 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 5/21/2026, 12:46:12 PM</div>
 </div>

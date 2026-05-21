@@ -6,7 +6,7 @@ lastUpdated: false
 
 <!-- AUTO-GENERATED: do not edit by hand -->
 
-# Laravel Enso Mails
+# Mails
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/laravel-enso/mails/blob/main/LICENSE)
 [![Stable](https://poser.pugx.org/laravel-enso/mails/v/stable)](https://packagist.org/packages/laravel-enso/mails)
@@ -316,5 +316,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/laravel-enso/mails/edit/main/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 5/21/2026, 11:45:04 AM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 5/21/2026, 12:46:12 PM</div>
 </div>

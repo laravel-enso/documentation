@@ -461,26 +461,6 @@
             "openMergeRequestsCount": 0
         },
         {
-            "slug": "mails",
-            "title": "Laravel Enso Mails",
-            "url": "https://github.com/laravel-enso/mails",
-            "branch": "main",
-            "updated": true,
-            "openIssuesCount": 0,
-            "openMergeRequestsCount": 0,
-            "documentationStatus": "green"
-        },
-        {
-            "slug": "projects",
-            "title": "Laravel Enso Projects",
-            "url": "https://git.xtelecom.ro/laravel-enso/projects",
-            "branch": "main",
-            "updated": false,
-            "openIssuesCount": 0,
-            "openMergeRequestsCount": 0,
-            "documentationStatus": "red"
-        },
-        {
             "slug": "system-notifications",
             "title": "Laravel Enso System Notifications",
             "url": "https://git.xtelecom.ro/laravel-enso/system-notifications",
@@ -519,6 +499,16 @@
             "openIssuesCount": 0,
             "documentationStatus": "green",
             "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "mails",
+            "title": "Mails",
+            "url": "https://github.com/laravel-enso/mails",
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 0,
+            "openMergeRequestsCount": 0,
+            "documentationStatus": "green"
         },
         {
             "slug": "measurement-units",
@@ -659,6 +649,16 @@
             "openIssuesCount": 2,
             "documentationStatus": "yellow",
             "openMergeRequestsCount": 2
+        },
+        {
+            "slug": "projects",
+            "title": "Projects",
+            "url": "https://git.xtelecom.ro/laravel-enso/projects",
+            "branch": "main",
+            "updated": false,
+            "openIssuesCount": 0,
+            "openMergeRequestsCount": 0,
+            "documentationStatus": "red"
         },
         {
             "slug": "questionnaires",

@@ -6,7 +6,7 @@ lastUpdated: false
 
 <!-- AUTO-GENERATED: do not edit by hand -->
 
-# Laravel Enso Projects
+# Projects
 
 Reusable project and flow orchestration package for Laravel Enso.
 
@@ -174,5 +174,5 @@ MIT.
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://git.xtelecom.ro/laravel-enso/projects/-/edit/main/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 5/7/2026, 12:55:37 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 5/21/2026, 12:46:12 PM</div>
 </div>
