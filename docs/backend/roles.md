@@ -50,6 +50,7 @@ php artisan vendor:publish --tag=roles-seeder
 - Role CRUD, options, table init, table data, and Excel export endpoints.
 - Permission assignment endpoints for reading, setting, and writing role permissions.
 - Config publishing for role restrictions and group visibility.
+- Default role seeding for `admin`, `supervisor`, and `application`.
 - `enso:roles:sync` command for syncing local role definitions from `config/local/roles`.
 
 ## Usage
@@ -72,6 +73,12 @@ php artisan enso:roles:sync
 ```
 
 The command only runs when the local `config/local/roles` directory exists.
+
+Default seeded roles:
+
+- `admin`
+- `supervisor`
+- `application`
 
 ## API
 
@@ -123,5 +130,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/laravel-enso/roles/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 6:08:27 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 5/6/2026, 9:27:36 AM</div>
 </div>

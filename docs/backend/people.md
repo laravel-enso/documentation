@@ -90,7 +90,6 @@ Required Enso packages:
 Companion frontend package:
 
 - [`@enso-ui/people`](https://docs.laravel-enso.com/frontend/people.html) [↗](https://github.com/enso-ui/people)
-
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
@@ -99,5 +98,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/laravel-enso/people/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 6:09:20 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 6:30:48 PM</div>
 </div>

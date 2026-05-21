@@ -9,7 +9,7 @@ lastUpdated: false
 # Inventory
 
 [![License](https://img.shields.io/badge/license-Proprietary-4b5563.svg)](https://git.xtelecom.ro/enso-ui/inventory/-/blob/master/LICENSE)
-[![Stable](https://img.shields.io/badge/stable-5.2.6-2563eb.svg)](https://git.xtelecom.ro/enso-ui/inventory/-/tags)
+[![Stable](https://img.shields.io/badge/stable-5.2.10-2563eb.svg)](https://git.xtelecom.ro/enso-ui/inventory/-/tags)
 [![Vue](https://img.shields.io/badge/vue-3.x-42b883.svg)](https://vuejs.org/)
 [![JavaScript](https://img.shields.io/badge/javascript-ES2020-f7df1e.svg)](https://developer.mozilla.org/docs/Web/JavaScript)
 [![SCSS](https://img.shields.io/badge/scss-supported-c6538c.svg)](https://sass-lang.com/)
@@ -31,6 +31,7 @@ This package is distributed through the private Enso UI workspace and is normall
 - ships `index`, `create`, and `edit` pages for positions and warehouses, plus the labels listing page
 - includes reusable stock-management components such as `ProductLocations`, `PositionsManager`, `Editor`, `EditorLine`, `Lines`, `MoveLine`, and `Mover`
 - adds product-side integrations such as `pages/products/Index.vue`, `pages/products/Edit.vue`, and the `Suppliers` helper
+- exposes the `warehouses` Pinia store used by the backend inventory state provider
 
 ## Usage
 
@@ -38,6 +39,7 @@ This package is distributed through the private Enso UI workspace and is normall
 import inventoryRoutes from '@enso-ui/inventory/src/bulma/routes/inventory.js';
 import WarehousesIndex from '@enso-ui/inventory/src/bulma/pages/inventory/warehouses/Index.vue';
 import PositionsManager from '@enso-ui/inventory/src/bulma/components/PositionsManager.vue';
+import { warehouses } from '@enso-ui/inventory/src/pinia/warehouses';
 ```
 
 ## API
@@ -81,6 +83,14 @@ Stable deep imports used by higher-level packages:
 - `MoveLine.vue`
 - `Mover.vue`
 
+### Stores
+
+The package exposes a `warehouses` Pinia store:
+
+- `@enso-ui/inventory/src/pinia/warehouses`
+
+The store is hydrated by the companion backend state provider `LaravelEnso\Inventory\State\Warehouses`, which publishes state under the `warehouses` key.
+
 ## Routes
 
 ### `/inventory/warehouses`
@@ -122,5 +132,5 @@ Proprietary. See [LICENSE](https://git.xtelecom.ro/enso-ui/inventory/-/blob/mast
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://git.xtelecom.ro/enso-ui/inventory/-/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 12:26:48 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/29/2026, 8:25:30 PM</div>
 </div>

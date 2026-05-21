@@ -23,6 +23,8 @@ The package validates uploaded files against JSON template definitions, splits w
 
 It supports multi-sheet XLSX imports as well as CSV and TXT imports, with configurable structure validation, queue separation, and retention policies.
 
+Seeder-style imports can also resolve the acting Enso user through the configurable `seederUserId` setting, which is useful when imports are executed outside a regular authenticated request.
+
 ## Installation
 
 Install the package:
@@ -56,6 +58,14 @@ Register at least one import type in `config/enso/imports.php`:
     ],
 ],
 ```
+
+If you use seed-style imports that need a tracked Enso user, configure the fallback user id:
+
+```php
+'seederUserId' => env('DATA_IMPORT_SEEDER_USER_ID', 1),
+```
+
+The `ExcelSeeder` service uses this value to resolve the user passed into import hooks and `track-who` aware models when there is no authenticated session.
 
 The package schedules these maintenance commands daily:
 
@@ -94,6 +104,8 @@ Point a template configuration entry to a JSON template that defines sheets, col
 - serve the generated template workbook
 - validate uploaded files against the template
 - queue the import when the structure is valid
+
+When the import runs through the seeder-oriented flow, the package resolves the acting user from `config('enso.imports.seederUserId')`. Set `DATA_IMPORT_SEEDER_USER_ID` to an Enso user that should own created records, approvals, and audit metadata produced by those imports.
 
 ## API
 
@@ -157,5 +169,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/laravel-enso/data-import/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 6:07:08 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 5/2/2026, 11:18:32 AM</div>
 </div>

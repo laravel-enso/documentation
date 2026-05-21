@@ -9,7 +9,7 @@ lastUpdated: false
 # Auth
 
 [![License](https://img.shields.io/badge/license-MIT-10b981.svg)](https://github.com/enso-ui/auth/blob/main/LICENSE)
-[![Stable](https://img.shields.io/badge/stable-3.1.13-2563eb.svg)](https://www.npmjs.com/package/@enso-ui/auth)
+[![Stable](https://img.shields.io/badge/stable-3.1.19-2563eb.svg)](https://www.npmjs.com/package/@enso-ui/auth)
 [![Downloads](https://img.shields.io/npm/dm/@enso-ui/auth.svg)](https://www.npmjs.com/package/@enso-ui/auth)
 [![Vue](https://img.shields.io/badge/vue-3.x-42b883.svg)](https://vuejs.org/)
 [![JavaScript](https://img.shields.io/badge/javascript-ES2020-f7df1e.svg)](https://developer.mozilla.org/docs/Web/JavaScript)
@@ -34,7 +34,7 @@ This package is also available through the full `enso-ui` workspace bundle.
 
 ## Features
 
-- exports `PasswordStrength` from the root package entry
+- exports a lightweight `PasswordStrength` meter from the root package entry
 - ships guest-only auth routes for login and password reset flows
 - includes a Pinia auth store for login/logout state and intended-route handling
 - registers the auth store bootstrap through `src/bulma/register.js`
@@ -49,7 +49,7 @@ import { PasswordStrength } from '@enso-ui/auth';
 
 ### `PasswordStrength`
 
-Password entropy helper component used by reset and registration forms.
+Lightweight password strength meter used by reset and registration forms.
 
 Import: `@enso-ui/auth`
 
@@ -118,5 +118,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/enso-ui/auth/edit/main/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 9:57:25 AM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/28/2026, 12:31:42 AM</div>
 </div>

@@ -58,6 +58,7 @@ The package automatically:
 ## Features
 
 - Provides the base Enso API shell, including guest meta, SPA home state, auth routes, and preferences routes.
+- Provides a read-only `System > Logins` table for login history, with user and datetime interval filtering.
 - Registers the `core` middleware group used by authenticated Enso routes.
 - Configures password policy defaults from `enso.auth.password`.
 - Builds the SPA boot state from state providers discovered across Enso packages.
@@ -123,6 +124,12 @@ Authenticated core endpoints:
 - `PATCH /api/core/preferences/store/{route?}`
 - `POST /api/core/preferences/reset/{route?}`
 
+Authenticated system login table endpoints:
+
+- `GET /api/system/logins/initTable`
+- `GET /api/system/logins/tableData`
+- `GET /api/system/logins/exportExcel`
+
 ### Middleware
 
 Aliases:
@@ -173,7 +180,7 @@ Capabilities:
 
 ### Commands
 
-- `enso:version`
+- `enso:version` (works with a github token, if neccesary)
 - `enso:preferences:reset`
 - `enso:preferences:update-global`
 - `enso:storage:reset`
@@ -191,6 +198,18 @@ Notifications:
 - `PasswordExpiresSoon`
 - `ResetPassword`
 
+### Login History
+
+Model:
+
+- `LaravelEnso\Core\Models\Login`
+
+The package records successful logins and exposes them through the `system.logins` Enso table. The table includes user, IP, user agent, and login datetime columns. Login history is read-only and supports filtering by user and by `created_at` interval.
+
+Upgrade support:
+
+- `LaravelEnso\Core\Upgrades\LoginCreatedAtIndex` adds the `logins.created_at` index for existing installations.
+
 ## Depends On
 
 Required Enso packages:
@@ -200,7 +219,6 @@ Required Enso packages:
 - [`laravel-enso/countries`](https://docs.laravel-enso.com/backend/countries.html) [↗](https://github.com/laravel-enso/countries)
 - [`laravel-enso/data-export`](https://docs.laravel-enso.com/backend/data-export.html) [↗](https://github.com/laravel-enso/data-export)
 - [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
-- [`laravel-enso/history-tracker`](https://docs.laravel-enso.com/backend/history-tracker.html) [↗](https://github.com/laravel-enso/history-tracker)
 - [`laravel-enso/impersonate`](https://docs.laravel-enso.com/backend/impersonate.html) [↗](https://github.com/laravel-enso/impersonate)
 - [`laravel-enso/localisation`](https://docs.laravel-enso.com/backend/localisation.html) [↗](https://github.com/laravel-enso/localisation)
 - [`laravel-enso/logs`](https://docs.laravel-enso.com/backend/logs.html) [↗](https://github.com/laravel-enso/logs)
@@ -211,6 +229,7 @@ Required Enso packages:
 - [`laravel-enso/rememberable`](https://docs.laravel-enso.com/backend/rememberable.html) [↗](https://github.com/laravel-enso/rememberable)
 - [`laravel-enso/roles`](https://docs.laravel-enso.com/backend/roles.html) [↗](https://github.com/laravel-enso/roles)
 - [`laravel-enso/sentry`](https://docs.laravel-enso.com/backend/sentry.html) [↗](https://github.com/laravel-enso/sentry)
+- [`laravel-enso/tables`](https://docs.laravel-enso.com/backend/tables.html) [↗](https://github.com/laravel-enso/tables)
 - [`laravel-enso/upgrade`](https://docs.laravel-enso.com/backend/upgrade.html) [↗](https://github.com/laravel-enso/upgrade)
 - [`laravel-enso/user-groups`](https://docs.laravel-enso.com/backend/user-groups.html) [↗](https://github.com/laravel-enso/user-groups)
 - [`laravel-enso/users`](https://docs.laravel-enso.com/backend/users.html) [↗](https://github.com/laravel-enso/users)
@@ -229,5 +248,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/laravel-enso/core/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/19/2026, 10:22:02 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 5/12/2026, 6:00:43 PM</div>
 </div>

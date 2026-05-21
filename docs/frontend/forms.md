@@ -9,7 +9,7 @@ lastUpdated: false
 # Forms
 
 [![License](https://img.shields.io/badge/license-MIT-10b981.svg)](https://github.com/enso-ui/forms/blob/master/LICENSE)
-[![Stable](https://img.shields.io/badge/stable-4.1.10-2563eb.svg)](https://www.npmjs.com/package/@enso-ui/forms)
+[![Stable](https://img.shields.io/badge/stable-4.2.0-2563eb.svg)](https://www.npmjs.com/package/@enso-ui/forms)
 [![Downloads](https://img.shields.io/npm/dm/@enso-ui/forms.svg)](https://www.npmjs.com/package/@enso-ui/forms)
 [![Vue](https://img.shields.io/badge/vue-3.x-42b883.svg)](https://vuejs.org/)
 [![JavaScript](https://img.shields.io/badge/javascript-ES2020-f7df1e.svg)](https://developer.mozilla.org/docs/Web/JavaScript)
@@ -42,6 +42,8 @@ yarn add @enso-ui/forms
 - supports standard field types such as input, select, money, date, time, switch, textarea, and wysiwyg
 - supports custom field slots and custom section slots
 - supports autosave, tabbed forms, undo, create/show/destroy actions, and redirect flows
+- supports form-level readonly mode from frontend props or the backend form contract
+- syncs backend-driven `EnsoForm` tabs with the route `tab` query param
 - exposes public helpers for filling values, reading dirty state, showing and hiding tabs, and manipulating fields
 
 ## Usage
@@ -98,6 +100,9 @@ Responsibilities:
 - renders `FormContent`, default field slots, section slots, and action slots
 - proxies the public helper methods exposed by `CoreForm`
 
+Props:
+- `readonly: boolean = false`
+
 Public methods:
 - `fetch()`
 - `submit()`
@@ -130,10 +135,18 @@ Additional behavior:
 - derives `path` from the current route when none is passed through attrs
 - uses Enso UI preferences to resolve the current language
 - integrates with bookmarks state persistence when form state tracking is enabled
+- persists the active visible form tab in the current route query as `tab`
 - shows success toasts after `submit` and `destroy`
+
+Tabbed forms:
+- `/123/edit?tab=details` opens the visible tab matching `details`
+- missing or invalid `tab` values are replaced with the first visible tab
+- tab changes use `router.replace()` and preserve the rest of the route query
+- bookmarks store the current query, so a bookmarked form reopens on the saved tab
 
 Props:
 - `disableState: boolean = false`
+- `readonly: boolean = false`
 
 Public methods:
 - all methods exposed by `VueForm`
@@ -151,8 +164,15 @@ Props:
 - `params: object | null = null`
 - `path: string`
 - `routerErrorHandler: Function`
+- `readonly: boolean = false`
 - `submitPath: string | null = null`
 - `template: object | null = null`
+
+Readonly behavior:
+- frontend `readonly` and backend `template.readonly` are combined with field-level `field.meta.readonly`
+- readonly forms keep navigation actions such as back, show, and create visible
+- readonly forms hide store, update, and destroy actions
+- `submit()`, `destroy()`, and autosave do not mutate data while readonly
 
 Emits:
 - `create`
@@ -182,8 +202,10 @@ Provided helpers for descendants:
 - `focusError`
 - `http`
 - `i18n`
+- `isReadonly`
 - `locale`
 - `params`
+- `routerErrorHandler`
 - `sectionCustomFields`
 - `sections`
 - `show`
@@ -434,5 +456,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/enso-ui/forms/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 12:57:48 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 5/19/2026, 11:01:55 AM</div>
 </div>

@@ -9,7 +9,7 @@ lastUpdated: false
 # Bookmarks
 
 [![License](https://img.shields.io/badge/license-MIT-10b981.svg)](https://github.com/enso-ui/bookmarks/blob/master/LICENSE)
-[![Stable](https://img.shields.io/badge/stable-3.1.7-2563eb.svg)](https://www.npmjs.com/package/@enso-ui/bookmarks)
+[![Stable](https://img.shields.io/badge/stable-3.1.16-2563eb.svg)](https://www.npmjs.com/package/@enso-ui/bookmarks)
 [![Downloads](https://img.shields.io/npm/dm/@enso-ui/bookmarks.svg)](https://www.npmjs.com/package/@enso-ui/bookmarks)
 [![Vue](https://img.shields.io/badge/vue-3.x-42b883.svg)](https://vuejs.org/)
 [![JavaScript](https://img.shields.io/badge/javascript-ES2020-f7df1e.svg)](https://developer.mozilla.org/docs/Web/JavaScript)
@@ -38,6 +38,7 @@ This package is also available through the full `enso-ui` workspace bundle.
 - renders reorderable bookmark tags through `vuedraggable`
 - surfaces sticky, remove, clear, and active-route affordances on top of the core bookmark state machine
 - keeps the rendered contract aligned with the `@enso-ui/ui` route metadata model
+- keeps bookmark route queries synchronized for existing bookmarks on the same route and params
 
 ## Usage
 
@@ -66,6 +67,12 @@ Events:
 Slots:
 - No public slots.
 
+Route query sync:
+- an existing bookmark is matched by route name and params
+- when the current route query changes, the bookmark query is updated instead of creating a duplicate
+- `sticky` and saved state metadata are preserved during query sync
+- tabbed `EnsoForm` bookmarks reopen with the saved `tab` query value
+
 ## Depends On
 
 - [`@enso-ui/switch`](https://docs.laravel-enso.com/frontend/switch.html) [↗](https://github.com/enso-ui/switch)
@@ -84,5 +91,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/enso-ui/bookmarks/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 9:21:31 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 5/15/2026, 11:27:51 AM</div>
 </div>

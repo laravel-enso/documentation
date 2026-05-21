@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import process from 'node:process'
+import { spawn } from 'node:child_process'
 
 const root = process.cwd()
 const cacheRoot = path.join(root, '.cache')
@@ -123,6 +124,23 @@ const encodePathSegments = (value) => value
     .split('/')
     .map((segment) => encodeURIComponent(segment))
     .join('/')
+
+const runSyncReadmes = async (args) => new Promise((resolve, reject) => {
+    const child = spawn(process.execPath, [path.join(root, 'scripts', 'sync-readmes.mjs'), ...args], {
+        cwd: root,
+        stdio: 'inherit',
+    })
+
+    child.on('error', reject)
+    child.on('exit', (code) => {
+        if (code === 0) {
+            resolve()
+            return
+        }
+
+        reject(new Error(`sync-readmes ${args.join(' ')} failed with exit code ${code}`))
+    })
+})
 
 const githubHeaders = () => ({
     Accept: 'application/vnd.github+json',
@@ -534,6 +552,12 @@ const addPackage = async (value) => {
     process.stdout.write(`title: ${title}\n`)
     process.stdout.write(`url: ${metadata.url}\n`)
     process.stdout.write(`branch: ${metadata.branch}\n`)
+
+    const target = `${candidate.section}/${slug}`
+
+    await runSyncReadmes(['sync', target])
+    await runSyncReadmes(['generate', target])
+    await runSyncReadmes(['refresh-status', target])
 }
 
 const addMissingPackages = async () => {

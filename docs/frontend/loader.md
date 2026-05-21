@@ -57,9 +57,9 @@ import { Loader, Skeleton } from '@enso-ui/loader/bulma';
 Import: `@enso-ui/loader/bulma`
 
 #### `Loader`
-- `color: string = "#f44336"`
-- `size: "small" | "medium" | "large" = "medium"`
 - `transparent: boolean = false`
+- accepts Bulma color classes: `is-primary`, `is-link`, `is-info`, `is-success`, `is-warning`, `is-danger`, `is-light`, `is-dark`, `is-white`, `is-black`
+- accepts size classes: `is-small`, `is-medium`, `is-large`
 
 #### `Overlay`
 - `transparent: boolean = false`
@@ -90,5 +90,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/enso-ui/loader/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 12:26:54 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/25/2026, 6:21:02 PM</div>
 </div>

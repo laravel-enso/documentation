@@ -9,7 +9,7 @@ lastUpdated: false
 # UI
 
 [![License](https://img.shields.io/badge/license-MIT-10b981.svg)](https://github.com/enso-ui/ui/blob/master/LICENSE)
-[![Stable](https://img.shields.io/badge/stable-7.1.32-2563eb.svg)](https://www.npmjs.com/package/@enso-ui/ui)
+[![Stable](https://img.shields.io/badge/stable-7.1.54-2563eb.svg)](https://www.npmjs.com/package/@enso-ui/ui)
 [![Downloads](https://img.shields.io/npm/dm/@enso-ui/ui.svg)](https://www.npmjs.com/package/@enso-ui/ui)
 [![Vue](https://img.shields.io/badge/vue-3.x-42b883.svg)](https://vuejs.org/)
 [![JavaScript](https://img.shields.io/badge/javascript-ES2020-f7df1e.svg)](https://developer.mozilla.org/docs/Web/JavaScript)
@@ -29,6 +29,9 @@ yarn add @enso-ui/ui
 - exports the application root shell used by Enso UI apps
 - provides route mapping, HTTP, i18n, toastr, and error handling through Vue inject
 - switches between auth, home, and default layouts based on app state
+- includes an ESM-safe event bus with `$on`, `$once`, `$off`, and `$emit`
+- normalizes shared Bulma styles, including compact `.tag.is-small` sizing
+- adds the shell-owned `System > Logins` route and page for the backend login history table
 ## Usage
 ```vue
 <script setup>
@@ -53,5 +56,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/enso-ui/ui/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 2:14:36 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 5/12/2026, 2:39:48 PM</div>
 </div>

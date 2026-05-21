@@ -21,7 +21,7 @@ Action Logger records authenticated user activity for routes that opt into Enso'
 
 It is a small backend package focused on request auditing at the application edge. It captures which authenticated user accessed which named route, by which HTTP method, at what URL, and how long the request took to complete.
 
-The package is designed to work inside the Laravel Enso ecosystem and integrates with Enso users, permissions, and dynamic relationships.
+The package is designed to work inside the Laravel Enso ecosystem and integrates with Enso users, permissions, dynamic relationships, frontend enums, and Enso tables.
 
 ## Installation
 
@@ -46,10 +46,15 @@ php artisan migrate
 - Registers the `action-logger` route middleware alias.
 - Creates and maintains the `action_logs` table through package migrations.
 - Persists one log entry per authenticated request handled by the middleware.
-- Stores `user_id`, `url`, `route`, `method`, `duration`, and timestamps for each action.
+- Stores `user_id`, `url`, `route`, numeric `method`, `duration`, and timestamps for each action.
+- Exposes REST methods through the frontend-ready `Methods` enum.
 - Adds a dynamic `actionLogs()` relationship to the Enso `User` model.
 - Exposes an `ActionLog` model with `user()` and `permission()` relationships.
 - Links logged route names back to Enso permissions through the `permission()` relation.
+- Provides the `System > Action Logs` table structure, with user, method, permission, URL, duration and creation datetime columns.
+- Sorts the action logs table by newest entries first.
+- Formats request duration as a numeric column with three decimal places.
+- Keeps permissions as the route-facing table surface while the raw route value remains an internal storage detail.
 
 ## Usage
 
@@ -95,6 +100,8 @@ Stored attributes:
 - `created_at`
 - `updated_at`
 
+`method` is cast to `LaravelEnso\ActionLogger\Enums\Methods`.
+
 Relationships:
 
 - `user()`
@@ -105,6 +112,43 @@ Relationships:
 ### Dynamic User Relation
 
 The package binds an `actionLogs()` relation to `LaravelEnso\Users\Models\User` through the Enso dynamic-methods package.
+
+### Enum
+
+`LaravelEnso\ActionLogger\Enums\Methods`
+
+Registered frontend key:
+
+- `actionLogMethods`
+
+Supported methods:
+
+- `GET`
+- `POST`
+- `PUT`
+- `PATCH`
+- `DELETE`
+- `OPTIONS`
+- `HEAD`
+
+Use `Methods::fromRequest($request)` to map an internal Laravel request to the stored enum value.
+
+### Table
+
+Backend route group:
+
+- Prefix: `api/system/actionLogs`
+- Route names: `system.actionLogs.*`
+
+Available endpoints:
+
+- `system.actionLogs.initTable`
+- `system.actionLogs.tableData`
+- `system.actionLogs.exportExcel`
+
+The companion frontend package is `@enso-ui/action-logger`.
+
+The table defaults to `action_logs.created_at desc`, exposes `created_at` as a `datetime` column, and displays the resolved permission instead of a separate raw route column.
 
 ::: warning Note
 This package only logs actions for authenticated requests. If no authenticated user is available, no action log entry is created.
@@ -118,7 +162,12 @@ Required Enso packages:
 
 - [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
 - [`laravel-enso/dynamic-methods`](https://docs.laravel-enso.com/backend/dynamic-methods.html) [↗](https://github.com/laravel-enso/dynamic-methods)
+- [`laravel-enso/enums`](https://docs.laravel-enso.com/backend/enums.html) [↗](https://github.com/laravel-enso/enums)
+- [`laravel-enso/menus`](https://docs.laravel-enso.com/backend/menus.html) [↗](https://github.com/laravel-enso/menus)
+- [`laravel-enso/migrator`](https://docs.laravel-enso.com/backend/migrator.html) [↗](https://github.com/laravel-enso/migrator)
 - [`laravel-enso/permissions`](https://docs.laravel-enso.com/backend/permissions.html) [↗](https://github.com/laravel-enso/permissions)
+- [`laravel-enso/tables`](https://docs.laravel-enso.com/backend/tables.html) [↗](https://github.com/laravel-enso/tables)
+- [`laravel-enso/upgrade`](https://docs.laravel-enso.com/backend/upgrade.html) [↗](https://github.com/laravel-enso/upgrade)
 - [`laravel-enso/users`](https://docs.laravel-enso.com/backend/users.html) [↗](https://github.com/laravel-enso/users)
 
 Framework dependency:
@@ -133,5 +182,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/laravel-enso/action-logger/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/19/2026, 10:21:16 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 5/12/2026, 2:46:36 PM</div>
 </div>

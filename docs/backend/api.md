@@ -19,7 +19,7 @@ lastUpdated: false
 
 API is Laravel Enso's reusable package for external service integrations and inbound API request logging.
 
-It provides a small action-based client on top of Laravel's HTTP client, plus reusable contracts for authentication, retries, query parameters, file uploads, form payloads, and timeouts. On top of that, it standardizes inbound and outbound API logging, admin notifications for failed calls, and small payload-building helpers used across Enso integrations.
+It provides a small action-based client on top of Laravel's HTTP client, optional SOAP transport through PHP's `SoapClient`, reusable contracts for authentication, retries, query parameters, file uploads, form payloads, and timeouts. On top of that, it standardizes inbound and outbound API logging, admin notifications for failed calls, and small payload-building helpers used across Enso integrations.
 
 ## Installation
 
@@ -61,9 +61,11 @@ API_DEBUG=true
   - file attachments
   - custom timeouts
   - retry policies
+- Supports SOAP integrations through `SoapEndpoint`, `SoapApi`, `SoapResponse`, and the optional `Endpoints\Soap` base class.
 - Refreshes an expiring auth token once automatically when an authenticated endpoint receives `401` or `403` on the first try.
-- Logs outbound calls in `api_logs`, including URL, route, HTTP method, status, attempt number, payload, type, and duration.
+- Logs outbound calls in `api_logs`, including URL, route, HTTP method, status, attempt number, payload, direction, and duration.
 - Logs inbound calls through the `ApiLogger` middleware and reports non-`200` responses to administrators.
+- Provides a read-only `System > API Logs` table, with filters for user, permission, method, direction, and creation datetime.
 - Queues `ApiCallError` notifications to active Enso admins on the `notifications` queue.
 - Provides `Resource` and `Filter` base classes for payload shaping and input validation.
 - Includes a `Throttle` helper for debouncing repeated external API calls.
@@ -81,15 +83,15 @@ Define a small endpoint class that describes the request:
 
 ```php
 use LaravelEnso\Api\Contracts\Endpoint;
-use LaravelEnso\Api\Enums\Methods;
+use LaravelEnso\Api\Enums\Method;
 
 class FetchOffers implements Endpoint
 {
     private array $filters = [];
 
-    public function method(): string
+    public function method(): Method
     {
-        return Methods::get;
+        return Method::GET;
     }
 
     public function url(): string
@@ -135,6 +137,73 @@ $response = (new FetchOffersAction([
 
 $payload = $response->json();
 ```
+
+### SOAP action
+
+SOAP integrations use the same `Action` orchestration and logging flow. Extend the optional SOAP endpoint base class when the operation can be represented by `wsdl()`, `operation()`, and `arguments()`:
+
+```php
+use LaravelEnso\Api\Endpoints\Soap;
+
+class SubmitInvoice extends Soap
+{
+    public function __construct(private Invoice $invoice)
+    {
+    }
+
+    public function wsdl(): ?string
+    {
+        return config('services.invoices.wsdl');
+    }
+
+    public function operation(): string
+    {
+        return 'SubmitInvoice';
+    }
+
+    public function arguments(): array
+    {
+        return [[
+            'number' => $this->invoice->number,
+            'total' => $this->invoice->total,
+        ]];
+    }
+
+    public function options(): array
+    {
+        return [
+            'trace' => true,
+            'exceptions' => true,
+            'connection_timeout' => 30,
+        ];
+    }
+}
+```
+
+Then return the SOAP endpoint from an action:
+
+```php
+use LaravelEnso\Api\Action;
+use LaravelEnso\Api\Contracts\Endpoint;
+
+class SubmitInvoiceAction extends Action
+{
+    public function __construct(private Invoice $invoice)
+    {
+    }
+
+    protected function endpoint(): Endpoint
+    {
+        return new SubmitInvoice($this->invoice);
+    }
+}
+
+$response = (new SubmitInvoiceAction($invoice))->handle();
+
+$result = $response->body();
+```
+
+SOAP responses are wrapped in `SoapResponse`. Failed SOAP calls return a failed response internally, are logged, trigger the normal notification flow, and then throw the original `SoapFault` from `handle()`.
 
 ### Inbound logging
 
@@ -208,8 +277,14 @@ $filters = (new OfferFilters($input))->toArray();
 
 - `LaravelEnso\Api\Api`
   Builds and executes the HTTP request, applies optional contracts, tracks attempt count, refreshes bearer tokens once when needed, and retries failed calls when the endpoint allows it.
+- `LaravelEnso\Api\SoapApi`
+  Builds and executes SOAP calls through PHP's `SoapClient`, applies SOAP headers when provided, tracks attempt count, and retries `SoapFault` failures when the endpoint allows it.
+- `LaravelEnso\Api\SoapResponse`
+  Wraps successful SOAP results and failed `SoapFault` instances behind the response methods used by `Action`.
 - `LaravelEnso\Api\Action`
-  Orchestrates one outbound call, measures duration, persists the outbound log entry, reports failures, and returns the `Illuminate\Http\Client\Response`.
+  Orchestrates one outbound call, measures duration, persists the outbound log entry, reports failures, and returns either an `Illuminate\Http\Client\Response` for HTTP endpoints or a `SoapResponse` for SOAP endpoints.
+- `LaravelEnso\Api\Endpoints\Soap`
+  Optional base class for SOAP endpoints. It maps SOAP calls onto the existing `Endpoint` contract by defaulting `method()` to `Method::POST`, `url()` to the WSDL, location, or operation, and `body()` to the SOAP arguments.
 
 ### Contracts
 
@@ -220,6 +295,8 @@ Required contract:
 
 Optional contracts:
 
+- `Client`
+  Internal transport contract implemented by `Api` and `SoapApi`.
 - `UsesAuth`
   Adds bearer token support through a token provider.
 - `UsesBasicAuth`
@@ -236,8 +313,16 @@ Optional contracts:
   Sends the payload as form data.
 - `AttachesFiles`
   Attaches files to the pending request.
+- `SoapEndpoint`
+  Extends `Endpoint` and defines `wsdl()`, `operation()`, `arguments()`, and `options()` for SOAP calls.
+- `SoapHeaders`
+  Adds SOAP headers through `SoapClient::__setSoapHeaders()`.
 - `Token`
   Defines the token provider contract used by `UsesAuth`.
+
+::: warning Note
+SOAP support is additive. Existing HTTP endpoints keep using the same `Endpoint` contract and `Api` client behavior. Applications only need the PHP SOAP extension when they actually use `SoapEndpoint`.
+:::
 
 ### Middleware
 
@@ -263,7 +348,7 @@ Stored attributes:
 - `method`
 - `status`
 - `try`
-- `type`
+- `direction`
 - `duration`
 - `created_at`
 - `updated_at`
@@ -274,11 +359,51 @@ Relationships and casts:
   Belongs to `LaravelEnso\Users\Models\User`
 - `payload`
   Cast to array
+- `method`
+  Cast to `LaravelEnso\Api\Enums\Method`
+- `direction`
+  Cast to `LaravelEnso\Api\Enums\Direction`
 
-Logging types:
+Logging directions:
 
-- `Calls::Inbound`
-- `Calls::Outbound`
+- `Direction::Inbound`
+- `Direction::Outbound`
+
+### API Logs table
+
+The package provides the `System > API Logs` table through:
+
+- `GET /api/system/apiLogs/initTable`
+- `GET /api/system/apiLogs/tableData`
+- `GET /api/system/apiLogs/exportExcel`
+
+Permissions:
+
+- `system.apiLogs.index`
+- `system.apiLogs.initTable`
+- `system.apiLogs.tableData`
+- `system.apiLogs.exportExcel`
+
+The table defaults to `api_logs.created_at desc`, exposes `created_at` as a `datetime` column, displays resolved users and permissions, and supports filters for user, permission, method, direction, and creation datetime.
+
+### Upgrade notes
+
+This release changes the public logging enum contract:
+
+- replace `LaravelEnso\Api\Enums\Calls` with `LaravelEnso\Api\Enums\Direction`
+- replace `Calls::Inbound` / `Calls::Outbound` with `Direction::Inbound` / `Direction::Outbound`
+- replace `LaravelEnso\Api\Enums\Methods` with `LaravelEnso\Api\Enums\Method`
+- replace `Method::get`, `Method::post`, `Method::put`, and `Method::delete` with `Method::GET`, `Method::POST`, `Method::PUT`, and `Method::DELETE`
+- update endpoint signatures from `method(): string` to `method(): Method`
+- update application code or reporting queries that reference `api_logs.type` to use `api_logs.direction`
+- update frontend API log filters from `apiLogMethods` to `apiLogMethod`
+
+After updating the package, run:
+
+```bash
+composer update laravel-enso/api
+php artisan enso:upgrade
+```
 
 ### Resource, filter, and throttle helpers
 
@@ -307,6 +432,8 @@ Required Enso packages:
 - [`laravel-enso/enums`](https://docs.laravel-enso.com/backend/enums.html) [↗](https://github.com/laravel-enso/enums)
 - [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
 - [`laravel-enso/localisation`](https://docs.laravel-enso.com/backend/localisation.html) [↗](https://github.com/laravel-enso/localisation)
+- [`laravel-enso/menus`](https://docs.laravel-enso.com/backend/menus.html) [↗](https://github.com/laravel-enso/menus)
+- [`laravel-enso/migrator`](https://docs.laravel-enso.com/backend/migrator.html) [↗](https://github.com/laravel-enso/migrator)
 - [`laravel-enso/permissions`](https://docs.laravel-enso.com/backend/permissions.html) [↗](https://github.com/laravel-enso/permissions)
 - [`laravel-enso/rememberable`](https://docs.laravel-enso.com/backend/rememberable.html) [↗](https://github.com/laravel-enso/rememberable)
 - [`laravel-enso/tables`](https://docs.laravel-enso.com/backend/tables.html) [↗](https://github.com/laravel-enso/tables)
@@ -325,5 +452,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/laravel-enso/api/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 9:03:22 AM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 5/15/2026, 12:30:47 PM</div>
 </div>

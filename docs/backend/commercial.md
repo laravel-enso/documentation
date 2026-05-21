@@ -141,7 +141,6 @@ Required Enso packages:
 - [`laravel-enso/financials`](https://docs.laravel-enso.com/backend/financials.html) [↗](https://git.xtelecom.ro/laravel-enso/financials)
 - [`laravel-enso/forms`](https://docs.laravel-enso.com/backend/forms.html) [↗](https://github.com/laravel-enso/forms)
 - [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
-- [`laravel-enso/history-tracker`](https://docs.laravel-enso.com/backend/history-tracker.html) [↗](https://github.com/laravel-enso/history-tracker)
 - [`laravel-enso/inventory`](https://docs.laravel-enso.com/backend/inventory.html) [↗](https://git.xtelecom.ro/laravel-enso/inventory)
 - [`laravel-enso/measurement-units`](https://docs.laravel-enso.com/backend/measurement-units.html) [↗](https://git.xtelecom.ro/laravel-enso/measurement-units)
 - [`laravel-enso/migrator`](https://docs.laravel-enso.com/backend/migrator.html) [↗](https://github.com/laravel-enso/migrator)
@@ -150,6 +149,7 @@ Required Enso packages:
 - [`laravel-enso/searchable`](https://docs.laravel-enso.com/backend/searchable.html) [↗](https://git.xtelecom.ro/laravel-enso/searchable)
 - [`laravel-enso/services`](https://docs.laravel-enso.com/backend/services.html) [↗](https://git.xtelecom.ro/laravel-enso/services)
 - [`laravel-enso/tables`](https://docs.laravel-enso.com/backend/tables.html) [↗](https://github.com/laravel-enso/tables)
+- [`laravel-enso/upgrade`](https://docs.laravel-enso.com/backend/upgrade.html) [↗](https://github.com/laravel-enso/upgrade)
 - [`laravel-enso/versions`](https://docs.laravel-enso.com/backend/versions.html) [↗](https://github.com/laravel-enso/versions)
 - [`laravel-enso/vouchers`](https://docs.laravel-enso.com/backend/vouchers.html) [↗](https://git.xtelecom.ro/laravel-enso/vouchers)
 
@@ -159,5 +159,5 @@ Companion frontend package:
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://git.xtelecom.ro/laravel-enso/commercial/-/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 7:52:40 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 5/12/2026, 6:13:59 PM</div>
 </div>

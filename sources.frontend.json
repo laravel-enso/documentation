@@ -14,7 +14,11 @@
             "slug": "action-logger",
             "title": "Action Logger",
             "url": "https://github.com/enso-ui/action-logger",
-            "branch": "main"
+            "branch": "main",
+            "updated": false,
+            "openIssuesCount": 0,
+            "openMergeRequestsCount": 0,
+            "documentationStatus": "red"
         },
         {
             "slug": "addresses",
@@ -40,7 +44,11 @@
             "slug": "api",
             "title": "API",
             "url": "https://github.com/enso-ui/api",
-            "branch": "main"
+            "branch": "main",
+            "updated": false,
+            "openIssuesCount": 0,
+            "openMergeRequestsCount": 0,
+            "documentationStatus": "red"
         },
         {
             "slug": "audit",
@@ -79,8 +87,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "blue",
-            "openMergeRequestsCount": 1
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "card",
@@ -259,8 +267,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "blue",
-            "openMergeRequestsCount": 16
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "dropdown",
@@ -268,9 +276,9 @@
             "url": "https://github.com/enso-ui/dropdown",
             "branch": "master",
             "updated": true,
-            "openIssuesCount": 2,
-            "documentationStatus": "yellow",
-            "openMergeRequestsCount": 1
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "dropdown-indicator",
@@ -378,8 +386,8 @@
             "url": "https://github.com/enso-ui/forms",
             "branch": "master",
             "updated": true,
-            "openIssuesCount": 1,
-            "documentationStatus": "yellow",
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -676,7 +684,11 @@
             "slug": "projects",
             "title": "Projects",
             "url": "https://git.xtelecom.ro/enso-ui/projects",
-            "branch": "main"
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 0,
+            "openMergeRequestsCount": 0,
+            "documentationStatus": "green"
         },
         {
             "slug": "questionnaires",
@@ -842,7 +854,11 @@
             "slug": "system-notifications",
             "title": "System Notifications",
             "url": "https://git.xtelecom.ro/enso-ui/system-notifications",
-            "branch": "main"
+            "branch": "main",
+            "updated": false,
+            "openIssuesCount": 0,
+            "openMergeRequestsCount": 0,
+            "documentationStatus": "red"
         },
         {
             "slug": "tables",
@@ -850,8 +866,8 @@
             "url": "https://github.com/enso-ui/tables",
             "branch": "master",
             "updated": true,
-            "openIssuesCount": 4,
-            "documentationStatus": "yellow",
+            "openIssuesCount": 0,
+            "documentationStatus": "blue",
             "openMergeRequestsCount": 1
         },
         {
@@ -871,8 +887,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "blue",
-            "openMergeRequestsCount": 2
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "teams",
@@ -900,8 +916,8 @@
             "url": "https://github.com/enso-ui/themes",
             "branch": "master",
             "updated": true,
-            "openIssuesCount": 1,
-            "documentationStatus": "yellow",
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -980,8 +996,8 @@
             "url": "https://github.com/enso-ui/ui",
             "branch": "master",
             "updated": true,
-            "openIssuesCount": 4,
-            "documentationStatus": "yellow",
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -1062,7 +1078,7 @@
             "updated": true,
             "openIssuesCount": 0,
             "documentationStatus": "blue",
-            "openMergeRequestsCount": 2
+            "openMergeRequestsCount": 1
         }
     ]
 }

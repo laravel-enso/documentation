@@ -143,6 +143,10 @@ Framework dependency:
 
 - [`laravel/framework`](https://github.com/laravel/framework) [↗](https://github.com/laravel/framework)
 
+Companion frontend package:
+
+- [`@enso-ui/sentry`](https://docs.laravel-enso.com/frontend/sentry.html) [↗](https://github.com/enso-ui/sentry)
+
 ## Contributions
 
 are welcome. Pull requests are great, but issues are good too.
@@ -151,5 +155,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/laravel-enso/sentry/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/19/2026, 10:25:58 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 6:27:41 PM</div>
 </div>

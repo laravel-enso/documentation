@@ -21,7 +21,7 @@ Helpers is a shared utility package for the Laravel Enso ecosystem.
 
 It bundles small reusable services, model traits, request helpers, casts, enums, contracts, and exceptions that are consumed by many backend packages. The package is intentionally broad: instead of modelling one business feature, it centralizes low-level building blocks that would otherwise be duplicated across the ecosystem.
 
-Typical use cases include precise decimal arithmetic, monetary calculations, JSON parsing, factory resolution in package models, request key normalization, active-state handling, cent-based storage, seeder progress reporting, and a few convenience enums and casts.
+Typical use cases include precise decimal arithmetic, monetary calculations, JSON parsing, factory resolution in package models, request key normalization, active-state handling, seeder progress reporting, and a few convenience enums and casts.
 
 ## Installation
 
@@ -39,7 +39,8 @@ No publishing step is required.
 
 - Provides decimal-safe arithmetic helpers built on BCMath.
 - Includes utility services for JSON reading, object wrapping, disk-size formatting, loan rates, pricing, chunk sizing, and factory resolution.
-- Provides Eloquent and request traits for active state, cent-based persistence, request-key normalization, morph-map handling, observer cascading, and touch propagation.
+- Provides Eloquent and request traits for active state, request-key normalization, morph-map handling, observer cascading, and touch propagation.
+- Provides a relation-load guard trait for resources and serializers that must fail fast when expected Eloquent relations were not eager loaded.
 - Includes casts for encrypted strings and JSON-backed object payloads.
 - Ships helper enums for VAT rates and payment methods.
 - Provides ecosystem-level helper exceptions and a JSON-friendly `EnsoException`.
@@ -77,37 +78,56 @@ $total = (new PriceComputor('100'))
     ->total();
 ```
 
-Use the `InCents` trait when values are stored as integers in the database:
-
-```php
-use Illuminate\Database\Eloquent\Model;
-use LaravelEnso\Helpers\Traits\InCents;
-
-class Product extends Model
-{
-    use InCents;
-
-    protected array $centAttributes = ['amount'];
-}
-```
-
-Normalize validated request keys through `MapsRequestKeys`:
+Normalize request keys before validation with `ToSnakeCase`:
 
 ```php
 use Illuminate\Foundation\Http\FormRequest;
-use LaravelEnso\Helpers\Traits\MapsRequestKeys;
+use LaravelEnso\Helpers\Traits\ToSnakeCase;
 
 class StoreCompany extends FormRequest
 {
-    use MapsRequestKeys;
+    use ToSnakeCase;
 }
 ```
 
-::: warning Note
-When using `InCents`, call `inCents()` before mutating the configured cent attributes.
+`ToSnakeCase` rewrites nested array keys recursively, so frontend payloads may use camelCase while backend validation rules remain snake_case.
 
-If the model already has dirty cent-tracked attributes, switching modes throws `LaravelEnso\Helpers\Exceptions\InCents`.
-:::
+Guard required Eloquent relations before serializing relation-dependent payloads:
+
+```php
+use Illuminate\Http\Resources\Json\JsonResource;
+use LaravelEnso\Helpers\Traits\GuardRelationLoad;
+
+class Project extends JsonResource
+{
+    use GuardRelationLoad;
+
+    public function toArray($request): array
+    {
+        $flow = $this->guardRelationLoad($this->resource, 'flow');
+
+        return [
+            'flow' => $flow->name,
+        ];
+    }
+}
+```
+
+The guard returns the loaded relation, so resources can use it directly after the load check.
+
+Use Laravel's native validated input API to exclude validated fields:
+
+```php
+$attributes = $request->safe()->except('roles');
+```
+
+### Deprecated Traits
+
+The following traits are kept for backwards compatibility only and should not be used in new code:
+
+- `FiltersRequest`; use `$request->safe()->except(...)`.
+- `MapsRequestKeys`; use `ToSnakeCase`.
+- `InCents`; use explicit model casts, accessors, and mutators for monetary values.
 
 ## API
 
@@ -140,13 +160,14 @@ Model traits:
 - `CascadesMorphMap`
 - `CascadesObservers`
 - `ForceableIndex`
-- `InCents`
+- `GuardRelationLoad`
+- `InCents` (deprecated)
 - `UpdatesOnTouch`
 
 Request / validation traits:
 
-- `FiltersRequest`
-- `MapsRequestKeys`
+- `FiltersRequest` (deprecated)
+- `MapsRequestKeys` (deprecated)
 - `ToSnakeCase`
 - `TransformMorphMap`
 
@@ -194,5 +215,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/laravel-enso/helpers/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/19/2026, 10:22:14 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 5/7/2026, 9:17:30 AM</div>
 </div>

@@ -9,7 +9,7 @@ lastUpdated: false
 # Filters
 
 [![License](https://img.shields.io/badge/license-MIT-10b981.svg)](https://github.com/enso-ui/filters/blob/master/LICENSE)
-[![Stable](https://img.shields.io/badge/stable-3.3.6-2563eb.svg)](https://www.npmjs.com/package/@enso-ui/filters)
+[![Stable](https://img.shields.io/badge/stable-3.3.14-2563eb.svg)](https://www.npmjs.com/package/@enso-ui/filters)
 [![Downloads](https://img.shields.io/npm/dm/@enso-ui/filters.svg)](https://www.npmjs.com/package/@enso-ui/filters)
 [![Vue](https://img.shields.io/badge/vue-3.x-42b883.svg)](https://vuejs.org/)
 [![JavaScript](https://img.shields.io/badge/javascript-ES2020-f7df1e.svg)](https://developer.mozilla.org/docs/Web/JavaScript)
@@ -344,5 +344,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/enso-ui/filters/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 12:57:48 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/27/2026, 11:49:13 PM</div>
 </div>

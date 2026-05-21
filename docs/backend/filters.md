@@ -59,6 +59,29 @@ use LaravelEnso\Filters\Services\Interval;
 $interval = new Interval(Intervals::ThisMonth);
 ```
 
+Manual intervals require both limits:
+
+```php
+use Carbon\Carbon;
+use LaravelEnso\Filters\Enums\Intervals;
+use LaravelEnso\Filters\Services\Interval;
+
+$interval = new Interval(
+    Intervals::Custom,
+    min: Carbon::parse('2026-05-01 00:00:00'),
+    max: Carbon::parse('2026-05-01 23:59:59'),
+);
+```
+
+Validation failures are returned as `LaravelEnso\Helpers\Exceptions\EnsoException`
+by default, which keeps UI/API consumers aligned with the standard Enso error
+response. Pass `ui: false` when using the service outside the UI layer and you
+need the native `LaravelEnso\Filters\Exceptions\Interval` exception:
+
+```php
+new Interval(Intervals::Custom, ui: false);
+```
+
 ## API
 
 ### Services
@@ -93,5 +116,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/laravel-enso/filters/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 6:07:23 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 5/1/2026, 11:01:44 AM</div>
 </div>

@@ -59,6 +59,7 @@ Resolve current runtime settings through the settings model:
 use LaravelEnso\Google\Models\Settings;
 
 $mapsKey = Settings::mapsKey();
+$mapId = Settings::mapId();
 $placesKey = Settings::placesKey();
 $recaptchaKey = Settings::recaptchaKey();
 ```
@@ -103,5 +104,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/laravel-enso/google/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 6:07:30 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 5/15/2026, 9:52:24 AM</div>
 </div>

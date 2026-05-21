@@ -9,7 +9,7 @@ lastUpdated: false
 # Card
 
 [![License](https://img.shields.io/badge/license-MIT-10b981.svg)](https://github.com/enso-ui/card/blob/master/LICENSE)
-[![Stable](https://img.shields.io/badge/stable-4.0.7-2563eb.svg)](https://www.npmjs.com/package/@enso-ui/card)
+[![Stable](https://img.shields.io/badge/stable-4.1.1-2563eb.svg)](https://www.npmjs.com/package/@enso-ui/card)
 [![Downloads](https://img.shields.io/npm/dm/@enso-ui/card.svg)](https://www.npmjs.com/package/@enso-ui/card)
 [![Vue](https://img.shields.io/badge/vue-3.x-42b883.svg)](https://vuejs.org/)
 [![JavaScript](https://img.shields.io/badge/javascript-ES2020-f7df1e.svg)](https://developer.mozilla.org/docs/Web/JavaScript)
@@ -35,7 +35,7 @@ This package is also available through the full `enso-ui` workspace bundle.
 ## Features
 
 - exports the complete Bulma card shell used by Enso dashboards and detail views
-- provides collapsible, removable, loading, and overlay-aware card behavior through shared injected state
+- provides collapsible, removable, and loading card behavior through shared injected state
 - ships dedicated header, content, footer, and control primitives for consistent composition
 
 ## Usage
@@ -43,17 +43,16 @@ This package is also available through the full `enso-ui` workspace bundle.
 ```vue
 <script setup>
 import {
-    Card, CardHeader, CardContent, CardBadge, CardRefresh, CardCollapse,
+    Card, CardHeader, CardContent, CardBadge, CardRefresh,
 } from '@enso-ui/card/bulma';
 </script>
 
 <Card collapsible>
-    <CardHeader collapsible>
+    <CardHeader>
         <template #title>Orders</template>
         <template #controls>
             <CardBadge :label="12" />
             <CardRefresh @refresh="reload" />
-            <CardCollapse />
         </template>
     </CardHeader>
     <CardContent>
@@ -73,7 +72,6 @@ Import: `@enso-ui/card/bulma`
 Props:
 - `collapsed: boolean = false` initial collapsed state.
 - `collapsible: boolean = false` enables toggle behaviour.
-- `overlay: boolean = false` overlays the card content.
 - `loading: boolean = false` shows the card loader.
 
 Events:
@@ -87,8 +85,7 @@ Header wrapper with `title` and `controls` slots.
 
 Import: `@enso-ui/card/bulma`
 
-Props:
-- `collapsible: boolean = false` renders an inline collapse control.
+When the parent `Card` is collapsible, the header renders the collapse control from the injected card state.
 
 ### `CardContent`
 
@@ -173,5 +170,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/enso-ui/card/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 9:21:31 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 5/19/2026, 12:33:45 PM</div>
 </div>

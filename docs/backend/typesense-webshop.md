@@ -9,7 +9,7 @@ lastUpdated: false
 # Typesense Webshop
 
 [![License](https://img.shields.io/badge/license-Proprietary-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/typesense-webshop/-/blob/main/LICENSE)
-[![Stable](https://img.shields.io/badge/stable-1.10.4-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/typesense-webshop/-/tags)
+[![Stable](https://img.shields.io/badge/stable-1.10.9-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/typesense-webshop/-/tags)
 [![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://git.xtelecom.ro/laravel-enso/typesense-webshop/-/blob/main/composer.json)
 [![Issues](https://img.shields.io/badge/issues-1-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/typesense-webshop/-/issues)
 [![Merge Requests](https://img.shields.io/badge/merge%20requests-0-lightgrey.svg)](https://git.xtelecom.ro/laravel-enso/typesense-webshop/-/merge_requests)
@@ -18,7 +18,7 @@ lastUpdated: false
 
 Typesense Webshop connects Enso webshop browsing to Typesense.
 
-When the host application runs with `scout.driver=typesense` and Typesense is enabled, the package replaces the default webshop product and category filter services, swaps the sorting enum, builds a collection schema from searchable product data, and reacts to EAV attribute updates so facets stay aligned with the product catalog.
+When the host application runs with `scout.driver=typesense` and Typesense is enabled, the package replaces the default webshop product and category filter services, swaps the sorting enum, uses the host application's Scout Typesense model settings, and reacts to EAV attribute updates so facets stay aligned with the product catalog.
 
 ## Installation
 
@@ -31,6 +31,29 @@ Make sure the host application already has:
 - indexed products in Typesense
 
 No extra routes are published by this package.
+
+The host application must declare the product collection schema and search parameters in `config/scout.php`, for example:
+
+```php
+use LaravelEnso\Products\Models\Product as SearchableProduct;
+use LaravelEnso\Products\Services\Search\SearchableAttributes;
+use LaravelEnso\TypesenseWebshop\Services\Schema;
+
+'typesense' => [
+    // ...
+    'model-settings' => [
+        SearchableProduct::class => [
+            'collection-schema' => array_merge(
+                ['name' => 'solarlink-products'],
+                (new Schema())->build(),
+            ),
+            'search-parameters' => [
+                'query_by' => implode(',', SearchableAttributes::get()),
+            ],
+        ],
+    ],
+],
+```
 
 ## Features
 
@@ -55,7 +78,7 @@ Main extension points:
 - `Services\Schema`
 - `Services\TypoTolerance`
 
-Dynamic methods are also registered so the product model can expose Typesense-specific schema and query metadata.
+The package no longer registers dynamic model methods for Scout hooks. Keep collection schema and search parameters explicit in the host application's Scout config.
 
 ## API
 
@@ -69,7 +92,6 @@ Required Enso packages:
 
 - [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
 - [`laravel-enso/typesense`](https://docs.laravel-enso.com/backend/typesense.html) [↗](https://github.com/laravel-enso/typesense)
-- [`laravel-enso/dynamic-methods`](https://docs.laravel-enso.com/backend/dynamic-methods.html) [↗](https://github.com/laravel-enso/dynamic-methods)
 - [`laravel-enso/categories`](https://docs.laravel-enso.com/backend/categories.html) [↗](https://github.com/laravel-enso/categories)
 - [`laravel-enso/companies`](https://docs.laravel-enso.com/backend/companies.html) [↗](https://github.com/laravel-enso/companies)
 - [`laravel-enso/eav`](https://docs.laravel-enso.com/backend/eav.html) [↗](https://git.xtelecom.ro/laravel-enso/eav)
@@ -90,5 +112,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://git.xtelecom.ro/laravel-enso/typesense-webshop/-/edit/main/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 8:02:26 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/29/2026, 6:38:00 PM</div>
 </div>

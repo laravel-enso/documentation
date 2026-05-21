@@ -9,7 +9,7 @@ lastUpdated: false
 # Directives
 
 [![License](https://img.shields.io/badge/license-MIT-10b981.svg)](https://github.com/enso-ui/directives/blob/master/LICENSE)
-[![Stable](https://img.shields.io/badge/stable-3.1.2-2563eb.svg)](https://www.npmjs.com/package/@enso-ui/directives)
+[![Stable](https://img.shields.io/badge/stable-3.2.0-2563eb.svg)](https://www.npmjs.com/package/@enso-ui/directives)
 [![Downloads](https://img.shields.io/npm/dm/@enso-ui/directives.svg)](https://www.npmjs.com/package/@enso-ui/directives)
 [![Vue](https://img.shields.io/badge/vue-3.x-42b883.svg)](https://vuejs.org/)
 [![JavaScript](https://img.shields.io/badge/javascript-ES2020-f7df1e.svg)](https://developer.mozilla.org/docs/Web/JavaScript)
@@ -31,7 +31,7 @@ yarn add @enso-ui/directives
 
 - exports reusable DOM and interaction directives consumed across Enso UI packages
 - supports focus, click-outside, select-on-focus, resize, long-click, and scroll-into-view flows
-- includes a Highlight.js directive for rendered code snippets
+- stays dependency-light and does not pull syntax highlighters or other large optional libraries
 
 ## Usage
 
@@ -69,9 +69,7 @@ Computes whether an element fully fits in the current viewport and passes the re
 
 Focuses the element after the current tick.
 
-### `v-hljs`
-
-Runs Highlight.js on the first `code` element inside the bound node.
+Accepts an optional boolean value. Omitting the value behaves like `true`; passing `false` skips focusing.
 
 ### `v-long-click`
 
@@ -91,7 +89,7 @@ Selects the current value when the element receives focus.
 
 ## Depends On
 
-- [`highlight.js`](https://highlightjs.org/)
+- Vue 3
 
 ## Contributions
 
@@ -105,5 +103,5 @@ Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://github.com/enso-ui/directives/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 10:07:07 AM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 5/19/2026, 11:29:57 AM</div>
 </div>

@@ -9,7 +9,7 @@ lastUpdated: false
 # Ticketing
 
 [![License](https://img.shields.io/badge/license-Proprietary-4b5563.svg)](https://git.xtelecom.ro/enso-ui/ticketing/-/blob/main/LICENSE)
-[![Stable](https://img.shields.io/badge/stable-1.6.3-2563eb.svg)](https://git.xtelecom.ro/enso-ui/ticketing/-/tags)
+[![Stable](https://img.shields.io/badge/stable-1.6.14-2563eb.svg)](https://git.xtelecom.ro/enso-ui/ticketing/-/tags)
 [![Vue](https://img.shields.io/badge/vue-3.x-42b883.svg)](https://vuejs.org/)
 [![JavaScript](https://img.shields.io/badge/javascript-ES2020-f7df1e.svg)](https://developer.mozilla.org/docs/Web/JavaScript)
 [![SCSS](https://img.shields.io/badge/scss-supported-c6538c.svg)](https://sass-lang.com/)
@@ -66,5 +66,5 @@ Proprietary. See [LICENSE](https://git.xtelecom.ro/enso-ui/ticketing/-/blob/main
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://git.xtelecom.ro/enso-ui/ticketing/-/edit/main/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 2:14:07 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 5/17/2026, 12:56:41 PM</div>
 </div>

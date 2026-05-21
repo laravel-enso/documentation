@@ -16,8 +16,8 @@
             "url": "https://github.com/laravel-enso/addresses",
             "branch": "master",
             "updated": true,
-            "openIssuesCount": 1,
-            "documentationStatus": "yellow",
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -36,8 +36,8 @@
             "url": "https://git.xtelecom.ro/laravel-enso/algolia-webshop",
             "branch": "master",
             "updated": true,
-            "openIssuesCount": 1,
-            "documentationStatus": "yellow",
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -56,8 +56,8 @@
             "url": "https://github.com/laravel-enso/audit",
             "branch": "main",
             "updated": true,
-            "openIssuesCount": 1,
-            "documentationStatus": "yellow",
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -77,8 +77,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "blue",
-            "openMergeRequestsCount": 1
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "calendar",
@@ -87,8 +87,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "blue",
-            "openMergeRequestsCount": 1
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "cargo-partner",
@@ -97,8 +97,8 @@
             "branch": "main",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "blue",
-            "openMergeRequestsCount": 1
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "categories",
@@ -106,8 +106,8 @@
             "url": "https://github.com/laravel-enso/categories",
             "branch": "master",
             "updated": true,
-            "openIssuesCount": 1,
-            "documentationStatus": "yellow",
+            "openIssuesCount": 0,
+            "documentationStatus": "blue",
             "openMergeRequestsCount": 1
         },
         {
@@ -117,8 +117,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "blue",
-            "openMergeRequestsCount": 1
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "cicd",
@@ -136,8 +136,8 @@
             "url": "https://github.com/laravel-enso/cli",
             "branch": "master",
             "updated": true,
-            "openIssuesCount": 2,
-            "documentationStatus": "yellow",
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -168,7 +168,7 @@
             "updated": true,
             "openIssuesCount": 9,
             "documentationStatus": "yellow",
-            "openMergeRequestsCount": 1
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "companies",
@@ -177,8 +177,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "blue",
-            "openMergeRequestsCount": 1
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "core",
@@ -186,8 +186,8 @@
             "url": "https://github.com/laravel-enso/core",
             "branch": "master",
             "updated": true,
-            "openIssuesCount": 1,
-            "documentationStatus": "yellow",
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -216,9 +216,9 @@
             "url": "https://github.com/laravel-enso/data-export",
             "branch": "master",
             "updated": true,
-            "openIssuesCount": 1,
-            "documentationStatus": "yellow",
-            "openMergeRequestsCount": 1
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "data-import",
@@ -227,8 +227,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "blue",
-            "openMergeRequestsCount": 1
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "discounts",
@@ -284,7 +284,11 @@
             "slug": "emag-checker",
             "title": "Emag Checker",
             "url": "https://git.xtelecom.ro/laravel-enso/emag-checker",
-            "branch": "master"
+            "branch": "master",
+            "updated": true,
+            "openIssuesCount": 1,
+            "openMergeRequestsCount": 1,
+            "documentationStatus": "yellow"
         },
         {
             "slug": "enums",
@@ -323,8 +327,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "blue",
-            "openMergeRequestsCount": 1
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "filters",
@@ -352,9 +356,9 @@
             "url": "https://github.com/laravel-enso/forms",
             "branch": "master",
             "updated": true,
-            "openIssuesCount": 1,
-            "documentationStatus": "yellow",
-            "openMergeRequestsCount": 1
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "frisbo",
@@ -383,8 +387,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "blue",
-            "openMergeRequestsCount": 1
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "holidays",
@@ -392,8 +396,8 @@
             "url": "https://github.com/laravel-enso/holidays",
             "branch": "main",
             "updated": true,
-            "openIssuesCount": 1,
-            "documentationStatus": "yellow",
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
@@ -453,26 +457,38 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "blue",
-            "openMergeRequestsCount": 1
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "mails",
             "title": "Laravel Enso Mails",
             "url": "https://github.com/laravel-enso/mails",
-            "branch": "main"
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 0,
+            "openMergeRequestsCount": 0,
+            "documentationStatus": "green"
         },
         {
             "slug": "projects",
             "title": "Laravel Enso Projects",
             "url": "https://git.xtelecom.ro/laravel-enso/projects",
-            "branch": "main"
+            "branch": "main",
+            "updated": false,
+            "openIssuesCount": 0,
+            "openMergeRequestsCount": 0,
+            "documentationStatus": "red"
         },
         {
             "slug": "system-notifications",
             "title": "Laravel Enso System Notifications",
             "url": "https://git.xtelecom.ro/laravel-enso/system-notifications",
-            "branch": "main"
+            "branch": "main",
+            "updated": false,
+            "openIssuesCount": 0,
+            "openMergeRequestsCount": 0,
+            "documentationStatus": "red"
         },
         {
             "slug": "localisation",
@@ -480,9 +496,9 @@
             "url": "https://github.com/laravel-enso/localisation",
             "branch": "master",
             "updated": true,
-            "openIssuesCount": 1,
-            "documentationStatus": "yellow",
-            "openMergeRequestsCount": 1
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "lockable-models",
@@ -511,8 +527,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "blue",
-            "openMergeRequestsCount": 1
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "meili-search",
@@ -571,8 +587,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "blue",
-            "openMergeRequestsCount": 1
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "packaging-units",
@@ -601,8 +617,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "blue",
-            "openMergeRequestsCount": 1
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "permissions",
@@ -611,8 +627,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "blue",
-            "openMergeRequestsCount": 1
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "product-eav",
@@ -671,8 +687,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "blue",
-            "openMergeRequestsCount": 1
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "sale-channels",
@@ -701,8 +717,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "blue",
-            "openMergeRequestsCount": 2
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "sentry",
@@ -721,8 +737,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "blue",
-            "openMergeRequestsCount": 1
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "smart-bill",
@@ -770,9 +786,9 @@
             "url": "https://github.com/laravel-enso/tables",
             "branch": "master",
             "updated": true,
-            "openIssuesCount": 4,
+            "openIssuesCount": 1,
             "documentationStatus": "yellow",
-            "openMergeRequestsCount": 1
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "tasks",
@@ -781,8 +797,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "blue",
-            "openMergeRequestsCount": 3
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "teams",
@@ -821,8 +837,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "blue",
-            "openMergeRequestsCount": 1
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "typesense",
@@ -861,8 +877,8 @@
             "branch": "master",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "blue",
-            "openMergeRequestsCount": 2
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "ups",
@@ -881,8 +897,8 @@
             "branch": "main",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "blue",
-            "openMergeRequestsCount": 1
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "users",
@@ -891,8 +907,8 @@
             "branch": "main",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "blue",
-            "openMergeRequestsCount": 1
+            "documentationStatus": "green",
+            "openMergeRequestsCount": 0
         },
         {
             "slug": "versions",
@@ -900,8 +916,8 @@
             "url": "https://github.com/laravel-enso/versions",
             "branch": "master",
             "updated": true,
-            "openIssuesCount": 1,
-            "documentationStatus": "yellow",
+            "openIssuesCount": 0,
+            "documentationStatus": "green",
             "openMergeRequestsCount": 0
         },
         {
