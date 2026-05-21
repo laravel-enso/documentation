@@ -311,16 +311,6 @@
             "openMergeRequestsCount": 1
         },
         {
-            "slug": "emails",
-            "title": "Emails",
-            "url": "https://github.com/enso-ui/emails",
-            "branch": "master",
-            "updated": true,
-            "openIssuesCount": 0,
-            "documentationStatus": "green",
-            "openMergeRequestsCount": 0
-        },
-        {
             "slug": "enums",
             "title": "Enums",
             "url": "https://github.com/enso-ui/enums",

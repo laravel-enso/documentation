@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, readFile, rm, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import process from 'node:process'
 import { spawn } from 'node:child_process'
@@ -20,6 +20,16 @@ const organizations = [
 const sourceFiles = {
     backend: path.join(root, 'sources.backend.json'),
     frontend: path.join(root, 'sources.frontend.json'),
+}
+
+const generatedDocsRoots = {
+    backend: path.join(root, 'docs', 'backend'),
+    frontend: path.join(root, 'docs', 'frontend'),
+}
+
+const readmeCacheRoots = {
+    backend: path.join(root, '.cache', 'readmes', 'backend'),
+    frontend: path.join(root, '.cache', 'readmes', 'frontend'),
 }
 
 const loadEnvFile = async (filename) => {
@@ -118,6 +128,14 @@ const readSourceFile = async (section) => {
 const writeSourceFile = async (section, entries) => {
     const filePath = sourceFiles[section]
     await writeFile(filePath, `${JSON.stringify({ [section]: sortSources(entries) }, null, 4)}\n`)
+}
+
+const removeGeneratedArtifacts = async (section, slug) => {
+    const markdownPath = path.join(generatedDocsRoots[section], `${slug}.md`)
+    const readmeCachePath = path.join(readmeCacheRoots[section], `${slug}.json`)
+
+    await rm(markdownPath, { force: true })
+    await rm(readmeCachePath, { force: true })
 }
 
 const encodePathSegments = (value) => value
@@ -628,6 +646,7 @@ const removePackage = async (value) => {
     }
 
     await writeSourceFile(section, nextEntries)
+    await removeGeneratedArtifacts(section, slug)
     process.stdout.write(`removed ${section}/${slug}\n`)
 }
 
