@@ -243,12 +243,12 @@
         {
             "slug": "documents",
             "title": "Documents",
-            "url": "https://github.com/laravel-enso/documents",
-            "branch": "master",
+            "url": "https://git.xtelecom.ro/laravel-enso/documents",
+            "branch": "main",
             "updated": true,
             "openIssuesCount": 0,
-            "documentationStatus": "green",
-            "openMergeRequestsCount": 0
+            "openMergeRequestsCount": 0,
+            "documentationStatus": "green"
         },
         {
             "slug": "dynamic-methods",

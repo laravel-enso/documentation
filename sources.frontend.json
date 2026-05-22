@@ -263,12 +263,12 @@
         {
             "slug": "documents",
             "title": "Documents",
-            "url": "https://github.com/enso-ui/documents",
-            "branch": "master",
-            "updated": true,
+            "url": "https://git.xtelecom.ro/enso-ui/documents",
+            "branch": "main",
+            "updated": false,
             "openIssuesCount": 0,
-            "documentationStatus": "green",
-            "openMergeRequestsCount": 0
+            "openMergeRequestsCount": 0,
+            "documentationStatus": "red"
         },
         {
             "slug": "dropdown",

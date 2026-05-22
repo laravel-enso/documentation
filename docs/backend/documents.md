@@ -8,20 +8,16 @@ lastUpdated: false
 
 # Documents
 
-[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/laravel-enso/documents/blob/master/LICENSE)
+[![License](https://poser.pugx.org/laravel-enso/documents/license)](https://git.xtelecom.ro/laravel-enso/documents/-/blob/main/LICENSE)
 [![Stable](https://poser.pugx.org/laravel-enso/documents/version)](https://packagist.org/packages/laravel-enso/documents)
 [![Downloads](https://poser.pugx.org/laravel-enso/documents/downloads)](https://packagist.org/packages/laravel-enso/documents)
-[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://github.com/laravel-enso/documents/blob/master/composer.json)
-[![Issues](https://img.shields.io/github/issues/laravel-enso/documents.svg)](https://github.com/laravel-enso/documents/issues)
-[![Merge Requests](https://img.shields.io/github/issues-pr/laravel-enso/documents.svg)](https://github.com/laravel-enso/documents/pulls)
+[![PHP](https://img.shields.io/badge/php-8.2%2B-777bb4.svg)](https://git.xtelecom.ro/laravel-enso/documents/-/blob/main/composer.json)
 
 ## Description
 
-Documents adds polymorphic document attachments to Enso models.
+Documents is a Laravel Enso package designed for advanced document management. It allows administrators to define document categories, types, and custom fields, providing a structured way to attach files to people (profiles).
 
-The package stores uploaded documents through the Enso files layer, exposes document listing, upload, and delete endpoints, supports configurable deletion rules for related models, and can queue OCR for PDF documents whose owners implement the `Ocrable` contract.
-
-It is meant for backoffice models that need a lightweight document vault with optional OCR processing.
+The package integrates with Enso's file management system and includes support for data imports, making it easy to seed or migrate document structures and records.
 
 ## Installation
 
@@ -37,98 +33,71 @@ Run the package migrations:
 php artisan migrate
 ```
 
-Optional publish:
-
-```bash
-php artisan vendor:publish --tag=documents-config
-```
-
-Default configuration:
-
-```php
-return [
-    'deletableTimeLimit' => 60 * 60,
-    'imageWidth' => 2048,
-    'imageHeight' => 2048,
-    'onDelete' => 'restrict',
-    'loggableMorph' => [
-        'documentable' => [],
-    ],
-    'queues' => [
-        'ocr' => 'heavy',
-    ],
-];
-```
-
 ## Features
 
-- Polymorphic one-to-one and one-to-many document relations via the `Documentable` trait.
-- File attachment handling through `laravel-enso/files`.
-- Upload, list, and delete API under `core.documents`.
-- Configurable delete policy with `restrict` or `cascade`.
-- OCR dispatch for PDF documents whose owner implements `Ocrable`.
+- **Document Type Administration**: Full CRUD for managing document categories and types.
+- **Custom Fields**: Define specific fields for each document type to capture additional metadata.
+- **Profile Integration**: Link documents directly to `Person` models (profiles).
+- **File Management**: Leverages `laravel-enso/files` for secure and efficient file storage.
+- **Data Import Support**: Includes importers for document types and fields.
+- **Table Integration**: Ships with table builders for document browsing and administration.
 
 ## Usage
 
-Add the trait to any model that should own documents:
+### Models
+
+- `LaravelEnso\Documents\Models\Document`: The main model representing an attached document.
+- `LaravelEnso\Documents\Models\DocumentType`: Defines the structure and properties of a document type.
+- `LaravelEnso\Documents\Models\DocumentTypeCategory`: Groups document types for better organization.
+- `LaravelEnso\Documents\Models\DocumentTypeField`: Custom fields associated with a document type.
+
+### Enums
+
+- `LaravelEnso\Documents\Enums\Field`: Defines the available types for document custom fields (Numeric, Data, Checkbox, String, Select).
+
+### Relationships
+
+A `Document` belongs to a `Person` (profile), a `DocumentType`, and a `File`.
 
 ```php
-use Illuminate\Database\Eloquent\Model;
-use LaravelEnso\Documents\Traits\Documentable;
-
-class Order extends Model
-{
-    use Documentable;
-}
+$document->person;
+$document->type;
+$document->file;
 ```
-
-Available relations:
-
-- `document()`
-- `documents()`
-
-If the owning model should trigger OCR for uploaded PDFs, implement `LaravelEnso\Documents\Contracts\Ocrable`.
 
 ## API
 
-### HTTP routes
+### Routes
 
-- `GET api/core/documents`
-- `POST api/core/documents`
-- `DELETE api/core/documents/{document}`
+All package routes are registered under:
 
-Route names:
+- prefix: `api/`
+- middleware: `api`, `auth`, `core`
 
-- `core.documents.index`
-- `core.documents.store`
-- `core.documents.destroy`
+#### Document Types Administration
+- `GET /api/administration/documentTypes` - Table data
+- `GET /api/administration/documentTypes/create` - Create form
+- `POST /api/administration/documentTypes` - Store new type
+- `GET /api/administration/documentTypes/{documentType}/edit` - Edit form
+- `PATCH /api/administration/documentTypes/{documentType}` - Update type
+- `DELETE /api/administration/documentTypes/{documentType}` - Delete type
 
-### Model surface
-
-`LaravelEnso\\Documents\\Models\\Document`
-
-Useful methods:
-
-- `store(array $request, array $files)`
-- `scopeFor(array $params): Builder`
-- `scopeFilter(?string $search): Builder`
+#### Documents
+- `GET /api/documents/initTable` - Initialize documents table
+- `GET /api/documents/tableData` - Fetch documents data
+- `GET /api/documents/exportExcel` - Export documents to Excel
+- `GET /api/documents/options` - Selectable document options
 
 ## Depends On
 
 Required Enso packages:
 
-- [`laravel-enso/core`](https://docs.laravel-enso.com/backend/core.html) [↗](https://github.com/laravel-enso/core)
-- [`laravel-enso/files`](https://docs.laravel-enso.com/backend/files.html) [↗](https://github.com/laravel-enso/files)
-- [`laravel-enso/helpers`](https://docs.laravel-enso.com/backend/helpers.html) [↗](https://github.com/laravel-enso/helpers)
-- [`laravel-enso/image-transformer`](https://docs.laravel-enso.com/backend/image-transformer.html) [↗](https://github.com/laravel-enso/image-transformer)
-- [`laravel-enso/migrator`](https://docs.laravel-enso.com/backend/migrator.html) [↗](https://github.com/laravel-enso/migrator)
-- [`laravel-enso/ocr`](https://docs.laravel-enso.com/backend/ocr.html) [↗](https://git.xtelecom.ro/laravel-enso/ocr)
-- [`laravel-enso/track-who`](https://docs.laravel-enso.com/backend/track-who.html) [↗](https://github.com/laravel-enso/track-who)
-- [`laravel-enso/users`](https://docs.laravel-enso.com/backend/users.html) [↗](https://github.com/laravel-enso/users)
-
-Companion frontend package:
-
-- [`@enso-ui/documents`](https://docs.laravel-enso.com/frontend/documents.html) [↗](https://github.com/enso-ui/documents)
+- [`laravel-enso/core`](https://github.com/laravel-enso/core)
+- [`laravel-enso/files`](https://github.com/laravel-enso/files)
+- [`laravel-enso/people`](https://github.com/laravel-enso/people)
+- [`laravel-enso/data-import`](https://github.com/laravel-enso/data-import)
+- [`laravel-enso/tables`](https://github.com/laravel-enso/tables)
+- [`laravel-enso/track-who`](https://github.com/laravel-enso/track-who)
 
 ## Contributions
 
@@ -137,6 +106,6 @@ are welcome. Pull requests are great, but issues are good too.
 Thank you to all the people who already contributed to Enso!
 
 <div class="package-page-meta-row">
-  <a class="package-page-edit" href="https://github.com/laravel-enso/documents/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/20/2026, 6:07:12 PM</div>
+  <a class="package-page-edit" href="https://git.xtelecom.ro/laravel-enso/documents/-/edit/main/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 5/14/2026, 11:04:52 AM</div>
 </div>

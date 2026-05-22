@@ -8,114 +8,70 @@ lastUpdated: false
 
 # Documents
 
-[![License](https://img.shields.io/badge/license-MIT-10b981.svg)](https://github.com/enso-ui/documents/blob/master/LICENSE)
-[![Stable](https://img.shields.io/badge/stable-4.2.4-2563eb.svg)](https://www.npmjs.com/package/@enso-ui/documents)
-[![Downloads](https://img.shields.io/npm/dm/@enso-ui/documents.svg)](https://www.npmjs.com/package/@enso-ui/documents)
+[![License](https://img.shields.io/badge/license-MIT-10b981.svg)](https://git.xtelecom.ro/enso-ui/documents/-/blob/main/LICENSE)
 [![Vue](https://img.shields.io/badge/vue-3.x-42b883.svg)](https://vuejs.org/)
 [![JavaScript](https://img.shields.io/badge/javascript-ES2020-f7df1e.svg)](https://developer.mozilla.org/docs/Web/JavaScript)
-[![SCSS](https://img.shields.io/badge/scss-supported-c6538c.svg)](https://sass-lang.com/)
-[![npm](https://img.shields.io/badge/npm-package-cb3837.svg)](https://www.npmjs.com/package/@enso-ui/documents)
-[![Issues](https://img.shields.io/github/issues/enso-ui/documents.svg)](https://github.com/enso-ui/documents/issues)
-[![Merge Requests](https://img.shields.io/github/issues-pr/enso-ui/documents.svg)](https://github.com/enso-ui/documents/pulls)
 
 ## Description
 
-Documents provides reusable document-list widgets for Enso UI, including a standalone list component and a card wrapper with refresh and badge controls.
+Custom frontend package for managing **Documents**, **Document Types**, and **Document Type Categories** within the Enso UI ecosystem.
 
-The package is backend-driven and is typically embedded in edit pages where users need to upload, filter, preview, and remove files attached to another resource.
+This package provides Vue pages and Vue Router route definitions for the full CRUD administration of document types and their associated categories, as well as viewing documents attached to profiles.
 
-## Installation
+It is backend-driven and works in tandem with the `laravel-enso/documents` backend companion package.
 
-Install the package:
+## Structure
 
-```bash
-yarn add @enso-ui/documents
 ```
-
-This package is also available through the full `enso-ui` workspace bundle.
+src/
+├── pages/
+│   ├── administration/
+│   │   ├── documentTypeCategories/   # Create, Edit, Index
+│   │   └── documentTypes/            # Create, Edit, Index + fields/
+│   └── documents/                    # Document pages
+└── routes/
+    ├── administration/
+    │   ├── documentTypeCategories.js
+    │   └── documentTypes.js
+    └── documents.js
+```
 
 ## Features
 
-- exports `Documents` for inline document lists with upload and filter controls
-- exports `DocumentsCard` for dashboard-style card integration with count badges
-- supports custom toolbar rendering through the `controls` slot
-- delegates file preview and deletion to the shared files package
+- Full CRUD pages for **Document Type Categories**
+- Full CRUD pages for **Document Types** with support for **Document Type Fields**
+- Document listing pages linked to profiles
+- Vue Router route definitions ready to be registered in the app router
 
 ## Usage
 
-```vue
-<script>
-import { Documents, DocumentsCard } from '@enso-ui/documents/bulma';
+Import and register the routes in your Vue Router configuration:
 
-export default {
-    components: { Documents, DocumentsCard },
-};
-</script>
+```js
+import documentTypes from '@enso-ui/documents-custom/src/routes/administration/documentTypes';
+import documentTypeCategories from '@enso-ui/documents-custom/src/routes/administration/documentTypeCategories';
+import documents from '@enso-ui/documents-custom/src/routes/documents';
 ```
-
-## API
-
-### `Documents`
-
-Inline document list widget.
-
-Import: `@enso-ui/documents/bulma`
-
-Props:
-- `id: string | number` required
-- `type: string` required
-- `query: string` default `''`
-- `compact: boolean` default `false`
-- `disableControls: boolean` default `false`
-- `disableUpload: boolean` default `false`
-- `fileSizeLimit: number` default `20971520`
-
-Events:
-- `update` after fetches, uploads, and deletions
-
-Slots:
-- `controls` with `{ id, type, uploadLink, fetch, internalQuery }`
-
-### `DocumentsCard`
-
-Card wrapper around `Documents`.
-
-Import: `@enso-ui/documents/bulma`
-
-Props:
-- `icon: string | array | object`
-- `collapsed: boolean` default `false`
-- `id: string | number` required
-- `type: string` required
-- `title: string` default `''`
-
-Events:
-- No public emits.
 
 ## Companion Backend Package
 
-- [`laravel-enso/documents`](https://docs.laravel-enso.com/backend/documents.html) [↗](https://github.com/laravel-enso/documents)
+- [`laravel-enso/documents`](https://git.xtelecom.ro/laravel-enso/documents)
 
-The backend companion provides the `core.documents.*` routes and payloads used to list, upload, and destroy document records.
+The backend companion provides the route definitions, controllers, models, form builders, and table builders used by these frontend pages.
 
 ## Depends On
 
-- [`@enso-ui/card`](https://docs.laravel-enso.com/frontend/card.html) [↗](https://github.com/enso-ui/card)
-- [`@enso-ui/files`](https://docs.laravel-enso.com/frontend/files.html) [↗](https://github.com/enso-ui/files)
-- [`@enso-ui/uploader`](https://docs.laravel-enso.com/frontend/uploader.html) [↗](https://github.com/enso-ui/uploader)
-- [`@enso-ui/ui`](https://docs.laravel-enso.com/frontend/ui.html) [↗](https://github.com/enso-ui/ui)
-
-## Contributions
-
-are welcome. Pull requests are great, but issues are good too.
-
-Thank you to all the people who already contributed to Enso!
+- [`@enso-ui/forms`](https://docs.laravel-enso.com/frontend/forms.html)
+- [`@enso-ui/tables`](https://docs.laravel-enso.com/frontend/tables.html)
+- [`@enso-ui/ui`](https://docs.laravel-enso.com/frontend/ui.html)
+- [`vue`](https://vuejs.org/) `^3.x`
+- [`vue-router`](https://router.vuejs.org/) `^4.x`
 
 ## License
 
-[MIT](https://github.com/enso-ui/documents/blob/master/LICENSE)
+[MIT](https://git.xtelecom.ro/enso-ui/documents/-/blob/main/LICENSE)
 
 <div class="package-page-meta-row">
-  <a class="package-page-edit" href="https://github.com/enso-ui/documents/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/21/2026, 11:54:21 AM</div>
+  <a class="package-page-edit" href="https://git.xtelecom.ro/enso-ui/documents/-/edit/main/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 5/12/2026, 6:22:01 PM</div>
 </div>
