@@ -21,6 +21,16 @@
             "openMergeRequestsCount": 0
         },
         {
+            "slug": "alfa-sign",
+            "title": "Alfa Sign",
+            "url": "https://git.xtelecom.ro/laravel-enso/alfa-sign",
+            "branch": "main",
+            "updated": false,
+            "openIssuesCount": 0,
+            "openMergeRequestsCount": 0,
+            "documentationStatus": "red"
+        },
+        {
             "slug": "algolia",
             "title": "Algolia",
             "url": "https://github.com/laravel-enso/algolia",
@@ -69,6 +79,16 @@
             "openIssuesCount": 0,
             "documentationStatus": "green",
             "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "btrl",
+            "title": "BTRL (Banca Transilvania iPay)",
+            "url": "https://git.xtelecom.ro/laravel-enso/btrl",
+            "branch": "main",
+            "updated": false,
+            "openIssuesCount": 1,
+            "openMergeRequestsCount": 0,
+            "documentationStatus": "red"
         },
         {
             "slug": "cache-chain",
@@ -719,6 +739,16 @@
             "openIssuesCount": 0,
             "documentationStatus": "green",
             "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "send-sms",
+            "title": "Send SMS (Sendsms.ro)",
+            "url": "https://git.xtelecom.ro/laravel-enso/send-sms",
+            "branch": "main",
+            "updated": false,
+            "openIssuesCount": 0,
+            "openMergeRequestsCount": 0,
+            "documentationStatus": "red"
         },
         {
             "slug": "sentry",

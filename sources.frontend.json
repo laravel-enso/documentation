@@ -31,6 +31,16 @@
             "openMergeRequestsCount": 0
         },
         {
+            "slug": "alfa-sign",
+            "title": "Alfa Sign",
+            "url": "https://git.xtelecom.ro/enso-ui/alfa-sign",
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 0,
+            "openMergeRequestsCount": 0,
+            "documentationStatus": "green"
+        },
+        {
             "slug": "algolia",
             "title": "Algolia",
             "url": "https://github.com/enso-ui/algolia",
@@ -79,6 +89,16 @@
             "openIssuesCount": 0,
             "documentationStatus": "green",
             "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "btrl",
+            "title": "BTRL",
+            "url": "https://git.xtelecom.ro/enso-ui/btrl",
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 0,
+            "openMergeRequestsCount": 0,
+            "documentationStatus": "green"
         },
         {
             "slug": "calendar",
@@ -779,6 +799,16 @@
             "openIssuesCount": 0,
             "documentationStatus": "green",
             "openMergeRequestsCount": 0
+        },
+        {
+            "slug": "send-sms",
+            "title": "Send SMS",
+            "url": "https://git.xtelecom.ro/enso-ui/send-sms",
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 0,
+            "openMergeRequestsCount": 0,
+            "documentationStatus": "green"
         },
         {
             "slug": "sentry",
