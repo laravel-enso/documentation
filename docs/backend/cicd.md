@@ -15,15 +15,13 @@ lastUpdated: false
 
 ## Description
 
-CI/CD is the infrastructure repository used to build and publish the shared Docker image for Laravel Enso pipelines.
+CI/CD builds the shared Docker image used by Laravel Enso delivery pipelines. The image provides a consistent command-line environment for installing dependencies, compiling frontend assets, running framework tooling, and executing pipeline jobs across Enso applications and packages.
 
-The repository contains the Dockerfile with the PHP, Composer, Node, Yarn, Redis, and system dependencies required by the build environment, plus the GitLab pipeline definition that builds and pushes the image to the container registry.
-
-It is not a Laravel package. It is a private infrastructure repository used by Enso delivery pipelines.
+The repository is infrastructure code, not a Laravel package. Its Dockerfile is the source of truth for the published CI image, while the GitLab pipeline builds and pushes that image to the project container registry.
 
 ## Installation
 
-There is nothing to install into an application.
+There is nothing to install in an application. Applications and packages consume the published image from the GitLab container registry.
 
 To build the image locally:
 
@@ -31,7 +29,7 @@ To build the image locally:
 docker build -t laravel-enso/cicd:php8.5-bookworm .
 ```
 
-To run an interactive shell inside the built image:
+To open an interactive shell inside the image:
 
 ```bash
 docker run --rm -it laravel-enso/cicd:php8.5-bookworm bash
@@ -39,25 +37,45 @@ docker run --rm -it laravel-enso/cicd:php8.5-bookworm bash
 
 ## Features
 
-- Docker image based on `php:8.5-cli-bookworm`.
-- Installs Node.js 20, Yarn, Composer, Redis, FTP, GD, Intl, Zip, Sodium, and common build utilities.
-- Sets CI-oriented PHP defaults such as `memory_limit = 2G` and `max_execution_time = 300`.
-- Uses Docker layer caching by pulling the previously published `php8.5-bookworm` image before build.
-- Pushes both commit-specific and `php8.5-bookworm` tags to the GitLab container registry.
+- Uses `php:8.5-cli-bookworm` as the base image.
+- Installs Composer 2 from the official Composer image.
+- Installs Node.js 20 and Yarn Classic for frontend package builds.
+- Installs the Oracle MySQL 8.4 LTS client from the official MySQL APT repository.
+- Enables the PHP extensions commonly required by Laravel Enso projects: `pdo_mysql`, `mbstring`, `zip`, `exif`, `pcntl`, `bcmath`, `gd`, `intl`, `sodium`, and `ftp`.
+- Installs the Redis PHP extension through PECL.
+- Provides common build and image tooling such as `git`, `curl`, `zip`, `unzip`, `jpegoptim`, `optipng`, `pngquant`, and `gifsicle`.
+- Sets CI-oriented PHP defaults for memory and execution time.
+- Prints key runtime versions during the image build so pipeline logs show the effective toolchain.
+- Publishes both commit-specific and stable branch image tags through GitLab CI.
 
 ## Usage
 
-Use the repository as the source of truth for the shared CI image, or build the image locally when updating the container definition.
+The default GitLab pipeline runs on `master` and publishes the image with two tags:
 
-The default GitLab flow:
+```text
+$CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+$CI_REGISTRY_IMAGE:php8.5-bookworm
+```
 
-- logs in to the container registry
-- pulls the current `php8.5-bookworm` image as cache source
-- builds the Docker image
-- tags it with `$CI_COMMIT_SHA` and `php8.5-bookworm`
-- pushes both tags back to the registry
+The build job:
 
-The build job runs from the `master` branch and publishes the `php8.5-bookworm` image on the `two-cores` GitLab runner tag.
+- logs in to the GitLab container registry;
+- pulls the current `php8.5-bookworm` image as a cache source when available;
+- builds the Docker image from `Dockerfile`;
+- pushes the commit-specific image tag;
+- pushes the stable `php8.5-bookworm` image tag.
+
+Use the stable image tag in Enso pipelines that need the current shared build environment:
+
+```yaml
+image: $CI_REGISTRY_IMAGE:php8.5-bookworm
+```
+
+Use the commit-specific image tag when a pipeline must be pinned to an exact image build.
+
+::: warning Note
+This image contains the MySQL 8.4 LTS client and PHP MySQL support. It does not run a MySQL server. Test databases should be provided by the consuming pipeline as separate services.
+:::
 
 ## API
 
@@ -65,21 +83,20 @@ There is no application API.
 
 Operational surface:
 
-- `Dockerfile`
-- `.gitlab-ci.yml`
+- `Dockerfile` defines the published CI image.
+- `.gitlab-ci.yml` defines the build and registry publishing workflow.
 
 ## Depends On
 
-Required tools and services:
-
 - [Docker](https://www.docker.com/) [↗](https://www.docker.com/)
 - [GitLab CI/CD](https://docs.gitlab.com/ee/ci/) [↗](https://docs.gitlab.com/ee/ci/)
+- [PHP official Docker images](https://hub.docker.com/_/php) [↗](https://hub.docker.com/_/php)
 - [Composer](https://getcomposer.org/) [↗](https://getcomposer.org/)
 - [Node.js](https://nodejs.org/) [↗](https://nodejs.org/)
 - [Yarn Classic](https://classic.yarnpkg.com/) [↗](https://classic.yarnpkg.com/)
-docs/backend/cicd.md
+- [MySQL APT Repository](https://dev.mysql.com/downloads/repo/apt/) [↗](https://dev.mysql.com/downloads/repo/apt/)
 
 <div class="package-page-meta-row">
   <a class="package-page-edit" href="https://git.xtelecom.ro/laravel-enso/cicd/-/edit/master/README.md" target="_blank" rel="noopener noreferrer">Edit this page on GitHub</a>
-  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 4/23/2026, 2:23:40 PM</div>
+  <div class="package-page-last-updated"><span class="label">Last Updated:</span> 5/26/2026, 1:59:30 PM</div>
 </div>
