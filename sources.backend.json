@@ -641,6 +641,16 @@
             "openMergeRequestsCount": 0
         },
         {
+            "slug": "phone-validator",
+            "title": "Phone Validator",
+            "url": "https://git.xtelecom.ro/laravel-enso/phone-validator",
+            "branch": "main",
+            "updated": true,
+            "openIssuesCount": 0,
+            "openMergeRequestsCount": 0,
+            "documentationStatus": "green"
+        },
+        {
             "slug": "product-eav",
             "title": "Product Eav",
             "url": "https://git.xtelecom.ro/laravel-enso/product-eav",
